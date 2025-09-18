@@ -1,3 +1,0 @@
-﻿# mnotify – Interaction scenarios
-
-Soon

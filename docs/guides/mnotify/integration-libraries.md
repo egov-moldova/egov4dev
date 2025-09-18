@@ -1,3 +1,0 @@
-﻿# mnotify – Integration libraries
-
-Soon

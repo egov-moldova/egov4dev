@@ -1,3 +1,0 @@
-﻿# mnotify – Glossary
-
-Soon

@@ -1,3 +1,0 @@
-﻿# mnotify – Examples
-
-Soon

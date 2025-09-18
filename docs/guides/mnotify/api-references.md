@@ -1,3 +1,0 @@
-﻿# mnotify – API references
-
-Soon
