@@ -2,18 +2,18 @@ At AGE, the development of government digital services is based on a modern, sec
 
 * * *
 
-# Development stack
+##🛠️ Development stack
 
 AGE services are developed with robust technologies, chosen for compatibility with government infrastructure and to support an efficient application lifecycle.
 
-## Frontend
+### Frontend
 
 Web applications are built with **MudBlazor**, a UI framework for Blazor that enables rapid development of modern, responsive, and accessible interfaces:
 *   **MudBlazor** – NuGet: `MudBlazor` – reusable UI components, consistent styling
 *   **Blazor Server / WebAssembly** – for interactive applications in .NET
 *   Following standards from the **Government Design System** (coming soon), focusing on clarity, simplicity, and accessibility
 
-## Backend
+### Backend
 
 Business logic is implemented within the .NET ecosystem:
 *   **ASP.NET Core** – NuGet: `Microsoft.AspNetCore.*` – for REST services and scalable web applications
@@ -21,7 +21,7 @@ Business logic is implemented within the .NET ecosystem:
 *   **FluentValidation** – NuGet: `FluentValidation` – for declarative validations
 *   **Swashbuckle.AspNetCore** – NuGet: `Swashbuckle.AspNetCore` – for generating Swagger documentation
 
-## Databases
+### Databases
 
 *   **SQL Server**, **PostgreSQL** – for relational data storage
 *   **Redis** – NuGet: `StackExchange.Redis` – for caching and performance optimization
@@ -29,28 +29,28 @@ Business logic is implemented within the .NET ecosystem:
 
 * * *
 
-# Infrastructure and DevOps
+##⚙️ Infrastructure and DevOps
 
 AGE uses government infrastructure for hosting and orchestrating services:
 
-## Hosting
+### Hosting
 
 *   **MCloud** – the government cloud platform used for hosting AGE applications
 *   Configurations for **scalability**, **security**, and **disaster recovery** adapted to institutional requirements
 
-## Orchestration and containers
+### Orchestration and containers
 
 *   **Kubernetes** – for orchestrating containerized services
 *   **Docker** – for packaging applications into portable containers
 *   **Helm** – for managing deployments in Kubernetes, offering controlled versions, fast rollback, and declarative configuration through charts
 
-## CI/CD and DevOps
+### CI/CD and DevOps
 
 *   **Azure DevOps** – for managing deliveries, tasks, and bugs
 *   Automated pipelines for build, test, and deploy
 *   **GitLab** – for version control and continuous integration
 
-## Monitoring and SRE
+### Monitoring and SRE
 
 *   Centralization through **Azure DevOps**
 *   Systems for **alerting**, **logging**, **auditing**, and **tracing**
@@ -61,7 +61,7 @@ AGE uses government infrastructure for hosting and orchestrating services:
 
 * * *
 
-# Integration tools
+##🔌 Integration tools
 
 AGE provides a suite of interoperable services that can be integrated into any government application:
 *   **MConnect** – data exchange between institutions
@@ -74,7 +74,7 @@ Each service is documented with **integration guides**, code examples, and usage
 
 * * *
 
-# Best practices and conventions
+##📚 Best practices and conventions
 
 To ensure code consistency and quality:
 *   Conventions for **naming**, **code structuring**, and **project organization**
