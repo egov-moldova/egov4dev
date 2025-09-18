@@ -7,8 +7,7 @@ The most important integration scenario with MPass is user authentication.
 During this process, if the user is already authenticated, MPass session is not expired and authentication is not forced, user is not requested to proof its identity again. This is actually how single sign-on (SSO) is implemented.
 
 <picture class="theme-picture">
-  <img src="../../../../assets/umls/mpass/interaction_scenarios/sso_darkmode.svg" alt="Signing flow" data-theme="dark">
-  <img src="../../../../assets/umls/mpass/interaction_scenarios/sso_lightmode.svg" alt="Signing flow" data-theme="light">
+  <img src="../../assets/umls/mpass/interaction_scenarios/sso_lightmode.svg" alt="Signing flow" data-theme="light">
 </picture>
 
 Here is the description of authentication process using MPass:
@@ -19,10 +18,7 @@ Here is the description of authentication process using MPass:
 4. The Browser posts (using HTTP POST method) the request to MPass.
 5. MPass verifies incoming AuthnRequest and the properties of service registration.
 6. If user is not already authenticated or the authentication is forced, MPass interacts with
-   sd SSOUserBrowserServiceMPass3. Redirect to MPass()10. Verify SAMLResponse()2. Generate and signAuthnRequest()9. POST Response()Send Signing request()11. Return protected page()8. Redirect to Service()4. POST AuthnRequest()7. Generate and signSAML Response()Authenticate, ask andauthorize User()6. Authenticate (if not already)1. Initiate Signin()5. Verify AuthnRequest()
-   Page | 10 of 32
-   MPass Integration Guide
-   the user for authentication, authorization and requests user’s consent to provide its identity attributes if needed.
+   sd SSOUserBrowserServiceMPass
 7. MPass generates and signs a SAML Response with the result of authentication. Note that if AuthnRequest verification fails or user explicitly cancels or refuses the authentication, the SAML Response will be generated with an unsuccessful status. See Response structure description for details.
 8. The signed Response is returned to the Browser in a special redirection page.
 9. The Browser posts (using HTTP POST method) the request to Service.
@@ -34,8 +30,7 @@ Here is the description of authentication process using MPass:
 Because users can login into many services during an MPass session, from security point of view SSO is not fully implemented without a proper SLO (Single logout). Integrating services MUST implement both.
 
 <picture class="theme-picture">
-  <img src="../../../../assets/umls/mpass/interaction_scenarios/slo_darkmode.svg" alt="Signing flow" data-theme="dark">
-  <img src="../../../../assets/umls/mpass/interaction_scenarios/slo_lightmode.svg" alt="Signing flow" data-theme="light">
+  <img src="../../assets/umls/mpass/interaction_scenarios/slo_lightmode.svg" alt="Signing flow" data-theme="light">
 </picture>
 
 Here is the description of logout process using MPass:

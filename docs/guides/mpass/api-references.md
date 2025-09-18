@@ -1,3 +1,3 @@
-﻿# mpass – API references
+﻿# MPass – API references
 
 Soon
