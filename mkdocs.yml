@@ -51,6 +51,16 @@ nav:
           - Security: guides/mdocs/security.md
           - API references: guides/mdocs/api-references.md
           - Glossary: guides/mdocs/glossary.md
+      - MLog:
+          - Overview: guides/mlog/index.md
+          - Interaction scenarios: guides/mlog/interaction-scenarios.md
+          - Integration development: guides/mlog/integration-development.md
+          - API references: guides/mlog/api-references.md
+          - Examples: guides/mlog/examples.md
+          - Integration libraries: guides/mlog/integration-libraries.md
+          - Security: guides/mlog/security.md
+          - Change log: guides/mlog/change-log.md
+          - Glossary: guides/mlog/glossary.md
 
 theme:
   name: material
