@@ -1,11 +1,4 @@
 ﻿(function () {
-  var KEY = 'egov_nav_collapsed_once_v1';
-  try {
-    if (window.localStorage && localStorage.getItem(KEY)) return;
-  } catch (_) {
-    // If localStorage is not accessible, still attempt to collapse
-  }
-
   function collapseNav() {
     try {
       // Uncheck all navigation toggles (primary sidebar)
@@ -21,17 +14,16 @@
       // Ensure any aria-expanded elements are marked collapsed
       var expanded = document.querySelectorAll('[aria-expanded="true"]');
       expanded.forEach(function (el) { el.setAttribute('aria-expanded', 'false'); });
-
-      // Persist that we've collapsed once, so it won't repeat on next loads
-      try { if (window.localStorage) localStorage.setItem(KEY, '1'); } catch (_) {}
     } catch (e) {
       // Fail silently
     }
   }
 
+  function collapseSoon() { setTimeout(collapseNav, 0); }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', collapseNav, { once: true });
+    document.addEventListener('DOMContentLoaded', collapseSoon, { once: true });
   } else {
-    collapseNav();
+    collapseSoon();
   }
 })();
