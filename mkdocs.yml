@@ -3,9 +3,9 @@ site_url: https://egov-moldova.github.io/egov4dev/
 
 nav:
   - Home: index.md
-  - Platforms and services: platforms-and-services/services.md
-  - Development principles: principles/architecture.md
-  - Development stack: development-stack/technologies.md
+  - Platforms and services: platforms/services.md
+  - Development principles: development/principles.md
+  - Tools and technologies: tools/technologies.md
   - Glossary: glossary/glossary.md
   - Guides:
       - MPass:
