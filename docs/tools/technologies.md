@@ -9,6 +9,7 @@ AGE services are developed with robust technologies, chosen for compatibility wi
 ### Frontend
 
 Web applications are built with **MudBlazor**, a UI framework for Blazor that enables rapid development of modern, responsive, and accessible interfaces:
+
 *   **MudBlazor** – NuGet: `MudBlazor` – reusable UI components, consistent styling
 *   **Blazor Server / WebAssembly** – for interactive applications in .NET
 *   Following standards from the **Government Design System** (coming soon), focusing on clarity, simplicity, and accessibility
@@ -16,6 +17,7 @@ Web applications are built with **MudBlazor**, a UI framework for Blazor that en
 ### Backend
 
 Business logic is implemented within the .NET ecosystem:
+
 *   **ASP.NET Core** – NuGet: `Microsoft.AspNetCore.*` – for REST services and scalable web applications
 *   **Entity Framework Core** – NuGet: `Microsoft.EntityFrameworkCore` – for relational database access
 *   **FluentValidation** – NuGet: `FluentValidation` – for declarative validations
@@ -64,6 +66,7 @@ AGE uses government infrastructure for hosting and orchestrating services:
 ## 🔌 Integration tools
 
 AGE provides a suite of interoperable services that can be integrated into any government application:
+
 *   **MConnect** – data exchange between institutions
 *   **MPass** – unified authentication (including with digital signature)
 *   **MPower** – digital delegation
