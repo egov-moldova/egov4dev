@@ -7,8 +7,8 @@ nav:
   - Development principles: principles/architecture.md
   - Development stack: development-stack/technologies.md
   - Glossary: glossary/glossary.md
-  - Integration guides:
-      - mpass:
+  - Guides:
+      - MPass:
           - Overview: guides/mpass/index.md
           - Interaction scenarios: guides/mpass/interaction-scenarios.md
           - Integration development: guides/mpass/integration-development.md
