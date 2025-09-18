@@ -27,10 +27,6 @@ nav:
           - Change log: guides/msign/change-log.md
       - mconnect events:
           - Overview: guides/mconnect-events/index.md
-      - mpay:
-          - Overview: guides/mpay/index.md
-      - mpower:
-          - Overview: guides/mpower/index.md
       - mnotify:
           - Overview: guides/mnotify/index.md
           - Glossary: guides/mnotify/glossary.md
@@ -79,4 +75,4 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
-copyright: © Agenția de Guvernare Electronică. Toate drepturile rezervate. 
+copyright: © 2010–2025 Moldovan eGovernance Agency. All rights reserved 
