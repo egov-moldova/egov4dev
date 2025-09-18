@@ -30,6 +30,7 @@ Tip: The table has been inverted to render better on narrow screens.
 | SAML metadata | https://mpass.gov.md/meta/saml |
 
 Notes:
+
 - The metadata index page contains links to the IdP signing certificate(s). Pin and rotate per environment.
 - Never use localhost ACS/SLS in production.
 
@@ -59,6 +60,7 @@ Notes:
 Send an AuthnRequest to the SSO URL using HTTP-Redirect or HTTP-POST.
 
 Required fields
+
 - ID: unique per request (used for correlation)
 - Version: 2.0
 - IssueInstant: current UTC timestamp
@@ -69,15 +71,18 @@ Required fields
 - NameIDPolicy: per integration (Transient/Persistent)
 
 Optional/common fields:
+
 - ForceAuthn: true to force fresh auth at IdP
 - IsPassive: true to allow only SSO without user interaction
 - RequestedAuthnContext: if you need a particular assurance level/method (as supported by policy)
 - Extensions: integration-specific hints (only if agreed)
 
 Signing:
+
 - If your SP signs AuthnRequest, include a Signature per SAML XMLSig rules. HTTP-Redirect binding uses query param signature per spec.
 
 Response handling at ACS:
+
 - Expect an HTTP-POST containing SAMLResponse (base64-encoded). Optionally RelayState if you supplied it.
 - Validate: XML signature(s), certificate trust (must chain to MPass IdP certs from metadata), Destination, Audience, Issuer, InResponseTo, Conditions (NotBefore/NotOnOrAfter), and replay prevention for IDs.
 - On success: extract Subject NameID and attributes; establish local session.
@@ -87,6 +92,7 @@ Response handling at ACS:
 Endpoints: use the SLO URL from the environment table.
 
 Initiating SP-initiated logout:
+
 - Send LogoutRequest (Redirect or POST). Include:
   - ID, Version, IssueInstant
   - Issuer (your EntityID)
@@ -96,6 +102,7 @@ Initiating SP-initiated logout:
 - Sign the request when your profile requires it.
 
 Handling IdP-initiated logout:
+
 - Your SLS endpoint must accept LogoutRequest/LogoutResponse (Redirect or POST)
 - Validate signatures, Destination, Issuer, InResponseTo (for responses), and correlate session by NameID/SessionIndex
 
@@ -104,6 +111,7 @@ Handling IdP-initiated logout:
 MPass returns a configurable set of user identity attributes in the Assertion. See the full list and descriptions here: [Returned attributes](integration-development.md#returned-attributes).
 
 Key attributes commonly used:
+
 - NameID (Subject)
 - FirstName, LastName
 - IDNP/IDNO and CompanyName (when present)
@@ -113,6 +121,7 @@ Key attributes commonly used:
 ## Security and validation rules
 
 Your SP MUST enforce at least the following checks:
+
 - Validate XML signatures on Response and/or Assertion as required by your library/profile
 - Validate certificate trust against MPass metadata; reject unexpected issuers or key material
 - Validate Destination equals your ACS (scheme/host/path)
@@ -127,6 +136,7 @@ Related hands-on scenarios: see [Integration tests](integration-tests.md#securit
 ## Error and status mapping
 
 When authentication fails, the IdP returns a Response with a SAML Status:
+
 - Success: urn:oasis:names:tc:SAML:2.0:status:Success
 - Requester/Responder: general request/processing errors
 - AuthnFailed: user/auth method failed
@@ -135,6 +145,7 @@ When authentication fails, the IdP returns a Response with a SAML Status:
 - PartialLogout: partial success during SLO
 
 Recommended handling:
+
 - Map SAML Status to user-friendly messages; avoid exposing raw protocol details
 - Log with correlation IDs; do not persist PII or full assertions in logs
 
@@ -143,6 +154,7 @@ Recommended handling:
 For full, language-specific examples, see [Examples](examples.md) and [Integration libraries](integration-libraries.md).
 
 Minimal HTTP-Redirect example (parameter names):
+
 - GET to SSO URL with SAMLRequest=<deflated+base64 XML> and optional RelayState
 - If signed: Signature and SigAlg per SAML HTTP-Redirect binding
 
