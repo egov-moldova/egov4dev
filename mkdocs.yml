@@ -71,8 +71,8 @@ theme:
     - navigation.top
   palette:
     - scheme: default
-      primary: teal
-      accent: orange
+      primary: indigo
+      accent: purple
 extra:
   social:
     - icon: fontawesome/brands/instagram
