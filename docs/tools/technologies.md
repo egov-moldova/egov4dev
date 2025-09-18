@@ -2,7 +2,7 @@ At MEGA, the development of government digital services is based on a modern, se
 
 * * *
 
-## 🛠️ Development stack
+## Development stack
 
 AGE services are developed with robust technologies, chosen for compatibility with government infrastructure and to support an efficient application lifecycle.
 
@@ -31,7 +31,7 @@ Business logic is implemented within the .NET ecosystem:
 
 * * *
 
-## ⚙️ Infrastructure and DevOps
+## Infrastructure and DevOps
 
 AGE uses government infrastructure for hosting and orchestrating services:
 
@@ -63,7 +63,7 @@ AGE uses government infrastructure for hosting and orchestrating services:
 
 * * *
 
-## 🔌 Integration tools
+## Integration tools
 
 AGE provides a suite of interoperable services that can be integrated into any government application:
 
@@ -77,7 +77,7 @@ Each service is documented with **integration guides**, code examples, and usage
 
 * * *
 
-## 📚 Best practices and conventions
+## Best practices and conventions
 
 To ensure code consistency and quality:
 
