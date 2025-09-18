@@ -1,4 +1,4 @@
-At AGE, the development of government digital services is based on a modern, secure, and scalable technology ecosystem. This page provides an overview of the technologies, infrastructure, and tools used to build interoperable, compliant, and citizen-oriented solutions.
+At MEGA, the development of government digital services is based on a modern, secure, and scalable technology ecosystem. This page provides an overview of the technologies, infrastructure, and tools used to build interoperable, compliant, and citizen-oriented solutions.
 
 * * *
 
