@@ -91,6 +91,7 @@ extra_css:
 
 extra_javascript:
   - js/external-links.js
+  - js/nav-state.js
 
 markdown_extensions:
   - admonition
