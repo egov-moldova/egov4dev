@@ -47,24 +47,24 @@ nav:
 
 theme:
   name: material
-  logo: assets/logo.png
+  logo: assets/egov-logo.png
   favicon: assets/favicon.ico
   features:
     - navigation.sections
     - navigation.expand
     - navigation.top
+  hide:
+    - navigation.top
 extra:
   social:
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/user/eGovCenterMoldova
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/e_guvernare_moldova/
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/eGovernanceAgency.Moldova
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/e-government-center
-    - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/e_guvernare_moldova/
-    - icon: fontawesome/brands/flickr
-      link: https://www.flickr.com/photos/201389958@N05/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/eGovCenterMoldova
 
 extra_css:
   - stylesheets/extra.css
