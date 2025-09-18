@@ -64,7 +64,7 @@ nav:
 
 theme:
   name: material
-  logo: assets/egov-logo.png
+  logo: assets/egov-logo2.png
   favicon: assets/favicon.ico
   features:
     - navigation.sections
