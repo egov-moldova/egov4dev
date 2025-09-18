@@ -1,0 +1,49 @@
+site_name: egov4dev
+site_url: https://egov-moldova.github.io/egov4dev/
+
+nav:
+  - Home: index.md
+  - Platforms and services: platforms-and-services/services.md
+  - Development principles: principles/architecture.md
+  - Development stack: development-stack/technologies.md
+  - Glossary: glossary/glossary.md
+  - Integration guides:
+      - mpass:
+          - Overview: guides/mpass/index.md
+          - Interaction scenarios: guides/mpass/interaction-scenarios.md
+          - Integration development: guides/mpass/integration-development.md
+          - API references: guides/mpass/api-references.md
+          - Examples: guides/mpass/examples.md
+          - Integration libraries: guides/mpass/integration-libraries.md
+          - Change log: guides/mpass/change-log.md
+      - msign:
+          - Overview: guides/msign/index.md
+          - Glossary: guides/msign/glossary.md
+          - Interaction scenarios: guides/msign/interaction-scenarios.md
+          - Integration development: guides/msign/integration-development.md
+          - API references: guides/msign/api-references.md
+          - Examples: guides/msign/examples.md
+          - Integration libraries: guides/msign/integration-libraries.md
+          - Change log: guides/msign/change-log.md
+      - mconnect events:
+          - Overview: guides/mconnect-events/index.md
+      - mpay:
+          - Overview: guides/mpay/index.md
+      - mpower:
+          - Overview: guides/mpower/index.md
+      - mnotify:
+          - Overview: guides/mnotify/index.md
+          - Glossary: guides/mnotify/glossary.md
+          - Interaction scenarios: guides/mnotify/interaction-scenarios.md
+          - Integration development: guides/mnotify/integration-development.md
+          - API references: guides/mnotify/api-references.md
+          - Examples: guides/mnotify/examples.md
+          - Integration libraries: guides/mnotify/integration-libraries.md
+          - Change log: guides/mnotify/change-log.md
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
