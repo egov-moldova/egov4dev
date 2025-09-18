@@ -1,0 +1,95 @@
+@startuml
+
+title <font color=#2094F3><b>sd_SSO</b></font>
+
+skinparam shadowing false
+skinparam mainframe fontColor #2094F3
+skinparam backgroundColor transparent
+skinparam actor {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+
+skinparam boundary {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+
+skinparam control {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantFontColor #1E2129
+    ParticipantBorderColor #2094F3
+    ParticipantBackgroundColor #E6E1E3
+    LifeLineBorderColor #2094F3
+    LifeLineBackgroundColor #E6E1E3
+    ArrowColor #2094F3
+    ArrowFontColor #E6E1E3
+    ArrowFontStyle bold
+}
+
+actor User
+boundary Browser
+boundary Service
+control MPass
+
+activate User
+
+User -> Browser: 1. Initiate Signin()
+activate Browser
+
+Browser -> Service: Send Signing request()
+activate Service
+
+Service -> Service: 2. Generate and sign AuthnRequest()
+activate Service
+deactivate Service
+
+Service --> Browser: 3. Redirect to MPass()
+deactivate Service
+
+Browser -> MPass: 4. POST AuthnRequest()
+activate MPass
+
+MPass -> MPass: 5. Verify AuthnRequest()
+activate MPass
+deactivate MPass
+deactivate MPass
+
+User -> MPass: 6. Authenticate (if not already)
+activate MPass
+
+MPass -> MPass: Authenticate, ask and authorize User()
+activate MPass
+deactivate MPass
+
+MPass -> MPass: 7. Generate and sign SAML Response()
+activate MPass
+deactivate MPass
+
+MPass --> Browser: 8. Redirect to Service()
+deactivate MPass
+
+Browser -> Service: 9. POST Response()
+activate Service
+
+Service -> Service: 10. Verify SAML Response()
+activate Service
+deactivate Service
+
+Service --> Browser: 11. Return protected page()
+deactivate Service
+deactivate Browser
+deactivate User
+
+@enduml

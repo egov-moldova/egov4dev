@@ -1,0 +1,51 @@
+@startuml
+
+skinparam shadowing false
+skinparam mainframe fontColor #2094F3
+skinparam backgroundColor transparent
+skinparam actor {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantFontColor #1E2129
+    ParticipantBorderColor #2094F3
+    ParticipantBackgroundColor #E6E1E3
+    LifeLineBorderColor #2094F3
+    LifeLineBackgroundColor #E6E1E3
+    ArrowColor #2094F3
+    ArrowFontColor #E6E1E3
+    ArrowFontStyle bold
+}
+
+actor "Public user" as User
+participant MNotify
+participant MPass
+
+activate User
+
+User -> MNotify: 1. Request Authentication()
+activate MNotify
+
+MNotify -> MPass: Request Authentication()
+activate MPass
+
+User -> MPass: 2. Enter AuthDetails()
+
+MPass -> MPass: Verify AuthDetails
+activate MPass
+deactivate MPass
+
+MPass --> MNotify: :AuthDetails
+deactivate MPass
+
+MNotify -> MNotify: 3. ActivateSession()
+activate MNotify
+deactivate MNotify
+
+deactivate MNotify
+
+@enduml

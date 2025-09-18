@@ -1,0 +1,51 @@
+@startuml
+
+skinparam shadowing false
+skinparam mainframe fontColor #2094F3
+skinparam backgroundColor transparent
+skinparam actor {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantFontColor #1E2129
+    ParticipantBorderColor #2094F3
+    ParticipantBackgroundColor #E6E1E3
+    LifeLineBorderColor #2094F3
+    LifeLineBackgroundColor #E6E1E3
+    ArrowColor #2094F3
+    ArrowFontColor #E6E1E3
+    ArrowFontStyle bold
+}
+
+participant "3rd System" as IntegratedSystem
+participant "API Gateway" as MPowerAPI
+participant MPass
+
+activate IntegratedSystem
+
+IntegratedSystem -> MPowerAPI: 1. RequestAuthenticationByCertificate()
+activate MPowerAPI
+
+MPowerAPI -> MPass: RequestAuthenticationByCertificate()
+activate MPass
+
+MPass -> MPass: Verify AuthDetails and roles
+activate MPass
+deactivate MPass
+
+MPass --> MPowerAPI: :AuthDetails and roles
+deactivate MPass
+
+MPowerAPI -> MPowerAPI: 3. ActivateSession()
+activate MPowerAPI
+deactivate MPowerAPI
+
+
+deactivate MPowerAPI
+deactivate IntegratedSystem
+
+@enduml

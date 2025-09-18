@@ -1,0 +1,83 @@
+@startuml
+
+title <font color=#FFF><b>sd_SLO</b></font>
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam actor {
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantBackgroundColor #FCF2E3
+    LifeLineBackgroundColor #FCF2E3
+    ArrowFontStyle bold
+}
+
+actor User
+boundary Browser
+boundary Service
+control MPass
+boundary OtherService
+
+User -> Browser: 1. Initiate Logout()
+activate User
+activate Browser
+
+Browser -> Service: Send Logout request()
+activate Service
+
+Service -> Service: 2. Terminate local session()
+activate Service
+deactivate Service
+
+Service --> Browser: 3. Redirect to MPass()
+deactivate Service
+
+Browser -> MPass: 4. POST LogoutRequest()
+activate MPass
+
+group opt Single Logout
+
+MPass --> Browser: 5. Logout from other services()
+deactivate MPass
+
+group loop Service Logout
+
+Browser -> OtherService: 6. POST LogoutRequest()
+activate OtherService
+
+OtherService -> OtherService: 7. Terminate local session()
+activate OtherService
+deactivate OtherService
+
+OtherService --> Browser: 8. Confirm service logout()
+deactivate OtherService
+
+Browser -> MPass: 9. POST LogoutResponse()
+activate MPass
+deactivate MPass
+
+end
+
+Browser -> MPass: 10. Confirm services logout or timeout()
+activate MPass
+end
+
+MPass -> MPass: 11. Terminate local session()
+activate MPass
+deactivate MPass
+
+MPass --> Browser: 12. Redirect to Service()
+deactivate MPass
+
+Browser -> Service: 13. POST LogoutResponse()
+activate Service
+
+Service --> Browser: 14. Return after-logout page()
+deactivate Service
+
+deactivate Browser
+deactivate User
+
+@enduml

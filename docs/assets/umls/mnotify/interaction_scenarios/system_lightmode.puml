@@ -1,0 +1,42 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam actor {
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantBackgroundColor #FCF2E3
+    LifeLineBackgroundColor #FCF2E3
+    ArrowFontStyle bold
+}
+
+participant "3rd System" as IntegratedSystem
+participant "API Gateway" as MNotifyAPI
+participant MPass
+
+activate IntegratedSystem
+
+IntegratedSystem -> MNotifyAPI: 1. RequestAuthenticationByCertificate()
+activate MNotifyAPI
+
+MNotifyAPI -> MPass: RequestAuthenticationByCertificate()
+activate MPass
+
+MPass -> MPass: Verify AuthDetails and roles
+activate MPass
+deactivate MPass
+
+MPass --> MNotifyAPI: :AuthDetails and roles
+deactivate MPass
+
+MNotifyAPI -> MNotifyAPI: 3. ActivateSession()
+activate MNotifyAPI
+deactivate MNotifyAPI
+
+
+deactivate MNotifyAPI
+deactivate IntegratedSystem
+
+@enduml

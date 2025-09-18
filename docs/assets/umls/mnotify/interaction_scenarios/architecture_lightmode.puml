@@ -1,0 +1,59 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam actor {
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantBackgroundColor #FCF2E3
+    LifeLineBackgroundColor #FCF2E3
+    ArrowFontStyle bold
+}
+
+participant "3rd System" as IntegratedSystem
+participant "API Gateway" as MNotifyAPI
+participant Kafka
+participant Resolver
+participant Kafka
+participant Database
+participant MessageWorker
+
+activate Kafka
+activate IntegratedSystem
+
+IntegratedSystem -> MNotifyAPI: Request post notification
+activate MNotifyAPI
+
+MNotifyAPI --> IntegratedSystem: :notificationId
+deactivate IntegratedSystem
+
+MNotifyAPI -> Kafka: Push to queue
+deactivate MNotifyAPI
+
+Resolver -> Kafka: Read from queue
+activate Resolver
+
+Resolver -> Resolver: Identify channels
+activate Resolver
+deactivate Resolver
+
+Resolver -> Kafka: :Push N-Messages
+
+Resolver -> Database: Write for IDNx channel
+activate Database
+deactivate Database
+
+MessageWorker -> Kafka: read N-Message from queue
+activate MessageWorker
+
+MessageWorker -> MessageWorker: Send message 
+activate MessageWorker
+deactivate MessageWorker
+
+
+deactivate MessageWorker
+deactivate Kafka
+
+@enduml

@@ -1,0 +1,112 @@
+@startuml
+
+title <font color=#2094F3><b>sd_SLO</b></font>
+
+skinparam shadowing false
+skinparam mainframe fontColor #2094F3
+skinparam backgroundColor transparent
+
+
+skinparam actor {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+
+skinparam boundary {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+
+skinparam control {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantFontColor #1E2129
+    ParticipantBorderColor #2094F3
+    ParticipantBackgroundColor #E6E1E3
+    LifeLineBorderColor #2094F3
+    LifeLineBackgroundColor #E6E1E3
+    ArrowColor #2094F3
+    ArrowFontColor #E6E1E3
+    ArrowFontStyle bold
+    GroupBorderColor #2094F3
+    GroupHeaderFontColor #2094F3
+}
+
+
+actor User
+boundary Browser
+boundary Service
+control MPass
+boundary OtherService
+
+User -> Browser: 1. Initiate Logout()
+activate User
+activate Browser
+
+Browser -> Service: Send Logout request()
+activate Service
+
+Service -> Service: 2. Terminate local session()
+activate Service
+deactivate Service
+
+Service --> Browser: 3. Redirect to MPass()
+deactivate Service
+
+Browser -> MPass: 4. POST LogoutRequest()
+activate MPass
+
+group opt Single Logout
+
+MPass --> Browser: 5. Logout from other services()
+deactivate MPass
+
+group loop Service Logout
+
+Browser -> OtherService: 6. POST LogoutRequest()
+activate OtherService
+
+OtherService -> OtherService: 7. Terminate local session()
+activate OtherService
+deactivate OtherService
+
+OtherService --> Browser: 8. Confirm service logout()
+deactivate OtherService
+
+Browser -> MPass: 9. POST LogoutResponse()
+activate MPass
+deactivate MPass
+
+end
+
+Browser -> MPass: 10. Confirm services logout or timeout()
+activate MPass
+end
+
+MPass -> MPass: 11. Terminate local session()
+activate MPass
+deactivate MPass
+
+MPass --> Browser: 12. Redirect to Service()
+deactivate MPass
+
+Browser -> Service: 13. POST LogoutResponse()
+activate Service
+
+Service --> Browser: 14. Return after-logout page()
+deactivate Service
+
+deactivate Browser
+deactivate User
+
+@enduml

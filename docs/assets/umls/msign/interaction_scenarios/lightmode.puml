@@ -1,0 +1,75 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam actor {
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantBackgroundColor #FCF2E3
+    LifeLineBackgroundColor #FCF2E3
+    ArrowFontStyle bold
+}
+
+actor User
+participant Browser
+participant "e-Service" as EService
+participant "MSign website" as MSignWeb
+participant "MSign API" as MSignAPI
+
+activate User
+
+User -> Browser: 1. Request Signing()
+activate Browser
+
+Browser -> EService: Request Signing()
+activate EService
+
+EService -> EService: 2. Compute Content Hash()
+activate EService
+deactivate EService
+
+EService -> MSignAPI: 3. PostSignRequest(SignRequest)
+activate MSignAPI
+
+MSignAPI -> MSignAPI: 4. Validate and Save Request()
+activate MSignAPI
+deactivate MSignAPI
+
+MSignAPI --> EService: requestID
+deactivate MSignAPI
+
+EService --> Browser : 5. Redirect to MSign()
+deactivate EService
+
+Browser -> MSignWeb: 6. Get Sign Page()
+activate MSignWeb
+MSignWeb --> Browser: :Sign Page
+deactivate MSignWeb
+deactivate Browser
+
+User -> Browser: 7. Select Instrument and Sign()
+activate Browser
+Browser -> MSignWeb: Select Instrument and Sign()
+activate MSignWeb
+
+MSignWeb -> MSignWeb: 8. Save Signature()
+activate MSignWeb
+deactivate MSignWeb
+
+MSignWeb --> Browser: 9. Redirect to e-Service ReturnUrl(RequestID)
+deactivate MSignWeb
+
+Browser -> EService: 10. Get ReturnUrl Page(RequestID)
+activate EService
+
+EService -> MSignAPI: 11. GetSignResponse(requestID)
+activate MSignAPI
+MSignAPI --> EService: :SignResponse
+deactivate MSignAPI
+deactivate EService
+deactivate Browser
+deactivate User
+
+@enduml

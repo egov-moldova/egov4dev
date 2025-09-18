@@ -1,0 +1,42 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam actor {
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantBackgroundColor #FCF2E3
+    LifeLineBackgroundColor #FCF2E3
+    ArrowFontStyle bold
+}
+
+actor "Public user" as User
+participant MPower
+participant MPass
+
+activate User
+
+User -> MPower: 1. Request Authentication()
+activate MPower
+
+MPower -> MPass: Request Authentication()
+activate MPass
+
+User -> MPass: 2. Enter AuthDetails()
+
+MPass -> MPass: Verify AuthDetails
+activate MPass
+deactivate MPass
+
+MPass --> MPower: :AuthDetails
+deactivate MPass
+
+MPower -> MPower: 3. ActivateSession()
+activate MPower
+deactivate MPower
+
+deactivate MPower
+
+@enduml

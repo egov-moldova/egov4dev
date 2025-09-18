@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="777px" preserveAspectRatio="none" style="width:1222px;height:777px;background:#00000000;" version="1.1" viewBox="0 0 1222 777" width="1222px" zoomAndPan="magnify">
+    <defs/>
+    <g>
+        <rect fill="#FCF2E3" height="587.125" style="stroke:#181818;stroke-width:1.0;" width="10" x="21.5" y="91.2969"/>
+        <rect fill="#FCF2E3" height="319.0625" style="stroke:#181818;stroke-width:1.0;" width="10" x="281.5" y="112.4297"/>
+        <rect fill="#FCF2E3" height="217.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="281.5" y="460.625"/>
+        <rect fill="#FCF2E3" height="231.6641" style="stroke:#181818;stroke-width:1.0;" width="10" x="569.5" y="141.5625"/>
+        <rect fill="#FCF2E3" height="28" style="stroke:#181818;stroke-width:1.0;" width="10" x="574.5" y="178.6953"/>
+        <rect fill="#FCF2E3" height="58.2656" style="stroke:#181818;stroke-width:1.0;" width="10" x="569.5" y="620.1563"/>
+        <rect fill="#FCF2E3" height="29.1328" style="stroke:#181818;stroke-width:1.0;" width="10" x="796.5" y="402.3594"/>
+        <rect fill="#FCF2E3" height="101.2656" style="stroke:#181818;stroke-width:1.0;" width="10" x="796.5" y="489.7578"/>
+        <rect fill="#FCF2E3" height="28" style="stroke:#181818;stroke-width:1.0;" width="10" x="801.5" y="526.8906"/>
+        <rect fill="#FCF2E3" height="101.2656" style="stroke:#181818;stroke-width:1.0;" width="10" x="962.5" y="242.8281"/>
+        <rect fill="#FCF2E3" height="28" style="stroke:#181818;stroke-width:1.0;" width="10" x="967.5" y="279.9609"/>
+        <rect fill="#FCF2E3" height="29.1328" style="stroke:#181818;stroke-width:1.0;" width="10" x="962.5" y="649.2891"/>
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="26" x2="26" y1="81.2969" y2="696.4219"/>
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="286" x2="286" y1="81.2969" y2="696.4219"/>
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="574" x2="574" y1="81.2969" y2="696.4219"/>
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="801" x2="801" y1="81.2969" y2="696.4219"/>
+        <line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="967" x2="967" y1="81.2969" y2="696.4219"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="37" x="5" y="77.9951">User</text>
+        <ellipse cx="26.5" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/>
+        <path d="M26.5,21.5 L26.5,48.5 M13.5,29.5 L39.5,29.5 M26.5,48.5 L13.5,63.5 M26.5,48.5 L39.5,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="37" x="5" y="708.417">User</text>
+        <ellipse cx="26.5" cy="720.2188" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/>
+        <path d="M26.5,728.2188 L26.5,755.2188 M13.5,736.2188 L39.5,736.2188 M26.5,755.2188 L13.5,770.2188 M26.5,755.2188 L39.5,770.2188 " fill="none" style="stroke:#181818;stroke-width:0.5;"/>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="81" x="246" y="50"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="253" y="69.9951">Browser</text>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="81" x="246" y="695.4219"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="253" y="715.417">Browser</text>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="89" x="530" y="50"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="75" x="537" y="69.9951">e-Service</text>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="89" x="530" y="695.4219"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="75" x="537" y="715.417">e-Service</text>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="129" x="737" y="50"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="115" x="744" y="69.9951">MSign website</text>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="129" x="737" y="695.4219"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="115" x="744" y="715.417">MSign website</text>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="91" x="922" y="50"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="77" x="929" y="69.9951">MSign API</text>
+        <rect fill="#FCF2E3" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="91" x="922" y="695.4219"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="77" x="929" y="715.417">MSign API</text>
+        <rect fill="#FCF2E3" height="587.125" style="stroke:#181818;stroke-width:1.0;" width="10" x="21.5" y="91.2969"/>
+        <rect fill="#FCF2E3" height="319.0625" style="stroke:#181818;stroke-width:1.0;" width="10" x="281.5" y="112.4297"/>
+        <rect fill="#FCF2E3" height="217.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="281.5" y="460.625"/>
+        <rect fill="#FCF2E3" height="231.6641" style="stroke:#181818;stroke-width:1.0;" width="10" x="569.5" y="141.5625"/>
+        <rect fill="#FCF2E3" height="28" style="stroke:#181818;stroke-width:1.0;" width="10" x="574.5" y="178.6953"/>
+        <rect fill="#FCF2E3" height="58.2656" style="stroke:#181818;stroke-width:1.0;" width="10" x="569.5" y="620.1563"/>
+        <rect fill="#FCF2E3" height="29.1328" style="stroke:#181818;stroke-width:1.0;" width="10" x="796.5" y="402.3594"/>
+        <rect fill="#FCF2E3" height="101.2656" style="stroke:#181818;stroke-width:1.0;" width="10" x="796.5" y="489.7578"/>
+        <rect fill="#FCF2E3" height="28" style="stroke:#181818;stroke-width:1.0;" width="10" x="801.5" y="526.8906"/>
+        <rect fill="#FCF2E3" height="101.2656" style="stroke:#181818;stroke-width:1.0;" width="10" x="962.5" y="242.8281"/>
+        <rect fill="#FCF2E3" height="28" style="stroke:#181818;stroke-width:1.0;" width="10" x="967.5" y="279.9609"/>
+        <rect fill="#FCF2E3" height="29.1328" style="stroke:#181818;stroke-width:1.0;" width="10" x="962.5" y="649.2891"/>
+        <polygon fill="#181818" points="269.5,108.4297,279.5,112.4297,269.5,116.4297,273.5,112.4297" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="31.5" x2="275.5" y1="112.4297" y2="112.4297"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="152" x="38.5" y="107.3638">1. Request Signing()</text>
+        <polygon fill="#181818" points="557.5,137.5625,567.5,141.5625,557.5,145.5625,561.5,141.5625" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="291.5" x2="563.5" y1="141.5625" y2="141.5625"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="133" x="298.5" y="136.4966">Request Signing()</text>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="584.5" x2="626.5" y1="170.6953" y2="170.6953"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="626.5" x2="626.5" y1="170.6953" y2="183.6953"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="585.5" x2="626.5" y1="183.6953" y2="183.6953"/>
+        <polygon fill="#181818" points="595.5,179.6953,585.5,183.6953,595.5,187.6953,591.5,183.6953" style="stroke:#181818;stroke-width:1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="203" x="591.5" y="165.6294">2. Compute Content Hash()</text>
+        <polygon fill="#181818" points="950.5,238.8281,960.5,242.8281,950.5,246.8281,954.5,242.8281" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="579.5" x2="956.5" y1="242.8281" y2="242.8281"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="250" x="586.5" y="237.7622">3. PostSignRequest(SignRequest)</text>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="977.5" x2="1019.5" y1="271.9609" y2="271.9609"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="1019.5" x2="1019.5" y1="271.9609" y2="284.9609"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="978.5" x2="1019.5" y1="284.9609" y2="284.9609"/>
+        <polygon fill="#181818" points="988.5,280.9609,978.5,284.9609,988.5,288.9609,984.5,284.9609" style="stroke:#181818;stroke-width:1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="231" x="984.5" y="266.895">4. Validate and Save Request()</text>
+        <polygon fill="#181818" points="590.5,340.0938,580.5,344.0938,590.5,348.0938,586.5,344.0938" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="584.5" x2="966.5" y1="344.0938" y2="344.0938"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="72" x="596.5" y="339.0278">requestID</text>
+        <polygon fill="#181818" points="302.5,369.2266,292.5,373.2266,302.5,377.2266,298.5,373.2266" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="296.5" x2="573.5" y1="373.2266" y2="373.2266"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="163" x="308.5" y="368.1606">5. Redirect to MSign()</text>
+        <polygon fill="#181818" points="784.5,398.3594,794.5,402.3594,784.5,406.3594,788.5,402.3594" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="291.5" x2="790.5" y1="402.3594" y2="402.3594"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="137" x="298.5" y="397.2935">6. Get Sign Page()</text>
+        <polygon fill="#181818" points="297.5,427.4922,287.5,431.4922,297.5,435.4922,293.5,431.4922" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="291.5" x2="800.5" y1="431.4922" y2="431.4922"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="80" x="303.5" y="426.4263">:Sign Page</text>
+        <polygon fill="#181818" points="269.5,456.625,279.5,460.625,269.5,464.625,273.5,460.625" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="31.5" x2="275.5" y1="460.625" y2="460.625"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="231" x="38.5" y="455.5591">7. Select Instrument and Sign()</text>
+        <polygon fill="#181818" points="784.5,485.7578,794.5,489.7578,784.5,493.7578,788.5,489.7578" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="291.5" x2="790.5" y1="489.7578" y2="489.7578"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="212" x="298.5" y="484.6919">Select Instrument and Sign()</text>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="811.5" x2="853.5" y1="518.8906" y2="518.8906"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="853.5" x2="853.5" y1="518.8906" y2="531.8906"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="812.5" x2="853.5" y1="531.8906" y2="531.8906"/>
+        <polygon fill="#181818" points="822.5,527.8906,812.5,531.8906,822.5,535.8906,818.5,531.8906" style="stroke:#181818;stroke-width:1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="142" x="818.5" y="513.8247">8. Save Signature()</text>
+        <polygon fill="#181818" points="302.5,587.0234,292.5,591.0234,302.5,595.0234,298.5,591.0234" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="296.5" x2="800.5" y1="591.0234" y2="591.0234"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="335" x="308.5" y="585.9575">9. Redirect to e-Service ReturnUrl(RequestID)</text>
+        <polygon fill="#181818" points="557.5,616.1563,567.5,620.1563,557.5,624.1563,561.5,620.1563" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="291.5" x2="563.5" y1="620.1563" y2="620.1563"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="259" x="298.5" y="615.0903">10. Get ReturnUrl Page(RequestID)</text>
+        <polygon fill="#181818" points="950.5,645.2891,960.5,649.2891,950.5,653.2891,954.5,649.2891" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;" x1="579.5" x2="956.5" y1="649.2891" y2="649.2891"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="242" x="586.5" y="644.2231">11. GetSignResponse(requestID)</text>
+        <polygon fill="#181818" points="585.5,674.4219,575.5,678.4219,585.5,682.4219,581.5,678.4219" style="stroke:#181818;stroke-width:1.0;"/>
+        <line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="579.5" x2="966.5" y1="678.4219" y2="678.4219"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="109" x="591.5" y="673.356">:SignResponse</text>
+    </g>
+</svg>

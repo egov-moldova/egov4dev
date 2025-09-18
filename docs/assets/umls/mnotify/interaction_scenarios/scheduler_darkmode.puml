@@ -1,0 +1,63 @@
+@startuml
+skinparam shadowing false
+skinparam mainframe fontColor #2094F3
+skinparam backgroundColor transparent
+
+skinparam control {
+    BorderColor #2094F3
+    BackgroundColor #E6E1E3
+    FontColor #E6E1E3
+    FontStyle bold
+}
+
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantFontColor #1E2129
+    ParticipantBorderColor #2094F3
+    ParticipantBackgroundColor #E6E1E3
+    LifeLineBorderColor #2094F3
+    LifeLineBackgroundColor #E6E1E3
+    ArrowColor #2094F3
+    ArrowFontColor #E6E1E3
+    ArrowFontStyle bold
+    GroupBorderColor #2094F3
+    GroupHeaderFontColor #2094F3
+}
+
+participant Program
+participant DbContext
+participant KafkaProducer
+
+activate Program
+?o-> Program
+
+Program -> DbContext: DateTime.Now
+activate DbContext
+
+DbContext - -> Program: :Messages
+deactivate DbContext
+
+group Messages.Any()
+
+group Message
+
+Program -> KafkaProducer: KafkaProducer.Produce(Message)
+activate KafkaProducer
+
+KafkaProducer - -> Program: :Status
+deactivate KafkaProducer
+
+group Status.Persisted
+
+Program -> DbContext: Message.Delete()
+activate DbContext
+deactivate DbContext
+
+end
+
+end
+
+end
+
+deactivate Program
+@enduml

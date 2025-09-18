@@ -1,0 +1,56 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantFontColor #1E2129
+    ParticipantBorderColor #2094F3
+    ParticipantBackgroundColor #E6E1E3
+    LifeLineBorderColor #2094F3
+    LifeLineBackgroundColor #E6E1E3
+    ArrowColor #2094F3
+    ArrowFontColor #E6E1E3
+    ArrowFontStyle bold
+    GroupBorderColor #2094F3
+    GroupHeaderFontColor #2094F3
+}
+
+participant Program
+participant KafkaConsumer
+participant DbContext
+
+activate Program
+activate KafkaConsumer
+
+Program -> KafkaConsumer: Subscribe()
+
+group Consumer loop
+
+Program -> KafkaConsumer: Consume()
+
+
+KafkaConsumer --> Program: :Message
+
+Program -> DbContext: GetNotificationMetadata(Message)
+activate DbContext
+
+DbContext --> Program: :NotificationMetadata
+
+Program -> Program: SetMessageStatus()
+activate Program
+deactivate Program
+
+Program -> Program: SetNotificationStatus()
+activate Program
+deactivate Program
+
+Program -> DbContext: PersistChanges()
+deactivate DbContext
+
+end
+
+deactivate KafkaConsumer
+deactivate Program
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantBackgroundColor #FCF2E3
+    LifeLineBackgroundColor #FCF2E3
+    ArrowFontStyle bold
+}
+
+participant Program
+participant DbContext
+participant KafkaProducer
+
+activate Program
+?o-> Program
+
+Program -> DbContext: DateTime.Now
+activate DbContext
+
+DbContext --> Program: :Messages
+deactivate DbContext
+
+group Messages.Any()
+
+group Message
+
+Program -> KafkaProducer: KafkaProducer.Produce(Message)
+activate KafkaProducer
+
+KafkaProducer --> Program: :Status
+deactivate KafkaProducer
+
+group Status.Persisted
+
+Program -> DbContext: Message.Delete()
+activate DbContext
+deactivate DbContext
+
+end
+
+end
+
+end
+
+deactivate Program
+
+@enduml

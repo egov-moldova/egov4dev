@@ -1,0 +1,134 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam actor {
+    FontStyle bold
+}
+skinparam sequence {
+    ParticipantFontStyle bold
+    ParticipantBackgroundColor #FCF2E3
+    LifeLineBackgroundColor #FCF2E3
+    ArrowFontStyle bold
+}
+actor Payer
+participant Browser
+participant "e-Service" as EService
+participant MPay
+participant "Payment Provider" as Provider
+
+Payer -> Browser: 1. Fill Form and Order()
+activate Payer
+activate Browser
+
+Browser -> EService: Save Order()
+activate EService
+
+EService --> Browser: :Order Save Confirmation
+deactivate EService
+deactivate Browser
+
+Payer -> Browser: 2. Pay Order()
+activate Browser
+
+Browser -> EService: Pay Order()
+activate EService
+
+EService --> Browser: 3. Get Redirect Details(OrderID)
+deactivate EService
+deactivate Browser
+
+Browser -> MPay: 4. Get Pay Page(ServiceID, OrderID, ReturnUrl(optional))
+activate Browser
+activate MPay
+
+MPay -> EService: 5. GetOrderDetails(ServiceID, OrderKey)
+activate EService
+
+EService --> MPay: :OrderDetails
+deactivate EService
+
+activate MPay
+MPay -> MPay: 6. Generate Invoice()
+deactivate MPay
+
+MPay --> Browser: :Invoice Pay Page
+deactivate MPay
+deactivate Browser
+
+Payer -> Browser: 7. Select Instrument()
+activate Browser
+
+Browser -> MPay: Select Instrument()
+activate MPay
+
+MPay -> Provider: Publish Invoice Details()
+activate Provider
+deactivate Provider
+
+MPay --> Browser: Redirect to Instrument Page()
+deactivate MPay
+
+Browser -> Provider: 8. Get Instrument Pay Page()
+activate Provider
+
+Provider --> Browser: Instrument Pay Page
+deactivate Provider
+deactivate Browser
+
+Payer -> Browser: 9. Fill Payment Details()
+activate Browser
+
+Browser -> Provider: Payment Details()
+activate Provider
+
+Provider -> Provider: 10. Authorize Payment()
+activate Provider
+deactivate Provider
+
+Provider --> Browser: 11. Redirect to MPay Payment Result Page()
+deactivate Provider
+
+Browser -> MPay: 12. Get Payment Result Page()
+activate MPay
+
+MPay -> Provider: Confirm to Payment Provider()
+activate Provider
+deactivate Provider
+
+MPay -> EService: 13. ConfirmOrderPayment(confirmation)
+activate EService
+deactivate EService
+
+MPay --> Browser: Payment Result Page()
+deactivate MPay
+deactivate Browser
+
+Payer -> Browser: 14. Print Receipt() <<optional>>
+activate Browser
+
+Browser -> MPay: Download Receipt()
+activate MPay
+
+MPay --> Browser: :Receipt PDF
+deactivate MPay
+deactivate Browser
+
+Payer -> Browser: 15. Return to e-Service() <<optional>>
+activate Browser
+
+Browser -> MPay: Return to e-Service()
+activate MPay
+
+MPay --> Browser: Redirect to e-Service ReturnUrl()
+deactivate MPay
+
+Browser -> EService: Get ReturnUrl Page()
+activate EService
+
+EService --> Browser: :ReturnUrl Page
+deactivate EService
+deactivate Browser
+deactivate Payer
+
+@enduml
