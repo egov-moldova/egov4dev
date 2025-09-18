@@ -2,8 +2,6 @@
 
 This chapter describes the process of developing an integration.
 
-##**Get started**
-
 ###**Service registration**
 
 Before being able to interact with MPass, a Service must be registered accordingly in MPass. To perform such a registration, please generate a self-signed or provide any existing certificate file (in .cer file format) to Service owner.
