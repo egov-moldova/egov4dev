@@ -24,12 +24,6 @@ This guide targets development teams integrating their information systems with 
 
 Tip: For terminology used across platforms and services, see the project [Glossary](../../glossary/glossary.md).
 
-## Visual overview
-
-![MPass SSO sequence (light mode)](/assets/umls/mpass/interaction_scenarios/sso_lightmode.svg)
-
-![MPass SLO sequence (light mode)](/assets/umls/mpass/interaction_scenarios/slo_lightmode.svg)
-
 ##**Scope and target audience**
 
 This document describes the technical interfaces exposed by MPass for information systems that will use MPass as authentication and authorization information provider. Its target audience is the development teams for those information systems.
