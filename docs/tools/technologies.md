@@ -80,6 +80,7 @@ Each service is documented with **integration guides**, code examples, and usage
 ## 📚 Best practices and conventions
 
 To ensure code consistency and quality:
+
 *   Conventions for **naming**, **code structuring**, and **project organization**
 *   Configurable validations in **JSON**
 *   Automated and manual testing
