@@ -13,6 +13,7 @@ Important: Installing, registering, or explicitly trusting the obtained client c
 ### Authorization
 
 After successful authentication, all event requests are checked for correct configuration in the MPass system. If authorization fails:
+
 - For register requests: the message is logged into error‑related indices in the MLog internal database.
 - For search requests: an error message in JSON format is returned to the requester.
 

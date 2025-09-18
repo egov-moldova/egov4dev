@@ -91,5 +91,6 @@ Dependency (Maven):
 ```
 
 Reference:
+
 - https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt/4.26
 - Offline JAR: https://repo1.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.26/nimbus-jose-jwt-4.26.jar

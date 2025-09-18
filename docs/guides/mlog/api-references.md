@@ -53,6 +53,7 @@ YYYY-MM-dd[THH:mm:ss[.SSS][Z|±HH[mm]]]
 Where: yyyy – year; MM – month (01–12); dd – day (01–31); HH – hour (00–23); mm – minutes (00–59); ss – seconds (00–59); SSS – milliseconds (000–999); ±HH[mm] – optional time zone offset (minutes optional).
 
 Constraints and notes:
+
 - Mandatory fields: event_time, event_type.
 - Any field may have multiple values; use JSON arrays in that case.
 - Custom fields are allowed and will be registered as strings. Names starting with “_” or “@” are reserved.
@@ -78,6 +79,7 @@ Recommended Action values:
 | Transfer | Transfer or synchronization of personal data to another system for later processing. |
 
 Required fields for PersonalData events:
+
 - event_time
 - event_type (use the convention above)
 - event_correlation
@@ -121,5 +123,6 @@ MLog accepts the following input parameters for search operations.
 | page_size | number (> 0) | N | Page size; default is 50. |
 
 Notes:
+
 - event_time_from and event_time_to accept the same format as the event_time field.
 - Maximum number of returned events is constrained such that page * page_size <= 10,000.

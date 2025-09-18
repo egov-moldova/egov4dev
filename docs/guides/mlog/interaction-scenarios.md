@@ -9,6 +9,7 @@ A signed event is an event signed with the IS private certificate and is later u
 Note: Sending an event for registration requires the IS to be registered with the MLog system. Any event received from an unregistered IS is rejected.
 
 Steps of the registration process:
+
 1. The IS sends an event for registration (single JSON object or batch). MLog accepts signed, unsigned, or mixed events in one request.
 2. MLog receives the event, associates a unique identifier (UID) to it, and returns a success response to the IS with the associated UID.
 3. MLog then processes received events asynchronously by:

@@ -3,6 +3,7 @@
 MLog is the centralized logging and audit service for public sector information systems operated by the Moldovan eGovernance Agency (MEGA).
 
 It enables systems to:
+
 - Send application and security logs in a standardized way
 - Search, analyze and correlate events
 - Build dashboards and alerts for observability and compliance
@@ -11,16 +12,19 @@ It enables systems to:
 Note: This page provides a short overview. For full integration details, see the PDF guide below.
 
 Resources
+
 - MLog Integration Guide (PDF): ../../MLog%20Integration%20Guide.pdf
 - Platforms and services overview: ../../platforms/services.md
 
 Getting started
+
 1. Request access and credentials from MEGA support.
 2. Configure your application to send logs using the supported protocol (e.g., HTTP/JSON or syslog).
 3. Use correlation IDs in your services for end-to-end tracing across MPay, MPass, MSign, MPower, etc.
 4. Define retention and access policies according to your organization’s needs.
 
 Best practices
+
 - Structure logs as JSON with consistent fields (timestamp, level, service, action, user, correlationId, details)
 - Do not log secrets (passwords, tokens, private keys)
 - Mask personal data where not strictly necessary
@@ -47,6 +51,7 @@ This document describes the technical interfaces exposed by MLog for information
 This document contains the relevant information required for a complete understanding of MLog from the integration point of view. It is also accompanied by samples that exemplify some integration scenarios using certain technologies.
 
 The recommended reading sequence is:
+
 - System context
 - Interaction scenarios
 - Integration development
@@ -57,6 +62,7 @@ The remaining chapters are for reference purpose.
 ### Notations
 
 This document contains several notation styles; the following have significance beyond simply communicating information:
+
 - Yellow highlighted text: awaiting clarification or verification.
 - Red bold text: important information that must be read.
 - Italic bold text: actual commands or scripts that need to be executed or copied.
