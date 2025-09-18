@@ -16,7 +16,7 @@ nav:
           - Examples: guides/mpass/examples.md
           - Integration libraries: guides/mpass/integration-libraries.md
           - Change log: guides/mpass/change-log.md
-      - msign:
+      - MSign:
           - Overview: guides/msign/index.md
           - Glossary: guides/msign/glossary.md
           - Interaction scenarios: guides/msign/interaction-scenarios.md
@@ -25,11 +25,8 @@ nav:
           - Examples: guides/msign/examples.md
           - Integration libraries: guides/msign/integration-libraries.md
           - Change log: guides/msign/change-log.md
-      - mconnect events:
-          - Overview: guides/mconnect-events/index.md
-      - mnotify:
+      - MNotify:
           - Overview: guides/mnotify/index.md
-          - Glossary: guides/mnotify/glossary.md
           - Interaction scenarios: guides/mnotify/interaction-scenarios.md
           - Integration development: guides/mnotify/integration-development.md
           - API references: guides/mnotify/api-references.md
