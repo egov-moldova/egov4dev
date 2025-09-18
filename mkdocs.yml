@@ -70,8 +70,10 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.top
-  hide:
-    - navigation.top
+  palette:
+    - scheme: default
+      primary: teal
+      accent: orange
 extra:
   social:
     - icon: fontawesome/brands/instagram
