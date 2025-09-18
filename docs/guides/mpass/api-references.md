@@ -58,7 +58,7 @@ Notes:
 
 Send an AuthnRequest to the SSO URL using HTTP-Redirect or HTTP-POST.
 
-Required fields:
+Required fields
 - ID: unique per request (used for correlation)
 - Version: 2.0
 - IssueInstant: current UTC timestamp
