@@ -39,44 +39,7 @@ This document contains several notation styles; the following details the styles
 
 ##**Glossary of terms**
 
-<table>
-    <thead>
-         <tr>
-            <th><strong>Term</strong></th>
-            <th><strong>Definition</strong></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>GET</strong></td>
-            <td>A standard HTTP request method</td>
-        </tr>
-        <tr>
-            <td><strong>IDNP</strong></td>
-            <td>Personal identifier number (unique in Republic of Moldova)</td>
-        </tr>
-        <tr>
-            <td><strong>IDNO</strong></td>
-            <td>Organization identifier number (unique in Republic of Moldova)</td>
-        </tr>
-        <tr>
-            <td><strong>POST</strong></td>
-            <td>A standard HTTP request method</td>
-        </tr>
-        <tr>
-            <td><strong>SAML</strong></td>
-            <td>Secure Assertion Markup Language</td>
-        </tr>
-        <tr>
-            <td><strong>SLO</strong></td>
-            <td>Single logout</td>
-        </tr>
-        <tr>
-            <td><strong>SSO</strong></td>
-            <td>Single sign-on</td>
-        </tr>
-    </tbody>
-</table>
+For the complete glossary, please visit the [Glossary page](https://egov-moldova.github.io/egov4dev/glossary/glossary/).
 
 ##**General system capabilities**
 
