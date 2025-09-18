@@ -1,6 +1,6 @@
 # egov4dev
 
-**egov4dev** is the official documentation library for developers working with the EGA ecosystem of the Republic of Moldova.  
+**egov4dev** is the official documentation library for developers working with the **MEGA** (Moldovan eGovernance Agency) ecosystem of the Republic of Moldova.  
 It provides guidance on how to integrate government platforms and services, use the shared development stack, and follow the established architecture principles.
 
 ---
