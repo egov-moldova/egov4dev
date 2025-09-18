@@ -2,7 +2,7 @@ Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of intercon
 
 ## **MConnect** – interoperability platform
 
-<img src="../../assets/logos/mconnect-logo.png" alt="MConnect logo" width="150" align="right"/> MConnect is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
+<img src="../../assets/logos/mconnect-logo.png" alt="MConnect logo" width="140" align="right"/> MConnect is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
 
 The use of MConnect ensures access to authentic data directly from the original sources, reduces administrative burden, eliminates duplication of information, and contributes to increased efficiency in the interaction between citizens, businesses, and the state.  
 
@@ -14,7 +14,7 @@ Today, more than 480 institutions are connected to MConnect, ensuring millions o
 
 ## **MPass** – authentication and authorization service
 
-<img src="../../assets/logos/mpass-logo.png" alt="MPass logo" width="150" align="right"/> MPass is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
+<img src="../../assets/logos/mpass-logo.png" alt="MPass logo" width="140" align="right"/> MPass is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
 
 Authentication through MPass can be performed using various methods, such as mobile signature, cryptographic token, or the EVOSign application. The system complies with international security standards, ensuring the confidentiality and integrity of the authentication process.  
 
@@ -24,7 +24,7 @@ Currently, MPass is integrated with more than 190 government platforms and syste
 
 ## **MSign** – electronic signature service
 
-<img src="../../assets/logos/msign-logo.png" alt="MSign logo" width="150" align="right"/> MSign is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
+<img src="../../assets/logos/msign-logo.png" alt="MSign logo" width="140" align="right"/> MSign is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
 
 Through MSign, citizens and organizations can sign contracts, requests, certificates, and other official documents using qualified certificates issued by accredited providers. The signed documents ensure integrity, authenticity, and non-repudiation, in accordance with the law.  
 
@@ -34,7 +34,7 @@ The platform contributes to reducing bureaucracy, saving time, and ensuring a hi
 
 ## **MPower** – delegation service
 
-<img src="../../assets/logos/mpower-logo.png" alt="MPower logo" width="150" align="right"/> MPower is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
+<img src="../../assets/logos/mpower-logo.png" alt="MPower logo" width="140" align="right"/> MPower is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
 
 Through MPower, a parent can delegate authority to access services on behalf of their child, an employer can delegate tasks to employees, and lawyers can represent clients. The system is integrated with MPass, MSign, MConnect, and MNotify, ensuring secure and verifiable delegation processes.  
 
@@ -44,7 +44,7 @@ This service brings significant benefits in terms of flexibility, reducing the n
 
 ## **MNotify** – notification service
 
-<img src="../../assets/logos/mnotify-logo.png" alt="MNotify logo" width="150" align="right"/> MNotify is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
+<img src="../../assets/logos/mnotify-logo.png" alt="MNotify logo" width="140" align="right"/> MNotify is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
 
 Notifications sent through MNotify keep citizens informed about fines, payments, deadlines, allowances, and other obligations or rights. The system improves communication between the government and citizens, ensuring transparency and efficiency.  
 
@@ -54,7 +54,7 @@ MNotify can send both automatic and manual notifications, offering flexibility t
 
 ## **MDelivery** – document delivery service
 
-<img src="../../assets/logos/mdelivery-logo.png" alt="MDelivery logo" width="150" align="right"/> MDelivery is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
+<img src="../../assets/logos/mdelivery-logo.png" alt="MDelivery logo" width="140" align="right"/> MDelivery is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
 
 Launched in July 2022, MDelivery allows citizens to receive documents such as criminal record certificates, civil status certificates, or apostilled documents through integrated postal service providers.  
 
@@ -64,7 +64,7 @@ The platform reduces administrative costs, increases accessibility, and provides
 
 ## **MLog** – logging service
 
-<img src="../../assets/logos/mlog-logo.png" alt="MLog logo" width="150" align="right"/> MLog is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
+<img src="../../assets/logos/mlog-logo.png" alt="MLog logo" width="140" align="right"/> MLog is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
 
 The service is mandatory for all systems that process personal data and critical government information, as established by Government Decision no. 708/2014.  
 
@@ -74,7 +74,7 @@ MLog provides authorities with the necessary tools to audit activity, detect ano
 
 ## **MDocs** – document management platform
 
-<img src="../../assets/logos/mdocs-logo.png" alt="MDocs logo" width="150" align="right"/> MDocs is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
+<img src="../../assets/logos/mdocs-logo.png" alt="MDocs logo" width="140" align="right"/> MDocs is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
 
 The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards.  
 
