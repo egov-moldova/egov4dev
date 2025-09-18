@@ -1,6 +1,6 @@
 # egov4dev
 
-This repository contains the source for **egov4dev**, the official developer documentation for the eGovernment (AGE) ecosystem of the Republic of Moldova.
+This repository contains the source for **egov4dev**, the official developer documentation for the Moldovan eGovernance Agency (MEGA) ecosystem of the Republic of Moldova.
 
 📚 The published documentation is available at:  
 👉 [https://egov-moldova.github.io/egov4dev](https://egov-moldova.github.io/egov4dev)
@@ -17,7 +17,7 @@ This repository contains the source for **egov4dev**, the official developer doc
 
 ## Governance
 
-The content of this repository is maintained and regulated by the eGovernment Agency.  
+The content of this repository is maintained and regulated by MEGA.  
 External contributions are not accepted. Updates are made in accordance with internal procedures and approved documentation standards.
 
 ---
