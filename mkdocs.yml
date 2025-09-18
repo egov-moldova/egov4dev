@@ -2,7 +2,7 @@ site_name: egov4dev
 site_url: https://egov-moldova.github.io/egov4dev/
 
 nav:
-  - Home: index.md
+  - Homexcv: index.md
   - Platforms and services: platforms/services.md
   - Development principles: principles/architecture.md
   - Tools and technologies: tools/technologies.md
