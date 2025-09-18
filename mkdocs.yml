@@ -8,7 +8,8 @@ nav:
   - Tools and technologies: tools/technologies.md
   - Glossary: glossary/glossary.md
   - Integration guides:
-      - MPass: guides/mpass/index.md
+      - MPass:
+          - Overview: guides/mpass/index.md
           - Interaction scenarios: guides/mpass/interaction-scenarios.md
           - Integration development: guides/mpass/integration-development.md
           - Integration tests: guides/mpass/integration-tests.md
@@ -16,7 +17,8 @@ nav:
           - Examples: guides/mpass/examples.md
           - Integration libraries: guides/mpass/integration-libraries.md
           - Change log: guides/mpass/change-log.md
-      - MSign: guides/msign/index.md
+      - MSign:
+          - Overview: guides/msign/index.md
           - Interaction scenarios: guides/msign/interaction-scenarios.md
           - Integration development: guides/msign/integration-development.md
           - API references: guides/msign/api-references.md
@@ -24,9 +26,9 @@ nav:
           - Integration libraries: guides/msign/integration-libraries.md
           - Change log: guides/msign/change-log.md
       - MNotify:
-          - Introducere: mservices/mnotify/index.md
-          - Jurnalul modificărilor: mservices/mnotify/change-log.md
-          - Parcursul integrării: mservices/mnotify/integration-development.md
+          - Overview: guides/mnotify/index.md
+          - Change log: guides/mnotify/change-log.md
+          - Integration development: guides/mnotify/integration-development.md
       - MPower:
           - Overview: guides/mpower/index.md
           - Change log: guides/mpower/change-log.md
