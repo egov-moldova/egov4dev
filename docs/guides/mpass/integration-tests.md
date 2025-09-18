@@ -1,8 +1,7 @@
 ﻿# Integration tests
 
-This page consolidates developer-focused test scenarios for MPass integrations. It is structured for engineering teams to verify functionality and security without managerial “Pass/Fail” phrasing. Each scenario lists prerequisites, steps, expected outcome, and verification points.
-
-Tip: Keep production traffic clean. Run these tests only against the testing environment.
+This page consolidates developer-focused test scenarios for MPass integrations.
+Tip: Keep production traffic clean. Run these tests only against the testing environment, and when you are ready to move to production, re-run critical tests there.
 
 - Testing SSO URL: https://mpass.staging.egov.md/login/saml
 - Testing SLO URL: https://mpass.staging.egov.md/logout/saml
