@@ -1,3 +1,6 @@
-﻿# MConnect Events – Change log
+﻿# Change Log
 
-Soon
+##**Date: April 15, 2025**
+
+!!!note "Version: 1.0"
+Initial version
