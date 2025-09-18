@@ -1,4 +1,4 @@
-The eGovernment Agency (AGE) ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
+Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
 
 ## 🔗 **MConnect** – interoperability platform
 
@@ -12,9 +12,9 @@ Today, more than 480 institutions are connected to MConnect, ensuring millions o
 
 ---
 
-## 🔐 **MPass** – authentication and authorization service
+## 🔐 <img src="../../assets/logos/mpass-logo.png" alt="MPass logo" width="50"/> **MPass** – authentication and authorization service
 
-<img src="../../assets/logos/mpass.png" alt="MPass logo" width="150" align="right"/> MPass is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
+<img src="../../assets/logos/mpass-logo.png" alt="MPass logo" width="150" align="right"/> MPass is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
 
 Authentication through MPass can be performed using various methods, such as mobile signature, cryptographic token, or the EVOSign application. The system complies with international security standards, ensuring the confidentiality and integrity of the authentication process.  
 
