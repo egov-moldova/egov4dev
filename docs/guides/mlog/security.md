@@ -1,6 +1,4 @@
-﻿# MLog — Security
-
-## Security considerations
+﻿## Security considerations
 
 ### Authentication
 

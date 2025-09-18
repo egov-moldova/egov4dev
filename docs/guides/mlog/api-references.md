@@ -1,6 +1,4 @@
-﻿# MLog — API references
-
-## API Reference
+﻿## API Reference
 
 ### Error handling rules
 

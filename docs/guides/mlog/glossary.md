@@ -1,6 +1,4 @@
-﻿# MLog — Glossary
-
-## Glossary of terms
+﻿## Glossary of terms
 
 | Term  | Definition |
 | ---   | --- |

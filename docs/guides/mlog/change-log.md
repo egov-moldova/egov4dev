@@ -1,6 +1,4 @@
-﻿# MLog — Change log
-
-## Change Log
+﻿## Change Log
 
 | Version | Date       | Description |
 | ---     | ---        | --- |

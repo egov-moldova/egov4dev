@@ -1,6 +1,4 @@
-﻿# MLog — Interaction scenarios
-
-## Registration process
+﻿## Registration process
 
 The most important integration scenario with MLog is registering an event. An event may be a single JSON object or a batch of JSON objects. MLog accepts signed, unsigned, or mixed (signed and unsigned) events in a single request.
 

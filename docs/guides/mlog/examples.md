@@ -1,6 +1,4 @@
-﻿# MLog — Examples
-
-### Signing an event
+﻿### Signing an event
 
 MLog uses the JSON Object Signing and Encryption (JOSE/JWS, see [1] and [2]) protocol to sign a message.
 
