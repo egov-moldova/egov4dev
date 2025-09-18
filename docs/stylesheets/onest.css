@@ -1,0 +1,87 @@
+/* 100 – Thin */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 200 – ExtraLight */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 300 – Light */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 400 – Regular */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 500 – Medium */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 600 – SemiBold */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 700 – Bold */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 800 – ExtraBold */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 900 – Black */
+@font-face {
+    font-family: 'Onest';
+    src: url('../assets/fonts/Onest-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Set font to Onest */
+:root {
+    --md-text-font: 'Onest';
+    /* code font:*/
+    --md-code-font: 'Fira Code', monospace;
+}

@@ -49,3 +49,34 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.top
+extra:
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/eGovCenterMoldova
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/eGovernanceAgency.Moldova
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/e-government-center
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/e_guvernare_moldova/
+    - icon: fontawesome/brands/flickr
+      link: https://www.flickr.com/photos/201389958@N05/
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/onest.css
+  - stylesheets/table.css
+
+extra_javascript:
+  - js/external-links.js
+
+markdown_extensions:
+  - admonition
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.tabbed:
+      alternate_style: true
+
+copyright: © Agenția de Guvernare Electronică. Toate drepturile rezervate. 
