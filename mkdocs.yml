@@ -12,6 +12,7 @@ nav:
           - Overview: guides/mpass/index.md
           - Interaction scenarios: guides/mpass/interaction-scenarios.md
           - Integration development: guides/mpass/integration-development.md
+          - Integration tests: guides/mpass/integration-tests.md
           - API references: guides/mpass/api-references.md
           - Examples: guides/mpass/examples.md
           - Integration libraries: guides/mpass/integration-libraries.md
