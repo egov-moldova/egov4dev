@@ -43,6 +43,13 @@ nav:
           - API references: guides/mconnect-events/api-references.md
           - Examples: guides/mconnect-events/examples.md
           - Integration libraries: guides/mconnect-events/integration-libraries.md
+      - MDocs:
+          - Overview: guides/mdocs/index.md
+          - Interaction scenarios: guides/mdocs/interaction-scenarios.md
+          - Integration development: guides/mdocs/integration-development.md
+          - Security: guides/mdocs/security.md
+          - API references: guides/mdocs/api-references.md
+          - Glossary: guides/mdocs/glossary.md
 
 theme:
   name: material
