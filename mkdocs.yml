@@ -8,14 +8,15 @@ nav:
   - Tools and technologies: tools/technologies.md
   - Glossary: glossary/glossary.md
   - Integration guides:
-      - MPass: guides/mpass/index.md
-      - MPass - Interaction scenarios: guides/mpass/interaction-scenarios.md
-      - MPass - Integration development: guides/mpass/integration-development.md
-      - MPass - Integration tests: guides/mpass/integration-tests.md
-      - MPass - API references: guides/mpass/api-references.md
-      - MPass - Examples: guides/mpass/examples.md
-      - MPass - Integration libraries: guides/mpass/integration-libraries.md
-      - MPass - Change log: guides/mpass/change-log.md
+      - MPass: 
+          - Overview: guides/mpass/index.md
+          - Interaction scenarios: guides/mpass/interaction-scenarios.md
+          - Integration development: guides/mpass/integration-development.md
+          - Integration tests: guides/mpass/integration-tests.md
+          - API references: guides/mpass/api-references.md
+          - Examples: guides/mpass/examples.md
+          - Integration libraries: guides/mpass/integration-libraries.md
+          - Change log: guides/mpass/change-log.md
       - MSign:
           - Overview: guides/msign/index.md
           - Interaction scenarios: guides/msign/interaction-scenarios.md
