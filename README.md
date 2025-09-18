@@ -1,4 +1,4 @@
-# Welcome devs
+# MEGA egov4dev repository
 This repository contains the source for **egov4dev**, the official developer documentation for the Moldovan eGovernance Agency (MEGA) ecosystem of the Republic of Moldova.
 
 📚 The published documentation is available at:  
