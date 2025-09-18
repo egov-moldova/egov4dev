@@ -1,66 +1,81 @@
-Ecosistemul Agenției de Guvernare Electronică este compus dintr-o serie de platforme si servicii interconectate, fiecare având un rol specific în digitalizarea serviciilor publice. Acestea contribuie la crearea unui mediu digital sigur, eficient și centrat pe cetățean.
+The eGovernment Agency (AGE) ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
 
-* * *
+## 🔗 **MConnect** – Interoperability platform
 
-## 🔗 MConnect –  serviciul guvernamental de interoperabilitate
+MConnect is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
 
-MConnect este infrastructura de bază pentru interoperabilitatea între sistemele informaționale ale instituțiilor publice. Prin această platformă, autoritățile pot face schimb de date în timp real, fără a solicita informații direct de la cetățeni sau companii sub formă de certificate, copii sau rapoarte.
+The use of MConnect ensures access to authentic data directly from the original sources, reduces administrative burden, eliminates duplication of information, and contributes to increased efficiency in the interaction between citizens, businesses, and the state.  
 
-Platforma funcționează pe baza unor principii fundamentale: **gratuitatea datelor între instituții publice**, **disponibilitatea egală a datelor**, **legalitatea accesului**, **autenticitatea informațiilor** și **responsabilitatea partajată**. MConnect contribuie semnificativ la eficientizarea serviciilor publice, reducerea costurilor administrative și creșterea securității cibernetice. Cu peste **480 de instituții conectate** și **milioane de schimburi de date zilnice**, MConnect este coloana vertebrală a digitalizării administrației publice.
+The platform is based on the principles of legality, equal access, authenticity, and shared responsibility of data providers and consumers. Institutions connected to MConnect provide services to other entities through secure communication channels, according to established agreements and legal provisions.  
 
-* * *
+Today, more than 480 institutions are connected to MConnect, ensuring millions of automated data exchanges every day. This makes MConnect a fundamental component of the national e-Government infrastructure, contributing directly to the digital transformation of public administration.  
 
-## 🔐 MPass –  serviciul guvernamental de autentificare și autorizare
+---
 
-MPass este soluția guvernamentală pentru autentificare unică (Single Sign-On), care permite cetățenilor și reprezentanților instituțiilor să acceseze în mod securizat serviciile electronice publice. Utilizatorii se pot autentifica prin diverse metode, inclusiv **semnătura electronică mobilă**, **token USB** sau aplicația **EVOSign**.
-Serviciul este integrat cu peste **190 de platforme și sisteme guvernamentale**, oferind un punct unic de acces și control asupra datelor personale. MPass este reglementat prin Hotărârea Guvernului nr. 1090/2013 și este esențial pentru asigurarea securității și eficienței în utilizarea serviciilor digitale. Prin autentificarea în doi pași și integrarea cu aplicații mobile, MPass susține o experiență digitală modernă și sigură.
+## 🔐 **MPass** – Authentication and authorization service
 
-* * *
+MPass is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
 
-## ✍️ MSign –  serviciul guvernamental de semnătură electronică
+Authentication through MPass can be performed using various methods, such as mobile signature, cryptographic token, or the EVOSign application. The system complies with international security standards, ensuring the confidentiality and integrity of the authentication process.  
 
-MSign este platforma care permite semnarea electronică a documentelor cu valoare juridică, eliminând necesitatea prezenței fizice sau a documentelor pe hârtie. Serviciul este compatibil cu semnătura electronică calificată, fie mobilă, fie pe dispozitiv criptografic, și este integrat cu sistemele guvernamentale și private.
+Currently, MPass is integrated with more than 190 government platforms and systems, offering citizens a convenient and secure way to access e-services.  
 
-MSign asigură **integritatea, autenticitatea și non-repudierea** documentelor semnate, fiind un element central în procesele administrative digitale. Este utilizat în scenarii precum semnarea certificatelor medicale, contractelor, cererilor și altor acte oficiale, contribuind la eficientizarea proceselor și reducerea birocrației.
+---
 
-* * *
+## ✍️ **MSign** – Electronic signature service
 
-## 🧾 MPower – serviciul guvernamental de delegare digitală
+MSign is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
 
-MPower permite delegarea digitală a drepturilor și responsabilităților între persoane fizice sau juridice, în cadrul serviciilor publice electronice. Este construit pe baza serviciilor MPass, MSign, MNotify și MConnect, oferind un mecanism sigur și verificabil pentru reprezentare legală la distanță.
+Through MSign, citizens and organizations can sign contracts, requests, certificates, and other official documents using qualified certificates issued by accredited providers. The signed documents ensure integrity, authenticity, and non-repudiation, in accordance with the law.  
 
-Prin MPower, un angajat poate acționa în numele instituției, un părinte în numele copilului, sau un avocat în numele clientului, fără a fi necesară prezența fizică. Serviciul este esențial pentru scenarii complexe de guvernanță digitală și contribuie la extinderea accesului la servicii în mod flexibil și legal.
+The platform contributes to reducing bureaucracy, saving time, and ensuring a higher level of security in communication between the state, businesses, and citizens.  
 
-* * *
+---
 
-## 🔔 MNotify – serviciul guvernamental de notificare electronică
+## 🧾 **MPower** – Delegation service
 
-MNotify este platforma prin care instituțiile publice pot trimite notificări oficiale către cetățeni și companii, folosind canale precum **email**, **SMS**, **push notifications** sau **mesagerie instant**. Serviciul este integrat cu portalul guvernamental **MCabinet** și permite informarea proactivă a beneficiarilor despre evenimente importante: amenzi, plăți, indemnizații, termene administrative etc.
+MPower is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
 
-Notificările pot fi generate automat de sistemele informaționale sau manual de operatorii instituțiilor. MNotify este oferit **gratuit** atât pentru autorități, cât și pentru destinatari, și contribuie la creșterea transparenței și eficienței în comunicarea guvern-cetățean.
+Through MPower, a parent can delegate authority to access services on behalf of their child, an employer can delegate tasks to employees, and lawyers can represent clients. The system is integrated with MPass, MSign, MConnect, and MNotify, ensuring secure and verifiable delegation processes.  
 
-* * *
+This service brings significant benefits in terms of flexibility, reducing the need for physical presence, and offering trusted mechanisms for legal digital representation.  
 
-## 📦 MDelivery – serviciul guvernamental de livrare a documentelor
+---
 
-MDelivery este platforma guvernamentală care permite livrarea fizică a documentelor oficiale direct la adresa cetățeanului, fără a fi necesară deplasarea la ghișee sau oficii. Lansat în iulie 2022, serviciul conectează trei actori principali: instituția publică (expeditorul), cetățeanul (destinatarul) și furnizorul de servicii poștale. Prin această infrastructură, rezultatele serviciilor publice – cum ar fi cazierele, certificatele, extrasele – pot fi livrate eficient, atât pe teritoriul Republicii Moldova, cât și în străinătate.
+## 🔔 **MNotify** – Notification service
 
-Platforma MDelivery contribuie la reducerea costurilor administrative, creșterea accesibilității și eficientizarea proceselor de livrare. Cetățenii pot solicita livrarea documentelor direct de la ghișeu sau online, prin portalul mdelivery.gov.md. Serviciul este în continuă extindere, incluzând tot mai multe tipuri de documente și scenarii de utilizare, precum livrarea cazierului judiciar sau a documentelor apostilate.
+MNotify is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
 
-* * *
+Notifications sent through MNotify keep citizens informed about fines, payments, deadlines, allowances, and other obligations or rights. The system improves communication between the government and citizens, ensuring transparency and efficiency.  
 
-## 📜 MLog – serviciul guvernamental de jurnalizare
+MNotify can send both automatic and manual notifications, offering flexibility to institutions and convenience to recipients.  
 
-MLog este serviciul guvernamental dedicat **jurnalizării centralizate** a evenimentelor din sistemele informaționale publice. Găzduit pe platforma tehnologică comună **MCloud**, MLog oferă un mecanism reutilizabil și standardizat pentru înregistrarea acțiunilor întreprinse în cadrul aplicațiilor guvernamentale. Fiecare eveniment jurnalizat include informații precum **data și ora**, **identificatorul utilizatorului**, **acțiunea efectuată**, **resursa accesată** și alte detalii relevante pentru audit și trasabilitate.
+---
 
-Scopul principal al MLog este să asigure **transparența, responsabilitatea și securitatea** în utilizarea serviciilor digitale. Prin integrarea cu alte platforme precum MPass, MSign și MConnect, MLog permite instituțiilor să monitorizeze activitatea utilizatorilor, să detecteze comportamente neautorizate și să respecte cerințele legale privind protecția datelor și auditul intern.
+## 📦 **MDelivery** – Document delivery service
 
-MLog este reglementat prin Hotărârea Guvernului nr. 708/2014 și este obligatoriu pentru toate sistemele informaționale care gestionează date cu caracter personal sau procese administrative critice. Prin utilizarea acestui serviciu, AGE contribuie la consolidarea încrederii în guvernarea digitală și la crearea unui mediu operațional sigur și verificabil.
+MDelivery is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
 
-* * *
+Launched in July 2022, MDelivery allows citizens to receive documents such as criminal record certificates, civil status certificates, or apostilled documents through integrated postal service providers.  
 
-## 📁 MDocs – platforma guvernamentală de găzduire și partajare a documentelor
+The platform reduces administrative costs, increases accessibility, and provides a modern way for the government to deliver official documents both within Moldova and abroad.  
 
-MDocs este o platformă digitală centralizată pentru stocarea, partajarea și accesarea documentelor generate în procesul de prestare a serviciilor publice. Scopul principal al MDocs este **reducerea utilizării hârtiei** și **standardizarea proceselor de partajare** între instituții și cetățeni. Documentele pot fi încărcate automat de către sistemele informaționale ale instituțiilor sau manual de către operatori, în cazul în care instituția nu dispune de o soluție proprie.
+---
 
-Platforma oferă facilități avansate de gestionare, arhivare și schimb automat de date între sisteme. Cetățenii și companiile pot accesa documentele prin MCabinet și le pot partaja cu alte entități autorizate. MDocs contribuie la eficientizarea serviciilor publice, reducerea costurilor și creșterea transparenței în relația guvern-cetățean. Este un pilon esențial în procesul de digitalizare a administrației publice din Republica Moldova.
+## 📜 **MLog** – Logging service
+
+MLog is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
+
+The service is mandatory for all systems that process personal data and critical government information, as established by Government Decision no. 708/2014.  
+
+MLog provides authorities with the necessary tools to audit activity, detect anomalies, and prevent unauthorized access or misuse of information systems.  
+
+---
+
+## 📁 **MDocs** – Document management platform
+
+MDocs is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
+
+The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards.  
+
+MDocs is an essential component of Moldova’s digital government ecosystem, contributing to the efficiency of public administration and the convenience of interactions between citizens, businesses, and the state.
