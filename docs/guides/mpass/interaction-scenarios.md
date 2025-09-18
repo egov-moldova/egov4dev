@@ -6,9 +6,7 @@ The most important integration scenario with MPass is user authentication.
 
 During this process, if the user is already authenticated, MPass session is not expired and authentication is not forced, user is not requested to proof its identity again. This is actually how single sign-on (SSO) is implemented.
 
-<picture class="theme-picture">
-  <img src="../../assets/umls/mpass/interaction_scenarios/sso_lightmode.svg" alt="Signing flow" data-theme="light">
-</picture>
+<img src="../../../assets/umls/mpass/interaction_scenarios/sso_lightmode.svg" alt="SSO diagram">
 
 Here is the description of authentication process using MPass:
 
@@ -29,9 +27,7 @@ Here is the description of authentication process using MPass:
 
 Because users can login into many services during an MPass session, from security point of view SSO is not fully implemented without a proper SLO (Single logout). Integrating services MUST implement both.
 
-<picture class="theme-picture">
-  <img src="../../assets/umls/mpass/interaction_scenarios/slo_lightmode.svg" alt="Signing flow" data-theme="light">
-</picture>
+<img src="../../../assets/umls/mpass/interaction_scenarios/slo_lightmode.svg" alt="SLO diagram">
 
 Here is the description of logout process using MPass:
 

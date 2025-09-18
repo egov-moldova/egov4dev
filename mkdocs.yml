@@ -4,7 +4,7 @@ site_url: https://egov-moldova.github.io/egov4dev/
 nav:
   - Home: index.md
   - Platforms and services: platforms/services.md
-  - Development principles: development/principles.md
+  - Development principles: principles/architecture.md
   - Tools and technologies: tools/technologies.md
   - Glossary: glossary/glossary.md
   - Guides:
@@ -43,6 +43,8 @@ nav:
 
 theme:
   name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
   features:
     - navigation.sections
     - navigation.expand
