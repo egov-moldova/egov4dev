@@ -1,4 +1,4 @@
-# egov4dev
+# Welcome devs
 
 **egov4dev** is the official documentation library for developers working with the **MEGA** (Moldovan eGovernance Agency) ecosystem of the Republic of Moldova.  
 It provides guidance on how to integrate government platforms and services, use the shared development stack, and follow the established architecture principles.
@@ -9,17 +9,11 @@ It provides guidance on how to integrate government platforms and services, use 
 
 The documentation is organized as follows:
 
-- **Platforms and services** – overview of the core AGE services (MConnect, MPass, MSign, MPower, MNotify, MDelivery, MLog, MDocs)  
+- **Platforms and services** – overview of the core MEGA services (MConnect, MPass, MSign, MPower, MNotify, MDelivery, MLog, MDocs)  
 - **Development principles** – architectural and design principles for building interoperable government solutions  
-- **Development stack** – technologies, frameworks, and tools used across projects  
+- **Tools and technologies** – technologies, frameworks, and tools used across projects  
 - **Glossary** – centralized list of terms, definitions, and acronyms  
-- **Integration guides** – step-by-step guides for each service:
-  - MPass
-  - MSign
-  - MConnect Events
-  - MPay
-  - MPower
-  - MNotify
+- **Integration guides** – step-by-step guides for each service
 
 Each integration guide includes: interaction scenarios, integration development steps, API references, examples, libraries, and change log.
 
