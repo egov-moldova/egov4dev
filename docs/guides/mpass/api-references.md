@@ -9,10 +9,25 @@ This page describes the public interfaces exposed by MPass for Service Providers
 
 MPass exposes distinct testing and production environments. Use testing for all development and verification.
 
-| Environment | SSO URL | SLO URL | Metadata index | SAML metadata |
-|---|---|---|---|---|
-| Testing | https://mpass.staging.egov.md/login/saml | https://mpass.staging.egov.md/logout/saml | https://mpass.staging.egov.md/meta | https://mpass.staging.egov.md/meta/saml |
-| Production | https://mpass.gov.md/login/saml | https://mpass.gov.md/logout/saml | https://mpass.gov.md/meta | https://mpass.gov.md/meta/saml |
+Tip: The table has been inverted to render better on narrow screens.
+
+### Testing
+
+| Item | Value |
+|---|---|
+| SSO URL | https://mpass.staging.egov.md/login/saml |
+| SLO URL | https://mpass.staging.egov.md/logout/saml |
+| Metadata index | https://mpass.staging.egov.md/meta |
+| SAML metadata | https://mpass.staging.egov.md/meta/saml |
+
+### Production
+
+| Item | Value |
+|---|---|
+| SSO URL | https://mpass.gov.md/login/saml |
+| SLO URL | https://mpass.gov.md/logout/saml |
+| Metadata index | https://mpass.gov.md/meta |
+| SAML metadata | https://mpass.gov.md/meta/saml |
 
 Notes:
 - The metadata index page contains links to the IdP signing certificate(s). Pin and rotate per environment.
