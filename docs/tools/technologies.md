@@ -56,7 +56,6 @@ AGE uses government infrastructure for hosting and orchestrating services:
 
 *   Centralization through **Azure DevOps**
 *   Systems for **alerting**, **logging**, **auditing**, and **tracing**
-*   **Serilog** – [NuGet: `Serilog`](https://www.nuget.org/packages/serilog) – structured logging
 *   **Elasticsearch** – for indexing and fast searching of logs and operational data
 *   **Kibana** – for visualizing data from Elasticsearch
 *   **Prometheus + Grafana** – for monitoring and visualizing metrics
