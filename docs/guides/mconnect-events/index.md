@@ -1,5 +1,3 @@
-﻿#Introduction
-
 Data exchange in any Government is a complex endeavor across various levels of effort, including
 legal, semantic, organizational and technical. In Moldova, the technical level of data exchange is
 facilitated by MConnect – a national data exchange platform. There are many well-known patterns to
@@ -39,81 +37,9 @@ This document describes the technical interfaces exposed by MConnect Events for 
 information systems that are using it to produce and consume events. Its target audience is the
 development teams for those information systems.
 
-##**Notations**
-This document contains several notation styles; the following details the styles that have a degree of significance beyond the purpose of communicating information:
-<br><span class="highlight-text-yellow">Yellow Highlighted Text</span> – Text that is highlighted in yellow irrespective of font attributes (font type, italics, bold, underlined, etc.) means that the text is waiting clarification or verification.
-<br><span class="red-bold-text">Red Bold Text</span> – Text that is red in color and bold, defines an important piece of information that must be read.
-<br>***Italic Bold Text*** – Text that is bold and italic detail actual information or scripts that need to be executed, created, and copied from or to.
-<br>~~Strikethrough Text~~ – Text which is outdated and should be ignored
-
 ##**Glossary of terms**
 
-<table>
-    <thead>
-         <tr>
-            <th><strong>Term</strong></th>
-            <th><strong>Definition</strong></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th><strong>API</strong></th>
-            <td>Application Programming Interface</td>
-        </tr>
-        <tr>
-            <th><strong>CONNECT</strong></th>
-            <td>A standard HTTP request method</td>
-        </tr>
-        <tr>
-            <th><strong>GET</strong></th>
-            <td>A standard HTTP request method</td>
-        </tr>
-        <tr>
-            <th><strong>HTTP</strong></th>
-            <td>Hypertext Transfer Protocol</td>
-        </tr>
-        <tr>
-            <th><strong>IDNO</strong></th>
-            <td>Legal entity unique identifier</td>
-        </tr>
-        <tr>
-            <th><strong>IDNP</strong></th>
-            <td>Natural person unique identifier</td>
-        </tr>
-        <tr>
-            <th><strong>JSON</strong></th>
-            <td>JavaScript Object Notation, a format for storing and transporting data</td>
-        </tr>
-        <tr>
-            <th><strong>POST</strong></th>
-            <td>A standard HTTP request method</td>
-        </tr>
-        <tr>
-            <th><strong>REST</strong></th>
-            <td>Representational State Transfer, a software architectural style that defines a set of methods to build web APIs</td>
-        </tr>
-        <tr>
-            <th><strong>TLS</strong></th>
-            <td>Transport Layer Security</td>
-        </tr>
-        <tr>
-            <th><strong>URI</strong></th>
-            <td>Uniform Resource Identifier</td>
-        </tr>
-        <tr>
-            <th><strong>URN</strong></th>
-            <td>Uniform Resource Name</td>
-        </tr>
-        <tr>
-            <th><strong>WS</strong></th>
-            <td>WebSocket, a simultaneous two-way communication protocol working over HTTP</td>
-        </tr>
-        <tr>
-            <th><strong>WSS</strong></th>
-            <td>WebSocket Secure, extension of WS that uses encryption for communication based on TLS</td>
-        </tr>
-    </tbody>
-</table>
+For the complete glossary, please visit the [Glossary page](https://egov-moldova.github.io/egov4dev/glossary/glossary/).
 
 ##**General system capabilities**
 
