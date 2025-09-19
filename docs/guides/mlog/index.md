@@ -1,5 +1,3 @@
-﻿# MLog
-
 MLog is the centralized logging and audit service for public sector information systems operated by the Moldovan eGovernance Agency (MEGA).
 
 It enables systems to:
@@ -11,19 +9,14 @@ It enables systems to:
 
 Note: This page provides a short overview. For full integration details, see the PDF guide below.
 
-Resources
-
-- MLog Integration Guide (PDF): ../../MLog%20Integration%20Guide.pdf
-- Platforms and services overview: ../../platforms/services.md
-
-Getting started
+## Getting started
 
 1. Request access and credentials from MEGA support.
 2. Configure your application to send logs using the supported protocol (e.g., HTTP/JSON or syslog).
 3. Use correlation IDs in your services for end-to-end tracing across MPay, MPass, MSign, MPower, etc.
 4. Define retention and access policies according to your organization’s needs.
 
-Best practices
+## Best practices
 
 - Structure logs as JSON with consistent fields (timestamp, level, service, action, user, correlationId, details)
 - Do not log secrets (passwords, tokens, private keys)
@@ -39,8 +32,6 @@ If you need a more detailed set of examples, reach out to the platform team or c
 MLog facilitates the registration of legal events received from official sources and provides easy access to their history. This guide describes the technical interfaces exposed by MLog for information systems that use MLog as a legal events registrar. It targets development teams of those systems.
 
 It includes integration development details, security considerations, and an API reference. The guide is accompanied by samples that exemplify the main interaction scenarios.
-
-## Introduction
 
 ### Scope and target audience
 
@@ -58,14 +49,6 @@ The recommended reading sequence is:
 - Security considerations
 
 The remaining chapters are for reference purpose.
-
-### Notations
-
-This document contains several notation styles; the following have significance beyond simply communicating information:
-
-- Yellow highlighted text: awaiting clarification or verification.
-- Red bold text: important information that must be read.
-- Italic bold text: actual commands or scripts that need to be executed or copied.
 
 ## Organizational context
 
