@@ -1,5 +1,3 @@
-﻿# MDocs – Overview
-
 MDocs is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.
 
 The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards. MDocs is an essential component of Moldova’s digital government ecosystem, contributing to the efficiency of public administration and the convenience of interactions between citizens, businesses, and the state.
@@ -20,12 +18,6 @@ Recommended reading order:
 - Usage (interaction) scenarios
 - Integration development
 - Security considerations
-
-### Notations
-
-- Yellow highlighted text: pending clarification or verification.
-- Red bold text: important information that must be read.
-- Italic bold text: concrete information or scripts that need to be executed or copied.
 
 ## Organizational context
 ### Service owner
