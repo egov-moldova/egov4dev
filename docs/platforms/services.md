@@ -1,4 +1,5 @@
 Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
+
 <img src="../../assets/egov-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
 
 
