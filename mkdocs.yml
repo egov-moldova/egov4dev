@@ -50,7 +50,6 @@ nav:
           - Integration development: guides/mdocs/integration-development.md
           - Security: guides/mdocs/security.md
           - API references: guides/mdocs/api-references.md
-          - Glossary: guides/mdocs/glossary.md
       - MLog:
           - Overview: guides/mlog/index.md
           - Interaction scenarios: guides/mlog/interaction-scenarios.md
