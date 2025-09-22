@@ -27,23 +27,23 @@ nav:
           - Change log: guides/msign/change-log.md
       - MNotify:
           - Overview: guides/mnotify/index.md
-          - Change log: guides/mnotify/change-log.md
           - Integration development: guides/mnotify/integration-development.md
+          - Change log: guides/mnotify/change-log.md
       - MPower:
           - Overview: guides/mpower/index.md
-          - Change log: guides/mpower/change-log.md
           - Interaction scenarios: guides/mpower/interaction-scenarios.md
           - Integration development: guides/mpower/integration-development.md
           - Security: guides/mpower/security.md
           - API references: guides/mpower/api-references.md
+          - Change log: guides/mpower/change-log.md
       - MConnect Events:
           - Overview: guides/mconnect-events/index.md
-          - Change log: guides/mconnect-events/change-log.md
           - Interaction scenarios: guides/mconnect-events/interaction-scenarios.md
           - Integration development: guides/mconnect-events/integration-development.md
           - API references: guides/mconnect-events/api-references.md
           - Examples: guides/mconnect-events/examples.md
           - Integration libraries: guides/mconnect-events/integration-libraries.md
+          - Change log: guides/mconnect-events/change-log.md
       - MDocs:
           - Overview: guides/mdocs/index.md
           - Interaction scenarios: guides/mdocs/interaction-scenarios.md
@@ -60,7 +60,6 @@ nav:
           - Integration libraries: guides/mlog/integration-libraries.md
           - Security: guides/mlog/security.md
           - Change log: guides/mlog/change-log.md
-          - Glossary: guides/mlog/glossary.md
 
 theme:
   name: material
