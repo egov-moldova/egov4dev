@@ -22,29 +22,6 @@ The WSDL contract can be obtained from the following URL (base addresses are lis
 (<span class="red-bold-text">ToDo: load a WSDL/sample from current site</span>)Note that accessing the contract requires valid credentials.
 An offline copy of the WSDL can be found in .NET Sample.
 
-###**System environments**
-
-There are 2 services environments available: a testing and a production environment.
-
-<table>
-  <thead>
-    <tr>
-      <th>Environment</th>
-      <th>MSign service URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Testing</td>
-      <td><a href="https://msign.staging.egov.md:8443/MSign.svc">https://msign.staging.egov.md:8443/MSign.svc</a></td>
-    </tr>
-    <tr>
-      <td>Production</td>
-      <td><a href="https://msign.gov.md:8443/MSign.svc">https://msign.gov.md:8443/MSign.svc</a></td>
-    </tr>
-  </tbody>
-</table>
-
 !!!note "Important"
 
     It is mandatory to develop the integrations and perform tests with the testing environment
