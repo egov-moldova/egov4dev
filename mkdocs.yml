@@ -25,10 +25,6 @@ nav:
           - Examples: guides/msign/examples.md
           - Integration libraries: guides/msign/integration-libraries.md
           - Change log: guides/msign/change-log.md
-      - MNotify:
-          - Overview: guides/mnotify/index.md
-          - Integration development: guides/mnotify/integration-development.md
-          - Change log: guides/mnotify/change-log.md
       - MPower:
           - Overview: guides/mpower/index.md
           - Interaction scenarios: guides/mpower/interaction-scenarios.md
@@ -44,6 +40,10 @@ nav:
           - Examples: guides/mconnect-events/examples.md
           - Integration libraries: guides/mconnect-events/integration-libraries.md
           - Change log: guides/mconnect-events/change-log.md
+      - MNotify:
+          - Overview: guides/mnotify/index.md
+          - Integration development: guides/mnotify/integration-development.md
+          - Change log: guides/mnotify/change-log.md
       - MDocs:
           - Overview: guides/mdocs/index.md
           - Interaction scenarios: guides/mdocs/interaction-scenarios.md
