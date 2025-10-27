@@ -2,41 +2,24 @@
 
 MPass is the government-wide authentication and identity service for the Republic of Moldova. It provides secure Single Sign-On (SSO) and Single Logout (SLO) across public services and exposes a unified interface to multiple authentication methods (e.g., client certificates, mobile signature, username/password). Integrating systems use the identity information issued by MPass to make authorization decisions within their own sessions.
 
+MPass is a reusable governmental shared platform-level service the main scope of which is to offer secure authentication using a variety of authentication methods and provide information for further authorization decisions by the integrating systems. MPass enables a secure government-wide single sign-on (SSO) as well as single logout (SLO) for residents of Republic of Moldova, so that they don’t have to remember multiple credentials for different services and not requiring them to visit or register in some other way directly with the service provider.
+
 This guide targets development teams integrating their information systems with MPass. It consolidates the key concepts, protocols, and hands-on steps you need to implement and verify an integration.
-
-## At a glance
-
-- Interaction scenarios: how SSO and SLO flows work in practice — see [Interaction scenarios](interaction-scenarios.md).
-- Integration development: how to configure your Service Provider (SP), exchange metadata, and handle callbacks — see [Integration development](integration-development.md).
-- API references: endpoints, parameters, and expected responses — see [API references](api-references.md).
-- Examples: runnable samples illustrating typical integrations — see [Examples](examples.md).
-- Integration libraries: SDKs and helper libraries you can reuse — see [Integration libraries](integration-libraries.md).
-- Change log: notable changes and migration notes — see [Change log](change-log.md).
 
 ## Quick start for integrators
 
-1. Review the SSO/SLO flows to understand user and system interactions. See [Interaction scenarios](interaction-scenarios.md).
-2. Prepare your SP endpoints (Assertion Consumer Service, Single Logout Service) and generate SP metadata. See [Integration development](integration-development.md).
-3. Register your SP with MPass and exchange metadata and certificates as required. See [Integration development](integration-development.md).
-4. Implement the authentication flow using SAML 2.0 bindings supported by MPass. See [API references](api-references.md).
-5. Validate attributes received from MPass and apply your own authorization logic. See [API references](api-references.md).
-6. Test end-to-end using the provided examples or your preferred stack. See [Examples](examples.md) and [Integration libraries](integration-libraries.md).
+1. Review the SSO/SLO flows to understand user and system interactions.
+2. Prepare your SP endpoints (Assertion Consumer Service, Single Logout Service) and generate SP metadata.
+3. Register your SP with MPass and exchange metadata and certificates as required.
+4. Implement the authentication flow using SAML 2.0 bindings supported by MPass.
+5. Validate attributes received from MPass and apply your own authorization logic.
+6. Test end-to-end using the provided examples or your preferred stack.
 
-Tip: For terminology used across platforms and services, see the project [Glossary](../../glossary/glossary.md).
-
-##**Scope and target audience**
-
-This document describes the technical interfaces exposed by MPass for information systems that will use MPass as authentication and authorization information provider. Its target audience is the development teams for those information systems.
-
-The details related to various authentication methods, such as using authorized client certificates, mobile signature, username/password, etc. provided by MPass are out of scope of this document.
-
-##**Glossary of terms**
+## Glossary
 
 For the complete glossary, please visit the [Glossary page](https://egov-moldova.github.io/egov4dev/glossary/glossary/).
 
-##**General system capabilities**
-
-MPass is a reusable governmental shared platform-level service the main scope of which is to offer secure authentication using a variety of authentication methods and provide information for further authorization decisions by the integrating systems. MPass enables a secure government-wide single sign-on (SSO) as well as single logout (SLO) for residents of Republic of Moldova, so that they don’t have to remember multiple credentials for different services and not requiring them to visit or register in some other way directly with the service provider.
+## System capabilities
 
 MPass is used as intermediary between various information systems and various authentication methods. Authentication methods differ significantly from the integration point of view, exposing various APIs that might involve direct user interaction through the browser to enter some additional data and/or access user’s cryptographic device or interact with cryptographic devices that are not directly connected to user’s PC. MPass integrates with these identity and authentication providers, hides the differences and exposes a single unified and secure interface to information systems that require authentication functionality.
 
@@ -44,13 +27,13 @@ Depending on requesting information system, MPass will provide various attribute
 
 For actual authentication, MPass exposes web pages that guide the user through authentication method, method specific data input, authentication progress and result pages.
 
-##**Service dependencies**
+## Service dependencies
+
 MPass depends on the digital identity providers, so its availability and performance is directly influenced by the availability and performance of the services delivered by the providers.
 
-##**Protocols and standards**
+## Protocols and standards
 
 MPass is using SAML v2.0 standard protocol and format for authentications. The following table contains a comprehensive list of references to standard specifications.
-
 
 <table>
     <thead>
