@@ -1,3 +1,3 @@
-﻿# MPass – Integration libraries
+﻿# Integration libraries
 
 Soon
