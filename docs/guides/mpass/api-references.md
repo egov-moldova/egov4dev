@@ -1,4 +1,4 @@
-﻿# MPass – API references
+﻿# API references
 
 This page describes the public interfaces exposed by MPass for Service Providers (SP) integrating via SAML 2.0. It focuses on concrete endpoints, supported bindings, mandatory/optional parameters, and validation rules. For implementation guidance and end-to-end testing, see Integration development and Integration tests.
 
