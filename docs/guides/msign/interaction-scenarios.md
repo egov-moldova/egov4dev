@@ -1,14 +1,12 @@
-﻿#Interaction scenarios
+﻿# Interaction scenarios
 
-##**Signing process**
+## Signing process
 
 The most important integration scenario with MSign is requesting to sign a batch (or a single) digital content and getting the signature(s) back after user interaction.
 
 <span class="red-bold-text">Remark.</span> Sending a batch of digital content usually requires the user to enter the PIN for each signed content or, in the case of Mobile Signature, even to receive/send multiple SMS messages. Sending multiple contents for signing is practical only in cases when you know your users might have access to bulk messaging instruments, such as when using cryptographic tokens that cache the PIN for multiple use.
 
-
-<img src="../../../assets/umls/msign/interaction_scenarios/lightmode.svg" alt="Signing flow">
-
+<img src="../../assets/umls/msign/interaction_scenarios/lightmode.svg" alt="Signing flow">
 
 Here is a short description of signing process using MSign:
 
@@ -23,7 +21,7 @@ Here is a short description of signing process using MSign:
 9. MSign instructs the browser to show the **ReturnUrl**, providing the **RequestID**. See Web forms integration for more details.
 10. When the Browser request the page indicated by **ReturnUrl**, the e-Service requests the actual **SignResponse** from MSign API (**GetSignResponse** operation). That response contains the signatures for all Contents provided in the **SignRequest** batch.
 
-##**Verification process**
+## Verification process
 
 MSign also exposes digital signature verification API. The verification process does not expose any user interface for integrated information systems.
 
