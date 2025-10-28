@@ -6,7 +6,7 @@ The most important integration scenario with MSign is requesting to sign a batch
 
 <span class="red-bold-text">Remark.</span> Sending a batch of digital content usually requires the user to enter the PIN for each signed content or, in the case of Mobile Signature, even to receive/send multiple SMS messages. Sending multiple contents for signing is practical only in cases when you know your users might have access to bulk messaging instruments, such as when using cryptographic tokens that cache the PIN for multiple use.
 
-<img src="../../assets/umls/msign/interaction_scenarios/lightmode.svg" alt="Signing flow">
+<img src="../../../assets/umls/msign/interaction_scenarios/lightmode.svg" alt="Signing flow">
 
 Here is a short description of signing process using MSign:
 
