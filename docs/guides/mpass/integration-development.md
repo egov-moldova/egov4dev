@@ -22,33 +22,6 @@ MPass provides several authentication methods. All strong authentication methods
 
 Weak authentication methods (such as username/password) are discouraged and usually not enabled for any systems in production environment.
 
-###**System environments**
-
-There are 2 services environments available: a testing and a production environment.
-
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Environment</strong></th>
-      <th><strong>SSO URL</strong></th>
-      <th><strong>SLO URL</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Testing</td>
-      <td><a href="https://mpass.staging.egov.md/login/saml">https://mpass.staging.egov.md/login/saml</a></td>
-      <td><a href="https://mpass.staging.egov.md/logout/saml">https://mpass.staging.egov.md/logout/saml</a></td>
-    </tr>
-    <tr>
-      <td>Production</td>
-      <td><a href="https://mpass.gov.md/login/saml">https://mpass.gov.md/login/saml</a></td>
-      <td><a href="https://mpass.gov.md/logout/saml">https://mpass.gov.md/logout/saml</a></td>
-    </tr>
-  </tbody>
-</table>
-
 Integrations MUST be developed and tested within the testing environment only. To ensure high availability, no performance, security or any other kind of tests are allowed on production environment.
 
 ###**SAML Metadata**
@@ -167,6 +140,23 @@ The following table contains the list of standard attributes.
       <td>CompanyName</td>
       <td>string (128)</td>
       <td>User’s organization or company name. This attribute is only available if the authentication was performed using an instrument which includes this value in the certificate.</td>
+    </tr>
+    <tr>
+      <td>LegalProfession</td>
+      <td>string (64)</td>
+      <td>
+        <ul>
+          <li>AuthorizedAdministrator</li>
+          <li>Bailiff</li>
+          <li>Lawyer</li>
+          <li>Interpreter</li>
+          <li>LegalExpert</li>
+          <li>Mediator</li>
+          <li>Notary</li>
+          <li>Translator</li>
+          <li>TranslatorInterpreter</li>
+        </ul>
+      </td>
     </tr>    
   </tbody>
 </table>

@@ -10,22 +10,22 @@ Information on obtaining and registering the certificate can be found in Chapter
 
 To access the MPower Clients API component, it is necessary to use the system authentication certificate issued by STISC and registered by AGE in MPass.
 
-The MPower Client API will call [https://mpower.staging.egov.md:8443/clients-api/api/authorization/check/](https://mpower.staging.egov.md:8443/clients-api/api/authorization/check/) and will use, for authentication, the certificate of the system integrating with MPower. In response, a list of rights assigned in accordance with the system's certificate will be returned, and access will be granted based on the allocated rights.
-
+The client will call the MPower API using its system certificate for authentication. The API will verify whether the certificate has the necessary rights to access the requested endpoint. If the rights are valid, the request will proceed; otherwise, a 403 (Forbidden) response will be returned.
 MPass configuration examples:
 
 === "JSON settings"
 
     ``` json 
-    {
-        "AllowedEndpoints": [
+        {
+            "AllowedEndpoints": [
             "/api/Authorization/check/Code-True-One",
             "/api/Authorization/check/Code-Details-One",
             "/api/Authorization/check/TypeCode-Valid-One",
             "/api/Authorization/check/Idn-Details-List",
+            "/api/Authorization/file",
         ],
         "ViewAllAuthorizations": false
-    }
+        }
     ```
 !!! note "Note"
 
