@@ -3,7 +3,7 @@ Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of intercon
 <img src="../../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
 
 
-## <img src="../../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mconnect – interoperability platform
+## <img src="../../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **mconnect** – interoperability platform
 
 MConnect is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
 
@@ -15,7 +15,7 @@ Today, more than 480 institutions are connected to MConnect, ensuring millions o
 
 ---
 
-## <img src="../../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mpass – authentication and authorization service
+## <img src="../../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **mpass** – authentication and authorization service
 
 MPass is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
 
@@ -25,7 +25,7 @@ Currently, MPass is integrated with more than 190 government platforms and syste
 
 ---
 
-## <img src="../../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> msign – electronic signature service
+## <img src="../../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **msign** – electronic signature service
 
 MSign is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
 
@@ -35,7 +35,7 @@ The platform contributes to reducing bureaucracy, saving time, and ensuring a hi
 
 ---
 
-## <img src="../../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mpower – delegation service
+## <img src="../../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **mpower** – delegation service
 
 MPower is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
 
@@ -45,7 +45,7 @@ This service brings significant benefits in terms of flexibility, reducing the n
 
 ---
 
-## <img src="../../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mnotify – notification service
+## <img src="../../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **mnotify** – notification service
 
 MNotify is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
 
@@ -55,7 +55,7 @@ MNotify can send both automatic and manual notifications, offering flexibility t
 
 ---
 
-## <img src="../../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mdelivery – document delivery service
+## <img src="../../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **mdelivery** – document delivery service
 
 MDelivery is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
 
@@ -65,7 +65,7 @@ The platform reduces administrative costs, increases accessibility, and provides
 
 ---
 
-## <img src="../../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mlog – logging service
+## <img src="../../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **mlog** – logging service
 
 MLog is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
 
@@ -75,7 +75,7 @@ MLog provides authorities with the necessary tools to audit activity, detect ano
 
 ---
 
-## <img src="../../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mdocs – document management platform
+## <img src="../../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> **mdocs** – document management platform
 
 MDocs is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
 
