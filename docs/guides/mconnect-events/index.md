@@ -12,7 +12,6 @@ availability of events to consumers, confirmation of event consumption to ensure
 events, as well as internal instruments for configuration, monitoring and troubleshooting.
 
 <picture class="theme-picture">
-  <img src="../../assets/images/mconnect_events/mconnect_events_dark.svg" alt="Signing flow" data-theme="dark">
   <img src="../../assets/images/mconnect_events/mconnect_events_light.svg" alt="Signing flow" data-theme="light">
 </picture>
 
