@@ -10,6 +10,7 @@ nav:
   - Integration guides:
       - MPass: 
           - Overview: guides/mpass/index.md
+          - Steps to connect: guides/mpass/process.md
           - Interaction scenarios: guides/mpass/interaction-scenarios.md
           - Integration development: guides/mpass/integration-development.md
           - Integration tests: guides/mpass/integration-tests.md
