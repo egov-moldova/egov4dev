@@ -3,7 +3,7 @@ Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of intercon
 <img src="../../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
 
 
-## **MConnect** – interoperability platform
+## <img src="../../assets/logos/mconnect-logo.png" alt="MConnect logo" width="30" align="left" style="margin: 3px 5px 0 0;"/> mconnect – interoperability platform
 
 <img src="../../assets/logos/mconnect-logo.png" alt="MConnect logo" width="100" align="right"/> MConnect is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
 
