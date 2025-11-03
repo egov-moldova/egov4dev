@@ -46,6 +46,8 @@ nav:
           - Overview: guides/mnotify/index.md
           - Integration development: guides/mnotify/integration-development.md
           - Change log: guides/mnotify/change-log.md
+      - MDelivery:
+          - Steps to connect: guides/mdelivery/process.md
       - MDocs:
           - Overview: guides/mdocs/index.md
           - Interaction scenarios: guides/mdocs/interaction-scenarios.md
@@ -102,4 +104,4 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
-copyright: © 2010–2025 Moldova eGovernance Agency. All rights reserved 
+copyright: © 2010–2025 Moldova eGovernance Agency. All rights reserved.
