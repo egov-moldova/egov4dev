@@ -1,6 +1,6 @@
-﻿#Interaction scenarios
+﻿# Interaction scenarios
 
-##**Authentication Process**
+## Authentication Process
 
 The most important integration scenario with MPass is user authentication.
 
@@ -23,7 +23,7 @@ Here is the description of authentication process using MPass:
 10. The Service verifies the Response and creates its own session/cookie or handles the Response is any other specific way. For details on the correct way of this verification process, please refer to Security considerations.
 11. The Service serves the protected resources to the now authenticated user until its local session expires or the user explicitly request logout (see below).
 
-##**Logout Process**
+## Logout Process
 
 Because users can login into many services during an MPass session, from security point of view SSO is not fully implemented without a proper SLO (Single logout). Integrating services MUST implement both.
 

@@ -1,6 +1,6 @@
-﻿#API Reference
+﻿# API Reference
 
-##**Error handling rules**
+## Error handling rules
 
 For errors resulted for SOAP interface invocations, MSign returns SOAP faults with fault codes and fault reasons describing the fault in plain English. If there is no SOAP fault returned by MSign, the service consumer should expect that the returned operation result, according to MSign service contract, is valid and can be used directly without additional error checking.
 
@@ -35,9 +35,9 @@ Note that a SignResponse contains SignStatus, which can have Pending, Failure or
 
 The consumers using programming languages that support try… catch blocks, catching framework specific SOAP Fault exceptions is the correct way to handle service invocation errors.
 
-##**Service operations**
+## Service operations
 
-###**PostSignRequest**
+### PostSignRequest
 
 <table>
   <tbody>
@@ -96,7 +96,7 @@ The consumers using programming languages that support try… catch blocks, catc
   </tbody>
 </table>
 
-###**GetSignResponse**
+### GetSignResponse
 
 <table>
   <tbody>
@@ -168,7 +168,7 @@ The consumers using programming languages that support try… catch blocks, catc
   </tbody>
 </table>
 
-###**VerifySignatures**
+### VerifySignatures
 
 <table>
   <tbody>
@@ -231,7 +231,7 @@ The consumers using programming languages that support try… catch blocks, catc
   </tbody>
 </table>
 
-##**Structures**
+## Structures
 
 <span class="red-bold-text">Important.</span> The order in which the members are described below is for description purposes only. The order of the elements in the actual XML structures, as defined in WSDL, is alphabetical. To get a correct implementation, it is recommended to use an automatic conversion tool from WSDL to your programming language or environment.
 
@@ -469,7 +469,7 @@ The consumers using programming languages that support try… catch blocks, catc
   </tbody>
 </table>
 
-##**Enumerations**
+## Enumerations
 
 <table>
   <thead>
@@ -527,9 +527,9 @@ The consumers using programming languages that support try… catch blocks, catc
   </tbody>
 </table>
 
-##**Web forms integration**
+## Web forms integration
 
-###**Signing request**
+### Signing request
 
 <table>
   <tbody>
@@ -594,7 +594,7 @@ The consumers using programming languages that support try… catch blocks, catc
   </tbody>
 </table>
 
-###**Signing callback**
+### Signing callback
 
 <table>
   <tbody>
@@ -641,13 +641,13 @@ The consumers using programming languages that support try… catch blocks, catc
 </table>
 
 
-##**SOAP message samples**
+## SOAP message samples
 
 !!! note "Manual implementation"
 
 We will present here samples of exchanged SOAP messages. This might be useful for those that integrate with MSign but do not fully support WSDL-based service proxy generation.
 
-###**Method: PostSignRequest**
+### Method: PostSignRequest
 
 === "request.xml"
 
@@ -686,7 +686,7 @@ We will present here samples of exchanged SOAP messages. This might be useful fo
     </s:Envelope>
     ```
 
-###**Method: GetSignResponse**
+### Method: GetSignResponse
 
 === "request.xml"
 
@@ -726,7 +726,7 @@ We will present here samples of exchanged SOAP messages. This might be useful fo
     </s:Envelope>
     ```
 
-###**Method: VerifySignatures**
+### Method: VerifySignatures
 
 === "request.xml"
 

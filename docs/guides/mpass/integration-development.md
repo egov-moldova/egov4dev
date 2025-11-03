@@ -1,14 +1,14 @@
-﻿#Integration development
+# Integration development
 
 This chapter describes the process of developing an integration.
 
-###**Service registration**
+## Service registration
 
 Before being able to interact with MPass, a Service must be registered accordingly in MPass. To perform such a registration, please generate a self-signed or provide any existing certificate file (in .cer file format) to Service owner.
 
 For security reasons, Service test and production environments MUST use a different certificate and corresponding private keys MUST be kept as confidential as possible. MPass does not require access to Service private keys for integration
 
-###**Network access**
+## Network access
 
 Because MPass interface is exposed to public, there is no need for special network configuration or access control list modifications. A developer can integrate with MPass using its local development machine and use a localhost address for AssertionConsumerServiceURL in AuthnRequest.
 
@@ -16,7 +16,7 @@ Because MPass interface is exposed to public, there is no need for special netwo
 
     For security reasons, a **localhost** address is not accepted in MPass production environment.
 
-###**Authentication methods**
+## Authentication methods
 
 MPass provides several authentication methods. All strong authentication methods require a strong authentication instrument, which means that the private key of the person that authenticates is generated and held on special devices. It is in the integrator responsibility to obtain such a secure device from available providers.
 
@@ -24,7 +24,7 @@ Weak authentication methods (such as username/password) are discouraged and usua
 
 Integrations MUST be developed and tested within the testing environment only. To ensure high availability, no performance, security or any other kind of tests are allowed on production environment.
 
-###**SAML Metadata**
+## SAML Metadata
 
 MPass exposes SAML metadata, conformant with SAML Metadata specification at the following URL:
 
@@ -52,7 +52,7 @@ MPass exposes SAML metadata, conformant with SAML Metadata specification at the 
 
 The index page also includes links to MPass certificate used to sign SAML messages as Identity Provider.
 
-###**Returned attributes**
+## Returned attributes
 
 After a successful authentication and user consent (if required), MPass generates and returns a **SAML Response** with authenticated identity attributes. The list of the returned attributes is configurable as part of Service registration.
 
@@ -165,7 +165,7 @@ A Service can have custom attributes created (usually used for authorization pur
 
 Please identify the set of required attributes (including custom attribute names and values) to be returned by MPass during the design phase of the Service and specify them as part of Service registration.
 
-##**Integration testing**
+## Integration testing
 
 The detailed integration test scenarios have been moved to a dedicated, developer-focused page. Please follow:
 
@@ -173,6 +173,6 @@ The detailed integration test scenarios have been moved to a dedicated, develope
 
 That page provides structured functional and security scenarios with clear steps, expected outcomes, and verification points.
 
-##**Integration review and audit**
+## Integration review and audit
 
 The security of MPass integrating systems heavily depends on the security of the integration. Please review the developer-focused Integration tests to thoroughly validate both functional and security aspects of your integration: see [Integration tests](integration-tests.md).
