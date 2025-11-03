@@ -15,7 +15,7 @@ The beneficiary requesting integration must meet the following conditions:
 2. Sign the contract and annex for the provision of authentication and authorization services via MPass;
 3. Obtain the system certificate from STISC;
 4. Send to AGE only the .cer file (public key) to: servicii@egov.md;
-5. Provide integration details through the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u), including:
+5. Provide integration details through the [form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOPEKwFi7MyRNimikcwdXWMlUOTlGSVRPQUJVRUFKVVVYR1I4UE9KTTRYOC4u), including:
    * Name of the information system;
    * URLs for the test and production environments:
      * LoginRequest,
