@@ -35,9 +35,9 @@ For the consumers using programming languages that support try… catch blocks, 
     <th colspan="3"><strong>Input Parameters</strong></th>
   </tr>
   <tr>
-    <td><strong>Name</strong></td>
-    <td><strong>Type</strong></td>
-    <td><strong>Description</strong></td>
+    <th>Name</strong></th>
+    <th>Type</strong></th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>request</td>
