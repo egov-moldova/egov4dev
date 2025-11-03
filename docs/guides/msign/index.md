@@ -1,12 +1,9 @@
 # Overview
 
 MSign is a reusable and shared platform-level service the main scope of which is to facilitate the use of digital signature and simplify integrations with various digital signature instruments.
-This document describes the technical interfaces exposed by MSign for information systems that will use MSign as digital signature provider and verification utility. Its target audience is the development teams for those information systems.
-The document contains all of the relevant information required for a complete understanding of MSign from the integration point of view. It contains integrations development details, security considerations and an API reference.
-This document is also accompanied by a .NET sample that exemplify the main interaction scenario, i.e. requesting digital signature for a batch of contents.
 
 ## Scope and target audience
-This document describes the technical interfaces exposed by MSign for information systems that will use MSign as digital signatures provider and verification utility. Its target audience is the development teams for those information systems.
+
 The details related to various digital signature instruments integrated with MSign are out of scope of this document.
 
 For the complete glossary, please visit the [Glossary page](https://egov-moldova.github.io/egov4dev/glossary/glossary/).
