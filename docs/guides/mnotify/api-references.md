@@ -116,4 +116,97 @@ For the consumers using programming languages that support try… catch blocks, 
   </tr>
 </table>
 
-
+<table border="1" style="border-collapse: collapse; widtd: 100%;">
+        <tr>
+            <td style="text-align:left;">Signature</td>
+            <td colspan="2"><strong>POST/api/Notification</strong> (subject - string, body - string, bodyshort – string, recipients [value - string, type - string], priority - string)</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td colspan="2">Notification transmission metdod.</td>
+        </tr>
+        <tr>
+            <td>Returns</td>
+            <td colspan="2">notificationID</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:left;">Input parameters</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Description</td>
+        </tr>
+    <tbody>
+        <tr>
+            <td style="color:red;">userId</td>
+            <td style="color:red;">String</td>
+            <td style="color:red;">tdis parameter should be ignored</td>
+        </tr>
+        <tr>
+            <td>subject</td>
+            <td>String</td>
+            <td>tde notification subject</td>
+        </tr>
+        <tr>
+            <td>Body</td>
+            <td>String</td>
+            <td>tde notification body</td>
+        </tr>
+        <tr>
+            <td>Bodyshort</td>
+            <td>String</td>
+            <td>tde notification bodyshort</td>
+        </tr>
+        <tr>
+            <td>recipients</td>
+            <td>String</td>
+            <td>tde person who will receive tde message.</td>
+        </tr>
+        <tr>
+            <td>Priority</td>
+            <td>String</td>
+            <td>tde priority witd which tde notification will be transmitted</td>
+        </tr>
+        <tr>
+            <td>template</td>
+            <td>String</td>
+            <td><em>Not Mandatory</em><br>tde notification template</td>
+        </tr>
+        <tr>
+            <td>resolutionPolicy</td>
+            <td>String</td>
+            <td><em>Not Mandatory</em><br>IDR Identity Resolver parameter (ex: IDNO, IDNV, cadastral number), for cases when recipient IDNP is not known.</td>
+        </tr>
+        <tr>
+            <td>attachments</td>
+            <td>String</td>
+            <td><em>Not Mandatory</em><br>Base 64 format attachments.</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:left;">Faults</td>
+        </tr>
+        <tr>
+            <td colspan="2">Code</td>
+            <td>Reason</td>
+        </tr>
+    </tdead>
+    <tbody>
+        <tr>
+            <td colspan="2">200</td>
+            <td>Success</td>
+        </tr>
+        <tr>
+            <td colspan="2">404</td>
+            <td>Not found.</td>
+        </tr>
+        <tr>
+            <td colspan="2">500</td>
+            <td>A server error occurred.</td>
+        </tr>
+        <tr>
+            <td colspan="2">501</td>
+            <td>A server error occurred.</td>
+        </tr>
+    </tbody>
+</table>
