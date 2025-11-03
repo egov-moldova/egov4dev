@@ -13,7 +13,7 @@
 2. Sign the contract and annex for the provision of authentication and authorization services through MSign;
 3. Obtain the system certificate from STISC;
 4. Send to AGE only the .cer file (public key) at [servicii@egov.md](servicii@egov.md);
-5. Provide the integration details through the form, including: 
+5. Provide the integration details through the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u), including: 
    * The name of the information system; 
    * The IP address(es) of the service; 
 6. AGE configures access in the test environment: [https://mpass.staging.egov.md](https://mpass.staging.egov.md);
