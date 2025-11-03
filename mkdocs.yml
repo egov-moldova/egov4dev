@@ -20,6 +20,7 @@ nav:
           - Change log: guides/mpass/change-log.md
       - MSign:
           - Overview: guides/msign/index.md
+          - Steps to connect: guides/msign/process.md
           - Interaction scenarios: guides/msign/interaction-scenarios.md
           - Integration development: guides/msign/integration-development.md
           - API references: guides/msign/api-references.md
