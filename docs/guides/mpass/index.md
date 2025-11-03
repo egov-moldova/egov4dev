@@ -1,19 +1,17 @@
 # Overview
 
-MPass is the government-wide authentication and identity service for the Republic of Moldova. It provides secure Single Sign-On (SSO) and Single Logout (SLO) across public services and exposes a unified interface to multiple authentication methods (e.g., client certificates, mobile signature, username/password). Integrating systems use the identity information issued by MPass to make authorization decisions within their own sessions.
-
-MPass is a reusable governmental shared platform-level service the main scope of which is to offer secure authentication using a variety of authentication methods and provide information for further authorization decisions by the integrating systems. MPass enables a secure government-wide single sign-on (SSO) as well as single logout (SLO) for residents of Republic of Moldova, so that they don’t have to remember multiple credentials for different services and not requiring them to visit or register in some other way directly with the service provider.
-
-This guide targets development teams integrating their information systems with MPass. It consolidates the key concepts, protocols, and hands-on steps you need to implement and verify an integration.
+MPass is a government-wide authentication and identity management service in the Republic of Moldova that provides secure Single Sign-On (SSO) and Single Logout (SLO) across public digital services, enabling users to access multiple systems with one set of credentials while offering integrating systems standardized identity data for authorization purposes
 
 ## Quick start for integrators
 
-1. Review the SSO/SLO flows to understand user and system interactions.
-2. Prepare your SP endpoints (Assertion Consumer Service, Single Logout Service) and generate SP metadata.
-3. Register your SP with MPass and exchange metadata and certificates as required.
-4. Implement the authentication flow using SAML 2.0 bindings supported by MPass.
-5. Validate attributes received from MPass and apply your own authorization logic.
-6. Test end-to-end using the provided examples or your preferred stack.
+1. Before being able to interact with MPass, a Service must be registered accordingly in MPass. To perform such a registration, please generate a self-signed or provide any existing certificate file (in .cer file format) to Service owner”;
+2. Identify the set of required attributes (including custom attribute names and values) to be returned by MPass during the design phase of the Service and specify them as part of Service registration.
+3. Review the SSO/SLO flows to understand user and system interactions.
+4. Prepare your SP endpoints (Assertion Consumer Service, Single Logout Service) and generate SP metadata.
+5. Register your SP with MPass and exchange metadata and certificates as required.
+6. Implement the authentication flow using SAML 2.0 bindings supported by MPass.
+7. Validate attributes received from MPass and apply your own authorization logic.
+8. Test end-to-end using the provided examples or your preferred stack.
 
 ## Glossary
 
@@ -21,11 +19,7 @@ For the complete glossary, please visit the [Glossary page](https://egov-moldova
 
 ## System capabilities
 
-MPass is used as intermediary between various information systems and various authentication methods. Authentication methods differ significantly from the integration point of view, exposing various APIs that might involve direct user interaction through the browser to enter some additional data and/or access user’s cryptographic device or interact with cryptographic devices that are not directly connected to user’s PC. MPass integrates with these identity and authentication providers, hides the differences and exposes a single unified and secure interface to information systems that require authentication functionality.
-
-Depending on requesting information system, MPass will provide various attributes about the authenticated user identity. These attributes might come from user certificate used for authentication, user’s profile in MPass or external authentic systems. Using the provided identity attribute values, integrating systems can further perform authorization decisions inside their session established for the authenticated identity.
-
-For actual authentication, MPass exposes web pages that guide the user through authentication method, method specific data input, authentication progress and result pages.
+MPass serves as an intermediary between information systems and diverse authentication methods, unifying access by handling the differences among various identity providers. It securely exposes a single interface for authentication, provides relevant user identity attributes for authorization decisions, and manages the user interaction flow during the authentication process.
 
 ## Service dependencies
 
