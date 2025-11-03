@@ -18,14 +18,49 @@ For the consumers using programming languages that support try… catch blocks, 
 
 ## Service operations
 
-| Signature	GET | /api/Notifications/ |
-| Description	| shows all the notifications transmitted by a sender. |
-| Returns | shows all the notifications transmitted by a sender : notificationId and notificationstatus |
-| Input parameters |
-| Name | Type | Description |
-| request	NotificationRequest	A structure representing the notification request. |
-| Faults |
-| Code | Reason |
-| 200 | Success |
-| 500 | A server error occurred. |
-| 501 | A server error occurred. |
+<table>
+  <tr>
+    <td><strong>Signature</strong>strong></td>
+    <td colspan="2"><strong>GET /api/Notifications/</strong>strong></td>
+  </tr>
+  <tr>
+    <td><strong>Description</strong>strong></td>
+    <td colspan="2">Shows all the notifications transmitted by a sender.</td>
+  </tr>
+  <tr>
+    <td><strong>Returns</strong>strong></td>
+    <td colspan="2">Shows all the notifications transmitted by a sender: <code>notificationId</code> and <code>notificationStatus</code>.</td>
+  </tr>
+  <tr>
+    <th colspan="3">Input Parameters</th>
+  </tr>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><strong>Type</strong></td>
+    <td><strong>Description</strong></td>
+  </tr>
+  <tr>
+    <td>request</td>
+    <td>NotificationRequest</td>
+    <td>A structure representing the notification request.</td>
+  </tr>
+  <tr>
+    <td colspan="3"><strong>Faults</strong>strong></td>
+  </tr>
+  <tr>
+    <td colspan="2">Code</td>
+    <td>Reason</td>
+  </tr>
+  <tr>
+    <td colspan="2">200</td>
+    <td>Success</td>
+  </tr>
+  <tr>
+    <td colspan="2">500</td>
+    <td>A server error occurred.</td>
+  </tr>
+  <tr>
+    <td colspan="2">501</td>
+    <td>A server error occurred.</td>
+  </tr>
+</table>
