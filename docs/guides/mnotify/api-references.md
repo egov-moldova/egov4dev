@@ -213,8 +213,8 @@ For the consumers using programming languages that support try… catch blocks, 
         <td colspan="2"><strong>DELETE /api/Notification/{id}</strong> <em>(subject - string, body - string, bodyshort – string, recipients [value - string, type - string], priority - string)</em></td>
     </tr>
     <tr>
-        <<td><strong>Description</strong></td>
-        <<td colspan="2">Delete notification if it has not been transmitted</td>
+        <td><strong>Description</strong></td>
+        <td colspan="2">Delete notification if it has not been transmitted</td>
     </tr>
     <tr>
         <td><strong>Returns</strong></td>
