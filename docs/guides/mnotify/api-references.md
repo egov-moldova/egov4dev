@@ -257,3 +257,296 @@ For the consumers using programming languages that support try… catch blocks, 
         <td>A server error occurred.</td>
     </tr>
 </table>
+
+## Structures
+
+<table>
+    <tr>
+        <th><strong>Member</strong></th>
+        <th>Type</th>
+        <th>Required/Optional</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td colspan="4"><strong>Notification</strong></td>
+    </tr>
+    <tr>
+        <td><strong>ID</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>NotificationID</td>
+    </tr>
+    <tr>
+        <td><strong>SenderID</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Certificate Serial Number</td>
+    </tr>
+    <tr>
+        <td><strong>Subjectro</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification subject in Romanian</td>
+    </tr>
+    <tr>
+        <td><strong>subjecten</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification subject in English</td>
+    </tr>
+    <tr>
+        <td><strong>subjectru</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification subject in Russian</td>
+    </tr>
+    <tr>
+        <td><strong>bodyro</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body in Romanian</td>
+    </tr>
+    <tr>
+        <td><strong>bodyen</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body in English</td>
+    </tr>
+    <tr>
+        <td><strong>bodyru</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body in Russian</td>
+    </tr>
+    <tr>
+        <td><strong>bodyshortro</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body short in Romanian</td>
+    </tr>
+    <tr>
+        <td><strong>bodyshorten</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body short in English</td>
+    </tr>
+    <tr>
+        <td><strong>bodyshortru</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body short in Russian</td>
+    </tr>
+    <tr>
+        <td><strong>statusid</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>Notification status</td>
+    </tr>
+    <tr>
+        <td><strong>senderIDNO</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>sender idno</td>
+    </tr>
+    <tr>
+        <td><strong>servicename</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>service name</td>
+    </tr>
+    <tr>
+        <td><strong>createdat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdatedat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>createdby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <td colspan="4"><strong>Recipient</strong></td>
+    </tr>
+    <tr>
+        <td><strong>ID</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>firstname</strong></td>
+        <td>string (50)</td>
+        <td>Required</td>
+        <td>recipient first name</td>
+    </tr>
+    <tr>
+        <td><strong>lastname</strong></td>
+        <td>string (50)</td>
+        <td>Required</td>
+        <td>recipient last name</td>
+    </tr>
+    <tr>
+        <td><strong>Idnp</strong></td>
+        <td>string (50)</td>
+        <td>Required</td>
+        <td>RM citizen personal identity number, containing 13 figures.</td>
+    </tr>
+    <tr>
+        <td><strong>languageid</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>notification language set by recipient as preferences</td>
+    </tr>
+    <tr>
+        <td><strong>createdat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>createdby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <td colspan="4"><strong>Language</strong></td>
+    </tr>
+    <tr>
+        <td><strong>ID</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>string (450)</td>
+        <td>Optional</td>
+        <td>language name</td>
+    </tr>
+    <tr>
+        <td colspan="4"><strong>NotificationMessage</strong></td>
+    </tr>
+    <tr>
+        <td><strong>ID</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>NotificationID</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>notification id</td>
+    </tr>
+    <tr>
+        <td><strong>recipientID</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>recipient id</td>
+    </tr>
+    <tr>
+        <td><strong>Contact</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>contact value</td>
+    </tr>
+    <tr>
+        <td><strong>Channel</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>channel id</td>
+    </tr>
+    <tr>
+        <td><strong>Status</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>status id</td>
+    </tr>
+    <tr>
+        <td><strong>subject</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>message subject</td>
+    </tr>
+    <tr>
+        <td><strong>Body</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>message body</td>
+    </tr>
+    <tr>
+        <td><strong>createdat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>createdby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <td colspan="4"><strong>NotificationRecipientIdentifier</strong></td>
+    </tr>
+    <tr>
+        <td><strong>notificationID</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>notification id</td>
+    </tr>
+    <tr>
+        <td><strong>RecipientIdentifier</strong></td>
+        <td>string (450)</td>
+        <td>Required</td>
+        <td>recipient identifier</td>
+    </tr>
+    <tr>
+        <td><strong>IdentifierTypeid</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>identifier type id</td>
+    </tr>
+    <tr>
+        <td colspan="4"><strong>Contact</strong></td>
+    </tr>
+</table>
