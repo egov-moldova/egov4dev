@@ -32,12 +32,12 @@ For the consumers using programming languages that support try… catch blocks, 
     <td colspan="2">Shows all the notifications transmitted by a sender: <code>notificationId</code> and <code>notificationStatus</code>.</td>
   </tr>
   <tr>
-    <th colspan="3"><strong>Input Parameters</strong></th>
+    <td colspan="3"><strong>Input Parameters</strong></td>
   </tr>
   <tr>
-    <th>Name</strong></th>
-    <th>Type</strong></th>
-    <th>Description</th>
+    <td>Name</strong></td>
+    <td>Type</strong></td>
+    <td>Description</th>
   </tr>
   <tr>
     <td>request</td>
@@ -79,7 +79,7 @@ For the consumers using programming languages that support try… catch blocks, 
     <td colspan="2">Returns the ID of the messages generated based on the respective notification, including message status and the channel used for transmission.</td>
   </tr>
   <tr>
-    <th colspan="3">Input parameters</th>
+    <td colspan="3">Input parameters</td>
   </tr>
   <tr>
     <td><strong>Name</strong></td>
@@ -92,11 +92,11 @@ For the consumers using programming languages that support try… catch blocks, 
     <td>The ID of the notification posted earlier using PostNotification.</td>
   </tr>
   <tr>
-    <th colspan="3"><strong>Faults</strong></th>
+    <td colspan="3"><strong>Faults</strong></th>
   </tr>
   <tr>
-    <th colspan="2">Code</th>
-    <th>Reason</th>
+    <td colspan="2">Code</th>
+    <td>Reason</th>
   </tr>
   <tr>
     <td colspan="2">200</td>
