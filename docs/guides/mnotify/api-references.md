@@ -116,28 +116,27 @@ For the consumers using programming languages that support try… catch blocks, 
   </tr>
 </table>
 
-<table border="1" style="border-collapse: collapse; widtd: 100%;">
+<table>
         <tr>
-            <td style="text-align:left;">Signature</td>
-            <td colspan="2"><strong>POST/api/Notification</strong> (subject - string, body - string, bodyshort – string, recipients [value - string, type - string], priority - string)</td>
+            <td><strong>Signature</strong></td>
+            <td colspan="2"><strong>POST/api/Notification</strong> <em>(subject - string, body - string, bodyshort – string, recipients [value - string, type - string], priority - string)</em></td>
         </tr>
         <tr>
-            <td>Description</td>
+            <td><strong>Description</strong></td>
             <td colspan="2">Notification transmission metdod.</td>
         </tr>
         <tr>
-            <td>Returns</td>
+            <td><strong>Returns</strong></td>
             <td colspan="2">notificationID</td>
         </tr>
         <tr>
-            <td colspan="3" style="text-align:left;">Input parameters</td>
+            <td colspan="3"><strong>Input parameters</strong></td>
         </tr>
         <tr>
             <td>Name</td>
             <td>Type</td>
             <td>Description</td>
         </tr>
-    <tbody>
         <tr>
             <td style="color:red;">userId</td>
             <td style="color:red;">String</td>
@@ -184,14 +183,12 @@ For the consumers using programming languages that support try… catch blocks, 
             <td><em>Not Mandatory</em><br>Base 64 format attachments.</td>
         </tr>
         <tr>
-            <td colspan="3" style="text-align:left;">Faults</td>
+            <td colspan="3" style="text-align:left;"><strong>Faults</strong></td>
         </tr>
         <tr>
             <td colspan="2">Code</td>
             <td>Reason</td>
         </tr>
-    </tdead>
-    <tbody>
         <tr>
             <td colspan="2">200</td>
             <td>Success</td>
@@ -208,5 +205,55 @@ For the consumers using programming languages that support try… catch blocks, 
             <td colspan="2">501</td>
             <td>A server error occurred.</td>
         </tr>
-    </tbody>
+</table>
+
+<table>
+    <tr>
+        <td><strong>Signature</strong></td>
+        <td colspan="2"><strong>DELETE /api/Notification/{id}</strong> <em>(subject - string, body - string, bodyshort – string, recipients [value - string, type - string], priority - string)</em></td>
+    </tr>
+    <tr>
+        <<td><strong>Description</strong></td>
+        <<td colspan="2">Delete notification if it has not been transmitted</td>
+    </tr>
+    <tr>
+        <td><strong>Returns</strong></td>
+        <td colspan="2">notificationID</td>
+    </tr>
+    <tr>
+        <td colspan="3" ><strong>Input parameters</strong></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>NotificationID</td>
+        <td>String</td>
+        <td>NotificationID which is to be deleted</td>
+    </tr>
+    <tr>
+        <td colspan="3"><strong>Faults</strong></td>
+    </tr>
+    <tr>
+        <td colspan="2">Code</td>
+        <td>Reason</td>
+    </tr>
+    <tr>
+        <td colspan="2">200</td>
+        <td>Succes</td>
+    </tr>
+    <tr>
+        <td colspan="2">404</td>
+        <td>Not found.</td>
+    </tr>
+    <tr>
+        <td colspan="2">500</td>
+        <td>A server error occurred.</td>
+    </tr>
+    <tr>
+        <td colspan="2">501</td>
+        <td>A server error occurred.</td>
+    </tr>
 </table>
