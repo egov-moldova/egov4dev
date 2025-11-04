@@ -1009,3 +1009,127 @@ For the consumers using programming languages that support try… catch blocks, 
         <td>Template type name</td>
     </tr>
 </table>
+
+## Enumerations
+
+<table>
+    <tr>
+        <th><strong>Member</strong></th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <th colspan="2">Priority</th>
+    </tr>
+    <tr>
+        <td><strong>Medium</strong></td>
+        <td>The notification does not have any specific importance.</td>
+    </tr>
+    <tr>
+        <td><strong>Low</strong></td>
+        <td>The importance of the notification is low.</td>
+    </tr>
+    <tr>
+        <td><strong>High</strong></td>
+        <td>The importance of the notification is high.</td>
+    </tr>
+    <tr>
+        <th colspan="2">NotificationContentType</th>
+    </tr>
+    <tr>
+        <td><strong>Text</strong></td>
+        <td>The content type is simple text (similar to MIME type text/plain).</td>
+    </tr>
+    <tr>
+        <td><strong>Html</strong></td>
+        <td>The content type is HTML text (similar to MIME type text/html).</td>
+    </tr>
+    <tr>
+        <th colspan="2" >NotificationStatus</th>
+    </tr>
+    <tr>
+        <td><strong>Unknown</strong></td>
+        <td>such notification request does not exist;</td>
+    </tr>
+    <tr>
+        <td><strong>Pending</strong></td>
+        <td>notification request was en queued for sending;</td>
+    </tr>
+    <tr>
+        <td><strong>Resolving</strong></td>
+        <td>final recipients are resolved (identified and preferences read);</td>
+    </tr>
+    <tr>
+        <td><strong>Sending</strong></td>
+        <td>the final notification is ready to be sent to the resolved recipient and identified Notification Channel;</td>
+    </tr>
+    <tr>
+        <td><strong>Sent</strong></td>
+        <td>the notification was sent to the Notification Channel;</td>
+    </tr>
+    <tr>
+        <td><strong>Delivered</strong></td>
+        <td>Notification Channel acknowledged notification delivery;</td>
+    </tr>
+    <tr>
+        <td><strong>Cancelling</strong></td>
+        <td>notification request is in process of cancelling;</td>
+    </tr>
+    <tr>
+        <td><strong>Cancelled</strong></td>
+        <td>notification request was successfully canceled;</td>
+    </tr>
+    <tr>
+        <td><strong>Incomplete</strong></td>
+        <td>notification request was not completely sent (not all messages from the request were sent).</td>
+    </tr>
+    <tr>
+        <td><strong>Failed</strong></td>
+        <td>notification request failed, and failure code is included in the notification status response.</td>
+    </tr>
+    <tr>
+        <th colspan="2">MessageStatus</th>
+    </tr>
+    <tr>
+        <td><strong>Pending</strong></td>
+        <td>message was en queued for sending;</td>
+    </tr>
+    <tr>
+        <td><strong>Sent</strong></td>
+        <td>message was sent to the Notification Channel;</td>
+    </tr>
+    <tr>
+        <td><strong>Delivered</strong></td>
+        <td>Notification Channel acknowledged message delivery;</td>
+    </tr>
+    <tr>
+        <td><strong>Read</strong></td>
+        <td>Notification Channel confirmed the message is read by the Recipient;</td>
+    </tr>
+    <tr>
+        <td><strong>Failed</strong></td>
+        <td>message sending failed, and failure code is included in the message status response.</td>
+    </tr>
+    <tr>
+        <th colspan="2">NotificationDeliveryChannel</th>
+    </tr>
+    <tr>
+        <td><strong>Email</strong></td>
+        <td>The notification delivery channel is e-mail.</td>
+    </tr>
+    <tr>
+        <td><strong>SMS</strong></td>
+        <td>The notification delivery channel is a SMS message.</td>
+    </tr>
+    <tr>
+        <td><strong>Viber</strong></td>
+        <td>The notification delivery channel is viber.</td>
+    </tr>
+    <tr>
+        <td><strong>Web push</strong></td>
+        <td>The notification delivery channel is browser(web push).</td>
+    </tr>
+    <tr>
+        <td><strong>MCabinet</strong></td>
+        <td>The notification is sent to MCabinet.</td>
+    </tr>
+</table>
