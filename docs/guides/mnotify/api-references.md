@@ -549,4 +549,463 @@ For the consumers using programming languages that support try… catch blocks, 
     <tr>
         <td colspan="4"><strong>Contact</strong></td>
     </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>value</strong></td>
+        <td>string (max)</td>
+        <td>Required</td>
+        <td>contact value</td>
+    </tr>
+    <tr>
+        <td><strong>recipientid</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>recipient id</td>
+    </tr>
+    <tr>
+        <td><strong>channelid</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>channel id</td>
+    </tr>
+    <tr>
+        <td><strong>active</strong></td>
+        <td>bit</td>
+        <td>Required</td>
+        <td>true/false</td>
+    </tr>
+    <tr>
+        <td><strong>verified</strong></td>
+        <td>bit</td>
+        <td>Required</td>
+        <td>true/false</td>
+    </tr>
+    <tr>
+        <td><strong>timerules</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>preferences</td>
+    </tr>
+    <tr>
+        <td><strong>tagID</strong></td>
+        <td>int</td>
+        <td>Optional</td>
+        <td>tag id</td>
+    </tr>
+    <tr>
+        <td><strong>createdat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>createdby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <th colspan="4">ContactToken</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>contactid</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>contact id</td>
+    </tr>
+    <tr>
+        <td><strong>Token</strong></td>
+        <td>string (max)</td>
+        <td>Required</td>
+        <td>token for activation mail contact</td>
+    </tr>
+    <tr>
+        <td><strong>expireat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>Expiration date, time</td>
+    </tr>
+    <tr>
+        <th colspan="4">Channel</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>string</td>
+        <td>Required</td>
+        <td>channel name</td>
+    </tr>
+    <tr>
+        <th colspan="4">NotificationStatus</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>string (450)</td>
+        <td>Optional</td>
+        <td>notification status name</td>
+    </tr>
+    <tr>
+        <th colspan="4">IdentifierType</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>string (450)</td>
+        <td>Optional</td>
+        <td>identifier type name</td>
+    </tr>
+    <tr>
+        <th colspan="4"">NotificationCancel</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>notification id</td>
+    </tr>
+    <tr>
+        <th colspan="4">MessageSchedule</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>contact</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>contact value</td>
+    </tr>
+    <tr>
+        <td><strong>channel</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>channel id</td>
+    </tr>
+    <tr>
+        <td><strong>subject</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>message subject</td>
+    </tr>
+    <tr>
+        <td><strong>Body</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>message body</td>
+    </tr>
+      <tr>
+        <td><strong>nextoccurrence</strong></td>
+        <td>smalldatetime</td>
+        <td>Required</td>
+        <td>Date time</td>
+    </tr>
+      <tr>
+        <td><strong>createdat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>mthe date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>createdby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <th colspan="4">Tag</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>string (max)</td>
+        <td>Required</td>
+        <td>tag name</td>
+    </tr>
+    <tr>
+        <td><strong>createdat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>createdby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <th colspan="4">Message.dbo.mcabinet</th>
+    </tr>
+    <tr>
+        <td><strong>messageid</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>message id</td>
+    </tr>
+    <tr>
+        <td><strong>contact</strong></td>
+        <td>string</td>
+        <td>Required</td>
+        <td>contact value</td>
+    </tr>
+    <tr>
+        <td><strong>subject</strong></td>
+        <td>string</td>
+        <td>Required</td>
+        <td>message subject</td>
+    </tr>
+    <tr>
+        <td><strong>Body</strong></td>
+        <td>string</td>
+        <td>Required</td>
+        <td>body subject</td>
+    </tr>
+    <tr>
+        <td><strong>Read</strong></td>
+        <td>bit</td>
+        <td>Required</td>
+        <td>true/false</td>
+    </tr>
+    <tr>
+        <td><strong>createdat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateat</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>createdby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>lastupdateby</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <th colspan="4">MessageAttachment.dbo.mcabinet</th>
+    </tr>
+    <tr>
+        <td><strong>MessageId</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>message id</td>
+    </tr>
+    <tr>
+        <td><strong>AttachmentUrl</strong></td>
+        <td>string (max)</td>
+        <td>Required</td>
+        <td>Attachment Url</td>
+    </tr>
+    <tr>
+        <th colspan="4">Template</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>string(50)</td>
+        <td>Optional</td>
+        <td>Template name</td>
+    </tr>
+    <tr>
+        <td><strong>Description</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Template description</td>
+    </tr>
+    <tr>
+        <td><strong>SubjectRo</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification subject in Romanian</td>
+    </tr>
+    <tr>
+        <td><strong>SubjectEn</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification subject in English</td>
+    </tr>
+    <tr>
+        <td><strong>SubjectRu</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification subject in Russian</td>
+    </tr>
+    <tr>
+        <td><strong>BodyRo</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body in Romanian</td>
+    </tr>
+      <tr>
+        <td><strong>BodyEn</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body in English</td>
+    </tr>
+    <tr>
+        <td><strong>BodyRu</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body in Russian</td>
+    </tr>
+    <tr>
+        <td><strong>BodyShortRo</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body short in Romanian</td>
+    </tr>
+    <tr>
+        <td><strong>BodyShortEn</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body short in English</td>
+    </tr>
+    <tr>
+        <td><strong>BodyShortRu</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Notification body short in Russian</td>
+    </tr>
+    <tr>
+        <td><strong>CreatedAt</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the date the record was created</td>
+    </tr>
+    <tr>
+        <td><strong>CreatedBy</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>who created the record</td>
+    </tr>
+    <tr>
+        <td><strong>LastUpdatedAt</strong></td>
+        <td>datetime2 (7)</td>
+        <td>Required</td>
+        <td>the last time the record was changed</td>
+    </tr>
+    <tr>
+        <td><strong>LastUpdatedBy</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>the last to change the record</td>
+    </tr>
+    <tr>
+        <td><strong>SenderId</strong></td>
+        <td>uniqueidentifier</td>
+        <td>Required</td>
+        <td>Sender ID</td>
+    </tr>
+    <tr>
+        <td><strong>Type</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>Template type</td>
+    </tr>
+    <tr>
+        <td><strong>OwnerId</strong></td>
+        <td>string (max)</td>
+        <td>Optional</td>
+        <td>Owner ID</td>
+    </tr>
+    <tr>
+        <th colspan="4">TemplateType</th>
+    </tr>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td>int</td>
+        <td>Required</td>
+        <td>order id</td>
+    </tr>
+    <tr>
+        <td><strong>Name</strong></td>
+        <td>string(450)</td>
+        <td>Optional</td>
+        <td>Template type name</td>
+    </tr>
 </table>
