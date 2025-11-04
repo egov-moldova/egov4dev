@@ -261,15 +261,17 @@ For the consumers using programming languages that support try… catch blocks, 
 ## Structures
 
 <table>
+  <thead>
     <tr>
         <th><strong>Member</strong></th>
         <th>Type</th>
         <th>Required/Optional</th>
         <th>Description</th>
     </tr>
+ </thead>
     <tr>
         <td colspan="4"><strong>Notification</strong></td>
-    </tr>
+    </tr> 
     <tr>
         <td><strong>ID</strong></td>
         <td>uniqueidentifier</td>
@@ -1013,10 +1015,12 @@ For the consumers using programming languages that support try… catch blocks, 
 ## Enumerations
 
 <table>
+  <thead>
     <tr>
         <th><strong>Member</strong></th>
         <th>Description</th>
     </tr>
+  </thead>
     <tr>
         <th colspan="2">Priority</th>
     </tr>
