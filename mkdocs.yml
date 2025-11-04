@@ -29,6 +29,7 @@ nav:
           - Change log: guides/msign/change-log.md
       - MPower:
           - Overview: guides/mpower/index.md
+          - Steps to connect: guides/mpower/process.md
           - Interaction scenarios: guides/mpower/interaction-scenarios.md
           - Integration development: guides/mpower/integration-development.md
           - Security: guides/mpower/security.md
