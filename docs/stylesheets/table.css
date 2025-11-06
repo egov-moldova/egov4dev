@@ -1,6 +1,6 @@
 table {
   width: 100% !important;
-  border: 1px solid #666;
+  border: 1px solid #ccc;
   border-collapse: collapse;
   font-size: 0.7rem !important;
   table-layout: auto;
@@ -17,8 +17,13 @@ table th {
     text-align: left;
     vertical-align: top;
 }
+
+table th:last-child {
+  border-right: none;
+}
+
 table td {
-    border: 1px solid #666 !important;
+    border: 1px solid #ccc !important;
     padding: 5px;
     text-align: left;
     vertical-align: top;
@@ -26,19 +31,19 @@ table td {
 
 .table-dark td,
 .table-dark > tbody > tr > th {
-    border: 1px solid #666 !important;
+    border: 1px solid #ccc !important;
 }
 
 .table-dark > thead > tr > th:first-child {
-  border-top: 1px solid #666 !important;
-  border-left: 1px solid #666 !important;
+  border-top: 1px solid #ccc !important;
+  border-left: 1px solid #ccc !important;
 }
 
 .table-dark > thead > tr > th:not(:first-child):not(:last-child) {
-  border-top: 1px solid #666 !important;
+  border-top: 1px solid #ccc !important;
 }
 
 .table-dark > thead > tr > th:last-child {
-  border-top: 1px solid #666 !important;
+  border-top: 1px solid #ccc !important;
   border-right: 1px solid #666 !important;
 }
