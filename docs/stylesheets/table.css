@@ -7,11 +7,16 @@ table {
 }
 
 table > thead > tr {
-  font-weight: 500;
+  font-weight: 400; color:white;
   background-color: #4051b5;
 }
 
-table th,
+table th {
+    border: 1px solid #fff !important;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+}
 table td {
     border: 1px solid #666 !important;
     padding: 5px;
