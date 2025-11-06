@@ -1,5 +1,3 @@
-# Change log
-
 | Version | Date | Description |
 |---------|------|-------------|
 | 0.1 | 05.08.2013 | Initial version |
