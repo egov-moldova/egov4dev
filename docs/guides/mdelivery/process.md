@@ -3,7 +3,7 @@
 To connect to MDelivery, the institution must meet the following conditions:
 
 1. The institution is a public or private service provider that issues paper documents;
-2. 2. It has an information system registered in the [Registrul Resurselor și Sistemelor Informaționale](https://rsi.gov.md/procedure) that is available for integration with the MDelivery system;
+2. It has an information system registered in the [Registrul Resurselor și Sistemelor Informaționale](https://rsi.gov.md/procedure) that is available for integration with the MDelivery system;
 3. It signs the contract for the delivery of the results of public services provided to beneficiaries;
 4. It designates persons responsible for managing orders and users;
 5. The designated persons have an electronic signature;
