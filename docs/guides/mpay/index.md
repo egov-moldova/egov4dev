@@ -1,44 +1,20 @@
-## Domeniul de aplicare și publicul vizat
+## Scope and target audience
 
-Acest document descrie interfețele tehnice utilizate pentru integrarea cu MPay. Publicul vizat
-sunt echipele de dezvoltare care implementează sau întrețin sistemele informaționale pentru 
-a fi integrate sau integrate cu MPay.
+This document describes the technical interfaces used to integrate with MPay. There are interfaces on both sides, on payable e-Service and MPay side. Its target audience is the development teams that implement or maintain information systems to be integrated with MPay.
 
-##**Descrierea generală a sistemului**
+## General system description
 
-MPay este un serviciu reutilizabil și partajat la nivel de platformă, al cărui scop principal este 
-de a permite plata oricărui serviciu electronic cu orice instrument de plată disponibil.
-Interfața tehnică utilizată pentru integrarea prestatorului de serviciu, cu platforma MPay,
-simplifică semnificativ integrările prin expunerea formatelor tehnice de date.
-Există multe avantaje non-tehnice activate de MPay, cum ar fi gestionarea mai ușoară a 
-contractelor și transparenta, însă nu intră în domeniul de aplicare al acestui document.
+MPay is a reusable and shared platform-level service the main scope of which is to enable the payment for any e-Service with any payment instrument available in the market.
+The unified technical interface used for integrating e-Services with MPay significantly simplifies integrations by hiding differences in technical protocols and formats.
+There are many non-technical advantages enabled by MPay, such as easier contract management and simplified clearance, but they are out of scope of this document.
 
-##**Dependențe**
+## Service dependencies
 
-Disponibilitatea MPay depinde de disponibilitatea implementării interfetei IServiceProvider, 
-adică un plătitor nu va putea să solicite o comandă sau o factură pentru un anumit serviciu 
-electronic și să plătească pentru aceasta, dacă serviciul web al prestatorului de servicii 
-electronice nu este disponibil
+The availability of MPay depends on the availability of the IServiceProvider implementation,
+i.e. a payer will not be able to query for an order or an invoice for a particular e-Service and
+pay for it, if the e-Service provider’s web-service is not available.
 
-##**Protocoale și standarde**
+## Protocols and standards
 
-MPay expune web serviciul interoperabil WS-I Basic Profile 1.1 prin HTTPS, care corespunde 
-basicHttpBinding în WCF. MPay folosește erori SOAP pentru raportarea erorilor.
-MPay utilizează semnătura XML WS-Security (X.509) (la nivel de mesaj) pentru a permite nonrepudierea.
-
-##**Notații**
-
-Acest document conține mai multe stiluri de notație; următoarele detaliază stilurile care au un 
-grad de semnificație dincolo de scopul comunicării informațiilor:
-
-<span class="highlight-text-yellow">Text marcat cu galben</span> – Textul care este evidențiat cu galben, indiferent de atributele fontului 
-(tipul fontului, cursive, aldine, subliniat etc.) înseamnă că textul așteaptă clarificare sau 
-verificare.
-
-<span class="red-bold-text">Red Bold Text</span> – Textul aldin de culoare roșie definește o informație importantă care trebuie 
-citită.
-
-***Italic Bold Text*** – Textul aldin și cursiv detaliază informații sau scripturi reale care trebuie 
-executate, create și copiate din sau către.
-
-~~Strikethrough Text~~ – Text care este depășit și care trebuie ignorat
+MPay exposes WS-I Basic Profile 1.1 interoperable service over HTTPS which corresponds to basicHttpBinding in WCF. MPay uses SOAP faults for error reporting.
+MPay uses WS-Security (X.509) XML Signature (at message level) to enable non-repudiation.
