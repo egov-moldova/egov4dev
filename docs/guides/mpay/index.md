@@ -1,6 +1,4 @@
-#**Introducere**
-
-##**Domeniul de aplicare și publicul vizat**
+## Domeniul de aplicare și publicul vizat
 
 Acest document descrie interfețele tehnice utilizate pentru integrarea cu MPay. Publicul vizat
 sunt echipele de dezvoltare care implementează sau întrețin sistemele informaționale pentru 
