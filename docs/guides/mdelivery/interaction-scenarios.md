@@ -12,7 +12,7 @@ The attribute Redirect to MPay=true supposes the interaction scenario when the d
 
 **Note!** To implement this scenario the Service Provider has to implement only the redirect to MDelivery and the methods to exchange the statuses during the delivery process. The delivery order creation, including the display of the aggregated order summary for confirmation and the redirect to MPay for payment are made on MDelivery.
 
-<img src="img/true.png">
+<img src="../img/true.png">
 
 ### Redirect to MPay [false]
 
@@ -20,7 +20,7 @@ The attribute Redirect to MPay=false supposes the interaction scenario when the 
 
 **Note!** To implement this scenario the Service Provider has to develop the interface for delivery order creation displaying the aggregated order summary and options to confirm the delivery order redirecting the aggregated payment to MPay.
 
-<img src="img/false.png">
+<img src="../img/false.png">
 
 ## Request delivery
 
