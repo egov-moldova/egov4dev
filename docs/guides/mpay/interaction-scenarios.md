@@ -2,6 +2,8 @@ Because MPay integrates multiple payable e-Service providers and different payme
 
 ## Order and pay online
 
+<img src="mpay.svg">
+
 ### Scenario steps:
 
 1. **Order creation**
