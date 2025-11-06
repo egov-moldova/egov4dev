@@ -7,12 +7,12 @@ table {
 }
 
 table > thead > tr {
-  font-weight: 400; color:white;
+  font-weight: 300; color:white;
   background-color: #4051b5;
 }
 
 table th {
-    border: 1px solid #fff !important;
+    border-right: 1px solid #fff !important;
     padding: 5px;
     text-align: left;
     vertical-align: top;
