@@ -23,12 +23,15 @@ table th:last-child {
 }
 
 table td {
-    border: 1px solid #ccc !important;
-    padding: 5px;
+    border-left: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
+    padding: 5px !important;
     text-align: left;
     vertical-align: top;
 }
-
+table td:last-child {
+    border-right: 1px solid #ccc !important;
+}
 .table-dark td,
 .table-dark > tbody > tr > th {
     border: 1px solid #ccc !important;
