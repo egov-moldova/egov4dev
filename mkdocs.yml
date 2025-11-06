@@ -35,6 +35,12 @@ nav:
           - Security: guides/mpower/security.md
           - API references: guides/mpower/api-references.md
           - Change log: guides/mpower/change-log.md
+      - MPay:
+          - Overview: guides/mpay/index.md
+          - Interaction scenarios: guides/mpay/interaction-scenarios.md
+          - Integration development: guides/mpay/integration-development.md
+          - Security: guides/mpay/security.md
+          - API references: guides/mpay/api-references.md
       - MConnect Events:
           - Overview: guides/mconnect-events/index.md
           - Interaction scenarios: guides/mconnect-events/interaction-scenarios.md
