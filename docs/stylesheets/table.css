@@ -1,40 +1,39 @@
 table {
   width: 100% !important;
-  border: 2px solid #1E2129;
+  border: 1px solid #666;
   border-collapse: collapse;
-  font-size: 0.6rem !important;
+  font-size: 0.7rem !important;
+  table-layout: auto;
 }
 
 table > thead > tr {
-  font-weight: 600;
-  background-color: #2094F3;
-  letter-spacing: 1px;
-  table-layout: auto;
+  font-weight: 500;
+  background-color: #4051b5;
 }
 
 table th,
 table td {
-    border: 2px solid #1E2129 !important;
-    padding: 10px;
+    border: 1px solid #666 !important;
+    padding: 5px;
     text-align: left;
     vertical-align: top;
 }
 
 .table-dark td,
 .table-dark > tbody > tr > th {
-    border: 2px solid #2094F3 !important;
+    border: 1px solid #666 !important;
 }
 
 .table-dark > thead > tr > th:first-child {
-  border-top: 2px solid #2094F3 !important;
-  border-left: 2px solid #2094F3 !important;
+  border-top: 1px solid #666 !important;
+  border-left: 1px solid #666 !important;
 }
 
 .table-dark > thead > tr > th:not(:first-child):not(:last-child) {
-  border-top: 2px solid #2094F3 !important;
+  border-top: 1px solid #666 !important;
 }
 
 .table-dark > thead > tr > th:last-child {
-  border-top: 2px solid #2094F3 !important;
-  border-right: 2px solid #2094F3 !important;
+  border-top: 1px solid #666 !important;
+  border-right: 1px solid #666 !important;
 }
