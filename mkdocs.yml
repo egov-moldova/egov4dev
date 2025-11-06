@@ -60,7 +60,7 @@ nav:
           - Overview: guides/mdelivery/index.md
           - Steps to connect: guides/mdelivery/process.md
           - Interaction scenarios: guides/mdelivery/interaction-scenarios.md
-          - Integration development: guides/mmdelivery/integration-development.md
+          - Integration development: guides/mdelivery/integration-development.md
           - API references: guides/mdelivery/api-references.md
           - Change log: guides/mdelivery/change-log.md
       - MDocs:
