@@ -3,7 +3,7 @@ table {
   border: 1px solid #ccc !important;
   border-collapse: collapse;
   font-size: 0.7rem !important;
-  table-layout: auto;
+  table-layout: auto; display: initial !important; border-radius:none !important;
 }
 
 table > thead > tr {
