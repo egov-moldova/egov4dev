@@ -1,86 +1,102 @@
-MDocs is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.
+MDocs is an IT solution provided as a SaaS service based on the MCloud platform designed to implement a centralized mechanism for storing and sharing documents resulting from the provision of public services, and its beneficiaries will be natural persons and legal entities of public and private law.
 
-The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards. MDocs is an essential component of Moldova’s digital government ecosystem, contributing to the efficiency of public administration and the convenience of interactions between citizens, businesses, and the state.
+This document describes the technical interfaces exposed by MDocs for information systems that will use MDocs as document exchange and storage. Its target audience is the development teams for those information systems.
 
-## Executive summary
-MDocs is provided as a SaaS service on the MCloud platform to implement a centralized mechanism for storing and sharing documents resulting from public services. Beneficiaries include natural persons and legal entities under public and private law.
+The document contains all relevant information required for a complete understanding of MDocs from the integration point of view. It contains integrations development details, security considerations and an API reference.
 
-This guide describes the technical interfaces exposed by MDocs for information systems that will use MDocs for document exchange and storage. It contains integration development details, security considerations, and an API reference, with sample REST requests and responses for the main interaction scenarios.
+This document also includes sample REST requests and responses that exemplify the main interaction scenario.
 
-## Introduction
-### Scope and target audience
-This guide targets development teams of information systems that will use MDocs for storing and sharing documents resulting from the provision of public services.
+## Scope and target audience
 
-### Structure of this guide
-Recommended reading order:
+This document describes the technical interfaces exposed by MDocs for information systems that will use MDocs for storing and sharing documents resulting from the provision of public services. Its target audience is the development teams for those information systems.
+
+The details related to deciding what events are important for an information system are out of scope of this document.
+
+## Structure of this document
+
+This document contains the relevant information required for a complete understanding of MDocs from the integration point of view. It is also accompanied by samples that exemplify some integration scenarios using certain technologies.
+
+The recommended reading sequence are the following chapters:
 
 - System context
-- Usage (interaction) scenarios
+- Interaction scenarios
 - Integration development
 - Security considerations
 
-## Organizational context
-### Service owner
+The remaining chapters are for reference purpose.
 
-- Organization: e-Governance Agency of Moldova (EGA)
-- General Point of Contact: office@egov.md
+## General system capabilities
 
-## System context
-### General system capabilities
-The Document Hosting and Sharing Service (MDocs) provides a standardized, centralized mechanism for storing and sharing documents produced by public services, accessible to public authorities and their beneficiaries.
+The Document Hosting and Sharing Service (MDocs) is an IT solution provided as a SaaS service based on the MCloud platform designed to implement a centralized mechanism for storing and sharing documents resulting from the provision of public services, and its beneficiaries will be natural persons and legal entities of public and private law.
 
-Key benefits:
+The provision of document hosting and sharing services will enable standardization of the processes of sharing the results of public services provided by public authorities in the Republic of Moldova through a digital platform, which will be accessible to public authorities that have not yet digitized their services.
 
-- Centralized repository of all documents produced during public service delivery
-- Standardized process for sharing documents
-- Digitization for authorities lacking extensive IT solutions
-- Reduced costs of delivering public services
-- Encouraged electronic exchange of documents between public authorities
-- Conditions for implementing electronic archives
-- Efficient automatic data exchange between interacting information systems
-- Integration with government platform services (MPass, MSign, MNotify, MLog, MPower, MCabinet, MDelivery, MWallet, MConnect, Semantic Catalog, Open Data Portal)
-- Single intuitive user interface
-- High‑performance management, configuration, and dynamic development facilities
+The technological and organizational benefits of providing the file hosting and sharing tool are as follows:
 
-### Protocols and standards
+- a centralized data repository of all documents delivered during the provision of public services;
+- a standardized process for sharing documents related to the outcome of public service delivery;
+- digitization of the document sharing process for public authorities that do not have powerful IT solutions;
+- reducing the costs of delivering public services;
+- encouraging electronic exchange of documents between public authorities in the Republic of Moldova;
+- creating conditions for the implementation of software for the creation and management of electronic archives;
+- an efficient mechanism for automatic data exchange between the information systems with which the Document Hosting and Sharing Service (MDocs) will interact;
+- integration with government platform services (MPass, MSign, MNotify, MLog, MPower, MCabinet, MDelivery, MWallet, MConnect, Semantic Catalog, Open Data Portal);
+- a single intuitive and ergonomic user interface;
+- high-performance management, configuration and dynamic development facilities.
 
-- Exposes **HTTP REST** interfaces
-- Uses **JSON** as the message format
-- 
-## Concepts
-### Document type
+By providing document hosting and sharing services, the Government aims to improve public services through the digital platforms of public authorities in the Republic of Moldova and to reduce the use of paper documents by providing adequate facilities to citizens.
 
-- Default document types: Unknown and folder.
-- Other document types must be defined by an administrator.
-- If not specified when uploading a blob, the document type defaults to Unknown.
+## Protocols and standards
 
-Configuration flags:
+**MDocs** exposes HTTP REST interface and uses JSON as message format.
 
-- Official document — allow marking a document type as official (pre-defined types cannot be official)
-- Permanent delete on expiration — permanently delete when expired or when deleted from Recycle Bin; an “expiring” document is one with ExpiresOn < configurable threshold (default 30 days)
-- Allow anonymous document verification — permit public verification for this type
-- Documents versioning — enable versioning
+## Document type
 
-### Share permission
-Permissions available when sharing documents or folders:
+By default, there are two document types in the system: Unknown and folder.
 
-| Action | Read | Write |
-|--------|------|-------|
-| View file/folder | ✅ | ✅ |
-| Read file/folder (hierarchy included) | ✅ | ✅ |
-| Edit file/folder | ❌ | ✅ |
-| Overwrite / add / remove documents | ❌ | ✅ |
-| Recycle (not permanently delete) | ❌ | ✅ |
+All other kind of doc types should be defined by an administrator.
 
-### Pagination
+If the document type is not specified when uploading the blob, then the default is document type Unknown.
 
-- page: integer — page number to display
-- itemsPerPage: integer — number of items per page
-- orderField: string — order list by the provided field
-- searchBy: string — filter by text present in item fields
+**Available configuration flags:**
 
-### Format
+| **Name** | **Description** |
+|---|---|
+| **Official document** | Allow the Administrator to mark a document type as official. Pre-defined document types cannot be official. |
+| **Permanent delete on expiration** | Marks the document types that are completely deleted when expiring or deleted first through Recycle bin. "Expiring" document is considered if ExpiresOn is less than 30 days (configurable time span). Meaning permanent deletion on expiration. |
+| **Allow anonymous document verification** | Allows public verification for documents of this type. |
+| **Documents versioning** | Allows document versioning |
 
-- Content-Type indicates the original media type of the resource.
-- MDocs allows any MIME type for blobs, with special treatment for some types (for example, application/json .json).
-- For document types with an assigned schema, the document content is validated against that schema.
+## Share permission
+
+| **Description** | **Permission** | |
+|---|---|---|
+| | **Read** | **Write** |
+| The principal can **view** the file or folder. | **Yes** | **Yes** |
+| The principal can **read** the file or folder (including down the hierarchy). | **Yes** | **Yes** |
+| The principal can **edit** the file or folder (including down the hierarchy). | **No** | **Yes** |
+| The principal can **overwrite** the file or **add**/**remove** any document in the shared folder. | **No** | **Yes** |
+| The principal can **recycle** the shared document (file/folder), but not delete it permanently. | **No** | **Yes** |
+
+## Pagination
+
+**Parameters**
+
+| **Name** | **Data Type** | **Description** |
+|---|---|---|
+| page | integer($int32) | number of the page you want to display |
+| itemsPerPage | integer($int32) | number of items to display per page |
+| orderField | string | order list by the field provided |
+| searchBy | string | filter list to display documents that have fields containing the provided text |
+
+## Format
+
+The Content-Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).
+
+Mdocs allows any MIME Types for blobs, but has special treatment for the following:
+
+| **MIME-Type** | **Extension** |
+|---|---|
+| application/json | .json |
+
+For document type with specified schema the contents of the document is validated against the schema.
