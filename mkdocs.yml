@@ -52,6 +52,7 @@ nav:
           - Integration libraries: guides/mconnect-events/integration-libraries.md
       - MNotify:
           - Overview: guides/mnotify/index.md
+          - Steps to connect: guides/mnotify/process.md
           - Integration development: guides/mnotify/integration-development.md
           - API references: guides/mnotify/api-references.md
           - Change log: guides/mnotify/change-log.md
