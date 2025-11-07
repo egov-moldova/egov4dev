@@ -1,10 +1,8 @@
-﻿#Interaction scenarios
-
 MConnect Events integrates two types of clients: event producers and event consumers. A client information system can be configured to be either a producer, a consumer, or both.
 
 As defined by CloudEvents standard, all events have a type. In MConnect Events context, types are named using the following convention: “Organization.System.Entity.Action” (for example “AGE.MPass.User.Authenticated”). A Producer is authorized to produce and a Consumer to consume only certain types of events
 
-##**Produce events**
+## Produce events
 
 A client system that is authorized as Producer can only produce events of **authorized types**. Produced events are authorized, **validated against the configured schema** and persisted in one or more places for consumption. MConnect Events then responds with HTTP 200 OK when all of these succeed, thus ensuring reliable messaging.
 
@@ -17,7 +15,7 @@ A Producer can produce events in parallel, from multiple instances. MConnect Eve
 For performance reasons, MConnect Events does not by default guarantee ordered consumption of events, meaning that events that are close in time might be seen by consumers in a different order they were produced by producers. **If ordered consumption is required** for some entity (for example a person or document), Producer must set partition key to entity identifier according to CloudEvents standard partitioning extension (for example for a person set partitionkey to idnp:{idnp}).
 
 
-##**Consume events**
+## Consume events
 A client system that is authorized as Consumer can only consume events of **authorized types**. Consumers are actively polling for their events using either HTTP long polling technique or by implementing the efficient and strongly recommended **WebSocket protocol** defined in this document. In both cases, MConnect Events returns pending events for consumption, each of them having an associated offset restarted when consumer connects.
 
 To ensure reliable delivery of events in at-least-once manner, the Consumer must **confirm successful consumption of events**. Each consumed event includes an offset that is restarted at the beginning of consumer session. The consumer confirms the consumption of each event or, for efficiency, a batch of events by including the offset of the last successfully consumed event in the confirmation.
