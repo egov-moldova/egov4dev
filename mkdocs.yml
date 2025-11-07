@@ -72,9 +72,9 @@ nav:
           - Overview: guides/mlog/index.md
           - Interaction scenarios: guides/mlog/interaction-scenarios.md
           - Integration development: guides/mlog/integration-development.md
+          - Integration testing: guides/mlog/integration-testing.md
           - API references: guides/mlog/api-references.md
           - Examples: guides/mlog/examples.md
-          - Integration testing: guides/mlog/integration-testing.md
           - Security: guides/mlog/security.md
           - Change log: guides/mlog/change-log.md
 
