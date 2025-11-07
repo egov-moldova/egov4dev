@@ -74,7 +74,7 @@ nav:
           - Integration development: guides/mlog/integration-development.md
           - API references: guides/mlog/api-references.md
           - Examples: guides/mlog/examples.md
-          - Integration libraries: guides/mlog/integration-libraries.md
+          - Integration testing: guides/mlog/integration-testing.md
           - Security: guides/mlog/security.md
           - Change log: guides/mlog/change-log.md
 
