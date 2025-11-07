@@ -31,16 +31,16 @@ considerations, as well as describing the integration testing.
 Although the document is meant to be technology agnostic, it is also documenting the integration
 library built for .NET to simplify and speed-up integrations with .NET clients.
 
-##**Scope and target audience**
+## Scope and target audience
 This document describes the technical interfaces exposed by MConnect Events for client
 information systems that are using it to produce and consume events. Its target audience is the
 development teams for those information systems.
 
-##**Glossary of terms**
+## Glossary of terms
 
 For the complete glossary, please visit the [Glossary page](https://egov-moldova.github.io/egov4dev/glossary/glossary/).
 
-##**General system capabilities**
+## General system capabilities
 
 MConnect Events is a platform-level service, a component of MConnect, the National
 Interoperability Platform, that allows information systems to efficiently produce and consume events
@@ -75,7 +75,7 @@ Consumers can report back events they are unable to consume (usually due to wron
 dead events. They are stored in a special dead event storage for the consumer and might require
 further manual intervention.
 
-##**Service dependencies**
+## Service dependencies
 MConnect Events is deployed in a highly available infrastructure and depends only on the availability
 of MPass API for client management. MPass API is also highly available, however, MConnect Events
 caches client settings for up to 30 minutes. This ensures high performance of connection opening
@@ -84,7 +84,7 @@ except for the initial ones, thus decreasing this dependency.
 It is also important to note that, due to implementation technicalities, it is normal for consumers to
 start consuming events with a short delay (several seconds) after opening the consumer connection.
 
-##**Protocols and standards**
+## Protocols and standards
 
 MConnect Events exposes its APIs over HTTPS, supporting HTTP 1.1 and 2. The HTTPS endpoint uses
 TLS 1.2 and higher and requires authentication through client certificates (encoded in X.509 v3
@@ -102,7 +102,7 @@ CONNECT method ([see 8.3 in RFC 7540](https://httpwg.org/specs/rfc7540.html)).
 When validating events during production against the configured schema the supported versions of JSON Schema are Draft 6, Draft 7, Draft 2019-09 and [Draft 2020-12](https://json-schema.org/specification). The version is identified based
 on keywords used by the schema.
 
-##**Limits**
+## Limits
 
 According to CloudEvents standard, it is recommended that the published events be no larger than [**64 KB**](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#size-limits). This not only ensures any intermediaries will forward the events but also makes the transmission of events efficient and allows broader distribution of events, while stressing the core meaning of events (i.e. messages that inform about something that happened and not a transport for any kind of data). CloudEvents producers SHOULD keep events compact by avoiding embedding large data items into event payloads and rather use the event payload to link to such data items.
 
