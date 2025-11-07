@@ -1,211 +1,611 @@
-﻿# API References
-
-This section summarizes key API behaviors and links to the full, interactive API documentation.
-
-- **Swagger (development):** [https://mdocs.dev.egov.md:8443/api/swagger/index.html](https://mdocs.dev.egov.md:8443/api/swagger/index.html)
-
----
-
 ## Error handling rules
 
-For errors that result from REST interface invocations, MDocs returns HTTP status codes with explanations.
+For errors resulted for REST interface invocations, MDocs returns HTTP faults with fault codes and fault reasons describing the fault in plain English.
 
-| HTTP Status | Meaning |
+| Fault Code | Description |
 |---|---|
-| 400 Bad Request | The input request is not valid JSON or parameters are invalid |
-| 401 Unauthorized | The client could not be identified/authenticated |
-| 403 Forbidden | The server understood the request but refuses to authorize it |
-| 404 Not Found | The URL is not in service or no data found for provided parameters |
-| 413 Payload Too Large | The message exceeds the maximum allowed size (current overall limit ~256 KB) |
-| 500 Internal Server Error | Error triggered by a defective operation of MDocs; contact administrators |
-| 507 Server Error | Generic server error |
+| 400 Bad Request | The input request is not a valid JSON. Any other error which cannot be bypassed -- please note the provide detailed explanation in the response. |
+| 401 Unauthorized | Triggered if the input event cannot be identified to be part of any IS |
+| 403 Forbidden | Status code indicates that the server understood the request but refuses to authorize it. |
+| 404 Not Found | The URL you have reached is not in service at this time (404). No data found for provided parameters. |
+| 413 Payload Too Large | Information about the maximum allowed limit size for a message. Current limit for the whole message size is 256 KB. |
+| 500 Internal Server Error | Error triggered by a defective work of MDocs system. Please contact MDocs administrators in case you receive such an error. |
+| 507 | Server error. |
 
-Note: In languages that support try/catch, HTTP error handling is the appropriate way to handle service invocation errors.
+The clients that are using programming languages that support try...catch blocks, HTTP errors is the correct way to handle service invocation errors.
 
----
+Documents can be published by client for document owner as well as for other identities.
 
-## Blobs API
+## Blobs
 
-- `POST /blobs` — upload blob
-- `PUT /blobs/{id}` — complete partial upload
-- `DELETE /blobs/{id}` — mark for deletion
-- `POST /transform` — transform file (PDF/HTML)
+### POST /blobs
 
-### POST /blobs — Upload or initiate a partial upload
-Represents the contents of a document.
+Uploads or initiates partial upload for a blob which represents the contents of a document
 
-**Parameters:**
-- `documentTypeCode`: string (required) — document type code
+**Parameters**
 
-**Example JSON body:**
+| Name | Data Type | Description |
+|---|---|---|
+| documentTypeCode | string* | document type code |
+
+*Required
+
+**Request body:**
+
 ```json
 {
-  "idn": "xxxxxxx",
-  "name": "Ion Ionescu",
+  "idn": "2000009011288",
+  "name": "Artur Reaboi",
   "Date": "2023-02-28",
   "Depts": [
-    { "budgetCode": "Consolidat", "totalDebt": 31.36 },
-    { "budgetCode": "Bugetul asigurarilor sociale de stat", "totalDebt": 1436.44 }
+    {
+      "budgetCode": "Consolidat",
+      "totalDebt": 31.36
+    },
+    {
+      "budgetCode": "Bugetul asigurărilor sociale de stat",
+      "totalDebt": 1436.44
+    }
   ]
 }
 ```
 
 **Responses:**
-- 201 Created
-```json
-{ "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6" }
-```
-- 400 Bad Request — Parameter is invalid
-- 403 Forbidden
 
----
+| HTTP Status | Description | Example |
+|---|---|---|
+| 201 | The blob was created | `{ "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6" }` |
+| 400 | Bad request - A parameter is invalid | |
+| 403 | Forbidden | |
 
-### PUT /blobs/{id} — Continue/complete partial upload
-- Part size range: **5 MiB to 5 GiB**
-- Last part size: **0 B to 5 GiB**
+### PUT /blobs/{id}
+
+Continue/complete partial upload for document. Part size range can be 5 MiB to 5 GiB. Last part size can be 0 B to 5 GiB.
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | Blob id |
+
+*Required
 
 **Request body:**
+
 ```json
 {
-  "idn": "xxxxxxx",
-  "name": "Ion Ionescu",
+  "idn": "2000009011288",
+  "name": "Artur Reaboi",
   "Date": "2023-02-28",
   "Depts": [
-    { "budgetCode": "Consolidat", "totalDebt": 31.36 },
-    { "budgetCode": "Bugetul asigurarilor sociale de stat", "totalDebt": 1436.44 }
+    {
+      "budgetCode": "Consolidat",
+      "totalDebt": 31.36
+    },
+    {
+      "budgetCode": "Bugetul asigurărilor sociale de stat",
+      "totalDebt": 1436.44
+    }
   ]
 }
 ```
 
----
-
-### DELETE /blobs/{id} — Marks a blob as deleting
 **Responses:**
-- 200 OK — blob deleted
-- 400 Bad Request
-- 403 Forbidden
-- 404 Not Found
 
----
+| HTTP Status | Description |
+|---|---|
+| 200 | The blob was updated |
+| 400 | Bad request - A parameter is invalid |
+| 403 | Forbidden |
 
-### POST /transform — Transform uploaded file
-**Parameters:**
-- `documentTypeCode` (required)
-- `format` (required): `Pdf` or `Html`
-- `language`: `Ro`, `En`, or `Ru`
+### DELETE /blobs/{id}
+
+Marks a blob as deleting
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | blob id |
+
+*Required
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | The blob was deleted |
+| 400 | Bad request - A parameter is invalid |
+| 403 | Forbidden |
+| 404 | Not found |
+
+### POST /transform
+
+Transforms the uploaded file into the selected file format
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| documentTypeCode | string* | document type code |
+| format | string* | format of the file that will be downloaded (Pdf or Html) |
+| language | string | language used for dictionaries (Ro/En/Ru) |
+
+*Required
 
 **Request body:**
+
 ```json
 {
-  "idn": "xxxxxxx",
-  "name": "Ion Ionescu",
+  "idn": "2000009011288",
+  "name": "Artur Reaboi",
   "Date": "2023-02-28",
   "Depts": [
-    { "budgetCode": "Consolidat", "totalDebt": 31.36 },
-    { "budgetCode": "Bugetul asigurarilor sociale de stat", "totalDebt": 1436.44 }
+    {
+      "budgetCode": "Consolidat",
+      "totalDebt": 31.36
+    },
+    {
+      "budgetCode": "Bugetul asigurărilor sociale de stat",
+      "totalDebt": 1436.44
+    }
   ]
 }
 ```
 
----
+**Responses:**
 
-## Documents API
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
 
-- `GET /documents` — list documents
-- `POST /documents` — create document
-- `GET /recycled-documents` — list recycle bin
-- `DELETE /recycled-documents` — empty recycle bin
-- `GET /documents/{id}` — get metadata
-- `PATCH /documents/{id}` — update properties
-- `DELETE /documents/{id}` — recycle or delete permanently
-- `GET /documents/{id}/versions` — list versions
-- `POST /recycled-documents/{id}/restore` — restore document
-- `GET /documents/{id}/size` — calculate size
-- `POST /documents/{id}/copy` — copy document
-- `GET /documents/{id}/blob` — download contents
-- `POST /documents/{id}/blob` — overwrite contents
+## Documents
 
----
+### GET /documents
 
-### Example: POST /documents
+Displays all documents for current principal
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| principal | string | principal if you want to impersonate an identity |
+| type | string | filter list to display only documents of the provided type |
+| folderId | string($uuid) (path) | parent folder id |
+| page | integer($int32) | number of the page you want to display |
+| itemsPerPage | integer($int32) | number of items to display per page |
+| orderField | string | order list by the field provided |
+| searchBy | string | filter list to display documents that have fields containing the provided text |
+
+**Response body:**
+
+HTTP 200
+
+```json
+[
+  {
+    "id": "de9eb38a-b7e0-4a4c-bc3c-018a5f3ccff9",
+    "name": "Docname",
+    "folderId": null,
+    "folderName": "Root",
+    "number": "5",
+    "expiresOn": null,
+    "type": "Cazier",
+    "type_Name_Ro": "Cazier",
+    "type_Name_En": null,
+    "type_Name_Ru": null,
+    "typeIcon": null,
+    "size": 92951,
+    "indicativeFlags": 0,
+    "createdOn": "2023-09-04T06:44:56.912",
+    "createdBy": "urn:md:idno:1010600034203",
+    "createdByName": "Instituţia Publică CENTRUL DE GUVERNARE ELECTRONICĂ (E-GOVERNMENT)",
+    "modifiedOn": "2023-09-12T13:02:25.5085277",
+    "modifiedBy": "urn:md:idnp:2002027065619",
+    "modifiedByName": "ELENA PLUGARU"
+  }
+]
+```
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### POST /documents
+
+Create documents
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| blobId | Guid* | The actual content of the document. NULL for folders. |
+| principal | String(100)* | Who is the owner of the document in URN format: urn:md:idno/idnp |
+| Name | String(250)* | The name of the file or folder |
+| number | String(50) | Document number assigned by the issuer of the document |
+| expiresOn | DateTime | When set, specifies the expiration date of the document |
+| createdOn | DateTime | Equals to UploadedOn when not specified |
+| createdBy | String(100) | Principal URN of the creator |
+| folderId | Guid | Parent folder, which is a document without BlobId |
+
+*Required
+
+**Request body:**
+
 ```json
 {
   "blobId": "49f62517-bfdc-438b-b625-018aac4fddfd",
   "documents": [
     {
-      "principal": "urn:md:idnp:xxxxxxx",
+      "principal": "urn:md:idnp:2002027065619",
       "name": "JsonDoc",
-      "number": "XT-85214P",
+      "number": " XT-85214P",
       "expiresOn": "2023-11-19T07:10:24.338Z",
       "createdOn": "2023-09-19T07:10:24.338Z",
-      "createdBy": "urn:md:idnp:xxxxxxx",
+      "createdBy": "urn:md:idnp:2002027065619",
       "folderId": "110b0724-6f02-48c1-af48-018a6029ef71"
     }
   ]
 }
 ```
 
-**Response (201 Created):**
+**Notes:**
+- For the document to be published successfully, "expiresOn" must be greater than "createdOn".
+- If the client does not set an expiration date to the document type, then the created document will have the expiration date of the document type to which the blob refers.
+- If the document type to which the blob refers does not have an expiration date set, then the created document will have expiresOn with the null value.
+- At "createdOn" enter the date from which the document will be available, possibly when setting a future creation date, the document will be available from the set date (optional field).
+- Validarea formatului identităților se face după formula "urn:md:"
+
+**Response body:**
+
+HTTP 201 Created
+
 ```json
 [
   {
-    "id": "02f94707-20a8-4896-bafa-018aac5041aa",
-    "name": "JsonDoc",
-    "principal": "urn:md:idnp:xxxxxxx",
-    "expiresOn": "2023-11-19T07:10:24.338Z"
+    "id": "a78e6501-877b-4969-bed7-018aad5406c8",
+    "name": "Exemple (2)",
+    "principal": "urn:md:idnp:2002027065619",
+    "expiresOn": null
   }
 ]
 ```
 
----
+**Responses:**
 
-### Example: GET /documents/{id}
+| HTTP Status | Description |
+|---|---|
+| 201 | Created |
+| 400 | Bad request |
+| 403 | Forbidden - Cannot create document because principal does not have Write permission on destination folder or upwards in hierarchy |
+| 404 | Not Found |
+| 507 | Server Error. Insufficient Storage |
+
+### GET /documents/{id}
+
+Get document details
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | document id |
+| principal | string (query) | principal if you want to impersonate an identity |
+
+*Required
+
+**Response body:**
+
+HTTP 200
+
 ```json
 {
-  "id": "3109b560-6096-4af9-b67b-018ab719f623",
-  "name": "Doc.pdf",
+  "id": "de9eb38a-b7e0-4a4c-bc3c-018a5f3ccff9",
+  "name": "Docname",
+  "folderId": null,
   "folderName": "Root",
-  "number": "BY-56874",
-  "expiresOn": "2023-10-01T09:37:26.6574102",
+  "number": "5",
+  "expiresOn": null,
   "type": "Cazier",
-  "size": 10880271,
-  "createdBy": "urn:md:idno:xxxxxxx",
-  "createdByName": "Public Institution E-Government",
-  "modifiedBy": "urn:md:idnp:xxxxxxx",
-  "modifiedByName": "Ion Ionescu"
+  "type_Name_Ro": "Cazier",
+  "type_Name_En": null,
+  "type_Name_Ru": null,
+  "typeIcon": null,
+  "size": 92951,
+  "indicativeFlags": 0,
+  "createdOn": "2023-09-04T06:44:56.912",
+  "createdBy": "urn:md:idno:1010600034203",
+  "createdByName": "Instituţia Publică CENTRUL DE GUVERNARE ELECTRONICĂ (E-GOVERNMENT)",
+  "modifiedOn": "2023-09-12T13:02:25.5085277",
+  "modifiedBy": "urn:md:idnp:2002027065619",
+  "modifiedByName": "ELENA PLUGARU"
 }
 ```
 
----
+**Responses:**
 
-## Document sharing API
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 403 | Forbidden |
+| 404 | Not Found |
 
-- `POST /documents/{id}/shares` — share document
-- `GET /documents/{id}/shares` — list shares
-- `PUT /documents/{id}/shares/{shareid}` — modify share
-- `DELETE /documents/{id}/shares/{shareid}` — delete share
+### PATCH /documents/{id}
 
-**Example:**
+Update document
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | document id |
+| principal | string (query) | principal if you want to impersonate an identity |
+
+*Required
+
+**Request body:**
+
 ```json
-[
-  {
-    "for": "urn:md:idno:xxxxxxx",
-    "from": "2023-09-26T06:14:01.795Z",
-    "to": "2023-10-26T06:14:01.795Z",
-    "permission": "write"
-  }
-]
+{
+  "name": "UpdatedDocName",
+  "number": "XT-12345",
+  "expiresOn": "2023-12-31T23:59:59Z"
+}
 ```
 
----
+**Responses:**
 
-## Shares API
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
+| 404 | Not Found |
 
-- `GET /shares/for-me` — documents shared **to me**
-- `GET /shares/by-me` — documents shared **by me**
-- `POST /shares/reservations` — reserve share
+### DELETE /documents/{id}
 
-**Example (reservation response):**
+Delete document (moves to recycle bin)
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | document id |
+| principal | string (query) | principal if you want to impersonate an identity |
+
+*Required
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### GET /documents/{id}/blob
+
+Download document blob
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | document id |
+| principal | string (query) | principal if you want to impersonate an identity |
+
+*Required
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success - returns the binary content of the document |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### GET /documents/{id}/versions
+
+Get document versions
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | document id |
+| principal | string (query) | principal if you want to impersonate an identity |
+| page | integer($int32) | number of the page you want to display |
+| itemsPerPage | integer($int32) | number of items to display per page |
+
+*Required
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+## Document sharing APIs
+
+### POST /documents/{id}/shares
+
+Share a document with one or more identities
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | document id |
+| principal | string (query) | principal if you want to impersonate an identity |
+
+*Required
+
+**Request body:**
+
+```json
+{
+  "shares": [
+    {
+      "sharedFor": "urn:md:idnp:2005042155206",
+      "permission": "Read",
+      "from": "2023-11-01T00:00:00",
+      "to": "2023-11-30T23:59:59"
+    }
+  ]
+}
+```
+
+**Notes:**
+- `permission`: "Read" or "Write"
+- `from` and `to`: Optional date range for the share
+- `from` <= `to` and `to` > now
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 201 | Created |
+| 400 | Bad request |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### GET /documents/{id}/shares
+
+Get all shares for a document
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | string($uuid) (path)* | document id |
+| principal | string (query) | principal if you want to impersonate an identity |
+
+*Required
+
+**Response body:**
+
+HTTP 200
+
+```json
+{
+  "id": "48e0b28a-0784-471b-b0bd-018ae14636c5",
+  "name": "json.json",
+  "folderId": null,
+  "number": "string",
+  "type": "Unknown",
+  "type_Name_Ro": "Unknown",
+  "type_Name_En": null,
+  "type_Name_Ru": null,
+  "typeIcon": null,
+  "size": 11081517,
+  "createdOn": "2023-09-06T09:09:02.148974",
+  "createdBy": "urn:md:idno:1018600049308",
+  "createdByName": "CODWER S.R.L.",
+  "modifiedOn": "2023-09-22T11:22:23.7414537",
+  "modifiedBy": "urn:md:idno:1018600049308",
+  "modifiedByName": "CODWER S.R.L.",
+  "expiresOn": "2023-12-09T23:59:59",
+  "shares": [
+    {
+      "id": "b07df74f-f1e5-43f6-ad86-018acd0632e7",
+      "permission": "Write",
+      "sharedOn": "2023-09-25T15:47:30.1517579",
+      "sharedFor": "urn:md:idnp:2005042155206",
+      "sharedForName": "LILIA GUPCA",
+      "from": "2023-11-01T00:00:00",
+      "to": "2023-11-04T00:00:00"
+    },
+    {
+      "id": "08877815-ffd0-4af8-8284-018ae1465b0f",
+      "permission": "Write",
+      "sharedOn": "2023-09-29T14:09:59.0554621",
+      "sharedFor": "urn:md:idno:1003600034203",
+      "sharedForName": "LETO S.R.L.",
+      "from": null,
+      "to": null
+    }
+  ]
+}
+```
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
+
+## Shares APIs
+
+### GET /shares/for-me
+
+List the shares made for the current principal
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| principal | string (query) | principal if you want to impersonate an identity |
+| page | integer($int32) | number of the page you want to display |
+| itemsPerPage | integer($int32) | number of items to display per page |
+| orderField | string | order list by the field provided |
+| searchBy | string | filter list to display documents that have fields containing the provided text |
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
+
+### GET /shares/by-me
+
+List the shares made by the current principal
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| principal | string (query) | principal if you want to impersonate an identity |
+| page | integer($int32) | number of the page you want to display |
+| itemsPerPage | integer($int32) | number of items to display per page |
+| orderField | string | order list by the field provided |
+| searchBy | string | filter list to display documents that have fields containing the provided text |
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
+
+### POST /shares/reservations
+
+Reserves a share
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| generateAccessCode | boolean | generateAccessCode = true if you want to generate access code |
+
+**Response body:**
+
+HTTP 201
+
 ```json
 {
   "id": "1b3d3a56-72a3-4601-bf72-018af98d7a8e",
@@ -214,35 +614,97 @@ Represents the contents of a document.
 }
 ```
 
----
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 201 | Created |
 
 ## Document types
-- `GET /document-types/{code}` — get document type details
 
-**Example:**
+### GET /document-types/{code}
+
+Get document type details
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| code | String* | Document type code |
+
+*Required
+
+**Response body:**
+
+HTTP 200
+
 ```json
 {
   "code": "Spinner",
   "title_Romanian": "Spinner",
+  "title_English": null,
+  "title_Russian": null,
   "versioningEnabled": true,
   "icon": null
 }
 ```
 
----
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
 
 ## Principals
-- `GET /principals/{id}/name` — get principal name
 
----
+### GET /principals/{id}/name
+
+Get principal name
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| id | String (path)* | principal |
+
+*Required
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
 
 ## Quota
-- `GET /quota` — get storage quota usage
 
-**Example:**
+### GET /quota
+
+Get quota information
+
+**Parameters**
+
+| Name | Data Type | Description |
+|---|---|---|
+| principal | String (query)* | Principal if you want to impersonate an identity |
+
+**Response body:**
+
+HTTP 200
+
 ```json
 {
   "storageMaximum": 50000000000,
   "storageUsage": 23082794
 }
 ```
+
+**Responses:**
+
+| HTTP Status | Description |
+|---|---|
+| 200 | Success |
+| 400 | Bad request |
+| 403 | Forbidden |
+| 507 | Server Error |
