@@ -1,48 +1,22 @@
-MLog is the centralized logging and audit service for public sector information systems operated by the Moldovan eGovernance Agency (MEGA).
+MLog is a service the main scope of which is to facilitate the registration of legal events received from various official sources and allow an easy access to the history of these events.
 
-It enables systems to:
+This document describes the technical interfaces exposed by MLog for information systems that will use MLog as a legal events registrar. Its target audience is the development teams for those information systems.
 
-- Send application and security logs in a standardized way
-- Search, analyze and correlate events
-- Build dashboards and alerts for observability and compliance
-- Ensure traceability and auditability of critical operations
+The document contains all of the relevant information required for a complete understanding of MLog from the integration point of view. It contains integrations development details, security considerations and an API reference.
 
-Note: This page provides a short overview. For full integration details, see the PDF guide below.
+This document is also accompanied by Java samples that exemplify the main interaction scenario.
 
-## Getting started
+## Scope and target audience
 
-1. Request access and credentials from MEGA support.
-2. Configure your application to send logs using the supported protocol (e.g., HTTP/JSON or syslog).
-3. Use correlation IDs in your services for end-to-end tracing across MPay, MPass, MSign, MPower, etc.
-4. Define retention and access policies according to your organization’s needs.
+This document describes the technical interfaces exposed by MLog for information systems that will use MLog as a registrar for legal or important events. Its target audience is the development teams for those information systems.
 
-## Best practices
+The details related to deciding what events are important for an information system are out of scope of this document.
 
-- Structure logs as JSON with consistent fields (timestamp, level, service, action, user, correlationId, details)
-- Do not log secrets (passwords, tokens, private keys)
-- Mask personal data where not strictly necessary
-- Use INFO for business events, WARN for recoverable issues, ERROR for failures, and DEBUG for diagnostics in non‑production
+## Structure of this guide
 
-If you need a more detailed set of examples, reach out to the platform team or consult the PDF guide.
+This guide contains the relevant information required for a complete understanding of MLog from the integration point of view. It is also accompanied by samples that exemplify some integration scenarios using certain technologies.
 
----
-
-## Executive summary
-
-MLog facilitates the registration of legal events received from official sources and provides easy access to their history. This guide describes the technical interfaces exposed by MLog for information systems that use MLog as a legal events registrar. It targets development teams of those systems.
-
-It includes integration development details, security considerations, and an API reference. The guide is accompanied by samples that exemplify the main interaction scenarios.
-
-### Scope and target audience
-
-This document describes the technical interfaces exposed by MLog for information systems that will use MLog as a registrar for legal or important events. Its target audience is the development teams for those information systems. The details related to deciding what events are important for an information system are out of scope of this document.
-
-### Structure of this document
-
-This document contains the relevant information required for a complete understanding of MLog from the integration point of view. It is also accompanied by samples that exemplify some integration scenarios using certain technologies.
-
-The recommended reading sequence is:
-
+The recommended reading sequence are the following chapters:
 - System context
 - Interaction scenarios
 - Integration development
@@ -50,24 +24,14 @@ The recommended reading sequence is:
 
 The remaining chapters are for reference purpose.
 
-## Organizational context
+## General system capabilities
 
-### Service owner
+MLog is a reusable and shared platform-level service the main scope of which is to be a registrar of events and allow for their later querying and analysis. Note that complex analysis capabilities are only available to MLog administrators, while simple querying for events is available to all clients for events they previously logged.
 
-- Organization: e-Governance Agency of Moldova
-- General point of contact: office@egov.md
-- Technical point of contact: MLog Support — support.mlog@egov.md
-
-## System context
-
-### General system capabilities
-
-MLog is a reusable and shared platform-level service whose main purpose is to register events and allow for their later querying and analysis. Complex analysis capabilities are available to MLog administrators, while simple querying for events is available to all clients for events they previously logged.
-
-Events logged into MLog can be signed, and for certain systems unsigned events might not be allowed for registration.
+Events logged into MLog can be signed and for certain systems unsigned events might not be allowed for registration.
 
 By default, MLog exposes a simple querying interface for events logged by client systems themselves, either by returned registered ID or by a time range.
 
-### Protocols and standards
+## Protocols and standards
 
-MLog exposes an HTTP REST interface and uses the JOSE family of standards for signing JSON objects.
+MLog exposes HTTP REST interface and uses JOSE protocol for signing JSON objects.
