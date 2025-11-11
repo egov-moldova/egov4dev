@@ -1,1139 +1,407 @@
 ## Error handling rules
 
-For errors resulted for SOAP interface invocations, MNotify returns SOAP faults with fault codes and fault reasons describing the fault in plain English. If there is no SOAP fault returned, MNotify guarantees that the notification was persisted for later delivery.
+For errors resulting from REST requests, MNotify returns standard HTTP Status codes with corresponding messages describing the fault in plain English.
 
-| Fault Code | Description |
-|----------|----------|
-| AuthenticationFailed  | Service consumer authentication process failed. See Authentication |
-| InvalidParameter | Some input parameter is invalid. Please review the returned Fault Reason text and called operation description. |
-| 200	| Success |
-| 400	| Bad request, Validation failed. Check validation rules compliance |
-| 401	| Unauthorized Access. Check authorisation requirements |
-| 403	| Forbidden. The requested action is not allowed for the transmitted ID |
-| 404	| Not found.  Check sent request data |
-| 500	| A server error occurred. missing connection with DB from other reasons than: 400 / 401 / 501. Contact the Administrator. |
-| 501	| A server error occurred. Contact the Administrator. |
-
-For the consumers using programming languages that support try… catch blocks, catching framework specific SOAP Fault exceptions is the correct way to handle service invocation errors.
+| HTTP Status Code | Description |
+|-----------------|-------------|
+| 200 | Success |
+| 400 | Bad request, Validation failed. Check validation rules compliance |
+| 401 | Unauthorized Access. Check authorization requirements |
+| 403 | Forbidden. The requested action is not allowed for the transmitted ID |
+| 404 | Not found. Check the sent request data |
+| 409 | Conflict |
+| 501 | A server error occurred. Contact the Administrator. |
 
 ## Service operations
 
-<table>
-  <tr>
-    <td><strong>Signature</strong></td>
-    <td colspan="2"><strong>GET /api/Notifications/</strong></td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td colspan="2">Shows all the notifications transmitted by a sender.</td>
-  </tr>
-  <tr>
-    <td><strong>Returns</strong></td>
-    <td colspan="2">Shows all the notifications transmitted by a sender: <code>notificationId</code> and <code>notificationStatus</code>.</td>
-  </tr>
-  <tr>
-    <td colspan="3"><strong>Input Parameters</strong></td>
-  </tr>
-  <tr>
-    <td>Name</strong></td>
-    <td>Type</strong></td>
-    <td>Description</th>
-  </tr>
-  <tr>
-    <td>request</td>
-    <td>NotificationRequest</td>
-    <td>A structure representing the notification request.</td>
-  </tr>
-  <tr>
-    <td colspan="3"><strong>Faults</strong></td>
-  </tr>
-  <tr>
-    <td colspan="2"><strong>Code</strong></td>
-    <td><strong>Reason</strong></td>
-  </tr>
-  <tr>
-    <td colspan="2">200</td>
-    <td>Success</td>
-  </tr>
-  <tr>
-    <td colspan="2">500</td>
-    <td>A server error occurred.</td>
-  </tr>
-  <tr>
-    <td colspan="2">501</td>
-    <td>A server error occurred.</td>
-  </tr>
-</table>
+### GET /api/Notifications/
 
-<table>
-  <tr>
-    <td><strong>Signature</strong></td>
-    <td colspan="2"><strong>GET | /api/Notification/{id}</strong> <i>(id-string)</i></td>
-  </tr>
-  <tr>
-    <td><strong>Description</strong></td>
-    <td colspan="2">Returns the ID of the messages generated based on the respective notification, including message status and the channel used for transmission.</td>
-  </tr>
-  <tr>
-    <td><strong>Returns</strong></td>
-    <td colspan="2">Returns the ID of the messages generated based on the respective notification, including message status and the channel used for transmission.</td>
-  </tr>
-  <tr>
-    <td colspan="3">Input parameters</td>
-  </tr>
-  <tr>
-    <td><strong>Name</strong></td>
-    <td><strong>Type</strong></td>
-    <td><strong>Description</strong></td>
-  </tr>
-  <tr>
-    <td>notificationID</td>
-    <td>String</td>
-    <td>The ID of the notification posted earlier using PostNotification.</td>
-  </tr>
-  <tr>
-    <td colspan="3"><strong>Faults</strong></th>
-  </tr>
-  <tr>
-    <td colspan="2">Code</th>
-    <td>Reason</th>
-  </tr>
-  <tr>
-    <td colspan="2">200</td>
-    <td>Success</td>
-  </tr>
-  <tr>
-    <td colspan="2">404</td>
-    <td>Not found.</td>
-  </tr>
-  <tr>
-    <td colspan="2">500</td>
-    <td>A server error occurred.</td>
-  </tr>
-  <tr>
-    <td colspan="2">501</td>
-    <td>A server error occurred.</td>
-  </tr>
-</table>
+**Description:** shows all the notifications transmitted by a sender.
 
-<table>
-        <tr>
-            <td><strong>Signature</strong></td>
-            <td colspan="2"><strong>POST/api/Notification</strong> <em>(subject - string, body - string, bodyshort – string, recipients [value - string, type - string], priority - string)</em></td>
-        </tr>
-        <tr>
-            <td><strong>Description</strong></td>
-            <td colspan="2">Notification transmission metdod.</td>
-        </tr>
-        <tr>
-            <td><strong>Returns</strong></td>
-            <td colspan="2">notificationID</td>
-        </tr>
-        <tr>
-            <td colspan="3"><strong>Input parameters</strong></td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>Type</td>
-            <td>Description</td>
-        </tr>
-        <tr>
-            <td style="color:red;">userId</td>
-            <td style="color:red;">String</td>
-            <td style="color:red;">tdis parameter should be ignored</td>
-        </tr>
-        <tr>
-            <td>subject</td>
-            <td>String</td>
-            <td>tde notification subject</td>
-        </tr>
-        <tr>
-            <td>Body</td>
-            <td>String</td>
-            <td>tde notification body</td>
-        </tr>
-        <tr>
-            <td>Bodyshort</td>
-            <td>String</td>
-            <td>tde notification bodyshort</td>
-        </tr>
-        <tr>
-            <td>recipients</td>
-            <td>String</td>
-            <td>tde person who will receive tde message.</td>
-        </tr>
-        <tr>
-            <td>Priority</td>
-            <td>String</td>
-            <td>tde priority witd which tde notification will be transmitted</td>
-        </tr>
-        <tr>
-            <td>template</td>
-            <td>String</td>
-            <td><em>Not Mandatory</em><br>tde notification template</td>
-        </tr>
-        <tr>
-            <td>resolutionPolicy</td>
-            <td>String</td>
-            <td><em>Not Mandatory</em><br>IDR Identity Resolver parameter (ex: IDNO, IDNV, cadastral number), for cases when recipient IDNP is not known.</td>
-        </tr>
-        <tr>
-            <td>attachments</td>
-            <td>String</td>
-            <td><em>Not Mandatory</em><br>Base 64 format attachments.</td>
-        </tr>
-        <tr>
-            <td colspan="3" style="text-align:left;"><strong>Faults</strong></td>
-        </tr>
-        <tr>
-            <td colspan="2">Code</td>
-            <td>Reason</td>
-        </tr>
-        <tr>
-            <td colspan="2">200</td>
-            <td>Success</td>
-        </tr>
-        <tr>
-            <td colspan="2">404</td>
-            <td>Not found.</td>
-        </tr>
-        <tr>
-            <td colspan="2">500</td>
-            <td>A server error occurred.</td>
-        </tr>
-        <tr>
-            <td colspan="2">501</td>
-            <td>A server error occurred.</td>
-        </tr>
-</table>
+**Returns:** NotificationShortDto[]
 
-<table>
-    <tr>
-        <td><strong>Signature</strong></td>
-        <td colspan="2"><strong>DELETE /api/Notification/{id}</strong> <em>(subject - string, body - string, bodyshort – string, recipients [value - string, type - string], priority - string)</em></td>
-    </tr>
-    <tr>
-        <td><strong>Description</strong></td>
-        <td colspan="2">Delete notification if it has not been transmitted</td>
-    </tr>
-    <tr>
-        <td><strong>Returns</strong></td>
-        <td colspan="2">notificationID</td>
-    </tr>
-    <tr>
-        <td colspan="3" ><strong>Input parameters</strong></td>
-    </tr>
-    <tr>
-        <td>Name</td>
-        <td>Type</td>
-        <td>Description</td>
-    </tr>
-    <tr>
-        <td>NotificationID</td>
-        <td>String</td>
-        <td>NotificationID which is to be deleted</td>
-    </tr>
-    <tr>
-        <td colspan="3"><strong>Faults</strong></td>
-    </tr>
-    <tr>
-        <td colspan="2">Code</td>
-        <td>Reason</td>
-    </tr>
-    <tr>
-        <td colspan="2">200</td>
-        <td>Succes</td>
-    </tr>
-    <tr>
-        <td colspan="2">404</td>
-        <td>Not found.</td>
-    </tr>
-    <tr>
-        <td colspan="2">500</td>
-        <td>A server error occurred.</td>
-    </tr>
-    <tr>
-        <td colspan="2">501</td>
-        <td>A server error occurred.</td>
-    </tr>
-</table>
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| Page | integer | Current page number |
+| ItemsPerPage | integer | Items per page |
+| OrderField | string | Can order by response property names (default Id). Ex. "CreatedAt desc" |
+| SearchBy | string | Field is parsed as a UUID and filtered as NotificationId. Other filters do not work as not implemented. |
+
+**HTTP Response meaning:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 500-503 | A server error occurred. |
+
+---
+
+### GET /api/Notification/{id}
+
+**Description:** Returns the notification request object with ID, Status, and resolved multiple recipients with multiple messages. The recipient message includes message ID, Status, Subject and the channel used for transmission.
+
+**Returns:** NotificationDto
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | string | The UUID of the notification was called earlier using PostNotification. Part of URL |
+
+**HTTP Response meaning:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 404 | Not found. |
+| 500-503 | A server error occurred. |
+
+---
+
+### POST /api/Notification
+
+**Description:** Notification request to be sent through the MNotify system.
+
+**Returns:** UUID of accepted notification request
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| - | Notification | A HTTP POST raw request with UTF-8 encoding and a content type "application/json". |
+
+**Faults:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 400 | Bad Request. |
+| 500-503 | A server error occurred. |
+
+---
+
+### DELETE /api/Notification/{id}
+
+**Description:** Delete the notification if it has not been transmitted
+
+**Returns:** notificationID
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | string | NotificationID, which is to be deleted. Part of URL |
+
+**Faults:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 409 | Conflict |
+| 500-503 | A server error occurred. |
+
+---
+
+### GET /api/Template/
+
+**Description:** shows all the notification templates created by a sender.
+
+**Returns:** TemplateShortDto[]
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| Page | integer | Current page number |
+| ItemsPerPage | integer | Items per page |
+| OrderField | string | Can order by response property names (default Id). Ex. "CreatedAt desc" |
+| SearchBy | string | Field is parsed as a UUID and filtered as NotificationId. Other filters do not work as not implemented. |
+
+**HTTP Response meaning:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 500-503 | A server error occurred. |
+
+---
+
+### GET /api/Template/{id}
+
+**Description:** Return a specific template created by a sender, including all template properties.
+
+**Returns:** TemplateDto
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | string | The UUID of the template was called earlier using the PostTemplate request. Part of URL |
+
+**HTTP Response meaning:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 500-503 | A server error occurred. |
+
+---
+
+### GET /api/Template/{id}/check
+
+**Description:** Return a specific template created by a sender, including all template properties.
+
+**Returns:** TemplateDto
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | string | TemplateId, which is to be filled with variables. Part of URL |
+| variables | string | JSON string that contains a KEY-VALUE record to be filled into template |
+| userId | string | The userId should complete the template with default variables. At the moment, only IDNx is filled |
+
+**HTTP Response meaning:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 500-503 | A server error occurred. |
+
+---
+
+### POST /api/Template
+
+**Description:** Template request to be saved in the MNotify system.
+
+**Returns:** UUID of accepted template request
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| - | TemplateDto | A HTTP POST raw request with UTF-8 encoding and a content type "application/json". |
+
+**Faults:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 400 | Bad Request. |
+| 500-503 | A server error occurred. |
+
+---
+
+### PUT /api/Template/{id}
+
+**Description:** Update a specific template created by a sender.
+
+**Returns:** UUID of updated template request
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | string | The UUID of the template was called earlier using the PostTemplate request. Part of URL |
+| - | TemplateDto | A HTTP POST raw request with UTF-8 encoding and a content type "application/json". |
+
+**HTTP Response meaning:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 500-503 | A server error occurred. |
+
+---
+
+### DELETE /api/Template/{id}
+
+**Description:** Delete the template from the MNotify system.
+
+**Returns:** UUID of deleted template
+
+**Input parameters:**
+
+| Name | Type | Description |
+|------|------|-------------|
+| id | string | The template id, which is to be deleted. Part of URL |
+
+**Faults:**
+
+| Code | Reason |
+|------|--------|
+| 200 | Success |
+| 409 | Conflict |
+| 500-503 | A server error occurred. |
+
+---
 
 ## Structures
 
-<table>
-  <thead>
-    <tr>
-        <th><strong>Member</strong></th>
-        <th>Type</th>
-        <th>Required/Optional</th>
-        <th>Description</th>
-    </tr>
- </thead>
-    <tr>
-        <td colspan="4"><strong>Notification</strong></td>
-    </tr> 
-    <tr>
-        <td><strong>ID</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>NotificationID</td>
-    </tr>
-    <tr>
-        <td><strong>SenderID</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Certificate Serial Number</td>
-    </tr>
-    <tr>
-        <td><strong>Subjectro</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification subject in Romanian</td>
-    </tr>
-    <tr>
-        <td><strong>subjecten</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification subject in English</td>
-    </tr>
-    <tr>
-        <td><strong>subjectru</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification subject in Russian</td>
-    </tr>
-    <tr>
-        <td><strong>bodyro</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body in Romanian</td>
-    </tr>
-    <tr>
-        <td><strong>bodyen</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body in English</td>
-    </tr>
-    <tr>
-        <td><strong>bodyru</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body in Russian</td>
-    </tr>
-    <tr>
-        <td><strong>bodyshortro</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body short in Romanian</td>
-    </tr>
-    <tr>
-        <td><strong>bodyshorten</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body short in English</td>
-    </tr>
-    <tr>
-        <td><strong>bodyshortru</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body short in Russian</td>
-    </tr>
-    <tr>
-        <td><strong>statusid</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>Notification status</td>
-    </tr>
-    <tr>
-        <td><strong>senderIDNO</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>sender idno</td>
-    </tr>
-    <tr>
-        <td><strong>servicename</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>service name</td>
-    </tr>
-    <tr>
-        <td><strong>createdat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdatedat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>createdby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <td colspan="4"><strong>Recipient</strong></td>
-    </tr>
-    <tr>
-        <td><strong>ID</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>firstname</strong></td>
-        <td>string (50)</td>
-        <td>Required</td>
-        <td>recipient first name</td>
-    </tr>
-    <tr>
-        <td><strong>lastname</strong></td>
-        <td>string (50)</td>
-        <td>Required</td>
-        <td>recipient last name</td>
-    </tr>
-    <tr>
-        <td><strong>Idnp</strong></td>
-        <td>string (50)</td>
-        <td>Required</td>
-        <td>RM citizen personal identity number, containing 13 figures.</td>
-    </tr>
-    <tr>
-        <td><strong>languageid</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>notification language set by recipient as preferences</td>
-    </tr>
-    <tr>
-        <td><strong>createdat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>createdby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <td colspan="4"><strong>Language</strong></td>
-    </tr>
-    <tr>
-        <td><strong>ID</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td>string (450)</td>
-        <td>Optional</td>
-        <td>language name</td>
-    </tr>
-    <tr>
-        <td colspan="4"><strong>NotificationMessage</strong></td>
-    </tr>
-    <tr>
-        <td><strong>ID</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>NotificationID</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>notification id</td>
-    </tr>
-    <tr>
-        <td><strong>recipientID</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>recipient id</td>
-    </tr>
-    <tr>
-        <td><strong>Contact</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>contact value</td>
-    </tr>
-    <tr>
-        <td><strong>Channel</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>channel id</td>
-    </tr>
-    <tr>
-        <td><strong>Status</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>status id</td>
-    </tr>
-    <tr>
-        <td><strong>subject</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>message subject</td>
-    </tr>
-    <tr>
-        <td><strong>Body</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>message body</td>
-    </tr>
-    <tr>
-        <td><strong>createdat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>createdby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <td colspan="4"><strong>NotificationRecipientIdentifier</strong></td>
-    </tr>
-    <tr>
-        <td><strong>notificationID</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>notification id</td>
-    </tr>
-    <tr>
-        <td><strong>RecipientIdentifier</strong></td>
-        <td>string (450)</td>
-        <td>Required</td>
-        <td>recipient identifier</td>
-    </tr>
-    <tr>
-        <td><strong>IdentifierTypeid</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>identifier type id</td>
-    </tr>
-    <tr>
-        <td colspan="4"><strong>Contact</strong></td>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>value</strong></td>
-        <td>string (max)</td>
-        <td>Required</td>
-        <td>contact value</td>
-    </tr>
-    <tr>
-        <td><strong>recipientid</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>recipient id</td>
-    </tr>
-    <tr>
-        <td><strong>channelid</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>channel id</td>
-    </tr>
-    <tr>
-        <td><strong>active</strong></td>
-        <td>bit</td>
-        <td>Required</td>
-        <td>true/false</td>
-    </tr>
-    <tr>
-        <td><strong>verified</strong></td>
-        <td>bit</td>
-        <td>Required</td>
-        <td>true/false</td>
-    </tr>
-    <tr>
-        <td><strong>timerules</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>preferences</td>
-    </tr>
-    <tr>
-        <td><strong>tagID</strong></td>
-        <td>int</td>
-        <td>Optional</td>
-        <td>tag id</td>
-    </tr>
-    <tr>
-        <td><strong>createdat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>createdby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <th colspan="4">ContactToken</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>contactid</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>contact id</td>
-    </tr>
-    <tr>
-        <td><strong>Token</strong></td>
-        <td>string (max)</td>
-        <td>Required</td>
-        <td>token for activation mail contact</td>
-    </tr>
-    <tr>
-        <td><strong>expireat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>Expiration date, time</td>
-    </tr>
-    <tr>
-        <th colspan="4">Channel</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td>string</td>
-        <td>Required</td>
-        <td>channel name</td>
-    </tr>
-    <tr>
-        <th colspan="4">NotificationStatus</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td>string (450)</td>
-        <td>Optional</td>
-        <td>notification status name</td>
-    </tr>
-    <tr>
-        <th colspan="4">IdentifierType</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td>string (450)</td>
-        <td>Optional</td>
-        <td>identifier type name</td>
-    </tr>
-    <tr>
-        <th colspan="4"">NotificationCancel</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>notification id</td>
-    </tr>
-    <tr>
-        <th colspan="4">MessageSchedule</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>contact</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>contact value</td>
-    </tr>
-    <tr>
-        <td><strong>channel</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>channel id</td>
-    </tr>
-    <tr>
-        <td><strong>subject</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>message subject</td>
-    </tr>
-    <tr>
-        <td><strong>Body</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>message body</td>
-    </tr>
-      <tr>
-        <td><strong>nextoccurrence</strong></td>
-        <td>smalldatetime</td>
-        <td>Required</td>
-        <td>Date time</td>
-    </tr>
-      <tr>
-        <td><strong>createdat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>mthe date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>createdby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <th colspan="4">Tag</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td>string (max)</td>
-        <td>Required</td>
-        <td>tag name</td>
-    </tr>
-    <tr>
-        <td><strong>createdat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>createdby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <th colspan="4">Message.dbo.mcabinet</th>
-    </tr>
-    <tr>
-        <td><strong>messageid</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>message id</td>
-    </tr>
-    <tr>
-        <td><strong>contact</strong></td>
-        <td>string</td>
-        <td>Required</td>
-        <td>contact value</td>
-    </tr>
-    <tr>
-        <td><strong>subject</strong></td>
-        <td>string</td>
-        <td>Required</td>
-        <td>message subject</td>
-    </tr>
-    <tr>
-        <td><strong>Body</strong></td>
-        <td>string</td>
-        <td>Required</td>
-        <td>body subject</td>
-    </tr>
-    <tr>
-        <td><strong>Read</strong></td>
-        <td>bit</td>
-        <td>Required</td>
-        <td>true/false</td>
-    </tr>
-    <tr>
-        <td><strong>createdat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateat</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>createdby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>lastupdateby</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <th colspan="4">MessageAttachment.dbo.mcabinet</th>
-    </tr>
-    <tr>
-        <td><strong>MessageId</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>message id</td>
-    </tr>
-    <tr>
-        <td><strong>AttachmentUrl</strong></td>
-        <td>string (max)</td>
-        <td>Required</td>
-        <td>Attachment Url</td>
-    </tr>
-    <tr>
-        <th colspan="4">Template</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td>string(50)</td>
-        <td>Optional</td>
-        <td>Template name</td>
-    </tr>
-    <tr>
-        <td><strong>Description</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Template description</td>
-    </tr>
-    <tr>
-        <td><strong>SubjectRo</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification subject in Romanian</td>
-    </tr>
-    <tr>
-        <td><strong>SubjectEn</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification subject in English</td>
-    </tr>
-    <tr>
-        <td><strong>SubjectRu</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification subject in Russian</td>
-    </tr>
-    <tr>
-        <td><strong>BodyRo</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body in Romanian</td>
-    </tr>
-      <tr>
-        <td><strong>BodyEn</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body in English</td>
-    </tr>
-    <tr>
-        <td><strong>BodyRu</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body in Russian</td>
-    </tr>
-    <tr>
-        <td><strong>BodyShortRo</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body short in Romanian</td>
-    </tr>
-    <tr>
-        <td><strong>BodyShortEn</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body short in English</td>
-    </tr>
-    <tr>
-        <td><strong>BodyShortRu</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Notification body short in Russian</td>
-    </tr>
-    <tr>
-        <td><strong>CreatedAt</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the date the record was created</td>
-    </tr>
-    <tr>
-        <td><strong>CreatedBy</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>who created the record</td>
-    </tr>
-    <tr>
-        <td><strong>LastUpdatedAt</strong></td>
-        <td>datetime2 (7)</td>
-        <td>Required</td>
-        <td>the last time the record was changed</td>
-    </tr>
-    <tr>
-        <td><strong>LastUpdatedBy</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>the last to change the record</td>
-    </tr>
-    <tr>
-        <td><strong>SenderId</strong></td>
-        <td>uniqueidentifier</td>
-        <td>Required</td>
-        <td>Sender ID</td>
-    </tr>
-    <tr>
-        <td><strong>Type</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>Template type</td>
-    </tr>
-    <tr>
-        <td><strong>OwnerId</strong></td>
-        <td>string (max)</td>
-        <td>Optional</td>
-        <td>Owner ID</td>
-    </tr>
-    <tr>
-        <th colspan="4">TemplateType</th>
-    </tr>
-    <tr>
-        <td><strong>Id</strong></td>
-        <td>int</td>
-        <td>Required</td>
-        <td>order id</td>
-    </tr>
-    <tr>
-        <td><strong>Name</strong></td>
-        <td>string(450)</td>
-        <td>Optional</td>
-        <td>Template type name</td>
-    </tr>
-</table>
+### NotificationShortDto
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| ID | uuid | Required | Notification unique identifier |
+| Status | NotificationStatus | Required | Notification status |
+| CreatedAt | datetime | Required | Date and time when the Notification was requested |
+| LastUpdatedAt | datetime | Required | Date and time when the status of the Notification was changed |
+| CreatedBy | string | Required | Identity of the Sender |
+| LastUpdatedBy | string | Required | The identity of the system that last modified the Notification object |
+
+### NotificationDto
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Id | uuid | Required | Notification unique identifier |
+| Status | NotificationStatus | Required | Notification status |
+| Recipients | RecipientMessagesDto[] | Optional | List of recipients with resolved messages per channel preferences |
+
+### RecipientMessagesDto
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Value | string | Required | The value of IDNP or IDNO of the recipient registered in MNotify |
+| Type | string | Required | "IDNP" or "IDNO" |
+| IsLegal | bool | Required | Indicates if the recipient is a legal entity |
+| Messages | MessageShortDto[] | Optional | List of messages resolved by IDNP/IDNO |
+
+### MessageShortDto
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| MessageId | uuid | Required | Notification Message unique identifier |
+| Subject | string | Required | The message subject. Same as the Notification request subject |
+| Status | NotificationStatus | Required | Notification status |
+| Channel | Channel | Required | Enumeration of the Channel through the message sent |
+| CreatedAt | datetime | Required | Date and time when the Notification was requested |
+| LastUpdatedAt | datetime | Required | Date and time when the status of the Notification was changed |
+| CreatedBy | string | Required | Identity of the Sender |
+| LastUpdatedBy | string | Required | The identity of the system that last modified the Notification object |
+
+### Notification
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| UserId | string | Optional | The field should be completed with the user IDNP in case the notification sender is not a system notification |
+| Subject | ContentLanguage | Required | The notification subject |
+| Body | ContentLanguage | Required | The notification body. The HTML raw is accepted |
+| BodyShort | ContentLanguage | Required | The notification short message. It should be sent through instant message channels in multiple languages |
+| Priority | Priority | Required | The priority of notification. It is Enumerable. |
+| Template | ContentTemplate | Optional | The notification template to be used for the notification message |
+| Recipients | RecipientIdentifierDto[] | Required | The list of recipients for the notification |
+| ResolutionPolicy | IdrPolicy | Optional | The resolution policy helps to identify the recipient from IDNO, Cadastral Number IDNV, and vehicle plate number |
+| Attachments | Attachment[] | Optional | The notification attachments. Limited formats are allowed (.jpeg,.jpg,.png,.txt,.pdf,.csv,.xls). The maximum size of attachments should not be greater than 10 Mb. |
+
+### ContentTemplate
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Id | UUID | Required | The template ID received from the template creation request |
+| Variables | string | Optional | The variables are sent as a JSON string. For example, {"Name": "John"}. MNotify will change the template body variables with values from variables. For example, body:{"en": "Dear {{Name}}"} would transform into (Dear John) |
+
+### ContentLanguage
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Ro | string | Required | Romanian content |
+| Ru | string | Optional | Russian content |
+| En | string | Optional | English content |
+
+### RecipientIdentifierDto
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Value | string | Required | Contact value. For example, if the type is Email, then a value should be a valid email contact |
+| Type | string | Required | Type can take a string value of Channel enumerator |
+
+### IdrPolicy
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| type | string | Required | Could have one of the following values: "IDNO", "IDNV", "CadastralNumber", "PlateNumber" |
+| parameters | IdrParameter | Required | The parameter indicates who the receiver is. |
+
+### IdrParameter
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Direction | string | Required | Could have one of the following values: "Owner", "Administrator", "Founder" |
+
+### Attachment
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| FileName | string | Required | The file name, including extension |
+| Base64 | string | Required | Converted file as base64 string |
+
+### TemplateShortDto
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Id | int | Required | The template Id |
+| Name | string | Required | The template name |
+| CreatedAt | datetime | Required | Date and time when the Template was requested |
+| LastUpdatedAt | datetime | Required | Date and time when the status of the Template was changed |
+| CreatedBy | string | Required | Identity of the Sender |
+| LastUpdatedBy | string | Required | The identity of the system that last modified the Template object |
+
+### TemplateDto
+
+| Member | Type | Required/Optional | Description |
+|--------|------|-------------------|-------------|
+| Name | string (50) | Required | The template name |
+| Description | string | Required | The Template description |
+| Subject | ContentLanguage | Required | The template notification subject |
+| Body | ContentLanguage | Required | The template notification body |
+| BodyShort | ContentLanguage | Required | The template notification short body |
+
+---
 
 ## Enumerations
 
-<table>
-  <thead>
-    <tr>
-        <th><strong>Member</strong></th>
-        <th>Description</th>
-    </tr>
-  </thead>
-    <tr>
-        <th colspan="2">Priority</th>
-    </tr>
-    <tr>
-        <td><strong>Medium</strong></td>
-        <td>The notification does not have any specific importance.</td>
-    </tr>
-    <tr>
-        <td><strong>Low</strong></td>
-        <td>The importance of the notification is low.</td>
-    </tr>
-    <tr>
-        <td><strong>High</strong></td>
-        <td>The importance of the notification is high.</td>
-    </tr>
-    <tr>
-        <th colspan="2">NotificationContentType</th>
-    </tr>
-    <tr>
-        <td><strong>Text</strong></td>
-        <td>The content type is simple text (similar to MIME type text/plain).</td>
-    </tr>
-    <tr>
-        <td><strong>Html</strong></td>
-        <td>The content type is HTML text (similar to MIME type text/html).</td>
-    </tr>
-    <tr>
-        <th colspan="2" >NotificationStatus</th>
-    </tr>
-    <tr>
-        <td><strong>Unknown</strong></td>
-        <td>such notification request does not exist;</td>
-    </tr>
-    <tr>
-        <td><strong>Pending</strong></td>
-        <td>notification request was en queued for sending;</td>
-    </tr>
-    <tr>
-        <td><strong>Resolving</strong></td>
-        <td>final recipients are resolved (identified and preferences read);</td>
-    </tr>
-    <tr>
-        <td><strong>Sending</strong></td>
-        <td>the final notification is ready to be sent to the resolved recipient and identified Notification Channel;</td>
-    </tr>
-    <tr>
-        <td><strong>Sent</strong></td>
-        <td>the notification was sent to the Notification Channel;</td>
-    </tr>
-    <tr>
-        <td><strong>Delivered</strong></td>
-        <td>Notification Channel acknowledged notification delivery;</td>
-    </tr>
-    <tr>
-        <td><strong>Cancelling</strong></td>
-        <td>notification request is in process of cancelling;</td>
-    </tr>
-    <tr>
-        <td><strong>Cancelled</strong></td>
-        <td>notification request was successfully canceled;</td>
-    </tr>
-    <tr>
-        <td><strong>Incomplete</strong></td>
-        <td>notification request was not completely sent (not all messages from the request were sent).</td>
-    </tr>
-    <tr>
-        <td><strong>Failed</strong></td>
-        <td>notification request failed, and failure code is included in the notification status response.</td>
-    </tr>
-    <tr>
-        <th colspan="2">MessageStatus</th>
-    </tr>
-    <tr>
-        <td><strong>Pending</strong></td>
-        <td>message was en queued for sending;</td>
-    </tr>
-    <tr>
-        <td><strong>Sent</strong></td>
-        <td>message was sent to the Notification Channel;</td>
-    </tr>
-    <tr>
-        <td><strong>Delivered</strong></td>
-        <td>Notification Channel acknowledged message delivery;</td>
-    </tr>
-    <tr>
-        <td><strong>Read</strong></td>
-        <td>Notification Channel confirmed the message is read by the Recipient;</td>
-    </tr>
-    <tr>
-        <td><strong>Failed</strong></td>
-        <td>message sending failed, and failure code is included in the message status response.</td>
-    </tr>
-    <tr>
-        <th colspan="2">NotificationDeliveryChannel</th>
-    </tr>
-    <tr>
-        <td><strong>Email</strong></td>
-        <td>The notification delivery channel is e-mail.</td>
-    </tr>
-    <tr>
-        <td><strong>SMS</strong></td>
-        <td>The notification delivery channel is a SMS message.</td>
-    </tr>
-    <tr>
-        <td><strong>Viber</strong></td>
-        <td>The notification delivery channel is viber.</td>
-    </tr>
-    <tr>
-        <td><strong>Web push</strong></td>
-        <td>The notification delivery channel is browser(web push).</td>
-    </tr>
-    <tr>
-        <td><strong>MCabinet</strong></td>
-        <td>The notification is sent to MCabinet.</td>
-    </tr>
-</table>
+### Priority
+
+| Member | Description |
+|--------|-------------|
+| Medium | The notification does not have any specific importance. |
+| Low | The importance of the notification is low. |
+| High | The importance of the notification is high. |
+
+### NotificationStatus
+
+| Member | Description |
+|--------|-------------|
+| Pending | The notification request was enqueued for sending. |
+| Resolving | The final recipients are being identified, and their preferences are being read. |
+| Sending | The final notification is ready to be sent to the resolved recipient and the identified Notification Channel. |
+| Sent | The notification was sent to the Notification Channel. |
+| Delivered | Notification Channel acknowledged notification delivery. |
+| Read | The recipient confirms notification was read. |
+| Cancelling | The notification request is in the process of being cancelled. |
+| Cancelled | The notification request was successfully canceled. |
+| Failed | The notification request was not sent to all recipient channels (except the MCabinet channel). Failed notification request failed, and failure code is included in the notification status response. |
+
+### Channel
+
+| Member | Description |
+|--------|-------------|
+| Email | The notification delivery channel is e-mail. |
+| SMS | The notification delivery channel is a SMS message. |
+| Viber | The notification delivery channel is viber. |
+| Web push | The notification delivery channel is browser(web push). |
+| MCabinet | The notification is sent to MCabinet. |
+
+---
+
+## Validation rules
+
+| Field name | Validation conditions |
+|------------|----------------------|
+| IDNP | strictly 13 digits |
+| Mail address | caracter@caracter.caracter |
+| Mail body size | without attachment - 15 MB<br>with attachments - 10 MB |
+| Subject length | mail - 41 characters<br>SMS - 160 characters |
+| Cancel the notification request | the notification request can not be canceled if:<br>- the notification channel does not support it<br>- the notification was already delivered |
