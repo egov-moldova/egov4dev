@@ -53,9 +53,9 @@ nav:
       - MNotify:
           - Overview: guides/mnotify/index.md
           - Steps to connect: guides/mnotify/process.md
-          - Interaction scenarios: guides/mnotify/interaction-scenarios.md
           - Integration development: guides/mnotify/integration-development.md
           - API references: guides/mnotify/api-references.md
+          - Examples: guides/mnotify/examples.md
           - Change log: guides/mnotify/change-log.md
       - MDelivery:
           - Overview: guides/mdelivery/index.md
