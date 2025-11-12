@@ -37,6 +37,7 @@ nav:
           - Change log: guides/mpower/change-log.md
       - MPay:
           - Overview: guides/mpay/index.md
+          - Steps to connect: guides/mpay/process.md
           - Interaction scenarios: guides/mpay/interaction-scenarios.md
           - Integration development: guides/mpay/integration-development.md
           - Security: guides/mpay/security.md
