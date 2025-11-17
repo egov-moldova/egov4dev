@@ -5,7 +5,7 @@ Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of intercon
 
 ## <img src="../../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mconnect** – interoperability platform
 
-MConnect is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
+<a href="https://mconnect.gov.md/">MConnect</a> is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
 
 The use of MConnect ensures access to authentic data directly from the original sources, reduces administrative burden, eliminates duplication of information, and contributes to increased efficiency in the interaction between citizens, businesses, and the state.  
 
@@ -17,7 +17,7 @@ Today, more than 480 institutions are connected to MConnect, ensuring millions o
 
 ## <img src="../../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – authentication and authorization service
 
-MPass is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
+<a href="https://mpass.gov.md/">MPass</a> is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
 
 Authentication through MPass can be performed using various methods, such as mobile signature, cryptographic token, or the EVOSign application. The system complies with international security standards, ensuring the confidentiality and integrity of the authentication process.  
 
@@ -27,7 +27,7 @@ Currently, MPass is integrated with more than 190 government platforms and syste
 
 ## <img src="../../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **msign** – electronic signature service
 
-MSign is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
+<a href="https://msign.gov.md/">MSign</a> is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
 
 Through MSign, citizens and organizations can sign contracts, requests, certificates, and other official documents using qualified certificates issued by accredited providers. The signed documents ensure integrity, authenticity, and non-repudiation, in accordance with the law.  
 
@@ -37,7 +37,7 @@ The platform contributes to reducing bureaucracy, saving time, and ensuring a hi
 
 ## <img src="../../assets/logos/mpay-logo.png" alt="mpay logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpay** – government e-payment gateway
 
-MPay is the national electronic payment platform designed to simplify financial interactions between citizens, businesses, and public institutions. It provides a secure and unified environment for paying government fees, taxes, and other public services online, eliminating the need for physical visits or manual transactions.
+<a href="https://mpay.gov.md/">MPay</a> is the national electronic payment platform designed to simplify financial interactions between citizens, businesses, and public institutions. It provides a secure and unified environment for paying government fees, taxes, and other public services online, eliminating the need for physical visits or manual transactions.
 
 Through MPay, users can complete payments quickly using various methods such as bank cards, internet banking, or payment terminals. The platform ensures transparency and reliability by generating electronic receipts and maintaining a clear record of transactions. By integrating with multiple government services, MPay plays a key role in advancing digital governance and improving the overall user experience in Moldova’s e-Government ecosystem.  
 
@@ -45,7 +45,7 @@ Through MPay, users can complete payments quickly using various methods such as 
 
 ## <img src="../../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpower** – delegation service
 
-MPower is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
+<a href="https://mpower.gov.md/">MPower</a> is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
 
 Through MPower, a parent can delegate authority to access services on behalf of their child, an employer can delegate tasks to employees, and lawyers can represent clients. The system is integrated with MPass, MSign, MConnect, and MNotify, ensuring secure and verifiable delegation processes.  
 
@@ -55,7 +55,7 @@ This service brings significant benefits in terms of flexibility, reducing the n
 
 ## <img src="../../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mnotify** – notification service
 
-MNotify is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
+<a href="https://mnotify.gov.md/">MNotify</a> is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
 
 Notifications sent through MNotify keep citizens informed about fines, payments, deadlines, allowances, and other obligations or rights. The system improves communication between the government and citizens, ensuring transparency and efficiency.  
 
@@ -65,7 +65,7 @@ MNotify can send both automatic and manual notifications, offering flexibility t
 
 ## <img src="../../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdelivery** – document delivery service
 
-MDelivery is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
+<a href="https://mdelivery.gov.md/">MDelivery</a> is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
 
 Launched in July 2022, MDelivery allows citizens to receive documents such as criminal record certificates, civil status certificates, or apostilled documents through integrated postal service providers.  
 
