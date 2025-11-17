@@ -35,6 +35,14 @@ The platform contributes to reducing bureaucracy, saving time, and ensuring a hi
 
 ---
 
+## <img src="../../assets/logos/mpay-logo.png" alt="mpay logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpay** – government e-payment gateway
+
+MPay is the national electronic payment platform designed to simplify financial interactions between citizens, businesses, and public institutions. It provides a secure and unified environment for paying government fees, taxes, and other public services online, eliminating the need for physical visits or manual transactions.
+
+Through MPay, users can complete payments quickly using various methods such as bank cards, internet banking, or payment terminals. The platform ensures transparency and reliability by generating electronic receipts and maintaining a clear record of transactions. By integrating with multiple government services, MPay plays a key role in advancing digital governance and improving the overall user experience in Moldova’s e-Government ecosystem.  
+
+---
+
 ## <img src="../../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpower** – delegation service
 
 MPower is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
