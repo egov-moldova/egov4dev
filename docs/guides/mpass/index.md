@@ -2,6 +2,18 @@
 
 MPass is a government-wide authentication and identity management service in the Republic of Moldova that provides secure Single Sign-On (SSO) and Single Logout (SLO) across public digital services, enabling users to access multiple systems with one set of credentials while offering integrating systems standardized identity data for authorization purposes
 
+## Service pricing
+
+| User Type | Access Conditions | Annual Fee per Integration |
+|-----------|-------------------|---------------------------|
+| **Public institutions** | Contract-based | 0.00 lei |
+| **Private legal entities** | Contract-based (per applicable legal framework) | 10,800.00 lei |
+| **Natural persons** | Contract-based (per applicable legal framework) | 10,800.00 lei |
+
+**Notes:**
+- The fee applies to the integration of a single information system
+- Multiple integrations require separate fees for each system
+
 ## Quick start for integrators
 
 1. Before being able to interact with MPass, a Service must be registered accordingly in MPass. To perform such a registration, please generate a self-signed or provide any existing certificate file (in .cer file format) to Service owner”;
