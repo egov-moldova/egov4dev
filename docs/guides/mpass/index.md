@@ -4,7 +4,7 @@ MPass is a government-wide authentication and identity management service in the
 
 ## Service pricing
 
-| User Type | Access Conditions | Annual Fee per Integration |
+| User type | Access conditions | Annual fee per integration |
 |-----------|-------------------|---------------------------|
 | **Public institutions** | Contract-based | 0.00 lei |
 | **Private legal entities** | Contract-based (per applicable legal framework) | 10,800.00 lei |
