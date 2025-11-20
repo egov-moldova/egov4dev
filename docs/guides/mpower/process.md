@@ -1,6 +1,7 @@
 ## Prerequisites:  
 
-The beneficiary requesting integration must meet the following conditions: 
+The beneficiary requesting integration must meet the following conditions:
+
 1. It is a public or private institution that provides public services;
 2. Institutions can connect to the MPower system in one of the following ways:  
    - Through API integration – intended for institutions that have their own information system. In this case, for public institutions, the system must be registered in the [Register of Information Resources and Systems (RRSI)](https://rsi.gov.md/procedure).
