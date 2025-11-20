@@ -1,6 +1,7 @@
 ## Prerequisite
 
-The beneficiary requesting integration must meet the following conditions: 
+The beneficiary requesting integration must meet the following conditions:
+
 1. Possesses an information system intended for integration with MPay; 
 2. For public beneficiaries – the system must be registered in the Register of Information Resources and Systems; 
 3. The contract and/or annex regarding the use of the MPay service has been signed; 
