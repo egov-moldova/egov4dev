@@ -9,11 +9,11 @@ Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of intercon
 
 The use of MConnect ensures access to authentic data directly from the original sources, reduces administrative burden, eliminates duplication of information, and contributes to increased efficiency in the interaction between citizens, businesses, and the state.  
 
-The platform is based on the principles of legality, equal access, authenticity, and shared responsibility of data providers and consumers. Institutions connected to MConnect provide services to other entities through secure communication channels, according to established agreements and legal provisions.  
+The platform is based on the principles of legality, equal access, authenticity, and shared responsibility of data providers and consumers. Institutions connected to MConnect provide services to other entities through secure communication channels, according to established agreements and legal provisions. Today, more than 480 institutions are connected to MConnect, ensuring millions of automated data exchanges every day. This makes MConnect a fundamental component of the national e-Government infrastructure, contributing directly to the digital transformation of public administration.  
 
-Today, more than 480 institutions are connected to MConnect, ensuring millions of automated data exchanges every day. This makes MConnect a fundamental component of the national e-Government infrastructure, contributing directly to the digital transformation of public administration.  
+### mconnect events
 
----
+MConnect Events represents the newest component of the data exchange ecosystem through the Interoperability Platform (MConnect), created to fundamentally transform the way public institutions share data. The extension introduces a modern, event-based model that enables near real-time synchronization of changes from registries, with over 2.5 million messages processed daily through MConnect. This event-driven approach increases the speed, resilience, and proactivity of public services, paving the way toward fully automated processes and intelligent digital services.
 
 ## <img src="../../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – authentication and authorization service
 
