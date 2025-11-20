@@ -3,8 +3,8 @@
 The beneficiary requesting integration must meet the following conditions: 
 1. It is a public or private institution that provides public services;
 2. Institutions can connect to the MPower system in one of the following ways:  
-   2.1 Through API integration – intended for institutions that have their own information system. In this case, for public institutions, the system must be registered in the [Register of Information Resources and Systems (RRSI)](https://rsi.gov.md/procedure).  
-   2.2 By creating authorizations in MPower – intended for institutions that do not have their own system. In this case, the configuration of an authorization is performed based on the contract and the request form, without the need for technical integration.
+   - Through API integration – intended for institutions that have their own information system. In this case, for public institutions, the system must be registered in the [Register of Information Resources and Systems (RRSI)](https://rsi.gov.md/procedure).
+   - By creating authorizations in MPower – intended for institutions that do not have their own system. In this case, the configuration of an authorization is performed based on the contract and the request form, without the need for technical integration.
 3. The contract and/or annex regarding the use of the MPower service is signed;
 4. A person responsible for the integration process is designated. 
 
