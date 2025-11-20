@@ -1,7 +1,7 @@
 ## Prerequisities
 
 1. Owns an information system intended for integration with MSign;
-2. For public beneficiaries – the system is registered in the [Registrul Resurselor și Sistemelor Informaționale](https://rsi.gov.md/procedure);
+2. For public beneficiaries – the system is registered in the [Register of Information Resources and Systems (RRSI)](https://rsi.gov.md/procedure);
 3. The contract and/or annex regarding the use of the MSign service is signed;
 4. For private beneficiaries – the use of the service is paid according to the contract;
 5. Beneficiaries must hold a valid system certificate issued by [STISC](https://semnatura.md/order/system-certificate) for integration; <br>If the institution does not yet hold a system certificate, it must request and obtain one from STISC. If the institution already holds an active certificate used for integration with another AGE platform service (e.g., MPass, MNotify, MDocs), the same certificate may be reused, and no new certificate is required.
