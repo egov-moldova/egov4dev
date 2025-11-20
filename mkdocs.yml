@@ -6,6 +6,7 @@ nav:
   - Platforms and services: platforms/services.md
   - Development principles: principles/architecture.md
   - Tools and technologies: tools/technologies.md
+  - Unified design system: mud/index.md
   - Glossary: glossary/glossary.md
   - Integration guides:
       - MPass: 
