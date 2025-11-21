@@ -4,6 +4,7 @@ site_url: https://egov-moldova.github.io/egov4dev/
 nav:
   - Home: index.md
   - Platforms and services: platforms/services.md
+  – Connection procedure: platforms/procedure.md
   - Development principles: principles/architecture.md
   - Tools and technologies: tools/technologies.md
   - Unified design system: mud/index.md
