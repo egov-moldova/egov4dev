@@ -12,7 +12,7 @@ nav:
   - Integration guides:
       - MPass: 
           - Overview: guides/mpass/index.md
-          - Steps to connect: guides/mpass/process.md
+          - Connection steps: guides/mpass/process.md
           - Interaction scenarios: guides/mpass/interaction-scenarios.md
           - Integration development: guides/mpass/integration-development.md
           - Integration tests: guides/mpass/integration-tests.md
@@ -22,7 +22,7 @@ nav:
           - Change log: guides/mpass/change-log.md
       - MSign:
           - Overview: guides/msign/index.md
-          - Steps to connect: guides/msign/process.md
+          - Connection steps: guides/msign/process.md
           - Interaction scenarios: guides/msign/interaction-scenarios.md
           - Integration development: guides/msign/integration-development.md
           - API references: guides/msign/api-references.md
@@ -31,7 +31,7 @@ nav:
           - Change log: guides/msign/change-log.md
       - MPower:
           - Overview: guides/mpower/index.md
-          - Steps to connect: guides/mpower/process.md
+          - Connection steps: guides/mpower/process.md
           - Interaction scenarios: guides/mpower/interaction-scenarios.md
           - Integration development: guides/mpower/integration-development.md
           - Security: guides/mpower/security.md
@@ -39,7 +39,7 @@ nav:
           - Change log: guides/mpower/change-log.md
       - MPay:
           - Overview: guides/mpay/index.md
-          - Steps to connect: guides/mpay/process.md
+          - Connection steps: guides/mpay/process.md
           - Interaction scenarios: guides/mpay/interaction-scenarios.md
           - Integration development: guides/mpay/integration-development.md
           - Security: guides/mpay/security.md
@@ -55,28 +55,28 @@ nav:
           - Integration libraries: guides/mconnect-events/integration-libraries.md
       - MNotify:
           - Overview: guides/mnotify/index.md
-          - Steps to connect: guides/mnotify/process.md
+          - Connection steps: guides/mnotify/process.md
           - Integration development: guides/mnotify/integration-development.md
           - API references: guides/mnotify/api-references.md
           - Examples: guides/mnotify/examples.md
           - Change log: guides/mnotify/change-log.md
       - MDelivery:
           - Overview: guides/mdelivery/index.md
-          - Steps to connect: guides/mdelivery/process.md
+          - Connection steps: guides/mdelivery/process.md
           - Interaction scenarios: guides/mdelivery/interaction-scenarios.md
           - Integration development: guides/mdelivery/integration-development.md
           - API references: guides/mdelivery/api-references.md
           - Change log: guides/mdelivery/change-log.md
       - MDocs:
           - Overview: guides/mdocs/index.md
-          - Steps to connect: guides/mdocs/process.md
+          - Connection steps: guides/mdocs/process.md
           - Interaction scenarios: guides/mdocs/interaction-scenarios.md
           - Integration development: guides/mdocs/integration-development.md
           - API references: guides/mdocs/api-references.md
           - Security: guides/mdocs/security.md
       - MLog:
           - Overview: guides/mlog/index.md
-          - Steps to connect: guides/mlog/process.md
+          - Connection steps: guides/mlog/process.md
           - Interaction scenarios: guides/mlog/interaction-scenarios.md
           - Integration development: guides/mlog/integration-development.md
           - Integration testing: guides/mlog/integration-testing.md
