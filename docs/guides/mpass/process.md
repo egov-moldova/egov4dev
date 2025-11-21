@@ -1,16 +1,3 @@
-## Prerequisites 
- 
-The beneficiary requesting integration must meet the following conditions: 
- 
-1. Owns an information system intended for integration with MPass;
-2. For public beneficiaries – the system must be registered in the [Register of Information Resources and Systems (RRSI)](https://rsi.gov.md/procedure);
-3. The contract and/or annex regarding the use of the MPass service is signed;
-4. For private beneficiaries – the use of the service is paid according to the contract;
-5. Beneficiaries must hold a valid system certificate issued by [STISC](https://semnatura.md/order/system-certificate) for integration.<br>If the institution does not yet hold a system certificate, it must request and obtain one from STISC. If the institution already holds an active certificate used for integration with another AGE platform service (e.g., MSign, MNotify, MDocs), the same certificate may be reused, and no new certificate is required.
-6. Users hold an electronic signature for authentication through MPass. 
-
-## Connection steps for the beneficiary
-
 1. Complete the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl);
 2. Sign the contract and annex for the provision of authentication and authorization services via MPass; <br>**Note:** If the institution already has an active contract for another AGE platform service, it is not necessary to sign a new contract. In this case, only the specific service annex for integration (e.g, MNotify, MSign, MDocs) must be signed.
 3. The institution must send the system certificate (.cer public key) to AGE at servicii@egov.md only if it does not already hold a valid certificate registered for another AGE platform service.  
