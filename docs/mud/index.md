@@ -24,15 +24,24 @@ Pentru utilizatorii finali, MUD garantează o experiență familială și predic
 
 | Resursă | Descriere | Link | Status |
 |---------|-----------|------|--------|
-| **Figma design library** | Biblioteca completă de componente, stiluri și pattern-uri. Acces Guest (fără cont necesar). Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | [Acces Figma](https://mud.egov.md) | ✅ Disponibil |
-| **Git repository** | Implementarea completă a componentelor MUD în HTML/CSS,gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitLab](LINK) | 🔄 Disponibil 80% |
+| **Figma files** | Biblioteca completă de componente, stiluri și pattern-uri. Acces Guest (fără cont necesar). Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | [Acces Figma](https://mud.egov.md) | ✅ Disponibil |
+| **Git repository** | Implementarea completă a componentelor MUD în HTML/CSS,gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitLab](https://github.com/egov-moldova/design-system) | 🔄 Disponibil 80% |
 | **MudBlazor components** | Bibliotecă oficială de componente MUD pentru dezvoltatorii care lucrează cu Blazor framework in mediul .NET. | În dezvoltare | 🔄 Disponibil în 2026 |
 
-### Cerințe tehnice minime
+#### Ghid de utilizare pe roluri
 
-Pentru utilizarea Figma file aveți nevoie doar de un browser modern (Chrome, Firefox, Safari, Edge) și conexiune la internet. Nu este necesar cont Figma pentru accesul în modul Guest.
+| Rolul tău | Ce resursă folosești | Pentru ce | Ai nevoie de cont? |
+|-----------|---------------------|-----------|-------------------|
+| **Manager de proiect / Product Owner** | Figma Design Library | Pentru a vizualiza componentele disponibile, a înțelege capabilitățile sistemului și a coordona cu echipa de design | ❌ Nu (acces Guest) |
+| **Designer UI/UX** | Figma Design Library | Pentru a crea mockup-uri și prototipuri folosind componentele MUD, a menține consistența vizuală | ❌ Nu (acces Guest suficient pentru copiere în propriul fișier) |
+| **Developer Frontend** | Git Repository HTML/CSS | Pentru a implementa interfețele folosind componentele gata făcute HTML/CSS | ✅ Da (cont GitLab pentru clonare) |
+| **Developer Full-stack** | Git Repository HTML/CSS | Pentru a integra componentele MUD în aplicații complexe | ✅ Da (cont GitLab pentru clonare) |
+| **Specialist TIC / Coordonator tehnic** | Figma + Git Repository | Pentru a înțelege atât aspectul vizual cât și implementarea tehnică, a face bridge între echipe | ❌ Nu pentru Figma<br>✅ Da pentru GitLab |
 
-Pentru utilizarea componentelor din Git repository aveți nevoie de cunoștințe de bază HTML/CSS și un build tool pentru gestionarea assets-urilor (npm, webpack, vite sau similar). Componentele nu au dependențe externe majore și pot fi integrate în orice framework frontend (React, Vue, Angular, Svelte, etc.).
+!!! tip "Nu știi ce rol ai?"
+    - Dacă **coordonezi sau supervizezi** proiecte → începe cu **Figma**
+    - Dacă **creezi design-uri** → folosește **Figma**
+    - Dacă **scrii cod** → folosește **Git Repository**
 
 ---
 
