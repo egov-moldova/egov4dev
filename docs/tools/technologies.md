@@ -2,6 +2,15 @@ At MEGA, the development of government digital services is based on a modern, se
 
 * * *
 
+## Design system
+
+**MUD (Moldovan Statewide Design System)** – the unified design system for government digital services
+  - Provides reusable UI components, patterns, and guidelines
+  - Ensures consistency across all governmental applications
+  - Focuses on accessibility, clarity, and user-centered design
+  - Documentation available [here](https://egov-moldova.github.io/egov4dev/mud/)
+  - Includes design tokens, component library, and implementation examples
+
 ## Development stack
 
 AGE services are developed with robust technologies, chosen for compatibility with government infrastructure and to support an efficient application lifecycle.
