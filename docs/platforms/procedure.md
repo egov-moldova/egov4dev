@@ -18,8 +18,8 @@ AGE reviews the submitted information and coordinates all subsequent contractual
 ## Exceptions
 
 Some platforms have separate integration procedures:
-  - **MPay** — link to the integration procedure
-  - **MConnect** — link to the integration procedure
+  - **MPay** — view [integration procedure](../guides/mpay)
+  - **MConnect** — view [integration procedure](../guides/mconnect-events)
 
 ## General prerequisites
 
