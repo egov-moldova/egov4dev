@@ -33,7 +33,7 @@ Pentru utilizatorii finali, MUD garantează o experiență familială și predic
 | Rolul tău | Ce resursă folosești | Pentru ce | Ai nevoie de cont? |
 |-----------|---------------------|-----------|-------------------|
 | **Manager de proiect / Product Owner** | Figma Design Library | Pentru a vizualiza componentele disponibile, a înțelege capabilitățile sistemului și a coordona cu echipa de design | ❌ Nu (acces Guest) |
-| **Designer UI/UX** | Figma Design Library | Pentru a crea mockup-uri și prototipuri folosind componentele MUD, a menține consistența vizuală | ❌ Nu (acces Guest suficient pentru copiere în propriul fișier) |
+| **Designer UX/UI** | Figma Design Library | Pentru a crea mockup-uri și prototipuri folosind componentele MUD, a menține consistența vizuală | ❌ Nu (acces Guest suficient pentru copiere în propriul fișier) |
 | **Developer Frontend** | Git Repository HTML/CSS | Pentru a implementa interfețele folosind componentele gata făcute HTML/CSS | ✅ Da (cont GitLab pentru clonare) |
 | **Developer Full-stack** | Git Repository HTML/CSS | Pentru a integra componentele MUD în aplicații complexe | ✅ Da (cont GitLab pentru clonare) |
 | **Specialist TIC / Coordonator tehnic** | Figma + Git Repository | Pentru a înțelege atât aspectul vizual cât și implementarea tehnică, a face bridge între echipe | ❌ Nu pentru Figma<br>✅ Da pentru GitLab |
