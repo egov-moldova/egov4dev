@@ -9,9 +9,11 @@ It provides guidance on how to integrate government platforms and services, use 
 
 The documentation is organized as follows:
 
-- **Platforms and services** – overview of the core MEGA services (MPass, MSign, MPower, MPay, MNotify, MDelivery, MConnect Events, MLog and MDocs)  
+- **Platforms and services** – overview of the core MEGA services (MPass, MSign, MPower, MPay, MNotify, MDelivery, MConnect Events, MLog and MDocs)
+- **Connection procedure** – steps needed to get connected to one of the services
 - **Development principles** – architectural and design principles for building interoperable government solutions  
-- **Tools and technologies** – technologies, frameworks, and tools used across projects  
+- **Tools and technologies** – technologies, frameworks, and tools used across projects
+- **Unified design system** – Moldovan Statewide Design System for government digital services
 - **Glossary** – centralized list of terms, definitions, and acronyms used across this resource
 - **Integration guides** – step-by-step guides for each service
 
