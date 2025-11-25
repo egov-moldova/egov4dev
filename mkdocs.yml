@@ -124,5 +124,8 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.tabbed:
       alternate_style: true
+  - toc:
+      permalink: true
+      toc_depth: 2
 
 copyright: © 2010–2025 Moldova eGovernance Agency. All rights reserved.
