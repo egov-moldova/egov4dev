@@ -1,61 +1,62 @@
-# Moldovan Unified Design System – MUD
+# Modelul Unitar de Design
 
-## 1. Despre MUD & resurse disponibile
+## 1. Despre sistem și resurse disponibile
 
-### Ce este MUD și de ce a fost creat
+### Ce este modelul și de ce a fost creat
 
-MUD (Moldovan Unified Design System) este standardul național de design pentru toate soluțiile web și mobile utilizate de autoritățile publice din Republica Moldova. Sistemul a fost dezvoltat de Agenția de Guvernare Electronică pentru a rezolva problema fragmentării designului în serviciile digitale guvernamentale și pentru a asigura o experiență unitară, coerentă și accesibilă pentru toți cetățenii.
+Modelul Unitar de Design este standardul național de design pentru toate soluțiile web și mobile utilizate de autoritățile publice din Republica Moldova. Acesta a fost dezvoltat de Agenția de Guvernare Electronică pentru a rezolva problema fragmentării designului în serviciile digitale guvernamentale și pentru a asigura o experiență unitară, coerentă și accesibilă pentru toți cetățenii.
 
-Până la apariția MUD, fiecare instituție publică dezvolta interfețe după propriile standarde, rezultând în confuzie pentru utilizatori, costuri crescute de dezvoltare și mentenanță, și o experiență inconsistentă în interacțiunea cu serviciile de stat. MUD standardizează componentele UI, paletele de culori, tipografia, spacing-ul și pattern-urile de interacțiune, permițând echipelor să se concentreze pe funcționalitate în loc de reinventarea designului de bază.
+Până la apariția modelului, fiecare instituție publică dezvolta interfețe după propriile standarde, rezultând în confuzie pentru utilizatori, costuri crescute de dezvoltare și mentenanță, și o experiență inconsistentă în interacțiunea cu serviciile de stat. Modelul standardizează componentele UI, paletele de culori, tipografia, spacing-ul și pattern-urile de interacțiune, permițând echipelor să se concentreze pe funcționalitate în loc de reinventarea designului de bază.
 
 ### Cui i se adresează
 
-MUD este obligatoriu pentru toate instituțiile publice din Republica Moldova care dezvoltă sau modernizează resurse și sisteme informaționale de stat. De asemenea, toate companiile private care dezvoltă soluții digitale pentru instituțiile guvernamentale trebuie să utilizeze MUD în proiectele lor.
+Modelul Unitar de Design este obligatoriu pentru toate instituțiile publice din Republica Moldova care dezvoltă sau modernizează resurse și sisteme informaționale de stat. De asemenea, toate companiile private care dezvoltă soluții digitale pentru instituțiile guvernamentale trebuie să utilizeze modelul în proiectele lor.
 
-Sistemul se adresează designerilor UI/UX, dezvoltatorilor frontend, managerilor de produs, arhitecților de soluții și specialiștilor TIC care lucrează la proiecte digitale guvernamentale.
+Sistemul se adresează designerilor UX/UI, dezvoltatorilor frontend, managerilor de produs, arhitecților de soluții și specialiștilor TIC care lucrează la proiecte digitale guvernamentale.
 
 ### Beneficii directe
 
-Utilizarea MUD aduce beneficii concrete atât pentru echipele de dezvoltare, cât și pentru utilizatorii finali. Timpul de dezvoltare se reduce semnificativ prin reutilizarea componentelor pre-construite și testate. Costurile de mentenanță scad datorită standardizării și actualizărilor centralizate. Calitatea produselor crește prin aplicarea best practices de accesibilitate și usability încorporate în sistem.
+Utilizarea modelului aduce beneficii concrete atât pentru echipele de dezvoltare, cât și pentru utilizatorii finali. Timpul de dezvoltare se reduce semnificativ prin reutilizarea componentelor pre-construite și testate. Costurile de mentenanță scad datorită standardizării și actualizărilor centralizate. Calitatea produselor crește prin aplicarea best practices de accesibilitate și usability încorporate în sistem.
 
-Pentru utilizatorii finali, MUD garantează o experiență familială și predictibilă în toate serviciile digitale guvernamentale, reducând curba de învățare și facilitând adoptarea serviciilor digitale. Accesibilitatea îmbunătățită asigură că serviciile sunt utilizabile de către persoanele cu dizabilități.
+Pentru utilizatorii finali, modelul garantează o experiență familială și predictibilă în toate serviciile digitale guvernamentale, reducând curba de învățare și facilitând adoptarea serviciilor digitale. Accesibilitatea îmbunătățită asigură că serviciile sunt utilizabile de către persoanele cu dizabilități.
 
 ### Resurse disponibile
 
-| Resursă | Descriere | Link | Status |
-|---------|-----------|------|--------|
-| **Figma files** | Biblioteca completă de componente, stiluri și pattern-uri. Acces Guest (fără cont necesar). Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | [Acces Figma](https://mud.egov.md) | ✅ Disponibil |
-| **Git repository** | Implementarea completă a componentelor MUD în HTML/CSS,gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitLab](https://github.com/egov-moldova/design-system) | 🔄 Disponibil 80% |
-| **MudBlazor components** | Bibliotecă oficială de componente MUD pentru dezvoltatorii care lucrează cu Blazor framework in mediul .NET. | În dezvoltare | 🔄 Disponibil în 2026 |
+| Resursă | Descriere | Cum accesezi | Status |
+|---------|-----------|--------------|--------|
+| **Figma files** | Biblioteca completă de componente, stiluri și pattern-uri. Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | **Vizualizare:** [Acces direct Guest](https://mud.egov.md)<br>**Copiere/Editare:** [Completați formularul](https://forms.office.com/...) pentru drepturi | ✅ Disponibil |
+| **Git repository** | Implementarea completă a componentelor modelului în HTML/CSS, gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitLab](https://github.com/egov-moldova/design-system) | 🔄 Disponibil 80% |
+| **MudBlazor components** | Bibliotecă oficială de componente modelului pentru dezvoltatorii care lucrează cu Blazor framework în mediul .NET. | În dezvoltare de către AGE | 🔄 Disponibil în 2026 |
 
 #### Ghid de utilizare pe roluri
 
-| Rolul tău | Ce resursă folosești | Pentru ce | Ai nevoie de cont? |
-|-----------|---------------------|-----------|-------------------|
-| **Manager de proiect / Product Owner** | Figma Design Library | Pentru a vizualiza componentele disponibile, a înțelege capabilitățile sistemului și a coordona cu echipa de design | ❌ Nu (acces Guest) |
-| **Designer UX/UI** | Figma Design Library | Pentru a crea mockup-uri și prototipuri folosind componentele MUD, a menține consistența vizuală | ❌ Nu (acces Guest suficient pentru copiere în propriul fișier) |
-| **Developer Frontend** | Git Repository HTML/CSS | Pentru a implementa interfețele folosind componentele gata făcute HTML/CSS | ✅ Da (cont GitLab pentru clonare) |
-| **Developer Full-stack** | Git Repository HTML/CSS | Pentru a integra componentele MUD în aplicații complexe | ✅ Da (cont GitLab pentru clonare) |
-| **Specialist TIC / Coordonator tehnic** | Figma + Git Repository | Pentru a înțelege atât aspectul vizual cât și implementarea tehnică, a face bridge între echipe | ❌ Nu pentru Figma<br>✅ Da pentru GitLab |
+| Rolul tău | Ce resursă folosești | Note despre acces |
+|-----------|---------------------|-------------------|
+| **Manager de proiect / Product Owner** | Figma Design Library - vizualizare componente și coordonare cu echipa | Acces direct Guest (fără cont) |
+| **Designer UX/UI** | Figma Design Library - creare mockup-uri și prototipuri | ⚠️ **Cerere acces obligatorie** prin [formular](https://forms.office.com/...) pentru copiere |
+| **Developer Frontend** | Git Repository HTML/CSS - implementare interfețe | Cont GitLab necesar |
+| **Developer Full-stack** | Git Repository HTML/CSS - integrare în aplicații | Cont GitLab necesar |
+| **Developer Blazor** | Git Repository HTML/CSS (temporar până în 2026) | Cont GitLab necesar |
+| **Specialist TIC / Coordonator tehnic** | Figma (vizualizare) + Git Repository (implementare) | Figma: direct / GitLab: cont necesar |
 
 ---
 
 ## 2. Acces rapid la resurse
 
-### 2.1 Figma File
+### 2.1 Figma Files
 
 **Link direct:** [Acces Figma](https://mud.egov.md)
 
-Fișierul Figma este configurat pentru acces public în modul Guest. Pur și simplu deschideți link-ul în browser și veți avea acces instant la toate componentele. În modul Guest puteți naviga prin fișier, inspeta proprietățile componentelor, copia stiluri și exporta assets. Nu puteți edita fișierul original, dar puteți copia componentele în propriul vostru fișier Figma.
+Fișierele Figma sunt configurat pentru acces public în modul Guest. Pur și simplu deschideți link-ul în browser și veți avea acces instant pentru vizualizare. În modul Guest puteți naviga prin fișiere, inspeta proprietățile componentelor și exporta assets pentru referință.
 
-Fișierul este organizat pe mai multe pagini:
+**Pentru a copia componentele în propriul vostru fișier Figma**, este necesar să solicitați drepturi de copiere prin completarea [formularului de acces](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl). După aprobare (maximum 2 zile lucrătoare), veți putea duplica și utiliza componentele în proiectele voastre. Fișierul original rămâne protejat și nu poate fi editat de utilizatori.
 
-- **Cover** - introducere și versiune
-- **Foundation** - culori, tipografie, spacing, shadows, borders
-- **Components** - toate componentele UI organizate pe categorii
-- **Patterns** - pattern-uri complexe și template-uri de pagini
-- **Icons** - biblioteca completă de iconițe
-- **Examples** - exemple de ecrane complete pentru scenarii tipice
+Modelul Unitar de Design este organizat pe mai multe fisiere Figma:
+
+- **Foundations** – culori, tipografie, spațiere, pictograme și alte stiluri de bază.
+- **Components** – elemente UI gata de utilizat, personalizabile, și recomandări pentru implementarea lor eficientă.
+- **Layouts & Patterns** – structuri recomandate pentru pagini și soluții pentru scenarii de design recurente.
+- **Purpose & Strategy** – principiile, obiectivele și direcția pe termen lung care ghidează Modelul Unitar de Design.
 
 Fiecare componentă are variante pentru toate stările posibile (default, hover, focus, disabled, error) și pentru toate dimensiunile disponibile. Componentele sunt construite cu Auto Layout pentru a facilita redimensionarea și adaptarea.
 
@@ -78,9 +79,9 @@ Fișierul `README.md` din root conține instrucțiuni detaliate de instalare și
 
 ## 3. Reguli de utilizare
 
-### 3.1 Când este obligatorie utilizarea MUD
+### 3.1 Când este obligatorie utilizarea
 
-Utilizarea MUD este obligatorie pentru toate resursele și sistemele informaționale de stat dezvoltate sau modernizate după lansare. Aceasta include:
+Utilizarea Modelul Unitar de Design este obligatorie pentru toate resursele și sistemele informaționale de stat dezvoltate sau modernizate după lansare. Aceasta include:
 
 - Site-uri web instituționale
 - Portale de servicii
@@ -88,9 +89,9 @@ Utilizarea MUD este obligatorie pentru toate resursele și sistemele informațio
 - Sisteme back-office accesibile funcționarilor publici
 - Orice altă interfață digitală destinată utilizării de către cetățeni sau angajați ai instituțiilor publice
 
-⚠️ Pentru proiectele în curs de dezvoltare la momentul lansării MUD, obligativitatea se aplică la următoarea iterație majoră sau refresh de design. Pentru sistemele existente, se recomandă migrarea treptată la MUD, prioritizând secțiunile cu trafic mare sau cele care necesită oricum modernizare.
+⚠️ Pentru proiectele în curs de dezvoltare la momentul lansării Modelului Unitar de Design, obligativitatea se aplică la următoarea iterație majoră sau refresh de design. Pentru sistemele existente, se recomandă migrarea treptată la model, prioritizând secțiunile cu trafic mare sau cele care necesită oricum modernizare.
 
-Companiile private care dezvoltă soluții pentru instituțiile guvernamentale trebuie să includă utilizarea MUD în ofertele tehnice și să asigure conformitatea în toate livrabilele.
+Companiile private care dezvoltă soluții pentru instituțiile guvernamentale trebuie să includă utilizarea modelului în ofertele tehnice și să asigure conformitatea în toate livrabilele.
 
 ### 3.2 Ce poți modifica și ce nu
 
@@ -109,26 +110,26 @@ Companiile private care dezvoltă soluții pentru instituțiile guvernamentale t
 - Conținut și copy
 - Layout-ul paginilor (folosind grid-ul și componentele standard)
 - Imagini și ilustrații specifice instituției
-- Componente custom suplimentare care nu există în MUD (cu condiția să respecte principiile generale de design)
+- Componente custom suplimentare care nu există în model (cu condiția să respecte principiile generale de design)
 
-⚠️ Dacă aveți nevoie de o componentă care nu există în MUD sau doriți să modificați o componentă existentă pentru un use case specific, contactați echipa MUD pentru a discuta posibilitatea adăugării în sistemul principal. În multe cazuri, nevoia dumneavoastră specifică poate fi relevantă și pentru alte instituții.
+⚠️ Dacă aveți nevoie de o componentă care nu există în model sau doriți să modificați o componentă existentă pentru un use case specific, contactați echipa AGE pentru a discuta posibilitatea adăugării în sistemul principal. În multe cazuri, nevoia dumneavoastră specifică poate fi relevantă și pentru alte instituții.
 
 ### 3.3 Procedura de coordonare design (când e necesară)
 
 Coordonarea cu AGE este necesară în următoarele situații:
 
-- Când doriți să creați componente complet noi care nu există în MUD
+- Când doriți să creați componente complet noi care nu există în model
 - Când trebuie să modificați semnificativ o componentă existentă pentru un use case specific
 - Când dezvoltați un pattern complex care combină multiple componente într-un mod nou
 - Când aveți îndoieli legate de interpretarea regulilor de brand guvernamental
 
-Pentru coordonare, trimiteți un email la suport@egov.md cu:
+Pentru coordonare, trimiteți un email la design@egov.md cu:
 
 - Descrierea use case-ului
 - Mockup-uri sau wireframe-uri ale soluției propuse
 - Explicația de ce componentele existente nu sunt suficiente
 
-Echipa MUD va răspunde în maximum 5 zile lucrătoare cu feedback și recomandări.
+Echipa AGE va răspunde în maximum 5 zile lucrătoare cu feedback și recomandări.
 
 ⚠️ Nu este necesară coordonarea pentru:
     - Utilizarea standard a componentelor existente
@@ -138,33 +139,33 @@ Echipa MUD va răspunde în maximum 5 zile lucrătoare cu feedback și recomand�
 
 ### 3.4 Integrare cu framework-uri - responsabilitatea dezvoltatorului
 
-Componentele MUD sunt furnizate în HTML/CSS vanilla pentru a asigura compatibilitatea maximă. Integrarea cu framework-uri moderne (React, Vue, Angular, etc.) este responsabilitatea echipelor de dezvoltare care lucrează cu aceste tehnologii.
+Componentele modelului sunt furnizate în HTML/CSS vanilla pentru a asigura compatibilitatea maximă. Integrarea cu framework-uri moderne (React, Vue, Angular, etc.) este responsabilitatea echipelor de dezvoltare care lucrează cu aceste tehnologii.
 
 Procesul tipic de integrare presupune:
 
 1. **Importarea design tokens** (variabile CSS/SCSS pentru culori, spacing, tipografie, shadows etc.)
-2. **Importarea stilurilor CSS** din MUD
+2. **Importarea stilurilor CSS** din Modelul Unitar de Design
 3. **Crearea de wrapper components** în framework-ul dorit care aplică clasele CSS corespunzătoare
 4. **Utilizarea token-urilor** în loc de valori hardcodate pentru spacing, culori, font sizes
 5. **Adaptarea pattern-urilor interactive** pentru a funcționa cu state management-ul specific framework-ului
 
-Comunitatea dezvoltatorilor este încurajată să împărtășească implementările lor pentru diverse framework-uri. Dacă ați creat o bibliotecă de componente MUD pentru un framework popular, contactați-ne pentru a o lista în secțiunea de resurse comunitare.
+Comunitatea dezvoltatorilor este încurajată să împărtășească implementările lor pentru diverse framework-uri. Dacă ați creat o bibliotecă de componente pentru un framework popular, contactați-ne pentru a o lista în secțiunea de resurse comunitare.
 
-⚠️ AGE dezvoltă oficial o bibliotecă de componente MUD pentru Blazor/MudBlazor care va fi disponibilă în 2026. Până atunci, puteți folosi componentele HTML/CSS standard în Blazor sau puteți crea propriile componente Blazor bazate pe stilurile MUD.
+⚠️ AGE dezvoltă oficial o bibliotecă de componente pentru Blazor/MudBlazor care va fi disponibilă în 2026. Până atunci, puteți folosi componentele HTML/CSS standard în Blazor sau puteți crea propriile componente Blazor bazate pe stilurile Modelul Unitar de Design.
 
 ---
 
 ## 4. Workflow de implementare
 
-Un proiect tipic care utilizează MUD urmează acest workflow:
+Un proiect tipic care utilizează Modelul Unitar de Design urmează acest workflow:
 
 ### Faza 1: Design în Figma
 
-Designerul deschide fișierul MUD în Figma (acces Guest) și creează un nou fișier pentru proiect. Componentele necesare se copiază din biblioteca MUD în noul fișier. Designerul construiește ecranele aplicației folosind componentele MUD, personalizând doar elementele permise (culori instituționale, conținut, imagini). Layout-ul se creează folosind grid-ul și spacing tokens din MUD pentru a asigura consistența.
+Designerul deschide fișierul în Figma (acces Guest) și creează un nou fișier pentru proiect. Componentele necesare se copiază din biblioteca în noul fișier (după acordarea dreptului de copiere). Designerul construiește ecranele aplicației folosind componentele modelului, personalizând doar elementele permise (culori instituționale, conținut, imagini). Layout-ul se creează folosind grid-ul și spacing tokens din model pentru a asigura consistența.
 
 ### Faza 2: Frontend development
 
-Dezvoltatorul clonează repository-ul MUD de pe GitLab și setează structura de bază a proiectului. Componentele necesare se integrează în proiect (fie prin copiere directă, fie prin npm install din GitLab). Dezvoltatorul implementează layout-urile și funcționalitatea conform design-urilor din Figma, folosind clasele CSS și structura HTML din documentația componentelor.
+Dezvoltatorul clonează repository-ul de pe GitLab și setează structura de bază a proiectului. Componentele necesare se integrează în proiect (fie prin copiere directă, fie prin npm install din GitLab). Dezvoltatorul implementează layout-urile și funcționalitatea conform design-urilor din Figma, folosind clasele CSS și structura HTML din documentația componentelor.
 
 Pentru componente interactive, JavaScript-ul minimal necesar este inclus în repository. Pentru interacțiuni complexe specifice aplicației, dezvoltatorul extinde comportamentul de bază respectând pattern-urile stabilite.
 
@@ -176,7 +177,7 @@ Testați aplicația pe toate browserele suportate (Chrome, Firefox, Safari, Edge
 
 #### În Figma:
 
-Designerul deschide biblioteca MUD și identifică componentele necesare:
+Designerul deschide biblioteca moldelului și identifică componentele necesare:
 
 - Input Text
 - Text Area
@@ -203,15 +204,15 @@ Adaugă validare JavaScript folosind pattern-ul din `/examples/form-validation.j
 
 ## 5. Întrebări frecvente (FAQ)
 
-### Pot folosi MUD pentru proiecte non-guvernamentale?
+### Pot folosi Modelul Unitar de Design pentru proiecte non-guvernamentale?
 
-MUD este dezvoltat specific pentru sectorul guvernamental din Moldova și utilizarea lui este obligatorie pentru proiectele de stat. Pentru proiecte private sau comerciale, puteți folosi MUD ca inspirație sau punct de plecare, dar nu există obligativitate. Totuși, vă încurajăm să respectați principiile de accesibilitate și usability încorporate în sistem indiferent de tipul proiectului.
+Modelul Unitar de Design este dezvoltat specific pentru sectorul guvernamental din Moldova și utilizarea lui este obligatorie pentru proiectele de stat. Pentru proiecte private sau comerciale, puteți folosi modelul ca inspirație sau punct de plecare, dar nu există obligativitate. Totuși, vă încurajăm să respectați principiile de accesibilitate și usability încorporate în sistem indiferent de tipul proiectului.
 
-### Cum obțin actualizări când MUD se schimbă?
+### Cum obțin actualizări când modelul se schimbă?
 
-MUD este versionat semantic (major.minor.patch). Verificați periodic fișierul `CHANGELOG.md` din repository pentru a vedea ce s-a schimbat. Pentru actualizări majore care pot include breaking changes, AGE va comunica în avans prin canalele oficiale și va oferi ghiduri de migrare.
+Modelul Unitar de Design este versionat semantic (major.minor.patch). Verificați periodic fișierul `CHANGELOG.md` din repository pentru a vedea ce s-a schimbat. Pentru actualizări majore care pot include breaking changes, AGE va comunica în avans prin canalele oficiale și va oferi ghiduri de migrare.
 
-Dacă folosiți MUD prin npm, puteți actualiza cu:
+Dacă folosiți modelul prin npm, puteți actualiza cu:
 ```bash
 npm update mud-design-system
 ```
@@ -224,18 +225,18 @@ Primul pas este să verificați dacă puteți rezolva problema combinând compon
 
 Dacă nu există o soluție viabilă, aveți două opțiuni:
 
-1. Creați o componentă custom care respectă principiile MUD (culori, spacing, tipografie) și folosiți-o în proiectul vostru
-2. Contactați echipa MUD la suport@egov.md pentru a propune adăugarea unei noi componente în sistem. Includeți descrierea use case-ului și mockup-uri ale soluției propuse.
+1. Creați o componentă custom care respectă principiile modelului (culori, spacing, tipografie) și folosiți-o în proiectul vostru
+2. Contactați echipa AGE la design@egov.md pentru a propune adăugarea unei noi componente în sistem. Includeți descrierea use case-ului și mockup-uri ale soluției propuse.
 
 ### Cum raportez un bug sau sugerez îmbunătățiri?
 
 - **Pentru bug-uri tehnice** în componentele din GitLab, deschideți un Issue în repository cu descriere detaliată, browser/device info și screenshot-uri dacă e relevant
-- **Pentru probleme de design** sau sugestii de îmbunătățiri, trimiteți email la suport@egov.md cu detalii clare despre problema identificată și impactul ei
+- **Pentru probleme de design** sau sugestii de îmbunătățiri, trimiteți email la design@egov.md cu detalii clare despre problema identificată și impactul ei
 - **Pentru discuții generale** și întrebări, puteți folosi secțiunea Discussions din GitLab
 
 ### Trebuie să cer aprobare pentru fiecare implementare?
 
-Nu. Dacă folosiți componentele MUD conform documentației și regulilor de utilizare, nu este necesară nicio aprobare. Coordonarea cu AGE este necesară doar în cazurile specificate la punctul 3.3:
+Da. Dacă folosiți componentele modelului conform documentației și regulilor de utilizare, este necesară coordonarea si aprobarea cu AGE.
 
 - Componente complet noi
 - Modificări majore ale componentelor existente
@@ -243,13 +244,13 @@ Nu. Dacă folosiți componentele MUD conform documentației și regulilor de uti
 
 ### Pot contribui cu componente noi?
 
-Da, AGE încurajează contribuțiile din partea comunității. Dacă ați dezvoltat o componentă care respectă principiile MUD și credeți că ar fi utilă și altor proiecte guvernamentale, trimiteți un Pull Request în repository cu:
+Da, AGE încurajează contribuțiile din partea comunității. Dacă ați dezvoltat o componentă care respectă principiile modelului și credeți că ar fi utilă și altor proiecte guvernamentale, trimiteți un Pull Request în repository cu:
 
 - Componenta
 - Documentația
 - Exemple de utilizare
 
-Echipa MUD va revizui contribuția și, dacă este aprobată, o va include în versiunea următoare. Contributorii vor fi creditați în fișierul `CONTRIBUTORS.md`.
+Echipa AGE va revizui contribuția și, dacă este aprobată, o va include în versiunea următoare. Contributorii vor fi creditați în fișierul `CONTRIBUTORS.md`.
 
 ---
 
@@ -260,7 +261,7 @@ Echipa MUD va revizui contribuția și, dacă este aprobată, o va include în v
 
 Pentru întrebări tehnice complexe, coordonare design sau cazuri excepționale care nu sunt acoperite de documentație:
 
-- **Email:** suport@egov.md
+- **Email:** design@egov.md
 - **Timp de răspuns:** 5 zile lucrătoare
 - **Program:** Luni-Vineri, 09:00-18:00
 
