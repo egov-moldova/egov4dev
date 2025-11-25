@@ -49,14 +49,14 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 
 Fișierele Figma sunt configurat pentru acces public în modul Guest. Pur și simplu deschideți link-ul în browser și veți avea acces instant pentru vizualizare. În modul Guest puteți naviga prin fișiere, inspeta proprietățile componentelor și exporta assets pentru referință.
 
-**Pentru a copia componentele în propriul vostru fișier Figma**, este necesar să solicitați drepturi de copiere prin completarea [formularului de acces](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl). După aprobare (maximum 2 zile lucrătoare), veți putea duplica și utiliza componentele în proiectele voastre. Fișierul original rămâne protejat și nu poate fi editat de utilizatori.
+**Pentru a copia componentele în propriul vostru fișier Figma**, este necesar să solicitați drepturi de copiere prin completarea [formularului de acces](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl). După aprobare (maximum 5 zile lucrătoare), veți putea duplica și utiliza componentele în proiectele voastre. Fișierul original rămâne protejat și nu poate fi editat de utilizatori.
 
 Modelul Unitar de Design este organizat pe mai multe fisiere Figma:
 
 - **Foundations** – culori, tipografie, spațiere, pictograme și alte stiluri de bază.
 - **Components** – elemente UI gata de utilizat, personalizabile, și recomandări pentru implementarea lor eficientă.
 - **Layouts & Patterns** – structuri recomandate pentru pagini și soluții pentru scenarii de design recurente.
-- **Purpose & Strategy** – principiile, obiectivele și direcția pe termen lung care ghidează Modelul Unitar de Design.
+- **Purpose & Principles** – principiile, obiectivele și direcția pe termen lung care ghidează Modelul Unitar de Design.
 
 Fiecare componentă are variante pentru toate stările posibile (default, hover, focus, disabled, error) și pentru toate dimensiunile disponibile. Componentele sunt construite cu Auto Layout pentru a facilita redimensionarea și adaptarea.
 
@@ -129,7 +129,7 @@ Pentru coordonare, trimiteți un email la design@egov.md cu:
 - Mockup-uri sau wireframe-uri ale soluției propuse
 - Explicația de ce componentele existente nu sunt suficiente
 
-Echipa AGE va răspunde în maximum 5 zile lucrătoare cu feedback și recomandări.
+Echipa AGE va răspunde în maximum 10 zile lucrătoare cu feedback și recomandări.
 
 ⚠️ Nu este necesară coordonarea pentru:
     - Utilizarea standard a componentelor existente
@@ -257,7 +257,7 @@ Echipa AGE va revizui contribuția și, dacă este aprobată, o va include în v
 ## 6. Resurse suplimentare
 
 - **Recording webinar de lansare:** [Vezi webinar pe YouTube](https://www.youtube.com/watch?v=74V-IXQqqY8) - acoperă o prezentare completă a sistemului, demonstrații live și Q&A
-- **Webinar prezentare:** [Vezi prezentare în Figma](https://www.figma.com/files/team/1298534698218536546/project/496799860/EGOV-Figma-Slides-presentation?fuid=1143863019910488123)
+- **Webinar prezentare:** [Vezi prezentarea](Modelul Unitar de Design.pdf)
 
 Pentru întrebări tehnice complexe, coordonare design sau cazuri excepționale care nu sunt acoperite de documentație:
 
