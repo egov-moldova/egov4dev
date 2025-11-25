@@ -12,7 +12,7 @@ Până la apariția modelului, fiecare instituție publică dezvolta interfețe 
 
 Modelul Unitar de Design este obligatoriu pentru toate instituțiile publice din Republica Moldova care dezvoltă sau modernizează resurse și sisteme informaționale de stat. De asemenea, toate companiile private care dezvoltă soluții digitale pentru instituțiile guvernamentale trebuie să utilizeze modelul în proiectele lor.
 
-Sistemul se adresează designerilor UX/UI, dezvoltatorilor frontend, managerilor de produs, arhitecților de soluții și specialiștilor TIC care lucrează la proiecte digitale guvernamentale.
+Modelul se adresează designerilor UX/UI, dezvoltatorilor frontend, managerilor de produs, arhitecților de soluții și specialiștilor TIC care lucrează la proiecte digitale guvernamentale.
 
 ### Beneficii directe
 
@@ -24,7 +24,7 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 
 | Resursă | Descriere | Cum accesezi | Status |
 |---------|-----------|--------------|--------|
-| **Figma files** | Biblioteca completă de componente, stiluri și pattern-uri. Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | **Vizualizare:** [Acces direct Guest](https://mud.egov.md)<br>**Copiere/Editare:** [Completați formularul](https://forms.office.com/...) pentru drepturi | ✅ Disponibil |
+| **Figma files** | Biblioteca completă de componente, stiluri și pattern-uri. Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | **Vizualizare:** [Acces direct Guest](https://mud.egov.md)<br>**Copiere/Editare:** [Completați formularul](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl) pentru drepturi | ✅ Disponibil |
 | **Git repository** | Implementarea completă a componentelor modelului în HTML/CSS, gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitLab](https://github.com/egov-moldova/design-system) | 🔄 Disponibil 80% |
 | **MudBlazor components** | Bibliotecă oficială de componente modelului pentru dezvoltatorii care lucrează cu Blazor framework în mediul .NET. | În dezvoltare de către AGE | 🔄 Disponibil în 2026 |
 
@@ -33,13 +33,11 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 | Rolul tău | Ce resursă folosești | Note despre acces |
 |-----------|---------------------|-------------------|
 | **Manager de proiect / Product Owner** | Figma Design Library - vizualizare componente și coordonare cu echipa | Acces direct Guest (fără cont) |
-| **Designer UX/UI** | Figma Design Library - creare mockup-uri și prototipuri | ⚠️ **Cerere acces obligatorie** prin [formular](https://forms.office.com/...) pentru copiere |
+| **Designer UX/UI** | Figma Design Library - creare mockup-uri și prototipuri | ⚠️ **Cerere acces obligatorie** prin [formular](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl) pentru copiere |
 | **Developer Frontend** | Git Repository HTML/CSS - implementare interfețe | Cont GitLab necesar |
 | **Developer Full-stack** | Git Repository HTML/CSS - integrare în aplicații | Cont GitLab necesar |
 | **Developer Blazor** | Git Repository HTML/CSS (temporar până în 2026) | Cont GitLab necesar |
 | **Specialist TIC / Coordonator tehnic** | Figma (vizualizare) + Git Repository (implementare) | Figma: direct / GitLab: cont necesar |
-
----
 
 ## 2. Acces rapid la resurse
 
@@ -47,7 +45,7 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 
 **Link direct:** [Acces Figma](https://mud.egov.md)
 
-Fișierele Figma sunt configurat pentru acces public în modul Guest. Pur și simplu deschideți link-ul în browser și veți avea acces instant pentru vizualizare. În modul Guest puteți naviga prin fișiere, inspeta proprietățile componentelor și exporta assets pentru referință.
+Fișierele Figma sunt configurate pentru acces public în modul Guest. Pur și simplu deschideți link-ul în browser și veți avea acces instant pentru vizualizare. În modul Guest puteți naviga prin fișiere, inspecta proprietățile componentelor și exporta assets pentru referință.
 
 **Pentru a copia componentele în propriul vostru fișier Figma**, este necesar să solicitați drepturi de copiere prin completarea [formularului de acces](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl). După aprobare (maximum 5 zile lucrătoare), veți putea duplica și utiliza componentele în proiectele voastre. Fișierul original rămâne protejat și nu poate fi editat de utilizatori.
 
