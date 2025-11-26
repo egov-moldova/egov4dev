@@ -1,6 +1,6 @@
 # Modelul Unitar de Design
 
-## 1. Despre sistem și resurse disponibile
+## Despre sistem și resurse disponibile
 
 ### Ce este modelul și de ce a fost creat
 
@@ -39,9 +39,9 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 | **Developer Blazor** | Git Repository HTML/CSS (temporar până în 2026) | Cont GitLab necesar |
 | **Specialist TIC / Coordonator tehnic** | Figma (vizualizare) + Git Repository (implementare) | Figma: direct / GitLab: cont necesar |
 
-## 2. Acces rapid la resurse
+## Acces rapid la resurse
 
-### 2.1 Figma Files
+### Figma Files
 
 **Link direct:** [Acces Figma](https://mud.egov.md)
 
@@ -58,7 +58,7 @@ Modelul Unitar de Design este organizat pe mai multe fisiere Figma:
 
 Fiecare componentă are variante pentru toate stările posibile (default, hover, focus, disabled, error) și pentru toate dimensiunile disponibile. Componentele sunt construite cu Auto Layout pentru a facilita redimensionarea și adaptarea.
 
-### 2.2 Git Repository
+### Git Repository
 
 **Link direct:** [Acces GitLab](https://github.com/egov-moldova/design-system)
 
@@ -75,9 +75,9 @@ Fișierul `README.md` din root conține instrucțiuni detaliate de instalare și
 
 ---
 
-## 3. Reguli de utilizare
+## Reguli de utilizare
 
-### 3.1 Când este obligatorie utilizarea
+### Când este obligatorie utilizarea
 
 Utilizarea Modelul Unitar de Design este obligatorie pentru toate resursele și sistemele informaționale de stat dezvoltate sau modernizate după lansare. Aceasta include:
 
@@ -91,7 +91,7 @@ Utilizarea Modelul Unitar de Design este obligatorie pentru toate resursele și 
 
 Companiile private care dezvoltă soluții pentru instituțiile guvernamentale trebuie să includă utilizarea modelului în ofertele tehnice și să asigure conformitatea în toate livrabilele.
 
-### 3.2 Ce poți modifica și ce nu
+### Ce poți modifica și ce nu
 
 #### Nu poți modifica:
 
@@ -112,7 +112,7 @@ Companiile private care dezvoltă soluții pentru instituțiile guvernamentale t
 
 ⚠️ Dacă aveți nevoie de o componentă care nu există în model sau doriți să modificați o componentă existentă pentru un use case specific, contactați echipa AGE pentru a discuta posibilitatea adăugării în sistemul principal. În multe cazuri, nevoia dumneavoastră specifică poate fi relevantă și pentru alte instituții.
 
-### 3.3 Procedura de coordonare design (când e necesară)
+### Procedura de coordonare design (când e necesară)
 
 Coordonarea cu AGE este necesară în următoarele situații:
 
@@ -135,7 +135,7 @@ Echipa AGE va răspunde în maximum 10 zile lucrătoare cu feedback și recomand
     - Layout-uri custom folosind componentele standard
     - Adăugarea de conținut specific instituției
 
-### 3.4 Integrare cu framework-uri - responsabilitatea dezvoltatorului
+### Integrare cu framework-uri - responsabilitatea dezvoltatorului
 
 Componentele modelului sunt furnizate în HTML/CSS vanilla pentru a asigura compatibilitatea maximă. Integrarea cu framework-uri moderne (React, Vue, Angular, etc.) este responsabilitatea echipelor de dezvoltare care lucrează cu aceste tehnologii.
 
@@ -153,7 +153,7 @@ Comunitatea dezvoltatorilor este încurajată să împărtășească implementă
 
 ---
 
-## 4. Workflow de implementare
+## Workflow de implementare
 
 Un proiect tipic care utilizează Modelul Unitar de Design urmează acest workflow:
 
@@ -200,7 +200,7 @@ Adaugă validare JavaScript folosind pattern-ul din `/examples/form-validation.j
 
 ---
 
-## 5. Întrebări frecvente (FAQ)
+## Întrebări frecvente (FAQ)
 
 ### Pot folosi Modelul Unitar de Design pentru proiecte non-guvernamentale?
 
@@ -252,7 +252,7 @@ Echipa AGE va revizui contribuția și, dacă este aprobată, o va include în v
 
 ---
 
-## 6. Resurse suplimentare
+## Resurse suplimentare
 
 - **Recording webinar de lansare:** [Vezi webinar pe YouTube](https://www.youtube.com/watch?v=74V-IXQqqY8) - acoperă o prezentare completă a sistemului, demonstrații live și Q&A
 - **Webinar prezentare:** [Vezi prezentarea](Modelul Unitar de Design.pdf)
