@@ -1,4 +1,4 @@
-1. Complete the Unified Connection Form available on MEGA's website. 
+1. Complete the [Unified Connection Form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u) available on MEGA's website. 
 2. Sign the contract and/or the annex provided by MEGA for the delivery of MPass services. 
    – If the institution already has an active contract for another AGE platform service, there is no need to sign a new contract; only the MPass specific annex will be signed. 
 3. Provide the [technical integration details](https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=Z4f8jWsRaEKDxfvIWTRtOPEKwFi7MyRNimikcwdXWMlUOTlGSVRPQUJVRUFKVVVYR1I4UE9KTTRYOC4u) after signing the contract. You will receive, via notification, the link to the online integration details form. In this form, indicate:
