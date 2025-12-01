@@ -15,6 +15,10 @@ The platform is based on the principles of legality, equal access, authenticity,
 
 MConnect Events represents the newest component of the data exchange ecosystem through the Interoperability Platform (MConnect), created to fundamentally transform the way public institutions share data. The extension introduces a modern, event-based model that enables near real-time synchronization of changes from registries, with over 2.5 million messages processed daily through MConnect. This event-driven approach increases the speed, resilience, and proactivity of public services, paving the way toward fully automated processes and intelligent digital services.
 
+### Semantic catalog
+
+The Semantic Catalog was developed as a result of the analysis of current data management practices with the aim of improving the overall quality of data, their use and coordination, and their alignment with international practices. In order to increase the quality of data and information about them, as well as to implement international good practices, it was necessary to identify a more efficient and centralized way of systematizing and managing information about data.
+
 ## <img src="../../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – authentication and authorization service
 
 <a href="https://mpass.gov.md/">MPass</a> is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
