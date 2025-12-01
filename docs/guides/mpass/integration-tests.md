@@ -1,271 +1,203 @@
-﻿# Integration tests
+This section describes test cases for systems integrating with MPass. These tests ensure both functional correctness and security compliance of the integration.
 
-This page consolidates developer-focused test scenarios for MPass integrations.
-Tip: Keep production traffic clean. Run these tests only against the testing environment, and when you are ready to move to production, re-run critical tests there.
+## Functional Test Cases
 
-- Testing SSO URL: https://mpass.staging.egov.md/login/saml
-- Testing SLO URL: https://mpass.staging.egov.md/logout/saml
-- Metadata (testing): https://mpass.staging.egov.md/meta/saml
+### TC_FUNCT_01: Service Initiated Authentication
 
-Related: See Integration development for endpoints, metadata, and attributes returned by MPass.
+**Description:** Service initiated authentication
 
-## Prerequisites
+**Initial Conditions:** User not authenticated into the Service and MPass
 
-- Your Service Provider (SP) is registered in MPass testing with correct Assertion Consumer Service (ACS) and Single Logout Service (SLS) endpoints.
-- Your SP trusts the MPass IdP signing certificate from testing metadata.
-- You can inspect SP logs and application traces to validate signatures, identifiers, and attributes.
-- Test user accounts or credentials for the intended authentication methods.
+**Steps:**
 
-## Functional scenarios
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass, no errors shown |
+| 2 | Authenticate in MPass | Browser redirected back to the Service as logged in |
 
-### 1. Service-initiated authentication (fresh session)
-Prereq: User is not authenticated in your Service or MPass.
+---
 
-Steps:
+### TC_FUNCT_02: Single Sign-On Through MPass
 
-1. Click your Service “Login”.
-2. Authenticate at MPass.
+**Description:** Single sign-on through MPass
 
-Expected outcome:
+**Initial Conditions:**
+- User not authenticated in the Service
+- User authenticated directly in MPass
 
-- Browser returns to your ACS; user session is established in your Service.
+**Steps:**
 
-Verify:
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back (with or without authentication consent) to the Service as logged in, no errors shown |
 
-- SAML Response signature valid and chains to MPass testing certificate.
-- Audience, Issuer, Destination, and InResponseTo valid for your SP.
-- Attributes mapped correctly; your authorization logic executes.
+---
 
-### 2. Single Sign-On (user already authenticated at MPass)
-Prereq: User authenticated at MPass; not authenticated in your Service.
+### TC_FUNCT_03: Aborted Authentication
 
-Steps:
+**Description:** Aborted authentication
 
-1. Click your Service “Login”.
+**Initial Conditions:** User not authenticated into the Service and MPass
 
-Expected outcome:
+**Steps:**
 
-- User is logged into your Service without re-entering credentials (consent may appear per policy).
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass for authentication |
+| 2 | Cancel the authentication in MPass | Browser redirected back to the Service without authentication and no errors are shown by the Service |
 
-Verify:
+---
 
-- Same checks as above; ensure your SP supports SSO when IdP session exists.
+### TC_FUNCT_04: Service Initiated Logout
 
-### 3. User aborts authentication
-Prereq: User is not authenticated in your Service or MPass.
+**Description:** Service initiated logout
 
-Steps:
+**Initial Conditions:** User authenticated into Service via MPass
 
-1. Click “Login” in your Service.
-2. On MPass, cancel/abort authentication.
+**Steps:**
 
-Expected outcome:
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Logout" button/link of the Service | Browser redirected to MPass and redirected back (with or without authentication consent) to the Service as logged out, no errors shown |
+| 2 | Access any Service protected resource | Access to resource is denied and/or user is redirected to MPass for authentication |
 
-- Browser returns to your Service without an authenticated session; your UI shows a neutral state (no error spam, no partial login).
+---
 
-Verify:
+### TC_FUNCT_05: MPass Initiated Logout (Single Logout)
 
-- Error/Status handling shows user-friendly message or silent return to login page.
-- No residual session created; no sensitive data persisted.
+**Description:** MPass initiated logout (i.e. single logout)
 
-### 4. Service-initiated logout (local logout + SLO)
-Prereq: User authenticated in your Service via MPass.
+**Initial Conditions:** User authenticated into Service via MPass
 
-Steps:
+**Steps:**
 
-1. Click “Logout” in your Service.
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Logout" link in MPass | After performing single sign-out, MPass shows that the user is not authenticated |
+| 2 | Access any Service protected resource | Access to resource is denied and/or user is redirected to MPass for authentication |
 
-Expected outcome:
+---
 
-- Your Service clears its session; if SLO flow is implemented, MPass is invoked appropriately and returns to your Service.
+## Security Test Cases
 
-Verify:
+### TC_SEC_01: Check SAML Response Signature Validation
 
-- Accessing a protected resource requires authentication again.
-- If SLO used, MPass shows user as logged out (per policy) or continues IdP session if configured.
+**Description:** Check SAML Response signature validation
 
-### 5. MPass-initiated logout (global SLO)
-Prereq: User authenticated in your Service via MPass.
+**Initial Conditions:**
+- User not authenticated into Service, but authenticated in MPass
+- Only the following option is checked in SAML Advanced Options: "Do not sign SAML Response"
 
-Steps:
+**Steps:**
 
-1. Visit MPass and trigger Logout.
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is not signed |
 
-Expected outcome:
+---
 
-- After SLO propagation, your Service shows the user as logged out.
+### TC_SEC_02: Check SAML Response Signature Validation Certificate
 
-Verify:
+**Description:** Check SAML Response signature validation certificate
 
-- Protected resources require a fresh login.
-- Your SLS endpoint handled logout request/response and verified signatures.
+**Initial Conditions:**
+- User not authenticated into Service, but authenticated in MPass
+- Only the following option is checked in SAML Advanced Options: "Use compatible certificate for signing"
 
-### 6. Attribute mapping and authorization
-Prereq: User authenticated into your Service via MPass.
+**Steps:**
 
-Steps:
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is signed with invalid certificate |
 
-1. Inspect SAML Assertion attributes received.
+---
 
-Expected outcome:
+### TC_SEC_03: Check SAML Response is Not Expired
 
-- Required attributes are present and mapped to your domain model.
+**Description:** Check SAML Response is not expired
 
-Verify:
+**Initial Conditions:**
+- User not authenticated into Service, but authenticated in MPass
+- No option is checked in SAML Advanced Options
+- Service server clock changed to several hours in the future
 
-- NameID, FirstName, LastName, IDNP/IDNO (if applicable), roles/permissions (if configured) are correctly processed.
-- Business rules (roles/permissions) are enforced.
+**Steps:**
 
-### 7. Session lifetime and renewal
-Prereq: User authenticated into your Service via MPass.
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is expired |
 
-Steps:
+---
 
-1. Let your SP session expire or invalidate it.
-2. Attempt to access a protected resource.
+### TC_SEC_04: Check SAML Response is Not Too New
 
-Expected outcome:
+**Description:** Check SAML Response is not too new
 
-- User is redirected to MPass and re-authenticates (or SSO applies if IdP session still valid).
+**Initial Conditions:**
+- User not authenticated into Service, but authenticated in MPass
+- Only the following option is checked in SAML Advanced Options: "SAML Response IssueInstant is specified in local time, instead of UTC"
 
-Verify:
+**Steps:**
 
-- No mixed-session state; CSRF/session fixation protections remain intact across re-login.
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is expired (2 or 3 hours in the future for Moldova time zone) |
 
-## Security scenarios
+---
 
-These scenarios help verify that your SP correctly validates SAML messages and rejects unsafe inputs.
+### TC_SEC_05: Check if SAML Response Destination is Validated
 
-### A. Response/Assertion signature validation
-Prereq: IdP sends an unsigned Response/Assertion (simulate via test config if available) or use a mocked response in your SP’s test harness.
+**Description:** Check if SAML Response Destination is validated
 
-Steps:
+**Initial Conditions:**
+- User not authenticated into Service, but authenticated in MPass
+- Only the following option is checked in SAML Advanced Options: "Do not specify Destination in SAML Response"
 
-1. Initiate login.
+**Steps:**
 
-Expected outcome:
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response/@Destination is not specified |
 
-- Your SP rejects the response because required signatures are missing.
+---
 
-Verify:
+### TC_SEC_06: Check if SAML Response InResponseTo is Checked For
 
-- Clear log entry indicating signature requirement failure; no session created.
+**Description:** Check if SAML Response InResponseTo is checked for
 
-### B. Invalid signing certificate
-Prereq: IdP signs with an unexpected/invalid certificate (simulate via config/harness).
+**Initial Conditions:**
+- User not authenticated into Service, but authenticated in MPass
+- Only the following option is checked in SAML Advanced Options: "Do not specify InResponseTo in SAML Response"
 
-Steps:
+**Steps:**
 
-1. Initiate login.
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response/@InResponseTo is not specified |
 
-Expected outcome:
+---
 
-- Your SP rejects the response due to untrusted certificate.
+### TC_SEC_07: Check if SAML Response InResponseTo is Validated
 
-Verify:
+**Description:** Check if SAML Response InResponseTo is validated
 
-- Trust validation fails against the certificate(s) provided in MPass testing metadata.
+**Initial Conditions:**
+- User not authenticated into the Service and MPass
+- No option is checked in SAML Advanced Options
 
-### C. Clock skew / Expired or NotYetValid conditions
-Prereq: Simulate system clock skew or craft a response in your harness.
+**Steps:**
 
-Steps:
+| Step | Task | Expected Result |
+|------|------|----------------|
+| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass for authentication |
+| 2 | Abort user's session in the Service (restart the server or delete it from session store) so that the generated AuthnRequest/@ID is lost | User session aborted |
+| 3 | Authenticate in MPass | Browser redirected back to the Service without successful authentication, as SAML Response/@InResponseTo is now invalid |
 
-1. Initiate login while SP clock is far ahead/behind.
+---
 
-Expected outcome:
+## Important Notes
 
-- Your SP rejects responses outside NotOnOrAfter/NotBefore tolerances.
-
-Verify:
-
-- Logs show condition violation; use small allowable skew only.
-
-### D. Destination validation
-Prereq: Response/@Destination missing or not matching your ACS URL (simulate in harness).
-
-Steps:
-
-1. Initiate login.
-
-Expected outcome:
-
-- Your SP rejects the response with invalid/missing Destination.
-
-Verify:
-
-- Strict comparison against configured ACS URL (scheme/host/path).
-
-### E. InResponseTo presence and correlation
-Prereq: Omit InResponseTo or break correlation (simulate lost SP request state).
-
-Steps:
-
-1. Start auth at your Service.
-2. Lose/clear request state; continue login to receive a response.
-
-Expected outcome:
-
-- Your SP rejects the response because InResponseTo is missing or does not match an outstanding request.
-
-Verify:
-
-- One-time request ID tracking; replay of IDs is rejected.
-
-### F. Audience, Issuer, and EntityID validation
-Prereq: Response contains unexpected Audience or Issuer values.
-
-Steps:
-
-1. Initiate login with manipulated values (via harness).
-
-Expected outcome:
-
-- Your SP rejects the response with audience/issuer mismatch.
-
-Verify:
-
-- Audience includes your SP EntityID; Issuer equals MPass IdP EntityID from metadata.
-
-### G. Replay protection
-Prereq: Capture a valid Response and attempt to reuse it.
-
-Steps:
-
-1. Replay a previously accepted SAML Response.
-
-Expected outcome:
-
-- Your SP rejects the replayed message.
-
-Verify:
-
-- Nonce/ID caching and one-time-use enforcement; distinct logs for replay detection.
-
-### H. Logout request/response validation
-Prereq: Trigger SLO from IdP or SP.
-
-Steps:
-
-1. Perform logout flows.
-
-Expected outcome:
-
-- Your SP validates signatures and correlates logout messages correctly.
-
-Verify:
-
-- LogoutRequest/LogoutResponse signatures and InResponseTo checks are enforced.
-
-## Operational checks
-
-- Logging: Ensure sensitive data is not persisted; include correlation IDs for traceability.
-- Error handling: Show user-friendly messages; avoid leaking protocol internals.
-- Certificates: Rotate and pin per environment; ensure testing and production use different key pairs.
-- Monitoring: Alert on signature validation failures, replay attempts, and unexpected issuers/audiences.
-
-## References
-
-- Interaction scenarios: SSO/SLO flows
-- Integration development: Registration, metadata, attributes
-- API references: Endpoints and bindings
+- The security of MPass integrating systems heavily depends on the security of the integration
+- All security-related test cases MUST pass before moving to production
+- Services are expected to implement comprehensive SAML validation as described in the security considerations section
+- Integration review and audit should be performed using these test cases
