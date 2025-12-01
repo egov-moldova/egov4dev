@@ -1,4 +1,4 @@
-Fills out the connection [request form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl); 
+Fils out the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl); 
 Sign the contract and/or annex regarding the use of MPower services; 
 
 For each authorization, the Institution ensures that the [Form for creating the type of authorization](https://docs.google.com/document/d/1crNGXeM5SnvwzILyIFEUnpN5Svl-xFBN/edit) is completed. 
