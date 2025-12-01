@@ -10,6 +10,14 @@ The principle requires that any solution is integrated into the national digital
 
 ---
 
+## 🛡️ Secure by design
+
+Security must be built into the foundation of every system, not added later. This encompasses the entire security lifecycle: threat modeling, secure architecture, hardened infrastructure, vulnerability management, and incident response.
+
+Secure by design ensures that government systems can withstand cyber attacks, maintain service availability, and protect the integrity of government operations.
+
+---
+
 ## ♻️ Reuse of solutions
 
 Architectures must balance consistency with the need for innovation. The reuse of solutions and technologies is encouraged, as long as this ensures efficiency and cost optimization.  
@@ -28,7 +36,7 @@ Compliance guarantees that services are legally valid and trusted by citizens, b
 
 ## 🔒 Privacy by design
 
-Security and privacy must be integrated from the design stage of any system. This includes authentication and authorization mechanisms (for example, through mpass), encryption of communications (tls), role-based access control (rbac), and continuous logging (mlog).  
+Privacy must be integrated from the design stage of any system. This includes authentication and authorization mechanisms (for example, through mpass), encryption of communications (tls), role-based access control (rbac), and continuous logging (mlog).  
 
 Trust by design ensures that systems are resilient to cyber threats and that citizens can safely use government services.
 
@@ -47,6 +55,14 @@ Cross-application optimization increases efficiency and reduces duplication of e
 Data must be modeled according to a common semantic model and exposed through standardized and reusable apis. Validation mechanisms, such as those provided by MConnect, must ensure the quality and authenticity of exchanged information.  
 
 Uniform data allows interoperability, comparability, and reuse across multiple systems and institutions.
+
+---
+
+## 🎯 Once only principle
+
+Citizens and businesses must provide information to government only once. Institutions must reuse validated data from authentic registers through the semantic catalogue, which systematizes metadata from government data sources.
+
+The "once only" principle reduces administrative burden, ensures data consistency, and prevents duplicate collection across government services.
 
 ---
 
