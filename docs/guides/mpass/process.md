@@ -16,10 +16,10 @@
 5. MEGA configures access to the test environment: https://mpass.staging.egov.md. 
 6. Implement the integration according to the technical documentation and perform [the functional tests](integration-tests.md) in the test environment.
 7. MEGA performs additional tests in the test environment and confirms technical compliance. 
-8. Confirm to AGE the configuration for the production environment at the e-mail address: servicii@egov.md 
+8. Confirm to MEGA the configuration for the production environment at the e-mail address: servicii@egov.md 
 9. MEGA activates the service in the production environment. 
-10. Receive the notification sent by AGE regarding the completion of the integration and activation in the production environment. 
+10. Receive the notification sent by MEGA regarding the completion of the integration and activation in the production environment. 
 
 ## Connection time 
 
-AGE processes the request within a maximum of 5 working days, calculated from the moment all necessary data from the institution have been received. 
+MEGA processes the request within a maximum of 7 working days, calculated from the moment all necessary data from the institution have been received. 
