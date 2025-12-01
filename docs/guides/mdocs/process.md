@@ -1,4 +1,4 @@
-1. Fill in the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl); 
+1. Fill out the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl); 
 2. Sign the contract and the MDocs service provision annex;<br>Note! If the institution already has a system integrated with another MEGA service and has an active contract, it is not necessary to sign a new contract, but only to sign the MDocs service provision annex.
 3. Send the following information to MEGA at servicii@egov.md ; 
     - the .cer file (public key), if the institution does not have a system certificate;
