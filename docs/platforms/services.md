@@ -1,4 +1,4 @@
-Moldovan eGovernment Agency (MEGA) ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
+Moldovan e-government ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
 
 <img src="../../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
 
@@ -75,7 +75,7 @@ The platform reduces administrative costs, increases accessibility, and provides
 
 ## <img src="../../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mlog** – logging service
 
-MLog is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
+[MLog](../guides/mlog) is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
 
 The service is mandatory for all systems that process personal data and critical government information, as established by Government Decision no. 708/2014.  
 
@@ -85,7 +85,7 @@ MLog provides authorities with the necessary tools to audit activity, detect ano
 
 ## <img src="../../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdocs** – document management platform
 
-MDocs is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
+[MDocs](../guides/mdocs) is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
 
 The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards.  
 
