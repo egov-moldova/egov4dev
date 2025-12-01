@@ -8,5 +8,3 @@
 6. The beneficiary performs internal testing;
 7. After the beneficiary’s final validation, MEGA activates the service in the production environment;
 8. The beneficiary receives a notification confirming the completion of the integration.
-
-[servicii@egov.md](servicii@egov.md) | +373 (22) 820 026 
