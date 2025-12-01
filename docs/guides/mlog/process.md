@@ -1,4 +1,4 @@
-1. Fill in the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl); 
+1. Fill out the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl); 
 2. Sign the contract and the annex for the provision of the MLog service.<br>Note: If the institution already has a system integrated with another AGE service and holds an active contract, it is not necessary to sign a new contract; only the annex for the MLog service must be signed. 
 3. Send to MEGA at servicii@egov.md the following information: 
      - the name of the system; 
