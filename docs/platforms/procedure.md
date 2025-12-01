@@ -15,7 +15,7 @@ All integration requests must be submitted through the [Unified Connection Form]
 
 MEGA reviews the submitted information and coordinates all subsequent contractual and technical steps.
 
-## Exceptions
+### Exceptions
 
 Some platforms have separate integration procedures:
   - **MPay** — view [integration procedure](../guides/mpay)
@@ -36,7 +36,8 @@ The beneficiary must:
   - Public institutions benefit from free integration and usage, according to the legal framework.
   - Private institutions pay the applicable usage fees per integrated service (e.g., MPass, MSign, etc.).
 
-## Communication channels
+## What to expect
 
-  - servicii@egov.md — for connection, integration, and configuration
-  - suport@egov.md — for technical support and incident reporting 
+  - Signed contract
+  - Tests created and passed
+  - ...
