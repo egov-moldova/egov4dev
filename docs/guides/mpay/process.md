@@ -13,12 +13,12 @@ The beneficiary requesting integration must meet the following conditions:
 ## Connection Steps for the Beneficiary 
 
 1. Sign the contract and complete the connection form for registering the service in MPay; 
-2. The institution must send the system certificate (public key .cer) to AGE at suport.mpay@gov.md and provide its logo in .png format; 
+2. The institution must send the system certificate (public key .cer) to MEGA at suport.mpay@gov.md and provide its logo in .png format; 
 3. Provide integration details through the form, including: 
    – Applicant contact information; 
    – Intended mode of MPay usage; 
    – Information about the web service (service provider name, service provider website, service name, test endpoint IP address); 
-4. AGE configures the service in the testing environment: [https://testmpay.gov.md](https://testmpay.gov.md); 
+4. MEGA configures the service in the testing environment: [https://testmpay.gov.md](https://testmpay.gov.md); 
 5. The beneficiary integrates its system according to the integration guide, then performs functional testing according to the technical guide, together with the MPay representative; 
-6. After final validation by the beneficiary, AGE activates the service in the production environment; 
+6. After final validation by the beneficiary, MEGA activates the service in the production environment; 
 7. The beneficiary receives a notification confirming the completion of the integration. 
