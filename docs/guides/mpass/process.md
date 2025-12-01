@@ -13,6 +13,4 @@ If the institution already holds an active certificate, it must send the certifi
 7. AGE tests, validates the results, and certifies technical compliance;
 8. After final validation of the beneficiary, MEGA activates the service in the production environment;
 9. The beneficiary grants access to the test environment of their system for performing the necessary tests.
-10. The beneficiary receives a notification confirming the completion of the integration. 
- 
-<servicii@egov.md> | +373 (22) 820 026
+10. The beneficiary receives a notification confirming the completion of the integration.
