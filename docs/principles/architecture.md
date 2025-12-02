@@ -76,6 +76,6 @@ The principle of interoperability by design prevents the creation of isolated sy
 
 ## 🌐 High reliability
 
-Government services must be highly available and reliable. Solutions are hosted on scalable infrastructure (mcloud), monitored continuously, and delivered under clear service-level agreements (sla).  
+Government services must be highly available and reliable. Solutions are hosted on scalable infrastructure ([MCloud](https://www.egov.md/en/content/mcloud-platform) operated by [STISC](https://stisc.gov.md/)), monitored continuously, and delivered under clear Service-Level Agreements (SLA).  
 
 Availability ensures that services are provided without interruption, while reliability ensures that data and processes remain consistent and trustworthy.
