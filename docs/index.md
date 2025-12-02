@@ -4,7 +4,7 @@
 
 ---
 
-## 📝 Why english?
+## 📝 Why English?
 
 This technical documentation is provided in English to align with international development standards and facilitate collaboration with the global developer community. English serves as the lingua franca of software development, enabling access to international best practices, open-source communities, and cross-border digital service initiatives. All technical terms, APIs, and code examples naturally use English conventions, making English documentation more practical and consistent for developers.
 
