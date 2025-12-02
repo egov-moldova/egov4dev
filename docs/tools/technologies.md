@@ -73,20 +73,6 @@ AGE uses government infrastructure for hosting and orchestrating services:
 
 * * *
 
-## Integration tools
-
-AGE provides a suite of interoperable services that can be integrated into any government application:
-
-*   **MConnect** – data exchange between institutions
-*   **MPass** – unified authentication (including with digital signature)
-*   **MPower** – digital delegation
-*   **MSign** – qualified digital signature
-*   **MNotify** – official notifications with proof of delivery
-
-Each service is documented with **integration guides**, code examples, and usage scenarios.
-
-* * *
-
 ## Best practices and conventions
 
 To ensure code consistency and quality:
