@@ -50,11 +50,11 @@ Cross-application optimization increases efficiency and reduces duplication of e
 
 ---
 
-## 🗂️ Uniform data
+## 🤝 Contribute not just consume
 
-Data must be modeled according to a common semantic model and exposed through standardized and reusable apis. Validation mechanisms, such as those provided by MConnect, must ensure the quality and authenticity of exchanged information.  
+Institutions must not only consume data from government registers but also contribute and maintain their own authoritative data sources. Every institution is responsible for ensuring the accuracy, completeness, and timeliness of data under its mandate. 
 
-Uniform data allows interoperability, comparability, and reuse across multiple systems and institutions.
+[Semantic catalog](http://semantic.gov.md) serves as the single point of discovery for all government data, enabling efficient reuse and preventing fragmentation.
 
 ---
 
