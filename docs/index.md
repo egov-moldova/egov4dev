@@ -14,7 +14,7 @@ This technical documentation is provided in English to align with international 
 
 The documentation is organized as follows:
 
-- **Platforms and services** – overview of the core MEGA services (MPass, MSign, MPower, MPay, MNotify, MDelivery, MConnect, MLog and MDocs)
+- **[Platforms and services](../platforms/)** – overview of the core MEGA services (MPass, MSign, MPower, MPay, MNotify, MDelivery, MConnect, MLog and MDocs)
 - **Connection procedure** – steps needed to get connected to one of the services
 - **Development principles** – architectural and design principles for building interoperable government solutions  
 - **Tools and technologies** – technologies, frameworks, and tools used across projects
