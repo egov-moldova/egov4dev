@@ -17,6 +17,7 @@
 | Issuer type   | Type/category of issuer (to be clarified) |
 | JSON          | JavaScript Object Notation, a format for storing and transporting data |
 | LegalId       | Unique IDNO of the issuer organization |
+| MEGA          | Moldova eGovernance Agency |
 | Message       | Final message ready for transmission, including the identified channel, recipient and content |
 | Notification  | Notification request received from a Sender |
 | PAdES         | PDF Advanced Electronic Signatures |
