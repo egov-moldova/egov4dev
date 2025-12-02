@@ -66,6 +66,12 @@ The "once only" principle reduces administrative burden, ensures data consistenc
 
 ---
 
+### 🔔 Events by default
+
+Systems must automatically emit events when significant state changes occur, rather than requiring others to poll for updates. Authoritative registers publish events (e.g., "address changed," "license issued," "deadline approaching") that enable automated workflows and asynchronous integration between systems. Event-driven architecture reduces system load, improves responsiveness, and ensures timely information delivery to citizens and institutions.
+
+---
+
 ## 🔗 Interoperability in mind
 
 Government solutions must be interoperable by default. This means they expose apis (rest or soap), respect open standards, and can be integrated via api gateways or other middleware.  
