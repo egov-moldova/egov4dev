@@ -15,11 +15,11 @@ This technical documentation is provided in English to align with international 
 The documentation is organized as follows:
 
 - **[Platforms and services](platforms/)** – overview of the core MEGA services (MPass, MSign, MPower, MPay, MNotify, MDelivery, MConnect, MLog and MDocs)
-- **Connection procedure** – steps needed to get connected to one of the services
-- **Development principles** – architectural and design principles for building interoperable government solutions  
-- **Tools and technologies** – technologies, frameworks, and tools used across projects
-- **Unified design system** – Moldovan Statewide Design System for government digital services
-- **Glossary** – centralized list of terms, definitions, and acronyms used across this resource
+- **[Connection procedure](platforms/procedure.md)** – steps needed to get connected to one of the services
+- **[Development principles](principles/architecture.md)** – architectural and design principles for building interoperable government solutions  
+- **[Tools and technologies](tools/technologies.md)** – technologies, frameworks, and tools used across projects
+- **[Unified design system](mud/)** – Moldovan Statewide Design System for government digital services
+- **[Glossary](glossary/glossary.md)** – centralized list of terms, definitions, and acronyms used across this resource
 - **Integration guides** – step-by-step guides for each service
 
 Each integration guide includes an short overview of the service, needed steps to connect, interaction scenarios, integration development, API references, examples, integration libraries and change log.
