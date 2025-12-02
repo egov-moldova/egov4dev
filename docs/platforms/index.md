@@ -1,9 +1,9 @@
 Moldovan e-government ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
 
-<img src="../../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
+<img src="../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
 
 
-## <img src="../../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mconnect** – interoperability platform
+## <img src="../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mconnect** – interoperability platform
 
 <a href="https://mconnect.gov.md/">MConnect</a> is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
 
@@ -19,7 +19,7 @@ MConnect Events represents the newest component of the data exchange ecosystem t
 
 The [Semantic Catalog](http://semantic.gov.md/) was developed as a result of the analysis of current data management practices with the aim of improving the overall quality of data, their use and coordination, and their alignment with international practices. In order to increase the quality of data and information about them, as well as to implement international good practices, it was necessary to identify a more efficient and centralized way of systematizing and managing information about data.
 
-## <img src="../../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – authentication and authorization service
+## <img src="../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – authentication and authorization service
 
 <a href="https://mpass.gov.md/">MPass</a> is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
 
@@ -29,7 +29,7 @@ Currently, MPass is integrated with more than 190 government platforms and syste
 
 ---
 
-## <img src="../../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **msign** – electronic signature service
+## <img src="../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **msign** – electronic signature service
 
 <a href="https://msign.gov.md/">MSign</a> is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
 
@@ -39,7 +39,7 @@ The platform contributes to reducing bureaucracy, saving time, and ensuring a hi
 
 ---
 
-## <img src="../../assets/logos/mpay-logo.png" alt="mpay logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpay** – government e-payment gateway
+## <img src="../assets/logos/mpay-logo.png" alt="mpay logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpay** – government e-payment gateway
 
 <a href="https://mpay.gov.md/">MPay</a> is the national electronic payment platform designed to simplify financial interactions between citizens, businesses, and public institutions. It provides a secure and unified environment for paying government fees, taxes, and other public services online, eliminating the need for physical visits or manual transactions.
 
@@ -47,7 +47,7 @@ Through MPay, users can complete payments quickly using various methods such as 
 
 ---
 
-## <img src="../../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpower** – delegation service
+## <img src="../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpower** – delegation service
 
 <a href="https://mpower.gov.md/">MPower</a> is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
 
@@ -57,7 +57,7 @@ This service brings significant benefits in terms of flexibility, reducing the n
 
 ---
 
-## <img src="../../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mnotify** – notification service
+## <img src="../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mnotify** – notification service
 
 <a href="https://mnotify.gov.md/">MNotify</a> is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
 
@@ -67,7 +67,7 @@ MNotify can send both automatic and manual notifications, offering flexibility t
 
 ---
 
-## <img src="../../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdelivery** – document delivery service
+## <img src="../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdelivery** – document delivery service
 
 <a href="https://mdelivery.gov.md/">MDelivery</a> is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
 
@@ -77,7 +77,7 @@ The platform reduces administrative costs, increases accessibility, and provides
 
 ---
 
-## <img src="../../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mlog** – logging service
+## <img src="../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mlog** – logging service
 
 [MLog](../guides/mlog) is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
 
@@ -87,7 +87,7 @@ MLog provides authorities with the necessary tools to audit activity, detect ano
 
 ---
 
-## <img src="../../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdocs** – document management platform
+## <img src="../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdocs** – document management platform
 
 [MDocs](../guides/mdocs) is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
 
