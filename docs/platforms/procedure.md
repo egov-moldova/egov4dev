@@ -1,5 +1,6 @@
-This procedure defines the steps, requirements, and responsibilities necessary for connecting the information systems of public and private institutions to the government-shared services managed by the eGovernment Agency (MEGA).
-The procedure applies to all integration requests for MEGA platforms (MPass, MSign, MNotify, MPower, MDelivery, MDocs, etc.) and aims to ensure a process that is:
+**This page is also available in** <a href="procedure-ro.md" class="btn btn-sm">Română</a> and <a href="procedure-ru.md" class="btn btn-sm">Русский</a>
+
+This procedure defines the steps, requirements, and responsibilities necessary for connecting the information systems of public and private institutions to the government-shared services managed by the eGovernment Agency (MEGA).The procedure applies to all integration requests for MEGA platforms (MPass, MSign, MNotify, MPower, MDelivery, MDocs, etc.) and aims to ensure a process that is:
 
   - uniform and standardized
   - easy to follow for both public and private institutions,
