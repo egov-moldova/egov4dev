@@ -39,6 +39,10 @@ The beneficiary must:
 
 ## What to expect
 
-  - Signed contract
-  - Tests created and passed
-  - ...
+  - Request reviewed and confirmed
+  - Contract and/or annex signed
+  - Test environment configured
+  - Integration implemented and tested
+  - Integration validated by MEGA
+  - Service activated in production
+  - Final completion notification issued
