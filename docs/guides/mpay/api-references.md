@@ -18,18 +18,6 @@ Here is a description of the parameters involved in this redirect.
 | OrderKey | string | Required | Order key within the service. This must be a uniquely generated key for this order (such as its primary key or other kind of reference number). |
 | ReturnUrl | URL | Optional | The URL that MPay will redirect too after payment (either successful or unsuccessful). This page will be redirected via GET HTTP method. Please make sure you URL encode any parameters you use to build this URL. |
 
-## Perform POS terminal payments
-
-In the case of POS terminal payments, first it needs to configure the POS terminal and then the e-Service must redirect the browser (system) to MPay's POS terminal pay web page. Communication will be performed via the WEB service via the standard HTTP protocol (HTTP / 1.1) and granting permission to access the client IP.
-
-To configure the POS terminals, follow the description below:
-
-| Property | Value |
-|----------|-------|
-| **Action** | Configure POS terminal |
-| **URL** | Test: https://testmpay.gov.md/PosTerminal/Configure<br>Prod: https://mpay.gov.md/PosTerminal/Configure |
-| **Description** | Access the URL and follow the steps in the configuration guide. |
-
 ### Form or parameters to be sent for configuration in MPay
 
 | Name | Type | Required/Optional | Description |
@@ -50,7 +38,7 @@ To perform the redirect for POS terminal transactions, follow the description of
 | Property | Value |
 |----------|-------|
 | **Method** | POST |
-| **URL** | Test:<br>- By ServiceId and OrderKey<br>https://testmpay.gov.md/PosTerminal/Pay/{ServiceId}/{OrderKey}<br>- or by MPay invoiceId<br>https://testmpay.gov.md/PosTerminal/PayInvoice/{InvoiceId}<br><br>Prod:<br>- By ServiceId and OrderKey<br>https://mpay.gov.md/PosTerminal/Pay/{ServiceId}/{OrderKey}<br>- or by MPay InvoiceId<br>https://mpay.gov.md/PosTerminal/PayInvoice/{InvoiceId} |
+| **URL** | Test:<br>- By ServiceId and OrderKey<br>https://testmpay.gov.md/PosTerminal/Pay/{ServiceId}/{OrderKey}<br>- or by MPay invoiceId<br>https://testmpay.gov.md/PosTerminal/PayInvoice/{InvoiceId}|
 | **Description** | Direct the operator to perform the payment via POS terminals. |
 
 ### Form or URL parameters
@@ -70,7 +58,7 @@ Here is a description of the parameters involved in this call.
 | Property | Value |
 |----------|-------|
 | **Method** | GET |
-| **URL** | Test:<br>https://testmpay.gov.md:8443/api/invoices?serviceID={serviceID}&orderKey={orderKey}<br>Prod:<br>https://mpay.gov.md:8443/api/invoices?serviceID={serviceID}&orderKey={orderKey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
+| **URL** | Test:<br>https://testmpay.gov.md:8443/api/invoices?serviceID={serviceID}&orderKey={orderKey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
 | **Description** | E-service can generate MPay InvoiceID and use it for own record or business process (e.g. to print it in the generated order). |
 
 ### Form or URL parameters
@@ -95,7 +83,7 @@ Here is a description of the parameters involved in this call.
 | Property | Value |
 |----------|-------|
 | **Method** | GET |
-| **URL** | Test:<br>https://testmpay.gov.md:8443/api/Invoices/DownloadInvoicePdf?serviceID={serviceId}&orderKey={ordekey}<br>Prod:<br>https://mpay.gov.md:8443/api/Invoices/DownloadInvoicePdf?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
+| **URL** | Test:<br>https://testmpay.gov.md:8443/api/Invoices/DownloadInvoicePdf?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
 | **Description** | E-service can generate MPay InvoiceID PDF and use it for own business process (e.g., to print it and hand it over to payer). |
 
 ### Form or URL parameters
@@ -116,7 +104,7 @@ Here is a description of the parameters involved in this call.
 | Property | Value |
 |----------|-------|
 | **Method** | GET |
-| **URL** | Test:<br>https://testmpay.gov.md:8443/api/Invoices/GetPdfInvoiceBytes?serviceID={serviceId}&orderKey={ordekey}<br>Prod:<br>https://mpay.gov.md:8443/api/Invoices/GetPdfInvoiceBytes?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
+| **URL** | Test:<br>https://testmpay.gov.md:8443/api/Invoices/GetPdfInvoiceBytes?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
 | **Description** | E-service can generate MPay InvoiceID PDF in bytes and use it for own business process (e.g., server to server communication). |
 
 ### Form or URL parameters
