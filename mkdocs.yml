@@ -1,4 +1,4 @@
-site_name: egov4dev
+site_name: eGov4Dev
 site_url: https://egov-moldova.github.io/egov4dev/
 
 nav:
@@ -32,7 +32,6 @@ nav:
       - MPower:
           - Overview: guides/mpower/index.md
           - Connection steps: guides/mpower/process.md
-          - Interaction scenarios: guides/mpower/interaction-scenarios.md
           - Integration development: guides/mpower/integration-development.md
           - Security: guides/mpower/security.md
           - API references: guides/mpower/api-references.md
