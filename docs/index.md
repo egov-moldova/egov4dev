@@ -1,6 +1,6 @@
-# Welcome to egov4dev
+# Welcome to eGov4Dev
 
-  **egov4dev** is the official documentation library for developers working with the [**MEGA**](https://egov.md) (Moldovan eGovernance Agency) ecosystem of the Republic of Moldova. It provides guidance on how to integrate government platforms and services, use the shared development stack, and follow the established architecture principles.
+  **eGov4Dev** is the official documentation library for developers working with the [**MEGA**](https://egov.md) (Moldovan eGovernance Agency) ecosystem of the Republic of Moldova. It provides guidance on how to integrate government platforms and services, use the shared development stack, and follow the established architecture principles.
 
 ---
 
