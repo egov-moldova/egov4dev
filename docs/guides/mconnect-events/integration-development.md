@@ -15,7 +15,7 @@ There are 2 service environments available: staging and production.
 | Environment | Endpoint URL |
 |------------|--------------|
 | **Staging** | |
-| Swagger UI address | https://mconnectevents.staging.egov.md:8443/swagger |
+| Swagger UI address | https://mconnect-events.staging.egov.md:8443/swagger |
 | Base address | https://mconnect-events.staging.egov.md:8443/ |
 | WebSocket consumer base address | wss://mconnect-events.staging.egov.md:8443/ |
 | **Production** | |
