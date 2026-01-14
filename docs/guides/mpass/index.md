@@ -5,7 +5,7 @@ MPass is a government-wide authentication and identity management service in the
 ## Jump right in
 
 <div style="margin: 2rem 0;">
-  <div style="display: flex; gap: 0.5rem;">
+  <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
       <div style="font-size: 1.5rem; margin-top: 0.4rem;">⚡</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection steps</h3>
@@ -25,6 +25,11 @@ MPass is a government-wide authentication and identity management service in the
 </div>
 
 <style>
+  .quick-links-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
   .quick-link-card {
     display: block;
     flex: 1 1 0;
@@ -39,6 +44,12 @@ MPass is a government-wide authentication and identity management service in the
   
   .quick-link-card:hover {
     background: #f3f3f3;
+  }
+  
+  @media (max-width: 768px) {
+    .quick-links-container {
+      flex-direction: column;
+    }
   }
 </style>
 
