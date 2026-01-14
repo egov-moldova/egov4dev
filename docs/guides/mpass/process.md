@@ -18,7 +18,20 @@
 7. MEGA performs additional tests in the test environment and confirms technical compliance. 
 8. Confirm to MEGA the configuration for the production environment at the e-mail address: servicii@egov.md 
 9. MEGA activates the service in the production environment. 
-10. Receive the notification sent by MEGA regarding the completion of the integration and activation in the production environment. 
+10. Receive the notification sent by MEGA regarding the completion of the integration and activation in the production environment.
+
+## Service pricing
+
+| User type | Access conditions | Annual fee per integration |
+|-----------|-------------------|---------------------------|
+| **Public institutions** | Contract-based | – |
+| **Private legal entities** | Contract-based (per applicable legal framework) | 10.800 lei |
+| **Natural persons** | Contract-based (per applicable legal framework) | 10.800 lei |
+
+**Notes:**
+
+- The fee applies to the integration of a single information system
+- Multiple integrations require separate fees for each system
 
 ## Connection time 
 
