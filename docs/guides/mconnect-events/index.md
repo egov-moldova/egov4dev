@@ -12,7 +12,7 @@ availability of events to consumers, confirmation of event consumption to ensure
 events, as well as internal instruments for configuration, monitoring and troubleshooting.
 
 <picture class="theme-picture">
-  <img src="../../assets/images/mconnect_events/mconnect_events_light.svg" alt="Signing flow" data-theme="light">
+  <img src="../../assets/images/mconnect_events/mconnect.png" alt="Signing flow" data-theme="light">
 </picture>
 
 MConnect Events enables systems to exchange data about various events in real-time as well as in
