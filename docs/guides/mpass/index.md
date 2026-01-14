@@ -9,19 +9,19 @@ MPass is a government-wide authentication and identity management service in the
   
   <div style="display: flex; gap: 1.5rem;">
     <a href="process/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+      <div style="font-size: 1rem; margin-bottom: 0.2rem;">⚡</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection Steps</h3>
-      <p style="color: #6b7280; margin: 0; font-size: 0.9rem;">Get started with integration</p>
+      <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Get started with integration</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📘</div>
+      <div style="font-size: 1rem; margin-bottom: 0.2rem;">📘</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration Guides</h3>
-      <p style="color: #6b7280; margin: 0; font-size: 0.9rem;">Step-by-step documentation</p>
+      <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Step-by-step documentation</p>
     </a>
     <a href="api-references/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌐</div>
+      <div style="font-size: 1rem; margin-bottom: 0.2rem;">🌐</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API Reference</h3>
-      <p style="color: #6b7280; margin: 0; font-size: 0.9rem;">Explore endpoints and callbacks</p>
+      <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Explore endpoints and callbacks</p>
     </a>    
   </div>
 </div>
