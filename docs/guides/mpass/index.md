@@ -8,34 +8,22 @@ MPass is a government-wide authentication and identity management service in the
    <div style="display: flex; gap: 0.5rem;">
      <a href="process/" style="display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f9f9f9; border-radius: 8px; text-decoration: none; color: inherit;">
       <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection Steps</h3>
+      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection steps</h3>
       <p style="color: #6b7280; margin: 0;">Get started with integration</p>
     </a>
      <a href="integration-development/" style="display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f9f9f9; border-radius: 8px; text-decoration: none; color: inherit;">
       <div style="font-size: 2rem; margin-bottom: 0.5rem;">📘</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration Guides</h3>
+      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration guide</h3>
       <p style="color: #6b7280; margin: 0;">Step-by-step documentation</p>
     </a>
      <a href="api-references/" style="display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f9f9f9; border-radius: 8px; text-decoration: none; color: inherit;">
       <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌐</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API Reference</h3>
+      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API reference</h3>
       <p style="color: #6b7280; margin: 0;">Explore endpoints and callbacks</p>
     </a>
   </div>
 </div>
 
-## Service pricing
-
-| User type | Access conditions | Annual fee per integration |
-|-----------|-------------------|---------------------------|
-| **Public institutions** | Contract-based | – |
-| **Private legal entities** | Contract-based (per applicable legal framework) | 10.800 lei |
-| **Natural persons** | Contract-based (per applicable legal framework) | 10.800 lei |
-
-**Notes:**
-
-- The fee applies to the integration of a single information system
-- Multiple integrations require separate fees for each system
 
 ## Quick start for integrators
 
