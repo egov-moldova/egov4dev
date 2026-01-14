@@ -29,9 +29,9 @@ MPass is a government-wide authentication and identity management service in the
     display: block;
     flex: 1 1 0;
     min-width: 0;
-    padding: 2rem;
+    padding: 0.5rem;
     background: #f6f6f6;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
     color: inherit;
     transition: background 0.2s;
