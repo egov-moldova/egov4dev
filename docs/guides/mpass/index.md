@@ -2,6 +2,28 @@
 
 MPass is a government-wide authentication and identity management service in the Republic of Moldova that provides secure Single Sign-On (SSO) and Single Logout (SLO) across public digital services, enabling users to access multiple systems with one set of credentials while offering integrating systems standardized identity data for authorization purposes
 
+## Jump right in
+
+<div style="margin: 2rem 0;">
+ <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+     <a href="process/" style="display: block; padding: 2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+      <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+      <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection Steps</h3>
+      <p style="color: #6b7280; margin: 0;">Get started with integration</p>
+    </a>
+     <a href="integration-development/" style="display: block; padding: 2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+      <div style="font-size: 2rem; margin-bottom: 1rem;">📘</div>
+      <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration Guides</h3>
+      <p style="color: #6b7280; margin: 0;">Step-by-step documentation</p>
+    </a>
+     <a href="api-references/" style="display: block; padding: 2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+      <div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div>
+      <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API Reference</h3>
+      <p style="color: #6b7280; margin: 0;">Explore endpoints and callbacks</p>
+    </a>
+  </div>
+</div>
+
 ## Service pricing
 
 | User type | Access conditions | Annual fee per integration |
