@@ -7,17 +7,17 @@ MPass is a government-wide authentication and identity management service in the
 <div style="margin: 2rem 0;">
   <div style="display: flex; gap: 0.5rem;">
     <a href="process/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-bottom: 0.2rem;">⚡</div>
+      <div style="font-size: 1.5rem; margin-top: 0.4rem;">⚡</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection Steps</h3>
       <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Get started with integration</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-bottom: 0.2rem;">📘</div>
+      <div style="font-size: 1.5rem; margin-top: 0.4rem;">📘</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration Guides</h3>
       <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Step-by-step documentation</p>
     </a>
     <a href="api-references/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-bottom: 0.2rem;">🌐</div>
+      <div style="font-size: 1.5rem; margin-top: 0.4rem;">🌐</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API Reference</h3>
       <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Explore endpoints and callbacks</p>
     </a>    
@@ -29,7 +29,7 @@ MPass is a government-wide authentication and identity management service in the
     display: block;
     flex: 1 1 0;
     min-width: 0;
-    padding: 0.5rem;
+    padding: 0.9rem;
     background: #f6f6f6;
     border-radius: 10px;
     text-decoration: none;
