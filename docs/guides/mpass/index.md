@@ -5,18 +5,18 @@ MPass is a government-wide authentication and identity management service in the
 ## Jump right in
 
 <div style="margin: 2rem 0;">
-   <div style="display: flex; gap: 1.5rem;">
-     <a href="process/" style="display: block; padding: 2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+   <div style="display: flex; gap: 0.5rem;">
+     <a href="process/" style="display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f9f9f9; border-radius: 8px; text-decoration: none; color: inherit;">
       <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection Steps</h3>
       <p style="color: #6b7280; margin: 0;">Get started with integration</p>
     </a>
-     <a href="integration-development/" style="display: block; padding: 2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+     <a href="integration-development/" style="display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f9f9f9; border-radius: 8px; text-decoration: none; color: inherit;">
       <div style="font-size: 2rem; margin-bottom: 0.5rem;">📘</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration Guides</h3>
       <p style="color: #6b7280; margin: 0;">Step-by-step documentation</p>
     </a>
-     <a href="api-references/" style="display: block; padding: 2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+     <a href="api-references/" style="display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f9f9f9; border-radius: 8px; text-decoration: none; color: inherit;">
       <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌐</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API Reference</h3>
       <p style="color: #6b7280; margin: 0;">Explore endpoints and callbacks</p>
