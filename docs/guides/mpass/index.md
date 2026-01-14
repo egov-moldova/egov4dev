@@ -5,28 +5,42 @@ MPass is a government-wide authentication and identity management service in the
 ## Jump right in
 
 <div style="margin: 2rem 0;">
-   <div style="display: flex; gap: 0.5rem;">
-     <a class="quick-link-card" href="process/" style="transition: background 0.2s display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f6f6f6; border-radius: 8px; text-decoration: none; color: inherit;">
-      <div style="font-size: 1.5rem; margin-bottom: 0.2rem;">⚡</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection steps</h3>
-      <p style="color: #6b7280; margin: 0;">Get started with integration</p>
+  <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Jump right in</h2>
+  
+  <div style="display: flex; gap: 1.5rem;">
+    <a href="process/" class="quick-link-card">
+      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection Steps</h3>
+      <p style="color: #6b7280; margin: 0; font-size: 0.9rem;">Get started with integration</p>
     </a>
-     <a class="quick-link-card" href="integration-development/" style="transition: background 0.2s display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f6f6f6; border-radius: 8px; text-decoration: none; color: inherit;">
-      <div style="font-size: 1.5rem; margin-bottom: 0.2rem;">📘</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration guide</h3>
-      <p style="color: #6b7280; margin: 0;">Step-by-step documentation</p>
+    <a href="integration-development/" class="quick-link-card">
+      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📘</div>
+      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration Guides</h3>
+      <p style="color: #6b7280; margin: 0; font-size: 0.9rem;">Step-by-step documentation</p>
     </a>
-     <a class="quick-link-card" href="api-references/" style="transition: background 0.2s display: block; flex: 1 1 0; min-width: 0; padding: 1rem; background: #f6f6f6; border-radius: 8px; text-decoration: none; color: inherit;">
-      <div style="font-size: 1.5rem; margin-bottom: 0.2rem;">🌐</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API reference</h3>
-      <p style="color: #6b7280; margin: 0;">Explore endpoints and callbacks</p>
-    </a>
+    <a href="api-references/" class="quick-link-card">
+      <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌐</div>
+      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API Reference</h3>
+      <p style="color: #6b7280; margin: 0; font-size: 0.9rem;">Explore endpoints and callbacks</p>
+    </a>    
   </div>
 </div>
 
 <style>
+  .quick-link-card {
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 2rem;
+    background: #f6f6f6;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+  
   .quick-link-card:hover {
-    background: #e8e8e8 !important;
+    background: #e8e8e8;
   }
 </style>
 
