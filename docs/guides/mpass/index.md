@@ -5,7 +5,7 @@ MPass is a government-wide authentication and identity management service in the
 ## Jump right in
 
 <div style="margin: 2rem 0;">
- <div style="display: grid; grid-template-columns: repeat(3, 1fr)); gap: 1.5rem;">
+   <div style="display: flex; gap: 1.5rem;">
      <a href="process/" style="display: block; padding: 2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
       <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
       <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection Steps</h3>
