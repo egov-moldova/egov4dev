@@ -1,9 +1,27 @@
-# Overview
-
 MPower is a public portal intended for natural persons and legal entities, both public and private, through which powers of representation can be granted, revoked, renounced, and verified.
 MPower provides the capability to verify whether the authorized person (representative) is empowered to act on behalf of another natural person or legal entity (represented) whom they represent.
 
-# Quick start for integrators
+## Jump right in
+
+<div class="quick-links-wrapper">
+  <div class="quick-links-container">
+    <a href="process/" class="quick-link-card">
+      <div class="quick-link-icon">⚡</div>
+      <h3 class="quick-link-title">Connection steps</h3>
+      <p class="quick-link-description">Get started with integration</p>
+    </a>
+    <a href="integration-development/" class="quick-link-card">
+      <div class="quick-link-icon">📘</div>
+      <h3 class="quick-link-title">Integration guide</h3>
+      <p class="quick-link-description">Step-by-step documentation</p>
+    </a>
+    <a href="api-references/" class="quick-link-card">
+      <div class="quick-link-icon">🌐</div>
+      <h3 class="quick-link-title">API references</h3>
+      <p class="quick-link-description">Explore endpoints and callbacks</p>
+    </a>    
+  </div>
+</div>
 
 To access the MPower Clients API component, you must use the system authentication certificate issued by STISC and registered by AGE in MPass
 
