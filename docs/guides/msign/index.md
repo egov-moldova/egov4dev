@@ -2,18 +2,27 @@
 
 MSign is a reusable and shared platform-level service the main scope of which is to facilitate the use of digital signature and simplify integrations with various digital signature instruments.
 
+## Jump right in
 
-## Service pricing
-
-| User Type | Access Conditions | Annual Fee per Integration |
-|-----------|-------------------|---------------------------|
-| Public institutions | Free of charge | – |
-| Private legal entities | Contract-based (per applicable legal framework) | 15.200 lei |
-| Natural persons | Contract-based (per applicable legal framework) | 15.200 lei |
-
-**Notes:**
-- The fee applies to the integration of a single information system
-- Multiple integrations require separate fees for each system
+<div class="quick-links-wrapper">
+  <div class="quick-links-container">
+    <a href="process/" class="quick-link-card">
+      <div class="quick-link-icon">⚡</div>
+      <h3 class="quick-link-title">Connection steps</h3>
+      <p class="quick-link-description">Get started with integration</p>
+    </a>
+    <a href="integration-development/" class="quick-link-card">
+      <div class="quick-link-icon">📘</div>
+      <h3 class="quick-link-title">Integration guide</h3>
+      <p class="quick-link-description">Step-by-step documentation</p>
+    </a>
+    <a href="api-references/" class="quick-link-card">
+      <div class="quick-link-icon">🌐</div>
+      <h3 class="quick-link-title">API references</h3>
+      <p class="quick-link-description">Explore endpoints and callbacks</p>
+    </a>    
+  </div>
+</div>
 
 ## Scope and target audience
 
