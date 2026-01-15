@@ -8,3 +8,15 @@
 6. The beneficiary performs internal testing;
 7. After the beneficiary’s final validation, MEGA activates the service in the production environment;
 8. The beneficiary receives a notification confirming the completion of the integration.
+
+## Service pricing
+
+| User Type | Access Conditions | Annual Fee per Integration |
+|-----------|-------------------|---------------------------|
+| Public institutions | Free of charge | – |
+| Private legal entities | Contract-based (per applicable legal framework) | 15.200 lei |
+| Natural persons | Contract-based (per applicable legal framework) | 15.200 lei |
+
+**Notes:**
+- The fee applies to the integration of a single information system
+- Multiple integrations require separate fees for each system
