@@ -8,3 +8,52 @@
 }
 h1 {color:black!important}
 h2 {color:#4051b5!important; font-weight:400;}
+
+.quick-links-wrapper {
+  margin: 2rem 0;
+}
+
+.quick-links-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.quick-link-card {
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.9rem;
+  background: #f6f6f6;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.quick-link-card:hover {
+  background: #f3f3f3;
+}
+
+.quick-link-icon {
+  font-size: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.quick-link-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.quick-link-description {
+  color: #6b7280;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .quick-links-container {
+    flex-direction: column;
+  }
+}
