@@ -6,6 +6,28 @@ The document contains all of the relevant information required for a complete un
 
 This document is also accompanied by Java samples that exemplify the main interaction scenario.
 
+## Jump right in
+
+<div class="quick-links-wrapper">
+  <div class="quick-links-container">
+    <a href="process/" class="quick-link-card">
+      <div class="quick-link-icon">⚡</div>
+      <h3 class="quick-link-title">Connection steps</h3>
+      <p class="quick-link-description">Get started with integration</p>
+    </a>
+    <a href="integration-development/" class="quick-link-card">
+      <div class="quick-link-icon">📘</div>
+      <h3 class="quick-link-title">Integration guide</h3>
+      <p class="quick-link-description">Step-by-step documentation</p>
+    </a>
+    <a href="api-references/" class="quick-link-card">
+      <div class="quick-link-icon">🌐</div>
+      <h3 class="quick-link-title">API references</h3>
+      <p class="quick-link-description">Explore endpoints and callbacks</p>
+    </a>    
+  </div>
+</div>
+
 ## Scope and target audience
 
 This document describes the technical interfaces exposed by MLog for information systems that will use MLog as a registrar for legal or important events. Its target audience is the development teams for those information systems.
