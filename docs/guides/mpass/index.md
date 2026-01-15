@@ -4,54 +4,25 @@ MPass is a government-wide authentication and identity management service in the
 
 ## Jump right in
 
-<div style="margin: 2rem 0;">
+<div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-top: 0.4rem;">⚡</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Connection steps</h3>
-      <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Get started with integration</p>
+      <div class="quick-link-icon">⚡</div>
+      <h3 class="quick-link-title">Connection steps</h3>
+      <p class="quick-link-description">Get started with integration</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-top: 0.4rem;">📘</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">Integration guides</h3>
-      <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Step-by-step documentation</p>
+      <div class="quick-link-icon">📘</div>
+      <h3 class="quick-link-title">Integration guides</h3>
+      <p class="quick-link-description">Step-by-step documentation</p>
     </a>
     <a href="api-references/" class="quick-link-card">
-      <div style="font-size: 1.5rem; margin-top: 0.4rem;">🌐</div>
-      <h3 style="font-size: 1rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">API reference</h3>
-      <p style="color: #6b7280; margin: 0; font-size: 0.8rem;">Explore endpoints and callbacks</p>
+      <div class="quick-link-icon">🌐</div>
+      <h3 class="quick-link-title">API reference</h3>
+      <p class="quick-link-description">Explore endpoints and callbacks</p>
     </a>    
   </div>
 </div>
-
-<style>
-  .quick-links-container {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .quick-link-card {
-    display: block;
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 0.9rem;
-    background: #f6f6f6;
-    border-radius: 10px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.2s;
-  }
-  
-  .quick-link-card:hover {
-    background: #f3f3f3;
-  }
-  
-  @media (max-width: 768px) {
-    .quick-links-container {
-      flex-direction: column;
-    }
-  }
-</style>
 
 ## Quick start for integrators
 
