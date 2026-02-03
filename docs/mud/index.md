@@ -25,8 +25,9 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 | Resursă | Descriere | Cum accesezi | Status |
 |---------|-----------|--------------|--------|
 | **Figma files** | Biblioteca completă de componente, stiluri și pattern-uri. Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | **Vizualizare:** [Acces direct Guest](https://mud.egov.md)<br>**Copiere/Editare:** [Completați formularul](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl) pentru drepturi | ✅ Disponibil |
-| **Git repository** | Implementarea completă a componentelor modelului în HTML/CSS, gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitLab](https://github.com/egov-moldova/design-system) | 🔄 Disponibil 80% |
-| **MudBlazor components** | Bibliotecă oficială de componente modelului pentru dezvoltatorii care lucrează cu Blazor framework în mediul .NET. | În dezvoltare de către AGE | 🔄 Disponibil în 2026 |
+| **Demo page** | Catalog interactiv al tuturor componentelor, afișate în variantele principale și contexte responsive, cu posibilitatea de copiere rapidă a tokenilor și a fragmentelor de cod pentru utilizare. | [[Acces GitHub Pages](https://egov-moldova.github.io/design-system/Components/) | ✅ Disponibil |
+| **Git repository** | Implementarea completă a componentelor modelului în HTML/CSS, gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitLab](https://github.com/egov-moldova/design-system) | ✅ Disponibil |
+| **MudBlazor components** | Bibliotecă oficială de componente modelului pentru dezvoltatorii care lucrează cu Blazor framework în mediul .NET. | Progres 90% | 🔄 Disponibil în 2026 |
 
 #### Ghid de utilizare pe roluri
 
