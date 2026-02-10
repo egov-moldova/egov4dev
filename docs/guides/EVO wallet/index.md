@@ -10,21 +10,21 @@ OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to 
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
-    <a href="process/" class="quick-link-card">
-      <div class="quick-link-icon">⚡</div>
-      <h3 class="quick-link-title">Connection steps</h3>
-      <p class="quick-link-description">Get started with integration</p>
+    <a href="integration/" class="quick-link-card">
+      <div class="quick-link-icon">🔌</div>
+      <h3 class="quick-link-title">Integration</h3>
+      <p class="quick-link-description">How to integrate with EVO Wallet</p>
     </a>
-    <a href="integration-development/" class="quick-link-card">
-      <div class="quick-link-icon">📘</div>
-      <h3 class="quick-link-title">Integration guide</h3>
-      <p class="quick-link-description">Step-by-step documentation</p>
+    <a href="protocol/" class="quick-link-card">
+      <div class="quick-link-icon">🔐</div>
+      <h3 class="quick-link-title">Protocol</h3>
+      <p class="quick-link-description">OpenID4VP flow and direct_post.jwt details</p>
     </a>
-    <a href="api-references/" class="quick-link-card">
-      <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API references</h3>
-      <p class="quick-link-description">Explore endpoints and callbacks</p>
-    </a>    
+    <a href="examples/" class="quick-link-card">
+      <div class="quick-link-icon">🧾</div>
+      <h3 class="quick-link-title">Examples</h3>
+      <p class="quick-link-description">Full request/response payload samples</p>
+    </a>
   </div>
 </div>
 
