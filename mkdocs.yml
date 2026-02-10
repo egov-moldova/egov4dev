@@ -86,7 +86,13 @@ nav:
       - EVO wallet:
           - Overview: guides/EVO wallet/index.md
           - Integration: guides/EVO wallet/integration.md
+          - Document types: guides/EVO wallet/documents.md
           - Protocol: guides/EVO wallet/protocol.md
+          - Format: guides/EVO wallet/format.md
+          - Response validation: guides/EVO wallet/response.md
+          - Examples: guides/EVO wallet/examples.md
+          - Testing: guides/EVO wallet/testing.md
+
 
 theme:
   name: material
