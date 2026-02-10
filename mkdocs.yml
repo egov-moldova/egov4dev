@@ -85,6 +85,8 @@ nav:
           - Change log: guides/mlog/change-log.md
       - EVO wallet:
           - Overview: guides/EVO wallet/index.md
+          - Integration: guides/EVO wallet/integration.md
+          - Protocol: guides/EVO wallet/protocol.md
 
 theme:
   name: material
