@@ -1,6 +1,6 @@
 This section describes the communication protocol used for credential presentation.
 
-<img src="../../assets/images/protocol.png" alt="Protocol">
+<img src="../../assets/protocol.png" alt="Protocol">
 
 The diagram depicts the interaction between EVO User, EVO Wallet module, Verifier Backend (server-side implementation of the Verifier) and Verifier Frontend (client-side implementation of the Verifier) in a presentation transaction.
 
