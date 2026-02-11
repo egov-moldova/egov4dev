@@ -153,14 +153,14 @@ Each entry in **claims** array MUST be an object with the following parameters:
 
 | Parameter | Description |
 |---|---|
-| id | A string identifying the particular claim. The value MUST be a non-empty string consisting of alphanumeric, underscore (_), or hyphen (-) characters. Within the particular claims array, the same id MUST NOT be present more than once. Required if claims_set is present, optional otherwise. |
+| id | A string identifying the particular claim. The value MUST be a non-empty string consisting of alphanumeric, underscore (_), or hyphen (-) characters. Within the particular claims array, the same id MUST NOT be present more than once. Required if **claims_set** is present, optional otherwise. |
 | path | A required value that MUST be a non-empty array representing a claims path pointer that specifies the path to a claim within the Credential. A path pointer into an mdoc contains two elements of type string. The first element refers to a namespace and the second element refers to a data element identifier. |
 | values | An optional non-empty array of strings, integers or boolean values that specifies the expected values of the claim. If the values property is present, the Wallet SHOULD return the claim only if the type and value of the claim both match exactly for at least one of the elements in the array. |
-| intent_to_retain | An optional boolean variable that indicates whether the Verifier intends to retain the received data element. Default value is false. The Verifier SHALL not retain any data elements, except for data elements for which the intent_to_retain flag was set to true in the request. To retain is defined as “to store for a period longer than necessary to conduct the transaction in realtime”. |
+| intent_to_retain | An optional boolean variable that indicates whether the Verifier intends to retain the received data element. Default value is **false**. The Verifier SHALL not retain any data elements, except for data elements for which the intent_to_retain flag was set to true in the request. To retain is defined as “to store for a period longer than necessary to conduct the transaction in realtime”. |
 
 ## Handling Authorization Response
 
-After user consent, Wallet sends the encrypted Authorization Response as JWE using HTTP POST method to Verifier’s response_uri, with the following parameters encoded as application/x-www-form-urlencoded:
+After user consent, Wallet sends the encrypted Authorization Response as JWE using HTTP POST method to Verifier’s **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
 
 | Parameter | Description |
 |---|---|
@@ -170,9 +170,9 @@ The Authorization Response JWE header has the following parameters:
 
 | Parameter | Description |
 |---|---|
-| alg | Always set to ECDH-ES. |
-| enc | Always set to A256GCM. |
-| kid | Value of the kid JWK parameter of the public key that was used for key agreement to encrypt the response. |
+| alg | Always set to **ECDH-ES**. |
+| enc | Always set to **A256GCM**. |
+| kid | Value of the **kid** JWK parameter of the public key that was used for key agreement to encrypt the response. |
 | epk | The public key of the generated ephemeral key pair of the Wallet encoded as a JWK. |
 | apu | base64url-encoded-with-no-padding value of the device nonce. |
 | apv | base64url-encoded-with-no-padding value of the utf-8 encoded nonce parameter from the Authorization Request object. |
@@ -181,24 +181,24 @@ The Authorization Response JWE payload has the following parameters:
 
 | Parameter | Description |
 |---|---|
-| vp_token | This is a JSON-encoded object containing entries where the key is the id value used for a Credential Query in the DCQL query and the value is an array of one or more base64url-encoded DeviceResponse structures, which is documented in the Format section of this document. |
-| state | The value of the state string that was submitted as part of the Authorization Request. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
+| vp_token | This is a JSON-encoded object containing entries where the key is the **id** value used for a Credential Query in the DCQL query and the value is an array of one or more base64url-encoded DeviceResponse structures, which is documented in the Format section of this document. |
+| state | The value of the **state** string that was submitted as part of the Authorization Request. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
 
-The Verifier can decrypt Authorization Response JWE with a derived AES-256 symmetric key using Concat KDF algorithm, according to Section 4.6 from RFC 7518 using:
+The Verifier can decrypt Authorization Response JWE with a derived AES-256 symmetric key using Concat KDF algorithm, according to Section 4.6 from **RFC 7518** using:
 
-• Private part of the ephemeral key of the Verifier (recipient), of which the public part was sent to Wallet in Authorization Request JWS payload client_metadata.jwks parameter identified by kid parameter sent back in Authorization Response JWE header.
+• Private part of the ephemeral key of the Verifier (recipient), of which the public part was sent to Wallet in Authorization Request JWS payload **client_metadata.jwks** parameter identified by **kid** parameter sent back in Authorization Response JWE header.
 
-• Public part of the ephemeral key of the Wallet (producer or sender) sent to Verifier in Authorization Response JWE header epk parameter.
+• Public part of the ephemeral key of the Wallet (producer or sender) sent to Verifier in Authorization Response JWE header **epk** parameter.
 
-• Information about producer, sent in Authorization Response JWE header apu parameter, which is the device nonce generated by Wallet.
+• Information about producer, sent in Authorization Response JWE header **apu** parameter, which is the device nonce generated by Wallet.
 
-• Information about recipient, sent in Authorization Response JWE header apv parameter, which is Verifier’s nonce originally sent in Authorization Request JWS payload.
+• Information about recipient, sent in Authorization Response JWE header **apv** parameter, which is Verifier’s nonce originally sent in Authorization Request JWS payload.
 
-Verifier shall also ensure that the apv JWE header value matches the transaction persisted nonce value.
+Verifier shall also ensure that the **apv** JWE header value matches the transaction persisted **nonce** value.
 
 To ensure authenticity and non-repudiation, before processing the received document elements, the Verifier shall validate it according to Response validation section.
 
-Upon successful processing of Authorization Response or Authorization Error Response, the Verifier MUST respond with an HTTP status code of 200 with Content-Type of application/json and a JSON object in response body with the following parameters:
+Upon successful processing of Authorization Response or Authorization Error Response, the Verifier MUST respond with an HTTP status code of 200 with **Content-Type** of **application/json** and a JSON object in response body with the following parameters:
 
 | Parameter | Description |
 |---|---|
@@ -206,30 +206,30 @@ Upon successful processing of Authorization Response or Authorization Error Resp
 
 ## Authorization Error Response
 
-In case of error, Wallet sends the plain Authorization Error Response using HTTP POST method to Verifier’s response_uri, with the following parameters encoded as application/x-www-form-urlencoded:
+In case of error, Wallet sends the plain Authorization Error Response using HTTP POST method to Verifier’s **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
 
 | Parameter | Description |
 |---|---|
 | error | Error code with values described in this section. |
 | error_description | Human readable error description. |
-| state | The value of the state string that was submitted as part of the Authorization Request. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
+| state | The value of the **state** string that was submitted as part of the Authorization Request. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
 
 Upon successful processing of Authorization Error Response, the Verifier MUST respond as documented for Authorization Response.
 
-The error response follows the rules as defined in RFC 6749, with the following additional clarifications:
+The error response follows the rules as defined in **RFC 6749**, with the following additional clarifications:
 
 #### invalid_scope
 - Requested scope value is invalid, unknown, or malformed.
 
 #### invalid_request
-- The request contains both a dcql_query parameter and a scope parameter referencing a DCQL query.
-- The request uses the vp_token Response Type but does not include a dcql_query parameter nor a scope parameter referencing a DCQL query.
+- The request contains both a **dcql_query** parameter and a **scope** parameter referencing a DCQL query.
+- The request uses the **vp_toke**n Response Type but does not include a **dcql_query** parameter nor a **scope** parameter referencing a DCQL query.
 - The Wallet does not support the Client Identifier Prefix passed in the Authorization Request.
 - The Client Identifier passed in the request did not belong to its Client Identifier Prefix, or requirements of a certain prefix were violated, for example an unsigned request was sent with Client Identifier Prefix https.
 
 #### invalid_client
-- client_metadata parameter is present, but the Wallet recognizes Client Identifier and knows metadata associated with it.
-- Verifier's pre-registered metadata has been found based on the Client Identifier, but client_metadata parameter is also present.
+- **client_metadata** parameter is present, but the Wallet recognizes Client Identifier and knows metadata associated with it.
+- Verifier's pre-registered metadata has been found based on the Client Identifier, but **client_metadata** parameter is also present.
 
 #### access_denied
 - The Wallet did not have the requested Credentials to satisfy the Authorization Request.
@@ -239,13 +239,13 @@ The error response follows the rules as defined in RFC 6749, with the following 
 This document also defines the following additional error codes and error descriptions:
 
 #### vp_formats_not_supported
-- The Wallet does not support any of the formats requested by the Verifier, such as those included in the vp_formats_supported registration parameter.
+- The Wallet does not support any of the formats requested by the Verifier, such as those included in the **vp_formats_supported** registration parameter.
 
 #### invalid_request_uri_method
-- The value of the request_uri_method request parameter is neither get nor post (case-sensitive).
+- The value of the **request_uri_method** request parameter is neither get nor post (case-sensitive).
 
 #### invalid_transaction_data
-- any of the following is true for at least one object in the transaction_data structure:
+- any of the following is true for at least one object in the **transaction_data** structure:
   - contains an unknown or unsupported transaction data type value,
   - is an object of a known type but containing unknown fields,
   - contains fields of the wrong type for the transaction data type,
