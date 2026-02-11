@@ -44,7 +44,7 @@ The Verifier SHALL validate issuer certificate:
 1. validity period against current time (current time must be between certificate NotBefore and NotAfter fields);
 2. validity period to be maximum 457 days (according to ISO 18013-5);
 3. validity period against MSO.validityPeriod.signed;
-4. chain against _a list of trusted anchors_;
+4. chain against <span class="highlight-text-yellow">a list of trusted anchors</span>;
 5. Authority Key Identifier (AKI) to match CA certificate Subject Key Identifier (SKI);
 6. subject “C” and “ST” fields (when present) to match “C” and “ST” fields of CA certificate;
 7. signature algorithm to be "1.2.840.10045.4.3.2", "1.2.840.10045.4.3.3" or "1.2.840.10045.4.3.4";
