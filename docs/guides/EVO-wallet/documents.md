@@ -155,8 +155,8 @@ The **place_of_birth** object has the following fields:
 
 ISO mDL includes data elements from driver license.
 
-Namespace: org.iso.18013.5.1  
-DocType: org.iso.18013.5.1.mDL
+Namespace: **org.iso.18013.5.1**  
+DocType: **org.iso.18013.5.1.mDL**
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -173,7 +173,7 @@ DocType: org.iso.18013.5.1.mDL
 | driving_privileges | A list of categories of vehicles, including restrictions or conditions. See below. | array |
 | un_distinguishing_sign | Distinguishing sign of the issuing country according to ISO/IEC 18013-1:2018, Annex F. | tstr |
 
-Each element of driving_privileges array has the following fields:
+Each element of **driving_privileges** array has the following fields:
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -182,7 +182,7 @@ Each element of driving_privileges array has the following fields:
 | expiry_date | Date of expiry. Optional. | full-date |
 | codes | Array of restrictions or conditions. See below | array |
 
-Each element of codes array has the following fields:
+Each element of **codes** array has the following fields:
 
 | Identifier | Definition | Encoding |
 |---|---|---|
