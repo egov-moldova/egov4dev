@@ -1,4 +1,4 @@
-This section describes the communication protocol used for credential presentation.
+<img width="456" height="224" alt="image" src="https://github.com/user-attachments/assets/2f8f3d01-72e1-4426-a85e-80059714f826" />This section describes the communication protocol used for credential presentation.
 
 <img src="../../assets/protocol.png" alt="Protocol">
 
@@ -99,57 +99,57 @@ The Authorization Request JWS payload has the following parameters:
 | dcql_query | A JSON object containing a DCQL query as defined in this document. |
 | <span class="highlight-text-yellow">scope</span> | <span class="highlight-text-yellow">A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet.</span> |
 | transaction_data | An optional non-empty array of strings, where each string is a base64url-encoded JSON object that contains a typed parameter set with details about the transaction that the Verifier is requesting the End-User to authorize. Not yet leveraged by EVO. |
-| verifier_info | This is the place to reference Verifier’s logo, ToS, PP and actual human operator for physical presentations. |
-| response_type | Response type to be used. MUST be: vp_token |
-| response_mode | Response mode to be used. MUST be: direct_post.jwt |
+| <span class="highlight-text-yellow">verifier_info</span> | <span class="highlight-text-yellow">This is the place to reference Verifier’s logo, ToS, PP and actual human operator for physical presentations.</span> |
+| response_type | Response type to be used. MUST be: **vp_token** |
+| response_mode | Response mode to be used. MUST be: **direct_post.jwt** |
 | response_uri | The HTTPS URL that represents the HTTPS POST endpoint for submitting the encrypted Authorization Response required by the Response Mode direct_post.jwt. This usually includes parameters that enable the Verifier to identify the presentation transaction. |
 | nonce | A cryptographic nonce - an unpredictable random or pseudorandom value. Nonces shall have a minimum entropy of 16 bytes. A new nonce value shall be chosen for each transaction. |
 | wallet_nonce | The value MUST be set to the one passed by the Wallet. |
 | state | Optional string value that MUST only contain ASCII URL safe characters (uppercase and lowercase letters, decimal digits, hyphen, period, underscore, and tilde). Returned by the Wallet back to Verifier when submitting Authorization Response. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
 
-The structure of client_metadata object is the following:
+The structure of **client_metadata** object is the following:
 
 | Parameter | Description |
 |---|---|
-| jwks | A JSON Web Key Set, as defined in RFC 7591, contains one public key used by the Wallet as an input to a key agreement used for encryption of the Authorization Response. The key use parameter MUST be set to enc, alg MUST be set to ECDH-ES, kty must be EC, crv must be P-256, and it MUST have a kid (Key ID) parameter that uniquely identifies the key within the context of the request. |
-| encrypted_response_enc_values_supported | Response encryption algorithm to be used. MUST be: A256GCM |
-| vp_formats_supported | Same with vp_formats_supported described in wallet_metadata object. |
+| jwks | A JSON Web Key Set, as defined in RFC 7591, contains one public key used by the Wallet as an input to a key agreement used for encryption of the Authorization Response. The **key** use parameter MUST be set to **enc, alg** MUST be set to **ECDH-ES, kty** must be **EC, crv** must be **P-256**, and it MUST have a **kid** (Key ID) parameter that uniquely identifies the key within the context of the request. |
+| encrypted_response_enc_values_supported | Response encryption algorithm to be used. MUST be: **A256GCM** |
+| vp_formats_supported | Same with **vp_formats_supported** described in **wallet_metadata** object. |
 
-The structure of the dcql_query object is the following:
+The structure of the **dcql_query** object is the following:
 
 | Parameter | Description |
 |---|---|
 | credentials | A required non-empty array of Credential Queries as defined in this document. |
 | credentials_set | An optional non-empty array of Credential Set Queries that specifies additional constraints on which of the requested Credentials to return. |
 
-Each entry in credentials MUST be an object with the following parameters:
+Each entry in **credentials** MUST be an object with the following parameters:
 
 | Parameter | Description |
 |---|---|
-| id | A required string identifying the Credential in the response and, if provided, the constraints in credential_sets. The value MUST be a non-empty string consisting of alphanumeric, underscore (_), or hyphen (-) characters. Within the Authorization Request, the same id MUST NOT be present more than once. |
-| format | A required string that specifies the format of the requested Credential. This MUST be set to mso_mdoc. |
+| id | A required string identifying the Credential in the response and, if provided, the constraints in **credential_sets**. The value MUST be a non-empty string consisting of alphanumeric, underscore (_), or hyphen (-) characters. Within the Authorization Request, the same id MUST NOT be present more than once. |
+| format | A required string that specifies the format of the requested Credential. This MUST be set to **mso_mdoc**. |
 | multiple | An optional boolean which indicates whether multiple Credentials can be returned for this Credential Query. If omitted, the default value is false. |
-| meta | A required object defining additional properties requested by the Verifier that apply to the metadata and validity data of the Credential. The properties of this object are defined per Credential Format. This MUST contain a doctype_value parameter which is a string that specifies an allowed value for the doctype of the requested Verifiable Credential. It MUST be a valid doctype identifier as defined by ISO 18013-5. |
+| meta | A required object defining additional properties requested by the Verifier that apply to the metadata and validity data of the Credential. The properties of this object are defined per Credential Format. This MUST contain a **doctype_value** parameter which is a string that specifies an allowed value for the doctype of the requested Verifiable Credential. It MUST be a valid doctype identifier as defined by ISO 18013-5. |
 | trusted_authorities | An optional non-empty array of objects that specifies expected authorities or trust frameworks that certify Issuers, that the Verifier will accept. |
 | require_cryptographic_holder_binding | An optional boolean value which indicates whether the Verifier requires a Cryptographic Holder Binding proof. Do not set, as the default value is true. |
 | claims | An optional array of claims as defined in this document. Verifiers MUST NOT point to the same claim more than once in a single query. |
-| claim_sets | An optional non-empty array containing arrays of identifiers for elements in claims that specifies which combinations of claims for the Credential are requested. |
+| claim_sets | An optional non-empty array containing arrays of identifiers for elements in **claims** that specifies which combinations of **claims** for the Credential are requested. |
 
-Each entry in credential_sets MUST be an object with the following parameters:
+Each entry in **credential_sets** MUST be an object with the following parameters:
 
 | Parameter | Description |
 |---|---|
-| options | A required non-empty array, where each value in the array is a list of Credential Query identifiers representing one set of Credentials that satisfies the use case. The value of each element in the options array is a non-empty array of identifiers which reference elements in credentials. |
+| options | A required non-empty array, where each value in the array is a list of Credential Query identifiers representing one set of Credentials that satisfies the use case. The value of each element in the **options** array is a non-empty array of identifiers which reference elements in **credentials**. |
 | required | An optional boolean which indicates whether this set of Credentials is required to satisfy the particular use case at the Verifier. If omitted, the default value is true. |
 
-Each entry in trusted_authorities array MUST be an object with the following parameters:
+Each entry in **trusted_authorities** array MUST be an object with the following parameters:
 
 | Parameter | Description |
 |---|---|
-| type | A required string uniquely identifying the type of information about the issuer trust framework. Use “aki” or “etsli_tl”. |
+| type | A required string uniquely identifying the type of information about the issuer trust framework. <span class="highlight-text-yellow">Use “aki” or “etsli_tl”.</span> |
 | values | A required non-empty array of strings, where each string (value) contains information specific to the used Trusted Authorities Query type that allows the identification of an issuer, or a trust framework that an issuer belongs to. |
 
-Each entry in claims array MUST be an object with the following parameters:
+Each entry in **claims** array MUST be an object with the following parameters:
 
 | Parameter | Description |
 |---|---|
