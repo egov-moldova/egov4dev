@@ -75,7 +75,7 @@ As a result of HTTP POST request to the Verifier’s **request_uri**, the Verifi
 It is suggested that an Authorization Request and the corresponding Authorization Response is part of a presentation transaction persisted by Verifier. It includes a freshly generated nonce and ephemeral key (with public key returned in client_metadata.jwks), has an expiration and usage status to prevent replays.
 
 <div class="highlight-text-yellow">  
-How is Friendly Name recorded/extracted from the certificate/request?
+How is Friendly Name recorded/extracted from the certificate/request?<br>
 What about the Friendly Name of the operator (is it intermediary?)? It might be the reason to use verifier_info?
 </div>
 
@@ -97,7 +97,7 @@ The Authorization Request JWS payload has the following parameters:
 | client_id | The client identifier that was issued to the client during the registration process prefixed by client identifier prefix. Example value: x509_hash:71N_JciVv6eCUmUpqbY9l6pjFWTV14nCt2VEjIY1-2w |
 | client_metadata | A JSON object containing the Verifier metadata values as defined in this document. |
 | dcql_query | A JSON object containing a DCQL query as defined in this document. |
-| scope | A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet. |
+| <span class="highlight-text-yellow">scope</span> | <span class="highlight-text-yellow">A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet.</span> |
 | transaction_data | An optional non-empty array of strings, where each string is a base64url-encoded JSON object that contains a typed parameter set with details about the transaction that the Verifier is requesting the End-User to authorize. Not yet leveraged by EVO. |
 | verifier_info | This is the place to reference Verifier’s logo, ToS, PP and actual human operator for physical presentations. |
 | response_type | Response type to be used. MUST be: vp_token |
