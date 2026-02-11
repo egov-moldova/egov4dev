@@ -75,7 +75,7 @@ As a result of HTTP POST request to the Verifier’s **request_uri**, the Verifi
 It is suggested that an Authorization Request and the corresponding Authorization Response is part of a presentation transaction persisted by Verifier. It includes a freshly generated nonce and ephemeral key (with public key returned in client_metadata.jwks), has an expiration and usage status to prevent replays.
 
 <div class="highlight-text-yellow">  
-How is Friendly Name recorded/extracted from the certificate/request?</div>
+How is Friendly Name recorded/extracted from the certificate/request?
 What about the Friendly Name of the operator (is it intermediary?)? It might be the reason to use verifier_info?
 </div>
 
