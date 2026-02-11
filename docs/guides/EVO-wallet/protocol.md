@@ -1,4 +1,4 @@
-<img width="456" height="224" alt="image" src="https://github.com/user-attachments/assets/2f8f3d01-72e1-4426-a85e-80059714f826" />This section describes the communication protocol used for credential presentation.
+This section describes the communication protocol used for credential presentation.
 
 <img src="../../assets/protocol.png" alt="Protocol">
 
