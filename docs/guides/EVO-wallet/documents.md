@@ -4,8 +4,8 @@ This section describes the data elements for several known document types. The E
 
 Moldovan PID includes data elements from the identity card and residence information.
 
-Namespace: md.gov.wallet  
-DocType: md.gov.wallet.pid.1
+Namespace: **md.gov.wallet**  
+DocType: **md.gov.wallet.pid.1**
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -38,8 +38,8 @@ DocType: md.gov.wallet.pid.1
 
 Moldovan DL includes data elements from driver license.
 
-Namespace: md.gov.wallet  
-DocType: md.gov.wallet.dl.1
+Namespace: **md.gov.wallet** 
+DocType: **md.gov.wallet.dl.1**
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -59,7 +59,7 @@ DocType: md.gov.wallet.dl.1
 | signature | Signature specimen of the document holder. Optional. | bstr |
 | driving_privileges | A list of categories of vehicles, including restrictions or conditions. See below. | array |
 
-Each element of driving_privileges array has the following fields:
+Each element of **driving_privileges** array has the following fields:
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -68,7 +68,7 @@ Each element of driving_privileges array has the following fields:
 | expiry_date | Date of expiry. Optional. | full-date |
 | codes | Array of restrictions or conditions. See below | array |
 
-Each element of codes array has the following fields:
+Each element of **codes** array has the following fields:
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -80,8 +80,8 @@ Each element of codes array has the following fields:
 
 Moldovan VRC includes data elements from vehicle registration certificate.
 
-Namespace: md.gov.wallet  
-DocType: md.gov.wallet.vrc.1
+Namespace: **md.gov.wallet**  
+DocType: **md.gov.wallet.vrc.1**
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -117,8 +117,8 @@ DocType: md.gov.wallet.vrc.1
 
 Moldovan PID includes data elements from the identity card and residence information.
 
-Namespace: eu.europa.ec.eudi.pid.1  
-DocType: eu.europa.ec.eudi.pid.1
+Namespace: **eu.europa.ec.eudi.pid.1**  
+DocType: **eu.europa.ec.eudi.pid.1**
 
 | Identifier | Definition | Encoding |
 |---|---|---|
@@ -143,7 +143,7 @@ DocType: eu.europa.ec.eudi.pid.1
 | issuing_country | Issuing country |  |
 | document_number | Document identifier (complete, series and number) | tstr |
 
-The place_of_birth object has the following fields:
+The **place_of_birth** object has the following fields:
 
 | Identifier | Definition | Encoding |
 |---|---|---|
