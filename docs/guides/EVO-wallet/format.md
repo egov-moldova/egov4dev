@@ -12,32 +12,41 @@ DeviceResponse = {
  ? “documentErrors”: [+DocumentError] ; error codes for unreturned documents
  “status”: uint ; Status code, set to 0 when OK
 }
+
 Document = {
  “docType”: tstr ; Document type returned
  “issuerSigned”: IssuerSigned, ; Returned data elements signed by the issuer
  “deviceSigned”: DeviceSigned ; Returned data elements signed by the wallet
  ? “errors”: Errors
 }
+
 DocumentError = {
  DocType => ErrorCode ; Error codes for unreturned documents
 }
+
 IssuerSigned = {
  ? “nameSpaces”: IssuerNameSpaces, ; Returned data elemenents
  “issuerAuth”: IssuerAuth ; Contains the mobile security object (MSO)
  ; for issuer data authentication
 }
+
 IssuerNameSpaces = {
  + NameSpace => [+IssuerSignedItemBytes] ; Returned data elements for each namespace
 }
+
 IssuerSignedItemBytes = #6.24(bstr .cbor IssuerSignedItem)
+
 IssuerSignedItem = {
  “digestID”: DigestID, ; Digest ID for issuer data authentication
  “random”: bstr, ; Random value for issuer data authentication
  “elementIdentifier”: DataElementIdentifier, ; Data element identifier
  “elementValue”: DataElementValue ; Data element value
 }
+
 IssuerAuth = Cose_Sign1 ; Untagged COSE_Sign1 signature of embedded MobileSecurityObjectBytes with Issuer certificate chain as COSE_X509 in x5chain unprotected header according to RFC 9360
+
 MobileSecurityObjectBytes = #6.24(bstr .cbor MobileSecurityObject)
+
 MobileSecurityObject = {
  “version”: tstr, ; Version of MobileSecurityObject, shall be “1.0”
  “digestAlgorithm”: tstr ; Message digest algorithm used
