@@ -83,7 +83,7 @@ nav:
           - Examples: guides/mlog/examples.md
           - Security: guides/mlog/security.md
           - Change log: guides/mlog/change-log.md
-      - EVO wallet:
+      - EVO Wallet:
           - Overview: guides/EVO-wallet/index.md
           - Integration: guides/EVO-wallet/integration.md
           - Document types: guides/EVO-wallet/documents.md
