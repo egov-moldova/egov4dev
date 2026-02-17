@@ -43,8 +43,8 @@ IssuerSignedItem = {
 }
 
 IssuerAuth = Cose_Sign1             ; Untagged COSE_Sign1 signature of embedded
-                                    ; MobileSecurityObjectBytes with Issuer certificate chain
-                                    ; as COSE_X509 in x5chain unprotected header
+                                    ; MobileSecurityObjectBytes with Issuer certificate
+                                    ; chain as COSE_X509 in x5chain unprotected header
                                     ; according to RFC 9360
 
 MobileSecurityObjectBytes = #6.24(bstr .cbor MobileSecurityObject)
@@ -126,15 +126,16 @@ DeviceNameSpaces = {
 }
 
 DeviceSignedItems = {
-  + DataElementIdentifier => DataElementValue   ; Returned data element identifier and value
+  + DataElementIdentifier => DataElementValue ; Returned data element 
+                                              ; identifier and value
 }
 
 DeviceAuth = {
-  “deviceSignature”: DeviceSignature            ; Signature for mdoc authentication
+  “deviceSignature”: DeviceSignature          ; Signature for mdoc authentication
 }
 
-DeviceSignature = COSE_Sign1                    ; Untagged COSE_Sign1 signature of 
-                                                ; detached DeviceAuthenticationBytes
+DeviceSignature = COSE_Sign1                  ; Untagged COSE_Sign1 signature of 
+                                              ; detached DeviceAuthenticationBytes
 
 DeviceAuthenticationBytes = #6.24(bstr .cbor DeviceAuthentication)
 
