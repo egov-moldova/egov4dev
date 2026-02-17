@@ -9,7 +9,7 @@ DocType: **md.gov.wallet.pid.1**
 
 | Identifier | Definition | Encoding |
 |---|---|---|
-| idnp | IDNP | tstr |
+| idnp | Unique number of the person | tstr |
 | family_name | Family name | tstr |
 | given_name | Given names | tstr |
 | sex | Sex | uint |
@@ -43,7 +43,7 @@ DocType: **md.gov.wallet.dl.1**
 
 | Identifier | Definition | Encoding |
 |---|---|---|
-| idnp | IDNP | tstr |
+| idnp | Unique number of the person | tstr |
 | family_name | Family name | tstr |
 | given_name | Given names | tstr |
 | birth_date | Date of birth | full-date |
@@ -136,6 +136,7 @@ DocType: **eu.europa.ec.eudi.pid.1**
 | resident_postal_code | The postal code of the place where the user to whom the person identification data relates currently resides. Optional. | tstr |
 | resident_street | The name of the street where the user to whom the person identification data relates currently resides. Optional. | tstr |
 | resident_house_number | The house number where the user to whom the person identification data relates currently resides, including any affix or suffix. Optional. | tstr |
+| personal_administrative_number | A value assigned to the natural person that is unique among all personal administrative numbers issued by the provider of person identification data. In case of Moldova, this is the same as IDNP. Optional. | tstr |
 | portrait | Facial image of the wallet user compliant with ISO 19794-5 or ISO 39794 specifications. | bstr |
 | sex | Values shall be one of the following: 0 = not known; 1 = male; 2 = female; 3 = other; 4 = inter; 5 = diverse; 6 = open; 9 = not applicable. For values 0, 1, 2 and 9, ISO/IEC 5218 applies. | uint |
 | expiry_date | Date of expiry. Optional. | full-date |

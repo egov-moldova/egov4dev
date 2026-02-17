@@ -30,14 +30,14 @@ IssuerSigned = {
 }
 
 IssuerNameSpaces = {
-  + NameSpace => [+IssuerSignedItemBytes]     ; Returned data elements for each namespace
+  + NameSpace => [+IssuerSignedItemBytes]     ; Data elements for each namespace
 }
 
 IssuerSignedItemBytes = #6.24(bstr .cbor IssuerSignedItem)
 
 IssuerSignedItem = {
-  “digestID”: DigestID,                       ; Digest ID for issuer data authentication
-  “random”: bstr,                             ; Random value for issuer data authentication
+  “digestID”: DigestID,                       ; Digest ID for issuer authentication
+  “random”: bstr,                             ; Random value for issuer authentication
   “elementIdentifier”: DataElementIdentifier, ; Data element identifier
   “elementValue”: DataElementValue            ; Data element value
 }
@@ -153,8 +153,8 @@ SessionTranscript = [
 ]
 
 OpenID4VPHandover = [
- “OpenID4VPHandover”,       ; A fixed identifier for this handover type
- OpenID4VPHandoverInfoHash  ; A cryptographic hash of OpenID4VPHandoverInfo
+  “OpenID4VPHandover”,       ; A fixed identifier for this handover type
+  OpenID4VPHandoverInfoHash  ; A cryptographic hash of OpenID4VPHandoverInfo
 ]
 
 OpenID4VPHandoverInfoHash = bstr ; SHA-256 hash of OpenID4VPHandoverInfoBytes
