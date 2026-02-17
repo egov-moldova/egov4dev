@@ -51,11 +51,11 @@ The Verifier SHALL validate issuer certificate:
 8. key usage must be digitalSignature (bit 0 set);
 9. extended key usage (EKU) must include “1.0.18013.5.1.2” (mdlDS);
 10. does not contain any of the following extensions:
-   - "2.5.29.30" – Name Constraints
-   - "2.5.29.33" – Policy Mappings
-   - "2.5.29.36" – Policy Constraints
-   - "2.5.29.46" – Freshest CRL
-   - "2.5.29.54" – Inhibit Any Policy.
+    * "2.5.29.30" – Name Constraints
+    * "2.5.29.33" – Policy Mappings
+    * "2.5.29.36" – Policy Constraints
+    * "2.5.29.46" – Freshest CRL
+    * "2.5.29.54" – Inhibit Any Policy.
 
 ## Device authentication
 

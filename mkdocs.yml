@@ -89,7 +89,7 @@ nav:
           - Document types: guides/evo-wallet/documents.md
           - Protocol: guides/evo-wallet/protocol.md
           - Format: guides/evo-wallet/format.md
-          - Response validation: guides/evo-wallet/response.md
+          - Response validation: guides/evo-wallet/validation.md
           - Examples: guides/evo-wallet/examples.md
           - Testing: guides/evo-wallet/testing.md
 
