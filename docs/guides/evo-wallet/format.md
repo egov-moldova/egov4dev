@@ -175,7 +175,6 @@ Errors = {
 
 ErrorItems = {
   + DataElementIdentifier => ErrorCode  ; Error code per data element
-
 }
 
 DocType = tstr                          ; Document type
