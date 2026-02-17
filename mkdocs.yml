@@ -84,14 +84,14 @@ nav:
           - Security: guides/mlog/security.md
           - Change log: guides/mlog/change-log.md
       - EVO Wallet:
-          - Overview: guides/EVO-wallet/index.md
-          - Integration: guides/EVO-wallet/integration.md
-          - Document types: guides/EVO-wallet/documents.md
-          - Protocol: guides/EVO-wallet/protocol.md
-          - Format: guides/EVO-wallet/format.md
-          - Response validation: guides/EVO-wallet/response.md
-          - Examples: guides/EVO-wallet/examples.md
-          - Testing: guides/EVO-wallet/testing.md
+          - Overview: guides/evo-wallet/index.md
+          - Integration: guides/evo-wallet/integration.md
+          - Document types: guides/evo-wallet/documents.md
+          - Protocol: guides/evo-wallet/protocol.md
+          - Format: guides/evo-wallet/format.md
+          - Response validation: guides/evo-wallet/response.md
+          - Examples: guides/evo-wallet/examples.md
+          - Testing: guides/evo-wallet/testing.md
 
 
 theme:

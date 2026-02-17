@@ -13,7 +13,7 @@ The interaction consists of the following steps:
 5. The user scans the QR or taps on the Link. This results in Wallet app being opened.
 6. Wallet verifiers link structure, creates and records a **wallet_nonce**.
 7. To get an Authorization Request from Verifier Backend, the Wallet submits **wallet_metadata** and **wallet_nonce** to the provided **request_uri** using HTTP POST.
-8. After identifying or creating a new transaction, Verifier Backend records in transaction the **wallet_nonce** and a newly created **none** and ephemeral key for response decryption.
+8. After identifying or creating a new transaction, Verifier Backend records in transaction the **wallet_nonce** and a newly created **nonce** and ephemeral key for response decryption.
 9. Verifier Backend creates and sings an Authorization Request JWS, that includes its **client_metadata** with ephemeral key, **nonce, wallet_nonce, dcql_query, response_ur**i and **state**, then returns it to the Wallet in a HTTP 200 OK response. The **response_uri** includes parameters that enable the Verifier to identify the transaction.
 10. Wallet parses and validates Authorization Request signature and received **wallet_nonce**.
 11. Wallet identifies the credentials matching the **dcql_query** and shows them to the user to request a presentation confirmation.
@@ -34,7 +34,7 @@ The interaction consists of the following steps:
 During the device engagement phase, the Wallet app is opened and receives the URL that it can use to connect with the Verifier. This URL is the result of link opening or QR
 scanning by the User.
 
-In other words, the Verifier sends an Authorization Request as a Request Object by reference, as defined by JWT-Secure Authorization Request (JAR) defined in RFC9101 with extensions defined by OpenID4VP.
+In other words, the Verifier sends an Authorization Request as a Request Object by reference, as defined by JWT-Secure Authorization Request (JAR) defined in **RFC 9101** with extensions defined by OpenID4VP.
 
 The URL has the following structure:
 
@@ -62,7 +62,7 @@ The structure of wallet_metadata object is the following:
 | authorization_endpoint | The value for authorization_endpoint is the OAuth 2 Authorization Endpoint where the mdoc reader sends the Authorization Request. EVO Wallet uses the following value: **eudi-openid4vp:** |
 | response_types_supported | A non-empty array of strings containing the values of the response types that the Wallet supports. EVO Wallet uses the following values: **["vp_token"]** |
 | response_modes_supported | A non-empty array of strings containing the values of the response modes that the Wallet supports. EVO Wallet uses the following values: **["direct_post.jwt"]** |
-| vp_formats_supported | An object containing a list of name/value pairs, where the name is a Credential Format Identifier and the value defines format-specific parameters that a Wallet supports. EVO Wallet uses the following value: **{ "mso_mdoc": { "issuerauth_alg_values": [-9], "deviceauth_alg_values": [-9] } }** |
+| vp_formats_supported | An object containing a list of name/value pairs, where the name is a Credential Format Identifier and the value defines format-specific parameters that a Wallet supports. EVO Wallet uses the following value: **{ "mso_mdoc": { "issuerauth_alg_values": [-7], "deviceauth_alg_values": [-7] } }** |
 | client_id_prefixes_supported | A non-empty array of strings containing the values of the Client Identifier Prefixes that the Wallet supports. EVO Wallet uses the following values: **[“x509_hash”]** |
 | request_object_signing_alg_values_supported | A non-empty array of strings containing the list supported cryptographic algorithms for securing the Request Object. EVO Wallet uses the following values: **["ES256"]** |
 | authorization_encryption_alg_values_supported | A non-empty array of strings containing the supported algorithms for encryption. EVO Wallet uses the following values: **["ECDH-ES"]** |
@@ -79,7 +79,7 @@ How is Friendly Name recorded/extracted from the certificate/request?<br>
 What about the Friendly Name of the operator (is it intermediary?)? It might be the reason to use verifier_info?
 </div>
 
-Returned Authorization Request object MUST is a signed JWT, meaning JWS according to RFC 7515.
+Returned Authorization Request object MUST is a signed JWT, meaning JWS according to **RFC 7515**.
 
 The Authorization Request JWS header has the following parameters:
 
@@ -111,7 +111,7 @@ The structure of **client_metadata** object is the following:
 
 | Parameter | Description |
 |---|---|
-| jwks | A JSON Web Key Set, as defined in RFC 7591, contains one public key used by the Wallet as an input to a key agreement used for encryption of the Authorization Response. The **key** use parameter MUST be set to **enc, alg** MUST be set to **ECDH-ES, kty** must be **EC, crv** must be **P-256**, and it MUST have a **kid** (Key ID) parameter that uniquely identifies the key within the context of the request. |
+| jwks | A JSON Web Key Set, as defined in **RFC 7591**, contains one public key used by the Wallet as an input to a key agreement used for encryption of the Authorization Response. The **key** use parameter MUST be set to **enc, alg** MUST be set to **ECDH-ES, kty** must be **EC, crv** must be **P-256**, and it MUST have a **kid** (Key ID) parameter that uniquely identifies the key within the context of the request. |
 | encrypted_response_enc_values_supported | Response encryption algorithm to be used. MUST be: **A256GCM** |
 | vp_formats_supported | Same with **vp_formats_supported** described in **wallet_metadata** object. |
 
@@ -223,7 +223,7 @@ The error response follows the rules as defined in **RFC 6749**, with the follow
 
 #### invalid_request
 - The request contains both a **dcql_query** parameter and a **scope** parameter referencing a DCQL query.
-- The request uses the **vp_toke**n Response Type but does not include a **dcql_query** parameter nor a **scope** parameter referencing a DCQL query.
+- The request uses the **vp_token** Response Type but does not include a **dcql_query** parameter nor a **scope** parameter referencing a DCQL query.
 - The Wallet does not support the Client Identifier Prefix passed in the Authorization Request.
 - The Client Identifier passed in the request did not belong to its Client Identifier Prefix, or requirements of a certain prefix were violated, for example an unsigned request was sent with Client Identifier Prefix https.
 
@@ -256,5 +256,3 @@ This document also defines the following additional error codes and error descri
 
 #### wallet_unavailable
 - The Wallet appears to be unavailable and therefore unable to respond to the request. It can be useful in situations where the user agent cannot invoke the Wallet and another component receives the request while the End-User wishes to continue the journey on the Verifier website. For example, this applies when using claimed HTTPS URIs handled by the Wallet provider in case the platform cannot or does not translate the URI into a platform intent to invoke the Wallet. In this case, the Wallet provider would return the Authorization Error Response to the Verifier and might redirect the user agent back to the Verifier website.
-
-￼
