@@ -5,7 +5,22 @@
   font-weight: 600;
 }
 
-.md-footer__direction {display: none;}
+/* Desktop default: hide Previous/Next labels */
+.md-footer__direction {
+  display: none;
+}
+
+/* Mobile: show Previous/Next, hide the title */
+@media (max-width: 600px) {
+  .md-footer__direction {
+    display: block;
+  }
+
+  .md-footer__title {
+    display: none;
+  }
+}
+
 
 .highlight-text-yellow {
     background-color: yellow;
