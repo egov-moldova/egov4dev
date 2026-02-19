@@ -1,6 +1,26 @@
-.md-footer__inner {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+/* Make footer navigation look like light grey cards */
+.md-footer__link {
+  background: #f2f2f2;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+/* Make all text black */
+.md-footer__link,
+.md-footer__link * {
+  color: #000 !important;
+}
+
+/* Make "Previous/Next" smaller */
+.md-footer__direction {
+  font-size: 11px !important;
+  opacity: 1 !important;
+}
+
+/* Optional: make the page title slightly smaller too */
+.md-footer__title {
+  font-size: 13px !important;
+  font-weight: 600;
 }
 
 .md-footer__direction {display: none;}
