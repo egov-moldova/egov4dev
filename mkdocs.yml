@@ -101,6 +101,7 @@ theme:
   features:
     - navigation.sections
     - navigation.top
+    - navigation.footer
   palette:
     - scheme: default
       primary: indigo
