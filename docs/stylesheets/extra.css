@@ -1,13 +1,7 @@
 
-/* Make "Previous/Next" smaller */
-.md-footer__direction {
-  font-size: 11px !important;
-  opacity: 1 !important;
-}
-
 /* Optional: make the page title slightly smaller too */
 .md-footer__title {
-  font-size: 13px !important;
+  font-size: 16px !important;
   font-weight: 600;
 }
 
