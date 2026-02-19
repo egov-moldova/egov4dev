@@ -1,3 +1,10 @@
+.md-footer__inner {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.md-footer__direction {display: none;}
+
 .highlight-text-yellow {
     background-color: yellow;
 }
