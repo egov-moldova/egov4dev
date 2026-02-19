@@ -1,7 +1,7 @@
 
 /* Optional: make the page title slightly smaller too */
 .md-footer__title {
-  font-size: 16px !important; margin-bottom: .9rem; padding: 0 !important;
+  font-size: .8rem !important; margin-bottom: .7rem; padding: 0 !important;
   font-weight: 600;
 }
 
