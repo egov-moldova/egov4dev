@@ -93,7 +93,7 @@ The Authorization Request JWS payload has the following parameters:
 
 | Parameter | Description |
 |---|---|
-| aud | The audience of the Authorization Request Object and is set to the issuer Wallet Metadata parameter, meaning: **https://evo.gov.md/wallet/v1** |
+| aud | The audience of the Authorization Request Object that must be set to: **https://self-issued.me/v2** |
 | client_id | The client identifier that was issued to the client during the registration process prefixed by client identifier prefix. Example value: x509_hash:71N_JciVv6eCUmUpqbY9l6pjFWTV14nCt2VEjIY1-2w |
 | client_metadata | A JSON object containing the Verifier metadata values as defined in this document. |
 | dcql_query | A JSON object containing a DCQL query as defined in this document. |
