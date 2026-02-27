@@ -44,7 +44,7 @@ The Verifier SHALL validate issuer certificate:
 1. validity period against current time (current time must be between certificate NotBefore and NotAfter fields);
 2. validity period to be maximum 457 days (according to ISO 18013-5);
 3. validity period against MSO.validityPeriod.signed;
-4. chain against <span class="highlight-text-yellow">a list of trusted anchors</span>;
+4. chain against trust anchors (root certificate);
 5. Authority Key Identifier (AKI) to match CA certificate Subject Key Identifier (SKI);
 6. subject "C" and "ST" fields (when present) to match "C" and "ST" fields of CA certificate;
 7. signature algorithm to be "1.2.840.10045.4.3.2", "1.2.840.10045.4.3.3" or "1.2.840.10045.4.3.4";
@@ -69,6 +69,19 @@ For each returned Document, the Verifier SHALL:
 For each returned Document, the Verifier SHALL:
 
 1. check for issuer certificate revocation online using standard CRL/OCSP protocols and CRL or OCSP response signature verification, as efficiently implemented by all frameworks and platforms;
-2. for documents that have MSO.status property present, check the revocation of the Document online against Status List CWT (referenced by MSO.status.status_list **uri** and **idx** properties) and check the issuer certificate that signed the CWT.
+2. for documents that have MSO.status property present, check the revocation of the Document online against Status List CWT (referenced by MSO.status.status_list **uri** and **idx** properties, VALID status being 0 in the referenced list at indicated index).
 
-As Status Lists are meant to ensure presentation privacy and efficiently store the status of multiple documents, the Verifier SHALL cache them according to CWT **ttl** claim.
+## Status List validation
+
+Before processing a Status List CWT, the Verifier SHALL:
+
+1. check the HTTP response to indicate Content-Type: "application/statuslist+cwt";
+2. check the value of **type** (label 16) protected header to be "application/statuslist+cwt";
+3. extract signing certificate chain from **x5chain** (label 33) unprotected header and check its match with issuer certificate;
+4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the signing certificate (first in x5chain);
+5. verify that the list is signed as embedded COSE_Sign1 signature using signing certificate public key;
+6. verify CWT **subject** claim (key 2) match the Status List URI;
+7. verify CWT **issued at** claim (key 6) and **expiration time** claim (key 4) against current time (10 minutes clock skew recommended);
+8. extract the StatusList CBOR structure from CWT **status list** claim (key 65533) and decompress the status bits from **lst** member using ZLIB (**RFC 1950**).
+
+As Status Lists are meant to ensure presentation privacy and efficiently store the status of multiple documents, the Verifier SHALL cache them according to CWT **time to live** claim (key 65534).
