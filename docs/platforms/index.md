@@ -43,7 +43,7 @@ The platform contributes to reducing bureaucracy, saving time, and ensuring a hi
 
 <a href="https://mpay.gov.md/">MPay</a> is the national electronic payment platform designed to simplify financial interactions between citizens, businesses, and public institutions. It provides a secure and unified environment for paying government fees, taxes, and other public services online, eliminating the need for physical visits or manual transactions.
 
-Through MPay, users can complete payments quickly using various methods such as bank cards, internet banking, or payment terminals. The platform ensures transparency and reliability by generating electronic receipts and maintaining a clear record of transactions. By integrating with multiple government services, MPay plays a key role in advancing digital governance and improving the overall user experience in Moldova’s e-Government ecosystem.  
+Through MPay, users can complete payments quickly using various methods such as bank cards, internet banking, or payment terminals. The platform ensures transparency and reliability by generating electronic receipts and maintaining a clear record of transactions. By integrating with multiple government services, MPay plays a key role in advancing digital governance and improving the overall user experience in Moldova's e-Government ecosystem.  
 
 ---
 
@@ -93,4 +93,4 @@ MLog provides authorities with the necessary tools to audit activity, detect ano
 
 The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards.  
 
-MDocs is an essential component of Moldova’s digital government ecosystem, contributing to the efficiency of public administration and the convenience of interactions between citizens, businesses, and the state.
+MDocs is an essential component of Moldova's digital government ecosystem, contributing to the efficiency of public administration and the convenience of interactions between citizens, businesses, and the state.

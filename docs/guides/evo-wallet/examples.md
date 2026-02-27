@@ -49,7 +49,7 @@ This is wallet_metadata in JSON format:
 }
 ```
 
-Verifier’s returned the following Authorization Request:
+Verifier's returned the following Authorization Request:
 
 ```
 HTTP 200 OK

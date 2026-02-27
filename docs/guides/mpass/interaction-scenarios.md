@@ -35,7 +35,7 @@ Here is the description of logout process using MPass:
 2. The Service terminates its local session of the user, i.e. user will have to authenticate again to further access any protected resources.
 3. The Service generates and signs a LogoutRequest and returns this request to the browser in a special redirection page.
 4. The Browser posts (using HTTP POST method) the request to MPass.
-5. If during user’s MPass session, user has authenticated in other services, MPass generates and signs a LogoutRequest for each such service, returning them all to the Browser.
+5. If during user's MPass session, user has authenticated in other services, MPass generates and signs a LogoutRequest for each such service, returning them all to the Browser.
 6. The Browser posts these requests to respective services.
 7. Upon LogoutRequest receipt, each service validates the request, then terminates its local session of the user, i.e. user will have to authenticate again to further access service protected resources.
 8. Each service then generates and signs a LogoutResponse to confirm the logout result and returns this response to the Browser in a special redirection page. Note that for correct logout processing when using HTTP POST, services must return the following header in HTTP response:

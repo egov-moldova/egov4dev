@@ -2,7 +2,7 @@
 2. Sign the contract and the MDocs service provision annex;<br>Note! If the institution already has a system integrated with another MEGA service and has an active contract, it is not necessary to sign a new contract, but only to sign the MDocs service provision annex.
 3. Send the following information to MEGA at servicii@egov.md ; 
     - the .cer file (public key), if the institution does not have a system certificate;
-    - or the certificate’s serial number, if the institution already has an valid certificate;
+    - or the certificate's serial number, if the institution already has an valid certificate;
     - the name of the requesting system;
     - the public IP address;<br>**Note!** MDocs only allows access from registered IP addresses or via a secure VPN. 
 5. MEGA configures the institution's access to the staging environment; 

@@ -12,5 +12,5 @@
      - the fields are complete and correctly named according to the technical guide;
      - no non-standard fields are logged without necessity. 
 6. After completing the tests, the beneficiary sends confirmation to MEGA. 
-7. After the beneficiary’s final validation, MEGA activates the service in the production environment. 
+7. After the beneficiary's final validation, MEGA activates the service in the production environment. 
 8. The beneficiary receives a notification confirming the completion of the integration.

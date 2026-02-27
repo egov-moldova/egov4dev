@@ -4,8 +4,8 @@ To ensure authenticity and non-repudiation, before processing the received data 
 
 As stated previously, after identifying the corresponding transaction and before decrypting the received JWE, the Verifier SHALL:
 
-1. verify that the **alg** JWE header value is ”ECDH-ES”;
-2. verify that the **enc** JWE header value is “A256GCM”;
+1. verify that the **alg** JWE header value is "ECDH-ES";
+2. verify that the **enc** JWE header value is "A256GCM";
 3. verify the apv **JWE** header value matches the transaction persisted **nonce** value;
 4. verify the kid **JWE** header value matches the transaction persisted key identifier.
 
@@ -13,7 +13,7 @@ As stated previously, after identifying the corresponding transaction and before
 
 For each DeviceResponse, the Verifier SHALL:
 
-1. verify that DeviceResponse.version is “1.0”;
+1. verify that DeviceResponse.version is "1.0";
 2. verify there are no document errors (in DeviceResponse.documentErrors);
 3. verify DeviceResponse status (DeviceResponse.status must be zero);
 4. verify that there is at least one document returned (in DeviceResponse.documents);
@@ -31,9 +31,9 @@ For each Document, the Verifier SHALL:
 
 For each returned Document, the Verifier SHALL extract the MSO that is embedded in COSE_Sign1 signature which is Document.issuerSigned.issuerAuth and:
 
-1. verify that MSO.version is “1.0”;
+1. verify that MSO.version is "1.0";
 2. verify issuer signature;
-3. calculate all data element digests and compare them with MSO.valueDigests using the digest algorithm specified in MSO.digestAlgorithm (usually “SHA-256”);
+3. calculate all data element digests and compare them with MSO.valueDigests using the digest algorithm specified in MSO.digestAlgorithm (usually "SHA-256");
 4. verify the match between MSO.docType and Document.docType;
 5. verify MSO validity period against current time (current time must be between MSO.validityPeriod.validFrom and MSO.validityPeriod.validTo).
 
@@ -46,10 +46,10 @@ The Verifier SHALL validate issuer certificate:
 3. validity period against MSO.validityPeriod.signed;
 4. chain against <span class="highlight-text-yellow">a list of trusted anchors</span>;
 5. Authority Key Identifier (AKI) to match CA certificate Subject Key Identifier (SKI);
-6. subject “C” and “ST” fields (when present) to match “C” and “ST” fields of CA certificate;
+6. subject "C" and "ST" fields (when present) to match "C" and "ST" fields of CA certificate;
 7. signature algorithm to be "1.2.840.10045.4.3.2", "1.2.840.10045.4.3.3" or "1.2.840.10045.4.3.4";
 8. key usage must be digitalSignature (bit 0 set);
-9. extended key usage (EKU) must include “1.0.18013.5.1.2” (mdlDS);
+9. extended key usage (EKU) must include "1.0.18013.5.1.2" (mdlDS);
 10. does not contain any of the following extensions:
     * "2.5.29.30" – Name Constraints
     * "2.5.29.33" – Policy Mappings

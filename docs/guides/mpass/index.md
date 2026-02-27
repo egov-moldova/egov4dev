@@ -26,7 +26,7 @@ MPass is a government-wide authentication and identity management service in the
 
 ## Quick start for integrators
 
-1. Before being able to interact with MPass, a Service must be registered accordingly in MPass. To perform such a registration, please generate a self-signed or provide any existing certificate file (in .cer file format) to Service owner”;
+1. Before being able to interact with MPass, a Service must be registered accordingly in MPass. To perform such a registration, please generate a self-signed or provide any existing certificate file (in .cer file format) to Service owner";
 2. Identify the set of required attributes (including custom attribute names and values) to be returned by MPass during the design phase of the Service and specify them as part of Service registration.
 3. Review the SSO/SLO flows to understand user and system interactions.
 4. Prepare your SP endpoints (Assertion Consumer Service, Single Logout Service) and generate SP metadata.

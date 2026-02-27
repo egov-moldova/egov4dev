@@ -42,7 +42,7 @@
 | PKI | Public Key Infrastructure |
 | POST | A standard HTTP request method |
 | Principal | The owner of the document in URN format: `urn:md:idno/idnp` |
-| Priority | The notification transmission priority (low, medium, high) set by the Sender. **Note:** Low/Medium follow Recipient’s preferences per channel; High priority is immediate, ignoring preferences. |
+| Priority | The notification transmission priority (low, medium, high) set by the Sender. **Note:** Low/Medium follow Recipient's preferences per channel; High priority is immediate, ignoring preferences. |
 | Quota | Quota information |
 | Read permission | View and read the document |
 | Recipient | The user who will receive the message |

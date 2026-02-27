@@ -1,6 +1,6 @@
 MConnect Events integrates two types of clients: event producers and event consumers. A client information system can be configured to be either a producer, a consumer, or both.
 
-As defined by CloudEvents standard, all events have a type. In MConnect Events context, types are named using the following convention: “Organization.System.Entity.Action” (for example “AGE.MPass.User.Authenticated”). A Producer is authorized to produce and a Consumer to consume only certain types of events
+As defined by CloudEvents standard, all events have a type. In MConnect Events context, types are named using the following convention: "Organization.System.Entity.Action" (for example "AGE.MPass.User.Authenticated"). A Producer is authorized to produce and a Consumer to consume only certain types of events
 
 ## Produce events
 

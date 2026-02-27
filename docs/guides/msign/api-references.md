@@ -134,7 +134,7 @@ The consumers using programming languages that support try… catch blocks, catc
     <tr>
       <td>language</td>
       <td>string</td>
-      <td>The language to be used for response localization. Allowed values: “ro”, “ru”, “en”. For backward compatibility, this parameter is optional and the default value is “ro”.</td>
+      <td>The language to be used for response localization. Allowed values: "ro", "ru", "en". For backward compatibility, this parameter is optional and the default value is "ro".</td>
     </tr>
   </tbody>
 </table>
@@ -312,7 +312,7 @@ The consumers using programming languages that support try… catch blocks, catc
       <td>Language</td>
       <td>string (2)</td>
       <td>Optional, default: ro</td>
-      <td>The language to be used for response localization. Allowed values: “ro”, “ru”, “en”</td>
+      <td>The language to be used for response localization. Allowed values: "ro", "ru", "en"</td>
     </tr>
     <tr>
       <td>Contents</td>
@@ -570,8 +570,8 @@ The consumers using programming languages that support try… catch blocks, catc
       <td>Instrument</td>
       <td>string</td>
       <td>Optional and not recommended</td>
-      <td>The signing instrument to be used, i.e. skipping signing instrument selection page. Allowed values: “mobile”, “moldsign”, “nationalid”, “securesign”, “tax”.
-      <br> Note that for “mobile” instrument to work without instrument selection, you have to provide MSISDN and ExpectedSigner.ID of the expected signer.</td>
+      <td>The signing instrument to be used, i.e. skipping signing instrument selection page. Allowed values: "mobile", "moldsign", "nationalid", "securesign", "tax".
+      <br> Note that for "mobile" instrument to work without instrument selection, you have to provide MSISDN and ExpectedSigner.ID of the expected signer.</td>
     </tr>
     <tr>
       <td>MSISDN</td>
@@ -589,7 +589,7 @@ The consumers using programming languages that support try… catch blocks, catc
       <td>lang</td>
       <td>string</td>
       <td>Optional</td>
-      <td>Language to be used by MSign user interface. Allowed values: “ro”, “ru”, “en”</td>
+      <td>Language to be used by MSign user interface. Allowed values: "ro", "ru", "en"</td>
     </tr>
   </tbody>
 </table>

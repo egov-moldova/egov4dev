@@ -6,17 +6,17 @@ DeviceResponse, i.e. device retrieval mdoc response, shall be encoded and format
 
 ```
 DeviceResponse = {
-  “version”: tstr,                      ; Version DeviceResponse, shall be “1.0”
-  ? “documents”: [+Document],           ; Returned documents
-  ? “documentErrors”: [+DocumentError]  ; error codes for unreturned documents
-  “status”: uint                        ; Status code, set to 0 when OK
+  "version": tstr,                      ; Version DeviceResponse, shall be "1.0"
+  ? "documents": [+Document],           ; Returned documents
+  ? "documentErrors": [+DocumentError]  ; error codes for unreturned documents
+  "status": uint                        ; Status code, set to 0 when OK
 }
 
 Document = {
-  “docType”: tstr                       ; Document type returned
-  “issuerSigned”: IssuerSigned,         ; Returned data elements signed by the issuer
-  “deviceSigned”: DeviceSigned          ; Returned data elements signed by the wallet
-  ? “errors”: Errors
+  "docType": tstr                       ; Document type returned
+  "issuerSigned": IssuerSigned,         ; Returned data elements signed by the issuer
+  "deviceSigned": DeviceSigned          ; Returned data elements signed by the wallet
+  ? "errors": Errors
 }
 
 DocumentError = {
@@ -24,8 +24,8 @@ DocumentError = {
 }
 
 IssuerSigned = {
-  ? “nameSpaces”: IssuerNameSpaces,     ; Returned data elemenents
-  “issuerAuth”: IssuerAuth              ; Contains the mobile security object (MSO)
+  ? "nameSpaces": IssuerNameSpaces,     ; Returned data elemenents
+  "issuerAuth": IssuerAuth              ; Contains the mobile security object (MSO)
                                         ; for issuer data authentication
 }
 
@@ -36,10 +36,10 @@ IssuerNameSpaces = {
 IssuerSignedItemBytes = #6.24(bstr .cbor IssuerSignedItem)
 
 IssuerSignedItem = {
-  “digestID”: DigestID,                       ; Digest ID for issuer authentication
-  “random”: bstr,                             ; Random value for issuer authentication
-  “elementIdentifier”: DataElementIdentifier, ; Data element identifier
-  “elementValue”: DataElementValue            ; Data element value
+  "digestID": DigestID,                       ; Digest ID for issuer authentication
+  "random": bstr,                             ; Random value for issuer authentication
+  "elementIdentifier": DataElementIdentifier, ; Data element identifier
+  "elementValue": DataElementValue            ; Data element value
 }
 
 IssuerAuth = Cose_Sign1             ; Untagged COSE_Sign1 signature of embedded
@@ -50,13 +50,13 @@ IssuerAuth = Cose_Sign1             ; Untagged COSE_Sign1 signature of embedded
 MobileSecurityObjectBytes = #6.24(bstr .cbor MobileSecurityObject)
 
 MobileSecurityObject = {
-  “version”: tstr,                  ; Version of MobileSecurityObject, shall be “1.0”
-  “digestAlgorithm”: tstr           ; Message digest algorithm used
-  “valueDigests”: ValueDigests,     ; Digests of all data elements per namespace
-  “deviceKeyInfo”: DeviceKeyInfo,   ; Info about device key
-  “docType”: DocType,               ; Document type
-  “validityInfo”: ValidityInfo      ; Info about document validity
-  ? “status”: StatusInfo            ; Info about document status
+  "version": tstr,                  ; Version of MobileSecurityObject, shall be "1.0"
+  "digestAlgorithm": tstr           ; Message digest algorithm used
+  "valueDigests": ValueDigests,     ; Digests of all data elements per namespace
+  "deviceKeyInfo": DeviceKeyInfo,   ; Info about device key
+  "docType": DocType,               ; Document type
+  "validityInfo": ValidityInfo      ; Info about document validity
+  ? "status": StatusInfo            ; Info about document status
 }
 
 ValueDigests = {
@@ -68,16 +68,16 @@ DigestIDs = {
 }
 
 DeviceKeyInfo = {
-  “deviceKey”: DeviceKey,                   ; Device public key
-  ? “keyAuthorizations”: KeyAuthorizations, ; Device key usage authorizations
-  ? “keyInfo”: KeyInfo                      ; Device key information
+  "deviceKey": DeviceKey,                   ; Device public key
+  ? "keyAuthorizations": KeyAuthorizations, ; Device key usage authorizations
+  ? "keyInfo": KeyInfo                      ; Device key information
 }
 
 DeviceKey = COSE_Key                        ; Untagged COSE_Key (RFC 8152)
 
 KeyAuthorizations = {
-  ? “nameSpaces”: AuthorizedNameSpaces      ; Namespaces authorized for DeviceKey
-  ? “dataElements”: AuthorizedDataElements  ; Data elements authorized for DeviceKey
+  ? "nameSpaces": AuthorizedNameSpaces      ; Namespaces authorized for DeviceKey
+  ? "dataElements": AuthorizedDataElements  ; Data elements authorized for DeviceKey
 }
 
 AuthorizedNameSpaces = [
@@ -98,24 +98,24 @@ KeyInfo = {
 }
 
 ValidityInfo = {
-  “signed”: tdate,
-  “validFrom”: tdate,
-  “validUntil”: tdate,
-  ? “expectedUpdate”: tdate
+  "signed": tdate,
+  "validFrom": tdate,
+  "validUntil": tdate,
+  ? "expectedUpdate": tdate
 }
 
 StatusInfo = {
-  “status_list”: StatusListInfo ; Reference to status CWT
+  "status_list": StatusListInfo ; Reference to status CWT
 }
 
 StatusListInfo = {
-  “idx”: uint                   ; The index to check for status information
-  “uri”: tstr                   ; Status list token URI
+  "idx": uint                   ; The index to check for status information
+  "uri": tstr                   ; Status list token URI
 }
 
 DeviceSigned = {
-  “nameSpaces”: DeviceNameSpacesBytes,  ; Returned data elements
-  “deviceAuth”: DeviceAuth              ; Device authentication for mdoc
+  "nameSpaces": DeviceNameSpacesBytes,  ; Returned data elements
+  "deviceAuth": DeviceAuth              ; Device authentication for mdoc
                                         ; authentication (i.e. presentation)
 }
 
@@ -131,7 +131,7 @@ DeviceSignedItems = {
 }
 
 DeviceAuth = {
-  “deviceSignature”: DeviceSignature          ; Signature for mdoc authentication
+  "deviceSignature": DeviceSignature          ; Signature for mdoc authentication
 }
 
 DeviceSignature = COSE_Sign1                  ; Untagged COSE_Sign1 signature of 
@@ -140,7 +140,7 @@ DeviceSignature = COSE_Sign1                  ; Untagged COSE_Sign1 signature of
 DeviceAuthenticationBytes = #6.24(bstr .cbor DeviceAuthentication)
 
 DeviceAuthentication = [
-  “DeviceAuthentication”,
+  "DeviceAuthentication",
   SessionTranscript,
   DocType,
   DeviceNameSpacesBytes
@@ -153,7 +153,7 @@ SessionTranscript = [
 ]
 
 OpenID4VPHandover = [
-  “OpenID4VPHandover”,       ; A fixed identifier for this handover type
+  "OpenID4VPHandover",       ; A fixed identifier for this handover type
   OpenID4VPHandoverInfoHash  ; A cryptographic hash of OpenID4VPHandoverInfo
 ]
 
@@ -165,7 +165,7 @@ OpenID4VPHandoverInfo = [
   clientId: tstr,           ; client_id request parameter, including prefix
   nonce: tstr,              ; nonce request parameter
   jwkThumbprint: bstr,      ; JWK SHA-256 Thumbprint (RFC 7638) of the 
-                            ; Verifier’s public key used for encryption
+                            ; Verifier's public key used for encryption
   responseUri: tstr         ; response_uri request parameter
 ]
 

@@ -6,7 +6,7 @@ The diagram depicts the interaction between EVO User, EVO Wallet module, Verifie
 
 The interaction consists of the following steps:
 
-1. In case of dynamic QR (optional steps 1-3), the Verifier Frontend (triggered by Verifier’s representative) requests credential presentation transaction initiation from Verifier Backend.
+1. In case of dynamic QR (optional steps 1-3), the Verifier Frontend (triggered by Verifier's representative) requests credential presentation transaction initiation from Verifier Backend.
 2. Verifier Backend creates and records a new transaction.
 3. Verifier Backend returns its identifier and a full link (which can be included in QR code) to Verifier Frontend.
 4. A freshly created or static QR code or Link is shown to the User. The link includes the **request_uri**. Static QR codes can include the type of requested document, branch identifier, desk operator identifier as parameters in **request_uri**, enabling Verifier Backend to dynamically create the transaction.
@@ -20,14 +20,14 @@ The interaction consists of the following steps:
 12. User reviews the request, can select returned credentials and/or data elements and confirms the presentation.
 13. Wallet creates a device nonce, creates a DeviceResponse CBOR structure for each document and signs each with DeviceKey using COSE_Sign1 format.
 14. Wallet derives a symmetric encryption key from Verifier submitted ephemeral key, its own ephemeral key, nonce and device nonce (using ECDH-ES algorithm) and encrypts the Authorization Response in JWE format.
-15. Wallet submits the Authorization Response JWE to the Verifier Backend via the provided **response_uri** using HTTP POST. It includes **nonce**, device nonce, Wallet’s ephemeral key, **vp_token** with serialized DeviceResponse(s) and **state**.
-16. Verifier Backend identifies the transaction from **response_uri**, validates nonce and key ephemeral identifier, derives the symmetric encryption key from its ephemeral key and Wallet’s ephemeral keys, nonce and submitted device nonce (using ECDH-ES), decrypts the Authorization Response, parses DeviceResponse CBOR structure(s), validates document type, document integrity, device and issuer signatures, issuer certificate and revocations.
+15. Wallet submits the Authorization Response JWE to the Verifier Backend via the provided **response_uri** using HTTP POST. It includes **nonce**, device nonce, Wallet's ephemeral key, **vp_token** with serialized DeviceResponse(s) and **state**.
+16. Verifier Backend identifies the transaction from **response_uri**, validates nonce and key ephemeral identifier, derives the symmetric encryption key from its ephemeral key and Wallet's ephemeral keys, nonce and submitted device nonce (using ECDH-ES), decrypts the Authorization Response, parses DeviceResponse CBOR structure(s), validates document type, document integrity, device and issuer signatures, issuer certificate and revocations.
 17. Verifier Backend records the presented document(s) as presentation demonstration and processes their data elements according to its needs.
 18. Verifier Backend replies with a HTTP 200 OK response to the Wallet that includes a JSON object with optional **redirect_uri**.
 19. Wallet confirms successful presentation to the User and, if provided, redirects user to **redirect_uri**.
 20. In the meantime (after step 3) the Verifier Frontend periodically checks for transaction status with Verifier Backend.
 21. Verifier Backend returns the status of the transaction, which can be pending, failed or succeeded.
-22. Upon successful transaction, Verifier Frontend can show some data elements to Verifier’s representative to let him/her match the data received to the person presenting the document(s).
+22. Upon successful transaction, Verifier Frontend can show some data elements to Verifier's representative to let him/her match the data received to the person presenting the document(s).
 
 ## Device Engagement
 
@@ -41,13 +41,13 @@ The URL has the following structure:
 | URI Component | Description |
 |---|---|
 | eudi-openid4vp:// | URI scheme that causes the Wallet to open. |
-| client_id | Required query parameter specifying the Client Identifier of the Verifier. The value is base64url-encoded SHA-256 hash of the DER-encoded X.509 public key certificate used by the Verifier to sign the request prefixed with “**x509_hash:**”. |
+| client_id | Required query parameter specifying the Client Identifier of the Verifier. The value is base64url-encoded SHA-256 hash of the DER-encoded X.509 public key certificate used by the Verifier to sign the request prefixed with "**x509_hash:**". |
 | request_uri | Required query parameter determining the HTTPS-based URL where the Wallet retrieves the Authorization Request object. The value MUST be URL-encoded. |
 | request_uri_method | Required query parameter determining the HTTP method to be used. MUST be set to **post**. This means Wallet will submit to the indicated **request_uri** its metadata and a nonce using HTTP POST method. |
 
 The URL-encoded **request_uri** can include additional parameters necessary to identify a pre-defined, pre-prepared or dynamically created transaction that represents the state of Authorization Request. For example, it can contain the type of the requested document, branch identifier, desk operator identifier or the identifier of the Authorization Request transaction that is freshly created and persisted by the Verifier backend. Thus, it is important to minimize its length when presented as QR, without allowing an attacker to easily generate or guess a correct one.
 
-Either scanned from a QR or tapped on as a link, accessing this URL causes the Wallet app to open. The app will then make a HTTP POST request to the Verifier’s **request_uri** with **Accept** header set to **application/oauth-authz-req+jwt** with the following parameters encoded as **application/x-www-form-urlencoded**:
+Either scanned from a QR or tapped on as a link, accessing this URL causes the Wallet app to open. The app will then make a HTTP POST request to the Verifier's **request_uri** with **Accept** header set to **application/oauth-authz-req+jwt** with the following parameters encoded as **application/x-www-form-urlencoded**:
 
 | Parameter | Description |
 |---|---|
@@ -63,14 +63,14 @@ The structure of wallet_metadata object is the following:
 | response_types_supported | A non-empty array of strings containing the values of the response types that the Wallet supports. EVO Wallet uses the following values: **["vp_token"]** |
 | response_modes_supported | A non-empty array of strings containing the values of the response modes that the Wallet supports. EVO Wallet uses the following values: **["direct_post.jwt"]** |
 | vp_formats_supported | An object containing a list of name/value pairs, where the name is a Credential Format Identifier and the value defines format-specific parameters that a Wallet supports. EVO Wallet uses the following value: **{ "mso_mdoc": { "issuerauth_alg_values": [-7], "deviceauth_alg_values": [-7] } }** |
-| client_id_prefixes_supported | A non-empty array of strings containing the values of the Client Identifier Prefixes that the Wallet supports. EVO Wallet uses the following values: **[“x509_hash”]** |
+| client_id_prefixes_supported | A non-empty array of strings containing the values of the Client Identifier Prefixes that the Wallet supports. EVO Wallet uses the following values: **["x509_hash"]** |
 | request_object_signing_alg_values_supported | A non-empty array of strings containing the list supported cryptographic algorithms for securing the Request Object. EVO Wallet uses the following values: **["ES256"]** |
 | authorization_encryption_alg_values_supported | A non-empty array of strings containing the supported algorithms for encryption. EVO Wallet uses the following values: **["ECDH-ES"]** |
 | authorization_encryption_enc_values_supported | A non-empty array of strings containing the supported key types for encryption. EVO Wallet uses the following values: **["A256GCM"]** |
 
 ## Returning Authorization Request
 
-As a result of HTTP POST request to the Verifier’s **request_uri**, the Verifier shall respond with a new Authorization Request.
+As a result of HTTP POST request to the Verifier's **request_uri**, the Verifier shall respond with a new Authorization Request.
 
 It is suggested that an Authorization Request and the corresponding Authorization Response is part of a presentation transaction persisted by Verifier. It includes a freshly generated nonce and ephemeral key (with public key returned in client_metadata.jwks), has an expiration and usage status to prevent replays.
 
@@ -99,7 +99,7 @@ The Authorization Request JWS payload has the following parameters:
 | dcql_query | A JSON object containing a DCQL query as defined in this document. |
 | <span class="highlight-text-yellow">scope</span> | <span class="highlight-text-yellow">A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet.</span> |
 | transaction_data | An optional non-empty array of strings, where each string is a base64url-encoded JSON object that contains a typed parameter set with details about the transaction that the Verifier is requesting the End-User to authorize. Not yet leveraged by EVO. |
-| <span class="highlight-text-yellow">verifier_info</span> | <span class="highlight-text-yellow">This is the place to reference Verifier’s logo, ToS, PP and actual human operator for physical presentations.</span> |
+| <span class="highlight-text-yellow">verifier_info</span> | <span class="highlight-text-yellow">This is the place to reference Verifier's logo, ToS, PP and actual human operator for physical presentations.</span> |
 | response_type | Response type to be used. MUST be: **vp_token** |
 | response_mode | Response mode to be used. MUST be: **direct_post.jwt** |
 | response_uri | The HTTPS URL that represents the HTTPS POST endpoint for submitting the encrypted Authorization Response required by the Response Mode direct_post.jwt. This usually includes parameters that enable the Verifier to identify the presentation transaction. |
@@ -146,7 +146,7 @@ Each entry in **trusted_authorities** array MUST be an object with the following
 
 | Parameter | Description |
 |---|---|
-| type | A required string uniquely identifying the type of information about the issuer trust framework. <span class="highlight-text-yellow">Use “aki” or “etsli_tl”.</span> |
+| type | A required string uniquely identifying the type of information about the issuer trust framework. <span class="highlight-text-yellow">Use "aki" or "etsli_tl".</span> |
 | values | A required non-empty array of strings, where each string (value) contains information specific to the used Trusted Authorities Query type that allows the identification of an issuer, or a trust framework that an issuer belongs to. |
 
 Each entry in **claims** array MUST be an object with the following parameters:
@@ -156,11 +156,11 @@ Each entry in **claims** array MUST be an object with the following parameters:
 | id | A string identifying the particular claim. The value MUST be a non-empty string consisting of alphanumeric, underscore (_), or hyphen (-) characters. Within the particular claims array, the same id MUST NOT be present more than once. Required if **claims_set** is present, optional otherwise. |
 | path | A required value that MUST be a non-empty array representing a claims path pointer that specifies the path to a claim within the Credential. A path pointer into an mdoc contains two elements of type string. The first element refers to a namespace and the second element refers to a data element identifier. |
 | values | An optional non-empty array of strings, integers or boolean values that specifies the expected values of the claim. If the values property is present, the Wallet SHOULD return the claim only if the type and value of the claim both match exactly for at least one of the elements in the array. |
-| intent_to_retain | An optional boolean variable that indicates whether the Verifier intends to retain the received data element. Default value is **false**. The Verifier SHALL not retain any data elements, except for data elements for which the intent_to_retain flag was set to true in the request. To retain is defined as “to store for a period longer than necessary to conduct the transaction in realtime”. |
+| intent_to_retain | An optional boolean variable that indicates whether the Verifier intends to retain the received data element. Default value is **false**. The Verifier SHALL not retain any data elements, except for data elements for which the intent_to_retain flag was set to true in the request. To retain is defined as "to store for a period longer than necessary to conduct the transaction in realtime". |
 
 ## Handling Authorization Response
 
-After user consent, Wallet sends the encrypted Authorization Response as JWE using HTTP POST method to Verifier’s **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
+After user consent, Wallet sends the encrypted Authorization Response as JWE using HTTP POST method to Verifier's **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
 
 | Parameter | Description |
 |---|---|
@@ -192,7 +192,7 @@ The Verifier can decrypt Authorization Response JWE with a derived AES-256 symme
 
 • Information about producer, sent in Authorization Response JWE header **apu** parameter, which is the device nonce generated by Wallet.
 
-• Information about recipient, sent in Authorization Response JWE header **apv** parameter, which is Verifier’s nonce originally sent in Authorization Request JWS payload.
+• Information about recipient, sent in Authorization Response JWE header **apv** parameter, which is Verifier's nonce originally sent in Authorization Request JWS payload.
 
 Verifier shall also ensure that the **apv** JWE header value matches the transaction persisted **nonce** value.
 
@@ -206,7 +206,7 @@ Upon successful processing of Authorization Response or Authorization Error Resp
 
 ## Authorization Error Response
 
-In case of error, Wallet sends the plain Authorization Error Response using HTTP POST method to Verifier’s **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
+In case of error, Wallet sends the plain Authorization Error Response using HTTP POST method to Verifier's **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
 
 | Parameter | Description |
 |---|---|

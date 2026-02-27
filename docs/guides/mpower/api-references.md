@@ -617,7 +617,7 @@ Because this method can be called multiple times on different days/times, the re
     </tr>
     <tr>
       <td>PendingAcceptance</td>
-      <td>The power of representation is granted, but requires the representative’s acceptance to become valid</td>
+      <td>The power of representation is granted, but requires the representative's acceptance to become valid</td>
       <td>None</td>
     </tr>
     <tr>
@@ -672,7 +672,7 @@ Because this method can be called multiple times on different days/times, the re
     </tr>
     <tr>
       <td>2</td>
-      <td>The power of representation that was granted, but requires the representative’s acceptance to become valid</td>
+      <td>The power of representation that was granted, but requires the representative's acceptance to become valid</td>
       <td>PendingAcceptance</td>
     </tr>
     <tr>

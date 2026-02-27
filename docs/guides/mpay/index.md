@@ -32,7 +32,7 @@ This document describes the technical interfaces used to integrate with MPay. Th
 
 The availability of MPay depends on the availability of the IServiceProvider implementation,
 i.e. a payer will not be able to query for an order or an invoice for a particular e-Service and
-pay for it, if the e-Service provider’s web-service is not available.
+pay for it, if the e-Service provider's web-service is not available.
 
 ## Protocols and standards
 
