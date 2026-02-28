@@ -14,7 +14,7 @@ The interaction consists of the following steps:
 6. Wallet verifiers link structure, creates and records a **wallet_nonce**.
 7. To get an Authorization Request from Verifier Backend, the Wallet submits **wallet_metadata** and **wallet_nonce** to the provided **request_uri** using HTTP POST.
 8. After identifying or creating a new transaction, Verifier Backend records in transaction the **wallet_nonce** and a newly created **nonce** and ephemeral key for response decryption.
-9. Verifier Backend creates and sings an Authorization Request JWS, that includes its **client_metadata** with ephemeral key, **nonce, wallet_nonce, dcql_query, response_ur**i and **state**, then returns it to the Wallet in a HTTP 200 OK response. The **response_uri** includes parameters that enable the Verifier to identify the transaction.
+9. Verifier Backend creates and sings an Authorization Request JWS, that includes its **client_metadata** with ephemeral key, **nonce, wallet_nonce, dcql_query, response_uri** and **state**, then returns it to the Wallet in a HTTP 200 OK response. The **response_uri** includes parameters that enable the Verifier to identify the transaction.
 10. Wallet parses and validates Authorization Request signature and received **wallet_nonce**.
 11. Wallet identifies the credentials matching the **dcql_query** and shows them to the user to request a presentation confirmation.
 12. User reviews the request, can select returned credentials and/or data elements and confirms the presentation.
@@ -74,11 +74,6 @@ As a result of HTTP POST request to the Verifier's **request_uri**, the Verifier
 
 It is suggested that an Authorization Request and the corresponding Authorization Response is part of a presentation transaction persisted by Verifier. It includes a freshly generated nonce and ephemeral key (with public key returned in client_metadata.jwks), has an expiration and usage status to prevent replays.
 
-<div class="highlight-text-yellow">  
-How is Friendly Name recorded/extracted from the certificate/request?<br>
-What about the Friendly Name of the operator (is it intermediary?)? It might be the reason to use verifier_info?
-</div>
-
 Returned Authorization Request object MUST is a signed JWT, meaning JWS according to **RFC 7515**.
 
 The Authorization Request JWS header has the following parameters:
@@ -97,9 +92,9 @@ The Authorization Request JWS payload has the following parameters:
 | client_id | The client identifier that was issued to the client during the registration process prefixed by client identifier prefix. Example value: x509_hash:71N_JciVv6eCUmUpqbY9l6pjFWTV14nCt2VEjIY1-2w |
 | client_metadata | A JSON object containing the Verifier metadata values as defined in this document. |
 | dcql_query | A JSON object containing a DCQL query as defined in this document. |
-| <span class="highlight-text-yellow">scope</span> | <span class="highlight-text-yellow">A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet.</span> |
+| scope | A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet. |
 | transaction_data | An optional non-empty array of strings, where each string is a base64url-encoded JSON object that contains a typed parameter set with details about the transaction that the Verifier is requesting the End-User to authorize. Not yet leveraged by EVO. |
-| <span class="highlight-text-yellow">verifier_info</span> | <span class="highlight-text-yellow">This is the place to reference Verifier's logo, ToS, PP and actual human operator for physical presentations.</span> |
+| <span class="highlight-text-yellow">verifier_info</span> | <span class="highlight-text-yellow">To be documented.</span> |
 | response_type | Response type to be used. MUST be: **vp_token** |
 | response_mode | Response mode to be used. MUST be: **direct_post.jwt** |
 | response_uri | The HTTPS URL that represents the HTTPS POST endpoint for submitting the encrypted Authorization Response required by the Response Mode direct_post.jwt. This usually includes parameters that enable the Verifier to identify the presentation transaction. |

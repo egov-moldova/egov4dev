@@ -69,7 +69,7 @@ For each returned Document, the Verifier SHALL:
 For each returned Document, the Verifier SHALL:
 
 1. check for issuer certificate revocation online using standard CRL/OCSP protocols and CRL or OCSP response signature verification, as efficiently implemented by all frameworks and platforms;
-2. for documents that have MSO.status property present, check the revocation of the Document online against Status List CWT (referenced by MSO.status.status_list **uri** and **idx** properties, VALID status being 0 in the referenced list at indicated index).
+2. for documents that have MSO.status property present, check the revocation of the Document online against Status List CWT (referenced by MSO.status.status_list **uri** and **idx**, VALID status bit being set to 0 in the referenced list at indicated index).
 
 ## Status List validation
 
