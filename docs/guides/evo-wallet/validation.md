@@ -6,8 +6,8 @@ As stated previously, after identifying the corresponding transaction and before
 
 1. verify that the **alg** JWE header value is "ECDH-ES";
 2. verify that the **enc** JWE header value is "A256GCM";
-3. verify the apv **JWE** header value matches the transaction persisted **nonce** value;
-4. verify the kid **JWE** header value matches the transaction persisted key identifier.
+3. verify the **apv** JWE header value matches the transaction persisted **nonce** value;
+4. verify the **kid** JWE header value matches the transaction persisted key identifier.
 
 ## DeviceResponse structural validation
 
