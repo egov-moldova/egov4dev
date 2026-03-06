@@ -29,7 +29,7 @@ For each Document, the Verifier SHALL:
 
 ## Issuer data authentication
 
-For each returned Document, the Verifier SHALL extract the MSO that is embedded in COSE_Sign1 signature which is Document.issuerSigned.issuerAuth and:
+For each returned Document, the Verifier SHALL decode the MSO that is embedded in COSE_Sign1 signature which is Document.issuerSigned.issuerAuth and:
 
 1. verify that MSO.version is "1.0";
 2. verify issuer signature;
@@ -69,19 +69,21 @@ For each returned Document, the Verifier SHALL:
 For each returned Document, the Verifier SHALL:
 
 1. check for issuer certificate revocation online using standard CRL/OCSP protocols and CRL or OCSP response signature verification, as efficiently implemented by all frameworks and platforms;
-2. for documents that have MSO.status property present, check the revocation of the Document online against Status List CWT (referenced by MSO.status.status_list **uri** and **idx**, VALID status bit being set to 0 in the referenced list at indicated index).
+2. for documents that have MSO.status property present, check the status of the Document online against Status List CWT referenced by **uri** (member of MSO.status.status_list), where the bit at index **idx** must be VALID (set to 0).
 
 ## Status List validation
 
+For revocable documents, the Status List CWT is obtained using HTTP GET method from **uri** (member of MSO.status.status_list) using content negotiation. That means the HTTP request must have **Accept** header set to "application/statuslist+cwt".
+
 Before processing a Status List CWT, the Verifier SHALL:
 
-1. check the HTTP response to indicate Content-Type: "application/statuslist+cwt";
+1. check the HTTP response to indicate **Content-Type**: "application/statuslist+cwt";
 2. check the value of **type** (label 16) protected header to be "application/statuslist+cwt";
-3. extract signing certificate chain from **x5chain** (label 33) unprotected header and check its match with issuer certificate;
+3. decode signing certificate chain from **x5chain** (label 33) unprotected header and check its match with issuer certificate;
 4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the signing certificate (first in x5chain);
 5. verify that the list is signed as embedded COSE_Sign1 signature using signing certificate public key;
 6. verify CWT **subject** claim (key 2) match the Status List URI;
 7. verify CWT **issued at** claim (key 6) and **expiration time** claim (key 4) against current time (10 minutes clock skew recommended);
-8. extract the StatusList CBOR structure from CWT **status list** claim (key 65533) and decompress the status bits from **lst** member using ZLIB (**RFC 1950**).
+8. decode the StatusList CBOR structure from CWT **status list** claim (key 65533) and decompress the status bits from **lst** member using ZLIB (**RFC 1950**).
 
 As Status Lists are meant to ensure presentation privacy and efficiently store the status of multiple documents, the Verifier SHALL cache them according to CWT **time to live** claim (key 65534).
