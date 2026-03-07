@@ -33,7 +33,7 @@ For each returned Document, the Verifier SHALL decode the MSO that is embedded i
 
 1. verify that MSO.version is "1.0";
 2. decode issuer certificate chain from **x5chain** (label 33) unprotected header;
-3. verify issuer signature created with public key of issuer certificate;
+3. verify issuer signature using issuer certificate public key;
 4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the issuer certificate;
 5. calculate all data element digests and compare them with MSO.valueDigests using the digest algorithm specified in MSO.digestAlgorithm (usually "SHA-256");
 6. verify the match between MSO.docType and Document.docType;
