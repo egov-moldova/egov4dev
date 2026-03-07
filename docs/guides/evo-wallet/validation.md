@@ -32,10 +32,12 @@ For each Document, the Verifier SHALL:
 For each returned Document, the Verifier SHALL decode the MSO that is embedded in COSE_Sign1 signature which is Document.issuerSigned.issuerAuth and:
 
 1. verify that MSO.version is "1.0";
-2. verify issuer signature;
-3. calculate all data element digests and compare them with MSO.valueDigests using the digest algorithm specified in MSO.digestAlgorithm (usually "SHA-256");
-4. verify the match between MSO.docType and Document.docType;
-5. verify MSO validity period against current time (current time must be between MSO.validityPeriod.validFrom and MSO.validityPeriod.validTo).
+2. decode issuer certificate chain from **x5chain** (label 33) unprotected header;
+3. verify issuer signature created with public key of issuer certificate;
+4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the issuer certificate;
+5. calculate all data element digests and compare them with MSO.valueDigests using the digest algorithm specified in MSO.digestAlgorithm (usually "SHA-256");
+6. verify the match between MSO.docType and Document.docType;
+7. verify MSO validity period against current time (current time must be between MSO.validityPeriod.validFrom and MSO.validityPeriod.validTo).
 
 ## Issuer certificate validation
 
@@ -80,7 +82,7 @@ Before processing a Status List CWT, the Verifier SHALL:
 1. check the HTTP response to indicate **Content-Type**: "application/statuslist+cwt";
 2. check the value of **type** (label 16) protected header to be "application/statuslist+cwt";
 3. decode signing certificate chain from **x5chain** (label 33) unprotected header and check its match with issuer certificate;
-4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the signing certificate (first in x5chain);
+4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the signing certificate;
 5. verify that the list is signed as embedded COSE_Sign1 signature using signing certificate public key;
 6. verify CWT **subject** claim (key 2) match the Status List URI;
 7. verify CWT **issued at** claim (key 6) and **expiration time** claim (key 4) against current time (10 minutes clock skew recommended);
