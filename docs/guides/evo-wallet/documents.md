@@ -47,8 +47,8 @@ DocType: **md.gov.wallet.dl.1**
 | family_name | Family name | tstr |
 | given_name | Given names | tstr |
 | birth_date | Date of birth | full-date |
-| age_over_18 | Attesting whether the User to whom the person identification data relates is currently an adult (true) or a minor (false). | bool |
-| age_over_21 | Attesting whether the User to whom the person identification data relates is currently over (true) or under (false) 21 years of age. | bool |
+| age_over_18 | Attesting whether the driver is currently an adult (true) or a minor (false). | bool |
+| age_over_21 | Attesting whether the driver is currently over (true) or under (false) 21 years of age. | bool |
 | birth_country | The name of the country of birth. Optional. | tstr |
 | birth_city | The name of the municipality, city, town, or village of birth. Optional. | tstr |
 | issue_date | Date of issue | full-date |
@@ -164,8 +164,8 @@ DocType: **org.iso.18013.5.1.mDL**
 | family_name | Family name | tstr |
 | given_name | Given names | tstr |
 | birth_date | Date of birth | full-date |
-| age_over_18 | Attesting whether the User to whom the person identification data relates is currently an adult (true) or a minor (false). | bool |
-| age_over_21 | Attesting whether the User to whom the person identification data relates is currently over (true) or under (false) 21 years of age. | bool |
+| age_over_18 | Attesting whether the driver is currently an adult (true) or a minor (false). | bool |
+| age_over_21 | Attesting whether the driver is currently over (true) or under (false) 21 years of age. | bool |
 | issue_date | Date of issue | full-date |
 | expiry_date | Date of expiry. Optional. | full-date |
 | issuing_authority | Issuing authority | tstr |
