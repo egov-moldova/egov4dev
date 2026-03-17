@@ -22,7 +22,7 @@ The documentation is organized as follows:
 - **[Glossary](glossary/glossary.md)** – centralized list of terms, definitions, and acronyms used across this resource
 - **Integration guides** – step-by-step guides for each service
 
-Each integration guide includes an short overview of the service, needed steps to connect, interaction scenarios, integration development, API references, examples, integration libraries and change log.
+Each integration guide includes an short overview of the service, needed steps to connect, interaction scenarios, integration development, API reference, examples, integration libraries and change log.
 
 ---
 

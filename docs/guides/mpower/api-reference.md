@@ -1,4 +1,4 @@
-﻿# API references
+﻿# API reference
 
 ##**Error handling**
 

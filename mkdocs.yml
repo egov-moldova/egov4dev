@@ -16,7 +16,7 @@ nav:
           - Interaction scenarios: guides/mpass/interaction-scenarios.md
           - Integration development: guides/mpass/integration-development.md
           - Integration tests: guides/mpass/integration-tests.md
-          - API references: guides/mpass/api-references.md
+          - API reference: guides/mpass/api-reference.md
           - Examples: guides/mpass/examples.md
           - Integration libraries: guides/mpass/integration-libraries.md
           - Change log: guides/mpass/change-log.md
@@ -25,7 +25,7 @@ nav:
           - Connection steps: guides/msign/process.md
           - Interaction scenarios: guides/msign/interaction-scenarios.md
           - Integration development: guides/msign/integration-development.md
-          - API references: guides/msign/api-references.md
+          - API reference: guides/msign/api-reference.md
           - Examples: guides/msign/examples.md
           - Integration libraries: guides/msign/integration-libraries.md
           - Change log: guides/msign/change-log.md
@@ -34,7 +34,7 @@ nav:
           - Connection steps: guides/mpower/process.md
           - Integration development: guides/mpower/integration-development.md
           - Security: guides/mpower/security.md
-          - API references: guides/mpower/api-references.md
+          - API reference: guides/mpower/api-reference.md
           - Change log: guides/mpower/change-log.md
       - MPay:
           - Overview: guides/mpay/index.md
@@ -42,21 +42,21 @@ nav:
           - Interaction scenarios: guides/mpay/interaction-scenarios.md
           - Integration development: guides/mpay/integration-development.md
           - Security: guides/mpay/security.md
-          - API references: guides/mpay/api-references.md
+          - API reference: guides/mpay/api-reference.md
           - Examples: guides/mpay/examples.md
           - Change log: guides/mpay/change-log.md
       - MConnect Events:
           - Overview: guides/mconnect-events/index.md
           - Interaction scenarios: guides/mconnect-events/interaction-scenarios.md
           - Integration development: guides/mconnect-events/integration-development.md
-          - API references: guides/mconnect-events/api-references.md
+          - API reference: guides/mconnect-events/api-reference.md
           - Examples: guides/mconnect-events/examples.md
           - Integration libraries: guides/mconnect-events/integration-libraries.md
       - MNotify:
           - Overview: guides/mnotify/index.md
           - Connection steps: guides/mnotify/process.md
           - Integration development: guides/mnotify/integration-development.md
-          - API references: guides/mnotify/api-references.md
+          - API reference: guides/mnotify/api-reference.md
           - Examples: guides/mnotify/examples.md
           - Change log: guides/mnotify/change-log.md
       - MDelivery:
@@ -64,14 +64,14 @@ nav:
           - Connection steps: guides/mdelivery/process.md
           - Interaction scenarios: guides/mdelivery/interaction-scenarios.md
           - Integration development: guides/mdelivery/integration-development.md
-          - API references: guides/mdelivery/api-references.md
+          - API reference: guides/mdelivery/api-reference.md
           - Change log: guides/mdelivery/change-log.md
       - MDocs:
           - Overview: guides/mdocs/index.md
           - Connection steps: guides/mdocs/process.md
           - Interaction scenarios: guides/mdocs/interaction-scenarios.md
           - Integration development: guides/mdocs/integration-development.md
-          - API references: guides/mdocs/api-references.md
+          - API reference: guides/mdocs/api-reference.md
           - Security: guides/mdocs/security.md
       - MLog:
           - Overview: guides/mlog/index.md
@@ -79,7 +79,7 @@ nav:
           - Interaction scenarios: guides/mlog/interaction-scenarios.md
           - Integration development: guides/mlog/integration-development.md
           - Integration testing: guides/mlog/integration-testing.md
-          - API references: guides/mlog/api-references.md
+          - API reference: guides/mlog/api-reference.md
           - Examples: guides/mlog/examples.md
           - Security: guides/mlog/security.md
           - Change log: guides/mlog/change-log.md

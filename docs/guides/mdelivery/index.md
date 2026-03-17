@@ -16,9 +16,9 @@ To enable the delivery process, MDelivery is integrated with Service Providers (
       <h3 class="quick-link-title">Integration guide</h3>
       <p class="quick-link-description">Step-by-step documentation</p>
     </a>
-    <a href="api-references/" class="quick-link-card">
+    <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API references</h3>
+      <h3 class="quick-link-title">API reference</h3>
       <p class="quick-link-description">Explore endpoints and callbacks</p>
     </a>    
   </div>
