@@ -2,9 +2,9 @@
 
 Documents can be published by client for document owner as well as for other identities.
 
-1. The user uploads the blob ([click here](api-reference/#blobs)).
-2. The user publishes the document with reference to the blob ([click here](api-reference/#documents)).
-3. The user will create a folder ([click here](api-reference/#documents)) - for the case when the document has no reference to the blob.
+1. The user uploads the blob ([click here](./api-reference/#blobs)).
+2. The user publishes the document with reference to the blob ([click here](./api-reference/#documents)).
+3. The user will create a folder - for the case when the document has no reference to the blob.
 4. To create the document in the root, no folder id is indicated.
 5. To create a document in a folder, the folder id will be indicated as the parent folder.
 6. The system can publish more documents into a folder, indicating the folder id as destination.
