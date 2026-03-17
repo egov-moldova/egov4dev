@@ -25,13 +25,13 @@ To register a client and get network access, please write a request by e-mail to
 
 The API documentation can be obtained from the following URL (base addresses are listed in System environments):
 
-https://mdocs.dev.egov.md:8443/api/swagger/index.html
+https://mdocs.staging.egov.md:8443/api/swagger/index.html
 
 ## System environments
 
-There are 2 services environments available: a testing and a production environment.
+There are 2 services environments available: a staging and a production environment.
 
 | **Environment** | **Mdocs service URL** |
 |---|---|
-| Staging | https://mdocs.staging.egov.md<br>https://mdocs.dev.egov.md:8443/api |
+| Staging | https://mdocs.staging.egov.md |
 | Production | https://mdocs.gov.md/ |

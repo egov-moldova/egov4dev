@@ -781,7 +781,7 @@ Because this method can be called multiple times on different days/times, the re
 === "Request"
 
     ```curl
-    curl -X GET "https://mpower.dev.egov.md:8443/clients-api/api/Authorization/file ? ?AuthorizationCode=0200905142878268" " -H "accept: text/plain"
+    curl -X GET "https://mpower.staging.egov.md:8443/clients-api/api/Authorization/file ? ?AuthorizationCode=0200905142878268" " -H "accept: text/plain"
     ```
 
 === "Response"

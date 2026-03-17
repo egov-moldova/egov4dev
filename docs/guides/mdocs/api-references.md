@@ -610,7 +610,7 @@ HTTP 201
 {
   "id": "1b3d3a56-72a3-4601-bf72-018af98d7a8e",
   "accessCode": "47211813",
-  "fullLink": "https://mdocs.dev.egov.md/view/1b3d3a56-72a3-4601-bf72-018af98d7a8e?accessCode=47211813"
+  "fullLink": "https://mdocs.staging.egov.md/view/1b3d3a56-72a3-4601-bf72-018af98d7a8e?accessCode=47211813"
 }
 ```
 
