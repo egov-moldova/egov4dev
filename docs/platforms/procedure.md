@@ -30,7 +30,7 @@ The beneficiary must:
   - for public institutions — have the system registered in the [Register of Information Resources and Systems](https://rsi.gov.md);
   - sign the contract and/or annexes applicable to the requested shared service;
   - for private-sector beneficiaries pay the applicable usage fees;
-  - provide a valid system certificate issued by [STISC](https://stisc.gov.md/) (where required).
+  - provide a valid system certificate issued by Information Technology and Cyber Security Service (<https://stisc.gov.md>) (where required).
 
 ---
 
