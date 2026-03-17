@@ -115,7 +115,7 @@ If the document type is not specified when uploading the blob, then the default 
 
 The Content-Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).
 
-Mdocs allows any MIME Types for blobs, but has special treatment for the following:
+MDocs allows any MIME Types for blobs, but has special treatment for the following:
 
 | **MIME-Type** | **Extension** |
 |---|---|

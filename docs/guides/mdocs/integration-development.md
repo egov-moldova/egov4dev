@@ -31,7 +31,7 @@ https://mdocs.staging.egov.md:8443/api/swagger/index.html
 
 There are 2 services environments available: a staging and a production environment.
 
-| **Environment** | **Mdocs service URL** |
+| **Environment** | **MDocs service URL** |
 |---|---|
 | Staging | https://mdocs.staging.egov.md |
 | Production | https://mdocs.gov.md/ |

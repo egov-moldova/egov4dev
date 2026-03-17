@@ -1,6 +1,6 @@
 ## Client configuration in MPass
 
-The Service Provider will request the configuration of the client service in MPass before starting the integration with Mdelivery.
+The Service Provider will request the configuration of the client service in MPass before starting the integration with MDelivery.
 
 ## System registration and network access
 
