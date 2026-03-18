@@ -8,7 +8,7 @@ Staging environment (Testing phase)
 ## 1. Verifier Registration
 
 
-Fill in the [**Onboarding Form**](https://forms.office.com/e/4h5RFQGqda) with the following information :
+Fill in the 🔗[**Onboarding Form**](https://forms.office.com/e/4h5RFQGqda) with the following information :
 
 *   Organization details
     
