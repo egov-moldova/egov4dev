@@ -1,6 +1,74 @@
-The integration consists of the following steps:
+Staging environment (Testing phase)
+===================================
 
-1. Verifier requests integration with EVO Wallet via an electronically signed request by authorized representative (administrator) sent to support.evo@egov.md. The request shall include the intended uses, and for each of intended use, its description and the list of attestations and the attributes that the Verifier intends to request from users and be accompanied by a Certificate Signature Request (CSR) for staging environment.
-2. Verifier certificate is issued by AGE based on a CSR provided by Verifier. CSR key must be EC based on P-256 curve. There must be separate certificates for staging and production environments.
-3. The integration is firstly done with staging environment.
-4. Certificate is issued and integration is configured on production environment only after successful integration is tested on staging environment.
+> The staging environment allows you to safely test your integration with the EVO Wallet before going live.  
+> It ensures your verification flow, security setup, and user interactions work as expected.
+
+
+## 1. Verifier Registration
+
+
+Fill in the [**Onboarding Form**](https://forms.office.com/e/4h5RFQGqda) with the following information :
+*   Organization details
+    
+*   Technical contact person
+    
+*   Attestations to be verified
+    
+*   Intended use for each attestation
+    
+*   Email / Google accounts for staging access
+    
+
+
+## 2. Certificate Request (CSR)
+
+
+After submitting the form, you will receive an email with instructions to submit a **Certificate Signing Request (CSR)** with the following specifications:
+
+| Parameter | Value |
+| --- | --- |
+| Key Type | Elliptic Curve |
+| Curve | P-256 |
+| Submission | `mconnect@egov.md` |
+
+
+## 3. Certificate Issuance
+
+
+Once your CSR is received:
+*   The request is registered in the test environment
+    
+*   A staging verifier certificate is generated
+    
+*   The certificate is delivered via email
+    
+
+> ⚠️ This certificate is required for secure communication and verification during testing.
+
+
+## 4. EVO Staging Application Access
+
+Access to the EVO staging app is granted in parallel.
+**Distribution channels:**
+*   Google Play (test track)
+    
+*   Apple TestFlight
+   
+
+
+Outcome
+-------
+
+After completing these steps, you will be able to:
+*   Perform end-to-end verification flows
+    
+*   Validate wallet integration
+    
+*   Test real user scenarios in a controlled environment
+
+
+Next Step
+
+
+> Once testing is successfully completed, we will present detailed instruction for production environment. 
