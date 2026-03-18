@@ -51,6 +51,7 @@ Once your CSR is received:
 
 Access to the EVO staging app is granted in parallel.
 **Distribution channels:**
+
 *   Google Play (test track)
     
 *   Apple TestFlight
