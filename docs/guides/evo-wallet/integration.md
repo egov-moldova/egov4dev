@@ -9,6 +9,7 @@ Staging environment (Testing phase)
 
 
 Fill in the [**Onboarding Form**](https://forms.office.com/e/4h5RFQGqda) with the following information :
+
 *   Organization details
     
 *   Technical contact person
@@ -37,6 +38,7 @@ After submitting the form, you will receive an email with instructions to submit
 
 
 Once your CSR is received:
+
 *   The request is registered in the test environment
     
 *   A staging verifier certificate is generated
@@ -62,6 +64,7 @@ Outcome
 -------
 
 After completing these steps, you will be able to:
+
 *   Perform end-to-end verification flows
     
 *   Validate wallet integration
