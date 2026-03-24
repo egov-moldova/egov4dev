@@ -1,4 +1,4 @@
-<img width="4448" height="1600" alt="Frame 1261156250" src="../../assets/wallet-intro.png" />
+<img src="../../assets/wallet-intro.png" />
 
 Following the EUDI Wallet regulation and its implementing acts, EVO Wallet implements remote presentation of attributes to wallet-relying parties according to **OpenID4VP 1.0**, using the mdoc format defined in **ISO/IEC 18013-5**, via same-device flow to retrieve documents. The mechanism is described in Section 8.3.1 of OpenID4VP 1.0 as **direct_post.jwt** response mode. Actual implementation profile is guided by **OpenID4VC HAIP 1.0** with ISO mdoc as credential format.
 
