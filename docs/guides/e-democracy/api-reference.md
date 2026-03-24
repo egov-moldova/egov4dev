@@ -1,18 +1,19 @@
+# API reference
+
 ## Error Handling
 
-<table>
-<tr><th>Code</th><th>Description</th></tr>
-<tr><td>AuthenticationFailed</td><td>System authentication failed</td></tr>
-<tr><td>InvalidParameter</td><td>Invalid request parameter</td></tr>
-<tr><td>AccessDenied</td><td>Insufficient permissions</td></tr>
-<tr><td>PetitionNotFound</td><td>Petition identifier not found</td></tr>
-<tr><td>200</td><td>Success</td></tr>
-<tr><td>400</td><td>Bad request</td></tr>
-<tr><td>401</td><td>Unauthorized</td></tr>
-<tr><td>403</td><td>Forbidden</td></tr>
-<tr><td>404</td><td>Not found</td></tr>
-<tr><td>500</td><td>Server error</td></tr>
-</table>
+| Code | Description |
+|---|---|
+| AuthenticationFailed | System authentication failed |
+| InvalidParameter | Invalid request parameter |
+| AccessDenied | Insufficient permissions |
+| PetitionNotFound | Petition identifier not found |
+| 200 | Success |
+| 400 | Bad request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not found |
+| 500 | Server error |
 
 ## API Methods
 
