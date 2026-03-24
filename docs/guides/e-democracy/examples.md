@@ -1,7 +1,8 @@
+# Examples
+
 ## Retrieve petitions
 
 ```bash
-
 curl -X GET "https://epetitii.staging.egov.md/petitie/authority/petitions" \
 -H "Authorization: Bearer <jwt_token>" \
 -H "accept: application/json"
@@ -10,7 +11,6 @@ curl -X GET "https://epetitii.staging.egov.md/petitie/authority/petitions" \
 **Example response:**
 
 ```json
-
 {
 "items": [],
 "page": 1,
@@ -19,7 +19,7 @@ curl -X GET "https://epetitii.staging.egov.md/petitie/authority/petitions" \
 }
 ```
 
-# Rate Limits
+## Rate Limits
 
 To ensure platform stability, integrators should:
 
