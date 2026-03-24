@@ -1,5 +1,3 @@
-# Overview 
-
 <img src="../../assets/edemocracy-intro.png">
 
 eDemocracy (ePetitions) is the platform that enables citizens and legal entities to submit petitions electronically to public authorities. The platform allows authorities to review, process, and respond to petitions through a centralized digital service.
