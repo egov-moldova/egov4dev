@@ -92,7 +92,12 @@ nav:
           - Examples: guides/mlog/examples.md
           - Security: guides/mlog/security.md
           - Change log: guides/mlog/change-log.md
-
+      - eDemocracy:
+          - Overview: guides/e-democracy/index.md
+          - Connection steps: guides/e-democracy/process.md
+          - Integration development: guides/e-democracy/integration-development.md
+          - API reference: guides/e-democracy/api-reference.md
+          - Examples: guides/e-democracy/examples.md
 
 theme:
   name: material
