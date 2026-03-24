@@ -1,3 +1,5 @@
+# Integration development
+
 ## Authentication
 
 The eDemocracy API supports two authentication methods.
