@@ -34,7 +34,7 @@ If a JWT token is present in the `Authorization` header and is valid, it takes p
 
 Otherwise, the system identity is derived from the client certificate. 
 
-# Service Environments
+## Service Environments
 
 **API base URL**
 
@@ -51,9 +51,7 @@ Otherwise, the system identity is derived from the client certificate.
 
 > All integrations must be tested in the **test environment** before production activation. 
 
-## Security
-
-  
+## Security 
 
 ### Access Authorization
 
