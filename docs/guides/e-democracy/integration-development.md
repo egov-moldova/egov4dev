@@ -38,18 +38,16 @@ Otherwise, the system identity is derived from the client certificate.
 
 **API base URL**
 
-<table>
-<tr><th>Environment</th><th>API base URL</th></tr>
-<tr><td>Test</td><td><code>https://epetitii.staging.egov.md/petitie/</code></td></tr>
-<tr><td>Production</td><td><code>https://epetitii.gov.md/petitie/</code></td></tr>
-</table>
+| Environment | API base URL |
+|---|---|
+| Test | `https://epetitii.staging.egov.md/petitie/` |
+| Production | `https://epetitii.gov.md/petitie/` |
 
 **Swagger documentation**  
 
-<table>
-<tr><th>Environment</th><th>Swagger</th></tr>
-<tr><td>Test</td><td><a href="https://epetitii.staging.egov.md/petitie/swagger/index.html">Swagger UI (Test)</a></td></tr>
-</table>
+| Environment | Swagger |
+|---|---|
+| Test | [Swagger UI (Test)](https://epetitii.staging.egov.md/petitie/swagger/index.html) |
 
 > All integrations must be tested in the **test environment** before production activation. 
 
@@ -86,16 +84,13 @@ After authentication, the platform verifies whether the system has permission to
 
 ### Scope values
 
-<table>
-<tr><th>Scope</th><th>Description</th></tr>
-<tr><td>own-authority</td><td>Access limited to petitions assigned to the authority</td></tr>
-<tr><td>all</td><td>Access to all petitions (central integrations)</td></tr>
-</table>
+| Scope | Description |
+|---|---|
+| `own-authority` | Access limited to petitions assigned to the authority |
+| `all` | Access to all petitions (central integrations) |
 
 ## Encryption
 
 All communication with the eDemocracy API uses **TLS (HTTPS)** encryption.
 
-Unencrypted HTTP connections are not accepted.  
-
----
+Unencrypted HTTP connections are not accepted.
