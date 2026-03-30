@@ -41,4 +41,4 @@ OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to 
 | RFC 8152 | CBOR Object Signing and Encryption (COSE) |
 | RFC 8610 | Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures |
 | RFC 9360 | CBOR Object Signing and Encryption (COSE): Header Parameters for Carrying and Referencing X.509 Certificates |
-| IETF TSL _draft_ | IETF Token Status List - _draft-ietf-oauth-status-list-18_ |
+| IETF TSL _draft_ | IETF Token Status List - _draft-ietf-oauth-status-list-19_ |
