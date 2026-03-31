@@ -8,7 +8,8 @@ Staging environment (Testing phase)
 ## 1. Verifier Registration
 
 
-Fill in the 🔗[**Onboarding Form**](https://forms.office.com/e/4h5RFQGqda) with the following information :
+Fill in the 🔗[**Onboarding Form**](https://forms.office.com/e/4h5RFQGqda) with the following information:
+
 * Organization details
 * Technical contact person
 * Attestations to be verified
@@ -34,8 +35,8 @@ After submitting the form, you will receive an email with instructions to submit
 
 Once your CSR is received:
 
-* The request is registered in the test environment  
-* A staging verifier certificate is generated  
+* The request is registered in the test environment
+* A staging verifier certificate is generated
 * The certificate is delivered via email
     
 
@@ -46,6 +47,7 @@ Once your CSR is received:
 
 Access to the EVO staging app is granted in parallel.
 **Distribution channels:**
+
 * Google Play (test track)  
 * Apple TestFlight
 
