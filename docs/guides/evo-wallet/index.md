@@ -4,6 +4,12 @@ Following the EUDI Wallet regulation and its implementing acts, EVO Wallet imple
 
 OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to present Credential (mdoc) using its Wallet (mdoc app) to a Verifier (mdoc reader) upon request. In this context, the Wallet acts as OAuth 2.0 Authorization Server and the Verifier acts as OAuth 2.0 Client.
 
+<p align="center">
+  <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl">
+    <img src="https://img.shields.io/badge/🚀_Become_a_Verifier-2ea44f?style=for-the-badge&logoColor=white" alt="Become a Verifier" />
+  </a>
+</p>
+
 ## Jump right in
 
 <div class="quick-links-wrapper">
