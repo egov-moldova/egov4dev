@@ -22,12 +22,12 @@ OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to 
     <a href="protocol/" class="quick-link-card">
       <div class="quick-link-icon">🔐</div>
       <h3 class="quick-link-title">Protocol</h3>
-      <p class="quick-link-description">OpenID4VP flow and direct_post.jwt details</p>
+      <p class="quick-link-description">OpenID4VP flow</p>
     </a>
     <a href="examples/" class="quick-link-card">
       <div class="quick-link-icon">🧾</div>
       <h3 class="quick-link-title">Examples</h3>
-      <p class="quick-link-description">Full request/response payload samples</p>
+      <p class="quick-link-description">Full request/ response payload samples</p>
     </a>
     <a href="demoverifierbnm/" class="quick-link-card">
       <div class="quick-link-icon">🏦</div>
