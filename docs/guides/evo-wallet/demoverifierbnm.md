@@ -1,4 +1,4 @@
-## 🏦 National Bank of Moldova | Demo Verifier
+## 🏦 DEMO Verifier - Provided by the National Bank of Moldova
 The **National Bank of Moldova (NBM)** has taken a proactive role in shaping the emerging digital identity wallet ecosystem by developing a **demo verifier** — a reference implementation designed to demonstrate how financial institutions can verify digital credentials issued.
 
 ### Why This Matters
