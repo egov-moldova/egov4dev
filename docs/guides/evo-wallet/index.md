@@ -29,6 +29,11 @@ OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to 
       <h3 class="quick-link-title">Examples</h3>
       <p class="quick-link-description">Full request/response payload samples</p>
     </a>
+    <a href="demoverifierbnm/" class="quick-link-card">
+      <div class="quick-link-icon">🏦</div>
+      <h3 class="quick-link-title">Demo verifier</h3>
+      <p class="quick-link-description">Provided by the National Bank of Moldova</p>
+    </a>
   </div>
 </div>
 
