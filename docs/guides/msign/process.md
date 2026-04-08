@@ -4,7 +4,7 @@
 4. Provide the integration details through the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOPEKwFi7MyRNimikcwdXWMlUQTIwMTEwT0czVlM1RTZJTzhRU05JQVI5Ti4u), including: 
    * The name of the information system; 
    * The IP address(es) of the service; 
-5. MEGA configures access in the test environment: [https://mpass.staging.egov.md](https://mpass.staging.egov.md);
+5. MEGA configures access in the test environment: [https://msign.staging.egov.md](https://msign.staging.egov.md);
 6. The beneficiary performs internal testing;
 7. After the beneficiary's final validation, MEGA activates the service in the production environment;
 8. The beneficiary receives a notification confirming the completion of the integration.
