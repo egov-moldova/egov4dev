@@ -16,6 +16,8 @@ MSign is a reusable and shared platform-level service the main scope of which is
       <h3 class="quick-link-title">Integration guide</h3>
       <p class="quick-link-description">Step-by-step documentation</p>
     </a>
+  </div>
+    <div class="quick-links-container">
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
       <h3 class="quick-link-title">API reference</h3>
@@ -24,7 +26,7 @@ MSign is a reusable and shared platform-level service the main scope of which is
     <a href="https://www.nuget.org/profiles/egov-moldova" class="quick-link-card">
       <div class="quick-link-icon">📦</div>
       <h3 class="quick-link-title">NuGet packages</h3>
-      <p class="quick-link-description">Ready-to-use .NET packages for integrating eGov Moldova platform services into your application.</p>
+      <p class="quick-link-description">.NET packages for your application.</p>
     </a>
   </div>
 </div>
