@@ -40,6 +40,7 @@ h2 {color:#4051b5!important; font-weight:400;}
 .quick-links-container {
   display: flex;
   gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .quick-link-card {
