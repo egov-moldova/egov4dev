@@ -21,8 +21,6 @@ MPass is a government-wide authentication and identity management service in the
       <h3 class="quick-link-title">API reference</h3>
       <p class="quick-link-description">Explore endpoints and callbacks</p>
     </a>    
-  </div>
-  <div class="quick-links-container">
     <a href="https://www.nuget.org/profiles/egov-moldova" class="quick-link-card" style="width:100%">
       <div class="quick-link-icon">📦</div>
       <h3 class="quick-link-title">NuGet packages</h3>
