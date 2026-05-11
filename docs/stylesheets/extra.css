@@ -1,4 +1,15 @@
-
+:root {
+  /* Primary colors (Blue Sky from Moldova Design System) */
+  --md-primary-fg-color: #0284c7;        /* Blue Sky 600 - main brand color */
+  --md-primary-fg-color--light: #0ea5e9; /* Blue Sky 500 - hover states */
+  --md-primary-fg-color--dark: #0369a1;  /* Blue Sky 700 - active states */
+  
+  /* Accent colors */
+  --md-accent-fg-color: #38bdf8;         /* Blue Sky 400 - highlights */
+  
+  /* Links */
+  --md-typeset-a-color: #0284c7;         /* Blue Sky 600 - link color */
+}
 /* Optional: make the page title slightly smaller too */
 .md-footer__title {
   font-size: .8rem !important; margin-bottom: .7rem; padding: 0 !important;
