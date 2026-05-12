@@ -1,8 +1,8 @@
 :root {
   /* Primary colors (Blue Sky from Moldova Design System) */
-  --md-primary-fg-color: #0058d2;        /* Blue Sky 600 - main brand color */
-  --md-primary-fg-color--light: #0ea5e9; /* Blue Sky 500 - hover states */
-  --md-primary-fg-color--dark: #0058d2;  /* Blue Sky 700 - active states */
+  --md-primary-fg-color: #0058d2;                /* Blue Sky 600 - main brand color */
+  --md-primary-fg-color--light: rgb (0,70,168);  /* Blue Sky 700 - hover states */
+  --md-primary-fg-color--dark: #0058d2;          /* Blue Sky 600 - active states */
   
   /* Accent colors */
   --md-accent-fg-color: #38bdf8;         /* Blue Sky 400 - highlights */
