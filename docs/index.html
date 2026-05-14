@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eGov Developer Platform | Moldova</title>
+    <meta name="description" content="Open APIs, SDKs, and documentation for Moldova's digital government infrastructure">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="stylesheets/mud-dark.css">
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js" defer></script>
+    <script src="https://egov-moldova.github.io/design-system/Components/js/tooltip.js" defer></script>
+
+    <style>
+        :root {
+            --white-alpha-100: var(--white-200-alpha);
+            --black-alpha-200: var(--black-300-alpha);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Onest, system-ui, sans-serif;
+            background: var(--gray-100, #F5F5F5);
+            color: var(--gray-900);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--gray-500);
+            margin-top: 0.125rem;
+        }
+
+        /* Info-box tagline overrides for dark bg */
+        .tagline-box {
+            background: var(--white);
+            color: white;margin-top: 40px;
+        }
+
+        .tagline-box .info-box__content p {
+            color: var(--gray-600); margin-bottom: 0;
+			
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .hero-content {
+            padding-top: 2rem;
+        }
+
+        .label {
+            font-size: 1rem;
+            color: var(--blue-sky-800);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--blue-sky-600);
+        }
+
+        h2 .light {
+            color: var(--blue-sky-800);
+        }
+
+        .description {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            color: var(--blue-sky-800);
+            margin: 0 5rem 2rem 0;
+        }
+
+        /* Service Logos — clean, no decoration */
+        .service-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin: 2rem 0;
+            align-items: center;
+        }
+
+        .service-logos img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .service-logos img:hover {
+            opacity: 1;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .cta-buttons .btn:hover,
+        .platform-view-all .btn:hover {
+            text-decoration: none;
+        }
+
+        /* Code Panel */
+        .code-panel {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px var(--black-alpha-200);
+        }
+
+        .code-header {
+            background: var(--gray-800);
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-dots { display: flex; gap: 0.5rem; }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot:nth-child(1) { background: var(--red-600); }
+        .dot:nth-child(2) { background: var(--apricot-500); }
+        .dot:nth-child(3) { background: var(--green-500); }
+
+        .code-title {
+            margin-left: auto;
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-content {
+            padding: 1.5rem 2rem;
+            font-family: 'Courier New', Monaco, monospace;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            overflow-x: auto;
+            background: var(--gray-900);
+            white-space: pre;
+        }
+
+        /* Syntax token colours */
+        .c-attr   { color: #9CDCFE; }                      /* attribute brackets + names — light blue */
+        .c-kw     { color: #569CD6; }                      /* keywords: public async await return */
+        .c-type   { color: #4EC9B0; }                      /* types: Task IResult string */
+        .c-method { color: #DCDCAA; }                      /* method / function names */
+        .c-str    { color: #CE9178; }                      /* string literals */
+        .c-param  { color: #9CDCFE; }                      /* named parameters */
+        .c-plain  { color: #D4D4D4; }                      /* plain identifiers / punctuation */
+
+        .portal-badge {
+            background: var(--gray-800);
+            border-top: 1px solid var(--gray-700);
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+        }
+
+        .portal-badge .badge-label {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+        }
+
+        .portal-badge a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .portal-badge a:hover { color: var(--blue-sky-200); }
+
+        /* Tooltip — white bg, dark text */
+        .tooltip-inner {
+            background-color: var(--gray-900);
+            color: var(--white);
+        }
+
+        .tooltip-arrow {
+            color: var(--gray-900);
+        }
+
+        /* Bottom sections — 50/50 */
+        .bottom-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+            align-items: stretch;
+        }
+
+        .platform-section,
+        .contributions {
+            background: #ffffff;
+            border-radius: var(--border-radius-16, 16px);
+            padding: 2rem;
+        }
+
+        .platform-section h3,
+        .contributions h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .platform-section p,
+        .contributions p {
+            font-size: 0.9375rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* Platform logos — horizontal flex row with name labels */
+        .platform-logos {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+            align-items: center;
+        }
+
+        .platform-logos a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--gray-700);
+        }
+
+        .platform-logos img {
+            width: auto;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .platform-name {
+            font-size: 1rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .platform-view-all { margin-top: 1.5rem; }
+
+        @media (max-width: 968px) {
+            .bottom-sections { grid-template-columns: 1fr; }
+            .platform-logos { flex-wrap: wrap; }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero { grid-template-columns: 1fr; gap: 3rem; }
+            h2 { font-size: 3rem; }
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            h2 { font-size: 2.5rem; }
+            .cta-buttons { flex-direction: column; }
+            .cta-buttons .btn { text-align: center; width: 100%; }
+            .code-content { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <img src="assets/logo2.png" alt="eGov Moldova">
+                <div>
+                    <span class="logo-name">eGov4Dev</span>
+                    <div class="logo-subtitle">e-Governance Agency Moldova</div>
+                </div>
+            </div>
+
+            <!-- Prominent info-box tagline (MUD DS) -->
+            <div class="info-box info-box--info tagline-box">
+                <div class="info-box__content">
+                    <p>🇲🇩 eGov4Dev is the official developer resources for integrating with Moldova's national e-government platforms and services.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- Left Column -->
+            <div class="hero-content">
+                <div class="label">Developer resources</div>
+
+                <h2>
+                    Build<br>
+                    <span class="light">with eGov.</span>
+                </h2>
+
+                <p class="description">
+                    eGov4Dev is the official documentation library for developers working with the eGov Moldova ecosystem of the Republic of Moldova. It provides guidance on how to integrate government platforms and services, use the shared development stack, and follow the established architecture principles.
+                </p>
+
+                <div class="cta-buttons">
+                    <a href="platforms/procedure/" class="btn btn-primary">Get started</a>
+                    <a href="principles/architecture/" class="btn btn-secondary">How we do it</a>
+                </div>
+            </div>
+
+            <!-- Right Column - Code Example -->
+            <div class="code-panel">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+                <div class="code-content"><span class="c-attr">[</span><span class="c-method">Authorize</span><span class="c-attr">(AuthenticationSchemes = </span><span class="c-str">"MPass"</span><span class="c-attr">)]</span>
+<span class="c-attr">[</span><span class="c-method">RequireRole</span><span class="c-attr">(</span><span class="c-str">"CaseWorker"</span><span class="c-attr">)]</span>
+<span class="c-attr">[</span><span class="c-method">Purpose</span><span class="c-attr">(</span><span class="c-str">"SocialBenefitEligibility"</span><span class="c-attr">)]</span>
+<span class="c-kw">public async</span> <span class="c-type">Task</span><span class="c-plain">&lt;</span><span class="c-type">IResult</span><span class="c-plain">&gt;</span> <span class="c-method">VerifyIncome</span><span class="c-plain">(</span><span class="c-type">string</span> <span class="c-plain">idnp)</span>
+<span class="c-plain">{</span>
+    <span class="c-kw">await</span> <span class="c-plain">audit.</span><span class="c-method">LogAsync</span><span class="c-plain">(</span><span class="c-str">"income.verification.requested"</span><span class="c-plain">,</span>
+        <span class="c-param">subject:</span> <span class="c-plain">idnp,</span> <span class="c-param">user:</span> <span class="c-plain">User.</span><span class="c-method">Idnp</span><span class="c-plain">());</span>
+
+    <span class="c-kw">return</span> <span class="c-plain">Results.</span><span class="c-method">Ok</span><span class="c-plain">(</span><span class="c-kw">await</span> <span class="c-plain">mconnect.</span><span class="c-method">QueryAsync</span><span class="c-plain">(</span>
+        <span class="c-param">register:</span> <span class="c-str">"TaxAuthority"</span><span class="c-plain">,</span>
+        <span class="c-param">subject:</span> <span class="c-plain">idnp,</span>
+        <span class="c-param">purpose:</span> <span class="c-str">"SocialBenefitEligibility"</span>
+    <span class="c-plain">));</span>
+<span class="c-plain">}</span></div>
+
+                <div class="portal-badge">
+                    <div class="badge-label">DEVELOPER PORTAL</div>
+                    <a href="https://egov-moldova.github.io/egov4dev" target="_blank">
+                        egov-moldova.github.io/egov4dev
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom: platform picker + contributions -->
+        <div class="bottom-sections">
+
+            <!-- Choose your platform -->
+            <section class="platform-section">
+                <h3>Choose your platform and start now</h3>
+                <p>Each service exposes open APIs and SDK integrations — pick the one you need and follow the step-by-step guide to get connected.</p>
+
+                <div class="platform-logos">
+                    <a href="guides/mpass/" data-placement="top">
+                        <img src="assets/logos/MPass.png" alt="MPass">
+                    </a>
+                    <a href="guides/msign/" data-placement="top">
+                        <img src="assets/logos/MSign.png" alt="MSign">
+                    </a>
+                    <a href="guides/mpay/" data-placement="top">
+                        <img src="assets/logos/MPay.png" alt="MPay">
+                    </a>
+                </div>
+                <div class="platform-view-all">
+                    <a href="platforms/" class="btn btn-secondary">View all platforms</a>
+                </div>
+            </section>
+
+            <!-- Contributions -->
+            <section class="contributions">
+                <h3>Contributions and feedback</h3>
+                <p>This documentation and the SDK packages live in the open. Report issues or open pull requests on GitHub, and find published packages on NuGet. Your input keeps the libraries up to date.</p>
+                <div class="platform-logos" style="grid-template-columns: repeat(2, 40px); margin-top: 1.5rem;">
+                    <a href="https://github.com/egov-moldova" target="_blank" data-tooltip="GitHub" data-placement="top">
+                        <img src="assets/logos/github-logo.png" alt="GitHub">
+                    </a>
+                    <a href="https://www.nuget.org/profiles/egov-moldova" target="_blank" data-tooltip="NuGet" data-placement="top" style="margin-left:10px;">
+                        <img src="assets/logos/nuget-logo.png" alt="NuGet" style="width:50px;height:50px;margin-left:-10px;margin-top:-10px;">
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
+
