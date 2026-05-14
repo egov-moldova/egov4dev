@@ -109,8 +109,8 @@ theme:
     - navigation.footer
   palette:
     - scheme: default
-      primary: indigo
-      accent: purple
+      primary: custom
+      accent: custom
 extra:
   social:
     - icon: fontawesome/brands/instagram
