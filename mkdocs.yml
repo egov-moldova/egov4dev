@@ -2,6 +2,7 @@ site_name: eGov4Dev
 site_url: https://egov-moldova.github.io/egov4dev/
 
 nav:
+  - Home: intro.md
   - Platforms and services: platforms/index.md
   - Connection procedure: platforms/procedure.md
   - Development principles: principles/architecture.md
