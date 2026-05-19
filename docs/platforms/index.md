@@ -1,5 +1,18 @@
 Moldovan e-government ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
 
+## Access & Pricing
+
+Most services in the eGov Moldova shared infrastructure are available free of charge for all integrating parties. However, certain platforms operate on a cost-recovery model established by Government regulation. Access fees apply per integrated information system and are invoiced annually based on a signed contract. Public institutions are fully exempt — fees apply exclusively to private legal entities and natural persons.
+
+| Service | Public institutions | Private entities & natural persons |
+|---------|:-------------------:|:-----------------------------------:|
+| MPass   | Free                | 10,800 MDL / year / system          |
+| MSign   | Free                | 15,200 MDL / year / system          |
+| All other services | Free     | Free                                |
+
+!!! info "Per-system billing"
+    The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
+
 <img src="../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
 
 
