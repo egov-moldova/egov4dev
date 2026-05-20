@@ -10,7 +10,7 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
       <th>Service</th>
       <th>User type</th>
       <th>Access conditions</th>
-      <th style="text-align:center">Annual fee per integration</th>
+      <th style="width:20%">Annual fee per integration</th>
     </tr>
   </thead>
   <tbody>
@@ -21,19 +21,19 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
       <td></td>
       <td>Public institutions</td>
       <td>Contract-based</td>
-      <td style="text-align:center">–</td>
+      <td style="text-align:left">–</td>
     </tr>
     <tr>
       <td></td>
       <td>Private legal entities</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:center">10,800 MDL</td>
+      <td style="text-align:left">10.800 lei</td>
     </tr>
     <tr>
       <td></td>
       <td>Natural persons</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:center">10,800 MDL</td>
+      <td style="text-align:left">10.800 lei</td>
     </tr>
     <tr class="product-row">
       <td colspan="4"><strong>MSign</strong></td>
@@ -42,31 +42,29 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
       <td></td>
       <td>Public institutions</td>
       <td>Free of charge</td>
-      <td style="text-align:center">–</td>
+      <td style="text-align:left">–</td>
     </tr>
     <tr>
       <td></td>
       <td>Private legal entities</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:center">15,200 MDL</td>
+      <td style="text-align:left">15.200 lei</td>
     </tr>
     <tr>
       <td></td>
       <td>Natural persons</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:center">15,200 MDL</td>
+      <td style="text-align:left">15.200 lei</td>
     </tr>
     <tr class="product-row">
       <td colspan="2"><strong>All other services</strong></td>
       <td>Free of charge</td>
-      <td style="text-align:center">–</td>
+      <td style="text-align:left">–</td>
     </tr>
   </tbody>
 </table>
 
-<p style="font-size:0.875rem; color:#6b7280; margin-top:0.75rem;">
-  <strong>Per-system billing:</strong> The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
-</p>
+**Per-system billing:** The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
 
 The platforms don't operate in isolation. The diagram below illustrates how they relate to one another — from foundational identity and interoperability services through to citizen-facing delivery channels. Understanding these relationships helps developers anticipate which services to integrate together and in what order.
 
