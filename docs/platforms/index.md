@@ -1,21 +1,25 @@
-Moldovan e-government ecosystem is composed of a series of interconnected platforms and services, each with a specific role in the digital transformation of public services. Together, they create a secure, efficient, and citizen-centric digital environment.
+Moldova's e-governance infrastructure is built around a set of shared platforms, each designed to solve a common challenge — authentication, signing, payments, data exchange, notifications — so public institutions can focus on delivering services rather than rebuilding technical foundations. The sections below cover the business model as well as integration guidance for each platform.
 
 ## Access and pricing
 
 Most services in the eGov Moldova shared infrastructure are available free of charge for all integrating parties. However, certain platforms operate on a cost-recovery model established by Government regulation. Access fees apply per integrated information system and are invoiced annually based on a signed contract. Public institutions are fully exempt — fees apply exclusively to private legal entities and natural persons.
 
 | Service | User type | Access conditions | Annual fee per integration |
-|---------|-----------|-------------------|:--------------------------:|
-| **MPass** | Public institutions | Contract-based | – |
+|---|---|---|:---:|
+| **MPass** | | | |
+| | Public institutions | Contract-based | – |
 | | Private legal entities | Contract-based (per applicable legal framework) | 10,800 MDL |
 | | Natural persons | Contract-based (per applicable legal framework) | 10,800 MDL |
-| **MSign** | Public institutions | Free of charge | – |
+| **MSign** | | | |
+| | Public institutions | Free of charge | – |
 | | Private legal entities | Contract-based (per applicable legal framework) | 15,200 MDL |
 | | Natural persons | Contract-based (per applicable legal framework) | 15,200 MDL |
-| **other services** | All | Free of charge | – |
+| **All other services** | All | Free of charge | – |
 
 !!! info "Per-system billing"
     The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
+
+The platforms don't operate in isolation. The diagram below illustrates how they relate to one another — from foundational identity and interoperability services through to citizen-facing delivery channels. Understanding these relationships helps developers anticipate which services to integrate together and in what order.
 
 <img src="../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
 
