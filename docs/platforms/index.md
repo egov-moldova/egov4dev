@@ -7,12 +7,12 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
 | Service | User type | Access conditions | Annual fee per integration |
 |---------|-----------|-------------------|:--------------------------:|
 | **MPass** | Public institutions | Contract-based | – |
-| **MPass** | Private legal entities | Contract-based (per applicable legal framework) | 10,800 MDL |
-| **MPass** | Natural persons | Contract-based (per applicable legal framework) | 10,800 MDL |
+| | Private legal entities | Contract-based (per applicable legal framework) | 10,800 MDL |
+| | Natural persons | Contract-based (per applicable legal framework) | 10,800 MDL |
 | **MSign** | Public institutions | Free of charge | – |
-| **MSign** | Private legal entities | Contract-based (per applicable legal framework) | 15,200 MDL |
-| **MSign** | Natural persons | Contract-based (per applicable legal framework) | 15,200 MDL |
-| **All other services** | All | Free of charge | – |
+| | Private legal entities | Contract-based (per applicable legal framework) | 15,200 MDL |
+| | Natural persons | Contract-based (per applicable legal framework) | 15,200 MDL |
+| **other services** | All | Free of charge | – |
 
 !!! info "Per-system billing"
     The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
