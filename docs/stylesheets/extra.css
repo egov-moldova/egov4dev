@@ -54,6 +54,39 @@ h2 {color:#111111!important}
   margin-bottom: 0.5rem;
 }
 
+/* Pricing table */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+}
+
+.pricing-table th {
+  background-color: var(--md-primary-fg-color, #0058d2);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.pricing-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #111827;
+}
+
+.pricing-table tr.product-row td {
+  background-color: #eff6ff;
+  color: #0058d2;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.pricing-table tbody tr:hover:not(.product-row) td {
+  background-color: #f9fafb;
+}
+
 .quick-link-card {
   display: block;
   flex: 1 1 0;

@@ -4,20 +4,69 @@ Moldova's e-governance infrastructure is built around a set of shared platforms,
 
 Most services in the eGov Moldova shared infrastructure are available free of charge for all integrating parties. However, certain platforms operate on a cost-recovery model established by Government regulation. Access fees apply per integrated information system and are invoiced annually based on a signed contract. Public institutions are fully exempt — fees apply exclusively to private legal entities and natural persons.
 
-| Service | User type | Access conditions | Annual fee per integration |
-|---|---|---|:---:|
-| **MPass** | | | |
-| | Public institutions | Contract-based | – |
-| | Private legal entities | Contract-based (per applicable legal framework) | 10,800 MDL |
-| | Natural persons | Contract-based (per applicable legal framework) | 10,800 MDL |
-| **MSign** | | | |
-| | Public institutions | Free of charge | – |
-| | Private legal entities | Contract-based (per applicable legal framework) | 15,200 MDL |
-| | Natural persons | Contract-based (per applicable legal framework) | 15,200 MDL |
-| **All other services** | All | Free of charge | – |
+<table class="pricing-table">
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>User type</th>
+      <th>Access conditions</th>
+      <th style="text-align:center">Annual fee per integration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="product-row">
+      <td colspan="4"><strong>MPass</strong></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Public institutions</td>
+      <td>Contract-based</td>
+      <td style="text-align:center">–</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Private legal entities</td>
+      <td>Contract-based (per applicable legal framework)</td>
+      <td style="text-align:center">10,800 MDL</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Natural persons</td>
+      <td>Contract-based (per applicable legal framework)</td>
+      <td style="text-align:center">10,800 MDL</td>
+    </tr>
+    <tr class="product-row">
+      <td colspan="4"><strong>MSign</strong></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Public institutions</td>
+      <td>Free of charge</td>
+      <td style="text-align:center">–</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Private legal entities</td>
+      <td>Contract-based (per applicable legal framework)</td>
+      <td style="text-align:center">15,200 MDL</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Natural persons</td>
+      <td>Contract-based (per applicable legal framework)</td>
+      <td style="text-align:center">15,200 MDL</td>
+    </tr>
+    <tr class="product-row">
+      <td colspan="2"><strong>All other services</strong></td>
+      <td>Free of charge</td>
+      <td style="text-align:center">–</td>
+    </tr>
+  </tbody>
+</table>
 
-!!! info "Per-system billing"
-    The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
+<p style="font-size:0.875rem; color:#6b7280; margin-top:0.75rem;">
+  <strong>Per-system billing:</strong> The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
+</p>
 
 The platforms don't operate in isolation. The diagram below illustrates how they relate to one another — from foundational identity and interoperability services through to citizen-facing delivery channels. Understanding these relationships helps developers anticipate which services to integrate together and in what order.
 
