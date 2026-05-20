@@ -71,6 +71,10 @@ h2 {color:#111111!important}
 }
 
 .pricing-table td {
+  text-align: left;
+}
+
+.pricing-table td {
   padding: 0.6rem 1rem;
   border-bottom: 1px solid #e5e7eb;
   color: #111827;

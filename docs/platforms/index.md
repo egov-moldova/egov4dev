@@ -21,19 +21,19 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
       <td></td>
       <td>Public institutions</td>
       <td>Contract-based</td>
-      <td style="text-align:left">–</td>
+      <td>–</td>
     </tr>
     <tr>
       <td></td>
       <td>Private legal entities</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:left">10.800 lei</td>
+      <td>10.800 lei</td>
     </tr>
     <tr>
       <td></td>
       <td>Natural persons</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:left">10.800 lei</td>
+      <td>10.800 lei</td>
     </tr>
     <tr class="product-row">
       <td colspan="4"><strong>MSign</strong></td>
@@ -42,24 +42,24 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
       <td></td>
       <td>Public institutions</td>
       <td>Free of charge</td>
-      <td style="text-align:left">–</td>
+      <td>–</td>
     </tr>
     <tr>
       <td></td>
       <td>Private legal entities</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:left">15.200 lei</td>
+      <td>15.200 lei</td>
     </tr>
     <tr>
       <td></td>
       <td>Natural persons</td>
       <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:left">15.200 lei</td>
+      <td>15.200 lei</td>
     </tr>
     <tr class="product-row">
       <td colspan="2"><strong>All other services</strong></td>
       <td>Free of charge</td>
-      <td style="text-align:left">–</td>
+      <td>–</td>
     </tr>
   </tbody>
 </table>
