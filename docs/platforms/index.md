@@ -57,6 +57,27 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
       <td style="text-align:center">15.200 lei</td>
     </tr>
     <tr class="product-row">
+      <td colspan="4"><strong>MConnect</strong></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Public institutions</td>
+      <td>Free of charge</td>
+      <td style="text-align:center">–</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Private legal entities</td>
+      <td>Setup fee per data source (one-time)</td>
+      <td style="text-align:center">1.000 lei</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Private legal entities</td>
+      <td>Data exchange fee per query</td>
+      <td style="text-align:center">0,25 lei</td>
+    </tr>
+    <tr class="product-row">
       <td colspan="2"><strong>All other services</strong></td>
       <td>Free of charge</td>
       <td style="text-align:center">–</td>
