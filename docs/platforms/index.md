@@ -25,13 +25,7 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
     </tr>
     <tr>
       <td></td>
-      <td>Private legal entities</td>
-      <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:center">10.800 lei</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>Natural persons</td>
+      <td>Private legal entities and natural persons</td>
       <td>Contract-based (per applicable legal framework)</td>
       <td style="text-align:center">10.800 lei</td>
     </tr>
@@ -46,13 +40,7 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
     </tr>
     <tr>
       <td></td>
-      <td>Private legal entities</td>
-      <td>Contract-based (per applicable legal framework)</td>
-      <td style="text-align:center">15.200 lei</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>Natural persons</td>
+      <td>Private legal entities and natural persons</td>
       <td>Contract-based (per applicable legal framework)</td>
       <td style="text-align:center">15.200 lei</td>
     </tr>
@@ -67,13 +55,12 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
     </tr>
     <tr>
       <td></td>
-      <td>Private legal entities</td>
+      <td rowspan="2">Private sector participants</td>
       <td>Setup fee per data source (one-time)</td>
       <td style="text-align:center">1.000 lei</td>
     </tr>
     <tr>
       <td></td>
-      <td>Private legal entities</td>
       <td>Data exchange fee per query</td>
       <td style="text-align:center">0,25 lei</td>
     </tr>
