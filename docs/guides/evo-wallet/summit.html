@@ -7,24 +7,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../stylesheets/mud-dark.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f4f6fb;
+      --bg: var(--gray-100);
       --surface: #ffffff;
-      --border: #dde3ef;
-      --accent: #0284c7;
-      --accent-light: #e0f2fe;
-      --accent2: #0e9f6e;
-      --text: #111827;
-      --muted: #6b7280;
-      --tag-wallet: #e0f2fe;
-      --tag-issuer: #d1fae5;
-      --tag-verifier: #fef3c7;
-      --tag-wallet-t: #0369a1;
-      --tag-issuer-t: #065f46;
-      --tag-verifier-t: #92400e;
+      --border: var(--gray-200);
+      --accent: var(--blue-sky-600);
+      --accent-light: var(--blue-sky-100);
+      --accent2: var(--green-600);
+      --text: var(--gray-900);
+      --muted: var(--gray-500);
+      --tag-wallet: var(--blue-sky-200);
+      --tag-issuer: var(--green-200);
+      --tag-verifier: var(--apricot-200);
+      --tag-wallet-t: var(--blue-sky-700);
+      --tag-issuer-t: var(--green-700);
+      --tag-verifier-t: var(--apricot-700);
     }
 
     body {
@@ -36,7 +37,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: #0284c7 !important;
+      background: var(--blue-sky-600) !important;
       color: #fff !important;
       padding: 72px 24px 60px;
       text-align: center;
@@ -59,7 +60,7 @@
       line-height: 1.15;
       margin-bottom: 16px;
     }
-    .hero h1 span { color: #93c5fd; }
+    .hero h1 span { color: var(--blue-sky-200); }
     .hero p {
       font-size: 1.05rem;
       color: rgba(255,255,255,.82);
@@ -263,7 +264,7 @@
       border-radius: 7px;
       transition: background .15s;
     }
-    .cert-link:hover { background: #bae6fd; }
+    .cert-link:hover { background: var(--blue-sky-200); }
     .cert-link svg { flex-shrink: 0; }
     .na-text { font-size: .82rem; color: var(--muted); font-style: italic; }
 
