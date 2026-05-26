@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MDS26 EUDI Wallet Interoperability – Participants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f6fb;
+      --surface: #ffffff;
+      --border: #dde3ef;
+      --accent: #0284c7;
+      --accent-light: #e0f2fe;
+      --accent2: #0e9f6e;
+      --text: #111827;
+      --muted: #6b7280;
+      --tag-wallet: #e0f2fe;
+      --tag-issuer: #d1fae5;
+      --tag-verifier: #fef3c7;
+      --tag-wallet-t: #0369a1;
+      --tag-issuer-t: #065f46;
+      --tag-verifier-t: #92400e;
+    }
+
+    body {
+      font-family: 'Onest', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: #0284c7 !important;
+      color: #fff !important;
+      padding: 72px 24px 60px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Onest', system-ui, sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #93c5fd; }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.82);
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat strong {
+      display: block;
+      font-family: 'Onest', system-ui, sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .stat span { font-size: .82rem; color: rgba(255,255,255,.7); }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 1140px;
+      margin: 48px auto 0;
+      padding: 0 24px;
+    }
+    .intro-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 640px) { .intro-card { grid-template-columns: 1fr; } }
+    .intro-item h3 {
+      font-family: 'Onest', system-ui, sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .intro-item p { font-size: .9rem; color: var(--muted); }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      max-width: 1140px;
+      margin: 48px auto 20px;
+      padding: 0 24px;
+    }
+    .section-header h2 {
+      font-family: 'Onest', system-ui, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* ── PARTICIPANT CARDS ── */
+    .cards {
+      max-width: 1140px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .card:hover { box-shadow: 0 4px 24px rgba(2,132,199,.12); }
+
+    .card-head {
+      padding: 30px 24px 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .org-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Onest', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      line-height: 1;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .org-info { flex: 1; min-width: 160px; }
+    .org-info h3 {
+      font-family: 'Onest', system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .org-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+    .country-flag { font-size: .9rem; }
+    .org-meta span { font-size: .82rem; color: var(--muted); }
+    .roles { display: flex; gap: 6px; flex-wrap: wrap; }
+    .role-tag {
+      font-size: .72rem;
+      font-weight: 500;
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+    .role-wallet  { background: var(--tag-wallet);   color: var(--tag-wallet-t); }
+    .role-issuer  { background: var(--tag-issuer);   color: var(--tag-issuer-t); }
+    .role-verifier{ background: var(--tag-verifier); color: var(--tag-verifier-t); }
+
+    .card-body {
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) { .card-body { grid-template-columns: 1fr; } }
+
+    .field-group h4 {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .url-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 10px;
+      margin-bottom: 6px;
+    }
+    .url-label {
+      font-size: .68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--accent);
+      flex-shrink: 0;
+      min-width: 52px;
+    }
+    .url-text {
+      font-size: .78rem;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+    .url-text a { color: var(--accent); text-decoration: none; }
+    .url-text a:hover { text-decoration: underline; }
+    .copy-btn {
+      flex-shrink: 0;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 2px 8px;
+      font-size: .68rem;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all .15s;
+    }
+    .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .copy-btn.copied { background: var(--accent2); color: #fff; border-color: var(--accent2); }
+
+    .cert-links { display: flex; flex-direction: column; gap: 6px; }
+    .cert-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 6px 10px;
+      background: var(--accent-light);
+      border-radius: 7px;
+      transition: background .15s;
+    }
+    .cert-link:hover { background: #bae6fd; }
+    .cert-link svg { flex-shrink: 0; }
+    .na-text { font-size: .82rem; color: var(--muted); font-style: italic; }
+
+    .formats-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .format-tag {
+      font-size: .7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+    }
+
+    .card-footer {
+      padding: 12px 24px;
+      background: #fafbfd;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+    .card-footer strong { color: var(--text); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: .82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge">MDS26 · EUDI Wallet Interoperability Testing</div>
+  <h1>InePro Wallet<br/><span>Interoperability Network</span></h1>
+  <p>Registered participants, test endpoints, and public root certificates for the EUDI Wallet interoperability testing event — Test It, Prove It, Break It.</p>
+  <div class="hero-stats">
+    <div class="stat"><strong>8</strong><span>Organisations</span></div>
+    <div class="stat"><strong>6</strong><span>Countries</span></div>
+    <div class="stat"><strong>3</strong><span>Roles tested</span></div>
+    <div class="stat"><strong>2</strong><span>Data formats</span></div>
+  </div>
+</section>
+
+<!-- ── INTRO ── -->
+<div class="intro">
+  <div class="intro-card">
+    <div class="intro-item">
+      <h3>Data Formats</h3>
+      <p>Participants support ISO 18013-5 (mdoc) and/or SD-JWT VC — the two core EUDI Wallet credential formats.</p>
+    </div>
+    <div class="intro-item">
+      <h3>Presentation Modes</h3>
+      <p>Remote (online/network) and proximity (NFC/Bluetooth) presentation flows are covered across the network.</p>
+    </div>
+    <div class="intro-item">
+      <h3>Certificates</h3>
+      <p>Public root certificates for Wallet Providers, Issuers, and Verifiers are available to download or copy per organisation below.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── PARTICIPANTS ── -->
+<div class="section-header">
+  <h2>Participants</h2>
+</div>
+
+<div class="cards">
+
+  <!-- ── Animo Solutions ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-logo">AN</div>
+      <div class="org-info">
+        <h3>Animo Solutions</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇳🇱</span>
+          <span>Netherlands</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text"><a href="https://playground.animo.id/" target="_blank" rel="noopener">playground.animo.id</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://playground.animo.id/')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text"><a href="https://playground.animo.id/" target="_blank" rel="noopener">playground.animo.id</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://playground.animo.id/')">Copy</button>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <div class="cert-links">
+          <a class="cert-link" href="https://drive.google.com/open?id=1JcGOqqo886eTuILMkfTY9LoLoqG06_aP" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Wallet Provider Certificate
+          </a>
+          <a class="cert-link" href="https://drive.google.com/open?id=16vw9NMAlNh3IJFwOuhJZULLXpbyo09V_" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Issuer Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL, ePrescription, EHIC, SCA, QES &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
+  <!-- ── FortID ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-logo">FT</div>
+      <div class="org-info">
+        <h3>FortID</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇭🇷</span>
+          <span>Croatia</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text"><a href="https://fortid.com/playground#/issuer" target="_blank" rel="noopener">fortid.com/playground#/issuer</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://fortid.com/playground#/issuer')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text"><a href="https://fortid.com/playground#/verifier" target="_blank" rel="noopener">fortid.com/playground#/verifier</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://fortid.com/playground#/verifier')">Copy</button>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <span class="na-text">Not yet submitted — contact the organisation.</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL, custom schemas via API &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
+  <!-- ── certSIGN ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-logo">CS</div>
+      <div class="org-info">
+        <h3>S.C. certSIGN S.A.</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇷🇴</span>
+          <span>Romania</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text"><a href="https://eudigitalwallet.test.certsign.ro:14430" target="_blank" rel="noopener">eudigitalwallet.test.certsign.ro:14430</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://eudigitalwallet.test.certsign.ro:14430')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text"><a href="https://eudigitalwallet.test.certsign.ro" target="_blank" rel="noopener">eudigitalwallet.test.certsign.ro</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://eudigitalwallet.test.certsign.ro')">Copy</button>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <span class="na-text">Exposed on demand — contact the organisation.</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
+  <!-- ── Docaposte ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-logo">DC</div>
+      <div class="org-info">
+        <h3>Docaposte</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇫🇷</span>
+          <span>France</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <span class="na-text">Endpoints not yet submitted.</span>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <span class="na-text">Not yet submitted.</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL, ePrescription, EHIC, custom schemas &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
+  <!-- ── Forkbomb BV ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-logo">FB</div>
+      <div class="org-info">
+        <h3>Forkbomb BV</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇳🇱</span>
+          <span>Netherlands</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <span class="na-text">Endpoints not yet submitted.</span>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <span class="na-text">Not yet submitted.</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
+  <!-- ── TOPPAN Security ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-logo">TP</div>
+      <div class="org-info">
+        <h3>TOPPAN Security</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇫🇷</span>
+          <span>France</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text"><a href="https://demo.goid.toppanapps.com:542/" target="_blank" rel="noopener">demo.goid.toppanapps.com:542</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://demo.goid.toppanapps.com:542/')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text"><a href="https://demo.goid.toppanapps.com:462/verification/openid4vp" target="_blank" rel="noopener">demo.goid.toppanapps.com:462</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://demo.goid.toppanapps.com:462/verification/openid4vp')">Copy</button>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <div class="cert-links">
+          <a class="cert-link" href="https://drive.google.com/open?id=1ZdCcGKcq-_FU3wpR6Dkwfz_gTXaILUTy" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Wallet Provider Certificate
+          </a>
+          <a class="cert-link" href="https://drive.google.com/open?id=1H-XKKg4_D1IsNooB2IqsnmeAyzuuTr1F" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Issuer Certificate
+          </a>
+          <a class="cert-link" href="https://drive.google.com/open?id=109llgMr_75Ab0eVkDWwrwWB3nMvQJiYE" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Verifier Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL, Photo ID, EU Age, mVR, mVC &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Proximity (NFC/BT)
+    </div>
+  </div>
+
+  <!-- ── IN GROUPE ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-logo">IN</div>
+      <div class="org-info">
+        <h3>IN GROUPE</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇫🇷</span>
+          <span>France</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text"><a href="https://rp-playground-ingroupe.utoconnect.com/" target="_blank" rel="noopener">rp-playground-ingroupe.utoconnect.com</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://rp-playground-ingroupe.utoconnect.com/')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text" style="color:var(--muted);font-style:italic">Not yet submitted</span>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <span class="na-text">Not yet submitted.</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL, ePrescription, EHIC, PhotoID, MSISDN, IBAN &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
+</div><!-- /cards -->
+
+<footer>
+  Part of the <a href="https://egov4dev.github.io/" target="_blank" rel="noopener">eGov4Dev platform</a> &nbsp;·&nbsp;
+  MDS26 EUDI Wallet Interoperability Testing &nbsp;·&nbsp;
+  Page last updated May 2026
+</footer>
+
+<script>
+  function copyUrl(btn, url) {
+    navigator.clipboard.writeText(url).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 1800);
+    });
+  }
+</script>
+</body>
+</html>
