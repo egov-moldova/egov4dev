@@ -7,11 +7,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../stylesheets/mud-dark.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      /* Moldova DS color tokens */
+      --white: #ffffff;
+      --gray-100: #F5F5F5;
+      --gray-200: #F1F1F1;
+      --gray-300: #B2B2B2;
+      --gray-400: #757575;
+      --gray-500: #616161;
+      --gray-600: #444444;
+      --gray-700: #383838;
+      --gray-800: #2C2C2C;
+      --gray-900: #1E1E1E;
+      --blue-sky-100: #E8F0FB;
+      --blue-sky-200: #CCDEF6;
+      --blue-sky-300: #99BCED;
+      --blue-sky-400: #669BE4;
+      --blue-sky-500: #3379DB;
+      --blue-sky-600: #0058D2;
+      --blue-sky-700: #0046A8;
+      --blue-sky-800: #00357E;
+      --blue-sky-900: #00295A;
+      --green-100: #E6F5EE;
+      --green-200: #CDEADD;
+      --green-300: #9AD6BB;
+      --green-600: #039855;
+      --green-700: #027948;
+      --green-800: #05603A;
+      --apricot-100: #FEEFC6;
+      --apricot-200: #FEDF89;
+      --apricot-600: #DC6803;
+      --apricot-700: #B54708;
+      --apricot-800: #93370D;
       --bg: var(--gray-100);
       --surface: #ffffff;
       --border: var(--gray-200);
@@ -140,7 +170,7 @@
       overflow: hidden;
       transition: box-shadow .2s;
     }
-    .card:hover { box-shadow: 0 4px 24px rgba(2,132,199,.12); }
+    .card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.1); }
 
     .card-head {
       padding: 30px 24px 10px;
@@ -316,6 +346,22 @@
   </div>
 </section>
 
+<!-- ── PAGE INTRO ── -->
+<div class="intro" style="margin-bottom: 0;">
+  <div style="max-width: 850px;"> <!-- 70% of 1140px -->
+  <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 16px;">About this page</h2>
+  <p style="font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 12px;">
+    This page lists all registered participants of the MDS26 EUDI Wallet interoperability testing network. Each entry includes the organisation's test endpoints and public root certificates needed to establish trust during testing sessions.
+  </p>
+  <p style="font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 12px;">
+    <strong style="color: var(--text);">Before the event:</strong> download the root certificates of every organisation you plan to test with and pre-load them into your wallet, issuer, or verifier. This is required to validate credential exchanges during the interoperability sessions.
+  </p>
+  <p style="font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 24px;">
+    <strong style="color: var(--text);">Participants:</strong> if your endpoints or certificates are missing or outdated, please update your entry by sending the information to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a>.
+  </p>
+  </div>
+</div>
+
 <!-- ── INTRO ── -->
 <div class="intro">
   <div class="intro-card">
@@ -426,7 +472,7 @@
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <span class="na-text">Not yet submitted — contact the organisation.</span>
+        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
       </div>
     </div>
     <div class="card-footer">
@@ -469,7 +515,7 @@
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <span class="na-text">Exposed on demand — contact the organisation.</span>
+        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
       </div>
     </div>
     <div class="card-footer">
@@ -499,11 +545,11 @@
     <div class="card-body">
       <div class="field-group">
         <h4>Test Endpoints</h4>
-        <span class="na-text">Endpoints not yet submitted.</span>
+        <span class="na-text">Please submit your endpoints to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <span class="na-text">Not yet submitted.</span>
+        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
       </div>
     </div>
     <div class="card-footer">
@@ -533,11 +579,11 @@
     <div class="card-body">
       <div class="field-group">
         <h4>Test Endpoints</h4>
-        <span class="na-text">Endpoints not yet submitted.</span>
+        <span class="na-text">Please submit your endpoints to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <span class="na-text">Not yet submitted.</span>
+        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
       </div>
     </div>
     <div class="card-footer">
@@ -630,12 +676,12 @@
         </div>
         <div class="url-row">
           <span class="url-label">Issuer</span>
-          <span class="url-text" style="color:var(--muted);font-style:italic">Not yet submitted</span>
+          <span class="url-text" style="color:var(--muted);font-style:italic">Please submit to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
         </div>
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <span class="na-text">Not yet submitted.</span>
+        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
       </div>
     </div>
     <div class="card-footer">
