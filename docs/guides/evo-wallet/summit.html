@@ -254,8 +254,9 @@
     }
     .section-header h2 {
       font-family: 'Onest', system-ui, sans-serif;
-      font-size: 1.35rem;
+      font-size: 1.6rem;
       font-weight: 700;
+      color: var(--blue-sky-600);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -386,22 +387,80 @@
     .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
     .copy-btn.copied { background: var(--accent2); color: #fff; border-color: var(--accent2); }
 
-    .cert-links { display: flex; flex-direction: column; gap: 6px; }
-    .cert-link {
+    .na-text { font-size: .82rem; color: var(--muted); font-style: italic; }
+
+    /* ── CERT DROPDOWN ── */
+    .cert-list { display: flex; flex-direction: column; gap: 5px; }
+    .cert-toggle {
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 8px;
-      font-size: .82rem;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 6px 10px;
-      background: var(--accent-light);
+      padding: 7px 10px;
+      background: var(--blue-sky-100);
+      border: 1px solid var(--blue-sky-200);
       border-radius: 7px;
-      transition: background .15s;
+      cursor: pointer;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--blue-sky-700);
+      text-align: left;
+      transition: background .15s, border-radius .15s;
     }
-    .cert-link:hover { background: var(--blue-sky-200); }
-    .cert-link svg { flex-shrink: 0; }
-    .na-text { font-size: .82rem; color: var(--muted); font-style: italic; }
+    .cert-toggle:hover { background: var(--blue-sky-200); }
+    .cert-toggle.open { border-radius: 7px 7px 0 0; background: var(--blue-sky-200); }
+    .cert-toggle-left { display: flex; align-items: center; gap: 7px; }
+    .cert-toggle-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .cert-chevron { transition: transform .2s; flex-shrink: 0; }
+    .cert-toggle.open .cert-chevron { transform: rotate(180deg); }
+    .cert-panel {
+      display: none;
+      border: 1px solid var(--blue-sky-200);
+      border-top: none;
+      border-radius: 0 0 7px 7px;
+      background: #f8faff;
+      padding: 10px;
+    }
+    .cert-panel.open { display: block; }
+    .cert-pem {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: .68rem;
+      line-height: 1.55;
+      color: var(--blue-sky-800);
+      white-space: pre-wrap;
+      word-break: break-all;
+      background: var(--blue-sky-100);
+      border: 1px solid var(--blue-sky-200);
+      border-radius: 5px;
+      padding: 10px 12px;
+      max-height: 160px;
+      overflow-y: auto;
+      margin-bottom: 8px;
+    }
+    .cert-actions { display: flex; gap: 7px; justify-content: flex-end; }
+    .cert-action-btn {
+      display: flex; align-items: center; gap: 5px;
+      font-size: .72rem; font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all .15s;
+      text-decoration: none;
+    }
+    .cert-copy-btn {
+      background: var(--blue-sky-600);
+      color: #fff;
+      border: 1px solid var(--blue-sky-600);
+    }
+    .cert-copy-btn:hover { background: var(--blue-sky-700); }
+    .cert-copy-btn.copied { background: var(--green-700); border-color: var(--green-700); }
+    .cert-dl-btn {
+      background: #fff;
+      color: var(--blue-sky-600);
+      border: 1px solid var(--blue-sky-200);
+    }
+    .cert-dl-btn:hover { background: var(--blue-sky-100); }
 
     .formats-list {
       display: flex;
@@ -463,7 +522,7 @@
 <!-- ── PAGE INTRO ── -->
 <div id="section-about" class="intro" style="margin-bottom: 0;">
   <div style="max-width: 850px;"> <!-- 70% of 1140px -->
-  <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 16px;">About event</h2>
+  <h2 style="font-size: 1.6rem; font-weight: 700; color: var(--blue-sky-600); margin-bottom: 16px;">About event</h2>
   <p style="font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 12px;">
     This page lists all registered participants of the MDS26 EUDI Wallet interoperability testing network. Each entry includes the organisation's test endpoints and public root certificates needed to establish trust during testing sessions.
   </p>
@@ -504,7 +563,6 @@
   <!-- ── Animo Solutions ── -->
   <div class="card">
     <div class="card-head">
-      <div class="org-logo">AN</div>
       <div class="org-info">
         <h3>Animo Solutions</h3>
         <div class="org-meta">
@@ -534,15 +592,43 @@
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <div class="cert-links">
-          <a class="cert-link" href="https://drive.google.com/open?id=1JcGOqqo886eTuILMkfTY9LoLoqG06_aP" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Wallet Provider Certificate
-          </a>
-          <a class="cert-link" href="https://drive.google.com/open?id=16vw9NMAlNh3IJFwOuhJZULLXpbyo09V_" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Issuer Certificate
-          </a>
+        <div class="cert-list">
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Wallet Provider Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="animo-wallet-cert">-----BEGIN CERTIFICATE-----
+(PEM content not yet uploaded)
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'animo-wallet-cert')">Copy</button>
+                <a class="cert-action-btn cert-dl-btn" href="https://drive.google.com/open?id=1JcGOqqo886eTuILMkfTY9LoLoqG06_aP" target="_blank" rel="noopener">↓ Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Issuer Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="animo-issuer-cert">-----BEGIN CERTIFICATE-----
+(PEM content not yet uploaded)
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'animo-issuer-cert')">Copy</button>
+                <a class="cert-action-btn cert-dl-btn" href="https://drive.google.com/open?id=16vw9NMAlNh3IJFwOuhJZULLXpbyo09V_" target="_blank" rel="noopener">↓ Download</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -556,7 +642,6 @@
   <!-- ── FortID ── -->
   <div class="card">
     <div class="card-head">
-      <div class="org-logo">FT</div>
       <div class="org-info">
         <h3>FortID</h3>
         <div class="org-meta">
@@ -599,7 +684,6 @@
   <!-- ── certSIGN ── -->
   <div class="card">
     <div class="card-head">
-      <div class="org-logo">CS</div>
       <div class="org-info">
         <h3>S.C. certSIGN S.A.</h3>
         <div class="org-meta">
@@ -642,7 +726,6 @@
   <!-- ── Docaposte ── -->
   <div class="card">
     <div class="card-head">
-      <div class="org-logo">DC</div>
       <div class="org-info">
         <h3>Docaposte</h3>
         <div class="org-meta">
@@ -676,7 +759,6 @@
   <!-- ── Forkbomb BV ── -->
   <div class="card">
     <div class="card-head">
-      <div class="org-logo">FB</div>
       <div class="org-info">
         <h3>Forkbomb BV</h3>
         <div class="org-meta">
@@ -710,7 +792,6 @@
   <!-- ── TOPPAN Security ── -->
   <div class="card">
     <div class="card-head">
-      <div class="org-logo">TP</div>
       <div class="org-info">
         <h3>TOPPAN Security</h3>
         <div class="org-meta">
@@ -740,19 +821,61 @@
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <div class="cert-links">
-          <a class="cert-link" href="https://drive.google.com/open?id=1ZdCcGKcq-_FU3wpR6Dkwfz_gTXaILUTy" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Wallet Provider Certificate
-          </a>
-          <a class="cert-link" href="https://drive.google.com/open?id=1H-XKKg4_D1IsNooB2IqsnmeAyzuuTr1F" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Issuer Certificate
-          </a>
-          <a class="cert-link" href="https://drive.google.com/open?id=109llgMr_75Ab0eVkDWwrwWB3nMvQJiYE" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Verifier Certificate
-          </a>
+        <div class="cert-list">
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Wallet Provider Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="toppan-wallet-cert">-----BEGIN CERTIFICATE-----
+(PEM content not yet uploaded)
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'toppan-wallet-cert')">Copy</button>
+                <a class="cert-action-btn cert-dl-btn" href="https://drive.google.com/open?id=1ZdCcGKcq-_FU3wpR6Dkwfz_gTXaILUTy" target="_blank" rel="noopener">↓ Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Issuer Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="toppan-issuer-cert">-----BEGIN CERTIFICATE-----
+(PEM content not yet uploaded)
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'toppan-issuer-cert')">Copy</button>
+                <a class="cert-action-btn cert-dl-btn" href="https://drive.google.com/open?id=1H-XKKg4_D1IsNooB2IqsnmeAyzuuTr1F" target="_blank" rel="noopener">↓ Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Verifier Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="toppan-verifier-cert">-----BEGIN CERTIFICATE-----
+(PEM content not yet uploaded)
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'toppan-verifier-cert')">Copy</button>
+                <a class="cert-action-btn cert-dl-btn" href="https://drive.google.com/open?id=109llgMr_75Ab0eVkDWwrwWB3nMvQJiYE" target="_blank" rel="noopener">↓ Download</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -766,7 +889,6 @@
   <!-- ── IN GROUPE ── -->
   <div class="card">
     <div class="card-head">
-      <div class="org-logo">IN</div>
       <div class="org-info">
         <h3>IN GROUPE</h3>
         <div class="org-meta">
@@ -1002,10 +1124,26 @@
 <footer>
   Part of the <a href="https://egov4dev.github.io/" target="_blank" rel="noopener">eGov4Dev platform</a> &nbsp;·&nbsp;
   MDS26 EUDI Wallet Interoperability Testing &nbsp;·&nbsp;
-  Page last updated May 2026
+  Page last updated 28 May 2026
 </footer>
 
 <script>
+  /* ── Cert dropdown ── */
+  function toggleCert(btn) {
+    const panel = btn.nextElementSibling;
+    const isOpen = btn.classList.toggle('open');
+    panel.classList.toggle('open', isOpen);
+  }
+
+  function copyCert(btn, id) {
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ Copied';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+    });
+  }
+
   /* ── Copy button ── */
   function copyUrl(btn, url) {
     navigator.clipboard.writeText(url).then(() => {
