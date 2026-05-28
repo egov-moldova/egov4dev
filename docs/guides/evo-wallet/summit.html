@@ -60,7 +60,7 @@
 
     body {
       font-family: 'Onest', system-ui, sans-serif;
-      background: var(--bg);
+      background: rgba(0,0,0,.03);
       color: var(--text);
       line-height: 1.6;
     }
@@ -139,6 +139,112 @@
       margin-bottom: 6px;
     }
     .intro-item p { font-size: .9rem; color: var(--muted); }
+
+    /* ── STICKY NAV ── */
+    .page-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      width: 100%;
+    }
+    .page-nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+    .page-nav a {
+      display: inline-block;
+      padding: 20px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .page-nav a:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .page-nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--blue-sky-600);
+      font-weight: 600;
+    }
+    /* offset anchor scroll to clear sticky nav + 50px breathing room */
+    #section-about,
+    #section-participants,
+    #section-testcases {
+      scroll-margin-top: calc(var(--nav-height, 50px) + 50px);
+    }
+
+    /* ── TEST CASE TABLE ── */
+    .tc-group {
+      max-width: 1140px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+    }
+    .tc-group-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+    .tc-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+    .tc-table thead th {
+      background: rgba(0,0,0,.06);
+      color: var(--gray-500);
+      font-weight: 600;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 10px 16px;
+      text-align: left;
+    }
+    .tc-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .tc-table tr:last-child td { border-bottom: none; }
+    .tc-table tbody tr:hover td { background: #f9fafb; }
+    .tc-id {
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      font-size: 0.85rem;
+    }
+    .tc-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .tc-badge-issue   { background: var(--green-200);   color: var(--green-700); }
+    .tc-badge-verify  { background: var(--apricot-200); color: var(--apricot-700); }
+    .tc-badge-both    { background: var(--blue-sky-200); color: var(--blue-sky-700); }
+    .tc-badge-security{ background: #fef2f2; color: #b91c1c; }
+    .tc-badge-optional{ background: var(--gray-200); color: var(--gray-600); }
+    .tc-desc { color: var(--muted); font-size: 0.875rem; margin-top: 3px; }
 
     /* ── SECTION HEADER ── */
     .section-header {
@@ -242,8 +348,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: var(--bg);
-      border: 1px solid var(--border);
+      background: rgba(0,0,0,.06);
       border-radius: 8px;
       padding: 7px 10px;
       margin-bottom: 6px;
@@ -253,7 +358,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .05em;
-      color: var(--accent);
+      color: var(--gray-500);
       flex-shrink: 0;
       min-width: 52px;
     }
@@ -314,7 +419,7 @@
 
     .card-footer {
       padding: 12px 24px;
-      background: #fafbfd;
+      background: rgba(0,0,0,.06);
       font-size: .78rem;
       color: var(--muted);
     }
@@ -346,10 +451,19 @@
   </div>
 </section>
 
+<!-- ── STICKY NAV ── -->
+<nav class="page-nav" id="page-nav">
+  <div class="page-nav-inner">
+    <a href="#section-about" class="active">About event</a>
+    <a href="#section-participants">Participants</a>
+    <a href="#section-testcases">Test cases</a>
+  </div>
+</nav>
+
 <!-- ── PAGE INTRO ── -->
-<div class="intro" style="margin-bottom: 0;">
+<div id="section-about" class="intro" style="margin-bottom: 0;">
   <div style="max-width: 850px;"> <!-- 70% of 1140px -->
-  <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 16px;">About this page</h2>
+  <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 16px;">About event</h2>
   <p style="font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 12px;">
     This page lists all registered participants of the MDS26 EUDI Wallet interoperability testing network. Each entry includes the organisation's test endpoints and public root certificates needed to establish trust during testing sessions.
   </p>
@@ -381,7 +495,7 @@
 </div>
 
 <!-- ── PARTICIPANTS ── -->
-<div class="section-header">
+<div id="section-participants" class="section-header">
   <h2>Participants</h2>
 </div>
 
@@ -693,6 +807,198 @@
 
 </div><!-- /cards -->
 
+<!-- ── TEST CASES ── -->
+<div id="section-testcases" class="section-header" style="margin-top: 64px;">
+  <h2>Test cases</h2>
+</div>
+
+<!-- Issuance -->
+<div class="tc-group">
+  <div class="tc-group-title">Issuance</div>
+  <table class="tc-table">
+    <thead>
+      <tr>
+        <th style="width:60px">ID</th>
+        <th style="width:110px">Interaction</th>
+        <th style="width:200px">Title</th>
+        <th style="width:130px">Credential type</th>
+        <th style="width:110px">Format</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tc-id">I-1</td>
+        <td><span class="tc-badge tc-badge-issue">Issuance</span></td>
+        <td>Remote Issuance: PID via OpenID4VCI</td>
+        <td><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td>SD-JWT VC</td>
+        <td class="tc-desc">Issuer issues a PID credential in SD-JWT or mdoc format to Wallet using OpenID4VCI (HAIP flow). Wallet successfully receives and stores the credential.</td>
+      </tr>
+      <tr>
+        <td class="tc-id">I-2</td>
+        <td><span class="tc-badge tc-badge-issue">Issuance</span></td>
+        <td>Remote Issuance: PID via OpenID4VCI</td>
+        <td><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td>mdoc (ISO 18013-5)</td>
+        <td class="tc-desc">Issuer issues a PID credential in mdoc format to Wallet using OpenID4VCI (HAIP flow). Wallet successfully receives and stores the credential.</td>
+      </tr>
+      <tr>
+        <td class="tc-id">I-3</td>
+        <td><span class="tc-badge tc-badge-issue">Issuance</span></td>
+        <td>Remote Issuance: mDL via OpenID4VCI</td>
+        <td><code>org.iso.18013.5.1.mDL</code></td>
+        <td>mdoc (ISO 18013-5)</td>
+        <td class="tc-desc">Issuer issues a Mobile Driver's Licence in mdoc format to Wallet using OpenID4VCI (HAIP flow).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Remote Presentation -->
+<div class="tc-group">
+  <div class="tc-group-title">Remote Presentation</div>
+  <table class="tc-table">
+    <thead>
+      <tr>
+        <th style="width:60px">ID</th>
+        <th style="width:110px">Interaction</th>
+        <th style="width:200px">Title</th>
+        <th style="width:130px">Credential type</th>
+        <th style="width:110px">Format</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tc-id">P-1</td>
+        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td>Remote PID presentation</td>
+        <td><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td>SD-JWT VC</td>
+        <td class="tc-desc">Wallet presents SD-JWT PID to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+      </tr>
+      <tr>
+        <td class="tc-id">P-2</td>
+        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td>Remote PID presentation</td>
+        <td><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td>mdoc</td>
+        <td class="tc-desc">Wallet presents mdoc PID to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+      </tr>
+      <tr>
+        <td class="tc-id">P-3</td>
+        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td>Remote full mDL presentation</td>
+        <td><code>org.iso.18013.5.1.mDL</code></td>
+        <td>mdoc</td>
+        <td class="tc-desc">Wallet presents Mobile Driver's Licence in mdoc format to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Proximity Presentation -->
+<div class="tc-group">
+  <div class="tc-group-title">Proximity Presentation</div>
+  <table class="tc-table">
+    <thead>
+      <tr>
+        <th style="width:60px">ID</th>
+        <th style="width:110px">Interaction</th>
+        <th style="width:200px">Title</th>
+        <th style="width:130px">Credential type</th>
+        <th style="width:110px">Format / Channel</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tc-id">P-4</td>
+        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td>Proximity Presentation: PID via QR Code</td>
+        <td><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td>QR code / NFC</td>
+        <td class="tc-desc">User presents credential by scanning QR code generated by Verifier. Session is established and credential is shared via internet channel.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Cross-format -->
+<div class="tc-group">
+  <div class="tc-group-title">Cross-format</div>
+  <table class="tc-table">
+    <thead>
+      <tr>
+        <th style="width:60px">ID</th>
+        <th style="width:110px">Interaction</th>
+        <th style="width:200px">Title</th>
+        <th style="width:130px">Credential type</th>
+        <th style="width:110px">Format</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tc-id">C-1</td>
+        <td><span class="tc-badge tc-badge-both">Issuance / Verification</span></td>
+        <td>Remote Presentation: mDL in mdoc format</td>
+        <td><code>org.iso.18013.5.1.mDL</code></td>
+        <td>mdoc</td>
+        <td class="tc-desc">Wallet presents Mobile Driver's Licence in mdoc format to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Security & Negative -->
+<div class="tc-group">
+  <div class="tc-group-title">Security &amp; Negative scenarios</div>
+  <table class="tc-table">
+    <thead>
+      <tr>
+        <th style="width:60px">ID</th>
+        <th style="width:200px">Name</th>
+        <th>Expected result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tc-id">S-1</td>
+        <td>Presentation with untrusted Reader CA</td>
+        <td class="tc-desc">Wallet <strong>rejects</strong> — no credential data disclosed</td>
+      </tr>
+      <tr>
+        <td class="tc-id">S-2</td>
+        <td>Presentation of revoked credential</td>
+        <td class="tc-desc">Verifier <strong>rejects</strong> with revocation-specific error</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Optional Showcase -->
+<div class="tc-group">
+  <div class="tc-group-title">Optional showcase</div>
+  <table class="tc-table">
+    <thead>
+      <tr>
+        <th style="width:60px">ID</th>
+        <th style="width:200px">Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tc-id">O-1</td>
+        <td>Proof of Age Attestation</td>
+        <td class="tc-desc">Issuance and presentation of age-over-18 derived from PID — minimal disclosure demo</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <footer>
   Part of the <a href="https://egov4dev.github.io/" target="_blank" rel="noopener">eGov4Dev platform</a> &nbsp;·&nbsp;
   MDS26 EUDI Wallet Interoperability Testing &nbsp;·&nbsp;
@@ -700,6 +1006,7 @@
 </footer>
 
 <script>
+  /* ── Copy button ── */
   function copyUrl(btn, url) {
     navigator.clipboard.writeText(url).then(() => {
       btn.textContent = 'Copied!';
@@ -710,6 +1017,40 @@
       }, 1800);
     });
   }
+
+  /* ── Sticky nav active state via IntersectionObserver ── */
+  (function () {
+    const navLinks = document.querySelectorAll('.page-nav a');
+    const sectionIds = ['section-about', 'section-participants', 'section-testcases'];
+    const navEl = document.getElementById('page-nav');
+    const navHeight = navEl.offsetHeight;
+    document.documentElement.style.setProperty('--nav-height', navHeight + 'px');
+
+    function setActive(id) {
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: `-${navHeight + 10}px 0px -80% 0px`,
+        threshold: 0
+      }
+    );
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  })();
 </script>
 </body>
 </html>
