@@ -148,24 +148,27 @@
       background: #ffffff;
       border-bottom: 1px solid var(--border);
       width: 100%;
+      overflow-x: auto;
     }
     .page-nav-inner {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 0 30px;
+      padding: 0 16px;
       display: flex;
       justify-content: center;
       gap: 0;
+      white-space: nowrap;
     }
     .page-nav a {
       display: inline-block;
-      padding: 20px 30px;
+      padding: 14px 20px;
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--muted);
       text-decoration: none;
       border-bottom: 3px solid transparent;
       transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
     }
     .page-nav a:hover {
       color: var(--text);
@@ -175,6 +178,10 @@
       color: var(--accent);
       border-bottom-color: var(--blue-sky-600);
       font-weight: 600;
+    }
+    @media (max-width: 480px) {
+      .page-nav-inner { justify-content: center; }
+      .page-nav a { padding: 12px 14px; font-size: 0.95rem; }
     }
     /* offset anchor scroll to clear sticky nav + 50px breathing room */
     #section-about,
@@ -245,6 +252,13 @@
     .tc-badge-security{ background: #fef2f2; color: #b91c1c; }
     .tc-badge-optional{ background: var(--gray-200); color: var(--gray-600); }
     .tc-desc { color: var(--muted); font-size: 0.875rem; margin-top: 3px; }
+
+    /* Mobile: horizontal scroll */
+    @media (max-width: 640px) {
+      .tc-group { padding: 0 16px; }
+      .tc-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; }
+      .tc-table { min-width: 640px; border-radius: 0; }
+    }
 
     /* ── SECTION HEADER ── */
     .section-header {
@@ -559,6 +573,105 @@
 </div>
 
 <div class="cards">
+
+  <!-- ── eGovernance Agency Moldova ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-info">
+        <h3>eGovernance Agency Moldova</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇲🇩</span>
+          <span>Moldova</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text"><a href="https://verifica.dev.egov.md/verifica" target="_blank" rel="noopener">verifica.dev.egov.md/verifica</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://verifica.dev.egov.md/verifica')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text"><a href="https://verifica.dev.egov.md/verifica" target="_blank" rel="noopener">verifica.dev.egov.md/verifica</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://verifica.dev.egov.md/verifica')">Copy</button>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <div class="cert-list">
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Wallet Provider Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="egov-md-wallet-cert">-----BEGIN CERTIFICATE-----
+MIICGzCCAcCgAwIBAgIUatvXNxfYzkISrqHSrudsYBC/9UwwCgYIKoZIzj0EAwIw
+STELMAkGA1UEBhMCTUQxHDAaBgNVBAoME2UtR292ZXJuYW5jZSBBZ2VuY3kxHDAa
+BgNVBAMME1dhbGxldCBTdGFnaW5nIFJvb3QwIBcNMjUxMTIxMTIwOTA1WhgPMjA1
+NTExMTQxMjA5MDRaMEkxCzAJBgNVBAYTAk1EMRwwGgYDVQQKDBNlLUdvdmVybmFu
+Y2UgQWdlbmN5MRwwGgYDVQQDDBNXYWxsZXQgU3RhZ2luZyBSb290MFkwEwYHKoZI
+zj0CAQYIKoZIzj0DAQcDQgAEEcVuPS4e4wu/BG8jUL3RIFqT6Y0cGxKFZWRIbAgB
+Q6a1dQrpm+XBG4vGhPWMGecC4gJyyQjDHKfR/yI3GRmCE6OBgzCBgDASBgNVHRMB
+Af8ECDAGAQH/AgEBMB8GA1UdIwQYMBaAFBTymsp2jYDLji/uu6wa0V2hzcJgMB0G
+A1UdDgQWBBQU8prKdo2Ay44v7rusGtFdoc3CYDAaBgNVHRAEEzARgQ8yMDQwMTEx
+NzEyMDkwNVowDgYDVR0PAQH/BAQDAgEGMAoGCCqGSM49BAMCA0kAMEYCIQDWUWRr
+HTUlaW9XJRpGO1vIs44TgNJtKdXou2+JTk6OZwIhAO6FYDzcwfd+/P2eSqyX6j8p
+eDt+Q2sY+X1pr66bwqz2
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'egov-md-wallet-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Issuer Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="egov-md-issuer-cert">-----BEGIN CERTIFICATE-----
+MIICGzCCAcCgAwIBAgIUatvXNxfYzkISrqHSrudsYBC/9UwwCgYIKoZIzj0EAwIw
+STELMAkGA1UEBhMCTUQxHDAaBgNVBAoME2UtR292ZXJuYW5jZSBBZ2VuY3kxHDAa
+BgNVBAMME1dhbGxldCBTdGFnaW5nIFJvb3QwIBcNMjUxMTIxMTIwOTA1WhgPMjA1
+NTExMTQxMjA5MDRaMEkxCzAJBgNVBAYTAk1EMRwwGgYDVQQKDBNlLUdvdmVybmFu
+Y2UgQWdlbmN5MRwwGgYDVQQDDBNXYWxsZXQgU3RhZ2luZyBSb290MFkwEwYHKoZI
+zj0CAQYIKoZIzj0DAQcDQgAEEcVuPS4e4wu/BG8jUL3RIFqT6Y0cGxKFZWRIbAgB
+Q6a1dQrpm+XBG4vGhPWMGecC4gJyyQjDHKfR/yI3GRmCE6OBgzCBgDASBgNVHRMB
+Af8ECDAGAQH/AgEBMB8GA1UdIwQYMBaAFBTymsp2jYDLji/uu6wa0V2hzcJgMB0G
+A1UdDgQWBBQU8prKdo2Ay44v7rusGtFdoc3CYDAaBgNVHRAEEzARgQ8yMDQwMTEx
+NzEyMDkwNVowDgYDVR0PAQH/BAQDAgEGMAoGCCqGSM49BAMCA0kAMEYCIQDWUWRr
+HTUlaW9XJRpGO1vIs44TgNJtKdXou2+JTk6OZwIhAO6FYDzcwfd+/P2eSqyX6j8p
+eDt+Q2sY+X1pr66bwqz2
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'egov-md-issuer-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
 
   <!-- ── Animo Solutions ── -->
   <div class="card">
@@ -997,7 +1110,7 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
 <!-- Issuance -->
 <div class="tc-group">
   <div class="tc-group-title">Issuance</div>
-  <table class="tc-table">
+  <div class="tc-table-wrap"><table class="tc-table">
     <thead>
       <tr>
         <th style="width:60px">ID</th>
@@ -1010,37 +1123,37 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </thead>
     <tbody>
       <tr>
-        <td class="tc-id">I-1</td>
-        <td><span class="tc-badge tc-badge-issue">Issuance</span></td>
-        <td>Remote Issuance: PID via OpenID4VCI</td>
-        <td><code>eu.europa.ec.eudi.pid.1</code></td>
-        <td>SD-JWT VC</td>
-        <td class="tc-desc">Issuer issues a PID credential in SD-JWT or mdoc format to Wallet using OpenID4VCI (HAIP flow). Wallet successfully receives and stores the credential.</td>
+        <td class="tc-id" data-label="ID">I-1</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-issue">Issuance</span></td>
+        <td data-label="Title">Remote Issuance: PID via OpenID4VCI</td>
+        <td data-label="Credential type"><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td data-label="Format">SD-JWT VC</td>
+        <td class="tc-desc" data-label="Description">Issuer issues a PID credential in SD-JWT or mdoc format to Wallet using OpenID4VCI (HAIP flow). Wallet successfully receives and stores the credential.</td>
       </tr>
       <tr>
-        <td class="tc-id">I-2</td>
-        <td><span class="tc-badge tc-badge-issue">Issuance</span></td>
-        <td>Remote Issuance: PID via OpenID4VCI</td>
-        <td><code>eu.europa.ec.eudi.pid.1</code></td>
-        <td>mdoc (ISO 18013-5)</td>
-        <td class="tc-desc">Issuer issues a PID credential in mdoc format to Wallet using OpenID4VCI (HAIP flow). Wallet successfully receives and stores the credential.</td>
+        <td class="tc-id" data-label="ID">I-2</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-issue">Issuance</span></td>
+        <td data-label="Title">Remote Issuance: PID via OpenID4VCI</td>
+        <td data-label="Credential type"><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td data-label="Format">mdoc (ISO 18013-5)</td>
+        <td class="tc-desc" data-label="Description">Issuer issues a PID credential in mdoc format to Wallet using OpenID4VCI (HAIP flow). Wallet successfully receives and stores the credential.</td>
       </tr>
       <tr>
-        <td class="tc-id">I-3</td>
-        <td><span class="tc-badge tc-badge-issue">Issuance</span></td>
-        <td>Remote Issuance: mDL via OpenID4VCI</td>
-        <td><code>org.iso.18013.5.1.mDL</code></td>
-        <td>mdoc (ISO 18013-5)</td>
-        <td class="tc-desc">Issuer issues a Mobile Driver's Licence in mdoc format to Wallet using OpenID4VCI (HAIP flow).</td>
+        <td class="tc-id" data-label="ID">I-3</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-issue">Issuance</span></td>
+        <td data-label="Title">Remote Issuance: mDL via OpenID4VCI</td>
+        <td data-label="Credential type"><code>org.iso.18013.5.1.mDL</code></td>
+        <td data-label="Format">mdoc (ISO 18013-5)</td>
+        <td class="tc-desc" data-label="Description">Issuer issues a Mobile Driver's Licence in mdoc format to Wallet using OpenID4VCI (HAIP flow).</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <!-- Remote Presentation -->
 <div class="tc-group">
   <div class="tc-group-title">Remote Presentation</div>
-  <table class="tc-table">
+  <div class="tc-table-wrap"><table class="tc-table">
     <thead>
       <tr>
         <th style="width:60px">ID</th>
@@ -1053,37 +1166,37 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </thead>
     <tbody>
       <tr>
-        <td class="tc-id">P-1</td>
-        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
-        <td>Remote PID presentation</td>
-        <td><code>eu.europa.ec.eudi.pid.1</code></td>
-        <td>SD-JWT VC</td>
-        <td class="tc-desc">Wallet presents SD-JWT PID to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+        <td class="tc-id" data-label="ID">P-1</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td data-label="Title">Remote PID presentation</td>
+        <td data-label="Credential type"><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td data-label="Format">SD-JWT VC</td>
+        <td class="tc-desc" data-label="Description">Wallet presents SD-JWT PID to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
       </tr>
       <tr>
-        <td class="tc-id">P-2</td>
-        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
-        <td>Remote PID presentation</td>
-        <td><code>eu.europa.ec.eudi.pid.1</code></td>
-        <td>mdoc</td>
-        <td class="tc-desc">Wallet presents mdoc PID to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+        <td class="tc-id" data-label="ID">P-2</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td data-label="Title">Remote PID presentation</td>
+        <td data-label="Credential type"><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td data-label="Format">mdoc</td>
+        <td class="tc-desc" data-label="Description">Wallet presents mdoc PID to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
       </tr>
       <tr>
-        <td class="tc-id">P-3</td>
-        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
-        <td>Remote full mDL presentation</td>
-        <td><code>org.iso.18013.5.1.mDL</code></td>
-        <td>mdoc</td>
-        <td class="tc-desc">Wallet presents Mobile Driver's Licence in mdoc format to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+        <td class="tc-id" data-label="ID">P-3</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td data-label="Title">Remote full mDL presentation</td>
+        <td data-label="Credential type"><code>org.iso.18013.5.1.mDL</code></td>
+        <td data-label="Format">mdoc</td>
+        <td class="tc-desc" data-label="Description">Wallet presents Mobile Driver's Licence in mdoc format to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <!-- Proximity Presentation -->
 <div class="tc-group">
   <div class="tc-group-title">Proximity Presentation</div>
-  <table class="tc-table">
+  <div class="tc-table-wrap"><table class="tc-table">
     <thead>
       <tr>
         <th style="width:60px">ID</th>
@@ -1096,21 +1209,21 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </thead>
     <tbody>
       <tr>
-        <td class="tc-id">P-4</td>
-        <td><span class="tc-badge tc-badge-verify">Verification</span></td>
-        <td>Proximity Presentation: PID via QR Code</td>
-        <td><code>eu.europa.ec.eudi.pid.1</code></td>
-        <td>QR code / NFC</td>
-        <td class="tc-desc">User presents credential by scanning QR code generated by Verifier. Session is established and credential is shared via internet channel.</td>
+        <td class="tc-id" data-label="ID">P-4</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-verify">Verification</span></td>
+        <td data-label="Title">Proximity Presentation: PID via QR Code</td>
+        <td data-label="Credential type"><code>eu.europa.ec.eudi.pid.1</code></td>
+        <td data-label="Format">QR code / NFC</td>
+        <td class="tc-desc" data-label="Description">User presents credential by scanning QR code generated by Verifier. Session is established and credential is shared via internet channel.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <!-- Cross-format -->
 <div class="tc-group">
   <div class="tc-group-title">Cross-format</div>
-  <table class="tc-table">
+  <div class="tc-table-wrap"><table class="tc-table">
     <thead>
       <tr>
         <th style="width:60px">ID</th>
@@ -1123,21 +1236,21 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </thead>
     <tbody>
       <tr>
-        <td class="tc-id">C-1</td>
-        <td><span class="tc-badge tc-badge-both">Issuance / Verification</span></td>
-        <td>Remote Presentation: mDL in mdoc format</td>
-        <td><code>org.iso.18013.5.1.mDL</code></td>
-        <td>mdoc</td>
-        <td class="tc-desc">Wallet presents Mobile Driver's Licence in mdoc format to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
+        <td class="tc-id" data-label="ID">C-1</td>
+        <td data-label="Interaction"><span class="tc-badge tc-badge-both">Issuance / Verification</span></td>
+        <td data-label="Title">Remote Presentation: mDL in mdoc format</td>
+        <td data-label="Credential type"><code>org.iso.18013.5.1.mDL</code></td>
+        <td data-label="Format">mdoc</td>
+        <td class="tc-desc" data-label="Description">Wallet presents Mobile Driver's Licence in mdoc format to Verifier using OpenID4VP redirect flow. Verifier validates signature, claims and trust chain.</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <!-- Security & Negative -->
 <div class="tc-group">
   <div class="tc-group-title">Security &amp; Negative scenarios</div>
-  <table class="tc-table">
+  <div class="tc-table-wrap"><table class="tc-table">
     <thead>
       <tr>
         <th style="width:60px">ID</th>
@@ -1147,23 +1260,23 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </thead>
     <tbody>
       <tr>
-        <td class="tc-id">S-1</td>
-        <td>Presentation with untrusted Reader CA</td>
-        <td class="tc-desc">Wallet <strong>rejects</strong> — no credential data disclosed</td>
+        <td class="tc-id" data-label="ID">S-1</td>
+        <td data-label="Name">Presentation with untrusted Reader CA</td>
+        <td class="tc-desc" data-label="Expected result">Wallet <strong>rejects</strong> — no credential data disclosed</td>
       </tr>
       <tr>
-        <td class="tc-id">S-2</td>
-        <td>Presentation of revoked credential</td>
-        <td class="tc-desc">Verifier <strong>rejects</strong> with revocation-specific error</td>
+        <td class="tc-id" data-label="ID">S-2</td>
+        <td data-label="Name">Presentation of revoked credential</td>
+        <td class="tc-desc" data-label="Expected result">Verifier <strong>rejects</strong> with revocation-specific error</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <!-- Optional Showcase -->
 <div class="tc-group">
   <div class="tc-group-title">Optional showcase</div>
-  <table class="tc-table">
+  <div class="tc-table-wrap"><table class="tc-table">
     <thead>
       <tr>
         <th style="width:60px">ID</th>
@@ -1173,12 +1286,12 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </thead>
     <tbody>
       <tr>
-        <td class="tc-id">O-1</td>
-        <td>Proof of Age Attestation</td>
-        <td class="tc-desc">Issuance and presentation of age-over-18 derived from PID — minimal disclosure demo</td>
+        <td class="tc-id" data-label="ID">O-1</td>
+        <td data-label="Name">Proof of Age Attestation</td>
+        <td class="tc-desc" data-label="Description">Issuance and presentation of age-over-18 derived from PID — minimal disclosure demo</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 </div>
 
 <footer>
