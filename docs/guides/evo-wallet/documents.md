@@ -20,7 +20,7 @@ DocType: **md.gov.wallet.pid.1**
 | portrait | Portrait of the document holder | bstr |
 | signature | Signature specimen of the document holder | bstr |
 | resident_address | Full place of residence and/or contact, represented as one string. Includes country, region, city, street, house number, block and flat. Optional. | tstr |
-| resident_country_name | Country of residence. Optional. | tstr |
+| resident_country | Country of residence, as an alpha-2 country code as specified in ISO 3166-1. Optional. | tstr |
 | resident_region | Region of residence. Optional. | tstr |
 | resident_city | City of residence. Optional. | tstr |
 | resident_street | Street of residence. Optional. | tstr |
