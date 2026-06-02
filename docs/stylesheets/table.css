@@ -15,7 +15,7 @@ table th {
     border-right: 1px solid #fff !important;
     padding: 5px;
     text-align: left;
-    vertical-align: top;
+    vertical-align: top; background-color: #0058d2;
 }
 
 table th:last-child {
