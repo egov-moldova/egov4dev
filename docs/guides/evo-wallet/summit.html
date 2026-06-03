@@ -909,6 +909,38 @@ Bo+g0VjjyxsWais15MwajoemxmNwctc3L+3Hxw==
               </div>
             </div>
           </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Verifier Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="certsign-verifier-cert">-----BEGIN CERTIFICATE-----
+MIICuDCCAj6gAwIBAgIUM83/Jep3GNAN4xIoc6qmIfsxXocwCgYIKoZIzj0EAwMw
+SzELMAkGA1UEBhMCUk8xFjAUBgNVBAoMDWNlcnRTSUdOIFRlc3QxJDAiBgNVBAMM
+G2NlcnRTSUdOIFRlc3QgRVVESVcgUm9vdCBDQTAeFw0yNjA1MjkwNDU3NTdaFw0z
+NjA1MjYwNDU3NTdaMEsxCzAJBgNVBAYTAlJPMRYwFAYDVQQKDA1jZXJ0U0lHTiBU
+ZXN0MSQwIgYDVQQDDBtjZXJ0U0lHTiBUZXN0IEVVRElXIFJvb3QgQ0EwdjAQBgcq
+hkjOPQIBBgUrgQQAIgNiAATTfa+tZ2Ok5PhTCYGjajJ3WPx6bjn/KbtLD0j0zHNF
+hVURbA24igvAczYGELezeRZFrfrDAseoKZNwh/cT9CYBwuGalUtYBrbNfmby0eK6
+yjCg3yjXg9QbCGHoYgFur7ajgeIwgd8wEgYDVR0TAQH/BAgwBgEB/wIBADAOBgNV
+HQ8BAf8EBAMCAQYwFgYDVR0lAQH/BAwwCgYIK4ECAgAAAQcwHQYDVR0OBBYEFB3x
+miXzNk3A/a1QM6YELECBIGRdMB8GA1UdIwQYMBaAFB3xmiXzNk3A/a1QM6YELECB
+IGRdMEYGA1UdHwQ/MD0wO6A5oDeGNWh0dHA6Ly93YWxsZXQtaW50ZXJvcC50ZXN0
+LmNlcnRzaWduLnJvL0VVRElXX3Jvb3QuY3JsMBkGA1UdEgQSMBCGDmh0dHBzOi8v
+PEZRRE4+MAoGCCqGSM49BAMDA2gAMGUCMHuDIgMXcxVOIAxRjyw1gEXJUFIJz1HO
+fNMUERd0jDPiRiPTSwGnCfXeoZC+rN1O6wIxAP102TkSogwjqYYIeNolUatssnYD
+Bo+g0VjjyxsWais15MwajoemxmNwctc3L+3Hxw==
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'certsign-verifier-cert')">Copy</button>
+                <a class="cert-action-btn cert-dl-btn" href="http://wallet-interop.test.certsign.ro/EUDIW_root.crl" target="_blank" rel="noopener">↓ Download</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
