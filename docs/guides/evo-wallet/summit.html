@@ -517,8 +517,8 @@
   <h1>EUDI Wallet<br/><span>Interoperability testing</span></h1>
   <p>Registered participants test endpoints, and public root certificates for the EUDI Wallet interoperability testing event — Test it, prove it, break it.</p>
   <div class="hero-stats">
-    <div class="stat"><strong>5</strong><span>organisations</span></div>
-    <div class="stat"><strong>5</strong><span>countries</span></div>
+    <div class="stat"><strong>6</strong><span>organisations</span></div>
+    <div class="stat"><strong>6</strong><span>countries</span></div>
     <div class="stat"><strong>3</strong><span>roles tested</span></div>
     <div class="stat"><strong>2</strong><span>data formats</span></div>
   </div>
@@ -595,8 +595,8 @@
         <h4>Test Endpoints</h4>
         <div class="url-row">
           <span class="url-label">Issuer</span>
-          <span class="url-text"><a href="https://wallet.staging.egov.md" target="_blank" rel="noopener">wallet.staging.egov.md</a></span>
-          <button class="copy-btn" onclick="copyUrl(this,'https://wallet.staging.egov.md')">Copy</button>
+          <span class="url-text"><a href="https://verifica.dev.egov.md/verifica" target="_blank" rel="noopener">verifica.dev.egov.md/verifica</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://verifica.dev.egov.md/verifica')">Copy</button>
         </div>
         <div class="url-row">
           <span class="url-label">Verifier</span>
@@ -660,6 +660,177 @@ eDt+Q2sY+X1pr66bwqz2
 -----END CERTIFICATE-----</pre>
               <div class="cert-actions">
                 <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'egov-md-issuer-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc), SD-JWT VC &nbsp;·&nbsp;
+      <strong>Attestations:</strong> PID, mDL &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
+  <!-- ── Ministry of Digital Transformation, Ukraine ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-info">
+        <h3>Ministry of Digital Transformation</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇺🇦</span>
+          <span>Ukraine</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text"><a href="https://diia-issuer-api2s.diia.gov.ua/" target="_blank" rel="noopener">diia-issuer-api2s.diia.gov.ua</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://diia-issuer-api2s.diia.gov.ua/')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text"><a href="https://id.gov.ua/?response_type=code&client_id=9bb72c783d673d0daa535ca700360b8e&state=e1ab5c6f9ad4c4136a81939eabb395ec-4d96449d97a908e3b4c8f23be0a87e1c&redirect_uri=https%3A%2F%2Feu.iit.com.local%2Fdologincallback" target="_blank" rel="noopener">id.gov.ua</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://id.gov.ua/?response_type=code&client_id=9bb72c783d673d0daa535ca700360b8e&state=e1ab5c6f9ad4c4136a81939eabb395ec-4d96449d97a908e3b4c8f23be0a87e1c&redirect_uri=https%3A%2F%2Feu.iit.com.local%2Fdologincallback')">Copy</button>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <div class="cert-list">
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Wallet Provider Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="ua-wallet-cert">-----BEGIN CERTIFICATE-----
+MIIE2zCCBIGgAwIBAgIUbA2+gl0BMkoEAAAAgBSpAazFxgUwCgYIKoZIzj0EAwIw
+gdgxIDAeBgNVBAoMF1N0YXRlIGVudGVycHJpc2UgIkRJSUEiMTAwLgYDVQQLDCdE
+ZXBhcnRtZW50IG9mIEVsZWN0cm9uaWMgVHJ1c3QgU2VydmljZXMxMjAwBgNVBAMM
+KSJESUlBIi4gUXVhbGlmaWVkIFRydXN0IFNlcnZpY2VzIFByb3ZpZGVyMRkwFwYD
+VQQFExBVQS00MzM5NTAzMy0yNTAzMQswCQYDVQQGEwJVQTENMAsGA1UEBwwES3lp
+djEXMBUGA1UEYQwOTlRSVUEtNDMzOTUwMzMwHhcNMjYwNjAyMjEwMDAwWhcNMjgw
+NjAyMjA1OTU5WjCBgjESMBAGA1UECgwJRGlpYSBUZXN0MSQwIgYDVQQDDBtEaWlh
+IFdhbGxldEF0dGVzdGF0aW9uIFRlc3QxETAPBgNVBAUTCDI3ODU4MDQ4MQswCQYD
+VQQGEwJVQTENMAsGA1UEBwwES3lpdjEXMBUGA1UEYQwOTlRSVUEtNDMzOTUwMzMw
+WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATHRbzG8Lrme7IT25Kf446Q1sbCJ+Jp
+ZfcbXVZZmv9iqXJ89VugtGc4ulvoif6tt59E3/fnGBizSh1B0GagP87Xo4ICezCC
+AncwHQYDVR0OBBYEFCpVe2pDcxXMoSbVMLrxIhnNDntqMB8GA1UdIwQYMBaAFOwN
+voJdATJK6zI/WK7HTj9cAJ8RMA4GA1UdDwEB/wQEAwIHgDBGBgNVHSAEPzA9MDsG
+CSqGJAIBAQECAjAuMCwGCCsGAQUFBwIBFiBodHRwczovL2NhLmRpaWEuZ292LnVh
+L3JlZ2xhbWVudDAJBgNVHRMEAjAAMD8GCCsGAQUFBwEDBDMwMTAIBgYEAI5GAQEw
+DgYGBACORgEHMAQTAlVBMBUGCCsGAQUFBwsCMAkGBwQAi+xJAQIwKQYDVR0RBCIw
+IIIOY2EuZGlpYS5nb3YudWGBDmNhQGRpaWEuZ292LnVhMEkGA1UdHwRCMEAwPqA8
+oDqGOGh0dHA6Ly9jYS5kaWlhLmdvdi51YS9kb3dubG9hZC9jcmxzL0NBLUVDMERC
+RTgyLUZ1bGwuY3JsMEoGA1UdLgRDMEEwP6A9oDuGOWh0dHA6Ly9jYS5kaWlhLmdv
+di51YS9kb3dubG9hZC9jcmxzL0NBLUVDMERCRTgyLURlbHRhLmNybDCBhwYIKwYB
+BQUHAQEEezB5MDAGCCsGAQUFBzABhiRodHRwOi8vY2EuZGlpYS5nb3YudWEvc2Vy
+dmljZXMvb2NzcC8wRQYIKwYBBQUHMAKGOWh0dHA6Ly9jYS5kaWlhLmdvdi51YS91
+cGxvYWRzL2NlcnRpZmljYXRlcy9kaWlhX2VjZHNhLnA3YjBFBggrBgEFBQcBCwQ5
+MDcwNQYIKwYBBQUHMAOGKWh0dHA6Ly9jYS5kaWlhLmdvdi51YS9zZXJ2aWNlcy90
+c3AvZWNkc2EvMAoGCCqGSM49BAMCA0gAMEUCICmdFwRBY7TqM0KDPpuRQNEO4ky4
+tStBpkRMk/+/5ruYAiEA/3gENckGT20iGmpZceu3+JiBXJGVkcP7SjWP1vhFG0U=
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'ua-wallet-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Issuer Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="ua-issuer-cert">-----BEGIN CERTIFICATE-----
+MIIFBTCCBKqgAwIBAgIUbA2+gl0BMkoEAAAA8UuoAYfCxgUwCgYIKoZIzj0EAwIw
+gdgxIDAeBgNVBAoMF1N0YXRlIGVudGVycHJpc2UgIkRJSUEiMTAwLgYDVQQLDCdE
+ZXBhcnRtZW50IG9mIEVsZWN0cm9uaWMgVHJ1c3QgU2VydmljZXMxMjAwBgNVBAMM
+KSJESUlBIi4gUXVhbGlmaWVkIFRydXN0IFNlcnZpY2VzIFByb3ZpZGVyMRkwFwYD
+VQQFExBVQS00MzM5NTAzMy0yNTAzMQswCQYDVQQGEwJVQTENMAsGA1UEBwwES3lp
+djEXMBUGA1UEYQwOTlRSVUEtNDMzOTUwMzMwHhcNMjYwNjAyMjIxNTA5WhcNMjgw
+NjAyMjIxNTA5WjBeMRIwEAYDVQQKDAlEaWlhIFRlc3QxGTAXBgNVBAMMEERpaWEg
+SXNzdWVyIFRlc3QxETAPBgNVBAUTCDI3ODA2NzA1MQswCQYDVQQGEwJVQTENMAsG
+A1UEBwwES3lpdjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABKWfQZsefmhonIy9
+kbq+YQFUDJjjo2+K6eCqSV0huWKM0uUKuSywxEOqOY/p/fBvnFafL2NalwcQPfyh
+lXd/b3ajggLJMIICxTAdBgNVHQ4EFgQU5bizqpGIWHBPbyUE25L5S0uP7TAwHwYD
+VR0jBBgwFoAU7A2+gl0BMkrrMj9YrsdOP1wAnxEwDgYDVR0PAQH/BAQDAgeAMBIG
+A1UdJQQLMAkGByiBjF0FAQIwRgYDVR0gBD8wPTA7BgkqhiQCAQEBAgIwLjAsBggr
+BgEFBQcCARYgaHR0cHM6Ly9jYS5kaWlhLmdvdi51YS9yZWdsYW1lbnQwCQYDVR0T
+BAIwADA1BggrBgEFBQcBAwQpMCcwCAYGBACORgEBMA4GBgQAjkYBBzAEEwJVQTAL
+BgkqhiQCAQEBAgEwPgYDVR0RBDcwNYIOY2EuZGlpYS5nb3YudWGBDmNhQGRpaWEu
+Z292LnVhoBMGCisGAQQBgjcUAgOgBQwDMjAyME0GA1UdHwRGMEQwQqBAoD6GPGh0
+dHA6Ly9jYS5kaWlhLmdvdi51YS9kb3dubG9hZC9jcmxzL0NBLUVDMERCRTgyLUZ1
+bGwtUzczLmNybDBOBgNVHS4ERzBFMEOgQaA/hj1odHRwOi8vY2EuZGlpYS5nb3Yu
+dWEvZG93bmxvYWQvY3Jscy9DQS1FQzBEQkU4Mi1EZWx0YS1TNzMuY3JsMIGHBggr
+BgEFBQcBAQR7MHkwMAYIKwYBBQUHMAGGJGh0dHA6Ly9jYS5kaWlhLmdvdi51YS9z
+ZXJ2aWNlcy9vY3NwLzBFBggrBgEFBQcwAoY5aHR0cDovL2NhLmRpaWEuZ292LnVh
+L3VwbG9hZHMvY2VydGlmaWNhdGVzL2RpaWFfZWNkc2EucDdiMEUGCCsGAQUFBwEL
+BDkwNzA1BggrBgEFBQcwA4YpaHR0cDovL2NhLmRpaWEuZ292LnVhL3NlcnZpY2Vz
+L3RzcC9lY2RzYS8wJQYDVR0JBB4wHDAaBgwqhiQCAQEBCwEEAgExChMINDMzOTUw
+MzMwCgYIKoZIzj0EAwIDSQAwRgIhAN1PkSH5VpC+vvF6vIKtwuJBO5vDEz6eL+f2
+wz+LAYsAAiEA73Glx62CdbTtOytxPhYN4CeSB4usmLtREFrCtIfzMsI=
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'ua-issuer-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Verifier Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="ua-verifier-cert">-----BEGIN CERTIFICATE-----
+MIIFCjCCBLGgAwIBAgIRAPOthX06hoawdjcQK6hgLEAwCgYIKoZIzj0EAwIwYDEL
+MAkGA1UEBhMCR0IxGDAWBgNVBAoTD1NlY3RpZ28gTGltaXRlZDE3MDUGA1UEAxMu
+U2VjdGlnbyBQdWJsaWMgU2VydmVyIEF1dGhlbnRpY2F0aW9uIENBIE9WIEUzNjAe
+Fw0yNjA1MjUwMDAwMDBaFw0yNjEyMDkyMzU5NTlaMFIxCzAJBgNVBAYTAlVBMQ0w
+CwYDVQQIEwRLeWl2MSAwHgYDVQQKDBdTVEFURSBFTlRFUlBSSVNFICJESUlBIjES
+MBAGA1UEAxMJaWQuZ292LnVhMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwQrf
+3iZ+U5weI5sJ57oRl6XqvAiUv3KnyV6/Wn0nzMeZfFk4jjMAhFhvc6zOOetRbXnk
+HqS36bqhlGc33nx+paOCA1gwggNUMB8GA1UdIwQYMBaAFEw4eiU0a/35jxpgHJJx
+qmf5gjfrMB0GA1UdDgQWBBQTbJU1yUEOKzuD12yLUfdfTMza5DAOBgNVHQ8BAf8E
+BAMCB4AwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+AwIwSgYDVR0gBEMwQTA1BgwrBgEEAbIxAQIBAwQwJTAjBggrBgEFBQcCARYXaHR0
+cHM6Ly9zZWN0aWdvLmNvbS9DUFMwCAYGZ4EMAQICMFQGA1UdHwRNMEswSaBHoEWG
+Q2h0dHA6Ly9jcmwuc2VjdGlnby5jb20vU2VjdGlnb1B1YmxpY1NlcnZlckF1dGhl
+bnRpY2F0aW9uQ0FPVkUzNi5jcmwwgYQGCCsGAQUFBwEBBHgwdjBPBggrBgEFBQcw
+AoZDaHR0cDovL2NydC5zZWN0aWdvLmNvbS9TZWN0aWdvUHVibGljU2VydmVyQXV0
+aGVudGljYXRpb25DQU9WRTM2LmNydDAjBggrBgEFBQcwAYYXaHR0cDovL29jc3Au
+c2VjdGlnby5jb20wIwYDVR0RBBwwGoIJaWQuZ292LnVhgg13d3cuaWQuZ292LnVh
+MIIBhQYKKwYBBAHWeQIEAgSCAXUEggFxAW8AdQDXbX0Q0af1d8LH6V/XAL/5gskz
+WmXh0LMBcxfAyMVpdwAAAZ5eBn9GAAAEAwBGMEQCIF4vWfHWCQYSrb62llNvPP5B
+6/CKAuGYoRq4yts+7VSEAiAE6O7kOreV+K6lObE0Mr0z7Jm6UIwV196KZ2stB19Y
+uwB2AMijxH/Hs625NWsBP2p6Em3jOk5DpcZG+ZetOXWZHc+aAAABnl4Gf48AAAQD
+AEcwRQIhAJoKZ4PfgUbAJzUiJYrjA36KKe08i09641It4wprS812AiBWrg1wVSlv
+Aj9R9vzNf8xx9GH1VbqmnFpV+VSbGgAwGQB+AGz+UBlDqF6pFrxS0TPk3Mke8UEc
+fSWEINFzgJ4YGOs6AAABnl4GgXEACAAABQANNir4BAMARzBFAiAdi85HRPgrRDCS
+b2hxiZwTRs5Muwt/AchdJ9IUJel/ngIhAJxSbhlNB4bkvAroO8vn+GO5p8J01MHm
+W/Lna/xR5gq+MAoGCCqGSM49BAMCA0cAMEQCIFDeotc1BNQYlpY1w0yRTLtz+X9t
+rb9PyyrSNr+OfnyNAiBeSEFIf033TU6FAg8yQzsQL4pmQdNQm1Jlg9AYL3wx8A==
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'ua-verifier-cert')">Copy</button>
               </div>
             </div>
           </div>
@@ -1091,7 +1262,7 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </div>
   </div>
 
-  <!-- ── IN GROUPE ── -->
+  <!-- ── IN GROUPE — commented out, not attending ──
   <div class="card">
     <div class="card-head">
       <div class="org-info">
@@ -1131,6 +1302,7 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
       <strong>Presentation:</strong> Remote
     </div>
   </div>
+  ── -->
 
 </div><!-- /cards -->
 
