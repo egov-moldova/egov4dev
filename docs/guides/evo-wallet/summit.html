@@ -962,18 +962,89 @@ mxP2M5o4phGsLuZcAiEAuiL89d9a2CQbQo8dzNpnV+P9JrUnKRQuP5ZZ9VJcoJI=
         <h4>Test Endpoints</h4>
         <div class="url-row">
           <span class="url-label">Issuer</span>
-          <span class="url-text"><a href="https://fortid.com/playground#/issuer" target="_blank" rel="noopener">fortid.com/playground#/issuer</a></span>
-          <button class="copy-btn" onclick="copyUrl(this,'https://fortid.com/playground#/issuer')">Copy</button>
+          <span class="url-text"><a href="https://mds2026.fortid.dev/playground#/issuer" target="_blank" rel="noopener">mds2026.fortid.dev/playground#/issuer</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://mds2026.fortid.dev/playground#/issuer')">Copy</button>
         </div>
         <div class="url-row">
           <span class="url-label">Verifier</span>
-          <span class="url-text"><a href="https://fortid.com/playground#/verifier" target="_blank" rel="noopener">fortid.com/playground#/verifier</a></span>
-          <button class="copy-btn" onclick="copyUrl(this,'https://fortid.com/playground#/verifier')">Copy</button>
+          <span class="url-text"><a href="https://mds2026.fortid.dev/playground#/verifier" target="_blank" rel="noopener">mds2026.fortid.dev/playground#/verifier</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://mds2026.fortid.dev/playground#/verifier')">Copy</button>
+        </div>
+        <div class="url-row">
+          <span class="url-label" style="min-width:80px">Metadata</span>
+          <span class="url-text"><a href="https://eis.mds2026.fortid.dev/protocol/oid4vci/issuer/fortid_issuer" target="_blank" rel="noopener">eis.mds2026.fortid.dev/protocol/oid4vci/issuer/fortid_issuer</a></span>
+          <button class="copy-btn" onclick="copyUrl(this,'https://eis.mds2026.fortid.dev/protocol/oid4vci/issuer/fortid_issuer')">Copy</button>
         </div>
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
+        <div class="cert-list">
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Issuer Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="fortid-issuer-cert">-----BEGIN CERTIFICATE-----
+MIIEczCCAlugAwIBAgIUICR3OHAbgvo9k2nMHLZgMRRhgxUwDQYJKoZIhvcNAQEL
+BQAwZDELMAkGA1UEBhMCSFIxDzANBgNVBAgMBlphZ3JlYjEPMA0GA1UEBwwGWmFn
+cmViMQ0wCwYDVQQKDARUQlRMMQwwCgYDVQQLDANCZWUxFjAUBgNVBAMMDUZvcnRJ
+RCBEZXYgQ0EwHhcNMjYwNjAzMTczOTAzWhcNMzYwNTMxMTczOTAzWjAhMR8wHQYD
+VQQDExZUZXN0IElzc3VlciBTZXJ2aWNlIENBMIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEAuviqg7q1efiwRNxktCdMSty3dGD1i2GxX5f1t2x2RR/96Eda
+30KzsBsombg+2kPv0YSrmGsV8LgnBbpoPdLTxlH/X7LXNcJDY4+xE0jODF3It6cH
+8bF86R9yWplAVJt3EWkT+his5wKI0ZfkRWzfHkxVzTw6OpRLdVEXn/gQdPzq5fTa
+HlXdyIRJr7zN5tQR2lIrJrQc2YyuD9x/LpLxBfkPNKyOuua1BYHNGwuF4Ss0T5kx
+e0q77AnslJJ9h+dHRCbgTwBmC2XjnFeqmf3S/kUupXB9+OJg6z9KKCBSiQPC6Vpv
+tVEE9zFXV5m9sLzpbtMGmYewk4UQXxiTcj3lGQIDAQABo2AwXjAMBgNVHRMEBTAD
+AQH/MA4GA1UdDwEB/wQEAwIBBjAdBgNVHQ4EFgQUemDnJtE7NMNbe31p6xJ4SEUS
+FsIwHwYDVR0jBBgwFoAUqUiCg/nw2LdT9pgr5nBImy9TEoswDQYJKoZIhvcNAQEL
+BQADggIBAAXYCMkJX14+8fp3YQBobE3aeuiVeo0930JGkOplohpW6IVmTWz/WMuL
+hi3vlLUzzlthe4TzRYlUK9D89BxoMJB+5Qbx7mp1083kpf+iAsY3d32FstXDSSnx
+aRXhcxGJRsJ8bCmA9hyTRUwDBPtTRt2ObMfG9vgBx71xubJ3q8AZgFTovMwjnVh9
+F8rdUmPxYM48X91K4bqbAdQLhi8jBv05Pe6O1e0kWacIm50UPs4PpCslgX7E0cSz
+KESproidGjaRC5ZVuDecSwC1IcfGU1FBy4IXT9O5YsL2chNoHLjcKrd8AN2vAU59
+drqcifFwjcZz9d3QNZSut7jsaSy2BnOFSLQ58+jApsIexcNWaB3ZI2J/vouMuoAi
+ts3BZYuESKxMiq0whkkkFNwxkASErb7VBS2Ysxgv7D23OfC6L7CzN2kuPIhkSuyr
+DA52HW0n/iZTZJrmhVSTYtbxK25ecC3jtAb+O9mXorLcLWYMsrGDbneeXs43+FcS
+l4yonrw5iPVsk9gLmq3UrSkuI7RCyvRCTKAwaMPcrMO2UowkCt0jwRppLPkKjf2y
+JsXHzszx0u3GqsiiV/AQk3NT9LMgRJAliBJU+SIkBbMlQheVkoB3AjoPPzNILoZT
+CxTrPL+HhzlgZ/8qXcflLo8U/3XOE9q+JaN3PrrzgohPzpYYkwGO
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'fortid-issuer-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Verifier Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="fortid-verifier-cert">-----BEGIN CERTIFICATE-----
+MIIBlzCCAT2gAwIBAgIUdnR5HV941ErRVOy0Q5v/cPyRSGMwCgYIKoZIzj0EAwIw
+ITEfMB0GA1UEAwwWZXZzLm1kczIwMjYuZm9ydGlkLmRldjAeFw0yNjA2MDMwNTQ5
+MjlaFw0yOTA2MDIwNTQ5MjlaMCExHzAdBgNVBAMMFmV2cy5tZHMyMDI2LmZvcnRp
+ZC5kZXYwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASKLsuL/t2OScQEqPlv0loO
+SKVWLuA3DuxR/6spmYFmJtYm2zkIM1naqSYZLmVfO6aytR604GX4kjLOUMM64uDt
+o1MwUTAdBgNVHQ4EFgQUJJrYMNLKBsKZMF9MVLgaSKMq4HwwHwYDVR0jBBgwFoAU
+JJrYMNLKBsKZMF9MVLgaSKMq4HwwDwYDVR0TAQH/BAUwAwEB/zAKBggqhkjOPQQD
+AgNIADBFAiEAkRnqv3/yDwpZU5/IAS6B2R6M5qaIANK9NC3u5cMFLPcCIHFKEJ09
+GGTrXd1mquTwhY4mQGVaQN6CAzsHKCCOgUGQ
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'fortid-verifier-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="card-footer">
