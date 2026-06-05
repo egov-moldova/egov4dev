@@ -551,13 +551,22 @@
 
 <!-- ── Credentials ── -->
 <div class="intro">
-  <div class="intro-card" style="grid-template-columns: 2fr 1fr;">
+  <div class="intro-card" style="grid-template-columns: 2fr 1fr; background: var(--apricot-100); border-color: var(--apricot-200);">
     <div class="intro-item">
       <h3 style="color: var(--apricot-600);">Attention!!!</h3><p style="margin-right: 5rem;">Dear participants when you will need to use Moldovan issuer, you will need to pass throught Mpass (authentification gateway) first. Scroll down to Login and Password optin and use these credentilas.</p>
     </div>
     <div class="intro-item">
       <h3 style="color: var(--apricot-600);">Credentials</h3>
-      <p> <strong>IDNP:</strong> 2400123456780<br><strong>Password:</strong> TestWallet</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <strong style="min-width:80px;">IDNP:</strong>
+          <code onclick="copyValue(this,'2400123456780')" title="Click to copy" style="cursor:pointer;background:var(--apricot-200);border-radius:4px;padding:1px 6px;font-size:.85rem;">2400123456780</code>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <strong style="min-width:80px;">Password:</strong>
+          <code onclick="copyValue(this,'TestWallet')" title="Click to copy" style="cursor:pointer;background:var(--apricot-200);border-radius:4px;padding:1px 6px;font-size:.85rem;">TestWallet</code>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1635,6 +1644,15 @@ Cross-format / Security & Negative / Optional — hidden for now
       btn.textContent = '✓ Copied';
       btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+    });
+  }
+
+  /* ── Inline value copy ── */
+  function copyValue(el, val) {
+    navigator.clipboard.writeText(val).then(() => {
+      const orig = el.textContent;
+      el.textContent = '✓ Copied';
+      setTimeout(() => { el.textContent = orig; }, 1500);
     });
   }
 
