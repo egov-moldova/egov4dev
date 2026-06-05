@@ -1385,7 +1385,43 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
       </div>
       <div class="field-group">
         <h4>Public Root Certificates</h4>
-        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
+        <div class="cert-list">
+          <div class="cert-item">
+            <button class="cert-toggle" onclick="toggleCert(this)">
+              <span class="cert-toggle-left">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Issuer Certificate
+              </span>
+              <svg class="cert-chevron" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="cert-panel">
+              <pre class="cert-pem" id="france-identite-issuer-cert">-----BEGIN CERTIFICATE-----
+MIIDdjCCAxugAwIBAgISESHseuWkt7eIRNVD2TUo+Bu2MAoGCCqGSM49BAMCMIHH
+MQswCQYDVQQGEwJGUjEwMC4GA1UECgwnQWdlbmNlIE5hdGlvbmFsZSBkZXMgVGl0
+cmVzIFPDqWN1cmlzw6lzMRcwFQYDVQQLDA4wMDAyIDEzMDAwMzI2MjEmMCQGA1UE
+CwwdUE9VUiBRVUFMSUZJQ0FUSU9OIFVOSVFVRU1FTlQxOTA3BgNVBAMMMEF1dG9y
+aXTDqSBkZSBDZXJ0aWZpY2F0aW9uIEZyYW5jZSBJZGVudGl0w6kgSUFDQTEKMAgG
+A1UEBRMBMTAeFw0yNTAxMjkwMDAwMDBaFw0zNDAxMjkwMDAwMDBaMIHHMQswCQYD
+VQQGEwJGUjEwMC4GA1UECgwnQWdlbmNlIE5hdGlvbmFsZSBkZXMgVGl0cmVzIFPD
+qWN1cmlzw6lzMRcwFQYDVQQLDA4wMDAyIDEzMDAwMzI2MjEmMCQGA1UECwwdUE9V
+UiBRVUFMSUZJQ0FUSU9OIFVOSVFVRU1FTlQxOTA3BgNVBAMMMEF1dG9yaXTDqSBk
+ZSBDZXJ0aWZpY2F0aW9uIEZyYW5jZSBJZGVudGl0w6kgSUFDQTEKMAgGA1UEBRMB
+MTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABEWDSW7a1G6Ebbydwncvqx1JXjcL
+p0Uk/OKc5IWXEJCiejLWd3brmKVIrnJNi3GtLPOsokA7Y8I0XJpqQrROvYSjgeQw
+geEwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQAwLAYDVR0SBCUw
+I4EhZnJhbmNlLWlkZW50aXRlQGludGVyaWV1ci5nb3V2LmZyME0GA1UdHwRGMEQw
+QqBAoD6GPGh0dHA6Ly9jcmwucXVhbGlmLmFudHMuZ291di5mci9hY19mcmFuY2Vf
+aWRlbnRpdGVfaWFjYV8xLmNybDAdBgNVHQ4EFgQU6qGsPka6CBXTy3qGlF/2yRr2
+8aUwHwYDVR0jBBgwFoAU6qGsPka6CBXTy3qGlF/2yRr28aUwCgYIKoZIzj0EAwID
+SQAwRgIhAIWippsk9geJFGe/WInhC6IQpWgBfscynyMb4B2fKcbXAiEA9CFvazbn
+ATTWeV9JY4z4xiazYY5QeBH8Ug8RmFU0zVM=
+-----END CERTIFICATE-----</pre>
+              <div class="cert-actions">
+                <button class="cert-action-btn cert-copy-btn" onclick="copyCert(this,'france-identite-issuer-cert')">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="card-footer">
