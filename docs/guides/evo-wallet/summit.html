@@ -517,7 +517,7 @@
   <h1>EUDI Wallet<br/><span>Interoperability testing</span></h1>
   <p>Registered participants test endpoints, and public root certificates for the EUDI Wallet interoperability testing event — Test it, prove it, break it.</p>
   <div class="hero-stats">
-    <div class="stat"><strong>6</strong><span>organisations</span></div>
+    <div class="stat"><strong>7</strong><span>organisations</span></div>
     <div class="stat"><strong>6</strong><span>countries</span></div>
     <div class="stat"><strong>3</strong><span>roles tested</span></div>
     <div class="stat"><strong>2</strong><span>data formats</span></div>
@@ -549,6 +549,19 @@
   </div>
 </div>
 
+<!-- ── Credentials ── -->
+<div class="intro">
+  <div class="intro-card" style="grid-template-columns: 2fr 1fr;">
+    <div class="intro-item">
+      <h3 style="color: var(--apricot-600);">Attention!!!</h3><p style="margin-right: 5rem;">Dear participants when you will need to use Moldovan issuer, you will need to pass throught Mpass (authentification gateway) first. Scroll down to Login and Password optin and use these credentilas.</p>
+    </div>
+    <div class="intro-item">
+      <h3 style="color: var(--apricot-600);">Credentials</h3>
+      <p> <strong>IDNP:</strong> 2400123456780<br><strong>Password:</strong> TestWallet</p>
+    </div>
+  </div>
+</div>
+
 <!-- ── INTRO ── -->
 <div class="intro">
   <div class="intro-card">
@@ -563,21 +576,6 @@
     <div class="intro-item">
       <h3>Certificates</h3>
       <p>Public root certificates for Wallet Providers, Issuers, and Verifiers are available to download or copy per organisation below.</p>
-    </div>
-  </div>
-</div>
-
-
-<!-- ── Credentials ── -->
-<div class="intro">
-  <div class="intro-card">
-    
-    <div class="intro-item">
-      <h3>Credentials</h3><p>Dear participants when you will need to use Moldovan issuer, you will need to pass throught Mpass (authentification gateway) first. Scroll down to Login and Password optin and use these credentilas.</p>
-    </div>
-    <div class="intro-item">
-      <h3>Credentials</h3>
-      <p> <strong>IDNP:</strong> 2400123456780<br><strong>Password:</strong> TestWallet</p>
     </div>
   </div>
 </div>
@@ -1348,6 +1346,46 @@ RY3Tf7HLawIgPJNW65N1RV4zStg2jBGTIKczd/PpGjF3PdAFLwVYDy8=
     </div>
   </div>
 
+  <!-- ── France Identité ── -->
+  <div class="card">
+    <div class="card-head">
+      <div class="org-info">
+        <h3>France Identité</h3>
+        <div class="org-meta">
+          <span class="country-flag">🇫🇷</span>
+          <span>France</span>
+        </div>
+      </div>
+      <div class="roles">
+        <span class="role-tag role-wallet">Wallet Provider</span>
+        <span class="role-tag role-issuer">Issuer</span>
+        <span class="role-tag role-verifier">Verifier</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field-group">
+        <h4>Test Endpoints</h4>
+        <div class="url-row">
+          <span class="url-label">Issuer</span>
+          <span class="url-text" style="color:var(--muted);font-style:italic">Please submit to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
+        </div>
+        <div class="url-row">
+          <span class="url-label">Verifier</span>
+          <span class="url-text" style="color:var(--muted);font-style:italic">Please submit to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
+        </div>
+      </div>
+      <div class="field-group">
+        <h4>Public Root Certificates</h4>
+        <span class="na-text">Please submit your certificates to <a href="mailto:wallet@egov.md" style="color: var(--accent);">wallet@egov.md</a></span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <strong>Formats:</strong> ISO 18013-5 (mdoc) &nbsp;·&nbsp;
+      <strong>Attestations:</strong> TBD &nbsp;·&nbsp;
+      <strong>Presentation:</strong> Remote
+    </div>
+  </div>
+
   <!-- ── IN GROUPE — commented out, not attending ──
   <div class="card">
     <div class="card-head">
@@ -1552,6 +1590,38 @@ Cross-format / Security & Negative / Optional — hidden for now
 </footer>
 
 <script>
+  /* ── Cert download ── */
+  function downloadCert(id, filename) {
+    const text = document.getElementById(id).textContent;
+    const blob = new Blob([text], { type: 'application/x-x509-ca-cert' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  /* Auto-inject download buttons into every cert panel */
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.cert-panel').forEach(function (panel) {
+      const pre = panel.querySelector('pre.cert-pem[id]');
+      if (!pre) return;
+      const id = pre.id;
+      const filename = id.replace(/-cert$/, '') + '.cer';
+      const actions = panel.querySelector('.cert-actions');
+      if (!actions) return;
+      actions.querySelectorAll('a.cert-dl-btn').forEach(function (a) { a.remove(); });
+      if (!actions.querySelector('.cert-dl-btn')) {
+        const btn = document.createElement('button');
+        btn.className = 'cert-action-btn cert-dl-btn';
+        btn.innerHTML = '↓ Download';
+        btn.onclick = function () { downloadCert(id, filename); };
+        actions.appendChild(btn);
+      }
+    });
+  });
+
   /* ── Cert dropdown ── */
   function toggleCert(btn) {
     const panel = btn.nextElementSibling;
