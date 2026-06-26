@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eGov Developer Platform | Moldova</title>
-    <meta name="description" content="Open APIs, SDKs, and documentation for Moldova's digital government infrastructure">
-    <meta property="og:title" content="eGov4Dev | Moldova Developer Platform">
-    <meta property="og:description" content="Official developer resources for integrating with Moldova's government platforms.">
+    <title>eGov4Dev | Platformă pentru dezvoltatori</title>
+    <meta name="description" content="API-uri deschise, SDK-uri și documentație pentru infrastructura digitală guvernamentală a RM">
+    <meta property="og:title" content="eGov4Dev | Platformă pentru dezvoltatori">
+    <meta property="og:description" content="Resurse oficiale pentru dezvoltatorii care integrează platformele guvernamentale.">
     <meta property="og:image" content="https://egov-moldova.github.io/egov4dev/assets/logo2.png">
     <meta property="og:url" content="https://egov-moldova.github.io/egov4dev/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,35 +17,31 @@
     <script src="https://egov-moldova.github.io/design-system/Components/js/tooltip.js" defer></script>
 
     <style>
+        /* ── Reset & Base ── */
         :root {
             --white-alpha-100: var(--white-200-alpha);
             --black-alpha-200: var(--black-300-alpha);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: Onest, system-ui, sans-serif;
             background: var(--gray-100, #F5F5F5);
             color: var(--gray-900);
-            line-height: 1.6;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 2rem;
+            padding-top: 2rem;
         }
 
-        /* Header */
-        header {
-            padding: 1rem 0;
-        }
+        .btn:hover { text-decoration: none; }
+
+        /* ── Header ── */
+        header { padding: 1rem 0; }
 
         .logo {
             display: flex;
@@ -54,11 +50,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .logo img {
-            height: 48px;
-            width: auto;
-            display: block;
-        }
+        .logo img { height: 48px; width: auto; display: block; }
 
         .logo-name {
             font-size: 1.125rem;
@@ -69,23 +61,14 @@
 
         .logo-subtitle {
             font-size: 0.75rem;
-            font-weight: 400;
             color: var(--gray-500);
             margin-top: 0.125rem;
         }
 
-        /* Info-box tagline overrides for dark bg */
-        .tagline-box {
-            background: var(--white);
-            color: white;margin-top: 40px;
-        }
+        .tagline-box { background: var(--white); margin-top: 40px; }
+        .tagline-box .info-box__content p { color: var(--gray-600); margin-bottom: 0; }
 
-        .tagline-box .info-box__content p {
-            color: var(--gray-600); margin-bottom: 0;
-			
-        }
-
-        /* Hero Section */
+        /* ── Hero ── */
         .hero {
             padding: 2rem 0;
             display: grid;
@@ -94,15 +77,13 @@
             align-items: start;
         }
 
-        .hero-content {
-            padding-top: 2rem;
-        }
+        .hero-content { padding-top: 2rem; }
 
         .label {
             font-size: 1rem;
-            color: var(--blue-sky-800);
-            margin-bottom: 1rem;
             font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
         }
 
         h2 {
@@ -113,52 +94,16 @@
             color: var(--blue-sky-600);
         }
 
-        h2 .light {
-            color: var(--blue-sky-800);
-        }
+        .light { color: var(--blue-sky-800); }
 
         .description {
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             line-height: 1.5;
             color: var(--blue-sky-800);
             margin: 0 5rem 2rem 0;
         }
 
-        /* Service Logos — clean, no decoration */
-        .service-logos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.25rem;
-            margin: 2rem 0;
-            align-items: center;
-        }
-
-        .service-logos img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            display: block;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .service-logos img:hover {
-            opacity: 1;
-        }
-
-        /* CTA Buttons */
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .cta-buttons .btn:hover,
-        .platform-view-all .btn:hover {
-            text-decoration: none;
-        }
-
-        /* Code Panel */
+        /* ── Code Panel ── */
         .code-panel {
             background: var(--gray-900);
             border: 1px solid var(--gray-700);
@@ -173,27 +118,14 @@
             border-bottom: 1px solid var(--gray-700);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
         }
 
         .code-dots { display: flex; gap: 0.5rem; }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
         .dot:nth-child(1) { background: var(--red-600); }
         .dot:nth-child(2) { background: var(--apricot-500); }
         .dot:nth-child(3) { background: var(--green-500); }
-
-        .code-title {
-            margin-left: auto;
-            color: var(--gray-500);
-            font-size: 0.875rem;
-            font-family: 'Courier New', monospace;
-        }
 
         .code-content {
             padding: 1.5rem 2rem;
@@ -205,14 +137,13 @@
             white-space: pre;
         }
 
-        /* Syntax token colours */
-        .c-attr   { color: #9CDCFE; }                      /* attribute brackets + names — light blue */
-        .c-kw     { color: #569CD6; }                      /* keywords: public async await return */
-        .c-type   { color: #4EC9B0; }                      /* types: Task IResult string */
-        .c-method { color: #DCDCAA; }                      /* method / function names */
-        .c-str    { color: #CE9178; }                      /* string literals */
-        .c-param  { color: #9CDCFE; }                      /* named parameters */
-        .c-plain  { color: #D4D4D4; }                      /* plain identifiers / punctuation */
+        .c-attr { color: #9CDCFE; }
+        .c-kw   { color: #569CD6; }
+        .c-type { color: #4EC9B0; }
+        .c-method { color: #DCDCAA; }
+        .c-str  { color: #CE9178; }
+        .c-param { color: #9CDCFE; }
+        .c-plain { color: #D4D4D4; }
 
         .portal-badge {
             background: var(--gray-800);
@@ -237,102 +168,313 @@
 
         .portal-badge a:hover { color: var(--blue-sky-200); }
 
-        /* Tooltip — white bg, dark text */
-        .tooltip-inner {
-            background-color: var(--gray-900);
-            color: var(--white);
-        }
+        /* ── Tooltips ── */
+        .tooltip-inner { background-color: var(--gray-900); color: var(--white); }
+        .tooltip-arrow { color: var(--gray-900); }
 
-        .tooltip-arrow {
+        /* ── Developer Journey ── */
+        .journey { margin: 4rem 0; }
+
+        .journey-header { margin-bottom: 3rem; }
+
+        .journey-header h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--gray-900);
+            margin-bottom: 0.375rem;
         }
 
-        /* Bottom sections — 50/50 */
-        .bottom-sections {
+        .journey-header p { font-size: 1.2rem; color: var(--gray-600); }
+
+        .journey-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-            align-items: stretch;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
         }
 
-        .platform-section,
-        .contributions {
+        .journey-card {
             background: #ffffff;
             border-radius: var(--border-radius-16, 16px);
-            padding: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .platform-section h3,
-        .contributions h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 0.75rem;
+        .journey-card__num {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(90deg, #0058d2 0%, #a877ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .platform-section p,
-        .contributions p {
-            font-size: 0.9375rem;
+        .journey-card__title { font-size: 1.3rem; font-weight: 700; color: var(--gray-900); }
+
+        .journey-card__desc {
+            font-size: 0.875rem;
             color: var(--gray-600);
-            line-height: 1.7;
+            line-height: 1.6;
+            flex: 1;
         }
 
-        /* Platform logos — horizontal flex row with name labels */
-        .platform-logos {
+        .journey-card__actions {
             display: flex;
-            flex-wrap: nowrap;
-            gap: 1.5rem;
-            margin: 1.5rem 0 2rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.25rem;
             align-items: center;
         }
 
-        .platform-logos a {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            color: var(--gray-700);
-        }
+        .journey-card__actions .btn { font-size: 0.8125rem; padding: 0.375rem 0.875rem; }
 
-        .platform-logos img {
-            width: auto;
-            height: 32px;
-            object-fit: contain;
-            flex-shrink: 0;
+        .pkg-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             opacity: 0.8;
             transition: opacity 0.2s;
         }
 
-        .platform-name {
+        .pkg-logo:hover { opacity: 1; }
+
+        .svc-logo {
+            display: inline-flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .svc-logo:hover { opacity: 1; }
+        .svc-logo img { width: 32px; height: 32px; object-fit: contain; }
+
+        .svc-plus {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            font-size: 1.5rem!important;
+            line-height: 1;
+        }
+
+        /* ── EVO Section ── */
+        .evo-section {
+            background: #ffffff;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 2rem 0;
+        }
+
+        .evo-cards { display: flex; align-items: stretch; }
+
+        .evo-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 3rem;
+        }
+
+        .evo-card:first-child { padding-left: 0; }
+        .evo-card:last-child  { padding-right: 0; }
+        .evo-card + .evo-card { border-left: 1px solid #ededed; }
+
+        .evo-card__name {
+            font-size: 2rem;
+            line-height: 1.3;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .evo-card__desc {
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.7;
+            flex: 1; margin-bottom: 20px;
+        }
+
+        .evo-card__desc a { color: var(--blue-sky-600); text-decoration: none; }
+        .evo-card__desc a:hover { text-decoration: underline; }
+
+        .evo-card__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+        /* ── Contributions ── */
+        .contrib-section {
+            background: #ffffff;
+            width: 100%;
+        }
+
+        .contrib-block {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 5rem;
+            align-items: center;
+            background: var(--gray-100, #F5F5F5);
+            border-radius: var(--border-radius-16, 16px);
+            padding: 5rem 4rem;
+        }
+
+        .contrib-block__title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1.2;
+            margin-top: 0.5rem;
+        }
+
+        .contrib-block__desc {
             font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .contrib-block__icons { display: flex; align-items: center; gap: 1.25rem; }
+        .contrib-block__icons .contrib-icon img,
+        .contrib-block__icons .contrib-icon svg { width: 32px; height: 32px; display: block; }
+
+        .contrib-icon {
+            display: inline-flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .contrib-icon:hover { opacity: 1; }
+        .contrib-icon img { height: 32px; width: auto; object-fit: contain; display: block; }
+
+        /* ── Footer ── */
+        .site-footer {
+            background: #ffffff;
+            padding: 2rem 0 0;
+        }
+
+        .footer__main {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem; margin-bottom: 2rem;
+        }
+
+        .footerNav__title {
+            font-size: 18px;
             font-weight: 500;
+            color: var(--gray-900);
+            margin-bottom: 1.25rem;
+        }
+
+        .footerNav__list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem; padding-left: 0!important;
+        }
+
+        .footerNav__item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footerNav__link {
+            font-size: 16px;
+            color: var(--gray-700, #444);
+            text-decoration: none;
+            transition: color 0.15s;
+            line-height: 1.4;
+        }
+
+        .footerNav__link:hover { color: var(--gray-900); }
+        .footerNav__link--more { color: var(--blue-sky-600, #1a6fb5); font-weight: 500; }
+        .footerNav__link--more:hover { color: var(--blue-sky-800); }
+
+        .footerNav__tag {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            line-height: 1.4;
             white-space: nowrap;
         }
 
-        .platform-view-all { margin-top: 1.5rem; }
+        .tag--black { background: var(--gray-900, #1a1a1a); color: #ffffff; }
 
-        @media (max-width: 968px) {
-            .bottom-sections { grid-template-columns: 1fr; }
-            .platform-logos { flex-wrap: wrap; }
+        .footerNav__socList { list-style: none; display: flex; gap: 1.5rem!important; }
+
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Responsive */
+        .footer-socials a {
+            display: flex;
+            align-items: center;
+            color: #9E9E9E;
+            transition: color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: #0058d2;
+        }
+
+        .footer__bottom {
+            border-top: 1px solid var(--gray-200, #E5E5E5);
+            display: flex;
+            align-items: center;
+            gap: 2rem; max-width: 1300px; margin: 0 auto; padding: 2rem 0;
+        }
+
+        .footer__bottom-text { font-size: 16px; color: var(--gray-500); flex: 1; }
+
+        /* ── Legal bar ── */
+        .legal-bar {
+            background: #000000;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .journey-cards { grid-template-columns: repeat(2, 1fr); }
+            .footer__main { grid-template-columns: repeat(3, 1fr); }
+            .footer__bottom { flex-wrap: wrap; }
+        }
+
         @media (max-width: 968px) {
             .hero { grid-template-columns: 1fr; gap: 3rem; }
             h2 { font-size: 3rem; }
+            .evo-cards { flex-direction: column; }
+            .contrib-block { grid-template-columns: 1fr; gap: 2rem; }
         }
 
         @media (max-width: 640px) {
             .container { padding: 1rem; }
             h2 { font-size: 2.5rem; }
-            .cta-buttons { flex-direction: column; }
-            .cta-buttons .btn { text-align: center; width: 100%; }
             .code-content { font-size: 0.75rem; }
+            .journey-cards { grid-template-columns: 1fr; }
+            .footer__main { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
+
+    <!-- SVG sprite inline -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <symbol id="facebook-filled" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></symbol>
+      <symbol id="instagram-filled" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></symbol>
+      <symbol id="linkedin-filled" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+      <symbol id="youtube-filled" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+    </svg>
+
     <div class="container">
         <!-- Header -->
         <header>
@@ -340,14 +482,13 @@
                 <img src="assets/logo2.png" alt="eGov Moldova">
                 <div>
                     <span class="logo-name">eGov4Dev</span>
-                    <div class="logo-subtitle">Moldovan eGovernance Agency</div>
+                    <div class="logo-subtitle">Agenția de Guvernare Electronică</div>
                 </div>
             </div>
 
-            <!-- Prominent info-box tagline (MUD DS) -->
             <div class="info-box info-box--info tagline-box">
                 <div class="info-box__content">
-                    <p>🇲🇩 eGov4Dev is the official developer resources for integrating with Moldova's national e-government platforms and services.</p>
+                    <p>Această platformă este resursa oficială pentru dezvoltatorii care integrează platformele și serviciile guvernamentale în proiectele lor.</p>
                 </div>
             </div>
         </header>
@@ -356,22 +497,17 @@
         <section class="hero">
             <!-- Left Column -->
             <div class="hero-content">
-                <div class="label">Developer resources</div>
+                <div class="label light">Resursă oficilă eGov Moldova</div>
 
                 <h2>
-                    Build<br>
-                    <span class="light">with eGov.</span>
+                    Dezvoltă<br>
+                    <span class="light">cu eGov4Dev</span>
                 </h2>
 
                 <p class="description">
-                    eGov4Dev is the official documentation library for developers working with the eGov Moldova ecosystem of the Republic of Moldova. It provides guidance on how to integrate government platforms and services, use the shared development stack, and follow the established architecture principles.
+                    eGov4Dev este biblioteca oficială de documentație pentru dezvoltatorii care lucrează cu ecosistemul eGov Moldova al Republicii Moldova. Oferă îndrumări privind integrarea platformelor și serviciilor guvernamentale, utilizarea stivei comune de dezvoltare și respectarea principiilor arhitecturale stabilite.
                 </p>
 
-                <div class="cta-buttons">
-                    <a href="platforms/procedure/" class="btn btn-primary">Get started</a>
-                    <a href="guides/evo-wallet/" class="btn btn-secondary">EVO Wallet</a>
-                    <a href="https://evo.gov.md" target="_blank" class="btn btn-secondary">EVO Portal</a>
-                </div>
             </div>
 
             <!-- Right Column - Code Example -->
@@ -400,7 +536,7 @@
 <span class="c-plain">}</span></div>
 
                 <div class="portal-badge">
-                    <div class="badge-label">DEVELOPER PORTAL</div>
+                    <div class="badge-label">PORTAL DEZVOLTATORI</div>
                     <a href="https://egov-moldova.github.io/egov4dev/intro/" target="_blank">
                         egov-moldova.github.io/egov4dev
                     </a>
@@ -408,108 +544,236 @@
             </div>
         </section>
 
-        <!-- Bottom: platform picker + contributions -->
-        <div class="bottom-sections">
+        <!-- Developer Journey -->
+        <section class="journey">
+            <div class="journey-header">
+                <h3>Parcursul tău ca dezvoltator</h3>
+                <p>Indiferent de etapa în care te afli, găsești aici resursele potrivite.</p>
+            </div>
 
-            <!-- Choose your platform -->
-            <section class="platform-section">
-                <h3>Choose your platform and start now</h3>
-                <p>Each service exposes open APIs and SDK integrations — pick the one you need and follow the step-by-step guide to get connected.</p>
+            <div class="journey-cards">
 
-                <div class="platform-logos">
-                    <a href="guides/mpass/" data-placement="top">
-                        <img src="assets/logos/MPass.png" alt="MPass">
-                    </a>
-                    <a href="guides/msign/" data-placement="top">
-                        <img src="assets/logos/MSign.png" alt="MSign">
-                    </a>
-                    <a href="guides/mpay/" data-placement="top">
-                        <img src="assets/logos/MPay.png" alt="MPay">
-                    </a>
+                <!-- Stage 1: Explorare -->
+                <div class="journey-card">
+                    <div class="journey-card__num">01</div>
+                    <div class="journey-card__title">Explorare</div>
+                    <div class="journey-card__desc">
+                        Ești la început și vrei să înțelegi ce oferă platforma eGov4Dev. Citește documentația, parcurge arhitectura și descoperă serviciile disponibile.
+                    </div>
+                    <div class="journey-card__actions">
+                        <a href="/intro" class="btn btn-primary">Despre platformă</a>
+                    </div>
                 </div>
-                <div class="platform-view-all">
-                    <a href="platforms/" class="btn btn-secondary">View all platforms</a>
+
+                <!-- Stage 2: Design System -->
+                <div class="journey-card">
+                    <div class="journey-card__num">02</div>
+                    <div class="journey-card__title">Design System</div>
+                    <div class="journey-card__desc">
+                        Lucrezi la un sistem nou și ai nevoie de acces la fișierele Figma pentru MUD (Moldova Unified Design)? Accesul se acordă de catre AGE doar pentru beneficarii sistemelor avizate spre dezvoltare.
+                    </div>
+                    <div class="journey-card__actions">
+                        <a href="https://mud.egov.md/" target="_blank" class="btn btn-primary">Treci pe MUD ↗</a>
+                    </div>
+                </div>
+
+                <!-- Stage 3: Componente UI -->
+                <div class="journey-card">
+                    <div class="journey-card__num">03</div>
+                    <div class="journey-card__title">Componente UI</div>
+                    <div class="journey-card__desc">
+                        Design-ul e gata și începi să construiești? Ai două opțiuni: componente .Net Blazor disponibile pe NuGet sau proiectul Stencil pe NPM pentru a genera componente TypeScript în Vue, Angular sau React.
+                    </div>
+                    <div class="contrib-block__icons">
+                        <a href="https://www.nuget.org/profiles/egov-moldova" target="_blank" data-tooltip="NuGet" data-placement="top" class="contrib-icon">
+                            <img src="assets/logos/nuget-logo.png" alt="NuGet" style="width:47px;height:47px;margin-left:-8px;margin-top:-7px;">
+                        </a>
+                        <a href="https://www.npmjs.com/~egov-moldova" target="_blank" data-tooltip="NPM" data-placement="top" class="contrib-icon">
+                            <svg viewBox="0 0 700 700" aria-hidden="true"><polygon fill="#cb3837" points="0,700 700,700 700,0 0,0"></polygon><polygon fill="#ffffff" points="150,550 350,550 350,250 450,250 450,550 550,550 550,150 150,150 "></polygon></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stage 4: Integrare Servicii -->
+                <div class="journey-card">
+                    <div class="journey-card__num">04</div>
+                    <div class="journey-card__title">Integrare servicii</div>
+                    <div class="journey-card__desc">
+                        Aplicația e construită și acum integrezi serviciile guvernamentale: autentificare MPass, semnătură electronică MSign, plăți MPay și altele.
+                    </div>
+                    <div class="journey-card__actions">
+                        <a href="guides/mpass/" class="svc-logo" data-tooltip="MPass" data-placement="top">
+                            <img src="assets/logos/MPass_watermark.svg" alt="MPass">
+                        </a>
+                        <a href="guides/msign/" class="svc-logo" data-tooltip="MSign" data-placement="top">
+                            <img src="assets/logos/MSign_watermark.svg" alt="MSign">
+                        </a>
+                        <a href="guides/mpay/" class="svc-logo" data-tooltip="MPay" data-placement="top">
+                            <img src="assets/logos/MPay_watermark.svg" alt="MPay">
+                        </a>
+                        <a href="platforms/" class="btn btn-secondary svc-plus">+</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div><!-- /container -->
+
+    <!-- EVO Info Cards — full-width white section -->
+    <section class="evo-section">
+        <div class="container">
+            <div class="evo-cards">
+
+                <div class="evo-card">
+                    <div style="display:flex; gap:1.5rem; align-items:center; flex:1;">
+                        <div style="flex:1; display:flex; flex-direction:column; gap:0.75rem;">
+                            <div class="evo-card__logo">
+                                <span class="evo-card__name">EVO Wallet</span>
+                            </div>
+                            <p class="evo-card__desc">
+                                EVO Wallet este portofelul digital oficial al Republicii Moldova. Cetățenii îl folosesc pentru a prezenta acte direct din telefon, fără acte fizice. Dacă aplicația ta are nevoie să confirme identitatea sau datele unui utilizator, poți deveni verificator în ecosistemul EVO Wallet.
+                            </p>
+                            <div class="evo-card__actions">
+                                <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" class="btn btn-secondary">Devino verificator ↗</a>
+                            </div>
+                        </div>
+                        <img src="assets/logos/EUDIW.png" alt="" aria-hidden="true" style="height:100px; width:auto; object-fit:contain; flex-shrink:0;">
+                    </div>
+                </div>
+
+                <div class="evo-card">
+                    <div style="display:flex; gap:1.5rem; align-items:center; flex:1;">
+                        <div style="flex:1; display:flex; flex-direction:column; gap:0.75rem;">
+                            <div class="evo-card__logo">
+                                <span class="evo-card__name">Portal EVO</span>
+                            </div>
+                            <p class="evo-card__desc">
+                                EVO este portalul guvernamental unic al Republicii Moldova — punctul central de acces la serviciile publice electronice pentru cetățeni și companii. Dacă sistemul tău urmează să fie publicat sau integrat pe portal, găsești pe evo.gov.md contextul complet al experienței utilizatorului final.
+                            </p>
+                            <div class="evo-card__actions">
+                                <a href="https://evo.gov.md" target="_blank" class="btn btn-secondary">Deschide Portal EVO ↗</a>
+                            </div>
+                        </div>
+                        <img src="assets/logos/evo-logo.png" alt="" aria-hidden="true" style="height:100px; width:auto; object-fit:contain; flex-shrink:0;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    </div><!-- /container -->
+
+    <!-- Contributions — full-width gray -->
+    <div class="contrib-section">
+        <div class="container">
+            <section class="contrib-block">
+                <div class="contrib-block__left">
+                    <div class="label">Fii parte din comunitate</div>
+                    <h3 class="evo-card__name">Cod deschis,<br>colaborare continuă</h3>
+                </div>
+                <div class="contrib-block__right">
+                    <p class="contrib-block__desc">Documentația și pachetele SDK sunt deschise. Raportează probleme sau trimite pull request-uri pe GitHub. Pachetele publicate sunt disponibile pe NuGet și NPM. Contribuțiile tale mențin librăriile actualizate.</p>
+                    <div class="contrib-block__icons">
+                        <a href="https://github.com/egov-moldova" target="_blank" data-tooltip="GitHub" data-placement="top" class="contrib-icon">
+                            <img src="assets/logos/github-logo.png" alt="GitHub">
+                        </a>
+                        <a href="https://www.nuget.org/profiles/egov-moldova" target="_blank" data-tooltip="NuGet" data-placement="top" class="contrib-icon">
+                            <img src="assets/logos/nuget-logo.png" alt="NuGet" style="width:47px;height:47px;margin-left:-8px;margin-top:-7px;">
+                        </a>
+                        <a href="https://www.npmjs.com/~egov-moldova" target="_blank" data-tooltip="NPM" data-placement="top" class="contrib-icon">
+                            <svg viewBox="0 0 700 700" aria-hidden="true"><polygon fill="#cb3837" points="0,700 700,700 700,0 0,0"></polygon><polygon fill="#ffffff" points="150,550 350,550 350,250 450,250 450,550 550,550 550,150 150,150 "></polygon></svg>
+                        </a>
+                    </div>
                 </div>
             </section>
-
-            <!-- Contributions -->
-            <section class="contributions">
-                <h3>Contributions and feedback</h3>
-                <p>This documentation and the SDK packages live in the open. Report issues or open pull requests on GitHub, and find published packages on NuGet. Your input keeps the libraries up to date.</p>
-                <div class="platform-logos" style="grid-template-columns: repeat(2, 40px); margin-top: 1.5rem;">
-                    <a href="https://github.com/egov-moldova" target="_blank" data-tooltip="GitHub" data-placement="top">
-                        <img src="assets/logos/github-logo.png" alt="GitHub">
-                    </a>
-                    <a href="https://www.nuget.org/profiles/egov-moldova" target="_blank" data-tooltip="NuGet" data-placement="top" style="margin-left:10px;">
-                        <img src="assets/logos/nuget-logo.png" alt="NuGet" style="width:50px;height:50px;margin-left:-10px;margin-top:-10px;">
-                    </a>
-                </div>
-            </section>
-
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <span class="footer-follow">Follow us on:</span>
+        <div class="container">
+            <div class="footer__main">
+
+                <nav class="footerNav" aria-label="Semnătura electronică">
+                    <div class="footerNav__title">Semnătura electronică</div>
+                    <ul class="footerNav__list">
+                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#mobila" class="footerNav__link">Semnătura mobilă</a></li>
+                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#carte-de-identitate" class="footerNav__link">Cartea de identitate</a></li>
+                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#stick" class="footerNav__link">Semnătura pe stick USB</a></li>
+                        <li class="footerNav__item">
+                            <a href="https://evosign.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">EVOSign</a>
+                            <span class="footerNav__tag tag--black">Pilot</span>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="footerNav" aria-label="Servicii publice">
+                    <div class="footerNav__title">Servicii publice</div>
+                    <ul class="footerNav__list">
+                        <li class="footerNav__item"><a href="catalog/cetateni" class="footerNav__link">Pentru tine</a></li>
+                        <li class="footerNav__item"><a href="catalog/organizatii" class="footerNav__link">Pentru afacerea ta</a></li>
+                        <li class="footerNav__item">Evenimente de viață <span class="footerNav__tag tag--black">În curând</span>
+                        </li>
+                        <li class="footerNav__item"><a href="/acasa/prestatori-servicii" class="footerNav__link">Prestatori servicii</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="footerNav" aria-label="Resurse utile">
+                    <div class="footerNav__title">Resurse utile</div>
+                    <ul class="footerNav__list">
+                        <li class="footerNav__item"><a href="https://drive.google.com/drive/folders/1QdA12UK6g5v88gw6vobjuxZbKy7I6btK" target="_blank" rel="noopener noreferrer" class="footerNav__link">Identitate vizuală</a></li>
+                        <li class="footerNav__item"><a href="https://mud.egov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">Model Unitar de Design</a></li>
+                        <li class="footerNav__item"><a href="/acasa#faqSection" class="footerNav__link">Întrebări frecvente</a></li>
+                        <li class="footerNav__item"><a href="mailto:support@egov.md" class="footerNav__link">Raportează o problemă</a></li>
+                        <li class="footerNav__item"><a href="/acasa/numere-de-urgenta" class="footerNav__link">Numere de urgență</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="footerNav" aria-label="Platforme utile">
+                    <div class="footerNav__title">Platforme utile</div>
+                    <ul class="footerNav__list">
+                        <li class="footerNav__item"><a href="https://mpay.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">MPay - Plătește online</a></li>
+                        <li class="footerNav__item"><a href="https://msign.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">MSign – Semnează electronic</a></li>
+                        <li class="footerNav__item"><a href="https://econsulat.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">eConsulat - Când ești departe</a></li>
+                        <li class="footerNav__item"><a href="https://mpower.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">MPower - Împuternicește</a></li>
+                        <li class="footerNav__item"><a href="https://mnotify.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">MNotify - Primește notificări</a></li>
+                        <li class="footerNav__item">
+                            <a href="https://egov.md/ro/advanced-page-type/platforme-operate" target="_blank" rel="noopener noreferrer" class="footerNav__link footerNav__link--more">
+                                Descoperă-le pe toate →
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__bottom-text">Rămâi la curent. Urmărește actualizările platformei, notele de lansare și anunțurile echipei AGE pe canalele oficiale.</p>
             <ul class="footer-socials">
                 <li><a href="https://www.facebook.com/eGovernanceAgency.Moldova" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <svg width="24" height="24" aria-hidden="true"><use href="assets/icons/social-sprite.svg#facebook-filled"></use></svg>
+                    <svg width="24" height="24" aria-hidden="true"><use href="#facebook-filled"></use></svg>
                 </a></li>
                 <li><a href="https://www.instagram.com/egov.md" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg width="24" height="24" aria-hidden="true"><use href="assets/icons/social-sprite.svg#instagram-filled"></use></svg>
+                    <svg width="24" height="24" aria-hidden="true"><use href="#instagram-filled"></use></svg>
                 </a></li>
                 <li><a href="https://www.linkedin.com/company/e-government-center" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <svg width="24" height="24" aria-hidden="true"><use href="assets/icons/social-sprite.svg#linkedin-filled"></use></svg>
+                    <svg width="24" height="24" aria-hidden="true"><use href="#linkedin-filled"></use></svg>
                 </a></li>
                 <li><a href="https://www.youtube.com/@egovmd" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                    <svg width="24" height="24" aria-hidden="true"><use href="assets/icons/social-sprite.svg#youtube-filled"></use></svg>
+                    <svg width="24" height="24" aria-hidden="true"><use href="#youtube-filled"></use></svg>
                 </a></li>
             </ul>
         </div>
     </footer>
 
-    <style>
-        .site-footer {
-            margin-top: 1rem;
-            padding: 1rem 0;
-            border-top: 1px solid #ddd;
-        }
+    <div class="legal-bar">
+        <div style="margin: 0 auto; max-width: 1300px; padding: 10px 0;">
+            © 2026 Agenția de Guvernare Electronică. Toate drepturile rezervate.
+        </div>
+    </div>
 
-        .footer-inner {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .footer-follow {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--gray-600);
-            white-space: nowrap;
-        }
-
-        .footer-socials {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .footer-socials a {
-            display: flex;
-            align-items: center;
-            color: var(--gray-500);
-            transition: color 0.2s;
-        }
-
-        .footer-socials a:hover {
-            color: var(--blue-sky-600);
-        }
-    </style>
 </body>
 </html>
-
