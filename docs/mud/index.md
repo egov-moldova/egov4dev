@@ -42,6 +42,12 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 
 ## Acces rapid la resurse
 
+### Resurse pentru descărcare
+
+| Resursă | Link pentru descărcare |
+|---------|-----------|
+|Componenta de buton Msuite| [Descarca aici](https://drive.google.com/drive/folders/1VDL-G44x5-_A2Z3OC0qHv2If8ZfV6IJy)|
+
 ### Figma Files
 
 **Link direct:** [Acces Figma](https://mud.egov.md)
