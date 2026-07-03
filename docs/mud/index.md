@@ -22,12 +22,61 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 
 ### Resurse disponibile
 
-| Resursă | Descriere | Cum accesezi | Status |
-|---------|-----------|--------------|--------|
-| **Figma files** | Biblioteca completă de componente, stiluri și pattern-uri. Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri. | **Vizualizare:** [Acces direct Guest](https://mud.egov.md)<br>**Copiere/Editare:** [Completați formularul](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl) pentru drepturi | ✅ Disponibil |
-| **Demo page** | Catalog interactiv al tuturor componentelor, afișate în variantele principale și contexte responsive, cu posibilitatea de copiere rapidă a tokenilor și a fragmentelor de cod pentru utilizare. | [Acces GitHub Pages](https://egov-moldova.github.io/design-system/Components/) | ✅ Disponibil |
-| **Git repository** | Implementarea completă a componentelor modelului în HTML/CSS, gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA. | [Acces GitHub](https://github.com/egov-moldova/design-system) | ✅ Disponibil |
-| **MudBlazor components** | Bibliotecă oficială de componente modelului pentru dezvoltatorii care lucrează cu Blazor framework în mediul .NET. | Progres 90% | 🔄 Disponibil în 2026 |
+<table>
+  <thead>
+    <tr>
+      <th>Resursă</th>
+      <th>Descriere</th>
+      <th>Cum accesezi</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Figma files</strong></td>
+      <td>Biblioteca completă de componente, stiluri și pattern-uri. Conține toate componentele UI, sistemul de culori, tipografia, iconițele, spacing tokens și exemple de layout-uri.</td>
+      <td>
+        <strong>Vizualizare:</strong> <a href="https://mud.egov.md">Acces direct Guest</a><br>
+        <strong>Copiere/Editare:</strong> <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl">Completați formularul</a> pentru drepturi
+      </td>
+      <td>✅ Disponibil</td>
+    </tr>
+    <tr>
+      <td><strong>Demo page</strong></td>
+      <td>Catalog interactiv al tuturor componentelor, afișate în variantele principale și contexte responsive, cu posibilitatea de copiere rapidă a tokenilor și a fragmentelor de cod pentru utilizare.</td>
+      <td><a href="https://egov-moldova.github.io/design-system/Components/">Acces GitHub Pages</a></td>
+      <td>✅ Disponibil</td>
+    </tr>
+    <tr>
+      <td><strong>Git repository</strong></td>
+      <td>Implementarea completă a componentelor modelului în HTML/CSS, gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA.</td>
+      <td><a href="https://github.com/egov-moldova/design-system">Acces GitHub</a></td>
+      <td>✅ Disponibil</td>
+    </tr>
+    <tr>
+      <td><strong>MudBlazor components</strong></td>
+      <td>Bibliotecă oficială de componente modelului pentru dezvoltatorii care lucrează cu Blazor framework în mediul .NET.</td>
+      <td>Progres 90%</td>
+      <td>🔄 Disponibil în 2026</td>
+    </tr>
+    <tr>
+      <td><strong>Componente oficiale de brand</strong></td>
+      <td>Componente oficiale de interfață pentru reprezentarea platformelor guvernamentale partajate, inclusiv:
+        <ul>
+            <li><strong>MPass</strong> – autentificare;</li>
+            <li><strong>MSign</strong> – semnare electronică;</li>
+            <li><strong>MPay</strong> – plăți electronice;</li>
+            <li><strong>precum și alte sisteme și platforme guvernamentale partajate,</strong> acolo unde acestea sunt integrate și utilizate în cadrul sistemelor informaționale de stat.</li>
+      </td>
+      <td>
+            <a href="https://drive.google.com/drive/folders/1VDL-G44x5-_A2Z3OC0qHv2If8ZfV6IJy?usp=sharing">Descarca din brand center</a><br>
+            <a href="https://www.figma.com/design/doJ7tDY0PlQ0PqMgbpFVIC/Components?node-id=2925-3568&t=Zj0VxvTiD83JH4NT-4">Acess la componenta in Figma</a><br>
+            <a href="https://www.figma.com/design/61kDJHJsGwfmzqmqsfkgkE/Layouts---Patterns?node-id=1429-11832&t=rb7Iqz4FX9oIB0ds-4">Acess la ghid in Figma</a>
+        </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Ghid de utilizare pe roluri
 
@@ -41,12 +90,6 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
 | **Specialist TIC / Coordonator tehnic** | Figma (vizualizare) + Git Repository (implementare) | Figma: direct / GitLab: cont necesar |
 
 ## Acces rapid la resurse
-
-### Resurse pentru descărcare
-
-| Resursă | Link pentru descărcare |
-|---------|-----------|
-|Componenta de buton Msuite| [Descarca aici](https://drive.google.com/drive/folders/1VDL-G44x5-_A2Z3OC0qHv2If8ZfV6IJy)|
 
 ### Figma Files
 
