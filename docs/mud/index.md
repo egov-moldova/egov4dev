@@ -28,7 +28,6 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
       <th>Resursă</th>
       <th>Descriere</th>
       <th>Cum accesezi</th>
-      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -39,25 +38,21 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
         <strong>Vizualizare:</strong> <a href="https://mud.egov.md">Acces direct Guest</a><br>
         <strong>Copiere/Editare:</strong> <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOKF3nI_LtL9ChzbNY23lEmtUMlFHSTQ1VzQ0UTROMFlWVlBNV01DRUFBUC4u&route=shorturl">Completați formularul</a> pentru drepturi
       </td>
-      <td>✅ Disponibil</td>
     </tr>
     <tr>
       <td><strong>Demo page</strong></td>
       <td>Catalog interactiv al tuturor componentelor, afișate în variantele principale și contexte responsive, cu posibilitatea de copiere rapidă a tokenilor și a fragmentelor de cod pentru utilizare.</td>
       <td><a href="https://egov-moldova.github.io/design-system/Components/">Acces GitHub Pages</a></td>
-      <td>✅ Disponibil</td>
     </tr>
     <tr>
       <td><strong>Git repository</strong></td>
       <td>Implementarea completă a componentelor modelului în HTML/CSS, gata de utilizare. Toate componentele sunt responsive, cross-browser compatible și respectă WCAG 2.1 AA.</td>
       <td><a href="https://github.com/egov-moldova/design-system">Acces GitHub</a></td>
-      <td>✅ Disponibil</td>
     </tr>
     <tr>
       <td><strong>MudBlazor components</strong></td>
       <td>Bibliotecă oficială de componente modelului pentru dezvoltatorii care lucrează cu Blazor framework în mediul .NET.</td>
-      <td>Progres 90%</td>
-      <td>🔄 Disponibil în 2026</td>
+      <td><a href="https://www.nuget.org/packages/Egov.FOD.UIComponents">Librărie NuGet</a></td>
     </tr>
     <tr>
       <td><strong>Componente oficiale de brand</strong></td>
@@ -73,7 +68,6 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
             <a href="https://www.figma.com/design/doJ7tDY0PlQ0PqMgbpFVIC/Components?node-id=2925-3568&t=Zj0VxvTiD83JH4NT-4">Acess la componenta in Figma</a><br>
             <a href="https://www.figma.com/design/61kDJHJsGwfmzqmqsfkgkE/Layouts---Patterns?node-id=1429-11832&t=rb7Iqz4FX9oIB0ds-4">Acess la ghid in Figma</a>
         </td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
