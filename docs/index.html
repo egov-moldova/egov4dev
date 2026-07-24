@@ -435,6 +435,11 @@
 
         .footer__bottom-text { font-size: 16px; color: var(--gray-500); flex: 1; }
 
+        /* ── Institution logos ── */
+        .footer__inst-logo { display: inline-flex; align-items: center; opacity: 0.8; transition: opacity 0.2s; }
+        .footer__inst-logo:hover { opacity: 1; }
+        .footer__inst-logo img { height: 40px; width: auto; margin-right: 20px; }
+
         /* ── Legal bar ── */
         .legal-bar {
             background: #000000;
@@ -753,8 +758,13 @@
         </div>
 
         <div class="footer__bottom">
-            <p class="footer__bottom-text">Rămâi la curent. Urmărește actualizările platformei, notele de lansare și anunțurile echipei AGE pe canalele oficiale.</p>
-            <ul class="footer-socials">
+            <a href="https://egov.md" target="_blank" rel="noopener" class="footer__inst-logo">
+                <img src="assets/age.svg" alt="Agenția de Guvernare Electronică">
+            </a>
+            <a href="https://gov.md" target="_blank" rel="noopener" class="footer__inst-logo">
+                <img src="assets/gov.svg" alt="Guvernul Republicii Moldova">
+            </a>
+            <ul class="footer-socials" style="margin-left:auto;">
                 <li><a href="https://www.facebook.com/eGovernanceAgency.Moldova" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <svg width="24" height="24" aria-hidden="true"><use href="#facebook-filled"></use></svg>
                 </a></li>
