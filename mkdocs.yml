@@ -18,8 +18,8 @@ nav:
           - Format: guides/evo-wallet/format.md
           - Response validation: guides/evo-wallet/validation.md
           - Examples: guides/evo-wallet/examples.md
-          - Demo verifier: guides/evo-wallet/demoverifierbnm.md
           - Testing: guides/evo-wallet/testing.md
+          - Demo Verifier: guides/evo-wallet/demoverifierbnm.md
       - MPass: 
           - Overview: guides/mpass/index.md
           - Connection steps: guides/mpass/process.md

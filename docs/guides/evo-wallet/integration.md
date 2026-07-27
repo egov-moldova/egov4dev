@@ -59,7 +59,7 @@ After completing these steps, you will be able to:
 * Perform end-to-end verification flows  
 * Validate wallet integration
 * Test real user scenarios in a controlled environment
-
+* Pass the self-service [testing](testing.md).
 
 Next Step
 

@@ -16,7 +16,7 @@ For every test case, the tester performs the Wallet side of the presentation tra
 4. It builds a DeviceResponse for the requested document type, applies the manipulation specific to the selected test case (none at all for the *must accept* cases), encrypts the Authorization Response as JWE and submits it to your **response_uri**.
 5. It records how your Verifier answered and compares the outcome with the expectation declared by the test case.
 
-Each test case therefore exercises one concrete rule from the [Response validation](validation.md) section, from an attacker's perspective.
+Each test case therefore exercises one concrete rule from the [Response validation](validation.md) section, from an attacker's perspective. The tester lists every available case with a short description of the manipulation it applies and states whether the presentation must be accepted or rejected. The suite is extended as the implementation profile evolves.
 
 ## Before you start
 
@@ -76,7 +76,7 @@ Because a rejection has to be recognisable from the outside, make sure your **re
 | Stage | Requirement |
 | --- | --- |
 | Minimum bar | All **core tests** pass. |
-| Full conformance | All **tests** pass, with the online set executed against a Verifier that can reach the tester's host. |
+| Full conformance | Every case of the **All tests** set passes, with the online cases executed against a Verifier that can reach the tester's host. |
 | Reporting | Once the run is complete, send the results to `mconnect@egov.md` together with your staging Verifier identifier. Detailed instructions for the production environment are provided afterwards, as described in the [Integration](integration.md) section. |
 
 ## Troubleshooting
@@ -84,7 +84,7 @@ Because a rejection has to be recognisable from the outside, make sure your **re
 | Symptom | Probable cause |
 | --- | --- |
 | Every case ends in **Tester error** | The request URL was already consumed or has expired, your **request_uri** is not reachable from the internet, or the returned Authorization Request is not a valid JWS as described in the [Protocol](protocol.md) section. |
-| Test 1 fails while the *must reject* cases pass | Your Verifier refuses the valid presentation as well. Usually the staging trust anchor is missing from your trust store, or a validation rule is applied more strictly than the specification requires. |
+| The *must accept* case fails while the *must reject* cases pass | Your Verifier refuses the valid presentation as well. Usually the staging trust anchor is missing from your trust store, or a validation rule is applied more strictly than the specification requires. |
 | Most *must reject* cases fail | Your **response_uri** endpoint most likely answers every submission with the same success response, so the tester reads a rejection as an acceptance, or the DeviceResponse is not validated at all before the transaction is marked as succeeded. |
 | Online cases fail while all the rest pass | Your Verifier cannot reach `wallet.staging.egov.md`, outbound HTTP is blocked by a proxy or firewall, or status list, OCSP and CRL retrieval is not implemented. |
 | Only the status list cases fail | Status List CWT retrieval, content negotiation (`Accept: application/statuslist+cwt`) or signature verification is missing. See [Status List validation](validation.md#status-list-validation). |
