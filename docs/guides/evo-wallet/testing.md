@@ -1,4 +1,4 @@
-The **Relying Party Tester** is a self-service tool that verifies whether a Verifier (wallet-relying party) implementation behaves correctly when it receives both a valid presentation and deliberately manipulated ones. It removes the need to exchange hand-crafted test documents by e-mail: the tester takes the place of the Wallet, generates one correct and many defective mdoc presentations, submits them to your Verifier and reports what your Verifier did with each of them.
+The **Relying Party Tester** is a self-service tool that verifies whether a Verifier (wallet-relying party) implementation behaves correctly when it receives both a valid presentation and deliberately manipulated ones. It removes the need to create hand-crafted credentials: the tester takes the place of the Wallet, generates one correct and many defective mdoc presentations, submits them to your Verifier and reports what your Verifier did with each of them.
 
 | Resource | Description |
 |:---------|:------------|
@@ -16,7 +16,7 @@ For every test case, the tester performs the Wallet side of the presentation tra
 4. It builds a DeviceResponse for the requested document type, applies the manipulation specific to the selected test case (none at all for the *must accept* cases), encrypts the Authorization Response as JWE and submits it to your **response_uri**.
 5. It records how your Verifier answered and compares the outcome with the expectation declared by the test case.
 
-Each test case therefore exercises one concrete rule from the [Response validation](validation.md) section, from an attacker's perspective. The tester lists every available case with a short description of the manipulation it applies and states whether the presentation must be accepted or rejected. The suite is extended as the implementation profile evolves.
+Each test case therefore exercises one ore more rule from the [Response validation](validation.md) section, from a tester or attacker's perspective. The tester lists every available case with a short description of the manipulation it applies and states whether the presentation must be accepted or rejected. The suite is extended as the implementation profile evolves.
 
 ## Before you start
 
