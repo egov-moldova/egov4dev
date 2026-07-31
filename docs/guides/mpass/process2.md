@@ -26,7 +26,6 @@
   1. the beneficiary initiates the integration of another information system with the shared government platforms, or
   2. the currently used certificate has expired.
 
-
 ## Service pricing
 
 | User type | Access conditions | Annual fee per integration |
