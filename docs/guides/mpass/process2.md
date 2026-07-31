@@ -1,4 +1,5 @@
 1. Complete the [Unified Connection Form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u) available on MEGA's website. 
+
 2. Sign the contract and/or the annex provided by eGov for the delivery of MPass services. 
    - If the institution already has an active contract for another eGov platform service, there is no need to sign a new contract; only the MPass specific annex will be signed. 
 
@@ -15,13 +16,17 @@
    - the serial number of the existing certificate, if the information system already has a valid certificate for the test environment. 
 
 5. eGov configures access to the test environment: https://mpass.staging.egov.md. 
+
 6. Implement the integration according to the technical documentation and perform [the functional tests](integration-tests.md) in the test environment.
+
 7. eGov performs additional tests in the test environment and confirms technical compliance. 
+
 8. Confirm to eGov the configuration for the production environment, including the system certificate for the PROD environment, at the e-mail address: servicii@egov.md
    - the certificate (.cer – public key), if the information system does not yet have a valid certificate for the production environment registered for another integration with the shared government platforms, or
    - the serial number of the existing certificate, if the information system already has a valid certificate for the production environment.
 
 9. eGov activates the service in the production environment. 
+
 10. Receive the notification sent by eGov regarding the completion of the integration and activation in the production environment.
 
 **Note on certificates:**
