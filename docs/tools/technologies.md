@@ -1,4 +1,4 @@
-At MEGA, the development of government digital services is based on a modern, secure, and scalable technology ecosystem. This page provides an overview of the technologies, infrastructure, and tools used to build interoperable, compliant, and citizen-oriented solutions.
+At AGE, the development of government digital services is based on a modern, secure, and scalable technology ecosystem. This page provides an overview of the technologies, infrastructure, and tools used to build interoperable, compliant, and citizen-oriented solutions.
 
 * * *
 
@@ -19,9 +19,10 @@ AGE services are developed with robust technologies, chosen for compatibility wi
 
 ### Frontend
 
-Web applications are built with **MudBlazor**, a UI framework for Blazor that enables rapid development of modern, responsive, and accessible interfaces:
+Web applications are built with **Blazor**. The UI component standard is transitioning from **MudBlazor** to **Fod.UIComponents**, the Agency's own component library:
 
-*   **MudBlazor** – NuGet: `MudBlazor` – reusable UI components, consistent styling
+*   **Fod.UIComponents** – the Agency's reusable Blazor UI component library, used for new interfaces and aligned with the unified design system
+*   **MudBlazor** – NuGet: `MudBlazor` – component library used by existing applications during the transition
 *   **Blazor Server / WebAssembly** – for interactive applications in .NET
 *   Following standards from the **Government Design System** (coming soon), focusing on clarity, simplicity, and accessibility
 

@@ -5,8 +5,15 @@ nav:
   - Home: intro.md
   - Platforms and services: platforms/index.md
   - Connection procedure: platforms/procedure.md
-  - Development principles: principles/architecture.md
-  - Tools and technologies: tools/technologies.md
+  - Technical overview:
+      - Overview: technical-overview/index.md
+      - Development principles: principles/architecture.md
+      - Tools and technologies: tools/technologies.md
+      - API design guide: technical-overview/api-design-guide.md
+      - Code standards: technical-overview/code-standards.md
+      - Code reviews: technical-overview/code-reviews.md
+      - Architecture decision records: technical-overview/adr.md
+      - Log management: technical-overview/log-management.md
   - Unified design system: mud/index.md
   - Glossary: glossary/glossary.md
   - Integration guides:
