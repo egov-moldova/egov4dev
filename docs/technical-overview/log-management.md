@@ -20,7 +20,7 @@ All services emit **structured logs** through `ILogger<T>` with a structured pro
   "timestamp": "2026-08-07T14:30:00.000Z",
   "level": "Information",
   "service": "certificate-service",
-  "correlationId": "00-4bf92f3577b34da6...",
+  "correlation_id": "00-4bf92f3577b34da6...",
   "message": "Certificate issued",
   "environment": "production"
 }
@@ -37,7 +37,7 @@ Every meaningful business log entry answers: **who** did **what**, on **which ob
 | `user` | The **actor** — authenticated operator, or `system` for background jobs | Always, for business actions |
 | `subject` | The **person** the action concerns — citizen, employee, beneficiary | When a person is involved |
 | `object` | The **record** — declaration, document, application, payment | When a record is involved |
-| `legalEntity` | The **organization** context of the action | When acting in an organizational context |
+| `legal_entity` | The **organization** context of the action | When acting in an organizational context |
 
 The fields are orthogonal and never substitute for each other — a person is never an `object`, a document is never a `subject`:
 
