@@ -27,7 +27,7 @@ After submitting the form, you will receive an email with instructions to submit
 | --- | --- |
 | Key Type | Elliptic Curve |
 | Curve | P-256 |
-| Submission | `mwallet@egov.md` |
+| Submission | `wallet@egov.md` |
 
 
 ## 3. Certificate Issuance
