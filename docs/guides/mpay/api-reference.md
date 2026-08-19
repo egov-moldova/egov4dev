@@ -292,74 +292,22 @@ All operations defined in IServiceProvider must be idempotent, i.e. the returned
 
 ## Enumerations
 
-<table>
-  <tr>
-    <th>Member</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <th colspan="2">OrderStatus</th>
-  </tr>
-  <tr>
-    <td>Active</td>
-    <td>The order is active and can be paid. (Can be paid)</td>
-  </tr>
-  <tr>
-    <td>PartiallyPaid</td>
-    <td>The order was partially paid and can be additionally paid. (Can be paid)</td>
-  </tr>
-  <tr>
-    <td>Paid</td>
-    <td>The order is fully paid. (Already paid)</td>
-  </tr>
-  <tr>
-    <td>Completed</td>
-    <td>The order is complete, i.e. the service is delivered. (Cannot be paid)</td>
-  </tr>
-  <tr>
-    <td>Expired</td>
-    <td>The order expired and cannot be paid. (Cannot be paid)</td>
-  </tr>
-  <tr>
-    <td>Cancelled</td>
-    <td>The order is cancelled and cannot be paid. (Cannot be paid)</td>
-  </tr>
-  <tr>
-    <td>Refunding</td>
-    <td>The order is being refunded. (Cannot be paid)</td>
-  </tr>
-  <tr>
-    <td>Refunded</td>
-    <td>The order was refunded. (Cannot be paid)</td>
-  </tr>  
-  <tr>
-    <th colspan="2">CustomerType</th>
-  </tr>
-  <tr>
-    <td>Person</td>
-    <td>The customer is a Person.</td>
-  </tr>
-  <tr>
-    <td>Organization</td>
-    <td>The customer is an Organization.</td>
-  </tr>
-  
-  <tr>
-    <th colspan="2">CurrencyCode</th>
-  </tr>
-  <tr>
-    <td colspan="2">MPay uses ISO 4217 currency codes. The following list is just a subset of the active codes.</td>
-  </tr>
-  <tr>
-    <td>MDL</td>
-    <td>Moldovan leu</td>
-  </tr>
-  <tr>
-    <td>EUR</td>
-    <td>Euro</td>
-  </tr>
-  <tr>
-    <td>USD</td>
-    <td>United States dollar</td>
-  </tr>
-</table>
+| Member | Description |
+|---|---|
+| **OrderStatus** | |
+| Active | The order is active and can be paid. (Can be paid) |
+| PartiallyPaid | The order was partially paid and can be additionally paid. (Can be paid) |
+| Paid | The order is fully paid. (Already paid) |
+| Completed | The order is complete, i.e. the service is delivered. (Cannot be paid) |
+| Expired | The order expired and cannot be paid. (Cannot be paid) |
+| Cancelled | The order is cancelled and cannot be paid. (Cannot be paid) |
+| Refunding | The order is being refunded. (Cannot be paid) |
+| Refunded | The order was refunded. (Cannot be paid) |
+| **CustomerType** | |
+| Person | The customer is a Person. |
+| Organization | The customer is an Organization. |
+| **CurrencyCode** | |
+| *(all)* | MPay uses ISO 4217 currency codes. The following list is just a subset of the active codes. |
+| MDL | Moldovan leu |
+| EUR | Euro |
+| USD | United States dollar |
