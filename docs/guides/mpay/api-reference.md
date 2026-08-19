@@ -4,10 +4,14 @@ In the case of online payment (card not present, ecommerce), the e-Service must 
 
 Here is a description of the parameters involved in this redirect.
 
+## Perform POS terminal payments 
+
+### Configure POS terminal
+
 | Property | Value |
 |----------|-------|
 | **Method** | POST |
-| **URL** | Test: https://testmpay.gov.md/service/pay<br>Prod: https://mpay.gov.md/service/pay |
+| **URL** | Test: https://mpay.staging.egov.md/service/pay<br>Prod: https://mpay.gov.md/service/pay |
 | **Description** | Direct user to perform online payments via card (card not present - ecommerce), internet banking, e-money or to access other payment methods instructions. |
 
 ### Form or URL parameters
@@ -38,7 +42,7 @@ To perform the redirect for POS terminal transactions, follow the description of
 | Property | Value |
 |----------|-------|
 | **Method** | POST |
-| **URL** | Test:<br>- By ServiceId and OrderKey<br>https://testmpay.gov.md/PosTerminal/Pay/{ServiceId}/{OrderKey}<br>- or by MPay invoiceId<br>https://testmpay.gov.md/PosTerminal/PayInvoice/{InvoiceId}|
+| **URL** | Test:<br>- By ServiceId and OrderKey<br>https://mpay.staging.egov.md/PosTerminal/Pay/{ServiceId}/{OrderKey}<br>- or by MPay invoiceId<br>https://mpay.staging.egov.md/PosTerminal/PayInvoice/{InvoiceId}|
 | **Description** | Direct the operator to perform the payment via POS terminals. |
 
 ### Form or URL parameters
@@ -58,7 +62,7 @@ Here is a description of the parameters involved in this call.
 | Property | Value |
 |----------|-------|
 | **Method** | GET |
-| **URL** | Test:<br>https://testmpay.gov.md:8443/api/invoices?serviceID={serviceID}&orderKey={orderKey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
+| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/invoices?serviceID={serviceID}&orderKey={orderKey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html or <br>https://mpay.gov.md:8443/openapi/index.html |
 | **Description** | E-service can generate MPay InvoiceID and use it for own record or business process (e.g. to print it in the generated order). |
 
 ### Form or URL parameters
@@ -83,7 +87,7 @@ Here is a description of the parameters involved in this call.
 | Property | Value |
 |----------|-------|
 | **Method** | GET |
-| **URL** | Test:<br>https://testmpay.gov.md:8443/api/Invoices/DownloadInvoicePdf?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
+| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/Invoices/DownloadInvoicePdf?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html or <br>https://mpay.gov.md:8443/openapi/index.html |
 | **Description** | E-service can generate MPay InvoiceID PDF and use it for own business process (e.g., to print it and hand it over to payer). |
 
 ### Form or URL parameters
@@ -104,7 +108,7 @@ Here is a description of the parameters involved in this call.
 | Property | Value |
 |----------|-------|
 | **Method** | GET |
-| **URL** | Test:<br>https://testmpay.gov.md:8443/api/Invoices/GetPdfInvoiceBytes?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://testmpay.gov.md:8443/openapi/index.html or<br>https://mpay.gov.md:8443/openapi/index.html |
+| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/Invoices/GetPdfInvoiceBytes?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html or <br>https://mpay.gov.md:8443/openapi/index.html |
 | **Description** | E-service can generate MPay InvoiceID PDF in bytes and use it for own business process (e.g., server to server communication). |
 
 ### Form or URL parameters
@@ -278,8 +282,6 @@ All operations defined in IServiceProvider must be idempotent, i.e. the returned
 | Service Provider FiscalCode | string (20) | Required | The fiscal code (e.g. IDNO) of the Service Provider. |
 | BankAccount | string (24) | Required | The receiving bank account number/ Treasury account number (IBAN) |
 | BeneficiaryName | string (60) | Required | The beneficiary (Institution/Company) name. (ex. Administratia de Stat a Drumurilor) |
-| TreasuryAccountName | string (60) | Optional | The receiving treasury account name. |
-| TreasuryAccount | string (24) | Required | The receiving treasury account number. (In caz ca este SP Public) |
 
 ### PaymentProperty
 

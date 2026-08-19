@@ -57,13 +57,13 @@ Because MPay integrates multiple payable e-Service providers and different payme
 
 ---
 
-## Pay an existing oder
+## Pay an existing order
 
 ### Scenario steps:
 
 1. **Navigate to MPay**
     - Payer navigates to MPay:
-      - Test: https://testmpay.gov.md
+      - Test: https://mpay.staging.egov.md
       - Production: https://mpay.gov.md
 
 2. **Select service**
