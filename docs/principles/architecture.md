@@ -36,15 +36,15 @@ Compliance guarantees that services are legally valid and trusted by citizens, b
 
 ## 🔒 Privacy by design
 
-Privacy must be integrated from the design stage of any system. This includes authentication and authorization mechanisms (for example, through mpass), encryption of communications (tls), role-based access control (rbac), and continuous logging (mlog).  
+Privacy must be integrated from the design stage of any system. This includes authentication and authorization mechanisms (for example, through MPass), encryption of communications (TLS), role-based access control (RBAC), and continuous logging (MLog).  
 
-Trust by design ensures that systems are resilient to cyber threats and that citizens can safely use government services.
+Privacy by design ensures that systems are resilient to cyber threats and that citizens can safely use government services.
 
 ---
 
 ## 🚀 Cross optimization
 
-Solutions must be optimized for integration into broader workflows. This includes asynchronous flows, orchestration of processes through bpm tools, integration of notifications (mnotify), and delivery of documents (mdelivery).  
+Solutions must be optimized for integration into broader workflows. This includes asynchronous flows, orchestration of processes through BPM tools, integration of notifications (MNotify), and delivery of documents (MDelivery).  
 
 Cross-application optimization increases efficiency and reduces duplication of efforts.
 
@@ -66,7 +66,7 @@ The "once only" principle reduces administrative burden, ensures data consistenc
 
 ---
 
-### 🔔 Events by default
+## 🔔 Events by default
 
 Systems must automatically emit events when significant state changes occur, rather than requiring others to poll for updates. Authoritative registers publish events (e.g., "address changed," "license issued," "deadline approaching") that enable automated workflows and asynchronous integration between systems. Event-driven architecture reduces system load, improves responsiveness, and ensures timely information delivery to citizens and institutions.
 
@@ -74,7 +74,7 @@ Systems must automatically emit events when significant state changes occur, rat
 
 ## 🔗 Interoperability in mind
 
-Government solutions must be interoperable by default. This means they expose apis (rest or soap), respect open standards, and can be integrated via api gateways or other middleware.  
+Government solutions must be interoperable by default. This means they expose APIs (REST or SOAP), respect open standards, and can be integrated via API gateways or other middleware.  
 
 The principle of interoperability by design prevents the creation of isolated systems and ensures integration at national and cross-border levels.
 

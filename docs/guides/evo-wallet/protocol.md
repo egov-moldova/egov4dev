@@ -94,7 +94,7 @@ The Authorization Request JWS payload has the following parameters:
 | dcql_query | A JSON object containing a DCQL query as defined in this document. |
 | scope | A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet. |
 | transaction_data | An optional non-empty array of strings, where each string is a base64url-encoded JSON object that contains a typed parameter set with details about the transaction that the Verifier is requesting the End-User to authorize. Not yet leveraged by EVO. |
-| <span class="highlight-text-yellow">verifier_info</span> | <span class="highlight-text-yellow">To be documented.</span> |
+| verifier_info | An optional non-empty array of JSON objects that represent attestations about the Verifier. May include Verifier metadata, policies, trust status, authorizations, etc. Intented to support authorization decisions, inform Wallet policy enforcement, or enrich the End-User consent dialog. Not yet leveraged by EVO. |
 | response_type | Response type to be used. MUST be: **vp_token** |
 | response_mode | Response mode to be used. MUST be: **direct_post.jwt** |
 | response_uri | The HTTPS URL that represents the HTTPS POST endpoint for submitting the encrypted Authorization Response required by the Response Mode direct_post.jwt. This usually includes parameters that enable the Verifier to identify the presentation transaction. |
@@ -152,6 +152,14 @@ Each entry in **claims** array MUST be an object with the following parameters:
 | path | A required value that MUST be a non-empty array representing a claims path pointer that specifies the path to a claim within the Credential. A path pointer into an mdoc contains two elements of type string. The first element refers to a namespace and the second element refers to a data element identifier. |
 | values | An optional non-empty array of strings, integers or boolean values that specifies the expected values of the claim. If the values property is present, the Wallet SHOULD return the claim only if the type and value of the claim both match exactly for at least one of the elements in the array. |
 | intent_to_retain | An optional boolean variable that indicates whether the Verifier intends to retain the received data element. Default value is **false**. The Verifier SHALL not retain any data elements, except for data elements for which the intent_to_retain flag was set to true in the request. To retain is defined as "to store for a period longer than necessary to conduct the transaction in realtime". |
+
+Each entry in **verifier_info** MUST be an object with the following parameters:
+
+| Parameter | Description |
+|---|---|
+| format | A string that identifies the format of the attestation and how it is encoded. Ecosystems SHOULD use collision-resistant identifiers. Further processing of the attestation is determined by the type of the attestation, which is specified in a format-specific way. |
+| data | An object or string containing an attestation (e.g. a JWT). The payload structure is defined on a per format level. |
+| credential_ids | An optional non-empty array of strings  each referencing a Credential requested by the Verifier for which the attestation is relevant. Each string matches the id field in a DCQL Credential Query. If omitted, the attestation is relevant to all requested Credentials. |
 
 ## Handling Authorization Response
 

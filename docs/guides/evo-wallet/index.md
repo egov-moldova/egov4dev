@@ -10,6 +10,112 @@ OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to 
   </a>
 </p>
 
+## Relying Parties in Production
+<style>
+.rp-wall {
+  --rp-meta: #64748b;
+  --rp-badge-bg: rgba(16, 185, 129, .12);
+  --rp-badge-fg: #047857;
+  --rp-dot: #10b981;
+  --rp-plate: transparent;
+  --rp-plate-pad: 0;
+  margin: 1.5rem 0 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  .rp-wall {
+    --rp-meta: #94a3b8;
+    --rp-badge-bg: rgba(16, 185, 129, .16);
+    --rp-badge-fg: #34d399;
+    --rp-plate: #ffffff;
+    --rp-plate-pad: .5rem .9rem;
+  }
+}
+[data-color-mode="dark"] .rp-wall,
+[data-md-color-scheme="slate"] .rp-wall,
+html.dark .rp-wall,
+body.dark .rp-wall {
+  --rp-meta: #94a3b8;
+  --rp-badge-bg: rgba(16, 185, 129, .16);
+  --rp-badge-fg: #34d399;
+  --rp-plate: #ffffff;
+  --rp-plate-pad: .5rem .9rem;
+}
+.rp-wall__intro {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin: 0 0 1.25rem;
+  font-size: .8125rem;
+  color: var(--rp-meta);
+}
+.rp-wall__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  background: var(--rp-badge-bg);
+  color: var(--rp-badge-fg);
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.rp-wall__badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rp-dot);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, .18);
+}
+.rp-wall__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 2.75rem;
+}
+.rp-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: var(--rp-plate-pad);
+  border-radius: 8px;
+  background: var(--rp-plate);
+}
+.rp-logo img {
+  max-height: 40px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 480px) {
+  .rp-wall__logos { gap: 1.25rem 1.75rem; }
+  .rp-logo { height: 48px; }
+  .rp-logo img { max-height: 32px; max-width: 150px; }
+  .rp-wall__intro { flex-wrap: wrap; }
+}
+</style>
+<div class="rp-wall">
+  <p class="rp-wall__intro">
+    <span class="rp-wall__badge">Live</span>
+    <span>Relying parties that have completed onboarding and accept EVO Wallet presentations in production.</span>
+  </p>
+  <div class="rp-wall__logos">
+    <span class="rp-logo">
+      <img src="../../assets/logos/micb.png" srcset="../../assets/logos/micb.png 1x, ../../assets/logos/micb@2x.png 2x" alt="Moldindconbank" loading="lazy" width="479" height="80">
+    </span>
+    <span class="rp-logo">
+      <img src="../../assets/logos/fincombank.png" srcset="../../assets/logos/fincombank.png 1x, ../../assets/logos/fincombank@2x.png 2x" alt="FinComBank" loading="lazy" width="393" height="80">
+    </span>
+  </div>
+</div>
+
 ## Jump right in
 
 <div class="quick-links-wrapper">

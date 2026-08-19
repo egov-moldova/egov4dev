@@ -16,8 +16,7 @@ The documentation is organized as follows:
 
 - **[Platforms and services](platforms/)** – overview of the core eGov Moldova services (MPass, MSign, MPower, MPay, MNotify, MDelivery, MConnect, MLog and MDocs)
 - **[Connection procedure](platforms/procedure.md)** – steps needed to get connected to one of the services
-- **[Development principles](principles/architecture.md)** – architectural and design principles for building interoperable government solutions  
-- **[Tools and technologies](tools/technologies.md)** – technologies, frameworks, and tools used across projects
+- **[Technical overview](technical-overview/index.md)** – technical orientation and engineering standards: [development principles](principles/architecture.md), [tools and technologies](tools/technologies.md), API design, code standards, code reviews, architecture decision records, log management
 - **[Unified design system](mud/)** – Moldovan Statewide Design System for government digital services
 - **[Glossary](glossary/glossary.md)** – centralized list of terms, definitions, and acronyms used across this resource
 - **Integration guides** – step-by-step guides for each service
