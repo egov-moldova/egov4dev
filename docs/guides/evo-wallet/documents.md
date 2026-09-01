@@ -125,8 +125,6 @@ DocType: **eu.europa.ec.eudi.pid.1**
 | family_name | Family name | tstr |
 | given_name | Given names | tstr |
 | birth_date | Date of birth | full-date |
-| age_over_18 | Attesting whether the User to whom the person identification data relates is currently an adult (true) or a minor (false). | bool |
-| age_over_21 | Attesting whether the User to whom the person identification data relates is currently over (true) or under (false) 21 years of age. | bool |
 | place_of_birth | Place of birth. See below. | object |
 | nationality | One or more alpha-2 country codes as specified in ISO 3166-1, representing the nationality. | tstr |
 | resident_address | Full place of residence and/or contact, represented as one string. Includes country, region, city, street, house number, block and flat. Optional. | tstr |
