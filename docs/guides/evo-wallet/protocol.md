@@ -82,7 +82,7 @@ The Authorization Request JWS header has the following parameters:
 |---|---|
 | typ | JWT token type. MUST be set to: **oauth-authz-req+jwt** |
 | alg | The algorithm identifier used to sign the JWT. MUST be set to: **ES256** |
-| x5c | An array of strings containing the X.509 public key certificate chain used by the Verifier to sign the request. Each string in the array is a base64-encoded (not base64url-encoded) DER PKIX certificate value. The certificate containing the public key corresponding to the key used to digitally sign the request MUST be the first certificate. This MAY be followed by additional certificates, with each subsequent certificate being the one used to certify the previous one. |
+| x5c | An array of strings containing the X.509 public key certificate chain used by the Verifier to sign the request. Each string in the array is a base64-encoded (not base64url-encoded) DER PKIX certificate value. The certificate containing the public key corresponding to the key used to digitally sign the request MUST be the first certificate. This MAY be followed by additional certificates, usually one, with each subsequent certificate being the one used to certify the previous one. The X.509 certificate of the trust anchor (the root) MUST NOT be included. |
 
 The Authorization Request JWS payload has the following parameters:
 
