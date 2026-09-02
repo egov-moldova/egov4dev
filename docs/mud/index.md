@@ -40,9 +40,14 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
       </td>
     </tr>
     <tr>
-      <td><strong>Demo page</strong></td>
+      <td><strong>HTML storybook</strong></td>
       <td>Catalog interactiv al tuturor componentelor, afișate în variantele principale și contexte responsive, cu posibilitatea de copiere rapidă a tokenilor și a fragmentelor de cod pentru utilizare.</td>
-      <td><a href="https://mud.dev.egov.md/">Storybook</a></td>
+      <td><a href="https://mud.dev.egov.md/">View storybook</a></td>
+    </tr>
+    <tr>
+      <td><strong>Blazor storybook</strong></td>
+      <td>Catalog interactiv al tuturor componentelor, afișate în variantele principale și contexte responsive, cu posibilitatea de copiere rapidă a tokenilor și a fragmentelor de cod pentru utilizare.</td>
+      <td><a href="https://fod.dev.egov.md/">View storybook</a></td>
     </tr>
     <tr>
       <td><strong>Git repository</strong></td>
