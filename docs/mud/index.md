@@ -42,7 +42,7 @@ Pentru utilizatorii finali, modelul garantează o experiență familială și pr
     <tr>
       <td><strong>Demo page</strong></td>
       <td>Catalog interactiv al tuturor componentelor, afișate în variantele principale și contexte responsive, cu posibilitatea de copiere rapidă a tokenilor și a fragmentelor de cod pentru utilizare.</td>
-      <td><a href="https://egov-moldova.github.io/design-system/Components/">Acces GitHub Pages</a></td>
+      <td><a href="https://mud.dev.egov.md/">Storybook</a></td>
     </tr>
     <tr>
       <td><strong>Git repository</strong></td>
