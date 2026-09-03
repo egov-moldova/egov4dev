@@ -22,7 +22,9 @@ There are 2 service environments available: staging and production.
 | Base address | https://mconnect-events.gov.md:8443/ |
 | WebSocket consumer base address | wss://mconnect-events.gov.md:8443/ |
 
-Notice the wss schema used by efficient consumers, meaning WebSocket secured. Endpoints are accessible only using a valid client certificate from registered IPs.
+Notice the wss schema used by efficient consumers, meaning WebSocket secured. 
+
+*Note:* Endpoints are accessible only using a valid client certificate from registered IPs.
 
 ## Personal data processing
 
