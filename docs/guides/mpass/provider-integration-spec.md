@@ -1,12 +1,7 @@
 # Specificație de integrare pentru furnizorii de autentificare
 
-*Elaborat de: Agenția de Guvernare Electronică · Data: august 2026 · Versiunea: 1.2*
-
 !!! note "Audiență"
     Această pagină se adresează unui **furnizor de autentificare** (metodă sau soluție de identificare electronică) care se integrează *în* MPass. Este distinctă de restul ghidului MPass, care descrie integrarea sistemelor informaționale *cu* MPass în calitate de consumatori.
-
-!!! warning "De verificat"
-    Referințele la Regulamentul privind serviciul MPass (HG nr. 1090/2013) sunt puse după uzanță și nu au fost verificate față de textul consolidat al actului.
 
 ## 1. Scopul
 

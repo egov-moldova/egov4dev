@@ -1,7 +1,5 @@
 # Specificație de integrare pentru furnizorii de semnătură electronică
 
-*Elaborat de: Agenția de Guvernare Electronică · Data: august 2026 · Versiunea: 1.2*
-
 !!! note "Audiență"
     Această pagină se adresează unui **furnizor de semnătură electronică** (instrument de semnare) care se integrează *în* MSign. Este distinctă de restul ghidului MSign, care descrie integrarea sistemelor informaționale *cu* MSign în calitate de consumatori.
 
