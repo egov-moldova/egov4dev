@@ -37,6 +37,7 @@ nav:
           - Examples: guides/mpass/examples.md
           - Integration libraries: guides/mpass/integration-libraries.md
           - Change log: guides/mpass/change-log.md
+          - Authentication provider integration: guides/mpass/provider-integration-spec.md
       - MSign:
           - Overview: guides/msign/index.md
           - Connection steps: guides/msign/process.md
@@ -46,6 +47,7 @@ nav:
           - Examples: guides/msign/examples.md
           - Integration libraries: guides/msign/integration-libraries.md
           - Change log: guides/msign/change-log.md
+          - Signature provider integration: guides/msign/provider-integration-spec.md
       - MPower:
           - Overview: guides/mpower/index.md
           - Connection steps: guides/mpower/process.md
