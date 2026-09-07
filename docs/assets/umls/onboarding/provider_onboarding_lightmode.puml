@@ -1,0 +1,72 @@
+@startuml
+
+title <font color=#FFF><b>ad_ProviderOnboarding</b></font>
+
+skinparam shadowing false
+skinparam backgroundColor transparent
+skinparam defaultFontStyle bold
+skinparam swimlaneBorderColor #333333
+skinparam swimlaneTitleFontStyle bold
+skinparam activity {
+    BackgroundColor #FCF2E3
+    BorderColor #333333
+    FontStyle bold
+    DiamondBackgroundColor #FCF2E3
+    DiamondBorderColor #333333
+    StartColor #333333
+    EndColor #333333
+    BarColor #333333
+}
+skinparam note {
+    BackgroundColor #FCF2E3
+    BorderColor #333333
+}
+
+|QTSP|
+start
+:Confirm the CA is on the
+national trusted list;
+:Build and expose the API(s)
+(MSign: signing + verification /
+MPass: authentication);
+:Submit the technical package
+(endpoint URLs, WSDL/OpenAPI, API token);
+:Submit the branding package
+(logo dimensions and format, display texts);
+:Agree the operational model with eGov
+(error handling, service-downtime handling);
+
+|eGov|
+:Prepare the integration agreement
+and the integration invoice;
+
+|QTSP|
+:Sign the integration agreement;
+:Pay the integration invoice;
+
+|eGov|
+if (Agreement signed and invoice paid?) then (yes)
+  :Schedule the work against current capacity;
+  note right
+    A queue, not a deprioritisation.
+    eGov confirms a start date and
+    an estimated delivery time.
+  end note
+  :Implement the API(s) and configure
+  the integration on staging;
+else (no)
+  :Integration not started;
+  end
+endif
+
+|QTSP|
+:Run functional and non-functional tests
+(performance, security);
+:Deliver the test reports;
+
+|eGov|
+:Acceptance;
+:Activate the integration in production;
+stop
+
+@enduml
