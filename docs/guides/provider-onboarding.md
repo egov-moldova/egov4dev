@@ -71,15 +71,13 @@ Once the agreement and payment are complete, the eGov team **schedules** the wor
 
 This is a queue, not a deprioritisation — the platform team runs a shared backlog across many integrations, and each is picked up in turn. The confirmed start date and estimate let you plan your own side accordingly.
 
-eGov then implements your API(s) and configures the integration on the **test / staging environment**.
+eGov then implements your API(s) and configures the integration on the **staging environment**.
 
 ### Step 4 — Testing
 
 - **Functional testing** — the operations behave as specified end to end.
 - **Non-functional testing** — performance and security.
 - The QTSP delivers the **test reports**.
-
-<span class="red-bold-text">ToDo (eGov): define the minimum set of non-functional tests.</span>
 
 ### Step 5 — Go to production
 
