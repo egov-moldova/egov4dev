@@ -1,6 +1,6 @@
-# Onboarding a QTSP
+# Provider onboarding
 
-This page is for an organisation that operates a **signing or authentication solution** — a qualified trust service provider (QTSP) — and wants it offered as an option **inside** MSign and/or MPass.
+This page is for an organisation that provides a **signing or authentication solution** — a qualified trust service provider (QTSP) — and wants it offered as an option inside MSign and/or MPass.
 
 This is different from connecting an information system as a consumer of the platforms. For that, see the [Connection procedure](../platforms/procedure.md).
 
