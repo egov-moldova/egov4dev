@@ -63,11 +63,15 @@ Complete the steps below **in order**. Everything in **Step 1** and **Step 2** i
 - The **integration fee** is invoiced and **paid**.
 
 !!! warning "The technical integration starts only after Step 2"
-    AGE implements your API(s) on the test environment **only after** the agreement is signed and the integration invoice is paid. Steps 3–5 do not begin before then.
+    AGE begins work on your integration **only after** the agreement is signed and the integration invoice is paid. Steps 3–5 do not begin before then.
 
-### Step 3 — Technical integration (AGE)
+### Step 3 — Scheduling and technical integration (AGE)
 
-AGE implements your API(s) and configures the integration on the **test / staging environment**.
+Once the agreement and payment are complete, the AGE team **schedules** the work against its current capacity. AGE confirms **when it can start** and an **estimated delivery time**; work does not necessarily begin the moment the invoice is paid.
+
+This is a queue, not a deprioritisation — the platform team runs a shared backlog across many integrations, and each is picked up in turn. The confirmed start date and estimate let you plan your own side accordingly.
+
+AGE then implements your API(s) and configures the integration on the **test / staging environment**.
 
 ### Step 4 — Testing
 
@@ -86,7 +90,7 @@ After acceptance, the integration is activated in the production environment.
 | # | Technical | Procedural |
 |---|-----------|-----------|
 | 1 | Provider exposes the integration API(s): signing and verification (MSign) / authentication (MPass). | Integration agreement signed by both parties. |
-| 2 | AGE implements the API(s) on the test environment. | Starts only after the API(s) are delivered and the integration invoice is paid. Branding (logo dimensions and format, texts). Operational error handling — how Provider-side unavailability is handled and remediated. |
+| 2 | AGE schedules the work and implements the API(s) on the test environment. | Starts only after the API(s) are delivered and the integration invoice is paid. AGE confirms a start date and estimated delivery based on current capacity. Branding (logo dimensions and format, texts). Operational error handling — how Provider-side unavailability is handled and remediated. |
 | 3 | Functional and non-functional testing (performance, security). | Test reports. |
 | 4 | Go to production. | |
 
