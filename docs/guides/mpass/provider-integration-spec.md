@@ -104,7 +104,7 @@ If a user may have more than one device or identity and one must be chosen, the 
 
 This document covers only the technical integration interface. The Provider remains subject to the obligations under the normative framework in force, including:
 
-- An integration contract with the eGovernance Agency, signed before going to production, under the MPass Regulation.
+- An integration contract with eGov, signed before going to production, under the MPass Regulation.
 - Conformity assessment of the electronic identification means against the criteria, technical specifications and procedures for the assurance level (low / substantial / high), carried out by a conformity assessment body (Art. 5¹(3) of Law No. 124/2022); the means and its assurance level are published on the supervisory body's official website (Art. 5¹(4)).
 - If the Provider itself issues the qualified certificates used for authentication: the obligations of a qualified trust service provider under Law No. 124/2022 — verifying the applicant's identity (Art. 10(2) point 4), revocation within at most 3 working hours (Art. 16(3)), keeping records for 15 years (Art. 10(2) point 9), a conformity audit at least once every two years (Art. 10(2) point 10). If the certificates are issued by a third-party provider, these obligations rest with that provider.
 - Meeting the cybersecurity obligations under Law No. 48/2023 (Art. 39 of Law No. 124/2022).

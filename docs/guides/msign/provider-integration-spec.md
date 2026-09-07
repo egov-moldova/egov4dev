@@ -33,7 +33,7 @@ These requirements are set by MSign on the basis of the technical regulations an
 3. Level "T" requires an electronic timestamp on the signature. For a qualified electronic signature this must be a **qualified electronic timestamp** (Art. 31 of Law No. 124/2022).
 4. **Signature type and Provider status:**
     - MSign accepts both qualified and advanced electronic signatures, and providers may be qualified or non-qualified trust service providers (MSign Regulation, points 2 and 4; Art. 6(1) of Law No. 124/2022).
-    - The signature type produced and the Provider's level are set at onboarding and recorded in the integration contract signed with the eGovernance Agency.
+    - The signature type produced and the Provider's level are set at onboarding and recorded in the integration contract signed with eGov.
     - If the requesting e-service needs a signature with the same legal value as a handwritten signature (Art. 21(2) of Law No. 124/2022), a **qualified electronic signature** is required — based on a qualified certificate for electronic signature (Art. 24 and 25) and created with a qualified signature creation device (Art. 27).
 5. **Recognition of the signing CA.** The trust service provider that issues the signer's certificate must appear on the **national trusted list** maintained and published by the supervisory body (Art. 8 and Art. 35(2)(e) of Law No. 124/2022). For qualified trust service providers established in EU member states, the recognition under Art. 3 and Art. 8(7)–(9) applies. For advanced signatures produced by a non-qualified provider, the recognition conditions agreed in the integration contract apply.
 
@@ -119,7 +119,7 @@ MSign requests the result of a previously submitted signing by its `requestId`. 
 
 This document covers only the technical integration interface. As a trust service provider integrated into MSign, the Provider remains subject to the obligations under Law No. 124/2022 and the MSign Regulation, including:
 
-- An integration contract with the eGovernance Agency, signed before going to production (MSign Regulation, points 5(8) and 9(4)); new providers are integrated "in the manner established by the legislation in force … if they meet the legal requirements" (MSign Regulation, point 23).
+- An integration contract with eGov, signed before going to production (MSign Regulation, points 5(8) and 9(4)); new providers are integrated "in the manner established by the legislation in force … if they meet the legal requirements" (MSign Regulation, point 23).
 - Verifying the identity of the certificate applicant through one of the methods in Art. 10(2) point 4 of Law No. 124/2022.
 - Revoking the public-key certificate and recording it in the register within at most 3 working hours of receiving information that requires revocation (Art. 16(3)).
 - Recording and keeping accessible the relevant information for 15 years, including after ceasing activity (Art. 10(2) point 9); keeping the public-key certificate for at least 15 years from revocation or expiry (Art. 15(2)).
@@ -144,6 +144,6 @@ This document covers only the technical integration interface. As a trust servic
 4. `requestId` and each item `id` echoed back correctly for multi-document requests.
 5. `signerId` (IDNP) honoured — the identifier in the signer's certificate matches the expected person.
 6. Asynchronous mode (if used): wake-up callback + result retrieval via the status operation; no signature in the callback.
-7. Signature type and Provider status recorded in the integration contract with the eGovernance Agency.
+7. Signature type and Provider status recorded in the integration contract with eGov.
 8. For qualified signatures: signing CA confirmed as recognised (trusted list) — a test signature passes MSign validation end to end.
 9. The obligations in section 8 confirmed.
