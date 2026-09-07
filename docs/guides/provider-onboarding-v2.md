@@ -53,7 +53,7 @@ Before onboarding starts, the QTSP must:
 
 ## Onboarding process
 
-Complete the steps below **in order**. Everything in **Step 1** and **Step 2** is on the QTSP and can be done in parallel — but the eGovernance Agency (eGov) starts the technical integration only after Step 2 is complete.
+Complete the steps below **in order**. Everything in **Step 1** and **Step 2** is on the QTSP and can be done in parallel — but the eGovernance Agency (eGov) starts the technical integration only after Step 2 is complete. Each step ends at a checkpoint (**Outcome**) before the next begins.
 
 ### Step 1 — Prepare and submit (QTSP)
 
@@ -65,6 +65,8 @@ Complete the steps below **in order**. Everything in **Step 1** and **Step 2** i
 - **Submit the branding package:** logo (required dimensions and format) and the display texts shown to the citizen.
 - **Agree the SLA** with eGov, covering: the incident-reporting channel and contact points; incident severity classification; acknowledgement, response and restoration times; the escalation procedure; notification of planned works and of unavailability; security-incident communication; and the committed service availability.
 
+**Outcome:** onboarding confirmed — responsibles designated, NDA signed, technical package received.
+
 ### Step 2 — Agreement and payment (both parties)
 
 - The **integration agreement** is signed by both parties.
@@ -72,6 +74,8 @@ Complete the steps below **in order**. Everything in **Step 1** and **Step 2** i
 
 !!! warning "The technical integration starts only after Step 2"
     eGov begins work on your integration **only after** the agreement is signed and the integration invoice is paid. Steps 3–5 do not begin before then.
+
+**Outcome:** integration agreement in force — the work can be scheduled.
 
 ### Step 3 — Scheduling and technical integration (eGov)
 
@@ -84,6 +88,8 @@ eGov then reviews the technical package (and asks for clarifications if needed),
 !!! note "Timeline"
     Once eGov has all the technical information and the preconditions are met, integration typically takes **30–40 working days**. This does not count time spent waiting for information or changes from the QTSP, or time fixing nonconformities found during testing.
 
+**Outcome:** ready for test — the QTSP is configured in the MSign / MPass test environment and connectivity is confirmed.
+
 ### Step 4 — Testing and technical acceptance
 
 - **Functional testing** — the operations behave as specified end to end.
@@ -91,8 +97,12 @@ eGov then reviews the technical package (and asks for clarifications if needed),
 - **Service-specific scenarios** — cancellation, expiry, refusal, failed authentication, error handling.
 - The QTSP fixes any nonconformities and confirms readiness for retest; the QTSP delivers the **test reports**. eGov documents the results and confirms **technical acceptance**.
 
+**Outcome:** technical acceptance — tests completed and signed off.
+
 ### Step 5 — Production preparation and go-live
 
 - The QTSP submits the **production** endpoints / configuration and any certificates or keys, and confirms the support, incident and escalation contacts.
 - eGov verifies the production configuration, confirms technical acceptance and that the contractual conditions are met, then configures and activates the QTSP in production.
 - A **controlled test in production** is run with the QTSP before the integration is declared live.
+
+**Outcome:** go-live — integration completed.
