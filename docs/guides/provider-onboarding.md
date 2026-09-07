@@ -17,9 +17,28 @@ A QTSP may integrate with **one or both** services. The following two tracks are
 
 ## Jump right in
 
+<style>
+.quick-link-description { font-size: 0.72rem !important; }
+.quick-link-card { cursor: default; }
+.quick-link-card:hover { background: #f6f6f6 !important; }
+.quick-link-btn {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 6px 14px;
+  background: #0058D2;
+  color: #ffffff !important;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: background 0.2s;
+}
+.quick-link-btn:hover { background: #0046b8 !important; color: #fff !important; }
+</style>
+
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
-    <a href="../msign/provider-integration-spec/" class="quick-link-card">
+    <div class="quick-link-card">
       <div class="quick-link-icon">✍️</div>
       <h3 class="quick-link-title">MSign — signature provider</h3>
       <ol class="quick-link-description">
@@ -28,8 +47,9 @@ A QTSP may integrate with **one or both** services. The following two tracks are
         <li>Qualified and advanced signatures; synchronous or asynchronous.</li>
         <li>Two APIs are exposed — signing and signature verification.</li>
       </ol>
-    </a>
-    <a href="../mpass/provider-integration-spec/" class="quick-link-card">
+      <a href="../msign/provider-integration-spec/" class="quick-link-btn">View specification</a>
+    </div>
+    <div class="quick-link-card">
       <div class="quick-link-icon">🔐</div>
       <h3 class="quick-link-title">MPass — authentication provider</h3>
       <ol class="quick-link-description">
@@ -38,7 +58,8 @@ A QTSP may integrate with **one or both** services. The following two tracks are
         <li>The SAML session stays with MPass.</li>
         <li>One API is exposed — authentication.</li>
       </ol>
-    </a>
+      <a href="../mpass/provider-integration-spec/" class="quick-link-btn">View specification</a>
+    </div>
   </div>
 </div>
 
