@@ -13,28 +13,35 @@ MSign and MPass are **integrator services**. They do not replace the QTSP's solu
 - MSign / MPass handle the e-service side: the request that starts the operation, storage of the result, and — for MPass — the SAML session issued to the e-service.
 - The e-service never talks to the QTSP directly; it only talks to MSign / MPass.
 
-A QTSP may integrate with **one or both** services. The two tracks are independent contracts and independent technical onboardings.
+A QTSP may integrate with **one or both** services. The following two tracks are independent technical onboardings within one legal agreement.
 
----
 
-## Integration tracks
+## Jump right in
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="../msign/provider-integration-spec/" class="quick-link-card">
       <div class="quick-link-icon">✍️</div>
       <h3 class="quick-link-title">MSign — signature provider</h3>
-      <p class="quick-link-description">The QTSP acts as a signing instrument. MSign sends a document hash or a PDF; the QTSP returns a detached XAdES‑T or an embedded PAdES‑T plus the signer's certificate. Qualified and advanced signatures; synchronous or asynchronous. Two APIs are exposed — signing and signature verification. Read the specification →</p>
+      <ol class="quick-link-description">
+        <li>MSign sends a document hash or a PDF.</li>
+        <li>The QTSP authenticates the signer, signs, and returns a detached XAdES‑T (for a hash) or an embedded PAdES‑T (for a PDF) plus the signer's certificate.</li>
+        <li>Qualified and advanced signatures; synchronous or asynchronous.</li>
+        <li>Two APIs are exposed — signing and signature verification.</li>
+      </ol>
     </a>
     <a href="../mpass/provider-integration-spec/" class="quick-link-card">
       <div class="quick-link-icon">🔐</div>
       <h3 class="quick-link-title">MPass — authentication provider</h3>
-      <p class="quick-link-description">The QTSP acts as an electronic identification method. MPass sends a one-time challenge; the QTSP authenticates the person and returns their identity (qualified certificate) plus a signature over the challenge. The SAML session stays with MPass. One API is exposed — authentication. Read the specification →</p>
+      <ol class="quick-link-description">
+        <li>MPass sends a one-time challenge.</li>
+        <li>The QTSP authenticates the person and returns their identity (qualified certificate) plus a signature over the challenge.</li>
+        <li>The SAML session stays with MPass.</li>
+        <li>One API is exposed — authentication.</li>
+      </ol>
     </a>
   </div>
 </div>
-
----
 
 ## Onboarding process
 
