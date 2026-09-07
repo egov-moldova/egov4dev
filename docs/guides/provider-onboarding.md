@@ -84,16 +84,3 @@ eGov then implements your API(s) and configures the integration on the **test / 
 ### Step 5 — Go to production
 
 After acceptance, the integration is activated in the production environment.
-
-## Summary
-
-| # | Technical | Procedural |
-|---|-----------|-----------|
-| 1 | QTSP exposes the integration API(s): signing and verification (MSign) / authentication (MPass). | Integration agreement signed by both parties. |
-| 2 | eGov schedules the work and implements the API(s) on the test environment. | Starts only after the API(s) are delivered and the integration invoice is paid. eGov confirms a start date and estimated delivery based on current capacity. Branding (logo dimensions and format, texts). Operational error handling — how QTSP-side unavailability is handled and remediated. |
-| 3 | Functional and non-functional testing (performance, security). | Test reports. |
-| 4 | Go to production. | |
-
-## Questions
-
-Direct questions on this process to the MSign / MPass integration team.

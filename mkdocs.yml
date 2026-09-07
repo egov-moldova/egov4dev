@@ -5,6 +5,7 @@ nav:
   - Home: intro.md
   - Platforms and services: platforms/index.md
   - Connection procedure: platforms/procedure.md
+  - Provider onboarding: guides/provider-onboarding.md
   - Technical overview:
       - Overview: technical-overview/index.md
       - Development principles: principles/architecture.md
