@@ -23,12 +23,12 @@ A QTSP may integrate with **one or both** services. The following two tracks are
 .quick-link-card:hover { background: #f6f6f6 !important; }
 .quick-link-btn {
   display: inline-block;
-  margin-top: 0.9rem;
-  padding: 6px 14px;
+  margin-top: 0.5rem;
+  padding: 8px 16px;
   background: #0058D2;
   color: #ffffff !important;
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500;
   text-decoration: none !important;
   transition: background 0.2s;
