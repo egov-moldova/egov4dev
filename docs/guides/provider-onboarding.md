@@ -1,9 +1,8 @@
-# Onboarding a signature or authentication provider
+# Onboarding a QTSP
 
-!!! note "Audience"
-    This page is for an organisation that operates a **signing or authentication solution** — a qualified trust service provider, a mobile-signature operator, an identity app, a cryptographic-token issuer — and wants it offered as an option **inside** MSign and/or MPass. On this page such an organisation is called the **QTSP** (qualified trust service provider), or simply the **Provider**.
+This page is for an organisation that operates a **signing or authentication solution** — a qualified trust service provider (QTSP) — and wants it offered as an option **inside** MSign and/or MPass.
 
-    This is different from connecting an information system as a consumer of the platforms. For that, see the [Connection procedure](../platforms/procedure.md).
+This is different from connecting an information system as a consumer of the platforms. For that, see the [Connection procedure](../platforms/procedure.md).
 
 ## How the integrator model works
 
@@ -57,7 +56,7 @@ Complete the steps below **in order**. Everything in **Step 1** and **Step 2** i
 - **Submit the branding package:** logo (required dimensions and format) and the display texts shown to the citizen.
 - **Agree the operational model** with eGov product management: error handling, and how unavailability of your service is detected, communicated, and remediated.
 
-### Step 2 — Agreement and payment
+### Step 2 — Agreement and payment (both parties)
 
 - The **integration agreement** is signed by both parties.
 - The **integration fee** is invoiced and **paid**.
