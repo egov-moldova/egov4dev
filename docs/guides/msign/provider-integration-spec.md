@@ -147,12 +147,3 @@ Prezentul document acoperă doar interfața tehnică de integrare. Ca prestator 
 7. Tipul semnăturii și statutul Furnizorului consemnate în contractul de integrare cu Agenția de Guvernare Electronică.
 8. Pentru semnături calificate: CA-ul de semnare confirmat ca recunoscut (lista sigură) — o semnătură de test trece validarea MSign de la un capăt la altul.
 9. Obligațiile din secțiunea 8 confirmate.
-
-## Anexă. Referințe normative
-
-- [Hotărârea Guvernului nr. 405/2014](https://www.legis.md/cautare/getResults?doc_id=143127&lang=ro) privind serviciul electronic guvernamental integrat de semnătură electronică (MSign), cu Regulamentul anexat — modificată prin HG nr. 291/2024 (în vigoare 08.06.2024).
-- [Legea nr. 124/2022](https://www.legis.md/cautare/getResults?doc_id=151294&lang=ro) privind identificarea electronică și serviciile de încredere (transpune parțial Regulamentul (UE) nr. 910/2014) — modificată prin Legea nr. 227/2025 (în vigoare 30.12.2025).
-- Legea nr. 48/2023 privind securitatea cibernetică.
-- ETSI EN 319 132 — semnături electronice XAdES.
-- ETSI EN 319 142 — semnături electronice PAdES.
-- ETSI EN 319 412-1 — profiluri de certificate; semantica identificatorilor din câmpul „subiect”.

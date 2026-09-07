@@ -129,10 +129,3 @@ Prezentul document acoperă doar interfața tehnică de integrare. Furnizorul r�
 6. CA-ul certificatului confirmat ca recunoscut (lista sigură) — o autentificare de test se mapează la cetățeanul corect, de la un capăt la altul.
 7. Nivelul de asigurare a încrederii agreat și consemnat în contractul de integrare.
 8. Obligațiile din secțiunea 8 confirmate.
-
-## Anexă. Referințe normative
-
-- Regulamentul privind serviciul electronic guvernamental de autentificare și control al accesului (MPass), aprobat prin Hotărârea Guvernului nr. 1090/2013.
-- [Legea nr. 124/2022](https://www.legis.md/cautare/getResults?doc_id=151294&lang=ro) privind identificarea electronică și serviciile de încredere (transpune parțial Regulamentul (UE) nr. 910/2014) — modificată prin Legea nr. 227/2025 (în vigoare 30.12.2025).
-- Legea nr. 48/2023 privind securitatea cibernetică.
-- ETSI EN 319 412-1 — profiluri de certificate; semantica identificatorilor din câmpul „subiect”.
