@@ -1,6 +1,4 @@
-﻿## Change Log
-
-| Version | Date       | Description |
+﻿| Version | Date       | Description |
 | ---     | ---        | --- |
 | 1.0     | 03.12.2016 | Initial release |
 | 1.1     | 04.08.2017 | Text review. Added special events description. |
