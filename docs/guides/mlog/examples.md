@@ -1,8 +1,6 @@
-## Event Messages
-
 We will present here samples of REST events.
 
-### Simple JSON Event
+## Simple JSON Event
 
 **Request:**
 
@@ -29,7 +27,7 @@ User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
 {"status":"200","message":"OK","timestamp":"1480457557976","UID":"92c12f00-32a2-4e33-8a7e-4bb7a7d5909a"}
 ```
 
-### Signed JSON Message
+## Signed JSON Message
 
 **Request:**
 
@@ -69,7 +67,7 @@ User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
 {"status":"200","message":"OK","timestamp":"1480458629464","UID":"c6827ad7-411a-4b06-b615-882a55add0c6"}
 ```
 
-### Multi Signed, Multi-Line
+## Multi Signed, Multi-Line
 
 **Request:**
 
@@ -107,7 +105,7 @@ User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
 {"status":"200","message":"OK","timestamp":"1480458630189","UID":"e7f8f544-ab11-419b-bda3-d438755e2a63"}
 ```
 
-### Mix of Plain, Multi-signed and Multi-Line Signed
+## Mix of Plain, Multi-signed and Multi-Line Signed
 
 **Request:**
 
@@ -151,7 +149,7 @@ User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
 {"status":"200","message":"OK","timestamp":"1480458630189","UID":"e7f8f544-ab11-419b-bda3-d438755e2a63"}
 ```
 
-### Search by UID parameter
+## Search by UID parameter
 
 **Request:**
 
@@ -173,7 +171,7 @@ User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
 {"status":"200","message":"OK","timestamp":"1480457580058","result":[{"@uid":"aa8657a6-e0ec-42b6-b212-2b1a76935445","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"}],"pagination":{"record-count":1,"page-size":50}}
 ```
 
-### Search by event_time_from, event_time_to, legal_basis Fields
+## Search by event_time_from, event_time_to, legal_basis Fields
 
 **Request:**
 
@@ -195,7 +193,7 @@ User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
 {"status":"200","message":"OK","timestamp":"1480457591047","result":[{"@uid":"92c12f00-32a2-4e33-8a7e-4bb7a7d5909a","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"},{"@uid":"32936c25-8fc3-4276-8c91-791eec122172","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"},{"@uid":"73dbb0b3-528f-4531-bc6a-e1ddc123e928","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"},{"@uid":"1387290c-5831-4178-89c3-90b0d4c9fd43","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"},{"@uid":"aa8657a6-e0ec-42b6-b212-2b1a76935445","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"},{"@uid":"e7052d5e-54df-4924-a8eb-c4d526f5d13f","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"}],"pagination":{"record-count":6,"page-size":50}}
 ```
 
-### Search by event_time_from, event_time_to, legal_basis, legal_reason, page, page_size Fields
+## Search by event_time_from, event_time_to, legal_basis, legal_reason, page, page_size Fields
 
 **Request:**
 
@@ -217,7 +215,7 @@ User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
 {"status":"200","message":"OK","timestamp":"1480457607344","result":[{"@uid":"92c12f00-32a2-4e33-8a7e-4bb7a7d5909a","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"},{"@uid":"32936c25-8fc3-4276-8c91-791eec122172","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"},{"@uid":"06a475d2-d68c-4ad1-88e8-85cf566f95fa","event_type":"36lj0r2.1p7cpon","test":"2pfn147imgrbm3fcbfn3p1pcad3d9l6","event_time":"2016-11-28T23:12:37.334"}],"pagination":{"record-count":9,"page-size":3}}
 ```
 
-### Search by event_time_from, event_time_to, legal_basis, legal_reason, filter, page, page_size
+## Search by event_time_from, event_time_to, legal_basis, legal_reason, filter, page, page_size
 
 **Request:**
 
