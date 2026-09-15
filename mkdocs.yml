@@ -6,16 +6,9 @@ nav:
   - Platforms and services: platforms/index.md
   - Connection procedure: platforms/procedure.md
   - Provider onboarding: guides/provider-onboarding.md
-  - Technical overview:
-      - Overview: technical-overview/index.md
-      - Development principles: principles/architecture.md
-      - Tools and technologies: tools/technologies.md
-      - API design guide: technical-overview/api-design-guide.md
-      - Code standards: technical-overview/code-standards.md
-      - Code reviews: technical-overview/code-reviews.md
-      - Architecture decision records: technical-overview/adr.md
-      - Log management: technical-overview/log-management.md
+  - Technical overview: technical-overview/index.md
   - Unified design system: mud/index.md
+  - PDSE/FOD: guides/pdse.md
   - Glossary: glossary/glossary.md
   - Integration guides:
       - EVO Wallet:
