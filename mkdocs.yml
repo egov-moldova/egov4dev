@@ -8,7 +8,6 @@ nav:
   - Provider onboarding: guides/provider-onboarding.md
   - Technical overview: technical-overview/index.md
   - Unified design system: mud/index.md
-  - PDSE/FOD: guides/pdse.md
   - Glossary: glossary/glossary.md
   - Integration guides:
       - EVO Wallet:
@@ -102,6 +101,8 @@ nav:
           - Integration development: guides/e-democracy/integration-development.md
           - API reference: guides/e-democracy/api-reference.md
           - Examples: guides/e-democracy/examples.md
+      - PDSE/FOD: guides/pdse.md
+
 
 theme:
   name: material
