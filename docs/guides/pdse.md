@@ -60,4 +60,3 @@ După finalizarea dezvoltării, instituția testează sistemul dezvoltat în med
 ### 8. Actualizări și mentenanță
 
 AGE publică periodic versiuni noi ale librăriilor pe NuGet. Echipa de dezvoltare a instituției trebuie să monitorizeze pachetele utilizate și să consulte informațiile despre modificări (release notes) și necesitatea de aplicare a acestora direct pe NuGet. În prezent, AGE nu transmite notificări automate privind apariția noilor versiuni.
-```
