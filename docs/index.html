@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eGov Developer Platform | Moldova</title>
+    <meta name="description" content="Open APIs, SDKs, and documentation for Moldova's digital government infrastructure">
+
+    <style>
+        :root {
+            /* Moldova Design System - Blue Sky (Primary) */
+            --blue-sky-900: #0c4a6e;
+            --blue-sky-800: #075985;
+            --blue-sky-700: #0369a1;
+            --blue-sky-600: #0284c7;  /* Primary brand color */
+            --blue-sky-500: #0ea5e9;
+            --blue-sky-400: #38bdf8;
+            --blue-sky-300: #7dd3fc;
+            --blue-sky-200: #bae6fd;
+            --blue-sky-150: #d4edfc;
+            --blue-sky-100: #e0f2fe;
+
+            /* Gray Scale */
+            --gray-900: #0f172a;
+            --gray-800: #1e293b;
+            --gray-700: #334155;
+            --gray-600: #475569;
+            --gray-500: #64748b;
+            --gray-400: #94a3b8;
+            --gray-300: #cbd5e1;
+            --gray-250: #d7dfe9;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+
+            /* Status Colors */
+            --green-600: #16a34a;
+            --green-500: #22c55e;
+            --apricot-600: #ea580c;
+            --apricot-500: #f97316;
+            --red-600: #dc2626;
+
+            /* Alpha Colors */
+            --white-alpha-100: rgba(255, 255, 255, 0.1);
+            --white-alpha-200: rgba(255, 255, 255, 0.2);
+            --black-alpha-100: rgba(0, 0, 0, 0.1);
+            --black-alpha-200: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--blue-sky-900) 100%);
+            color: var(--gray-100);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--white-alpha-100);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: var(--blue-sky-600);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .site-title h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--gray-100);
+        }
+
+        .site-subtitle {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+        }
+
+        .tagline {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, var(--blue-sky-900), var(--blue-sky-800));
+            border-left: 3px solid var(--blue-sky-500);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px var(--black-alpha-200);
+        }
+
+        .tagline strong {
+            color: var(--blue-sky-300);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .hero-content {
+            padding-top: 2rem;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--gray-100);
+        }
+
+        h2 .light {
+            color: var(--blue-sky-400);
+        }
+
+        .description {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+        }
+
+        /* Service Tags */
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+
+        .tag {
+            padding: 0.5rem 1.25rem;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            border-color: var(--blue-sky-500);
+            background: var(--blue-sky-900);
+            color: var(--blue-sky-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+        }
+
+        /* Code Example */
+        .code-panel {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px var(--black-alpha-200);
+        }
+
+        .code-header {
+            background: var(--gray-800);
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot:nth-child(1) { background: var(--red-600); }
+        .dot:nth-child(2) { background: var(--apricot-500); }
+        .dot:nth-child(3) { background: var(--green-500); }
+
+        .code-title {
+            margin-left: auto;
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-content {
+            padding: 1.5rem;
+            font-family: 'Courier New', Monaco, monospace;
+            font-size: 0.875rem;
+            line-height: 1.8;
+            overflow-x: auto;
+            background: var(--gray-900);
+        }
+
+        .comment {
+            color: var(--gray-500);
+        }
+
+        .command {
+            color: var(--green-500);
+            font-weight: 600;
+        }
+
+        .string {
+            color: var(--apricot-500);
+        }
+
+        .response {
+            color: var(--blue-sky-300);
+        }
+
+        .key {
+            color: var(--blue-sky-400);
+        }
+
+        .portal-badge {
+            background: linear-gradient(135deg, var(--blue-sky-900), var(--blue-sky-800));
+            border-top: 1px solid var(--gray-700);
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+        }
+
+        .portal-badge .badge-label {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .portal-badge a {
+            color: var(--blue-sky-300);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .portal-badge a:hover {
+            color: var(--blue-sky-200);
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--blue-sky-600);
+            color: white;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-sky-500);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--blue-sky-500);
+            color: var(--blue-sky-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--blue-sky-900);
+            border-color: var(--blue-sky-400);
+            color: var(--blue-sky-200);
+        }
+
+        /* Decorative Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--blue-sky-600) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+
+            .code-content {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Footer */
+        .footer-logos {
+            border-top: 1px solid var(--white-alpha-100);
+            padding: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .footer-logos a {
+            display: inline-flex;
+            align-items: center;
+            opacity: 0.75;
+            transition: opacity 0.2s;
+        }
+
+        .footer-logos a:hover {
+            opacity: 1;
+        }
+
+        .footer-logos img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-section">
+                <div class="logo">⚡</div>
+                <div class="site-title">
+                    <h1>eGov Agency Moldova</h1>
+                    <div class="site-subtitle">Agenția de Guvernare Electronică</div>
+                </div>
+            </div>
+
+            <div class="tagline">
+                🇲🇩 <strong>For developers & integrators</strong> building on Moldova's national digital infrastructure
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- Left Column -->
+            <div class="hero-content">
+                <div class="label">DEVELOPER RESOURCES</div>
+
+                <h2>
+                    Build<br>
+                    <span class="light">with eGov.</span>
+                </h2>
+
+                <p class="description">
+                    Open APIs, SDKs, and documentation for Moldova's digital government infrastructure — everything you need to integrate with public services.
+                </p>
+
+                <div class="service-tags">
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">MConnect</span>
+                    <span class="tag">MSign</span>
+                    <span class="tag">MPay</span>
+                    <span class="tag">MPass</span>
+                    <span class="tag">MNotify</span>
+                    <span class="tag">Open Data</span>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="./getting-started/" class="btn btn-primary">Get Started</a>
+                    <a href="./documentation/" class="btn btn-secondary">Documentation</a>
+                </div>
+            </div>
+
+            <!-- Right Column - Code Example -->
+            <div class="code-panel">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <span class="code-title">quickstart.sh</span>
+                </div>
+
+                <div class="code-content"><span class="comment"># Discover available services</span>
+<span class="command">curl</span> https://api.egov.md/v1/services \
+  -H <span class="string">"Authorization: Bearer $TOKEN"</span>
+
+<span class="comment"># Submit a signed request</span>
+<span class="command">curl</span> -X POST https://api.egov.md/v1/submit \
+  -H <span class="string">"Content-Type: application/json"</span> \
+  -d <span class="string">'{
+    "<span class="key">serviceId</span>": "<span class="response">RS-001</span>",
+    "<span class="key">idnp</span>": "<span class="response">2000000000000</span>"
+  }'</span>
+
+<span class="comment"># Response: 200 OK</span>
+<span class="response">{
+  "<span class="key">status</span>": "accepted",
+  "<span class="key">trackingId</span>": "TRK-20260429-XK7"
+}</span></div>
+
+                <div class="portal-badge">
+                    <div class="badge-label">🌐 DEVELOPER PORTAL</div>
+                    <a href="https://egov-moldova.github.io/egov4dev" target="_blank">
+                        egov-moldova.github.io/egov4dev
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <div class="footer-logos">
+            <a href="https://egov.md" target="_blank" rel="noopener">
+                <img src="assets/age.svg" alt="Agenția de Guvernare Electronică">
+            </a>
+            <a href="https://gov.md" target="_blank" rel="noopener">
+                <img src="assets/gov.svg" alt="Guvernul Republicii Moldova">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
