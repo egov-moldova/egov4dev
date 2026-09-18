@@ -7,7 +7,8 @@ As stated previously, after identifying the corresponding transaction and before
 1. verify that the **alg** JWE header value is "ECDH-ES";
 2. verify that the **enc** JWE header value is "A256GCM";
 3. verify the **apv** JWE header value matches the transaction persisted **nonce** value;
-4. verify the **kid** JWE header value matches the transaction persisted key identifier.
+4. verify the **apu** JWE header exists (as it is required for JWE decryption anyway);
+5. verify the **kid** JWE header value matches the transaction persisted key identifier.
 
 ## DeviceResponse structural validation
 
@@ -17,7 +18,7 @@ For each DeviceResponse, the Verifier SHALL:
 2. verify there are no document errors (in DeviceResponse.documentErrors);
 3. verify DeviceResponse status (DeviceResponse.status must be zero);
 4. verify that there is at least one document returned (in DeviceResponse.documents);
-5. verify that the returned document type (DeviceResponse.documents[].docType) matches one of the requested (credentials[].meta.doctype_value in Authorization Request JWS payload dcql_query parameter or corresponds to a referenced DCQL query by scope);
+5. verify that the returned document type (DeviceResponse.documents[].docType) matches one of the requested (credentials[].meta.doctype_value in Authorization Request JWS payload dcql_query parameter or corresponds to a referenced DCQL query by scope).
 
 ## Document validation
 
@@ -34,7 +35,7 @@ For each returned Document, the Verifier SHALL decode the MSO that is embedded i
 1. verify that MSO.version is "1.0";
 2. decode issuer certificate chain from **x5chain** (label 33) unprotected header;
 3. verify issuer signature using issuer certificate public key;
-4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the issuer certificate;
+4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the issuer certificate, if present;
 5. calculate all data element digests and compare them with MSO.valueDigests using the digest algorithm specified in MSO.digestAlgorithm (usually "SHA-256");
 6. verify the match between MSO.docType and Document.docType;
 7. verify MSO validity period against current time (current time must be between MSO.validityPeriod.validFrom and MSO.validityPeriod.validTo).
@@ -82,7 +83,7 @@ Before processing a Status List CWT, the Verifier SHALL:
 1. check the HTTP response to indicate **Content-Type**: "application/statuslist+cwt";
 2. check the value of **type** (label 16) protected header to be "application/statuslist+cwt";
 3. decode signing certificate chain from **x5chain** (label 33) unprotected header and check its match with issuer certificate;
-4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the signing certificate;
+4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the signing certificate, if present;
 5. verify that the list is signed as embedded COSE_Sign1 signature using signing certificate public key;
 6. verify CWT **subject** claim (key 2) match the Status List URI;
 7. verify CWT **issued at** claim (key 6) and **expiration time** claim (key 4) against current time (10 minutes clock skew recommended);
