@@ -180,6 +180,7 @@
         .journey-header h3 {
             font-size: 2.5rem;
             font-weight: 700;
+            line-height: 1.2;
             color: var(--gray-900);
             margin-bottom: 0.375rem;
         }
@@ -274,14 +275,30 @@
         .evo-card {
             flex: 1;
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
+            align-items: center;
             padding: 3rem;
         }
 
         .evo-card:first-child { padding-left: 0; }
         .evo-card:last-child  { padding-right: 0; }
         .evo-card + .evo-card { border-left: 1px solid #ededed; }
+
+        .evo-card__media {
+            order: 2;
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .evo-card__text {
+            order: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
 
         .evo-card__name {
             font-size: 2rem;
@@ -436,6 +453,7 @@
         .footer__bottom-text { font-size: 16px; color: var(--gray-500); flex: 1; }
 
         /* ── Institution logos ── */
+        .footer__logos-group { display: flex; align-items: center; }
         .footer__inst-logo { display: inline-flex; align-items: center; opacity: 0.8; transition: opacity 0.2s; }
         .footer__inst-logo:hover { opacity: 1; }
         .footer__inst-logo img { height: 40px; width: auto; margin-right: 20px; }
@@ -447,6 +465,12 @@
             font-size: 0.9rem;
         }
 
+        .legal-bar__inner {
+            margin: 0 auto;
+            max-width: 1300px;
+            padding: 10px 20px;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 1024px) {
             .journey-cards { grid-template-columns: repeat(2, 1fr); }
@@ -456,9 +480,14 @@
 
         @media (max-width: 968px) {
             .hero { grid-template-columns: 1fr; gap: 3rem; }
-            h2 { font-size: 3rem; }
+            h2 { font-size: 3rem; width: 100%; }
+            .description { margin: 0 0 2rem 0; }
             .evo-cards { flex-direction: column; }
-            .contrib-block { grid-template-columns: 1fr; gap: 2rem; }
+            .evo-card { padding: 2rem; }
+            .evo-card:first-child, .evo-card:last-child { padding-left: 2rem; padding-right: 2rem; }
+            .evo-card + .evo-card { border-left: none; border-top: 1px solid #ededed; }
+            .evo-card__media { float: left; height: 64px; margin: 0 1rem 0.75rem 0; }
+            .contrib-block { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 2rem; }
         }
 
         @media (max-width: 640px) {
@@ -466,7 +495,11 @@
             h2 { font-size: 2.5rem; }
             .code-content { font-size: 0.75rem; }
             .journey-cards { grid-template-columns: 1fr; }
-            .footer__main { grid-template-columns: repeat(2, 1fr); }
+            .footer__main { grid-template-columns: 1fr; }
+            .footer__bottom { flex-direction: column; align-items: center; gap: 1rem; }
+            .footer__logos-group { justify-content: center; }
+            .footer-socials { margin-left: 0 !important; justify-content: center; }
+            .legal-bar__inner { padding: 10px 1rem; text-align: center; }
         }
     </style>
 </head>
@@ -631,38 +664,34 @@
             <div class="evo-cards">
 
                 <div class="evo-card">
-                    <div style="display:flex; gap:1.5rem; align-items:center; flex:1;">
-                        <div style="flex:1; display:flex; flex-direction:column; gap:0.75rem;">
-                            <div class="evo-card__logo">
-                                <span class="evo-card__name">EVO Wallet</span>
-                            </div>
-                            <p class="evo-card__desc">
-                                EVO Wallet este portofelul digital oficial al Republicii Moldova. Cetățenii îl folosesc pentru a prezenta acte direct din telefon, fără acte fizice. Dacă aplicația ta are nevoie să confirme identitatea sau datele unui utilizator, poți deveni verificator în ecosistemul EVO Wallet.
-                            </p>
-                            <div class="evo-card__actions">
-                                <a href="https://egov-moldova.github.io/egov4dev/guides/evo-wallet/" target="_blank" class="btn btn-primary">Ghidul de integrare</a>
-                                <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" class="btn btn-secondary">Devino verificator ↗</a>
-                            </div>
+                    <img src="assets/logos/EUDIW.png" alt="" aria-hidden="true" class="evo-card__media">
+                    <div class="evo-card__text">
+                        <div class="evo-card__logo">
+                            <span class="evo-card__name">EVO Wallet</span>
                         </div>
-                        <img src="assets/logos/EUDIW.png" alt="" aria-hidden="true" style="height:100px; width:auto; object-fit:contain; flex-shrink:0;">
+                        <p class="evo-card__desc">
+                            EVO Wallet este portofelul digital oficial al Republicii Moldova. Cetățenii îl folosesc pentru a prezenta acte direct din telefon, fără acte fizice. Dacă aplicația ta are nevoie să confirme identitatea sau datele unui utilizator, poți deveni verificator în ecosistemul EVO Wallet.
+                        </p>
+                        <div class="evo-card__actions">
+                            <a href="https://egov-moldova.github.io/egov4dev/guides/evo-wallet/" target="_blank" class="btn btn-primary">Ghidul de integrare</a>
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" class="btn btn-secondary">Devino verificator ↗</a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="evo-card">
-                    <div style="display:flex; gap:1.5rem; align-items:center; flex:1;">
-                        <div style="flex:1; display:flex; flex-direction:column; gap:0.75rem;">
-                            <div class="evo-card__logo">
-                                <span class="evo-card__name">Portal EVO</span>
-                            </div>
-                            <p class="evo-card__desc">
-                                EVO este portalul guvernamental unic al Republicii Moldova — punctul central de acces la serviciile publice electronice pentru cetățeni și companii. Dacă sistemul tău urmează să fie publicat sau integrat pe portal, găsești pe evo.gov.md contextul complet al experienței utilizatorului final.
-                            </p>
-                            <div class="evo-card__actions">
-                                <a href="https://evo.gov.md" target="_blank" class="btn btn-primary">Deschide Portal EVO ↗</a>
-                                <a href="https://evo.egov.md/v1/install" target="_blank" class="btn btn-secondary">Descarcă EVO app</a>
-                            </div>
+                    <img src="assets/logos/evo-logo.png" alt="" aria-hidden="true" class="evo-card__media">
+                    <div class="evo-card__text">
+                        <div class="evo-card__logo">
+                            <span class="evo-card__name">Portal EVO</span>
                         </div>
-                        <img src="assets/logos/evo-logo.png" alt="" aria-hidden="true" style="height:100px; width:auto; object-fit:contain; flex-shrink:0;">
+                        <p class="evo-card__desc">
+                            EVO este portalul guvernamental unic al Republicii Moldova — punctul central de acces la serviciile publice electronice pentru cetățeni și companii. Dacă sistemul tău urmează să fie publicat sau integrat pe portal, găsești pe evo.gov.md contextul complet al experienței utilizatorului final.
+                        </p>
+                        <div class="evo-card__actions">
+                            <a href="https://evo.gov.md" target="_blank" class="btn btn-primary">Deschide Portal EVO ↗</a>
+                            <a href="https://evo.egov.md/v1/install" target="_blank" class="btn btn-secondary">Descarcă EVO app</a>
+                        </div>
                     </div>
                 </div>
 
@@ -758,12 +787,14 @@
         </div>
 
         <div class="footer__bottom">
-            <a href="https://egov.md" target="_blank" rel="noopener" class="footer__inst-logo">
-                <img src="assets/age.svg" alt="Agenția de Guvernare Electronică">
-            </a>
-            <a href="https://gov.md" target="_blank" rel="noopener" class="footer__inst-logo">
-                <img src="assets/gov.svg" alt="Guvernul Republicii Moldova">
-            </a>
+            <div class="footer__logos-group">
+                <a href="https://egov.md" target="_blank" rel="noopener" class="footer__inst-logo">
+                    <img src="assets/age.svg" alt="Agenția de Guvernare Electronică">
+                </a>
+                <a href="https://gov.md" target="_blank" rel="noopener" class="footer__inst-logo">
+                    <img src="assets/gov.svg" alt="Guvernul Republicii Moldova">
+                </a>
+            </div>
             <ul class="footer-socials" style="margin-left:auto;">
                 <li><a href="https://www.facebook.com/eGovernanceAgency.Moldova" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <svg width="24" height="24" aria-hidden="true"><use href="#facebook-filled"></use></svg>
@@ -782,7 +813,7 @@
     </footer>
 
     <div class="legal-bar">
-        <div style="margin: 0 auto; max-width: 1300px; padding: 10px 0;">
+        <div class="legal-bar__inner">
             © 2026 Agenția de Guvernare Electronică. Toate drepturile rezervate.
         </div>
     </div>
