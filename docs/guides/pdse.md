@@ -17,7 +17,7 @@ Acte conexe: HG nr. 677/2025 (Modelul Unitar de Design); HG nr. 153/2021 (RRSIS 
 |---|---|
 | Posesor | AGE (pentru platformă). Pentru serviciul dezvoltat pe platformă — instituția beneficiară, în calitate de posesor. |
 | Deținător | De confirmat — tabelul AGE indică doar calitatea de posesor al platformei |
-| Operator tehnico-tehnologic | De confirmat în textul HG nr. 717/2014 |
+| Operator tehnico-tehnologic | STISC (administrator tehnic al MCloud) |
 
 **Roluri în integrare.**
 

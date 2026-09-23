@@ -16,7 +16,7 @@ Related acts: Legea nr. 91/2014 privind semnătura electronică și documentul e
 |---|---|
 | Holder (posesor) | AGE |
 | Keeper (deținător) | De confirmat — tabelul AGE indică doar calitatea de posesor |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 405/2014 |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 

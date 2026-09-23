@@ -16,7 +16,7 @@ Related acts: Legea nr. 142/2018 cu privire la schimbul de date și interoperabi
 |---|---|
 | Holder (posesor) | AGE (prin MConnect) |
 | Keeper (deținător) | AGE (prin MConnect) |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 211/2019 |
+| Technical operator (operator tehnico-tehnologic) |  |
 
 **Roles in an integration.**
 

@@ -18,9 +18,9 @@ Related acts: Legea nr. 133/2011; HG nr. 128/2014 (MCloud); Regulile privind mod
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | AGE (succesor al Centrului de Guvernare Electronică, desemnat prin HG) |
-| Keeper (deținător) | De confirmat — tabelul AGE indică doar calitatea de posesor |
-| Technical operator (operator tehnico-tehnologic) | Î.S. „Centrul de telecomunicații speciale”, desemnată prin HG în calitate de operator tehnico-tehnologic — actualmente STISC (de confirmat succesiunea) |
+| Holder (posesor) | AGE |
+| Keeper (deținător) |  |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 

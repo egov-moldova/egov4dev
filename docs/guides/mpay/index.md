@@ -16,7 +16,7 @@ Related acts: Legea nr. 234/2021 cu privire la serviciile publice; cadrul bugeta
 |---|---|
 | Holder (posesor) | AGE |
 | Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 712/2020 |
+| Technical operator (operator tehnico-tehnologic) |  |
 
 **Roles in an integration.**
 

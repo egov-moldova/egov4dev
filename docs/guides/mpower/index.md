@@ -15,7 +15,7 @@ Related acts: Codul civil (reprezentarea); HG nr. 1090/2013 (MPass); HG nr. 405/
 |---|---|
 | Holder (posesor) | AGE |
 | Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 375/2020 |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 

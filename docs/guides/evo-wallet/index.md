@@ -18,7 +18,7 @@ Related acts: Legea nr. 91/2014; cadrul european privind identitatea digitală (
 |---|---|
 | Holder (posesor) | AGE (pentru EVO, conform HG nr. 5/2024) |
 | Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 5/2024 |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 

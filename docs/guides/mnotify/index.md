@@ -16,7 +16,7 @@ Related acts: Legea nr. 133/2011 privind protecția datelor cu caracter personal
 |---|---|
 | Holder (posesor) | AGE |
 | Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 376/2020 |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 

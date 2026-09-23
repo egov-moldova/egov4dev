@@ -20,7 +20,7 @@ Related acts: HG nr. 128/2014 (MCloud — platforma pe care este găzduit servic
 |---|---|
 | Holder (posesor) | AGE |
 | Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | STISC, în calitate de operator al platformei MCloud (de confirmat în raport cu HG nr. 305/2024) |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 

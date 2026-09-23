@@ -16,7 +16,7 @@ Related acts: Legea nr. 234/2021 cu privire la serviciile publice; cadrul privin
 |---|---|
 | Holder (posesor) | AGE |
 | Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 152/2021 |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 
