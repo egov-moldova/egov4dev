@@ -1,5 +1,30 @@
 Moldova's e-governance infrastructure is built around a set of shared platforms, each designed to solve a common challenge — authentication, signing, payments, data exchange, notifications — so public institutions can focus on delivering services rather than rebuilding technical foundations. The sections below cover the business model as well as integration guidance for each platform.
 
+## Legal framework of the platforms
+
+Each government platform is established and governed by a Government Decision, which designates the holder (posesor), the
+keeper (deținător) and, where applicable, the technical operator. The table below is the single point of reference; the
+details are given in each service's guide.
+
+| Service | Government Decision | Holder | Keeper |
+|---|---|---|---|
+| [MPass](...) | HG nr. 1090/2013, pct. 3 sbp. 1) | AGE | de confirmat |
+| [MSign](...) | HG nr. 405/2014, pct. 3 sbp. 1) | AGE | de confirmat |
+| [MConnect](...) | HG nr. 211/2019, pct. 3 | AGE | AGE |
+| [MConnect Events](...) | HG nr. 211/2019 (componentă) | AGE | AGE |
+| [MPay](...) | HG nr. 712/2020, pct. 16 din Concept | AGE | AGE |
+| [MPower](...) | HG nr. 375/2020, pct. 3 | AGE | AGE |
+| [MNotify](...) | HG nr. 376/2020, pct. 3 | AGE | AGE |
+| [MDelivery](...) | HG nr. 152/2021, pct. 2 | AGE | AGE |
+| [MDocs](...) | HG nr. 305/2024, pct. 3 | AGE | AGE |
+| [MLog](...) | HG nr. 708/2014, pct. 3 sbp. 1) | AGE | de confirmat |
+| [e-Democrație](...) | HG nr. 564/2024, pct. 2 | AGE | AGE |
+| [EVO / EVO Wallet](...) | HG nr. 5/2024, pct. 3; HG nr. 677/2025 | AGE | AGE |
+| [PDSE / FOD](...) | HG nr. 717/2014, pct. 3 | AGE | de confirmat |
+
+The technical operator is stated on each service's page, according to the applicable Decision.
+The fees set out in the „Access and pricing” section are established by the normative act indicated in that section.
+
 ## Access and pricing
 
 Most services in the eGov Moldova shared infrastructure are available free of charge for all integrating parties. However, certain platforms operate on a cost-recovery model established by Government regulation. Access fees apply per integrated information system and are invoiced annually based on a signed contract. Public institutions are fully exempt — fees apply exclusively to private legal entities and natural persons.

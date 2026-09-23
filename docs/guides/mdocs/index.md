@@ -6,6 +6,39 @@ The document contains all relevant information required for a complete understan
 
 This document also includes sample REST requests and responses that exemplify the main interaction scenario.
 
+## At a glance
+
+**What it is.** The government platform for storing and sharing documents resulting from the delivery of public services. The institution uploads the document once; the beneficiary — a natural person or legal entity — retrieves it and can share it onward, with read or write permission, without exchanging files by e-mail. It is offered as a service (SaaS) on the common government technology platform MCloud. It is particularly useful for authorities that have no document management solution of their own.
+
+**Legal basis.** HG nr. 305/2024 cu privire la serviciul guvernamental de păstrare și partajare a documentelor (MDocs) — pct. 3 — desemnarea posesorului și deținătorului.
+
+Related acts: HG nr. 128/2014 (MCloud — platforma pe care este găzduit serviciul); Legea nr. 133/2011.
+
+**Who is accountable.**
+
+| Role | Entity |
+|---|---|
+| Holder (posesor) | AGE |
+| Keeper (deținător) | AGE |
+| Technical operator (operator tehnico-tehnologic) | STISC, în calitate de operator al platformei MCloud (de confirmat în raport cu HG nr. 305/2024) |
+
+**Roles in an integration.**
+
+• EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+• STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
+• Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
+• Development/integration team — implements and tests the technical integration.
+• End user — the natural person or legal entity benefiting from the service.
+
+**Access conditions.**
+
+Gratuit. Obligatoriu: certificat STISC și acord cu AGE pentru suita M.
+
+**Who this guide is for.**
+
+Primary: development and integration teams of the holders of information systems, public and private.
+Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+
 ## Jump right in
 
 <div class="quick-links-wrapper">

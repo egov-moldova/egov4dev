@@ -2,6 +2,41 @@
 
 MPass is a government-wide authentication and identity management service in the Republic of Moldova that provides secure Single Sign-On (SSO) and Single Logout (SLO) across public digital services, enabling users to access multiple systems with one set of credentials while offering integrating systems standardized identity data for authorization purposes
 
+## At a glance
+
+**What it is.** The government service that lets a user authenticate once and then reach multiple public systems without a separate account in each. It passes the integrating system a standardised set of identity attributes (IDNP, name, organisational affiliation, declared roles), on which that system decides what rights to grant. MPass does not define access rights inside an integrating system — that remains the responsibility of the system's holder. Authentication can be performed with mobile signature, electronic ID card, cryptographic token or EVOSign.
+
+**Legal basis.** HG nr. 1090/2013 privind serviciul electronic guvernamental de autentificare și control al accesului (MPass) — pct. 3 sbp. 1) — desemnarea posesorului.
+
+Related acts: Legea nr. 467/2003; Legea nr. 91/2014 (semnătura electronică); HG nr. 128/2014 (MCloud).
+
+**Who is accountable.**
+
+| Role | Entity |
+|---|---|
+| Holder (posesor) | AGE (Instituția publică „Agenția de Guvernare Electronică”) |
+| Keeper (deținător) | De confirmat — tabelul AGE indică doar calitatea de posesor |
+| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 1090/2013 |
+
+**Roles in an integration.**
+
+• EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+• STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
+• Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
+• Development/integration team — implements and tests the technical integration.
+• End user — the natural person or legal entity benefiting from the service.
+
+**Access conditions.**
+
+Instituții publice: în baza contractului, fără tarif.
+Persoane juridice de drept privat și persoane fizice: în baza contractului — 10.800 lei/an per sistem integrat.
+Obligatoriu: certificat de sistem emis de STISC, înregistrat în MPass.
+
+**Who this guide is for.**
+
+Primary: development and integration teams of the holders of information systems, public and private.
+Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+
 ## Jump right in
 
 <div class="quick-links-wrapper">

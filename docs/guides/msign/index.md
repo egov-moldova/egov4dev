@@ -2,6 +2,41 @@
 
 MSign is a reusable and shared platform-level service the main scope of which is to facilitate the use of digital signature and simplify integrations with various digital signature instruments.
 
+## At a glance
+
+**What it is.** The government service that acts as an intermediary for signing and verifying documents electronically. Instead of integrating separately with every signature instrument on the market, a system integrates once with MSign, which hides the differences and exposes a single interface. MSign also performs signature verification, including certificate revocation checks with the trust service provider. MSign does not issue certificates and is not a trust service provider — it is an intermediary.
+
+**Legal basis.** HG nr. 405/2014 privind serviciul electronic guvernamental de semnătură digitală (MSign) — pct. 3 sbp. 1) — desemnarea posesorului.
+
+Related acts: Legea nr. 91/2014 privind semnătura electronică și documentul electronic; Legea nr. 467/2003.
+
+**Who is accountable.**
+
+| Role | Entity |
+|---|---|
+| Holder (posesor) | AGE |
+| Keeper (deținător) | De confirmat — tabelul AGE indică doar calitatea de posesor |
+| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 405/2014 |
+
+**Roles in an integration.**
+
+• EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+• STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
+• Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
+• Development/integration team — implements and tests the technical integration.
+• End user — the natural person or legal entity benefiting from the service.
+
+**Access conditions.**
+
+Instituții publice: gratuit.
+Persoane juridice de drept privat și persoane fizice: în baza contractului — 15.200 lei/an per sistem integrat.
+Obligatoriu: certificat de sistem emis de STISC.
+
+**Who this guide is for.**
+
+Primary: development and integration teams of the holders of information systems, public and private.
+Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+
 ## Jump right in
 
 <div class="quick-links-wrapper">

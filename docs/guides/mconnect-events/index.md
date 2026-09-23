@@ -1,15 +1,41 @@
-Data exchange in any Government is a complex endeavor across various levels of effort, including
-legal, semantic, organizational and technical. In Moldova, the technical level of data exchange is
-facilitated by MConnect – a national data exchange platform. There are many well-known patterns to
-implement various data exchange scenarios, including classical request/response messaging,
-events distribution, large documents distribution and data streaming.
+Data exchange in any Government is a complex endeavor across various levels of effort, including legal, semantic, organizational and technical. In Moldova, the technical level of data exchange is facilitated by MConnect – a national data exchange platform. There are many well-known patterns to implement various data exchange scenarios, including classical request/response messaging, events distribution, large documents distribution and data streaming.
 
-As part of MConnect platform, MConnect Events is the component designed specifically for efficient
-production and consumption of events. This includes client authentication and authorization as
-producers and consumers, scalable production and consumption of events, event structure
-validation when produced, scalable and flexible storage of events awaiting consumption, immediate
-availability of events to consumers, confirmation of event consumption to ensure reliable delivery of
-events, as well as internal instruments for configuration, monitoring and troubleshooting.
+## At a glance
+
+**What it is.** The component of the MConnect platform dedicated to event-based data exchange. Instead of a system polling the source with „has anything changed?”, the source publishes an event when the change occurs and authorised systems receive it in near real time. It lowers the coupling between systems: the producer need not know who consumes, and the consumer can take events at its own pace.
+
+MConnect Events has no separate legal act: it is regulated as a component of the MConnect platform.
+
+**Legal basis.** HG nr. 211/2019 privind platforma de interoperabilitate (MConnect) — aplicabilă ca parte componentă — pct. 3 — desemnarea posesorului și deținătorului platformei MConnect.
+
+Related acts: Legea nr. 142/2018 cu privire la schimbul de date și interoperabilitate.
+
+**Who is accountable.**
+
+| Role | Entity |
+|---|---|
+| Holder (posesor) | AGE (prin MConnect) |
+| Keeper (deținător) | AGE (prin MConnect) |
+| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 211/2019 |
+
+**Roles in an integration.**
+
+• EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+• STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
+• Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
+• Development/integration team — implements and tests the technical integration.
+• End user — the natural person or legal entity benefiting from the service.
+
+**Access conditions.**
+
+Aceleași condiții ca MConnect. Obligatoriu: certificat de client X.509 v3, autorizare distinctă ca producător și/sau consumator, pe fiecare tip de eveniment.
+
+**Who this guide is for.**
+
+Primary: development and integration teams of the holders of information systems, public and private.
+Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+
+As part of MConnect platform, MConnect Events is the component designed specifically for efficient production and consumption of events. This includes client authentication and authorization as producers and consumers, scalable production and consumption of events, event structure validation when produced, scalable and flexible storage of events awaiting consumption, immediate availability of events to consumers, confirmation of event consumption to ensure reliable delivery of events, as well as internal instruments for configuration, monitoring and troubleshooting.
 
 <picture class="theme-picture">
   <img src="../../assets/images/mconnect_events/mconnect.png" alt="Signing flow" data-theme="light">

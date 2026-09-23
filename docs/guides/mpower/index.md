@@ -1,6 +1,39 @@
 MPower is a public portal intended for natural persons and legal entities, both public and private, through which powers of representation can be granted, revoked, renounced, and verified.
 MPower provides the capability to verify whether the authorized person (representative) is empowered to act on behalf of another natural person or legal entity (represented) whom they represent.
 
+## At a glance
+
+**What it is.** The government register of powers of representation: where a natural person or legal entity grants, views, revokes or renounces another party's right to act on their behalf. The integrating system need not manage powers of attorney itself — it asks MPower whether the representative holds the invoked power, for the relevant authorisation type. Authorisation types are defined together with the service provider, according to the services it delivers.
+
+**Legal basis.** HG nr. 375/2020 cu privire la serviciul guvernamental de împuterniciri electronice (MPower) — pct. 3 — desemnarea posesorului și deținătorului.
+
+Related acts: Codul civil (reprezentarea); HG nr. 1090/2013 (MPass); HG nr. 405/2014 (MSign).
+
+**Who is accountable.**
+
+| Role | Entity |
+|---|---|
+| Holder (posesor) | AGE |
+| Keeper (deținător) | AGE |
+| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 375/2020 |
+
+**Roles in an integration.**
+
+• EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+• STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
+• Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
+• Development/integration team — implements and tests the technical integration.
+• End user — the natural person or legal entity benefiting from the service.
+
+**Access conditions.**
+
+Gratuit. Obligatoriu: certificat de sistem emis de STISC și înregistrat de AGE în MPass, pentru accesul la componenta MPower Clients API.
+
+**Who this guide is for.**
+
+Primary: development and integration teams of the holders of information systems, public and private.
+Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+
 ## Jump right in
 
 <div class="quick-links-wrapper">

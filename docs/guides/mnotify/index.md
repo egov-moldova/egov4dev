@@ -1,8 +1,39 @@
 MNotify is a government electronic notification service designed to send notifications to recipients through different notification channels, to inform about events related to public services, or other relevant notices.
 
-Currently, MNotify supports e-mail, web push notifications, Viber, Telegram and MCabinet as a delivery channel. IDNP property is required when specifying a notification identity. 
+Currently, MNotify supports e-mail, EVO push notifications (by the end of 2026), Viber, Telegram and MCabinet as a delivery channel. IDNP property is required when specifying a notification identity. 
 
-Note! Channels under development: sms, WhatsApp.
+## At a glance
+
+**What it is.** The government notification service: institutions use it to send official notices to natural persons and legal entities over the channels the recipient has active (e-mail, web push, Viber, Telegram, personal cabinet). The integrating system sends a single request, identifying the recipient by IDNP or another accepted identifier; channel selection and actual delivery are handled by MNotify. The service also offers contact management, template management and access to the history of notifications sent.
+
+**Legal basis.** HG nr. 376/2020 cu privire la serviciul guvernamental de notificări electronice (MNotify) — pct. 3 — desemnarea posesorului și deținătorului.
+
+Related acts: Legea nr. 133/2011 privind protecția datelor cu caracter personal; HG nr. 1090/2013 (MPass).
+
+**Who is accountable.**
+
+| Role | Entity |
+|---|---|
+| Holder (posesor) | AGE |
+| Keeper (deținător) | AGE |
+| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 376/2020 |
+
+**Roles in an integration.**
+
+• EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+• STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
+• Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
+• Development/integration team — implements and tests the technical integration.
+• End user — the natural person or legal entity benefiting from the service.
+
+**Access conditions.**
+
+Gratuit. Obligatoriu: înregistrarea sistemului în MPass și certificat de client validat prin MPass.
+
+**Who this guide is for.**
+
+Primary: development and integration teams of the holders of information systems, public and private.
+Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
 
 ## Jump right in
 

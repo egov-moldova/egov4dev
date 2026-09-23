@@ -2,6 +2,40 @@
 
 PDSE (Platforma de Digitalizare a Serviciilor Electronice) este un cadru de dezvoltare (framework) care oferă **componente reutilizabile** și librării de integrare pentru proiectarea și dezvoltarea rapidă a serviciilor publice digitale.
 
+## Pe scurt
+
+**Ce este.** Cadrul comun de dezvoltare pe care instituțiile își construiesc serviciile publice electronice: componente reutilizabile de interfață aliniate la Modelul Unitar de Design, componente de flux (interpelarea datelor, plată, semnare, livrare, apostilare) și librării de integrare cu serviciile din suita M, publicate de AGE pe NuGet.
+Delimitare de reținut: posesorul platformei este AGE, iar posesorul serviciului dezvoltat pe platformă rămâne instituția beneficiară. Utilizarea componentelor nu transferă către AGE responsabilitatea pentru serviciul rezultat.
+
+**Temei normativ.** HG nr. 717/2014 cu privire la platforma de dezvoltare a serviciilor electronice (PDSE) — pct. 3 — desemnarea posesorului.
+
+Acte conexe: HG nr. 677/2025 (Modelul Unitar de Design); HG nr. 153/2021 (RRSIS — înregistrarea sistemului informațional); HG nr. 544/2019 și Metodologia de coordonare a achizițiilor TIC.
+
+**Cine răspunde.**
+
+| Rol | Entitate |
+|---|---|
+| Posesor | AGE (pentru platformă). Pentru serviciul dezvoltat pe platformă — instituția beneficiară, în calitate de posesor. |
+| Deținător | De confirmat — tabelul AGE indică doar calitatea de posesor al platformei |
+| Operator tehnico-tehnologic | De confirmat în textul HG nr. 717/2014 |
+
+**Roluri în integrare.**
+
+• AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+• STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+• Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+• Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+• Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
+
+**Condiții de acces.**
+
+Componentele și documentația sunt publice pe NuGet, fără aprobare prealabilă. Conectarea la mediile de staging și producție necesită certificat client emis de STISC (distinct pe fiecare mediu) și acord cu AGE pentru suita M, respectiv acord separat pentru MConnect și MPay.
+
+**Cui se adresează acest ghid.**
+
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
+
 Pentru dezvoltarea unui sistem informațional pe PDSE sunt disponibile două categorii de librării publicate de AGE pe NuGet:
 
 - **Librării de integrare** — utilizate pentru conectarea cu serviciile guvernamentale din suita M (MPass, MSign, MNotify, MDocs, MDelivery și altele)

@@ -4,6 +4,39 @@ Following the EUDI Wallet regulation and its implementing acts, EVO Wallet imple
 
 OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to present Credential (mdoc) using its Wallet (mdoc app) to a Verifier (mdoc reader) upon request. In this context, the Wallet acts as OAuth 2.0 Authorization Server and the Verifier acts as OAuth 2.0 Client.
 
+## At a glance
+
+**What it is.** The digital identity wallet inside the EVO government application. The citizen keeps the digital versions of their documents on the phone and presents them, on request, to a verifier — a bank, a counter, an online service — disclosing only the requested data and only with explicit consent. A system that needs to confirm a user's identity or specific attributes becomes a verifier (relying party) in the ecosystem, upon application to EGA. The implementation follows the European standards for the digital identity wallet.
+
+**Legal basis.** HG nr. 5/2024 (aplicația guvernamentală integrată EVO), pct. 3 — desemnarea posesorului și deținătorului; HG nr. 677/2025 (consolidarea accesului în cadrul Portalului guvernamental integrat EVO). Temeiul specific al portofelului de identitate digitală — DE CONFIRMAT — HG nr. 5/2024, pct. 3.
+
+Related acts: Legea nr. 91/2014; cadrul european privind identitatea digitală (eIDAS 2 / EUDI Wallet); standardele OpenID4VP 1.0 și ISO/IEC 18013-5 utilizate în implementare.
+
+**Who is accountable.**
+
+| Role | Entity |
+|---|---|
+| Holder (posesor) | AGE (pentru EVO, conform HG nr. 5/2024) |
+| Keeper (deținător) | AGE |
+| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 5/2024 |
+
+**Roles in an integration.**
+
+• EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+• STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
+• Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
+• Development/integration team — implements and tests the technical integration.
+• End user — the natural person or legal entity benefiting from the service.
+
+**Access conditions.**
+
+Gratuit. Calitatea de verificator se obține în baza cererii depuse la AGE, prin formularul dedicat, urmată de înregistrarea în ecosistem.
+
+**Who this guide is for.**
+
+Primary: development and integration teams of the holders of information systems, public and private.
+Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+
 <p align="center">
   <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" style="display:inline-block; background-color:#1a6df0; color:#ffffff; font-size:16px; font-weight:600; padding:14px 28px; border-radius:8px; text-decoration:none; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
     Become a Verifier in the EVO Wallet Ecosystem&nbsp;&nbsp;↗
