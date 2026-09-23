@@ -24,7 +24,7 @@ Related acts: Legea nr. 239/2008 privind transparența în procesul decizional; 
 |---|---|
 | Holder (posesor) | AGE |
 | Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | De confirmat în textul HG nr. 564/2024 |
+| Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 
