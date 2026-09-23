@@ -14,8 +14,8 @@ Related acts: Legea nr. 467/2003; Legea nr. 91/2014 (semnătura electronică); H
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | AGE (Instituția publică „Agenția de Guvernare Electronică”) |
-| Keeper (deținător) | De confirmat — tabelul AGE indică doar calitatea de posesor |
+| Holder (posesor) | AGE |
+| Keeper (deținător) |  |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

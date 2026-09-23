@@ -15,7 +15,7 @@ Related acts: Legea nr. 91/2014 privind semnătura electronică și documentul e
 | Role | Entity |
 |---|---|
 | Holder (posesor) | AGE |
-| Keeper (deținător) | De confirmat — tabelul AGE indică doar calitatea de posesor |
+| Keeper (deținător) |  |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
