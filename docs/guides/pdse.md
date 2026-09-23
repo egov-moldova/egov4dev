@@ -21,11 +21,11 @@ Acte conexe: HG nr. 677/2025 (Modelul Unitar de Design); HG nr. 153/2021 (RRSIS 
 
 **Roluri în integrare.**
 
-• AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
-• STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
-• Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
-• Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
-• Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
 **Condiții de acces.**
 
