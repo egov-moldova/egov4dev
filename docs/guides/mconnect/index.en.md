@@ -19,8 +19,8 @@ Data available for consumption through the MConnect interoperability platform is
 
 | Role | Entity |
 |---|---|
-| Owner | AGE |
-| Holder | AGE |
+| Owner | eGov Moldova |
+| Holder | eGov Moldova |
 | Technical operator |  |
 
 ## Who is it for?
@@ -29,7 +29,7 @@ The platform is intended for public authorities and institutions, as well as pri
 
 ## Who manages MConnect?
 
-The platform is managed by the eGovernance Agency (AGE), under Law no. 142/2018 and Government Decision no. 211/2019. The AGE team provides support for connection, data exchange, and all technical aspects.
+The platform is managed by eGov Moldova, under Law no. 142/2018 and Government Decision no. 211/2019. The eGov Moldova team provides support for connection, data exchange, and all technical aspects.
 
 ## Why connect to MConnect?
 

@@ -16,13 +16,13 @@ Related acts: Legea nr. 91/2014; cadrul european privind identitatea digitală (
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | AGE (pentru EVO, conform HG nr. 5/2024) |
-| Keeper (deținător) | AGE |
+| Holder (posesor) | eGov Moldova (pentru EVO, conform HG nr. 5/2024) |
+| Keeper (deținător) | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+- eGov Moldova — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
 - STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
 - Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
 - Development/integration team — implements and tests the technical integration.
@@ -30,7 +30,7 @@ Related acts: Legea nr. 91/2014; cadrul european privind identitatea digitală (
 
 **Access conditions.**
 
-Gratuit. Calitatea de verificator se obține în baza cererii depuse la AGE, prin formularul dedicat, urmată de înregistrarea în ecosistem.
+Gratuit. Calitatea de verificator se obține în baza cererii depuse la eGov Moldova, prin formularul dedicat, urmată de înregistrarea în ecosistem.
 
 **Who this guide is for.**
 

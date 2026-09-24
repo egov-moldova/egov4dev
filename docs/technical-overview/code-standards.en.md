@@ -94,7 +94,7 @@ Coverage of new code must be at least **70%**, with business logic held to a hig
 
 ## User interface standards
 
-Web interfaces follow the [Unified design system (MUD)](../mud/index.md) and are built with **Fod.UIComponents**, the Agency's Blazor UI component library. New interfaces use Fod.UIComponents; existing MudBlazor applications migrate progressively as they evolve. Beyond the design system, these implementation rules apply to all AGE applications — they are the difference between an interface that looks finished and one that leaks its database schema:
+Web interfaces follow the [Unified design system (MUD)](../mud/index.md) and are built with **Fod.UIComponents**, the Agency's Blazor UI component library. New interfaces use Fod.UIComponents; existing MudBlazor applications migrate progressively as they evolve. Beyond the design system, these implementation rules apply to all eGov Moldova applications — they are the difference between an interface that looks finished and one that leaks its database schema:
 
 **Text and labels**
 

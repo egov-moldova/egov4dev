@@ -6,7 +6,7 @@ Information on obtaining and registering the certificate can be found in Chapter
 
 ## Access authorization
 
-To access the MPower Clients API component, it is necessary to use the system authentication certificate issued by STISC and registered by AGE in MPass.
+To access the MPower Clients API component, it is necessary to use the system authentication certificate issued by STISC and registered by eGov Moldova in MPass.
 
 The client will call the MPower API using its system certificate for authentication. The API will verify whether the certificate has the necessary rights to access the requested endpoint. If the rights are valid, the request will proceed; otherwise, a 403 (Forbidden) response will be returned.
 MPass configuration examples:

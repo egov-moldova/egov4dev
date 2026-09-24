@@ -18,13 +18,13 @@ Related acts: HG nr. 128/2014 (MCloud — platforma pe care este găzduit servic
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) | AGE |
+| Holder (posesor) | eGov Moldova |
+| Keeper (deținător) | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+- eGov Moldova — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
 - STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
 - Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
 - Development/integration team — implements and tests the technical integration.
@@ -32,7 +32,7 @@ Related acts: HG nr. 128/2014 (MCloud — platforma pe care este găzduit servic
 
 **Access conditions.**
 
-Gratuit. Obligatoriu: certificat STISC și acord cu AGE pentru suita M.
+Gratuit. Obligatoriu: certificat STISC și acord cu eGov Moldova pentru suita M.
 
 **Who this guide is for.**
 

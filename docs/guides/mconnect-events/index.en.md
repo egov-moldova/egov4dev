@@ -14,13 +14,13 @@ Related acts: Legea nr. 142/2018 cu privire la schimbul de date și interoperabi
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | AGE (prin MConnect) |
-| Keeper (deținător) | AGE (prin MConnect) |
+| Holder (posesor) | eGov Moldova (prin MConnect) |
+| Keeper (deținător) | eGov Moldova (prin MConnect) |
 | Technical operator (operator tehnico-tehnologic) |  |
 
 **Roles in an integration.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+- eGov Moldova — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
 - STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
 - Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
 - Development/integration team — implements and tests the technical integration.

@@ -1,4 +1,4 @@
-At AGE, the development of government digital services is based on a modern, secure, and scalable technology ecosystem. This page provides an overview of the technologies, infrastructure, and tools used to build interoperable, compliant, and citizen-oriented solutions.
+At eGov Moldova, the development of government digital services is based on a modern, secure, and scalable technology ecosystem. This page provides an overview of the technologies, infrastructure, and tools used to build interoperable, compliant, and citizen-oriented solutions.
 
 * * *
 
@@ -15,7 +15,7 @@ At AGE, the development of government digital services is based on a modern, sec
 
 ## Development stack
 
-AGE services are developed with robust technologies, chosen for compatibility with government infrastructure and to support an efficient application lifecycle.
+eGov Moldova services are developed with robust technologies, chosen for compatibility with government infrastructure and to support an efficient application lifecycle.
 
 ### Frontend
 
@@ -45,11 +45,11 @@ Business logic is implemented within the .NET ecosystem:
 
 ## Infrastructure and DevOps
 
-AGE uses government infrastructure for hosting and orchestrating services:
+eGov Moldova uses government infrastructure for hosting and orchestrating services:
 
 ### Hosting
 
-*   **MCloud** – the government cloud platform used for hosting AGE applications
+*   **MCloud** – the government cloud platform used for hosting eGov Moldova applications
 *   Configurations for **scalability**, **security**, and **disaster recovery** adapted to institutional requirements
 
 ### Orchestration and containers
@@ -81,5 +81,5 @@ To ensure code consistency and quality:
 *   Conventions for **naming**, **code structuring**, and **project organization**
 *   Configurable validations in **JSON**
 *   Automated and manual testing
-*   Standardized UI/UX for all AGE applications
+*   Standardized UI/UX for all eGov Moldova applications
 *   Use of **private NuGet feeds** for distributing reusable internal components

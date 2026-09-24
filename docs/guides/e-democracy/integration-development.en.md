@@ -8,7 +8,7 @@ The eDemocracy API supports two authentication methods.
 
 JWT tokens must be signed using an RSA private key.
 
-The corresponding public key must be registered with **AGE**. 
+The corresponding public key must be registered with **eGov Moldova**. 
 
 The token payload must include the **IDNP/IDNO** of the caller in the `data.idno` claim.
 

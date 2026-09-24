@@ -13,13 +13,13 @@ Related acts: Codul civil (reprezentarea); HG nr. 1090/2013 (MPass); HG nr. 405/
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) | AGE |
+| Holder (posesor) | eGov Moldova |
+| Keeper (deținător) | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
+- eGov Moldova — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
 - STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
 - Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
 - Development/integration team — implements and tests the technical integration.
@@ -27,7 +27,7 @@ Related acts: Codul civil (reprezentarea); HG nr. 1090/2013 (MPass); HG nr. 405/
 
 **Access conditions.**
 
-Gratuit. Obligatoriu: certificat de sistem emis de STISC și înregistrat de AGE în MPass, pentru accesul la componenta MPower Clients API.
+Gratuit. Obligatoriu: certificat de sistem emis de STISC și înregistrat de eGov Moldova în MPass, pentru accesul la componenta MPower Clients API.
 
 **Who this guide is for.**
 
@@ -56,7 +56,7 @@ Secondary: project managers and compliance officers preparing the agreement with
   </div>
 </div>
 
-To access the MPower Clients API component, you must use the system authentication certificate issued by STISC and registered by AGE in MPass
+To access the MPower Clients API component, you must use the system authentication certificate issued by STISC and registered by eGov Moldova in MPass
 
 ## Constraints
 The service depends on the digital identity of third-party systems.

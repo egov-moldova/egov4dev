@@ -4,7 +4,7 @@
 
 ### What the model is and why it was created
 
-The Unitary Design Model (MUD) is the national design standard for all web and mobile solutions used by public authorities in the Republic of Moldova. It was developed by the Electronic Governance Agency (AGE) to solve the problem of design fragmentation across government digital services and to ensure a unified, coherent and accessible experience for all citizens.
+The Unitary Design Model (MUD) is the national design standard for all web and mobile solutions used by public authorities in the Republic of Moldova. It was developed by eGov Moldova to solve the problem of design fragmentation across government digital services and to ensure a unified, coherent and accessible experience for all citizens.
 
 Before the model existed, each public institution developed interfaces according to its own standards, resulting in confusion for users, increased development and maintenance costs, and an inconsistent experience when interacting with state services. The model standardizes UI components, color palettes, typography, spacing and interaction patterns, allowing teams to focus on functionality instead of reinventing the basic design.
 
@@ -159,11 +159,11 @@ Private companies that develop solutions for government institutions must includ
 - Institution-specific images and illustrations
 - Additional custom components that do not exist in the model (provided they follow the general design principles)
 
-⚠️ If you need a component that does not exist in the model, or want to modify an existing component for a specific use case, contact the AGE team to discuss the possibility of adding it to the main system. In many cases, your specific need may also be relevant to other institutions.
+⚠️ If you need a component that does not exist in the model, or want to modify an existing component for a specific use case, contact the eGov Moldova team to discuss the possibility of adding it to the main system. In many cases, your specific need may also be relevant to other institutions.
 
 ### Design coordination procedure (when required)
 
-Coordination with AGE is required in the following situations:
+Coordination with eGov Moldova is required in the following situations:
 
 - When you want to create entirely new components that do not exist in the model
 - When you need to significantly modify an existing component for a specific use case
@@ -176,7 +176,7 @@ For coordination, send an email to design@egov.md with:
 - Mockups or wireframes of the proposed solution
 - An explanation of why the existing components are not sufficient
 
-The AGE team will respond within a maximum of 10 business days with feedback and recommendations.
+The eGov Moldova team will respond within a maximum of 10 business days with feedback and recommendations.
 
 ⚠️ Coordination is not required for:
     - Standard use of existing components
@@ -198,7 +198,7 @@ The typical integration process involves:
 
 The developer community is encouraged to share their implementations for various frameworks. If you have created a component library for a popular framework, contact us to have it listed in the community resources section.
 
-⚠️ AGE is officially developing a component library for Blazor/MudBlazor which will be available in 2026. Until then, you can use the standard HTML/CSS components in Blazor or create your own Blazor components based on the Unitary Design Model's styles.
+⚠️ eGov Moldova is officially developing a component library for Blazor/MudBlazor which will be available in 2026. Until then, you can use the standard HTML/CSS components in Blazor or create your own Blazor components based on the Unitary Design Model's styles.
 
 ---
 
@@ -257,7 +257,7 @@ The Unitary Design Model is developed specifically for the government sector in 
 
 ### How do I get updates when the model changes?
 
-The Unitary Design Model is versioned using semantic versioning (major.minor.patch). Periodically check the `CHANGELOG.md` file in the repository to see what has changed. For major updates that may include breaking changes, AGE will communicate in advance through official channels and will provide migration guides.
+The Unitary Design Model is versioned using semantic versioning (major.minor.patch). Periodically check the `CHANGELOG.md` file in the repository to see what has changed. For major updates that may include breaking changes, eGov Moldova will communicate in advance through official channels and will provide migration guides.
 
 If you use the model via npm, you can update with:
 ```bash
@@ -273,7 +273,7 @@ The first step is to check whether you can solve the problem by combining existi
 If there is no viable solution, you have two options:
 
 1. Create a custom component that follows the model's principles (colors, spacing, typography) and use it in your project
-2. Contact the AGE team at design@egov.md to propose adding a new component to the system. Include a description of the use case and mockups of the proposed solution.
+2. Contact the eGov Moldova team at design@egov.md to propose adding a new component to the system. Include a description of the use case and mockups of the proposed solution.
 
 ### How do I report a bug or suggest improvements?
 
@@ -283,7 +283,7 @@ If there is no viable solution, you have two options:
 
 ### Do I need approval for every implementation?
 
-Yes. If you use the model's components according to the documentation and usage rules, coordination and approval with AGE is required.
+Yes. If you use the model's components according to the documentation and usage rules, coordination and approval with eGov Moldova is required.
 
 - Entirely new components
 - Major modifications to existing components
@@ -291,13 +291,13 @@ Yes. If you use the model's components according to the documentation and usage 
 
 ### Can I contribute new components?
 
-Yes, AGE encourages contributions from the community. If you have developed a component that follows the model's principles and believe it would be useful to other government projects, submit a Pull Request to the repository with:
+Yes, eGov Moldova encourages contributions from the community. If you have developed a component that follows the model's principles and believe it would be useful to other government projects, submit a Pull Request to the repository with:
 
 - The component
 - The documentation
 - Usage examples
 
-The AGE team will review the contribution and, if approved, will include it in the next version. Contributors will be credited in the `CONTRIBUTORS.md` file.
+The eGov Moldova team will review the contribution and, if approved, will include it in the next version. Contributors will be credited in the `CONTRIBUTORS.md` file.
 
 ---
 

@@ -17,7 +17,7 @@ There are two scenarios through which an institution can connect:
 3. Fill in the connection request directly in the Catalog.
 4. If you don't have signing rights, the system automatically notifies the responsible person (enter their email in the dedicated field and click "Send for signature").
 5. The request is signed electronically via MSign.
-6. After signing, the request is automatically sent to the AGE team for processing.
+6. After signing, the request is automatically sent to the eGov Moldova team for processing.
 
 ### Scenario 2 — By email
 
@@ -39,7 +39,7 @@ If you found the desired dataset but don't have an electronic signature:
 
 ## What happens after you submit the request?
 
-1. AGE reviews the request and issues a Connection Decision.
+1. eGov Moldova reviews the request and issues a Connection Decision.
 2. If the request is filled in correctly, the technical team configures the service and provides testing instructions.
 3. After successful testing, the data is made available in the production environment.
 4. Private institutions will also sign a standard contract (template available on the MConnect website, "Document templates" section).
