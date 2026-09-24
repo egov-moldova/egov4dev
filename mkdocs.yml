@@ -112,7 +112,7 @@ plugins:
       languages:
         - locale: ro
           default: true
-          name: Ro
+          name: Română
           build: true
           nav_translations:
             About MConnect: Despre MConnect
@@ -142,12 +142,12 @@ plugins:
             Testing: Testare
             Integration: Integrare
         - locale: en
-          name: En
+          name: English
           build: true
 
 theme:
   name: material
-  logo: assets/logo2.png
+  logo: assets/egov-logo2.png
   favicon: assets/favicon.ico
   features:
     - navigation.sections
