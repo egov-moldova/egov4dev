@@ -35,4 +35,4 @@
 
 ## Connection time 
 
-MEGA processes the request within a maximum of 7 working days, calculated from the moment all necessary data from the institution have been received. 
+eGov Moldova processes the request within a maximum of 7 working days, calculated from the moment all necessary data from the institution have been received. 

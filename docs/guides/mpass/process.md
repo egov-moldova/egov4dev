@@ -35,4 +35,4 @@
 
 ## Termenul de conectare 
 
-MEGA procesează cererea în cel mult 7 zile lucrătoare, calculate din momentul în care au fost recepționate toate datele necesare din partea instituției. 
+eGov Moldova procesează cererea în cel mult 7 zile lucrătoare, calculate din momentul în care au fost recepționate toate datele necesare din partea instituției. 

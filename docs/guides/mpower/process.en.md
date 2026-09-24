@@ -6,12 +6,12 @@ For each authorization, the Institution ensures that the [Form for creating the 
 In the case of integration via API: 
 
   - The Institution implements the API connection in accordance with the technical documentation and performs functional tests; 
-  - MEGA configures the institution's access to the test environment; 
+  - eGov Moldova configures the institution's access to the test environment; 
 
 In the case of creating authorizations in MPower: 
 
-  - MEGA ensures the configuration of authorizations in MPower; 
+  - eGov Moldova ensures the configuration of authorizations in MPower; 
   - The institution verifies the configurations and validates their correctness. 
 
-After final validation, MEGA activates the authorizations in the production environment; 
+After final validation, eGov Moldova activates the authorizations in the production environment; 
 The institution receives notification of the completion of the integration. 

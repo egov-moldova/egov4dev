@@ -1,6 +1,4 @@
-**This page will be available in <a href="">Română</a> and <a href="">Русский</a> soon**
-
-This procedure defines the steps, requirements, and responsibilities necessary for connecting the information systems of public and private institutions to the government-shared services managed by the eGovernment Agency (MEGA).The procedure applies to all integration requests for MEGA platforms (MPass, MSign, MNotify, MPower, MDelivery, MDocs, etc.) and aims to ensure a process that is:
+This procedure defines the steps, requirements, and responsibilities necessary for connecting the information systems of public and private institutions to the government-shared services managed by the eGovernment Agency (eGov Moldova).The procedure applies to all integration requests for eGov Moldova platforms (MPass, MSign, MNotify, MPower, MDelivery, MDocs, etc.) and aims to ensure a process that is:
 
   - uniform and standardized
   - easy to follow for both public and private institutions,
@@ -8,13 +6,13 @@ This procedure defines the steps, requirements, and responsibilities necessary f
 
 ## How integration is initiated
 
-All integration requests must be submitted through the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl), available on the [MEGA's website](https://egov.md). Through this form, beneficiaries can:
+All integration requests must be submitted through the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl), available on the [eGov Moldova's website](https://egov.md). Through this form, beneficiaries can:
 
   - request the integration of a new information system;
   - extend integration for an already contracted service (e.g., already using MPass and requesting connection to MSign);
   - submit the contractual and technical data required for configuration.
 
-MEGA reviews the submitted information and coordinates all subsequent contractual and technical steps.
+eGov Moldova reviews the submitted information and coordinates all subsequent contractual and technical steps.
 
 ### Exceptions
 
@@ -43,6 +41,6 @@ The beneficiary must:
   - Contract and/or annex signed
   - Test environment configured
   - Integration implemented and tested
-  - Integration validated by MEGA
+  - Integration validated by eGov Moldova
   - Service activated in production
   - Final completion notification issued

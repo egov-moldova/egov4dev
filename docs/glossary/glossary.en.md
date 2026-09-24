@@ -30,7 +30,7 @@
 | JWT | JSON Web Token |
 | LegalId | Unique IDNO of the issuer organization |
 | mdoc | Mobile Document |
-| MEGA | Moldova eGovernance Agency |
+| eGov Moldova | Moldova eGovernance Agency |
 | Message | Final message ready for transmission, including the identified channel, recipient and content |
 | MSO | Mobile Security Object |
 | Notification | Notification request received from a Sender |

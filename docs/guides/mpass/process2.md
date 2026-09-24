@@ -1,4 +1,4 @@
-1. Complete the [Unified Connection Form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u) available on MEGA's website.
+1. Complete the [Unified Connection Form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u) available on eGov Moldova's website.
 
 2. Sign the contract and/or the annex provided by eGov for the delivery of MPass services.
    - If the institution already has an active contract for another eGov platform service, there is no need to sign a new contract; only the MPass specific annex will be signed.
