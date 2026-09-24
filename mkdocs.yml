@@ -2,7 +2,6 @@ site_name: eGov4Dev
 site_url: https://egov-moldova.github.io/egov4dev/
 
 nav:
-  - Home: intro.md
   - Platforms and services: platforms/index.md
   - Connection procedure: platforms/procedure.md
   - Technical overview: technical-overview/index.md
@@ -116,7 +115,6 @@ plugins:
           name: Română
           build: true
           nav_translations:
-            Home: Acasă
             About MConnect: Despre MConnect
             Platforms and services: Platforme și servicii
             Connection procedure: Procedura de conectare
