@@ -56,7 +56,3 @@ Costul serviciilor se aplică doar beneficiarilor din sectorul privat:
 
 - Taxă de configurare — 1000 lei per sursă (percepută o singură dată).
 - Taxă pentru schimb de date — 0,25 lei pentru fiecare interpelare.
-
----
-
-Sursă: [mconnect.gov.md](https://mconnect.gov.md/ro/home/connection)

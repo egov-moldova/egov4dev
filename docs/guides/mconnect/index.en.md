@@ -67,7 +67,3 @@ Data exchange takes place in a secure environment, based on government infrastru
 - Systems are authenticated via digital certificates, and users via the MPass government service.
 - Data access is granted in a controlled manner, based on each participant's rights and legal basis.
 - All data exchanges are logged through the MLog government service, ensuring traceability and audit.
-
----
-
-Source: [mconnect.gov.md](https://mconnect.gov.md/ro/home/about)

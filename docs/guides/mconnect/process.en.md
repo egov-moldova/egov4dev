@@ -56,7 +56,3 @@ Service costs apply only to private-sector beneficiaries:
 
 - Setup fee — 1000 MDL per source (charged once).
 - Data exchange fee — 0.25 MDL per query.
-
----
-
-Source: [mconnect.gov.md](https://mconnect.gov.md/ro/home/connection)

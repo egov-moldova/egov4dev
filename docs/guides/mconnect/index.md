@@ -67,7 +67,3 @@ Schimbul de date are loc într-un mediu securizat, bazat pe infrastructura guver
 - Sistemele sunt autentificate prin certificate digitale, iar utilizatorii prin serviciul guvernamental MPass.
 - Accesul la date este acordat în mod controlat, în baza drepturilor și temeiului legal al fiecărui participant.
 - Toate schimburile de date sunt jurnalizate prin serviciul guvernamental MLog, asigurând trasabilitate și audit.
-
----
-
-Sursă: [mconnect.gov.md](https://mconnect.gov.md/ro/home/about)
