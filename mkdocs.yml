@@ -56,6 +56,9 @@ nav:
           - API reference: guides/mpay/api-reference.md
           - Examples: guides/mpay/examples.md
           - Change log: guides/mpay/change-log.md
+      - MConnect:
+          - About MConnect: guides/mconnect/index.md
+          - Connection procedure: guides/mconnect/process.md
       - MConnect Events:
           - Overview: guides/mconnect-events/index.md
           - Interaction scenarios: guides/mconnect-events/interaction-scenarios.md
@@ -114,6 +117,7 @@ plugins:
           build: true
           nav_translations:
             Home: Acasă
+            About MConnect: Despre MConnect
             Platforms and services: Platforme și servicii
             Connection procedure: Procedura de conectare
             Technical overview: Prezentare tehnică generală
