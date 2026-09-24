@@ -6,8 +6,8 @@ Fiecare platformă guvernamentală este instituită și guvernată printr-o Hot�
 
 | Serviciu | Hotărâre de Guvern | Posesor | Deținător |
 |---|---|---|---|
-| [MPass](...) | HG nr. 1090/2013, pct. 3 sbp. 1) | AGE | de confirmat |
-| [MSign](...) | HG nr. 405/2014, pct. 3 sbp. 1) | AGE | de confirmat |
+| [MPass](...) | HG nr. 1090/2013, pct. 3 sbp. 1) | AGE | – |
+| [MSign](...) | HG nr. 405/2014, pct. 3 sbp. 1) | AGE | – |
 | [MConnect](...) | HG nr. 211/2019, pct. 3 | AGE | AGE |
 | [MConnect Events](...) | HG nr. 211/2019 (componentă) | AGE | AGE |
 | [MPay](...) | HG nr. 712/2020, pct. 16 din Concept | AGE | AGE |
@@ -15,10 +15,10 @@ Fiecare platformă guvernamentală este instituită și guvernată printr-o Hot�
 | [MNotify](...) | HG nr. 376/2020, pct. 3 | AGE | AGE |
 | [MDelivery](...) | HG nr. 152/2021, pct. 2 | AGE | AGE |
 | [MDocs](...) | HG nr. 305/2024, pct. 3 | AGE | AGE |
-| [MLog](...) | HG nr. 708/2014, pct. 3 sbp. 1) | AGE | de confirmat |
+| [MLog](...) | HG nr. 708/2014, pct. 3 sbp. 1) | AGE | – |
 | [e-Democrație](...) | HG nr. 564/2024, pct. 2 | AGE | AGE |
 | [EVO / EVO Wallet](...) | HG nr. 5/2024, pct. 3; HG nr. 677/2025 | AGE | AGE |
-| [PDSE / FOD](...) | HG nr. 717/2014, pct. 3 | AGE | de confirmat |
+| [PDSE / FOD](...) | HG nr. 717/2014, pct. 3 | AGE | – |
 
 Operatorul tehnic este indicat pe pagina fiecărui serviciu, conform Hotărârii aplicabile.
 Taxele prezentate în secțiunea „Acces și tarife” sunt stabilite prin actul normativ indicat în acea secțiune.

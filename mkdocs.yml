@@ -5,7 +5,6 @@ nav:
   - Home: intro.md
   - Platforms and services: platforms/index.md
   - Connection procedure: platforms/procedure.md
-  - Provider onboarding: guides/provider-onboarding.md
   - Technical overview: technical-overview/index.md
   - Unified design system: mud/index.md
   - Glossary: glossary/glossary.md
@@ -117,7 +116,6 @@ plugins:
             Home: Acasă
             Platforms and services: Platforme și servicii
             Connection procedure: Procedura de conectare
-            Provider onboarding: Integrare furnizori
             Technical overview: Prezentare tehnică generală
             Unified design system: Modelul Unitar de Design
             Glossary: Glosar
