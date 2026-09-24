@@ -1,101 +1,101 @@
-The **Relying Party Tester** is a self-service tool that verifies whether a Verifier (wallet-relying party) implementation behaves correctly when it receives both a valid presentation and deliberately manipulated ones. It removes the need to create hand-crafted credentials: the tester takes the place of the Wallet, generates one correct and many defective mdoc presentations, submits them to your Verifier and reports what your Verifier did with each of them.
+**Relying Party Tester** este un instrument self-service care verifică dacă implementarea unui Verifier (relying party al wallet-ului) se comportă corect atunci când primește atât o prezentare validă, cât și prezentări manipulate intenționat. Acesta elimină nevoia de a crea credențiale confecționate manual: tester-ul preia locul Wallet-ului, generează o prezentare mdoc corectă și numeroase prezentări mdoc defecte, le transmite Verifier-ului dumneavoastră și raportează ce a făcut Verifier-ul dumneavoastră cu fiecare dintre ele.
 
-| Resource | Description |
+| Resursă | Descriere |
 |:---------|:------------|
-| 🧪 [**Relying Party Tester**](https://wallet.staging.egov.md/rp-tester) | Automated conformance tester for wallet-relying parties, available in the staging environment. |
+| 🧪 [**Relying Party Tester**](https://wallet.staging.egov.md/rp-tester) | Tester de conformitate automatizat pentru relying parties ale wallet-ului, disponibil în mediul de staging. |
 
-> ⚠️ The tester belongs to the staging environment and must only be pointed at a **staging** deployment of your Verifier. Several test cases deliberately replay, malform or oversize the Authorization Response, so they must never be sent to a production endpoint.
+> ⚠️ Tester-ul aparține mediului de staging și trebuie direcționat exclusiv către o instanță **staging** a Verifier-ului dumneavoastră. Mai multe cazuri de testare redau, malformează sau supradimensionează intenționat Authorization Response, astfel încât acestea nu trebuie niciodată trimise către un endpoint de producție.
 
-## What the tester does
+## Ce face tester-ul
 
-For every test case, the tester performs the Wallet side of the presentation transaction described in the [Protocol](protocol.md) section:
+Pentru fiecare caz de testare, tester-ul îndeplinește partea de Wallet a tranzacției de prezentare descrise în secțiunea [Protocol](protocol.md):
 
-1. Your Verifier Backend creates a presentation transaction and produces the device engagement URL — the very same string you would encode in a QR code or publish as a same-device link.
-2. You paste that URL into the tester and press **Run test**.
-3. The tester parses the URL, submits **wallet_metadata** and **wallet_nonce** to your **request_uri** using HTTP POST, and validates the returned Authorization Request JWS.
-4. It builds a DeviceResponse for the requested document type, applies the manipulation specific to the selected test case (none at all for the *must accept* cases), encrypts the Authorization Response as JWE and submits it to your **response_uri**.
-5. It records how your Verifier answered and compares the outcome with the expectation declared by the test case.
+1. Verifier Backend-ul dumneavoastră creează o tranzacție de prezentare și produce URL-ul de device engagement — exact același șir pe care l-ați codifica într-un cod QR sau l-ați publica drept link same-device.
+2. Introduceți acel URL în tester și apăsați **Run test**.
+3. Tester-ul analizează URL-ul, transmite **wallet_metadata** și **wallet_nonce** către **request_uri**-ul dumneavoastră, utilizând HTTP POST, și validează Authorization Request JWS returnat.
+4. Acesta construiește o DeviceResponse pentru tipul de document solicitat, aplică manipularea specifică cazului de testare selectat (deloc pentru cazurile de tip *must accept*), criptează Authorization Response ca JWE și o transmite către **response_uri**-ul dumneavoastră.
+5. Acesta înregistrează modul în care a răspuns Verifier-ul dumneavoastră și compară rezultatul cu așteptarea declarată de cazul de testare.
 
-Each test case therefore exercises one ore more rule from the [Response validation](validation.md) section, from a tester or attacker's perspective. The tester lists every available case with a short description of the manipulation it applies and states whether the presentation must be accepted or rejected. The suite is extended as the implementation profile evolves.
+Fiecare caz de testare exercită astfel una sau mai multe reguli din secțiunea [Validarea răspunsului](validation.md), din perspectiva unui tester sau atacator. Tester-ul listează fiecare caz disponibil cu o scurtă descriere a manipulării aplicate și precizează dacă prezentarea trebuie acceptată sau respinsă. Suita este extinsă pe măsură ce profilul de implementare evoluează.
 
-## Before you start
+## Înainte de a începe
 
-| Prerequisite | Details |
+| Precondiție | Detalii |
 | --- | --- |
-| Staging onboarding completed | Verifier registered, CSR submitted and staging verifier certificate received, as described in the [Integration](integration.md) section. |
-| Verifier reachable from the internet | The tester calls your **request_uri** and your **response_uri** from its own host. Endpoints published only on `localhost`, on a private network or behind a VPN cannot be tested. |
-| Valid TLS on your endpoints | Both endpoints must be served over HTTPS with a publicly trusted certificate. |
-| Fresh transactions on demand | You must be able to produce a new presentation transaction (and thus a new request URL) whenever a test needs one. |
-| Staging trust anchors installed | The valid test credentials are signed by the staging issuing CA. If that chain is missing from your trust store, even the *must accept* test cases fail. Request the staging trust anchors at `mconnect@egov.md` if you did not receive them during onboarding. |
-| Rejection is observable | Your **response_uri** endpoint must answer differently for an accepted and for a refused presentation — otherwise the tester cannot distinguish a rejection from a silent acceptance. See [Reading the results](#reading-the-results). |
+| Onboarding pentru staging finalizat | Verifier înregistrat, CSR depus și certificat de verificator pentru staging primit, conform descrierii din secțiunea [Integrare](integration.md). |
+| Verifier accesibil din internet | Tester-ul apelează **request_uri**-ul și **response_uri**-ul dumneavoastră de pe propria sa gazdă. Endpoint-urile publicate doar pe `localhost`, într-o rețea privată sau în spatele unui VPN nu pot fi testate. |
+| TLS valid pe endpoint-urile dumneavoastră | Ambele endpoint-uri trebuie să fie servite prin HTTPS, cu un certificat de încredere publică. |
+| Tranzacții noi la cerere | Trebuie să puteți produce o nouă tranzacție de prezentare (și, implicit, un nou URL de cerere) ori de câte ori un test are nevoie de una. |
+| Ancore de încredere pentru staging instalate | Credențialele de test valide sunt semnate de CA-ul de emitere pentru staging. Dacă acest lanț lipsește din magazinul dumneavoastră de încredere, chiar și cazurile de testare de tip *must accept* eșuează. Solicitați ancorele de încredere pentru staging la `mconnect@egov.md`, dacă nu le-ați primit în timpul onboarding-ului. |
+| Respingerea este observabilă | Endpoint-ul dumneavoastră **response_uri** trebuie să răspundă diferit pentru o prezentare acceptată față de una respinsă — altfel tester-ul nu poate distinge o respingere de o acceptare silențioasă. A se vedea [Interpretarea rezultatelor](#interpretarea-rezultatelor). |
 
-## Providing request URLs
+## Furnizarea URL-urilor de cerere
 
-The first step of **Test setup** declares how request URLs are supplied. Paste the full device engagement link produced by your Verifier — either the deep link encoded in your QR code (`eudi-openid4vp://?client_id=…&request_uri=…&request_uri_method=post`) or the equivalent HTTPS link.
+Primul pas din **Test setup** stabilește modul în care sunt furnizate URL-urile de cerere. Introduceți link-ul complet de device engagement produs de Verifier-ul dumneavoastră — fie deep link-ul codificat în codul dumneavoastră QR (`eudi-openid4vp://?client_id=…&request_uri=…&request_uri_method=post`), fie link-ul HTTPS echivalent.
 
-| Mode | When to use it | Effect |
+| Mod | Când se utilizează | Efect |
 | --- | --- | --- |
-| **One reusable URL for all tests** | Your Verifier accepts the same **request_uri** more than once, for example when it serves a static QR code that dynamically creates a transaction per call. | A single URL field is used by every test in the selected set, and the whole set can be executed unattended in one run. |
-| **A unique URL for each test** | Your Verifier issues strictly single-use request URLs, which is the recommended behaviour. | Every test card gets its own URL field, and tests are run one at a time. |
+| **Un URL reutilizabil pentru toate testele** | Verifier-ul dumneavoastră acceptă același **request_uri** de mai multe ori, de exemplu atunci când servește un cod QR static care creează dinamic o tranzacție la fiecare apel. | Un singur câmp URL este utilizat de fiecare test din setul selectat, iar întregul set poate fi executat nesupravegheat, într-o singură rulare. |
+| **Un URL unic pentru fiecare test** | Verifier-ul dumneavoastră emite URL-uri de cerere strict de unică folosință, ceea ce reprezintă comportamentul recomandat. | Fiecare card de test primește propriul câmp URL, iar testele sunt executate unul câte unul. |
 
-> 💡 Request URLs are normally single-use and short-lived. In the unique-URL mode, create the transaction immediately before running the test, and use **Start guided testing** to be walked through the selected set one case at a time.
+> 💡 URL-urile de cerere sunt în mod normal de unică folosință și cu durată scurtă de viață. În modul URL unic, creați tranzacția imediat înainte de a rula testul și utilizați **Start guided testing** pentru a fi ghidat prin setul selectat, caz cu caz.
 
-## Choosing the test set
+## Alegerea setului de teste
 
-The second step of **Test setup** selects the scope of the run.
+Al doilea pas din **Test setup** selectează scopul rulării.
 
-| Set | Content |
+| Set | Conținut |
 | --- | --- |
-| **Core tests** | The essential cases that every relying party must pass: the valid presentation plus the manipulations that break issuer authentication, device authentication, credential validity, issuer certificate validity and revocation. |
-| **Online tests** | Cases in which your Verifier must reach back into the tester's own host to fetch a status list, an OCSP response or a CRL. Run them only when your Verifier has outbound access to `wallet.staging.egov.md`. |
-| **All tests** | Core, online and all additional/specialised cases. This is the full conformance run. |
+| **Core tests** | Cazurile esențiale pe care orice relying party trebuie să le treacă: prezentarea validă, plus manipulările care compromit autentificarea issuer-ului, autentificarea device-ului, valabilitatea credentialului, valabilitatea certificatului issuer-ului și revocarea. |
+| **Online tests** | Cazuri în care Verifier-ul dumneavoastră trebuie să acceseze din nou gazda proprie a tester-ului pentru a prelua o listă de stare, un răspuns OCSP sau un CRL. Rulați-le doar atunci când Verifier-ul dumneavoastră are acces outbound către `wallet.staging.egov.md`. |
+| **All tests** | Core, online și toate cazurile suplimentare/specializate. Aceasta este rularea de conformitate completă. |
 
-## Running the tests
+## Rularea testelor
 
-1. Open the [Relying Party Tester](https://wallet.staging.egov.md/rp-tester).
-2. Choose how request URLs will be provided and which test set to include.
-3. Create a presentation transaction in your Verifier and copy its request URL.
-4. Paste the URL and press **Run test** for a single case, **Run *N* tests** to execute the whole selected set in sequence (reusable-URL mode only), or **Start guided testing** to be taken through the set step by step.
-5. Watch your Verifier logs in parallel — for a failing case, your own log entry usually identifies the missing validation rule faster than the summary does.
+1. Deschideți [Relying Party Tester](https://wallet.staging.egov.md/rp-tester).
+2. Alegeți modul în care vor fi furnizate URL-urile de cerere și ce set de teste va fi inclus.
+3. Creați o tranzacție de prezentare în Verifier-ul dumneavoastră și copiați URL-ul său de cerere.
+4. Introduceți URL-ul și apăsați **Run test** pentru un singur caz, **Run *N* tests** pentru a executa în secvență întregul set selectat (doar în modul URL reutilizabil), sau **Start guided testing** pentru a fi condus prin set, pas cu pas.
+5. Urmăriți în paralel jurnalele Verifier-ului dumneavoastră — pentru un caz eșuat, propria dumneavoastră intrare de jurnal identifică de obicei mai rapid regula de validare lipsă decât rezumatul.
 
-## Reading the results
+## Interpretarea rezultatelor
 
-Results appear above the test list and can be narrowed with the **Filter by result** selector.
+Rezultatele apar deasupra listei de teste și pot fi filtrate cu selectorul **Filter by result**.
 
-| Result | Meaning | What to do |
+| Rezultat | Semnificație | Ce trebuie făcut |
 | --- | --- | --- |
-| **Passed** | Your Verifier reacted as the case requires: it accepted the valid presentation, or refused the manipulated one. | Nothing. |
-| **Failed** | Your Verifier reacted the wrong way. A failed *must reject* case means a manipulated presentation was accepted, which is a security defect. | Locate the corresponding rule in [Response validation](validation.md) and implement or fix it. |
-| **Tester error** | The exchange could not be completed at all — for example the request URL was already consumed or had expired, the Authorization Request could not be retrieved or its signature could not be validated. | The case says nothing about your validation logic. Fix the cause, create a fresh transaction and run it again. |
-| **Not run** | The case has not been executed in this session. | — |
+| **Passed** | Verifier-ul dumneavoastră a reacționat conform cerințelor cazului: a acceptat prezentarea validă sau a refuzat-o pe cea manipulată. | Nimic. |
+| **Failed** | Verifier-ul dumneavoastră a reacționat greșit. Un caz de tip *must reject* eșuat înseamnă că o prezentare manipulată a fost acceptată, ceea ce reprezintă un defect de securitate. | Localizați regula corespunzătoare în [Validarea răspunsului](validation.md) și implementați-o sau corectați-o. |
+| **Tester error** | Schimbul nu a putut fi finalizat deloc — de exemplu URL-ul de cerere fusese deja consumat sau expirase, Authorization Request nu a putut fi recuperată sau semnătura sa nu a putut fi validată. | Cazul nu spune nimic despre logica dumneavoastră de validare. Remediați cauza, creați o tranzacție nouă și rulați-o din nou. |
+| **Not run** | Cazul nu a fost executat în această sesiune. | — |
 
-Because a rejection has to be recognisable from the outside, make sure your **response_uri** endpoint does not answer every submission identically. The Protocol section requires an `HTTP 200 OK` with an optional **redirect_uri** for a *successfully processed* Authorization Response; a presentation that fails validation must not be answered that way, must not mark the transaction as succeeded and must not have its data elements processed.
+Deoarece o respingere trebuie să fie recognoscibilă din exterior, asigurați-vă că endpoint-ul dumneavoastră **response_uri** nu răspunde identic la fiecare transmitere. Secțiunea Protocol impune un `HTTP 200 OK` cu un **redirect_uri** opțional pentru o Authorization Response *procesată cu succes*; o prezentare care eșuează la validare nu trebuie să primească acest răspuns, nu trebuie să marcheze tranzacția ca reușită și elementele sale de date nu trebuie procesate.
 
-## Exit criteria
+## Criterii de ieșire
 
-| Stage | Requirement |
+| Etapă | Cerință |
 | --- | --- |
-| Minimum bar | All **core tests** pass. |
-| Full conformance | Every case of the **All tests** set passes, with the online cases executed against a Verifier that can reach the tester's host. |
-| Reporting | Once the run is complete, send the results to `mconnect@egov.md` together with your staging Verifier identifier. Detailed instructions for the production environment are provided afterwards, as described in the [Integration](integration.md) section. |
+| Pragul minim | Toate **core tests** trec. |
+| Conformitate completă | Fiecare caz din setul **All tests** trece, cu cazurile online executate față de un Verifier care poate accesa gazda tester-ului. |
+| Raportare | După finalizarea rulării, trimiteți rezultatele la `mconnect@egov.md`, împreună cu identificatorul dumneavoastră de Verifier pentru staging. Instrucțiuni detaliate pentru mediul de producție sunt furnizate ulterior, conform descrierii din secțiunea [Integrare](integration.md). |
 
-## Troubleshooting
+## Depanare
 
-| Symptom | Probable cause |
+| Simptom | Cauză probabilă |
 | --- | --- |
-| Every case ends in **Tester error** | The request URL was already consumed or has expired, your **request_uri** is not reachable from the internet, or the returned Authorization Request is not a valid JWS as described in the [Protocol](protocol.md) section. |
-| The *must accept* case fails while the *must reject* cases pass | Your Verifier refuses the valid presentation as well. Usually the staging trust anchor is missing from your trust store, or a validation rule is applied more strictly than the specification requires. |
-| Most *must reject* cases fail | Your **response_uri** endpoint most likely answers every submission with the same success response, so the tester reads a rejection as an acceptance, or the DeviceResponse is not validated at all before the transaction is marked as succeeded. |
-| Online cases fail while all the rest pass | Your Verifier cannot reach `wallet.staging.egov.md`, outbound HTTP is blocked by a proxy or firewall, or status list, OCSP and CRL retrieval is not implemented. |
-| Only the status list cases fail | Status List CWT retrieval, content negotiation (`Accept: application/statuslist+cwt`) or signature verification is missing. See [Status List validation](validation.md#status-list-validation). |
-| Results differ between runs | Cached CRL, OCSP or status list responses. Respect the caching rules of the [Response validation](validation.md) section and clear the cache between runs. |
+| Fiecare caz se încheie cu **Tester error** | URL-ul de cerere fusese deja consumat sau a expirat, **request_uri**-ul dumneavoastră nu este accesibil din internet, sau Authorization Request returnat nu este un JWS valid, conform descrierii din secțiunea [Protocol](protocol.md). |
+| Cazul de tip *must accept* eșuează, în timp ce cazurile *must reject* trec | Verifier-ul dumneavoastră refuză și prezentarea validă. De obicei, ancora de încredere pentru staging lipsește din magazinul dumneavoastră de încredere, sau o regulă de validare este aplicată mai strict decât cere specificația. |
+| Majoritatea cazurilor *must reject* eșuează | Endpoint-ul dumneavoastră **response_uri** răspunde cel mai probabil la fiecare transmitere cu același răspuns de succes, astfel încât tester-ul interpretează o respingere ca fiind o acceptare, sau DeviceResponse nu este validat deloc înainte ca tranzacția să fie marcată ca reușită. |
+| Cazurile online eșuează, în timp ce restul trec | Verifier-ul dumneavoastră nu poate accesa `wallet.staging.egov.md`, HTTP outbound este blocat de un proxy sau firewall, sau preluarea listei de stare, OCSP și CRL nu este implementată. |
+| Doar cazurile privind lista de stare eșuează | Preluarea Status List CWT, negocierea conținutului (`Accept: application/statuslist+cwt`) sau verificarea semnăturii lipsesc. A se vedea [Validarea listei de stare](validation.md#status-list-validation). |
+| Rezultatele diferă între rulări | Răspunsuri CRL, OCSP sau listă de stare aflate în cache. Respectați regulile de caching din secțiunea [Validarea răspunsului](validation.md) și ștergeți cache-ul între rulări. |
 
-## Out of scope
+## În afara scopului
 
-The tester verifies the Verifier's protocol handling and cryptographic validation only. The following remain your responsibility and are reviewed separately:
+Tester-ul verifică doar gestionarea protocolului și validarea criptografică ale Verifier-ului. Următoarele rămân în responsabilitatea dumneavoastră și sunt revizuite separat:
 
-* user-facing flows, consent screens and error messages presented to the End-User;
-* data minimisation — requesting only the data elements needed for the declared purpose;
-* retention behaviour and the correct use of the **intent_to_retain** flag;
-* logging, auditability and the operational security of the Verifier deployment;
-* performance and availability under production load.
+* fluxurile orientate către utilizator, ecranele de consimțământ și mesajele de eroare prezentate Utilizatorului Final;
+* minimizarea datelor — solicitarea doar a elementelor de date necesare pentru scopul declarat;
+* comportamentul de retenție și utilizarea corectă a indicatorului **intent_to_retain**;
+* logarea, auditabilitatea și securitatea operațională a implementării Verifier-ului;
+* performanța și disponibilitatea sub sarcină de producție.

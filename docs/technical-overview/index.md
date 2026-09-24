@@ -1,180 +1,180 @@
-This section is a technical orientation for developers new to the **eGov Moldova** ecosystem. This page summarizes how the ecosystem is organized, which technical interfaces each platform exposes, the technology stack used to build government digital services, and the practices that apply when developing or integrating them.
+Această secțiune reprezintă o orientare tehnică pentru dezvoltatorii care sunt noi în ecosistemul **eGov Moldova**. Pagina rezumă modul în care este organizat ecosistemul, interfețele tehnice expuse de fiecare platformă, stiva tehnologică utilizată pentru construirea serviciilor digitale guvernamentale și practicile aplicabile la dezvoltarea sau integrarea acestora.
 
-The rest of the section goes deeper into the engineering standards that apply to teams building solutions for the ecosystem:
+Restul secțiunii detaliază standardele de inginerie aplicabile echipelor care construiesc soluții pentru ecosistem:
 
-- **[API design guide](api-design-guide.md)** – how to design consistent REST APIs for government information systems
-- **[Code standards](code-standards.md)** – coding, security, testing, and UI standards for development teams
-- **[Code reviews](code-reviews.md)** – branching model, pull request rules, and review etiquette
-- **[Architecture decision records](adr.md)** – how architectural decisions are documented
-- **[Log management](log-management.md)** – audit and technical logging requirements
+- **[Ghid de proiectare a API-urilor](api-design-guide.md)** – cum se proiectează API-uri REST coerente pentru sistemele informaționale guvernamentale
+- **[Standarde de cod](code-standards.md)** – standarde de codare, securitate, testare și UI pentru echipele de dezvoltare
+- **[Revizuiri de cod](code-reviews.md)** – modelul de ramificare (branching), regulile pentru pull request-uri și eticheta revizuirii
+- **[Înregistrări ale deciziilor de arhitectură](adr.md)** – modul în care sunt documentate deciziile de arhitectură
+- **[Gestionarea jurnalelor (log-urilor)](log-management.md)** – cerințele de audit și jurnalizare tehnică
 
-It complements the more detailed pages of this documentation: [Platforms and services](../platforms/index.md) (the business view), [Development principles](../principles/architecture.md) (the architecture rules), and [Tools and technologies](../tools/technologies.md) (the full stack reference).
+Aceasta completează paginile mai detaliate ale acestei documentații: [Platforme și servicii](../platforms/index.md) (perspectiva de business), [Principii de dezvoltare](../principles/architecture.md) (regulile de arhitectură) și [Instrumente și tehnologii](../tools/technologies.md) (referința completă a stivei tehnologice).
 
 * * *
 
-## Ecosystem at a glance
+## Ecosistemul pe scurt
 
-Moldova's digital government is built as a set of **reusable, shared platform services** operated by the Moldova eGovernance Agency. Instead of each institution building its own authentication, payments, signing, or notification capability, information systems integrate the shared platforms and focus on their own business logic — in line with the [reuse](../principles/architecture.md#reuse-of-solutions) and [interoperability](../principles/architecture.md#interoperability-in-mind) principles.
+Guvernarea digitală a Moldovei este construită ca un set de **servicii de platformă partajate și reutilizabile**, operate de Agenția de Guvernare Electronică a Moldovei. În loc ca fiecare instituție să își construiască propria capacitate de autentificare, plăți, semnare sau notificare, sistemele informaționale integrează platformele partajate și se concentrează pe propria logică de business — în conformitate cu principiile [reutilizării](../principles/architecture.md#reutilizarea-solu%C8%9Biilor) și [interoperabilității](../principles/architecture.md#interoperabilitate-din-start).
 
-All platforms are hosted on **[MCloud](https://www.egov.md/en/content/mcloud-platform)**, the government cloud operated by [STISC](https://stisc.gov.md/), and exchange data through **MConnect**, the national interoperability platform.
+Toate platformele sunt găzduite pe **[MCloud](https://www.egov.md/en/content/mcloud-platform)**, cloud-ul guvernamental operat de [STISC](https://stisc.gov.md/), și fac schimb de date prin **MConnect**, platforma națională de interoperabilitate.
 
-<img src="../assets/mega-ecosystem.png" alt="eGov Moldova ecosystem" width="100%"/>
+<img src="../assets/mega-ecosystem.png" alt="Ecosistemul eGov Moldova" width="100%"/>
 
-| Layer | Platforms | What it provides |
+| Nivel | Platforme | Ce oferă |
 | --- | --- | --- |
-| Identity and trust | [MPass](../guides/mpass/index.md), [MSign](../guides/msign/index.md), [MPower](../guides/mpower/index.md), [EVO Wallet](../guides/evo-wallet/index.md) | Single Sign-On and Single Logout, qualified electronic signature, delegation of representation rights, EUDI-compatible digital identity wallet |
-| Data exchange | MConnect ([MConnect Events](../guides/mconnect-events/index.md)), [Semantic Catalog](http://semantic.gov.md/) | Authentic data directly from source registers, near real-time event distribution, single point of discovery for government data |
-| Service enablers | [MPay](../guides/mpay/index.md), [MNotify](../guides/mnotify/index.md), [MDelivery](../guides/mdelivery/index.md), [MDocs](../guides/mdocs/index.md) | Payments with any market instrument, multi-channel notifications, physical delivery of official documents, storage and exchange of digital documents |
-| Transparency and audit | [MLog](../guides/mlog/index.md) | Centralized registration of legal events, mandatory for systems processing personal and critical data |
-| Citizen participation | [eDemocracy (ePetitions)](../guides/e-democracy/index.md) | Electronic submission and processing of petitions |
+| Identitate și încredere | [MPass](../guides/mpass/index.md), [MSign](../guides/msign/index.md), [MPower](../guides/mpower/index.md), [EVO Wallet](../guides/evo-wallet/index.md) | Autentificare și deautentificare unică (SSO/SLO), semnătură electronică calificată, delegarea drepturilor de reprezentare, portofel de identitate digitală compatibil EUDI |
+| Schimb de date | MConnect ([MConnect Events](../guides/mconnect-events/index.md)), [Catalogul Semantic](http://semantic.gov.md/) | Date autentice direct din registrele sursă, distribuirea evenimentelor aproape în timp real, punct unic de descoperire pentru datele guvernamentale |
+| Facilitatori de servicii | [MPay](../guides/mpay/index.md), [MNotify](../guides/mnotify/index.md), [MDelivery](../guides/mdelivery/index.md), [MDocs](../guides/mdocs/index.md) | Plăți cu orice instrument disponibil pe piață, notificări multicanal, livrarea fizică a documentelor oficiale, stocarea și schimbul de documente digitale |
+| Transparență și audit | [MLog](../guides/mlog/index.md) | Înregistrarea centralizată a evenimentelor cu relevanță juridică, obligatorie pentru sistemele care procesează date personale și critice |
+| Participarea cetățenilor | [eDemocrație (ePetiții)](../guides/e-democracy/index.md) | Depunerea și procesarea electronică a petițiilor |
 
 * * *
 
-## Integration interfaces
+## Interfețe de integrare
 
-Each platform exposes a documented technical interface. The table below is the quickest way to see what kind of integration to expect before opening the corresponding guide.
+Fiecare platformă expune o interfață tehnică documentată. Tabelul de mai jos este cea mai rapidă modalitate de a vedea ce tip de integrare este de așteptat, înainte de a deschide ghidul corespunzător.
 
-| Platform | Scope | Technical interface |
+| Platformă | Domeniu | Interfață tehnică |
 | --- | --- | --- |
-| MPass | Authentication and authorization (SSO/SLO) | SAML 2.0 |
-| MSign | Electronic signature | SOAP |
-| MPay | Payments for public services | SOAP with signed messages |
-| MPower | Delegation of representation rights | REST |
-| MConnect Events | Event production and consumption | REST |
-| MNotify | Notifications (e-mail, push, Viber, Telegram, MCabinet) | REST |
-| MDelivery | Delivery of official documents | SOAP and REST |
-| MDocs | Document storage and exchange | REST |
-| MLog | Legal event logging | REST |
-| EVO Wallet | Remote presentation of identity attributes | OpenID4VP 1.0 (OAuth 2.0), ISO/IEC 18013-5 mdoc |
-| eDemocracy | Electronic petitions | REST |
+| MPass | Autentificare și autorizare (SSO/SLO) | SAML 2.0 |
+| MSign | Semnătură electronică | SOAP |
+| MPay | Plăți pentru servicii publice | SOAP cu mesaje semnate |
+| MPower | Delegarea drepturilor de reprezentare | REST |
+| MConnect Events | Producerea și consumul de evenimente | REST |
+| MNotify | Notificări (e-mail, push, Viber, Telegram, MCabinet) | REST |
+| MDelivery | Livrarea documentelor oficiale | SOAP și REST |
+| MDocs | Stocarea și schimbul de documente | REST |
+| MLog | Jurnalizarea evenimentelor cu relevanță juridică | REST |
+| EVO Wallet | Prezentarea la distanță a atributelor de identitate | OpenID4VP 1.0 (OAuth 2.0), ISO/IEC 18013-5 mdoc |
+| eDemocrație | Petiții electronice | REST |
 
-REST services publish machine-readable **OpenAPI** contracts — the exact locations are listed in each guide's API reference. SOAP services publish **WSDL** contracts and require message-level signatures with the service certificate.
+Serviciile REST publică contracte **OpenAPI**, lizibile automat — locațiile exacte sunt indicate în referința API din fiecare ghid. Serviciile SOAP publică contracte **WSDL** și necesită semnături la nivel de mesaj, cu certificatul de serviciu.
 
 * * *
 
-## Technology
+## Tehnologie
 
-The stack below is the reference stack used by the eGovernance Agency to build the platforms and recommended for government information systems. See [Tools and technologies](../tools/technologies.md) for the complete list.
+Stiva de mai jos este stiva de referință folosită de Agenția de Guvernare Electronică pentru construirea platformelor și este recomandată pentru sistemele informaționale guvernamentale. Vedeți [Instrumente și tehnologii](../tools/technologies.md) pentru lista completă.
 
 ### General
 
-| Technology | Description |
+| Tehnologie | Descriere |
 | --- | --- |
-| C# / .NET | The primary development platform for government digital services. A single language across backend and frontend enables shared code, shared tooling, and reusable integration libraries distributed as NuGet packages. |
-| ASP.NET Core | The web framework used for REST services and scalable web applications. |
+| C# / .NET | Platforma principală de dezvoltare pentru serviciile digitale guvernamentale. Un singur limbaj pentru backend și frontend permite cod partajat, instrumente comune și librării de integrare reutilizabile, distribuite ca pachete NuGet. |
+| ASP.NET Core | Framework-ul web utilizat pentru servicii REST și aplicații web scalabile. |
 
 ### Frontend
 
-| Technology | Description |
+| Tehnologie | Descriere |
 | --- | --- |
-| Blazor (Server / WebAssembly) | Framework for building interactive web interfaces in .NET, keeping one language across the whole solution. |
-| Fod.UIComponents | The Agency's own Blazor UI component library and the target component standard for new interfaces, aligned with the unified design system. |
-| MudBlazor | Component library used by existing applications — the ecosystem is transitioning from MudBlazor to Fod.UIComponents. |
-| MUD — Unified design system | The [Moldovan Statewide Design System](../mud/index.md) — mandatory for all public institutions and their suppliers. Standardizes components, color palettes, typography, spacing, and interaction patterns with accessibility built in. |
+| Blazor (Server / WebAssembly) | Framework pentru construirea interfețelor web interactive în .NET, păstrând un singur limbaj în întreaga soluție. |
+| Fod.UIComponents | Biblioteca proprie de componente UI Blazor a Agenției și standardul țintă pentru interfețele noi, aliniat la sistemul unitar de design. |
+| MudBlazor | Bibliotecă de componente utilizată de aplicațiile existente — ecosistemul este în tranziție de la MudBlazor la Fod.UIComponents. |
+| MUD — sistemul unitar de design | [Modelul Unitar de Design al Moldovei](../mud/index.md) — obligatoriu pentru toate instituțiile publice și furnizorii acestora. Standardizează componentele, paletele de culori, tipografia, spațierea și tiparele de interacțiune, cu accesibilitatea integrată. |
 
 ### Backend
 
-| Technology | Description |
+| Tehnologie | Descriere |
 | --- | --- |
-| Entity Framework Core | Object-relational mapper for access to relational databases. |
-| FluentValidation | Declarative validation of requests and business rules. |
-| Swashbuckle (OpenAPI) | Generates Swagger documentation directly from the service code, keeping API contracts and implementation in sync. |
+| Entity Framework Core | Mapor obiect-relațional (ORM) pentru accesul la baze de date relaționale. |
+| FluentValidation | Validare declarativă a cererilor și regulilor de business. |
+| Swashbuckle (OpenAPI) | Generează documentația Swagger direct din codul serviciului, menținând contractele API și implementarea sincronizate. |
 
-### Data
+### Date
 
-| Technology | Description |
+| Tehnologie | Descriere |
 | --- | --- |
-| SQL Server / PostgreSQL | Relational storage for transactional data. |
-| Redis | Distributed caching and performance optimization. |
-| JSON structures | Dynamic configuration of rules, categories, and validations without redeployment. |
+| SQL Server / PostgreSQL | Stocare relațională pentru date tranzacționale. |
+| Redis | Caching distribuit și optimizarea performanței. |
+| Structuri JSON | Configurare dinamică a regulilor, categoriilor și validărilor, fără redistribuire (redeployment). |
 
-### Protocols and specifications
+### Protocoale și specificații
 
-| Protocol | Where it is used |
+| Protocol | Unde este utilizat |
 | --- | --- |
-| SAML 2.0 | Authentication and identity attributes exchange with MPass. |
-| SOAP | Signature, payment, and delivery operations (MSign, MPay, MDelivery), with certificate-based message signing. |
-| REST + OpenAPI | Modern service interfaces (MPower, MConnect Events, MNotify, MDocs, MLog, eDemocracy). |
-| OAuth 2.0 / OpenID4VP 1.0 | Presentation of wallet credentials to relying parties (EVO Wallet), with documents in ISO/IEC 18013-5 mdoc format per the EUDI Wallet regulation. |
-| TLS with client certificates | Transport security and client authentication across platforms, using certificates issued by [STISC](https://semnatura.md/). |
+| SAML 2.0 | Autentificare și schimb de atribute de identitate cu MPass. |
+| SOAP | Operațiuni de semnare, plată și livrare (MSign, MPay, MDelivery), cu semnarea mesajelor pe bază de certificat. |
+| REST + OpenAPI | Interfețe moderne de servicii (MPower, MConnect Events, MNotify, MDocs, MLog, eDemocrație). |
+| OAuth 2.0 / OpenID4VP 1.0 | Prezentarea acreditărilor din portofel către părțile care se bazează pe acestea (relying parties) (EVO Wallet), cu documente în format ISO/IEC 18013-5 mdoc, conform reglementării EUDI Wallet. |
+| TLS cu certificate client | Securitatea transportului și autentificarea clienților în toate platformele, folosind certificate emise de [STISC](https://semnatura.md/). |
 
-### Integration libraries
+### Librării de integrare
 
-Official integration libraries are published to [NuGet](https://www.nuget.org/profiles/egov-moldova) for systems built on ASP.NET Core, for example:
+Librăriile oficiale de integrare sunt publicate pe [NuGet](https://www.nuget.org/profiles/egov-moldova) pentru sistemele construite pe ASP.NET Core, de exemplu:
 
-| Package | Purpose |
+| Pachet | Scop |
 | --- | --- |
-| `Egov.Integrations.MPass.Saml` | Service Provider integration with MPass using SAML 2.0. |
-| `Egov.Integrations.MSign.Soap` | Integration with MSign for digital signature operations over SOAP. |
-| `Egov.Extensions.Configuration` | Certificate loading and configuration helpers shared by the Egov packages. |
+| `Egov.Integrations.MPass.Saml` | Integrarea Service Provider cu MPass, folosind SAML 2.0. |
+| `Egov.Integrations.MSign.Soap` | Integrare cu MSign pentru operațiuni de semnătură digitală, prin SOAP. |
+| `Egov.Extensions.Configuration` | Utilitare pentru încărcarea certificatelor și configurare, partajate de pachetele Egov. |
 
-Systems built on other stacks integrate through the open protocols directly — the guides include samples in other languages (for example, Java samples for MLog). See the *Integration libraries* section of each guide.
+Sistemele construite pe alte stive tehnologice se integrează direct prin protocoalele deschise — ghidurile includ exemple în alte limbaje (de exemplu, exemple Java pentru MLog). Vedeți secțiunea *Librării de integrare* din fiecare ghid.
 
-### Code storage and collaboration
+### Stocarea codului și colaborare
 
-| Tool | Description |
+| Instrument | Descriere |
 | --- | --- |
-| Azure DevOps | Work management (deliveries, tasks, bugs) and automated build, test, and deploy pipelines. |
-| GitLab | Version control and continuous integration. |
-| Private NuGet feeds | Distribution of reusable internal components across teams. |
-| GitHub ([egov-moldova](https://github.com/egov-moldova)) | Public home of this documentation and of open integration libraries and samples. |
+| Azure DevOps | Gestionarea activității (livrări, sarcini, defecte) și pipeline-uri automatizate de build, testare și deploy. |
+| GitLab | Controlul versiunilor și integrare continuă. |
+| Feed-uri NuGet private | Distribuirea componentelor interne reutilizabile între echipe. |
+| GitHub ([egov-moldova](https://github.com/egov-moldova)) | Locul public al acestei documentații și al librăriilor și exemplelor de integrare open-source. |
 
-### Infrastructure
+### Infrastructură
 
-| Technology | Description |
+| Tehnologie | Descriere |
 | --- | --- |
-| MCloud | The government cloud platform hosting the services, with configurations for scalability, security, and disaster recovery. |
-| Docker | Packaging of applications into portable containers. |
-| Kubernetes | Orchestration of containerized services. |
-| Helm | Declarative, versioned deployments to Kubernetes with fast rollback. |
+| MCloud | Platforma cloud guvernamentală care găzduiește serviciile, cu configurații pentru scalabilitate, securitate și recuperare în caz de dezastru. |
+| Docker | Împachetarea aplicațiilor în containere portabile. |
+| Kubernetes | Orchestrarea serviciilor containerizate. |
+| Helm | Implementări declarative și versionate în Kubernetes, cu rollback rapid. |
 
-### Monitoring and observability
+### Monitorizare și observabilitate
 
-| Tool | Description |
+| Instrument | Descriere |
 | --- | --- |
-| Elasticsearch + Kibana | Indexing, searching, and visualizing logs and operational data. |
-| Prometheus + Grafana | Metrics collection, monitoring, and dashboards. |
-| MLog | Registration of legally significant events, complementing technical logging with an audit trail required by regulation. |
+| Elasticsearch + Kibana | Indexarea, căutarea și vizualizarea jurnalelor și a datelor operaționale. |
+| Prometheus + Grafana | Colectarea metricilor, monitorizare și tablouri de bord (dashboards). |
+| MLog | Înregistrarea evenimentelor cu relevanță juridică, completând jurnalizarea tehnică cu o pistă de audit impusă de reglementare. |
 
-### Documentation
+### Documentație
 
-| Resource | Description |
+| Resursă | Descriere |
 | --- | --- |
-| eGov4Dev | This site — the official developer documentation, built with MkDocs and published from the [egov4dev](https://github.com/egov-moldova/egov4dev) repository. |
-| OpenAPI contracts | Machine-readable API contracts published by the REST services; locations are listed in each integration guide's API reference. |
+| eGov4Dev | Acest site — documentația oficială pentru dezvoltatori, construită cu MkDocs și publicată din repository-ul [egov4dev](https://github.com/egov-moldova/egov4dev). |
+| Contracte OpenAPI | Contracte API lizibile automat, publicate de serviciile REST; locațiile sunt indicate în referința API din fiecare ghid de integrare. |
 
 * * *
 
-## Environments
+## Medii
 
-Every platform is available in two environments, following a consistent URL convention:
+Fiecare platformă este disponibilă în două medii, urmând o convenție consecventă de URL:
 
-| Environment | URL pattern | Purpose |
+| Mediu | Model de URL | Scop |
 | --- | --- | --- |
-| Staging | `https://<service>.staging.egov.md` | Integration development and testing. |
-| Production | `https://<service>.gov.md` | Live operation, after successful integration testing. |
+| Testare (staging) | `https://<service>.staging.egov.md` | Dezvoltarea și testarea integrării. |
+| Producție | `https://<service>.gov.md` | Funcționare live, după testarea cu succes a integrării. |
 
-Access to both environments requires registration of the integrating system and, for most platforms, a client certificate issued by STISC used for TLS authentication and — for SOAP services — message signing. The exact steps, contacts, and contractual requirements are described in the [Connection procedure](../platforms/procedure.md).
-
-* * *
-
-## Practices
-
-**Architecture.** All solutions must follow the [Development principles](../principles/architecture.md): interoperability by default, security and privacy by design, reuse of shared platforms, the once-only principle, and event-driven integration ("events by default"). Data is consumed from authentic registers through MConnect rather than collected repeatedly from citizens.
-
-**Integration lifecycle.** Integrations start in staging, follow the steps in the [Connection procedure](../platforms/procedure.md), and move to production only after integration testing. Platforms with legal or financial impact (for example MPass, MPay, MSign) additionally require contracts per the applicable regulatory framework — see [access and pricing](../platforms/index.md#access-and-pricing).
-
-**Engineering standards.** Teams building solutions for the ecosystem follow the standards in this section: the [API design guide](api-design-guide.md) for new service interfaces, the [code standards](code-standards.md) and [code review rules](code-reviews.md) for day-to-day development, [architecture decision records](adr.md) for significant technical choices, and the [log management](log-management.md) requirements for auditability.
-
-**Consistent guides.** Every integration guide in this documentation follows the same skeleton — overview, connection steps, interaction scenarios, integration development, API reference, examples, integration libraries, and change log — so once you have integrated one platform, the next one will feel familiar.
+Accesul la ambele medii necesită înregistrarea sistemului care se integrează și, pentru majoritatea platformelor, un certificat client emis de STISC, utilizat pentru autentificare TLS și — pentru serviciile SOAP — pentru semnarea mesajelor. Pașii exacți, contactele și cerințele contractuale sunt descrise în [Procedura de conectare](../platforms/procedure.md).
 
 * * *
 
-## Where to go next
+## Practici
 
-- [Platforms and services](../platforms/index.md) — what each platform does and on what terms it is available
-- [Connection procedure](../platforms/procedure.md) — how to get connected to a service
-- [Development principles](../principles/architecture.md) — the mandatory architecture principles
-- [Tools and technologies](../tools/technologies.md) — the full technology reference
-- [Unified design system](../mud/index.md) — the national design standard for government interfaces
-- **Integration guides** — the step-by-step guide for the platform you are integrating
+**Arhitectură.** Toate soluțiile trebuie să respecte [Principiile de dezvoltare](../principles/architecture.md): interoperabilitate implicită, securitate și confidențialitate încă din concepție, reutilizarea platformelor partajate, principiul „o singură dată” și integrarea orientată pe evenimente („evenimente implicit”). Datele sunt consumate din registre autentice prin MConnect, în loc să fie colectate repetat de la cetățeni.
+
+**Ciclul de viață al integrării.** Integrările încep în mediul de testare (staging), urmează pașii din [Procedura de conectare](../platforms/procedure.md) și trec în producție doar după testarea integrării. Platformele cu impact juridic sau financiar (de exemplu, MPass, MPay, MSign) necesită suplimentar contracte, conform cadrului normativ aplicabil — vedeți [acces și tarife](../platforms/index.md#acces-%C8%99i-tarife).
+
+**Standarde de inginerie.** Echipele care construiesc soluții pentru ecosistem respectă standardele din această secțiune: [ghidul de proiectare a API-urilor](api-design-guide.md) pentru noile interfețe de servicii, [standardele de cod](code-standards.md) și [regulile de revizuire a codului](code-reviews.md) pentru dezvoltarea zilnică, [înregistrările deciziilor de arhitectură](adr.md) pentru alegerile tehnice semnificative și cerințele de [gestionare a jurnalelor](log-management.md) pentru auditabilitate.
+
+**Ghiduri coerente.** Fiecare ghid de integrare din această documentație urmează aceeași structură — prezentare generală, pași de conectare, scenarii de interacțiune, dezvoltarea integrării, referința API, exemple, librării de integrare și jurnalul de modificări — astfel încât, odată ce ați integrat o platformă, următoarea vă va părea familiară.
+
+* * *
+
+## Ce urmează
+
+- [Platforme și servicii](../platforms/index.md) — ce face fiecare platformă și în ce condiții este disponibilă
+- [Procedura de conectare](../platforms/procedure.md) — cum vă puteți conecta la un serviciu
+- [Principii de dezvoltare](../principles/architecture.md) — principiile de arhitectură obligatorii
+- [Instrumente și tehnologii](../tools/technologies.md) — referința tehnologică completă
+- [Sistemul unitar de design](../mud/index.md) — standardul național de design pentru interfețele guvernamentale
+- **Ghiduri de integrare** — ghidul pas cu pas pentru platforma pe care o integrați

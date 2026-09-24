@@ -1,164 +1,164 @@
-MDocs is an IT solution provided as a SaaS service based on the MCloud platform designed to implement a centralized mechanism for storing and sharing documents resulting from the provision of public services, and its beneficiaries will be natural persons and legal entities of public and private law.
+MDocs este o soluție IT oferită ca serviciu SaaS, bazată pe platforma MCloud, concepută pentru a implementa un mecanism centralizat de stocare și partajare a documentelor rezultate din prestarea serviciilor publice, iar beneficiarii acestuia vor fi persoane fizice și juridice de drept public și privat.
 
-This document describes the technical interfaces exposed by MDocs for information systems that will use MDocs as document exchange and storage. Its target audience is the development teams for those information systems.
+Acest document descrie interfețele tehnice expuse de MDocs pentru sistemele informaționale care vor utiliza MDocs ca mijloc de schimb și stocare a documentelor. Publicul-țintă al acestuia îl constituie echipele de dezvoltare ale acestor sisteme informaționale.
 
-The document contains all relevant information required for a complete understanding of MDocs from the integration point of view. It contains integrations development details, security considerations and an API reference.
+Documentul conține toate informațiile relevante necesare pentru o înțelegere completă a MDocs din punctul de vedere al integrării. Acesta include detalii privind dezvoltarea integrărilor, considerații de securitate și o referință API.
 
-This document also includes sample REST requests and responses that exemplify the main interaction scenario.
+Acest document include, de asemenea, exemple de request-uri și response-uri REST care exemplifică scenariul principal de interacțiune.
 
-## At a glance
+## Pe scurt
 
-**What it is.** The government platform for storing and sharing documents resulting from the delivery of public services. The institution uploads the document once; the beneficiary — a natural person or legal entity — retrieves it and can share it onward, with read or write permission, without exchanging files by e-mail. It is offered as a service (SaaS) on the common government technology platform MCloud. It is particularly useful for authorities that have no document management solution of their own.
+**Ce este.** Platforma guvernamentală pentru stocarea și partajarea documentelor rezultate din prestarea serviciilor publice. Instituția încarcă documentul o singură dată; beneficiarul — o persoană fizică sau juridică — îl preia și îl poate partaja în continuare, cu drept de citire sau scriere, fără a face schimb de fișiere prin e-mail. Este oferit ca serviciu (SaaS) pe platforma tehnologică guvernamentală comună MCloud. Este util în special pentru autoritățile care nu dispun de o soluție proprie de gestionare a documentelor.
 
-**Legal basis.** HG nr. 305/2024 cu privire la serviciul guvernamental de păstrare și partajare a documentelor (MDocs) — pct. 3 — desemnarea posesorului și deținătorului.
+**Temei normativ.** HG nr. 305/2024 cu privire la serviciul guvernamental de păstrare și partajare a documentelor (MDocs) — pct. 3 — desemnarea posesorului și deținătorului.
 
-Related acts: HG nr. 128/2014 (MCloud — platforma pe care este găzduit serviciul); Legea nr. 133/2011.
+Acte conexe: HG nr. 128/2014 (MCloud — platforma pe care este găzduit serviciul); Legea nr. 133/2011.
 
-**Who is accountable.**
+**Cine răspunde.**
 
-| Role | Entity |
+| Rol | Entitate |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | STISC |
+| Posesor | AGE |
+| Deținător | AGE |
+| Operator tehnico-tehnologic | STISC |
 
-**Roles in an integration.**
+**Roluri în integrare.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
-- STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
-- Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
-- Development/integration team — implements and tests the technical integration.
-- End user — the natural person or legal entity benefiting from the service.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
-**Access conditions.**
+**Condiții de acces.**
 
 Gratuit. Obligatoriu: certificat STISC și acord cu AGE pentru suita M.
 
-**Who this guide is for.**
+**Cui se adresează acest ghid.**
 
-Primary: development and integration teams of the holders of information systems, public and private.
-Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
 
-## Jump right in
+## Treci direct la treabă
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
       <div class="quick-link-icon">⚡</div>
-      <h3 class="quick-link-title">Connection steps</h3>
-      <p class="quick-link-description">Get started with integration</p>
+      <h3 class="quick-link-title">Pașii de conectare</h3>
+      <p class="quick-link-description">Începe integrarea</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
       <div class="quick-link-icon">📘</div>
-      <h3 class="quick-link-title">Integration guide</h3>
-      <p class="quick-link-description">Step-by-step documentation</p>
+      <h3 class="quick-link-title">Ghid de integrare</h3>
+      <p class="quick-link-description">Documentație pas cu pas</p>
     </a>    
   </div>
       <div class="quick-links-container">
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API reference</h3>
-      <p class="quick-link-description">Explore endpoints and callbacks</p>
+      <h3 class="quick-link-title">Referință API</h3>
+      <p class="quick-link-description">Explorează endpoint-urile și callback-urile</p>
     </a>
     <a href="https://www.nuget.org/profiles/egov-moldova" class="quick-link-card">
       <div class="quick-link-icon">📦</div>
-      <h3 class="quick-link-title">NuGet packages</h3>
-      <p class="quick-link-description">.NET packages for your application.</p>
+      <h3 class="quick-link-title">Pachete NuGet</h3>
+      <p class="quick-link-description">Pachete .NET pentru aplicația ta.</p>
     </a>
   </div>
 </div>
 
-## Scope and target audience
+## Domeniu de aplicare și public-țintă
 
-This document describes the technical interfaces exposed by MDocs for information systems that will use MDocs for storing and sharing documents resulting from the provision of public services. Its target audience is the development teams for those information systems.
+Acest document descrie interfețele tehnice expuse de MDocs pentru sistemele informaționale care vor utiliza MDocs pentru stocarea și partajarea documentelor rezultate din prestarea serviciilor publice. Publicul-țintă al acestuia îl constituie echipele de dezvoltare ale acestor sisteme informaționale.
 
-The details related to deciding what events are important for an information system are out of scope of this document.
+Detaliile legate de decizia privind evenimentele importante pentru un sistem informațional nu fac obiectul acestui document.
 
-## Structure of this document
+## Structura acestui document
 
-This document contains the relevant information required for a complete understanding of MDocs from the integration point of view. It is also accompanied by samples that exemplify some integration scenarios using certain technologies.
+Acest document conține informațiile relevante necesare pentru o înțelegere completă a MDocs din punctul de vedere al integrării. Este însoțit, de asemenea, de exemple care ilustrează unele scenarii de integrare utilizând anumite tehnologii.
 
-The recommended reading sequence are the following chapters:
+Secvența de citire recomandată este următoarea, pe capitole:
 
-- System context
-- Interaction scenarios
-- Integration development
-- Security considerations
+- Contextul sistemului
+- Scenarii de interacțiune
+- Dezvoltarea integrării
+- Considerații de securitate
 
-The remaining chapters are for reference purpose.
+Celelalte capitole au rol de referință.
 
-## General system capabilities
+## Capabilități generale ale sistemului
 
-The Document Hosting and Sharing Service (MDocs) is an IT solution provided as a SaaS service based on the MCloud platform designed to implement a centralized mechanism for storing and sharing documents resulting from the provision of public services, and its beneficiaries will be natural persons and legal entities of public and private law.
+Serviciul de Găzduire și Partajare a Documentelor (MDocs) este o soluție IT oferită ca serviciu SaaS, bazată pe platforma MCloud, concepută pentru a implementa un mecanism centralizat de stocare și partajare a documentelor rezultate din prestarea serviciilor publice, iar beneficiarii acestuia vor fi persoane fizice și juridice de drept public și privat.
 
-The provision of document hosting and sharing services will enable standardization of the processes of sharing the results of public services provided by public authorities in the Republic of Moldova through a digital platform, which will be accessible to public authorities that have not yet digitized their services.
+Prestarea serviciilor de găzduire și partajare a documentelor va permite standardizarea proceselor de partajare a rezultatelor serviciilor publice oferite de autoritățile publice din Republica Moldova printr-o platformă digitală, care va fi accesibilă autorităților publice care nu și-au digitizat încă serviciile.
 
-The technological and organizational benefits of providing the file hosting and sharing tool are as follows:
+Beneficiile tehnologice și organizaționale ale oferirii instrumentului de găzduire și partajare a fișierelor sunt următoarele:
 
-- a centralized data repository of all documents delivered during the provision of public services;
-- a standardized process for sharing documents related to the outcome of public service delivery;
-- digitization of the document sharing process for public authorities that do not have powerful IT solutions;
-- reducing the costs of delivering public services;
-- encouraging electronic exchange of documents between public authorities in the Republic of Moldova;
-- creating conditions for the implementation of software for the creation and management of electronic archives;
-- an efficient mechanism for automatic data exchange between the information systems with which the Document Hosting and Sharing Service (MDocs) will interact;
-- integration with government platform services (MPass, MSign, MNotify, MLog, MPower, MCabinet, MDelivery, MWallet, MConnect, Semantic Catalog, Open Data Portal);
-- a single intuitive and ergonomic user interface;
-- high-performance management, configuration and dynamic development facilities.
+- un repozitoriu centralizat de date pentru toate documentele livrate în cadrul prestării serviciilor publice;
+- un proces standardizat pentru partajarea documentelor legate de rezultatul prestării serviciului public;
+- digitizarea procesului de partajare a documentelor pentru autoritățile publice care nu dispun de soluții IT performante;
+- reducerea costurilor de prestare a serviciilor publice;
+- încurajarea schimbului electronic de documente între autoritățile publice din Republica Moldova;
+- crearea condițiilor pentru implementarea unor soluții software pentru crearea și gestionarea arhivelor electronice;
+- un mecanism eficient pentru schimbul automat de date între sistemele informaționale cu care va interacționa Serviciul de Găzduire și Partajare a Documentelor (MDocs);
+- integrarea cu serviciile platformelor guvernamentale (MPass, MSign, MNotify, MLog, MPower, MCabinet, MDelivery, MWallet, MConnect, Catalogul Semantic, Portalul Date Deschise);
+- o interfață de utilizator unică, intuitivă și ergonomică;
+- facilități performante de gestionare, configurare și dezvoltare dinamică.
 
-By providing document hosting and sharing services, the Government aims to improve public services through the digital platforms of public authorities in the Republic of Moldova and to reduce the use of paper documents by providing adequate facilities to citizens.
+Prin oferirea serviciilor de găzduire și partajare a documentelor, Guvernul urmărește îmbunătățirea serviciilor publice prin intermediul platformelor digitale ale autorităților publice din Republica Moldova și reducerea utilizării documentelor pe suport de hârtie, prin oferirea unor facilități adecvate cetățenilor.
 
-## Protocols and standards
+## Protocoale și standarde
 
-**MDocs** exposes HTTP REST interface and uses JSON as message format.
+**MDocs** expune o interfață HTTP REST și utilizează JSON ca format de mesaj.
 
-## Document type
+## Tip de document
 
-By default, there are two document types in the system: Unknown and folder.
+Implicit, în sistem există două tipuri de documente: Unknown și folder.
 
-All other kind of doc types should be defined by an administrator.
+Orice alt tip de document trebuie definit de un administrator.
 
-If the document type is not specified when uploading the blob, then the default is document type Unknown.
+Dacă tipul de document nu este specificat la încărcarea blob-ului, atunci implicit se aplică tipul de document Unknown.
 
-**Available configuration flags:**
+**Flag-uri de configurare disponibile:**
 
-| **Name** | **Description** |
+| **Nume** | **Descriere** |
 |---|---|
-| **Official document** | Allow the Administrator to mark a document type as official. Pre-defined document types cannot be official. |
-| **Permanent delete on expiration** | Marks the document types that are completely deleted when expiring or deleted first through Recycle bin. "Expiring" document is considered if ExpiresOn is less than 30 days (configurable time span). Meaning permanent deletion on expiration. |
-| **Allow anonymous document verification** | Allows public verification for documents of this type. |
-| **Documents versioning** | Allows document versioning |
+| **Official document** | Permite administratorului să marcheze un tip de document ca fiind oficial. Tipurile de documente predefinite nu pot fi oficiale. |
+| **Permanent delete on expiration** | Marchează tipurile de documente care sunt șterse complet la expirare sau șterse mai întâi prin coșul de reciclare (Recycle bin). Un document este considerat „în curs de expirare” dacă ExpiresOn este mai mic de 30 de zile (interval de timp configurabil). Aceasta înseamnă ștergere permanentă la expirare. |
+| **Allow anonymous document verification** | Permite verificarea publică a documentelor de acest tip. |
+| **Documents versioning** | Permite versionarea documentelor |
 
-## Share permission
+## Permisiuni de partajare
 
-| **Description** | **Permission** | |
+| **Descriere** | **Permisiune** | |
 |---|---|---|
-| | **Read** | **Write** |
-| The principal can **view** the file or folder. | **Yes** | **Yes** |
-| The principal can **read** the file or folder (including down the hierarchy). | **Yes** | **Yes** |
-| The principal can **edit** the file or folder (including down the hierarchy). | **No** | **Yes** |
-| The principal can **overwrite** the file or **add**/**remove** any document in the shared folder. | **No** | **Yes** |
-| The principal can **recycle** the shared document (file/folder), but not delete it permanently. | **No** | **Yes** |
+| | **Citire** | **Scriere** |
+| Principalul poate **vizualiza** fișierul sau folderul. | **Da** | **Da** |
+| Principalul poate **citi** fișierul sau folderul (inclusiv în josul ierarhiei). | **Da** | **Da** |
+| Principalul poate **edita** fișierul sau folderul (inclusiv în josul ierarhiei). | **Nu** | **Da** |
+| Principalul poate **suprascrie** fișierul sau poate **adăuga**/**elimina** orice document din folderul partajat. | **Nu** | **Da** |
+| Principalul poate **recicla** documentul partajat (fișier/folder), dar nu îl poate șterge definitiv. | **Nu** | **Da** |
 
-## Pagination
+## Paginare
 
-**Parameters**
+**Parametri**
 
-| **Name** | **Data Type** | **Description** |
+| **Nume** | **Tip de date** | **Descriere** |
 |---|---|---|
-| page | integer($int32) | number of the page you want to display |
-| itemsPerPage | integer($int32) | number of items to display per page |
-| orderField | string | order list by the field provided |
-| searchBy | string | filter list to display documents that have fields containing the provided text |
+| page | integer($int32) | numărul paginii pe care doriți să o afișați |
+| itemsPerPage | integer($int32) | numărul de elemente de afișat per pagină |
+| orderField | string | ordonează lista după câmpul indicat |
+| searchBy | string | filtrează lista pentru a afișa documentele care au câmpuri ce conțin textul indicat |
 
 ## Format
 
-The Content-Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).
+Header-ul de reprezentare Content-Type este utilizat pentru a indica tipul media original al resursei (înainte de aplicarea oricărei codificări a conținutului pentru transmitere).
 
-MDocs allows any MIME Types for blobs, but has special treatment for the following:
+MDocs permite orice tip MIME pentru blob-uri, dar aplică un tratament special pentru următoarele:
 
-| **MIME-Type** | **Extension** |
+| **Tip MIME** | **Extensie** |
 |---|---|
 | application/json | .json |
 
-For document type with specified schema the contents of the document is validated against the schema.
+Pentru tipurile de document cu schemă specificată, conținutul documentului este validat în raport cu schema respectivă.

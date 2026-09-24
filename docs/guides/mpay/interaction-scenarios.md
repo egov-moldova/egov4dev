@@ -1,81 +1,81 @@
-Because MPay integrates multiple payable e-Service providers and different payment providers that offer a variety of payment instruments, there are many ways a payer can interact with it.
+Deoarece MPay integrează mai mulți prestatori de e-Servicii plătibile și diferiți furnizori de plăți care oferă o varietate de instrumente de plată, există numeroase moduri în care un plătitor poate interacționa cu acesta.
 
-## Order and pay online
+## Comandă și plătește online
 
 <img src="../mpay-dark.svg">
 
-### Scenario steps:
+### Pașii scenariului:
 
-1. **Order creation**
-    - A Payer fills in and submits an order at a payable e-Service page
-    - The order is persisted in e-Service database
+1. **Crearea comenzii**
+    - Un Plătitor completează și trimite o comandă pe pagina unui e-Serviciu plătibil
+    - Comanda este persistată în baza de date a e-Serviciului
 
-2. **Payment initiation**
-    - e-Service order confirmation page displays a "Pay" button
+2. **Inițierea plății**
+    - Pagina de confirmare a comenzii din e-Serviciu afișează un buton „Plătește"
 
-3. **Redirect to MPay**
-    - Clicking on this button redirects payer's browser to MPay's pay page
+3. **Redirecționarea către MPay**
+    - Apăsarea acestui buton redirecționează browserul plătitorului către pagina de plată a MPay
 
-4. **Payment page request**
-    - The browser posts ServiceID, OrderKey and, optionally, a ReturnUrl to MPay's pay page (see Perform chapter)
+4. **Solicitarea paginii de plată**
+    - Browserul trimite ServiceID, OrderKey și, opțional, un ReturnUrl către pagina de plată a MPay (vezi capitolul Efectuare)
 
-5. **Order details retrieval**
-    - Before displaying the pay web page, MPay invokes `IServiceProvider.GetOrderDetails` operation implemented by e-Service web-service
+5. **Preluarea detaliilor comenzii**
+    - Înainte de a afișa pagina web de plată, MPay invocă operația `IServiceProvider.GetOrderDetails` implementată de serviciul web al e-Serviciului
 
-6. **Invoice generation**
-    - Based on returned OrderDetails, MPay creates or updates an existing invoice and shows the invoice details to the payer
+6. **Generarea facturii**
+    - Pe baza OrderDetails returnat, MPay creează sau actualizează o factură existentă și afișează plătitorului detaliile facturii
 
-7. **Payment method selection**
-    - Payer selects a payment method (instrument)
-    - For bank card payments this means publishing invoice details to the appropriate card processor (which is one of the payment providers)
+7. **Selectarea metodei de plată**
+    - Plătitorul selectează o metodă de plată (instrument)
+    - Pentru plățile cu card bancar, aceasta înseamnă publicarea detaliilor facturii către procesatorul de card corespunzător (care este unul dintre furnizorii de plăți)
 
-8. **Redirect to payment provider**
-    - MPay redirects the browser to instrument's specific payment page
+8. **Redirecționarea către furnizorul de plăți**
+    - MPay redirecționează browserul către pagina de plată specifică instrumentului
 
-9. **Payment details submission**
-    - Payer fills in the required payment details (such as card details) and submits the payment for authorization
+9. **Transmiterea detaliilor de plată**
+    - Plătitorul completează detaliile de plată necesare (precum detaliile cardului) și trimite plata pentru autorizare
 
-10. **Payment authorization**
-    - Payment provider performs the appropriate payment authorization
+10. **Autorizarea plății**
+    - Furnizorul de plăți efectuează autorizarea corespunzătoare a plății
 
-11. **Redirect to payment result**
-    - Payment provider redirects the browser to MPay's payment result page
+11. **Redirecționarea către rezultatul plății**
+    - Furnizorul de plăți redirecționează browserul către pagina de rezultat a plății din MPay
 
-12. **Payment confirmation retrieval**
-    - Before displaying payment results, MPay retrieves a payment confirmation from the payment provider
+12. **Preluarea confirmării plății**
+    - Înainte de a afișa rezultatele plății, MPay preia o confirmare de plată de la furnizorul de plăți
 
-13. **Payment confirmation to e-Service**
-    - If the payment is successful, MPay sends a payment confirmation to e-Service by invoking `IServiceProvider.ConfirmOrderPayment` operation implemented by e-Service web-service and displays payment results to the payer
-    - **Note:** ConfirmOrderPayment call can be retried multiple times, until it succeeds. This means that all implementations must be **idempotent**, i.e. multiple calls must not be considered as multiple payments
+13. **Confirmarea plății către e-Serviciu**
+    - Dacă plata este reușită, MPay trimite o confirmare de plată către e-Serviciu, invocând operația `IServiceProvider.ConfirmOrderPayment` implementată de serviciul web al e-Serviciului, și afișează plătitorului rezultatele plății
+    - **Notă:** Apelul ConfirmOrderPayment poate fi reîncercat de mai multe ori, până când reușește. Aceasta înseamnă că toate implementările trebuie să fie **idempotente**, adică apelurile multiple nu trebuie considerate drept plăți multiple
 
-14. **Receipt download (optional)**
-    - Optionally, payer can download and print a payment receipt
+14. **Descărcarea chitanței (opțional)**
+    - Opțional, plătitorul poate descărca și imprima o chitanță de plată
 
-15. **Return to e-Service (optional)**
-    - Optionally, if ReturnUrl was provided at step 4, payer can choose to return to e-Service page
-    - In this case, MPay redirects the browser to the ReturnUrl
+15. **Revenirea la e-Serviciu (opțional)**
+    - Opțional, dacă ReturnUrl a fost furnizat la pasul 4, plătitorul poate alege să revină la pagina e-Serviciului
+    - În acest caz, MPay redirecționează browserul către ReturnUrl
 
 ---
 
-## Pay an existing order
+## Plătește o comandă existentă
 
-### Scenario steps:
+### Pașii scenariului:
 
-1. **Navigate to MPay**
-    - Payer navigates to MPay:
+1. **Navigarea către MPay**
+    - Plătitorul navighează către MPay:
       - Test: https://mpay.staging.egov.md
-      - Production: https://mpay.gov.md
+      - Producție: https://mpay.gov.md
 
-2. **Select service**
-    - Payer selects a service he has the order for
+2. **Selectarea serviciului**
+    - Plătitorul selectează serviciul pentru care are comanda
 
-3. **Enter order key**
-    - Payer enters the order key (such as order/request number, ticket number for fines, etc.)
+3. **Introducerea cheii comenzii**
+    - Plătitorul introduce cheia comenzii (precum numărul comenzii/cererii, numărul biletului pentru amenzi etc.)
 
-4. **Continue with standard flow**
-    - The scenario then continues with **step 5** of the "Order and Pay online" scenario with IServiceProvider implementation (except returning to ReturnUrl)
-    - i.e. the order is searched by invoking `IServiceProvider.GetOrderDetails` operation
+4. **Continuarea cu fluxul standard**
+    - Scenariul continuă apoi cu **pasul 5** al scenariului „Comandă și Plătește online", cu implementarea IServiceProvider (cu excepția revenirii la ReturnUrl)
+    - adică, se caută comanda invocând operația `IServiceProvider.GetOrderDetails`
 
-### Additional use case:
+### Caz de utilizare suplimentar:
 
-This scenario is also applicable when accessing **payment terminals** (just replace MPay with payment terminal in scenario description text).
+Acest scenariu este de asemenea aplicabil la accesarea **terminalelor de plată** (înlocuiți pur și simplu MPay cu terminalul de plată în textul descrierii scenariului).

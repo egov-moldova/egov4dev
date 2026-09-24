@@ -1,37 +1,37 @@
-## 1. Submit connection request
+## 1. Depunerea cererii de conectare
 
-Complete the onboarding form:
+Completați formularul de onboarding:
 
-[Conectează-ți instituția la platforma eDemocrație](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUOUtaRlJISFA1TzgzMUkySEQzOEZMMENMWi4u&route=shorturl)
+[Conectează-ți instituția la platforma eDemocrație](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUOUtaRlJISFA1TzgzMUkySEQzOEZMMENMWi4u&route=shorturl)
 
-## 2. Verify system registration in MPass
+## 2. Verificarea înregistrării sistemului în MPass
 
-Check whether the integrating system is already registered in **MPass (staging environment)**.
+Verificați dacă sistemul care se integrează este deja înregistrat în **MPass (mediul de staging)**.
 
-If already registered, provide:
+Dacă este deja înregistrat, furnizați:
 
-- System name
-- Certificate serial number
+- Denumirea sistemului
+- Numărul de serie al certificatului
 
-## 3. Obtain system certificate
+## 3. Obținerea certificatului de sistem
 
-[Request a **system authentication certificate** from **STISC**](https://semnatura.md/order/system-certificate)
+[Solicitați un **certificat de autentificare de sistem** de la **STISC**](https://semnatura.md/order/system-certificate)
 
-## 4. System configuration  
+## 4. Configurarea sistemului  
 
-The integration team will:
+Echipa de integrare va:
 
-- Register the system in **MPass**
-- Configure API permissions
+- Înregistra sistemul în **MPass**
+- Configura permisiunile API
 
-## 5. Implement API integration
+## 5. Implementarea integrării API
 
-Integrate your system with the **eDemocracy REST API**.
+Integrați sistemul dumneavoastră cu **API-ul REST eDemocracy**.
 
-## 6. Perform testing
+## 6. Efectuarea testării
 
-Integration must be tested in the **staging environment**.
+Integrarea trebuie testată în **mediul de staging**.
 
-## 7. Production activation  
+## 7. Activarea în producție  
 
-After successful validation, production access will be enabled.
+După validarea cu succes, accesul în producție va fi activat.

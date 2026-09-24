@@ -1,97 +1,97 @@
-﻿# API Reference
+# Referință API
 
-## Error handling rules
+## Reguli de gestionare a erorilor
 
-For errors resulted for SOAP interface invocations, MSign returns SOAP faults with fault codes and fault reasons describing the fault in plain English. If there is no SOAP fault returned by MSign, the service consumer should expect that the returned operation result, according to MSign service contract, is valid and can be used directly without additional error checking.
+Pentru erorile rezultate din invocările interfeței SOAP, MSign returnează SOAP faults cu coduri de eroare (fault codes) și motive ale erorii (fault reasons) care descriu eroarea în limbaj clar. Dacă MSign nu returnează niciun SOAP fault, consumatorul serviciului ar trebui să considere că rezultatul operației returnat, conform contractului serviciului MSign, este valid și poate fi utilizat direct, fără verificări suplimentare de eroare.
 
-Note that a SignResponse contains SignStatus, which can have Pending, Failure or Expired values, meaning there is are no signing Results returned.
+Rețineți că un SignResponse conține SignStatus, care poate avea valorile Pending, Failure sau Expired, ceea ce înseamnă că nu sunt returnate rezultate de semnare (Results).
 
 <table>
   <thead>
     <tr>
-      <th>Fault Code</th>
-      <th>Description</th>
+      <th>Cod eroare</th>
+      <th>Descriere</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>AuthenticationFailed</td>
-      <td>Service consumer authentication process failed. See Authentication</td>
+      <td>Procesul de autentificare a consumatorului serviciului a eșuat. Vezi Autentificare</td>
     </tr>
     <tr>
       <td>AuthorizationFailed</td>
-      <td>Service consumer authorization process failed. See Authorization</td>
+      <td>Procesul de autorizare a consumatorului serviciului a eșuat. Vezi Autorizare</td>
     </tr>
     <tr>
       <td>InvalidParameter</td>
-      <td>Some input parameter is invalid. Please review the returned Fault Reason text and called operation description.</td>
+      <td>Un parametru de intrare este invalid. Consultați textul returnat în Fault Reason și descrierea operației apelate.</td>
     </tr>
     <tr>
       <td>RequestNotFound</td>
-      <td>The provided requestID when calling GetSignResponse was not found by MSign. It might be incorrect or expired (i.e. removed from online DB).</td>
+      <td>requestID furnizat la apelarea GetSignResponse nu a fost găsit de MSign. Poate fi incorect sau expirat (adică eliminat din baza de date online).</td>
     </tr>
   </tbody>
 </table>
 
-The consumers using programming languages that support try… catch blocks, catching framework specific SOAP Fault exceptions is the correct way to handle service invocation errors.
+Pentru consumatorii care utilizează limbaje de programare ce suportă blocuri try…catch, capturarea excepțiilor specifice framework-ului pentru SOAP Fault este modalitatea corectă de a gestiona erorile de invocare a serviciului.
 
-## Service operations
+## Operațiile serviciului
 
 ### PostSignRequest
 
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong></td>
+      <td><strong>Semnătură</strong></td>
       <td>PostSignRequest(request: SignRequest): string</td>
     </tr>
     <tr>
-      <td><strong>Description</strong></td>
-      <td>Post a signature request for later signing.</td>
+      <td><strong>Descriere</strong></td>
+      <td>Trimite o cerere de semnătură pentru semnare ulterioară.</td>
     </tr>
     <tr>
-      <td><strong>Returns</strong></td>
-      <td>A string representing the request ID that can be later used with GetSignResponse.</td>
+      <td><strong>Returnează</strong></td>
+      <td>Un string reprezentând ID-ul cererii, care poate fi utilizat ulterior cu GetSignResponse.</td>
     </tr>
   </tbody>
 </table>
 
-**Input parameters**
+**Parametri de intrare**
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
+      <th>Nume</th>
+      <th>Tip</th>
+      <th>Descriere</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>request</td>
       <td>SignRequest</td>
-      <td>A structure representing the signature request.</td>
+      <td>O structură reprezentând cererea de semnătură.</td>
     </tr>
   </tbody>
 </table>
 
-**Faults**
+**Erori**
 
 <table>
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Reason</th>
+      <th>Cod</th>
+      <th>Motiv</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>AuthenticationFailed</td>
-      <td>Invalid authentication certificate provided, Unknown service consumer: {certificate serial number}</td>
+      <td>Certificat de autentificare furnizat invalid, consumator de serviciu necunoscut: {numărul de serie al certificatului}</td>
     </tr>
     <tr>
       <td>InvalidParameter</td>
-      <td>Some input parameter is invalid. Please review the returned Fault Reason text and called operation description.</td>
+      <td>Un parametru de intrare este invalid. Consultați textul returnat în Fault Reason și descrierea operației apelate.</td>
     </tr>
   </tbody>
 </table>
@@ -101,69 +101,69 @@ The consumers using programming languages that support try… catch blocks, catc
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong></td>
+      <td><strong>Semnătură</strong></td>
       <td>GetSignResponse(requestID: string, language: string): SignResponse</td>
     </tr>
     <tr>
-      <td><strong>Description</strong></td>
-      <td>Get the status and result of the related signature request.</td>
+      <td><strong>Descriere</strong></td>
+      <td>Obține statusul și rezultatul cererii de semnătură aferente.</td>
     </tr>
     <tr>
-      <td><strong>Returns</strong></td>
-      <td>A structure that contains the status and signature results.</td>
+      <td><strong>Returnează</strong></td>
+      <td>O structură care conține statusul și rezultatele semnăturii.</td>
     </tr>
   </tbody>
 </table>
 
-**Input parameters**
+**Parametri de intrare**
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
+      <th>Nume</th>
+      <th>Tip</th>
+      <th>Descriere</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>requestID</td>
       <td>string</td>
-      <td>The ID of SignRequest posted earlier using PostSignRequest operation.</td>
+      <td>ID-ul SignRequest-ului trimis anterior prin operația PostSignRequest.</td>
     </tr>
     <tr>
       <td>language</td>
       <td>string</td>
-      <td>The language to be used for response localization. Allowed values: "ro", "ru", "en". For backward compatibility, this parameter is optional and the default value is "ro".</td>
+      <td>Limba utilizată pentru localizarea răspunsului. Valori permise: „ro”, „ru”, „en”. Pentru compatibilitate retroactivă, acest parametru este opțional, iar valoarea implicită este „ro”.</td>
     </tr>
   </tbody>
 </table>
 
-**Faults**
+**Erori**
 
 <table>
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Reason</th>
+      <th>Cod</th>
+      <th>Motiv</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>AuthenticationFailed</td>
-      <td>Invalid authentication certificate provided, Unknown or unregistered system: {certificate serial number}</td>
+      <td>Certificat de autentificare furnizat invalid, sistem necunoscut sau neînregistrat: {numărul de serie al certificatului}</td>
     </tr>
     <tr>
       <td>AuthorizationFailed</td>
-      <td>This signature request was not initiated by this system</td>
+      <td>Această cerere de semnătură nu a fost inițiată de acest sistem</td>
     </tr>
     <tr>
       <td>InvalidParameter</td>
-      <td>Some input parameter is invalid. Please review the returned Fault Reason text and called operation description</td>
+      <td>Un parametru de intrare este invalid. Consultați textul returnat în Fault Reason și descrierea operației apelate</td>
     </tr>
     <tr>
       <td>RequestNotFound</td>
-      <td>Cannot find such request</td>
+      <td>Nu se poate găsi o astfel de cerere</td>
     </tr>
   </tbody>
 </table>
@@ -173,75 +173,75 @@ The consumers using programming languages that support try… catch blocks, catc
 <table>
   <tbody>
     <tr>
-      <td><strong>Signature</strong></td>
+      <td><strong>Semnătură</strong></td>
       <td>VerifySignatures(request: VerificationRequest): VerificationResponse</td>
     </tr>
     <tr>
-      <td><strong>Description</strong></td>
-      <td>Request signature verification. Due to the fact that the process of verification might take more time than expected, it is advised to invoke this operation asynchronously so that the invoking application does not appear as blocked.</td>
+      <td><strong>Descriere</strong></td>
+      <td>Solicită verificarea semnăturii. Având în vedere că procesul de verificare poate dura mai mult decât se așteaptă, se recomandă invocarea acestei operații în mod asincron, astfel încât aplicația apelantă să nu pară blocată.</td>
     </tr>
     <tr>
-      <td><strong>Returns</strong></td>
-      <td>A structure that contains the result and signature verification.</td>
+      <td><strong>Returnează</strong></td>
+      <td>O structură care conține rezultatul verificării semnăturii.</td>
     </tr>
   </tbody>
 </table>
 
-**Input parameters**
+**Parametri de intrare**
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
+      <th>Nume</th>
+      <th>Tip</th>
+      <th>Descriere</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>request</td>
       <td>VerificationRequest</td>
-      <td>A structure representing the verification request.</td>
+      <td>O structură reprezentând cererea de verificare.</td>
     </tr>
   </tbody>
 </table>
 
-**Faults**
+**Erori**
 
 <table>
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Reason</th>
+      <th>Cod</th>
+      <th>Motiv</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>AuthenticationFailed</td>
-      <td>Invalid authentication certificate provided or Unknown service consumer: {certificate serial number}</td>
+      <td>Certificat de autentificare furnizat invalid sau consumator de serviciu necunoscut: {numărul de serie al certificatului}</td>
     </tr>
     <tr>
       <td>InvalidParameter</td>
-      <td>Some input parameter is invalid. Please review the returned Fault Reason text and called operation description.</td>
+      <td>Un parametru de intrare este invalid. Consultați textul returnat în Fault Reason și descrierea operației apelate.</td>
     </tr>
     <tr>
       <td>RequestNotFound</td>
-      <td>Cannot find such request</td>
+      <td>Nu se poate găsi o astfel de cerere</td>
     </tr>
   </tbody>
 </table>
 
-## Structures
+## Structuri
 
-<span class="red-bold-text">Important.</span> The order in which the members are described below is for description purposes only. The order of the elements in the actual XML structures, as defined in WSDL, is alphabetical. To get a correct implementation, it is recommended to use an automatic conversion tool from WSDL to your programming language or environment.
+<span class="red-bold-text">Important.</span> Ordinea în care sunt descriși membrii mai jos este doar în scop descriptiv. Ordinea elementelor în structurile XML efective, definite în WSDL, este alfabetică. Pentru a obține o implementare corectă, se recomandă utilizarea unui instrument de conversie automată din WSDL în limbajul sau mediul dumneavoastră de programare.
 
 <table>
   <thead>
     <tr>
-      <th><strong>Member</strong></th>
-      <th><strong>Type</strong></th>
-      <th><strong>Required/Optional</strong></th>
-      <th><strong>Description</strong></th>
+      <th><strong>Membru</strong></th>
+      <th><strong>Tip</strong></th>
+      <th><strong>Obligatoriu/Opțional</strong></th>
+      <th><strong>Descriere</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -249,233 +249,233 @@ The consumers using programming languages that support try… catch blocks, catc
     <tr>
       <td>ContentDescription</td>
       <td>string (512)</td>
-      <td>Optional, default: same as ShortContentDescription</td>
-      <td>The description of the content to be signed. Displayed by MSing web pages.</td>
+      <td>Opțional, implicit: identic cu ShortContentDescription</td>
+      <td>Descrierea conținutului de semnat. Afișată de paginile web MSign.</td>
     </tr>
     <tr>
       <td>ShortContentDescription</td>
       <td>string (90)</td>
-      <td>Required</td>
-      <td>The short description of the content to be signed. Displayed by mobile phone if Mobile Signature is used.</td>
+      <td>Obligatoriu</td>
+      <td>Descrierea scurtă a conținutului de semnat. Afișată pe telefonul mobil dacă se utilizează Semnătura Mobilă.</td>
     </tr>
     <tr>
       <td>SignatureReason</td>
       <td>string (255)</td>
-      <td>Optional</td>
-      <td>The reason for signature, e.g. Resolution, Approved, Reviewed, etc. Currently applicable to PDF only.</td>
+      <td>Opțional</td>
+      <td>Motivul semnăturii, de ex. Rezoluție, Aprobat, Revizuit etc. În prezent, aplicabil doar pentru PDF.</td>
     </tr>
     <tr>
       <td>ContentType</td>
-      <td>ContentType enumeration</td>
-      <td>Required</td>
-      <td>The type of the content to be signed.</td>
+      <td>enumerare ContentType</td>
+      <td>Obligatoriu</td>
+      <td>Tipul conținutului de semnat.</td>
     </tr>
     <tr>
       <td>Contents</td>
-      <td>Array of SignContent</td>
-      <td>Required, at least one element</td>
-      <td>The actual batch of contents to be signed.</td>
+      <td>Array de SignContent</td>
+      <td>Obligatoriu, cel puțin un element</td>
+      <td>Lotul efectiv de conținuturi de semnat.</td>
     </tr>
     <tr>
       <td>ExpectedSigner</td>
       <td>ExpectedSigner</td>
-      <td>Optional</td>
-      <td>If provided, MSign will verify the actual signer to match the provided information.</td>
+      <td>Opțional</td>
+      <td>Dacă este furnizat, MSign va verifica dacă semnatarul efectiv corespunde informațiilor furnizate.</td>
     </tr>
     <tr><td colspan="4"><strong>SignResponse</strong></td></tr>
     <tr>
       <td>Status</td>
-      <td>SignStatus enumeration</td>
-      <td>Required</td>
-      <td>Signature request status</td>
+      <td>enumerare SignStatus</td>
+      <td>Obligatoriu</td>
+      <td>Statusul cererii de semnătură</td>
     </tr>
     <tr>
       <td>Message</td>
       <td>string (100)</td>
-      <td>Optional, returned for requests that have Failure or Expired status</td>
-      <td>Signature request failure message, localized according to language parameter.</td>
+      <td>Opțional, returnat pentru cererile cu status Failure sau Expired</td>
+      <td>Mesajul de eșec al cererii de semnătură, localizat conform parametrului language.</td>
     </tr>
     <tr>
       <td>Results</td>
-      <td>Array of SignResult</td>
-      <td>Available when Status is not Pending</td>
-      <td>Signature results for the requested signature request.</td>
+      <td>Array de SignResult</td>
+      <td>Disponibil când Status nu este Pending</td>
+      <td>Rezultatele semnăturii pentru cererea de semnătură solicitată.</td>
     </tr>
     <tr><td colspan="4"><strong>VerificationRequest</strong></td></tr>
     <tr>
       <td>SignedContentType</td>
-      <td>ContentType enumeration</td>
-      <td>Required</td>
-      <td>The type of the content that was previously signed.</td>
+      <td>enumerare ContentType</td>
+      <td>Obligatoriu</td>
+      <td>Tipul conținutului care a fost semnat anterior.</td>
     </tr>
     <tr>
       <td>Language</td>
       <td>string (2)</td>
-      <td>Optional, default: ro</td>
-      <td>The language to be used for response localization. Allowed values: "ro", "ru", "en"</td>
+      <td>Opțional, implicit: ro</td>
+      <td>Limba utilizată pentru localizarea răspunsului. Valori permise: „ro”, „ru”, „en”</td>
     </tr>
     <tr>
       <td>Contents</td>
-      <td>Array of VerificationContent</td>
-      <td>Required, at least one element</td>
-      <td>The actual batch of signatures to be verified.</td>
+      <td>Array de VerificationContent</td>
+      <td>Obligatoriu, cel puțin un element</td>
+      <td>Lotul efectiv de semnături de verificat.</td>
     </tr>
     <tr><td colspan="4"><strong>VerificationResponse</strong></td></tr>
     <tr>
       <td>Results</td>
-      <td>Array of VerificationResult</td>
-      <td>Required</td>
-      <td>Verification results for the verification request.</td>
+      <td>Array de VerificationResult</td>
+      <td>Obligatoriu</td>
+      <td>Rezultatele verificării pentru cererea de verificare.</td>
     </tr>
     <tr><td colspan="4"><strong>SignRequest</strong></td></tr>
     <tr>
       <td>CorrelationID</td>
       <td>string (36)</td>
-      <td>Optional</td>
-      <td>The correlation ID for this content. Must be unique within a signature request.</td>
+      <td>Opțional</td>
+      <td>ID-ul de corelare pentru acest conținut. Trebuie să fie unic în cadrul unei cereri de semnătură.</td>
     </tr>
     <tr>
       <td>MultipleSignatures</td>
       <td>Bool</td>
-      <td>Optional, default: false</td>
-      <td>Specifies if the content could have multiple signatures (i.e. it can be co-signed). Currently, this setting applies only to PDF.</td>
+      <td>Opțional, implicit: false</td>
+      <td>Specifică dacă conținutul poate avea mai multe semnături (adică poate fi cosemnat). În prezent, această setare se aplică doar pentru PDF.</td>
     </tr>
     <tr>
       <td>Name</td>
       <td>string (256)</td>
-      <td>Optional</td>
-      <td>Name of the PDF file, for Hash this property is redundant.</td>
+      <td>Opțional</td>
+      <td>Numele fișierului PDF; pentru Hash, această proprietate este redundantă.</td>
     </tr>
     <tr>
       <td>Content</td>
-      <td>Array of byte</td>
-      <td>Required</td>
-      <td>The actual content to be signed. Currently this can be 20-bytes SHA1 hash or a PDF file.</td>
+      <td>Array de byte</td>
+      <td>Obligatoriu</td>
+      <td>Conținutul efectiv de semnat. În prezent, acesta poate fi un hash SHA1 de 20 de byte-i sau un fișier PDF.</td>
     </tr>
     <tr><td colspan="4"><strong>ExpectedSigner</strong></td></tr>
     <tr>
       <td>ID</td>
       <td>String</td>
-      <td>Required</td>
-      <td>Personal identifier number of the expected signer.
-      <br>Note that if not provided, user will be asked to enter it when signing PDF using mobile signature.</td>
+      <td>Obligatoriu</td>
+      <td>Numărul de identificare personal al semnatarului așteptat.
+      <br>Rețineți că, dacă nu este furnizat, utilizatorului i se va cere să îl introducă la semnarea PDF-ului prin semnătură mobilă.</td>
     </tr>
     <tr>
       <td>DelegatorType</td>
-      <td>DelegatorType enumeration</td>
-      <td>Optional, default: None</td>
-      <td>The type of the delegator.</td>
+      <td>enumerare DelegatorType</td>
+      <td>Opțional, implicit: None</td>
+      <td>Tipul delegatorului.</td>
     </tr>
     <tr>
       <td>DelegatorID</td>
       <td>String</td>
-      <td>Required when DelegatorType is not None</td>
-      <td>The identifier of the person or organization that the expected signer can represent (is delegated by).</td>
+      <td>Obligatoriu când DelegatorType nu este None</td>
+      <td>Identificatorul persoanei sau organizației pe care semnatarul așteptat o poate reprezenta (de care este delegat).</td>
     </tr>
     <tr>
       <td>DelegatedRoleID</td>
       <td>Int</td>
-      <td>Optional, default: 0</td>
-      <td>The role of the expected signer in relationship with the delegator.</td>
+      <td>Opțional, implicit: 0</td>
+      <td>Rolul semnatarului așteptat în relație cu delegatorul.</td>
     </tr>
     <tr><td colspan="4"><strong>SignResult</strong></td></tr>
     <tr>
       <td>CorrelationID</td>
       <td>string (36)</td>
-      <td>Returned as in SignContent</td>
-      <td>The correlation ID for the signed content, as originally given in SignContent.</td>
+      <td>Returnat ca în SignContent</td>
+      <td>ID-ul de corelare pentru conținutul semnat, așa cum a fost furnizat inițial în SignContent.</td>
     </tr>
     <tr>
       <td>Certificate</td>
-      <td>Array of byte</td>
-      <td>Optional, present if signature succeeded</td>
-      <td>Certificate of the signer in X509 v3 format.</td>
+      <td>Array de byte</td>
+      <td>Opțional, prezent dacă semnarea a reușit</td>
+      <td>Certificatul semnatarului în format X509 v3.</td>
     </tr>
     <tr>
       <td>Signature</td>
-      <td>Array of byte</td>
-      <td>Optional, present if signature succeeded</td>
-      <td>For hash content type this is the actual digital signature in XAdES-T format, for PDF content type - the signed PDF document.</td>
+      <td>Array de byte</td>
+      <td>Opțional, prezent dacă semnarea a reușit</td>
+      <td>Pentru tipul de conținut hash, aceasta este semnătura electronică efectivă în format XAdES-T; pentru tipul de conținut PDF — documentul PDF semnat.</td>
     </tr>
     <tr><td colspan="4"><strong>VerificationContent</strong></td></tr>
     <tr>
       <td>CorrelationID</td>
       <td>string (36)</td>
-      <td>Optional</td>
-      <td>The correlation ID for this content. Must be unique within a verification request.</td>
+      <td>Opțional</td>
+      <td>ID-ul de corelare pentru acest conținut. Trebuie să fie unic în cadrul unei cereri de verificare.</td>
     </tr>
     <tr>
       <td>Content</td>
-      <td>Array of byte</td>
-      <td>Required only for Hash content.</td>
-      <td>The hash that was originally signed. Note that this parameter is required only for checking hash signatures. Its value is required for complete signature verification.</td>
+      <td>Array de byte</td>
+      <td>Obligatoriu doar pentru conținut de tip Hash.</td>
+      <td>Hash-ul care a fost semnat inițial. Rețineți că acest parametru este obligatoriu doar pentru verificarea semnăturilor de tip hash. Valoarea sa este necesară pentru verificarea completă a semnăturii.</td>
     </tr>
     <tr>
       <td>Signature</td>
-      <td>Array of byte</td>
-      <td>Required</td>
-      <td>The actual signature to be verified. This must be a XAdES or signed PDF.</td>
+      <td>Array de byte</td>
+      <td>Obligatoriu</td>
+      <td>Semnătura efectivă de verificat. Aceasta trebuie să fie un XAdES sau un PDF semnat.</td>
     </tr>
     <tr><td colspan="4"><strong>VerificationResult</strong></td></tr>
     <tr>
       <td>CorrelationID</td>
       <td>string (36)</td>
-      <td>Returned as in VerificationContent</td>
-      <td>The correlation ID for the verification content, as originally given in VerificationContent.</td>
+      <td>Returnat ca în VerificationContent</td>
+      <td>ID-ul de corelare pentru conținutul de verificare, așa cum a fost furnizat inițial în VerificationContent.</td>
     </tr>
      <tr>
       <td>SignaturesValid</td>
       <td>Bool</td>
-      <td>Required</td>
-      <td>Returned as true if all signatures applied to the content are valid.</td>
+      <td>Obligatoriu</td>
+      <td>Returnat ca true dacă toate semnăturile aplicate conținutului sunt valide.</td>
     </tr>
      <tr>
       <td>Message</td>
       <td>string (100)</td>
-      <td>Required</td>
-      <td>Verification result message, localized according to VerificationRequest.Language.</td>
+      <td>Obligatoriu</td>
+      <td>Mesajul rezultatului verificării, localizat conform VerificationRequest.Language.</td>
     </tr>
      <tr>
       <td>Certificates</td>
-      <td>Array of VerificationCertificate</td>
-      <td>Optional, present if any certificates where identified in the signature</td>
-      <td>The list of certificates (one for signed hash in XAdES case) of the signers. Returned for display purposes.</td>
+      <td>Array de VerificationCertificate</td>
+      <td>Opțional, prezent dacă au fost identificate certificate în semnătură</td>
+      <td>Lista certificatelor (câte unul pentru fiecare hash semnat, în cazul XAdES) semnatarilor. Returnată în scop de afișare.</td>
     </tr>
     <tr><td colspan="4"><strong>VerificationCertificate</strong></td></tr>
     <tr>
       <td>SignatureValid</td>
       <td>Bool</td>
-      <td>Required</td>
-      <td>Returned as true if the signature corresponding to this certificate is valid.</td>
+      <td>Obligatoriu</td>
+      <td>Returnat ca true dacă semnătura corespunzătoare acestui certificat este validă.</td>
     </tr>
     <tr>
       <td>Subject</td>
       <td>string (250)</td>
-      <td>Required</td>
-      <td>Subject details from certificate. Returned as convenience for display purposes.</td>
+      <td>Obligatoriu</td>
+      <td>Detaliile subiectului din certificat. Returnate ca facilitate pentru afișare.</td>
     </tr>
     <tr>
       <td>Certificate</td>
-      <td>Array of byte</td>
-      <td>Required</td>
-      <td>Certificate of the signer in X509 v3 format.</td>
+      <td>Array de byte</td>
+      <td>Obligatoriu</td>
+      <td>Certificatul semnatarului în format X509 v3.</td>
     </tr>
     <tr>
       <td>SignedAt</td>
       <td>Datetime</td>
-      <td>Optional</td>
-      <td>Date and time of the signature. Returned only if a valid timestamp was applied.</td>
+      <td>Opțional</td>
+      <td>Data și ora semnăturii. Returnată doar dacă a fost aplicată o marcă temporală (timestamp) validă.</td>
     </tr>
   </tbody>
 </table>
 
-## Enumerations
+## Enumerări
 
 <table>
   <thead>
     <tr>
-      <th><strong>Member</strong></th>
-      <th><strong>Description</strong></th>
+      <th><strong>Membru</strong></th>
+      <th><strong>Descriere</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -484,170 +484,170 @@ The consumers using programming languages that support try… catch blocks, catc
     </tr>
     <tr>
       <td>Hash</td>
-      <td>The content to be signed is a SHA1 hash.</td>
+      <td>Conținutul de semnat este un hash SHA1.</td>
     </tr>
     <tr>
       <td>Pdf</td>
-      <td>The content to be signed is a PDF file.</td>
+      <td>Conținutul de semnat este un fișier PDF.</td>
     </tr>
     <tr>
       <td colspan="2"><strong>DelegatorType</strong></td>
     </tr>
     <tr>
       <td>None</td>
-      <td>There is no delegator.</td>
+      <td>Nu există delegator.</td>
     </tr>
     <tr>
       <td>Person</td>
-      <td>The delegator is a person.</td>
+      <td>Delegatorul este o persoană.</td>
     </tr>
      <tr>
       <td>Organization</td>
-      <td>The delegator is an organization.</td>
+      <td>Delegatorul este o organizație.</td>
     </tr>
     <tr>
       <td colspan="2"><strong>SignStatus</strong></td>
     </tr>
     <tr>
       <td>Pending</td>
-      <td>The signing is pending.</td>
+      <td>Semnarea este în curs.</td>
     </tr>
     <tr>
       <td>Success</td>
-      <td>The signing is finished and the signature is valid.</td>
+      <td>Semnarea s-a finalizat, iar semnătura este validă.</td>
     </tr>
     <tr>
       <td>Failure</td>
-      <td>The signing failed. The signature request is now invalid.</td>
+      <td>Semnarea a eșuat. Cererea de semnătură este acum invalidă.</td>
     </tr>
     <tr>
       <td>Expired</td>
-      <td>The signature request is expired. The signature request is now invalid.</td>
+      <td>Cererea de semnătură a expirat. Cererea de semnătură este acum invalidă.</td>
     </tr>
   </tbody>
 </table>
 
-## Web forms integration
+## Integrarea prin formulare web
 
-### Signing request
+### Cererea de semnare
 
 <table>
   <tbody>
     <tr>
-      <td><strong>Method<strong></td>
-      <td>POST (recommended) or GET</td>
+      <td><strong>Metodă<strong></td>
+      <td>POST (recomandat) sau GET</td>
     </tr>
     <tr>
       <td><strong>URL<strong></td>
       <td><a htef="https://msign.gov.md/{requestID}">https://msign.gov.md/{requestID}</a></td>
     </tr>
     <tr>
-      <td><strong>Description<strong></td>
-      <td>Direct user to perform the actual signing. Notice that the requestID is embedded in the method URL</td>
+      <td><strong>Descriere<strong></td>
+      <td>Direcționează utilizatorul pentru a efectua semnarea propriu-zisă. Observați că requestID este integrat în URL-ul metodei</td>
     </tr>
   </tbody>
 </table>
 
-**Form or URL parameters**
+**Parametri de formular sau URL**
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Required/Optional</th>
-      <th>Description</th>
+      <th>Nume</th>
+      <th>Tip</th>
+      <th>Obligatoriu/Opțional</th>
+      <th>Descriere</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>ReturnUrl</td>
       <td>string</td>
-      <td>Required</td>
-      <td>The URL that will receive the result of transaction signing</td>
+      <td>Obligatoriu</td>
+      <td>URL-ul care va primi rezultatul semnării tranzacției</td>
     </tr>
     <tr>
       <td>Instrument</td>
       <td>string</td>
-      <td>Optional and not recommended</td>
-      <td>The signing instrument to be used, i.e. skipping signing instrument selection page. Allowed values: "mobile", "moldsign", "nationalid", "securesign", "tax".
-      <br> Note that for "mobile" instrument to work without instrument selection, you have to provide MSISDN and ExpectedSigner.ID of the expected signer.</td>
+      <td>Opțional și nerecomandat</td>
+      <td>Instrumentul de semnare de utilizat, adică omiterea paginii de selectare a instrumentului de semnare. Valori permise: „mobile”, „moldsign”, „nationalid”, „securesign”, „tax”.
+      <br> Rețineți că, pentru ca instrumentul „mobile” să funcționeze fără selectarea instrumentului, trebuie să furnizați MSISDN și ExpectedSigner.ID ale semnatarului așteptat.</td>
     </tr>
     <tr>
       <td>MSISDN</td>
-      <td>string containing digits</td>
-      <td>Optional</td>
-      <td>The mobile phone number of the expected signer, if known</td>
+      <td>string conținând cifre</td>
+      <td>Opțional</td>
+      <td>Numărul de telefon mobil al semnatarului așteptat, dacă este cunoscut</td>
     </tr>
     <tr>
       <td>RelayState</td>
       <td>string</td>
-      <td>Optional</td>
-      <td>Optional string that will be returned back unmodified after signing</td>
+      <td>Opțional</td>
+      <td>String opțional care va fi returnat nemodificat după semnare</td>
     </tr>
     <tr>
       <td>lang</td>
       <td>string</td>
-      <td>Optional</td>
-      <td>Language to be used by MSign user interface. Allowed values: "ro", "ru", "en"</td>
+      <td>Opțional</td>
+      <td>Limba utilizată de interfața utilizator MSign. Valori permise: „ro”, „ru”, „en”</td>
     </tr>
   </tbody>
 </table>
 
-### Signing callback
+### Callback-ul de semnare
 
 <table>
   <tbody>
     <tr>
-      <td><strong>Method<strong></td>
+      <td><strong>Metodă<strong></td>
       <td>POST</td>
     </tr>
     <tr>
       <td><strong>URL<strong></td>
-      <td>The provided ReturnUrl in the signing request</td>
+      <td>ReturnUrl-ul furnizat în cererea de semnare</td>
     </tr>
     <tr>
-      <td><strong>Description<strong></td>
-      <td>Redirects user to the information system that requested the signature, while informing the system about finished SignRequest processing. This Url is open only after the result of the signing is known (i.e. SignStatus is either Failure or Success).</td>
+      <td><strong>Descriere<strong></td>
+      <td>Redirecționează utilizatorul către sistemul informațional care a solicitat semnătura, informând totodată sistemul despre finalizarea procesării SignRequest-ului. Acest URL este deschis doar după ce rezultatul semnării este cunoscut (adică SignStatus este fie Failure, fie Success).</td>
     </tr>
   </tbody>
 </table>
 
-**Form parameters**
+**Parametri de formular**
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Required/Optional</th>
-      <th>Description</th>
+      <th>Nume</th>
+      <th>Tip</th>
+      <th>Obligatoriu/Opțional</th>
+      <th>Descriere</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>RequestID</td>
       <td>string</td>
-      <td>Required</td>
-      <td>The ID of the finished SignRequest</td>
+      <td>Obligatoriu</td>
+      <td>ID-ul SignRequest-ului finalizat</td>
     </tr>
     <tr>
       <td>RelayState</td>
       <td>string</td>
-      <td>Optional and not recommended</td>
-      <td>The unmodified value of RelayState, as sent in request</td>
+      <td>Opțional și nerecomandat</td>
+      <td>Valoarea nemodificată a RelayState, așa cum a fost trimisă în cerere</td>
     </tr>
   </tbody>
 </table>
 
 
-## SOAP message samples
+## Exemple de mesaje SOAP
 
-!!! note "Manual implementation"
+!!! note "Implementare manuală"
 
-We will present here samples of exchanged SOAP messages. This might be useful for those that integrate with MSign but do not fully support WSDL-based service proxy generation.
+Vom prezenta aici exemple de mesaje SOAP schimbate. Acestea pot fi utile celor care se integrează cu MSign, dar nu suportă complet generarea proxy-ului de serviciu bazat pe WSDL.
 
-### Method: PostSignRequest
+### Metoda: PostSignRequest
 
 === "request.xml"
 
@@ -686,7 +686,7 @@ We will present here samples of exchanged SOAP messages. This might be useful fo
     </s:Envelope>
     ```
 
-### Method: GetSignResponse
+### Metoda: GetSignResponse
 
 === "request.xml"
 
@@ -726,7 +726,7 @@ We will present here samples of exchanged SOAP messages. This might be useful fo
     </s:Envelope>
     ```
 
-### Method: VerifySignatures
+### Metoda: VerifySignatures
 
 === "request.xml"
 

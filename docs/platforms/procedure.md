@@ -1,48 +1,48 @@
-**This page will be available in <a href="">Română</a> and <a href="">Русский</a> soon**
+**Această pagină va fi disponibilă în curând și în <a href="">Engleză</a> și <a href="">Rusă</a>**
 
-This procedure defines the steps, requirements, and responsibilities necessary for connecting the information systems of public and private institutions to the government-shared services managed by the eGovernment Agency (MEGA).The procedure applies to all integration requests for MEGA platforms (MPass, MSign, MNotify, MPower, MDelivery, MDocs, etc.) and aims to ensure a process that is:
+Această procedură definește pașii, cerințele și responsabilitățile necesare pentru conectarea sistemelor informaționale ale instituțiilor publice și private la serviciile guvernamentale partajate, administrate de Agenția de Guvernare Electronică (MEGA). Procedura se aplică tuturor cererilor de integrare pentru platformele MEGA (MPass, MSign, MNotify, MPower, MDelivery, MDocs etc.) și urmărește să asigure un proces care este:
 
-  - uniform and standardized
-  - easy to follow for both public and private institutions,
-  - efficient, reducing the time and effort required for integration.
+  - uniform și standardizat
+  - ușor de urmat, atât pentru instituțiile publice, cât și pentru cele private,
+  - eficient, reducând timpul și efortul necesare integrării.
 
-## How integration is initiated
+## Cum se inițiază integrarea
 
-All integration requests must be submitted through the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl), available on the [MEGA's website](https://egov.md). Through this form, beneficiaries can:
+Toate cererile de integrare trebuie depuse prin intermediul [Formularului Unic de Conectare](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl), disponibil pe [site-ul MEGA](https://egov.md). Prin acest formular, beneficiarii pot:
 
-  - request the integration of a new information system;
-  - extend integration for an already contracted service (e.g., already using MPass and requesting connection to MSign);
-  - submit the contractual and technical data required for configuration.
+  - solicita integrarea unui nou sistem informațional;
+  - extinde integrarea pentru un serviciu deja contractat (de exemplu, dacă folosesc deja MPass și solicită conectarea la MSign);
+  - depune datele contractuale și tehnice necesare configurării.
 
-MEGA reviews the submitted information and coordinates all subsequent contractual and technical steps.
+MEGA analizează informațiile depuse și coordonează toți pașii contractuali și tehnici ulteriori.
 
-### Exceptions
+### Excepții
 
-Some platforms have separate integration procedures:
-  - **MPay** — view [integration procedure](../guides/mpay)
-  - **MConnect** — view [integration procedure](../guides/mconnect-events)
+Unele platforme au proceduri de integrare separate:
+  - **MPay** — vezi [procedura de integrare](../guides/mpay)
+  - **MConnect** — vezi [procedura de integrare](../guides/mconnect-events)
 
-## General prerequisites
+## Condiții generale prealabile
 
-The beneficiary must:
+Beneficiarul trebuie să:
 
-  - own an information system available for integration;
-  - for public institutions — have the system registered in the [Register of Information Resources and Systems](https://rsi.gov.md);
-  - sign the contract and/or annexes applicable to the requested shared service;
-  - for private-sector beneficiaries pay the applicable usage fees;
-  - provide a valid system certificate issued by Information Technology and Cyber Security Service (<https://stisc.gov.md>) (where required).
+  - dețină un sistem informațional disponibil pentru integrare;
+  - pentru instituțiile publice — aibă sistemul înregistrat în [Registrul resurselor și sistemelor informaționale](https://rsi.gov.md);
+  - semneze contractul și/sau anexele aplicabile serviciului partajat solicitat;
+  - pentru beneficiarii din sectorul privat, achite taxele de utilizare aplicabile;
+  - furnizeze un certificat de sistem valid, emis de Serviciul Tehnologia Informației și Securitate Cibernetică (<https://stisc.gov.md>) (acolo unde este necesar).
 
 ---
 
-  - Public institutions benefit from free integration and usage, according to the legal framework.
-  - Private institutions pay the applicable usage fees per integrated service (e.g., MPass, MSign, etc.).
+  - Instituțiile publice beneficiază de integrare și utilizare gratuite, conform cadrului legal.
+  - Instituțiile private achită taxele de utilizare aplicabile per serviciu integrat (de exemplu, MPass, MSign etc.).
 
-## What to expect
+## La ce să vă așteptați
 
-  - Request reviewed and confirmed
-  - Contract and/or annex signed
-  - Test environment configured
-  - Integration implemented and tested
-  - Integration validated by MEGA
-  - Service activated in production
-  - Final completion notification issued
+  - Cererea analizată și confirmată
+  - Contractul și/sau anexa semnate
+  - Mediul de testare configurat
+  - Integrarea implementată și testată
+  - Integrarea validată de MEGA
+  - Serviciul activat în producție
+  - Notificarea de finalizare emisă

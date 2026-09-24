@@ -1,66 +1,66 @@
 <img src="../../assets/edemocracy-intro.png">
 
-eDemocracy (ePetitions) is the platform that enables citizens and legal entities to submit petitions electronically to public authorities. The platform allows authorities to review, process, and respond to petitions through a centralized digital service.
+eDemocracy (ePetiții) este platforma care permite cetățenilor și persoanelor juridice să depună petiții electronic către autoritățile publice. Platforma permite autorităților să examineze, să proceseze și să răspundă la petiții printr-un serviciu digital centralizat.
 
-The platform exposes a **REST API** that allows external information systems of public authorities to integrate with the service and manage petitions electronically.
+Platforma expune un **API REST** care permite sistemelor informaționale externe ale autorităților publice să se integreze cu serviciul și să gestioneze petițiile electronic.
 
-API access is granted through one of the following authentication mechanisms:
+Accesul la API este acordat printr-unul dintre următoarele mecanisme de autentificare:
 
-- **X.509 system certificate** issued by **STISC** and registered in **MPass**
-- **JWT token signed with RSA key**, validated using the public certificate registered
+- **Certificat de sistem X.509** emis de **STISC** și înregistrat în **MPass**
+- **Token JWT semnat cu cheie RSA**, validat folosind certificatul public înregistrat
 
-## At a glance
+## Pe scurt
 
-**What it is.** The platform through which natural persons and legal entities submit petitions, applications, opinions and feedback to public authorities electronically, and authorities register, examine and answer them in a single flow. An authority can integrate via API to pull requests and handle them in its own system, without double registration.
-Terminology note: the system's Regulation uses the terms „registrator” (registrar) and „data provider” in senses that differ from the general legal framework — see the terminology section.
+**Ce este.** Platforma prin care persoanele fizice și juridice depun petiții, cereri, opinii și sugestii către autoritățile publice electronic, iar autoritățile le înregistrează, examinează și răspund într-un singur flux. O autoritate se poate integra prin API pentru a prelua cererile și a le gestiona în propriul sistem, fără înregistrare dublă.
+Notă terminologică: Regulamentul sistemului utilizează termenii „registrator” și „furnizor de date” în sensuri diferite de cele din cadrul legal general — vezi secțiunea de terminologie.
 
-**Legal basis.** HG nr. 564/2024 cu privire la Sistemul informațional automatizat „e-Democrație” — pct. 2 — desemnarea posesorului și deținătorului.
+**Temei normativ.** HG nr. 564/2024 cu privire la Sistemul informațional automatizat „e-Democrație” — pct. 2 — desemnarea posesorului și deținătorului.
 
-Related acts: Legea nr. 239/2008 privind transparența în procesul decizional; Codul administrativ (petiționarea).
+Acte conexe: Legea nr. 239/2008 privind transparența în procesul decizional; Codul administrativ (petiționarea).
 
-**Who is accountable.**
+**Cine răspunde.**
 
-| Role | Entity |
+| Rol | Entitate |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | STISC |
+| Posesor | AGE |
+| Deținător | AGE |
+| Operator tehnico-tehnologic | STISC |
 
-**Roles in an integration.**
+**Roluri în integrare.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
-- STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
-- Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
-- Development/integration team — implements and tests the technical integration.
-- End user — the natural person or legal entity benefiting from the service.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar pentru staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
-**Access conditions.**
+**Condiții de acces.**
 
 Gratuit. Accesul la API se acordă prin certificat de sistem X.509 emis de STISC și înregistrat în MPass, ori prin token JWT semnat cu cheie RSA, validat cu certificatul public înregistrat.
 
-**Who this guide is for.**
+**Cui se adresează acest ghid.**
 
-Primary: development and integration teams of the holders of information systems, public and private.
-Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
 
-## Jump right in
+## Treci direct la treabă
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
       <div class="quick-link-icon">⚡</div>
-      <h3 class="quick-link-title">Connection steps</h3>
-      <p class="quick-link-description">Get started with integration</p>
+      <h3 class="quick-link-title">Pașii de conectare</h3>
+      <p class="quick-link-description">Începe integrarea</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
       <div class="quick-link-icon">📘</div>
-      <h3 class="quick-link-title">Integration guide</h3>
-      <p class="quick-link-description">Step-by-step documentation</p>
+      <h3 class="quick-link-title">Ghid de integrare</h3>
+      <p class="quick-link-description">Documentație pas cu pas</p>
     </a>
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API reference</h3>
-      <p class="quick-link-description">Explore endpoints and callbacks</p>
+      <h3 class="quick-link-title">Referință API</h3>
+      <p class="quick-link-description">Explorează endpoint-urile și callback-urile</p>
     </a>    
   </div>
 </div>

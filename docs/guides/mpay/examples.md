@@ -1,66 +1,66 @@
-## .NET Sample
+## Exemplu .NET
 
-This document is accompanied by a .NET integration sample. If the sample archive is encrypted (for e-mail filtering pass-through purposes), the password is "mpay" (without quotes).
+Acest document este însoțit de un exemplu de integrare .NET. Dacă arhiva cu exemplul este criptată (pentru a permite trecerea prin filtrele de e-mail), parola este "mpay" (fără ghilimele).
 
-The sample demonstrates a complete implementation of Order and Pay online scenario. The sample includes a simple offline implementation of MPay, including a fake "Pay" button, which simulates a payment.
+Exemplul demonstrează o implementare completă a scenariului Comandă și Plătește online. Exemplul include o implementare offline simplă a MPay, inclusiv un buton fals „Plătește", care simulează o plată.
 
-### Software requirements
+### Cerințe software
 
-The sample is build using Visual Studio 2013 based on ASP.NET 4.5, MVC 5 and WCF using C# and NuGet package manager. The MVC applications are configured to run under IIS Express. There are no third party licenses required to build the sample.
+Exemplul este construit folosind Visual Studio 2013, bazat pe ASP.NET 4.5, MVC 5 și WCF, utilizând C# și managerul de pachete NuGet. Aplicațiile MVC sunt configurate să ruleze sub IIS Express. Nu sunt necesare licențe terțe pentru compilarea exemplului.
 
-### Installing or re-generating certificates
+### Instalarea sau regenerarea certificatelor
 
-The sample includes some self-signed certificates that are used in configuration for SOAP message signing. You can find the included certificates in sample\Certificates folder. The password for all private keys is "123456".
+Exemplul include câteva certificate autosemnate care sunt folosite în configurație pentru semnarea mesajelor SOAP. Certificatele incluse pot fi găsite în folderul sample\Certificates. Parola pentru toate cheile private este "123456".
 
-To install certificates on your development machine, please run InstallCertificates.cmd batch file under an administrative account from Developer Command prompt for Visual Studio. You can also re-generate the certificates by running GenerateCertificets.cmd batch file.
+Pentru a instala certificatele pe mașina dumneavoastră de dezvoltare, rulați fișierul batch InstallCertificates.cmd cu drepturi de administrator din Developer Command Prompt for Visual Studio. De asemenea, puteți regenera certificatele rulând fișierul batch GenerateCertificets.cmd.
 
-The following table describes the meaning of the generated files.
+Tabelul de mai jos descrie semnificația fișierelor generate.
 
-| File Name | Description | Certificate Store |
+| Nume fișier | Descriere | Depozit de certificate (Certificate Store) |
 |-----------|-------------|-------------------|
-| MPaySampleRootCA.cer | Sample self-signed root CA certificate | Trusted Root Certification Authorities |
-| MPaySampleRootCA.pvk | Root certificate private key | none |
-| MPaySampleRootCA.crl | Root certificate revocation list | Trusted Root Certification Authorities |
-| MPaySampleServiceProvider.pfx | The key-pair (private and public keys, signed by root CA) used by sample service provider implementation | Personal |
-| MPayOfflineSample.pfx | The key-pair (private and public keys, signed by root CA) used by sample offline MPay implementation | Personal and Trusted People |
+| MPaySampleRootCA.cer | Certificatul rădăcină autosemnat al exemplului (root CA) | Trusted Root Certification Authorities |
+| MPaySampleRootCA.pvk | Cheia privată a certificatului rădăcină | niciunul |
+| MPaySampleRootCA.crl | Lista de revocare a certificatului rădăcină | Trusted Root Certification Authorities |
+| MPaySampleServiceProvider.pfx | Perechea de chei (privată și publică, semnate de root CA) utilizată de implementarea exemplu a prestatorului de servicii | Personal |
+| MPayOfflineSample.pfx | Perechea de chei (privată și publică, semnate de root CA) utilizată de implementarea exemplu offline MPay | Personal și Trusted People |
 
-### Running sample
+### Rularea exemplului
 
-To run the sample, please follow the steps below:
+Pentru a rula exemplul, urmați pașii de mai jos:
 
-1. Ensure the certificates are properly installed in LocalMachine store as described in the previous section.
-2. Run VS2013 as Administrator and open MPay.Sample.sln solution.
-3. Set MPay.Sample.ServiceProvider as StartUp Project.
-4. Rebuild the solution.
-5. Run the solution.
-6. A browser should open, showing sample service provider home page.
-7. Click on "Order" button.
-8. You shall be redirected to offline MPay sample that will display new order details and propose to "Pay".
-9. Click on "Pay" button.
+1. Asigurați-vă că certificatele sunt instalate corect în depozitul LocalMachine, conform descrierii din secțiunea anterioară.
+2. Rulați VS2013 ca Administrator și deschideți soluția MPay.Sample.sln.
+3. Setați MPay.Sample.ServiceProvider ca StartUp Project.
+4. Recompilați soluția (Rebuild).
+5. Rulați soluția.
+6. Ar trebui să se deschidă un browser, afișând pagina principală a exemplului de prestator de servicii.
+7. Apăsați pe butonul „Comandă" (Order).
+8. Veți fi redirecționat către exemplul offline MPay, care va afișa detaliile noii comenzi și va propune „Plătește".
+9. Apăsați pe butonul „Plătește" (Pay).
 
-You shall be redirected back to sample service provider order status page.
+Veți fi redirecționat înapoi la pagina de status a comenzii din exemplul de prestator de servicii.
 
-When clicking "Order" (step 7 above), you actually execute steps 1-6 described in Order and Pay online scenario. When clicking "Pay" (step 9 above), you see a sample implementation of steps 7-15.
+Când apăsați „Comandă" (pasul 7 de mai sus), practic executați pașii 1-6 descriși în scenariul Comandă și Plătește online. Când apăsați „Plătește" (pasul 9 de mai sus), vedeți o implementare exemplu a pașilor 7-15.
 
-### Error handling
+### Tratarea erorilor
 
-For an example of how to throw SOAP faults, please see the helper method named MPay.Sample.ServiceProvider.Api.ServiceProvider.Error. There is an internal ErrorCode enumeration defined just for convenience.
+Pentru un exemplu privind modul de generare a erorilor SOAP, consultați metoda ajutătoare numită MPay.Sample.ServiceProvider.Api.ServiceProvider.Error. Există o enumerare internă ErrorCode definită doar din motive de comoditate.
 
-An example of how to generate (or throw) such a fault can be found in MPay.Sample.ServiceProvider.Api.ServiceProvider.ConfirmOrderPayment operation.
+Un exemplu privind modul de generare (sau aruncare) a unei astfel de erori poate fi găsit în operația MPay.Sample.ServiceProvider.Api.ServiceProvider.ConfirmOrderPayment.
 
-An example of how to handle (or catch) such faults can be found in MPay.Sample.Offline.Controllers.ServiceController.Pay action.
+Un exemplu privind modul de tratare (sau captare) a unor astfel de erori poate fi găsit în acțiunea MPay.Sample.Offline.Controllers.ServiceController.Pay.
 
-### Saving SOAP messages
+### Salvarea mesajelor SOAP
 
-An example of how to save an incoming SOAP request, please see the code of MPay.Sample.ServiceProvider.Api.ServiceProvider.ConfirmOrderPayment operation (the need is described in 9.3). Note that the full incoming SOAP request message is saved in ConfirmationSignature property of the Payment.
+Pentru un exemplu privind modul de salvare a unei cereri SOAP primite, consultați codul operației MPay.Sample.ServiceProvider.Api.ServiceProvider.ConfirmOrderPayment (necesitatea este descrisă în 9.3). Rețineți că mesajul complet al cererii SOAP primite este salvat în proprietatea ConfirmationSignature a Plății (Payment).
 
-### Restrictions in SOAP message structure
+### Restricții privind structura mesajului SOAP
 
-In a SOAP message with a digital signature, the KeyInfo element is part of the XML Signature (XMLDSIG) standard and serves to provide information about the public key used to sign the message, allowing the recipient to verify the digital signature.
+Într-un mesaj SOAP cu semnătură digitală, elementul KeyInfo face parte din standardul XML Signature (XMLDSIG) și servește la furnizarea de informații despre cheia publică folosită pentru semnarea mesajului, permițând destinatarului să verifice semnătura digitală.
 
-As a ClientService, MPay accepts the response structure in the following formats of the KeyInfo element:
+În calitate de ClientService, MPay acceptă structura de răspuns în următoarele formate ale elementului KeyInfo:
 
-#### Security token reference
+#### Referință la token de securitate (Security token reference)
 
 ```xml
 <wsse:BinarySecurityToken EncodingType="...#Base64Binary" ValueType="...#X509v3" 
@@ -76,7 +76,7 @@ wsu:Id="SomeCert">
 </ds:KeyInfo>
 ```
 
-#### Key identifier
+#### Identificator de cheie (Key identifier)
 
 ```xml
 <ds:KeyInfo xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
@@ -89,7 +89,7 @@ wsu:Id="SomeCert">
 </ds:KeyInfo>
 ```
 
-#### Embedded
+#### Încorporat (Embedded)
 
 ```xml
 <ds:KeyInfo xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
@@ -99,15 +99,15 @@ wsu:Id="SomeCert">
 </ds:KeyInfo>
 ```
 
-## SOAP messages
+## Mesaje SOAP
 
-We will provide here samples of exchanged SOAP messages. This might be useful for those that integrate with MPay but do not fully support WSDL-based service proxy generation.
+Vom oferi aici exemple de mesaje SOAP schimbate. Acest lucru poate fi util pentru cei care se integrează cu MPay, dar nu suportă pe deplin generarea de proxy de serviciu bazată pe WSDL.
 
 ---
 
 ### GetOrderDetails
 
-#### Request:
+#### Cerere:
 
 ```xml
 <soapenv:Envelope xmlns:mpay="https://mpay.gov.md"
@@ -180,7 +180,7 @@ xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-ut
 </soapenv:Envelope>
 ```
 
-#### Reply:
+#### Răspuns:
 
 ```xml
 <Envelope xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurityutility-1.0.xsd" xmlns="http://schemas.xmlsoap.org/soap/envelope/">
@@ -326,7 +326,7 @@ forestier</Reason>
 
 ### ConfirmOrderPayment
 
-#### Request:
+#### Cerere:
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"
@@ -416,7 +416,7 @@ oA==</SignatureValue>
 </s:Envelope>
 ```
 
-#### Reply:
+#### Răspuns:
 
 ```xml
 <Envelope xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurityutility-1.0.xsd" xmlns="http://schemas.xmlsoap.org/soap/envelope/">

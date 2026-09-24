@@ -1,24 +1,24 @@
-An **architecture decision record (ADR)** captures one architecturally significant decision: its context, the options that were considered, what was decided, and what consequences were accepted. Standards say *what* must be true; runbooks say *how* to operate; ADRs preserve *why* the system is the way it is.
+O **înregistrare a deciziei de arhitectură (architecture decision record, ADR)** surprinde o singură decizie semnificativă din punct de vedere arhitectural: contextul acesteia, opțiunile luate în considerare, ce s-a decis și ce consecințe au fost acceptate. Standardele spun *ce* trebuie să fie adevărat; ghidurile de operare (runbooks) spun *cum* se operează; ADR-urile păstrează *de ce* sistemul este așa cum este.
 
-Government systems outlive the teams that build them. Without ADRs, the reasoning behind every important choice leaves with the people — and future teams either cargo-cult decisions that no longer make sense or accidentally reverse ones that exist for a legal or security reason.
+Sistemele guvernamentale supraviețuiesc echipelor care le construiesc. Fără ADR-uri, raționamentul din spatele fiecărei decizii importante pleacă odată cu oamenii — iar echipele viitoare fie copiază mecanic decizii care nu mai au sens, fie inversează accidental decizii care există dintr-un motiv legal sau de securitate.
 
 * * *
 
-## When an ADR is required
+## Când este necesar un ADR
 
-Write an ADR for decisions that are expensive to reverse or that future maintainers will question:
+Scrieți un ADR pentru deciziile care sunt costisitoare de inversat sau pe care viitorii responsabili de mentenanță le vor pune sub semnul întrebării:
 
-- **Any deviation from the approved technology stack** — a new framework, language, database, or significant dependency. The deviation is not approved until the ADR exists.
-- Choice of database engine, messaging pattern, or Blazor rendering mode for a new system.
-- How the system integrates with the shared platforms when more than one pattern is possible (for example, synchronous MConnect queries vs. MConnect Events subscriptions).
-- API style exceptions ([REST is the default](api-design-guide.md)) and breaking-change strategies.
-- Anything where the team spent days evaluating options — if the analysis was worth days, it is worth a page.
+- **Orice abatere de la stiva tehnologică aprobată** — un nou framework, limbaj, bază de date sau o dependență semnificativă. Abaterea nu este aprobată până când nu există ADR-ul.
+- Alegerea motorului de bază de date, a tiparului de mesagerie sau a modului de randare Blazor pentru un sistem nou.
+- Modul în care sistemul se integrează cu platformele partajate, atunci când este posibil mai mult de un tipar (de exemplu, interogări sincrone MConnect vs. abonamente MConnect Events).
+- Excepții de la stilul API ([REST este implicit](api-design-guide.md)) și strategii pentru modificări incompatibile (breaking changes).
+- Orice situație în care echipa a petrecut zile întregi evaluând opțiuni — dacă analiza a meritat zile de muncă, merită și o pagină.
 
-Routine implementation choices that follow existing standards do not need ADRs. When in doubt, ask: *"will someone in three years wonder why we did this?"*
+Deciziile de implementare curente, care respectă standardele existente, nu necesită ADR-uri. În caz de îndoială, întrebați-vă: *„va vrea cineva peste trei ani să știe de ce am făcut asta?”*
 
-## Where ADRs live
+## Unde locuiesc ADR-urile
 
-ADRs are part of the repository they describe, in `/docs/adr/`, numbered sequentially:
+ADR-urile fac parte din repository-ul pe care îl descriu, în `/docs/adr/`, numerotate secvențial:
 
 ```
 docs/adr/
@@ -27,24 +27,24 @@ docs/adr/
   0003-blazor-wasm-rendering-for-citizen-portal.md
 ```
 
-- Numbers are never reused; a retired decision keeps its number and gets a status change instead of deletion.
-- ADRs are reviewed through the same [pull request flow](code-reviews.md) as code — the review of the ADR *is* the architecture review, with the discussion preserved in the PR.
-- An ADR is **immutable once accepted**: if the decision changes, write a new ADR that supersedes the old one and link them both ways.
+- Numerele nu se reutilizează niciodată; o decizie retrasă își păstrează numărul și primește o schimbare de status, în loc să fie ștearsă.
+- ADR-urile sunt revizuite prin același [flux de pull request](code-reviews.md) ca și codul — revizuirea ADR-ului *este* revizuirea de arhitectură, cu discuția păstrată în PR.
+- Un ADR este **imuabil odată acceptat**: dacă decizia se schimbă, se scrie un ADR nou care îl înlocuiește pe cel vechi, iar cele două se leagă reciproc.
 
-## Lifecycle
+## Ciclul de viață
 
-| Status | Meaning |
+| Status | Semnificație |
 | --- | --- |
-| Proposed | Under discussion; not yet binding |
-| Accepted | Decision made; the record is now permanent |
-| Deprecated | No longer relevant (the component or context disappeared) |
-| Superseded by ADR-NNNN | Replaced by a newer decision |
+| Propus (Proposed) | În discuție; încă nu este obligatoriu |
+| Acceptat (Accepted) | Decizie luată; înregistrarea devine permanentă |
+| Depreciat (Deprecated) | Nu mai este relevant (componenta sau contextul au dispărut) |
+| Înlocuit de ADR-NNNN (Superseded by) | Înlocuit de o decizie mai nouă |
 
 * * *
 
-## Template
+## Șablon (Template)
 
-The template follows [MADR](https://adr.github.io/madr/) (Markdown Architectural Decision Records). Optional sections may be deleted; the required minimum is context, options, and outcome.
+Șablonul urmează [MADR](https://adr.github.io/madr/) (Markdown Architectural Decision Records). Secțiunile opționale pot fi eliminate; minimul necesar este contextul, opțiunile și rezultatul.
 
 ```markdown
 # NNNN — Short title stating the decision
@@ -101,9 +101,9 @@ decision drivers.
 * Refined by / supersedes [ADR-NNNN](NNNN-example.md)
 ```
 
-## Writing tips
+## Sfaturi de redactare
 
-- **State the decision in the title** — "Use PostgreSQL for registry storage", not "Database".
-- Record honest negative consequences; an ADR with no downsides was not analyzed, only justified.
-- Capture the rejected options and *why* — that is the part future teams cannot reconstruct.
-- Keep it to one or two pages. An ADR is a record of a decision, not a design document.
+- **Precizați decizia în titlu** — „Utilizarea PostgreSQL pentru stocarea registrului”, nu „Bază de date”.
+- Consemnați cu onestitate consecințele negative; un ADR fără dezavantaje nu a fost analizat, ci doar justificat.
+- Consemnați opțiunile respinse și *de ce* — aceasta este partea pe care viitoarele echipe nu o pot reconstitui.
+- Păstrați-l pe una sau două pagini. Un ADR este o înregistrare a unei decizii, nu un document de proiectare.

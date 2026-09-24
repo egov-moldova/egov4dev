@@ -1,7 +1,7 @@
 ### [MPass SAML Authentication](https://www.nuget.org/packages/Egov.Integrations.MPass.Saml)
 
-This package is intended for Service Provider integration built on ASP.NET Core 10.0+ with MPass using SAML v2.0 protocol for authentication.
+Acest pachet este destinat integrării Service Provider construite pe ASP.NET Core 10.0+ cu MPass, utilizând protocolul SAML v2.0 pentru autentificare.
 
 ### [Egov Configuration Extension](https://www.nuget.org/packages/Egov.Extensions.Configuration)
 
-This package provides helpers for certificate loading and configuring `IOptions<SystemCertificateOptions>` in ASP.NET Core 10.0+ applications. This is a base library that serves as a foundation for other NuGet packages in the Egov ecosystem, providing shared certificate management functionality.
+Acest pachet oferă utilitare pentru încărcarea certificatelor și configurarea `IOptions<SystemCertificateOptions>` în aplicații ASP.NET Core 10.0+. Aceasta este o librărie de bază care servește drept fundament pentru alte pachete NuGet din ecosistemul Egov, oferind funcționalitatea comună de gestionare a certificatelor.

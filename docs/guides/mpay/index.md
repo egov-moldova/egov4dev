@@ -1,74 +1,72 @@
-MPay is a reusable and shared platform-level service the main scope of which is to enable the payment for any e-Service with any payment instrument available in the market.
-The unified technical interface used for integrating e-Services with MPay significantly simplifies integrations by hiding differences in technical protocols and formats.
-There are many non-technical advantages enabled by MPay, such as easier contract management and simplified clearance, but they are out of scope of this document.
+MPay este un serviciu reutilizabil și partajat la nivel de platformă, al cărui scop principal este de a permite plata pentru orice e-Serviciu cu orice instrument de plată disponibil pe piață.
+Interfața tehnică unificată, utilizată pentru integrarea e-Serviciilor cu MPay, simplifică semnificativ integrările, ascunzând diferențele dintre protocoalele și formatele tehnice.
+Există numeroase avantaje netehnice oferite de MPay, precum gestionarea mai simplă a contractelor și decontarea simplificată, însă acestea nu fac obiectul acestui document.
 
-## At a glance
+## Pe scurt
 
-**What it is.** The government payment service: a single point for paying fees, fines and public services with any payment instrument available on the market (card, internet banking, terminal, cash at providers). The service provider integrates once with MPay rather than separately with each bank or processor. MPay confirms the payment back to the provider's system and keeps the record and reporting of collections. The ability to pay for a given service depends on the availability of the web service exposed by the provider.
+**Ce este.** Serviciul guvernamental de plăți: un punct unic pentru achitarea taxelor, amenzilor și serviciilor publice cu orice instrument de plată disponibil pe piață (card, internet banking, terminal, numerar la prestatori). Prestatorul de servicii se integrează o singură dată cu MPay, în loc să se integreze separat cu fiecare bancă sau procesator. MPay confirmă plata către sistemul prestatorului și păstrează evidența și raportarea încasărilor. Posibilitatea de a plăti pentru un anumit serviciu depinde de disponibilitatea serviciului web expus de prestator.
 
-**Legal basis.** HG nr. 712/2020 cu privire la serviciul guvernamental de plăți electronice (MPay) — pct. 16 din Concept — desemnarea posesorului și deținătorului.
+**Temei normativ.** HG nr. 712/2020 cu privire la serviciul guvernamental de plăți electronice (MPay) — pct. 16 din Concept — desemnarea posesorului și deținătorului.
 
-Related acts: Legea nr. 234/2021 cu privire la serviciile publice; cadrul bugetar privind încasările la buget.
+Acte conexe: Legea nr. 234/2021 cu privire la serviciile publice; cadrul bugetar privind încasările la buget.
 
-**Who is accountable.**
+**Cine răspunde.**
 
-| Role | Entity |
+| Rol | Entitate |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) |  |
+| Posesor | AGE |
+| Deținător | AGE |
+| Operator tehnico-tehnologic |  |
 
-**Roles in an integration.**
+**Roluri în integrare.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
-- STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
-- Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
-- Development/integration team — implements and tests the technical integration.
-- End user — the natural person or legal entity benefiting from the service.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
-**Access conditions.**
+**Condiții de acces.**
 
 Gratuit pentru integratori (comisioanele instrumentelor de plată se stabilesc separat).
 Obligatoriu: acord distinct cu AGE pentru MPay (separat de acordul pentru suita M) și certificat STISC.
 
-**Who this guide is for.**
+**Cui se adresează acest ghid.**
 
-Primary: development and integration teams of the holders of information systems, public and private.
-Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
 
-## Jump right in
+## Pornire rapidă
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
       <div class="quick-link-icon">⚡</div>
-      <h3 class="quick-link-title">Connection steps</h3>
-      <p class="quick-link-description">Get started with integration</p>
+      <h3 class="quick-link-title">Pași de conectare</h3>
+      <p class="quick-link-description">Începeți integrarea</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
       <div class="quick-link-icon">📘</div>
-      <h3 class="quick-link-title">Integration guide</h3>
-      <p class="quick-link-description">Step-by-step documentation</p>
+      <h3 class="quick-link-title">Ghid de integrare</h3>
+      <p class="quick-link-description">Documentație pas cu pas</p>
     </a>
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API reference</h3>
-      <p class="quick-link-description">Explore endpoints and callbacks</p>
+      <h3 class="quick-link-title">Referință API</h3>
+      <p class="quick-link-description">Explorați endpoint-urile și callback-urile</p>
     </a>    
   </div>
 </div>
 
-## Scope and target audience
+## Domeniu de aplicare și public țintă
 
-This document describes the technical interfaces used to integrate with MPay. There are interfaces on both sides, on payable e-Service and MPay side. Its target audience is the development teams that implement or maintain information systems to be integrated with MPay.
+Acest document descrie interfețele tehnice utilizate pentru integrarea cu MPay. Există interfețe pe ambele părți, atât pe partea e-Serviciului plătibil, cât și pe partea MPay. Publicul său țintă este format din echipele de dezvoltare care implementează sau mențin sisteme informaționale ce urmează a fi integrate cu MPay.
 
-## Service dependencies
+## Dependențe de serviciu
 
-The availability of MPay depends on the availability of the IServiceProvider implementation,
-i.e. a payer will not be able to query for an order or an invoice for a particular e-Service and
-pay for it, if the e-Service provider's web-service is not available.
+Disponibilitatea MPay depinde de disponibilitatea implementării IServiceProvider, adică un plătitor nu va putea interoga o comandă sau o factură pentru un anumit e-Serviciu și nu va putea plăti pentru aceasta, dacă serviciul web al prestatorului e-Serviciului nu este disponibil.
 
-## Protocols and standards
+## Protocoale și standarde
 
-MPay exposes WS-I Basic Profile 1.1 interoperable service over HTTPS which corresponds to basicHttpBinding in WCF. MPay uses SOAP faults for error reporting.
-MPay uses WS-Security (X.509) XML Signature (at message level) to enable non-repudiation.
+MPay expune un serviciu interoperabil WS-I Basic Profile 1.1 prin HTTPS, care corespunde binding-ului basicHttpBinding din WCF. MPay utilizează erori SOAP (SOAP faults) pentru raportarea erorilor.
+MPay utilizează WS-Security (X.509) cu semnătură XML (la nivel de mesaj) pentru a asigura nerepudierea.

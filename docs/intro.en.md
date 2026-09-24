@@ -1,0 +1,30 @@
+# Welcome to eGov4Dev
+
+  **eGov4Dev** is the official documentation library for developers working with the [**eGov Moldova**](https://egov.md) ecosystem of the Republic of Moldova. It provides guidance on how to integrate government platforms and services, use the shared development stack, and follow the established architecture principles.
+
+---
+
+## 📝 Why English?
+
+This technical documentation is provided in English to align with international development standards and facilitate collaboration with the global developer community. English serves as the lingua franca of software development, enabling access to international best practices, open-source communities, and cross-border digital service initiatives. All technical terms, APIs, and code examples naturally use English conventions, making English documentation more practical and consistent for developers.
+
+---
+
+## 📚 Documentation structure
+
+The documentation is organized as follows:
+
+- **[Platforms and services](platforms/index.md)** – overview of the core eGov Moldova services (MPass, MSign, MPower, MPay, MNotify, MDelivery, MConnect, MLog and MDocs)
+- **[Connection procedure](platforms/procedure.md)** – steps needed to get connected to one of the services
+- **[Technical overview](technical-overview/index.md)** – technical orientation and engineering standards: [development principles](principles/architecture.md), [tools and technologies](tools/technologies.md), API design, code standards, code reviews, architecture decision records, log management
+- **[Unified design system](mud/index.md)** – Moldovan Statewide Design System for government digital services
+- **[Glossary](glossary/glossary.md)** – centralized list of terms, definitions, and acronyms used across this resource
+- **Integration guides** – step-by-step guides for each service
+
+Each integration guide includes an short overview of the service, needed steps to connect, interaction scenarios, integration development, API reference, examples, integration libraries and change log.
+
+---
+
+## 🤝 Contributions and feedback
+
+We welcome your contributions and feedback! If you notice any inconsistencies or missing information in the documentation, please report them in an issue of this repo. Your input helps us keep the content accurate and up to date for an easy and correct integration.

@@ -1,92 +1,92 @@
-To ensure authenticity and non-repudiation, before processing the received data elements, the Verifier shall validate it according to this section. Note that data elements presented for each document are encoded in a separate DeviceResponse CBOR structure.
+Pentru a asigura autenticitatea și non-repudierea, înainte de procesarea elementelor de date primite, Verifier-ul trebuie să le valideze conform acestei secțiuni. Rețineți că elementele de date prezentate pentru fiecare document sunt codificate într-o structură CBOR DeviceResponse separată.
 
-## Authorization Response integrity validation
+## Validarea integrității Authorization Response
 
-As stated previously, after identifying the corresponding transaction and before decrypting the received JWE, the Verifier SHALL:
+Așa cum s-a menționat anterior, după identificarea tranzacției corespunzătoare și înainte de decriptarea JWE-ului primit, Verifier-ul TREBUIE:
 
-1. verify that the **alg** JWE header value is "ECDH-ES";
-2. verify that the **enc** JWE header value is "A256GCM";
-3. verify the **apv** JWE header value matches the transaction persisted **nonce** value;
-4. verify the **apu** JWE header exists (as it is required for JWE decryption anyway);
-5. verify the **kid** JWE header value matches the transaction persisted key identifier.
+1. să verifice că valoarea header-ului JWE **alg** este "ECDH-ES";
+2. să verifice că valoarea header-ului JWE **enc** este "A256GCM";
+3. să verifice că valoarea header-ului JWE **apv** corespunde valorii **nonce** persistate a tranzacției;
+4. să verifice că header-ul JWE **apu** există (fiind oricum obligatoriu pentru decriptarea JWE);
+5. să verifice că valoarea header-ului JWE **kid** corespunde identificatorului de cheie persistat al tranzacției.
 
-## DeviceResponse structural validation
+## Validarea structurală a DeviceResponse
 
-For each DeviceResponse, the Verifier SHALL:
+Pentru fiecare DeviceResponse, Verifier-ul TREBUIE:
 
-1. verify that DeviceResponse.version is "1.0";
-2. verify there are no document errors (in DeviceResponse.documentErrors);
-3. verify DeviceResponse status (DeviceResponse.status must be zero);
-4. verify that there is at least one document returned (in DeviceResponse.documents);
-5. verify that the returned document type (DeviceResponse.documents[].docType) matches one of the requested (credentials[].meta.doctype_value in Authorization Request JWS payload dcql_query parameter or corresponds to a referenced DCQL query by scope).
+1. să verifice că DeviceResponse.version este "1.0";
+2. să verifice că nu există erori de document (în DeviceResponse.documentErrors);
+3. să verifice starea DeviceResponse (DeviceResponse.status trebuie să fie zero);
+4. să verifice că este returnat cel puțin un document (în DeviceResponse.documents);
+5. să verifice că tipul de document returnat (DeviceResponse.documents[].docType) corespunde unuia dintre cele solicitate (credentials[].meta.doctype_value din parametrul dcql_query al payload-ului Authorization Request JWS, sau corespunde unei interogări DCQL referențiate prin scope).
 
-## Document validation
+## Validarea documentului
 
-For each Document, the Verifier SHALL:
+Pentru fiecare Document, Verifier-ul TREBUIE:
 
-1. verify there are no errors in document (in Document.errors);
-2. verify that all requested and required data elements are present (in Document.issuerSigned.nameSpaces);
-3. optionally, known document types with defined legal validity period data elements must be current (for example issue_date and expiry_date for Moldovan PID).
+1. să verifice că nu există erori în document (în Document.errors);
+2. să verifice că toate elementele de date solicitate și obligatorii sunt prezente (în Document.issuerSigned.nameSpaces);
+3. opțional, tipurile de documente cunoscute cu elemente de date privind perioada de valabilitate legală definite trebuie să fie curente (de exemplu issue_date și expiry_date pentru PID moldovenesc).
 
-## Issuer data authentication
+## Autentificarea datelor issuer-ului
 
-For each returned Document, the Verifier SHALL decode the MSO that is embedded in COSE_Sign1 signature which is Document.issuerSigned.issuerAuth and:
+Pentru fiecare Document returnat, Verifier-ul TREBUIE să decodifice MSO-ul încorporat în semnătura COSE_Sign1, care este Document.issuerSigned.issuerAuth, și:
 
-1. verify that MSO.version is "1.0";
-2. decode issuer certificate chain from **x5chain** (label 33) unprotected header;
-3. verify issuer signature using issuer certificate public key;
-4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the issuer certificate, if present;
-5. calculate all data element digests and compare them with MSO.valueDigests using the digest algorithm specified in MSO.digestAlgorithm (usually "SHA-256");
-6. verify the match between MSO.docType and Document.docType;
-7. verify MSO validity period against current time (current time must be between MSO.validityPeriod.validFrom and MSO.validityPeriod.validTo).
+1. să verifice că MSO.version este "1.0";
+2. să decodifice lanțul de certificate al issuer-ului din header-ul neprotejat **x5chain** (label 33);
+3. să verifice semnătura issuer-ului utilizând cheia publică a certificatului issuer-ului;
+4. să verifice că valoarea header-ului protejat **x5t** (label 34) corespunde amprentei SHA-256 a certificatului issuer-ului, dacă este prezent;
+5. să calculeze toate digest-urile elementelor de date și să le compare cu MSO.valueDigests, utilizând algoritmul de digest specificat în MSO.digestAlgorithm (de obicei "SHA-256");
+6. să verifice corespondența dintre MSO.docType și Document.docType;
+7. să verifice perioada de valabilitate a MSO față de ora curentă (ora curentă trebuie să fie între MSO.validityPeriod.validFrom și MSO.validityPeriod.validTo).
 
-## Issuer certificate validation
+## Validarea certificatului issuer-ului
 
-The Verifier SHALL validate issuer certificate:
+Verifier-ul TREBUIE să valideze certificatul issuer-ului:
 
-1. validity period against current time (current time must be between certificate NotBefore and NotAfter fields);
-2. validity period to be maximum 457 days (according to ISO 18013-5);
-3. validity period against MSO.validityPeriod.signed;
-4. chain against trust anchors (root certificate);
-5. Authority Key Identifier (AKI) to match CA certificate Subject Key Identifier (SKI);
-6. subject "C" and "ST" fields (when present) to match "C" and "ST" fields of CA certificate;
-7. signature algorithm to be "1.2.840.10045.4.3.2", "1.2.840.10045.4.3.3" or "1.2.840.10045.4.3.4";
-8. key usage must be digitalSignature (bit 0 set);
-9. extended key usage (EKU) must include "1.0.18013.5.1.2" (mdlDS);
-10. does not contain any of the following extensions:
+1. perioada de valabilitate față de ora curentă (ora curentă trebuie să fie între câmpurile NotBefore și NotAfter ale certificatului);
+2. perioada de valabilitate să fie de maximum 457 de zile (conform ISO 18013-5);
+3. perioada de valabilitate față de MSO.validityPeriod.signed;
+4. lanțul față de ancorele de încredere (certificatul rădăcină);
+5. Authority Key Identifier (AKI) să corespundă cu Subject Key Identifier (SKI) al certificatului CA;
+6. câmpurile "C" și "ST" ale subiectului (atunci când sunt prezente) să corespundă câmpurilor "C" și "ST" ale certificatului CA;
+7. algoritmul de semnătură să fie "1.2.840.10045.4.3.2", "1.2.840.10045.4.3.3" sau "1.2.840.10045.4.3.4";
+8. key usage trebuie să fie digitalSignature (bit 0 setat);
+9. extended key usage (EKU) trebuie să includă "1.0.18013.5.1.2" (mdlDS);
+10. să nu conțină niciuna dintre următoarele extensii:
     * "2.5.29.30" – Name Constraints
     * "2.5.29.33" – Policy Mappings
     * "2.5.29.36" – Policy Constraints
     * "2.5.29.46" – Freshest CRL
     * "2.5.29.54" – Inhibit Any Policy.
 
-## Device authentication
+## Autentificarea device-ului
 
-For each returned Document, the Verifier SHALL:
+Pentru fiecare Document returnat, Verifier-ul TREBUIE:
 
-1. validate device key authorizations, if any (for each namespace in Document.deviceSigned.nameSpaces[], the entire namespace or each data element must be present in MSO.deviceKeyInfo.keyAuthorizations that is embedded in Document.issuerSigned.issuerAuth);
-2. verify device signature of the DeviceAuthentication structure (meaning reconstructing DeviceAuthenticationBytes and verifying that it is signed as detached COSE_Sign1 signature with the COSE_Key in MSO.deviceKeyInfo.deviceKey).
+1. să valideze autorizațiile cheii device-ului, dacă există (pentru fiecare namespace din Document.deviceSigned.nameSpaces[], întregul namespace sau fiecare element de date trebuie să fie prezent în MSO.deviceKeyInfo.keyAuthorizations, care este încorporat în Document.issuerSigned.issuerAuth);
+2. să verifice semnătura device-ului a structurii DeviceAuthentication (adică reconstruirea DeviceAuthenticationBytes și verificarea faptului că aceasta este semnată ca semnătură COSE_Sign1 detașată, cu COSE_Key din MSO.deviceKeyInfo.deviceKey).
 
-## Revocation checks
+## Verificări de revocare
 
-For each returned Document, the Verifier SHALL:
+Pentru fiecare Document returnat, Verifier-ul TREBUIE:
 
-1. check for issuer certificate revocation online using standard CRL/OCSP protocols and CRL or OCSP response signature verification, as efficiently implemented by all frameworks and platforms;
-2. for documents that have MSO.status property present, check the status of the Document online against Status List CWT referenced by **uri** (member of MSO.status.status_list), where the bit at index **idx** must be VALID (set to 0).
+1. să verifice revocarea certificatului issuer-ului online, utilizând protocoalele standard CRL/OCSP și verificarea semnăturii răspunsului CRL sau OCSP, așa cum este implementat eficient de toate framework-urile și platformele;
+2. pentru documentele care au prezentă proprietatea MSO.status, să verifice starea Documentului online față de Status List CWT referențiat prin **uri** (membru al MSO.status.status_list), unde bit-ul de la indexul **idx** trebuie să fie VALID (setat la 0).
 
-## Status List validation
+## Validarea listei de stare
 
-For revocable documents, the Status List CWT is obtained using HTTP GET method from **uri** (member of MSO.status.status_list) using content negotiation. That means the HTTP request must have **Accept** header set to "application/statuslist+cwt".
+Pentru documentele revocabile, Status List CWT este obținut utilizând metoda HTTP GET de la **uri** (membru al MSO.status.status_list), folosind negocierea conținutului. Aceasta înseamnă că cererea HTTP trebuie să aibă header-ul **Accept** setat la "application/statuslist+cwt".
 
-Before processing a Status List CWT, the Verifier SHALL:
+Înainte de a procesa un Status List CWT, Verifier-ul TREBUIE:
 
-1. check the HTTP response to indicate **Content-Type**: "application/statuslist+cwt";
-2. check the value of **type** (label 16) protected header to be "application/statuslist+cwt";
-3. decode signing certificate chain from **x5chain** (label 33) unprotected header and check its match with issuer certificate;
-4. verify the value of **x5t** (label 34) protected header matches the SHA-256 thumbprint of the signing certificate, if present;
-5. verify that the list is signed as embedded COSE_Sign1 signature using signing certificate public key;
-6. verify CWT **subject** claim (key 2) match the Status List URI;
-7. verify CWT **issued at** claim (key 6) and **expiration time** claim (key 4) against current time (10 minutes clock skew recommended);
-8. decode the StatusList CBOR structure from CWT **status list** claim (key 65533) and decompress the status bits from **lst** member using ZLIB (**RFC 1950**).
+1. să verifice că răspunsul HTTP indică **Content-Type**: "application/statuslist+cwt";
+2. să verifice că valoarea header-ului protejat **type** (label 16) este "application/statuslist+cwt";
+3. să decodifice lanțul de certificate de semnare din header-ul neprotejat **x5chain** (label 33) și să verifice corespondența acestuia cu certificatul issuer-ului;
+4. să verifice că valoarea header-ului protejat **x5t** (label 34) corespunde amprentei SHA-256 a certificatului de semnare, dacă este prezent;
+5. să verifice că lista este semnată ca semnătură COSE_Sign1 încorporată, utilizând cheia publică a certificatului de semnare;
+6. să verifice că claim-ul CWT **subject** (key 2) corespunde URI-ului Listei de Stare;
+7. să verifice claim-ul CWT **issued at** (key 6) și claim-ul **expiration time** (key 4) față de ora curentă (se recomandă o toleranță de ceas de 10 minute);
+8. să decodifice structura CBOR StatusList din claim-ul CWT **status list** (key 65533) și să decompreseze biții de stare din membrul **lst**, utilizând ZLIB (**RFC 1950**).
 
-As Status Lists are meant to ensure presentation privacy and efficiently store the status of multiple documents, the Verifier SHALL cache them according to CWT **time to live** claim (key 65534).
+Deoarece Listele de Stare sunt menite să asigure confidențialitatea prezentării și să stocheze eficient starea mai multor documente, Verifier-ul TREBUIE să le stocheze în cache conform claim-ului CWT **time to live** (key 65534).

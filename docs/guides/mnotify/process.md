@@ -1,13 +1,13 @@
-1. Fill out the [Unified Connection Form](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl);  
-2. To sign the contract and/or annex for providing the governmental electronic notification service (MNotify)<br>**Note:** If the institution already has an active contract for another MEGA platform service, it is not necessary to sign a new contract. In this case, only the specific service annex for integration (e.g., MPass, MSign, MDocs) must be signed.
-3. The institution must send the system certificate (.cer public key) to MEGA at [servicii@egov.md](servicii@egov.md) only if it does not already hold a valid certificate registered for another MEGA platform service. If the institution already holds an active certificate, it must send the certificate's serial number to MEGA to confirm that it is the same certificate used for another service.;  
-4. To fill in the integration data in the [Form](https://forms.office.com/e/G8V03HGYje) 
-    - Name of information system in MPass; 
-    - IP addresses: 
-      - for testing environment - Ex. 172.46.45.10 
-      - for production environment - Ex. 172.46.45.11 
-    - Details regarding the notification channels to be used 
-5. MEGA configures access on the testing environment; 
-6. The beneficiary performs the operational tests in compliance with the Guide; 
-7. Upon the beneficiary's final validation, MEGA is to activate the service on the production environment; 
-8. The beneficiary shall be notified when the integration completed.
+1. Completați [Formularul unificat de conectare](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u&route=shorturl);  
+2. Semnarea contractului și/sau a anexei pentru prestarea serviciului guvernamental de notificări electronice (MNotify)<br>**Notă:** Dacă instituția deține deja un contract activ pentru un alt serviciu al platformei MEGA, nu este necesară semnarea unui nou contract. În acest caz, este necesară doar semnarea anexei specifice serviciului pentru integrare (de ex., MPass, MSign, MDocs).
+3. Instituția trebuie să transmită certificatul de sistem (cheia publică .cer) către MEGA la [servicii@egov.md](servicii@egov.md) doar dacă nu deține deja un certificat valid înregistrat pentru un alt serviciu al platformei MEGA. Dacă instituția deține deja un certificat activ, trebuie să transmită numărul de serie al certificatului către MEGA pentru a confirma că este același certificat utilizat pentru un alt serviciu;  
+4. Completarea datelor de integrare în [Formular](https://forms.office.com/e/G8V03HGYje) 
+    - Denumirea sistemului informațional în MPass; 
+    - Adrese IP: 
+      - pentru mediul de testare - Ex. 172.46.45.10 
+      - pentru mediul de producție - Ex. 172.46.45.11 
+    - Detalii privind canalele de notificare care urmează a fi utilizate 
+5. MEGA configurează accesul pe mediul de testare; 
+6. Beneficiarul efectuează testele operaționale în conformitate cu Ghidul; 
+7. La validarea finală din partea beneficiarului, MEGA activează serviciul pe mediul de producție; 
+8. Beneficiarul va fi notificat la finalizarea integrării.

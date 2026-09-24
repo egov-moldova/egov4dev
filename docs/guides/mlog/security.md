@@ -1,18 +1,18 @@
-﻿## Authentication
+## Autentificare
 
-All calls to MLog operations are authenticated by MLog. Authentication is performed using the client certificate presented over HTTPS (mutual TLS).
+Toate apelurile către operațiunile MLog sunt autentificate de MLog. Autentificarea se realizează utilizând certificatul client prezentat prin HTTPS (TLS mutual).
 
-For information on obtaining a client certificate and registration, see the Integration development page: Obtaining credentials and Client registration and network access.
+Pentru informații privind obținerea unui certificat client și înregistrarea, consultați pagina Dezvoltarea integrării: Obținerea credențialelor și Înregistrarea clientului și accesul la rețea.
 
-Important: Installing, registering, or explicitly trusting the obtained client certificate in the operating system or framework used by the integrating e‑service is specific to that environment and is out of scope for this document.
+Important: Instalarea, înregistrarea sau acordarea explicită a încrederii pentru certificatul client obținut, în sistemul de operare sau în framework-ul utilizat de e-serviciul care se integrează, este specifică respectivului mediu și nu face obiectul acestui document.
 
-## Authorization
+## Autorizare
 
-After successful authentication, all event requests are checked for correct configuration in the MPass system. If authorization fails:
+După autentificarea cu succes, toate cererile de eveniment sunt verificate pentru configurarea corectă în sistemul MPass. Dacă autorizarea eșuează:
 
-- For register requests: the message is logged into error‑related indices in the MLog internal database.
-- For search requests: an error message in JSON format is returned to the requester.
+- Pentru cererile de înregistrare (register): mesajul este înregistrat în indicii aferenți erorilor din baza de date internă MLog.
+- Pentru cererile de căutare (search): se returnează solicitantului un mesaj de eroare în format JSON.
 
-## Encryption
+## Criptare
 
-All communication with MLog REST services is encrypted using the standard TLS protocol (HTTPS). The client certificate used to initiate the encrypted transport is also used for authentication.
+Toată comunicarea cu serviciile REST MLog este criptată utilizând protocolul standard TLS (HTTPS). Certificatul client utilizat pentru inițierea transportului criptat este de asemenea utilizat pentru autentificare.

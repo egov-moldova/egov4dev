@@ -1,41 +1,41 @@
-## Client configuration in MPass
+## Configurarea clientului în MPass
 
-The Service Provider will request the configuration of the client service in MPass before starting the integration with MDelivery.
+Prestatorul de servicii va solicita configurarea serviciului client în MPass înainte de a începe integrarea cu MDelivery.
 
-## System registration and network access
+## Înregistrarea sistemului și accesul la rețea
 
-MDelivery clients must be registered in MDelivery before being able to call the API. The System Provider profile is created by the MDelivery Administrator.
+Clienții MDelivery trebuie să fie înregistrați în MDelivery înainte de a putea apela API-ul. Profilul Prestatorului de servicii este creat de Administratorul MDelivery.
 
-## Service environments
+## Medii de servicii
 
-There are 2 services environments available: a testing and a production environment.
-It is mandatory to develop the integrations and perform tests with the testing environment.
+Sunt disponibile 2 medii de servicii: un mediu de testare și un mediu de producție.
+Este obligatoriu ca integrările să fie dezvoltate și testele să fie efectuate pe mediul de testare.
 
-| Environment | MDelivery service URL |
+| Mediu | URL-ul serviciului MDelivery |
 |-------------|----------------------|
-| Testing | https://mdelivery.staging.egov.md |
-| Production | ------- |
+| Testare | https://mdelivery.staging.egov.md |
+| Producție | ------- |
 
-## Security considerations
+## Considerații de securitate
 
-### Authentication
+### Autentificare
 
-MDelivery calls to Service Providers are authenticated. The authentication is performed by using the client certificate used for HTTPS transport.
+Apelurile MDelivery către Prestatorii de servicii sunt autentificate. Autentificarea se realizează utilizând certificatul client folosit pentru transportul HTTPS.
 
-### Encryption
+### Criptare
 
-All communication with SOAP service is encrypted by using standard TLS protocol (HTTPS). The client certificate used to initiate the encrypted transport is also used for Authentication.
+Toată comunicarea cu serviciul SOAP este criptată utilizând protocolul standard TLS (HTTPS). Certificatul client utilizat pentru inițierea transportului criptat este utilizat și pentru autentificare.
 
-## MDelivery profile 
+## Profilul MDelivery
 
-### Profile registration
+### Înregistrarea profilului
 
-For a successful integration, the MDelivery Administrator creates a Service provider profile where are added and managed data relevant for interaction with MDelivery system: general information about the Service provider organization, integrated services, products and pick-up points. 
+Pentru o integrare reușită, Administratorul MDelivery creează un profil de Prestator de servicii, în care sunt adăugate și gestionate datele relevante pentru interacțiunea cu sistemul MDelivery: informații generale despre organizația Prestatorului de servicii, serviciile integrate, produsele și punctele de ridicare.
 
-### Profile management
+### Gestionarea profilului
 
-The Service Provider administrator (role assigned in MPass) can view and update the information available in MDelivery profile. Only a Service registered in the MDelivery profile can interact with MDelivery.  
+Administratorul Prestatorului de servicii (rol atribuit în MPass) poate vizualiza și actualiza informațiile disponibile în profilul MDelivery. Doar un Serviciu înregistrat în profilul MDelivery poate interacționa cu MDelivery.
 
-Client ID - filled in the Profile->Services is the client ID assigned in MPass.
-Product data - are relevant for cost calculation. 
-Pick-up point - data are requested by Carriers to organize the shipment process. 
+Client ID - completat în Profile->Services este ID-ul de client alocat în MPass.
+Datele produsului - sunt relevante pentru calcularea costului.
+Punctul de ridicare - datele sunt solicitate de Cărăuși pentru organizarea procesului de expediere.

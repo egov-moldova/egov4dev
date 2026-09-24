@@ -1,0 +1,197 @@
+Moldova's e-governance infrastructure is built around a set of shared platforms, each designed to solve a common challenge — authentication, signing, payments, data exchange, notifications — so public institutions can focus on delivering services rather than rebuilding technical foundations. The sections below cover the business model as well as integration guidance for each platform.
+
+## Legal framework of the platforms
+
+Each government platform is established and governed by a Government Decision, which designates the holder (posesor), the
+keeper (deținător) and, where applicable, the technical operator. The table below is the single point of reference; the
+details are given in each service's guide.
+
+| Service | Government Decision | Holder | Keeper |
+|---|---|---|---|
+| [MPass](...) | HG nr. 1090/2013, pct. 3 sbp. 1) | AGE | de confirmat |
+| [MSign](...) | HG nr. 405/2014, pct. 3 sbp. 1) | AGE | de confirmat |
+| [MConnect](...) | HG nr. 211/2019, pct. 3 | AGE | AGE |
+| [MConnect Events](...) | HG nr. 211/2019 (componentă) | AGE | AGE |
+| [MPay](...) | HG nr. 712/2020, pct. 16 din Concept | AGE | AGE |
+| [MPower](...) | HG nr. 375/2020, pct. 3 | AGE | AGE |
+| [MNotify](...) | HG nr. 376/2020, pct. 3 | AGE | AGE |
+| [MDelivery](...) | HG nr. 152/2021, pct. 2 | AGE | AGE |
+| [MDocs](...) | HG nr. 305/2024, pct. 3 | AGE | AGE |
+| [MLog](...) | HG nr. 708/2014, pct. 3 sbp. 1) | AGE | de confirmat |
+| [e-Democrație](...) | HG nr. 564/2024, pct. 2 | AGE | AGE |
+| [EVO / EVO Wallet](...) | HG nr. 5/2024, pct. 3; HG nr. 677/2025 | AGE | AGE |
+| [PDSE / FOD](...) | HG nr. 717/2014, pct. 3 | AGE | de confirmat |
+
+The technical operator is stated on each service's page, according to the applicable Decision.
+The fees set out in the „Access and pricing” section are established by the normative act indicated in that section.
+
+## Access and pricing
+
+Most services in the eGov Moldova shared infrastructure are available free of charge for all integrating parties. However, certain platforms operate on a cost-recovery model established by Government regulation. Access fees apply per integrated information system and are invoiced annually based on a signed contract. Public institutions are fully exempt — fees apply exclusively to private legal entities and natural persons.
+
+<table class="pricing-table">
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>User type</th>
+      <th>Access conditions</th>
+      <th style="width:20%">Annual fee per integration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="product-row">
+      <td colspan="4"><strong>MPass</strong></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Public institutions</td>
+      <td>Contract-based</td>
+      <td style="text-align:center">–</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Private legal entities and natural persons</td>
+      <td>Contract-based (per applicable legal framework)</td>
+      <td style="text-align:center">10.800 lei</td>
+    </tr>
+    <tr class="product-row">
+      <td colspan="4"><strong>MSign</strong></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Public institutions</td>
+      <td>Free of charge</td>
+      <td style="text-align:center">–</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Private legal entities and natural persons</td>
+      <td>Contract-based (per applicable legal framework)</td>
+      <td style="text-align:center">15.200 lei</td>
+    </tr>
+    <tr class="product-row">
+      <td colspan="4"><strong>MConnect</strong></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Public institutions</td>
+      <td>Free of charge</td>
+      <td style="text-align:center">–</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td rowspan="2">Private sector participants</td>
+      <td>Setup fee per data source (one-time)</td>
+      <td style="text-align:center">1.000 lei</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Data exchange fee per query</td>
+      <td style="text-align:center">0,25 lei</td>
+    </tr>
+    <tr class="product-row">
+      <td colspan="2"><strong>All other services</strong></td>
+      <td>Free of charge</td>
+      <td style="text-align:center">–</td>
+    </tr>
+  </tbody>
+</table>
+
+**Per-system billing:** The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
+
+The platforms don't operate in isolation. The diagram below illustrates how they relate to one another — from foundational identity and interoperability services through to citizen-facing delivery channels. Understanding these relationships helps developers anticipate which services to integrate together and in what order.
+
+<img src="../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
+
+
+## <img src="../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mconnect** – interoperability platform
+
+<a href="https://mconnect.gov.md/">MConnect</a> is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
+
+The use of MConnect ensures access to authentic data directly from the original sources, reduces administrative burden, eliminates duplication of information, and contributes to increased efficiency in the interaction between citizens, businesses, and the state.  
+
+The platform is based on the principles of legality, equal access, authenticity, and shared responsibility of data providers and consumers. Institutions connected to MConnect provide services to other entities through secure communication channels, according to established agreements and legal provisions. Today, more than 480 institutions are connected to MConnect, ensuring millions of automated data exchanges every day. This makes MConnect a fundamental component of the national e-Government infrastructure, contributing directly to the digital transformation of public administration.  
+
+### mconnect events
+
+MConnect Events represents the newest component of the data exchange ecosystem through the Interoperability Platform (MConnect), created to fundamentally transform the way public institutions share data. The extension introduces a modern, event-based model that enables near real-time synchronization of changes from registries, with over 2.5 million messages processed daily through MConnect. This event-driven approach increases the speed, resilience, and proactivity of public services, paving the way toward fully automated processes and intelligent digital services.
+
+### Semantic catalog
+
+The [Semantic Catalog](http://semantic.gov.md/) was developed as a result of the analysis of current data management practices with the aim of improving the overall quality of data, their use and coordination, and their alignment with international practices. In order to increase the quality of data and information about them, as well as to implement international good practices, it was necessary to identify a more efficient and centralized way of systematizing and managing information about data.
+
+## <img src="../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – authentication and authorization service
+
+<a href="https://mpass.gov.md/">MPass</a> is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
+
+Authentication through MPass can be performed using various methods, such as mobile signature, cryptographic token, or the EVOSign application. The system complies with international security standards, ensuring the confidentiality and integrity of the authentication process.  
+
+Currently, MPass is integrated with more than 190 government platforms and systems, offering citizens a convenient and secure way to access e-services.  
+
+---
+
+## <img src="../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **msign** – electronic signature service
+
+<a href="https://msign.gov.md/">MSign</a> is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
+
+Through MSign, citizens and organizations can sign contracts, requests, certificates, and other official documents using qualified certificates issued by accredited providers. The signed documents ensure integrity, authenticity, and non-repudiation, in accordance with the law.  
+
+The platform contributes to reducing bureaucracy, saving time, and ensuring a higher level of security in communication between the state, businesses, and citizens.  
+
+---
+
+## <img src="../assets/logos/mpay-logo.png" alt="mpay logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpay** – government e-payment gateway
+
+<a href="https://mpay.gov.md/">MPay</a> is the national electronic payment platform designed to simplify financial interactions between citizens, businesses, and public institutions. It provides a secure and unified environment for paying government fees, taxes, and other public services online, eliminating the need for physical visits or manual transactions.
+
+Through MPay, users can complete payments quickly using various methods such as bank cards, internet banking, or payment terminals. The platform ensures transparency and reliability by generating electronic receipts and maintaining a clear record of transactions. By integrating with multiple government services, MPay plays a key role in advancing digital governance and improving the overall user experience in Moldova's e-Government ecosystem.  
+
+---
+
+## <img src="../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpower** – delegation service
+
+<a href="https://mpower.gov.md/">MPower</a> is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
+
+Through MPower, a parent can delegate authority to access services on behalf of their child, an employer can delegate tasks to employees, and lawyers can represent clients. The system is integrated with MPass, MSign, MConnect, and MNotify, ensuring secure and verifiable delegation processes.  
+
+This service brings significant benefits in terms of flexibility, reducing the need for physical presence, and offering trusted mechanisms for legal digital representation.  
+
+---
+
+## <img src="../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mnotify** – notification service
+
+<a href="https://mnotify.gov.md/">MNotify</a> is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
+
+Notifications sent through MNotify keep citizens informed about fines, payments, deadlines, allowances, and other obligations or rights. The system improves communication between the government and citizens, ensuring transparency and efficiency.  
+
+MNotify can send both automatic and manual notifications, offering flexibility to institutions and convenience to recipients.  
+
+---
+
+## <img src="../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdelivery** – document delivery service
+
+<a href="https://mdelivery.gov.md/">MDelivery</a> is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
+
+Launched in July 2022, MDelivery allows citizens to receive documents such as criminal record certificates, civil status certificates, or apostilled documents through integrated postal service providers.  
+
+The platform reduces administrative costs, increases accessibility, and provides a modern way for the government to deliver official documents both within Moldova and abroad.  
+
+---
+
+## <img src="../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mlog** – logging service
+
+[MLog](../guides/mlog) is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
+
+The service is mandatory for all systems that process personal data and critical government information, as established by Government Decision no. 708/2014.  
+
+MLog provides authorities with the necessary tools to audit activity, detect anomalies, and prevent unauthorized access or misuse of information systems.  
+
+---
+
+## <img src="../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdocs** – document management platform
+
+[MDocs](../guides/mdocs) is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
+
+The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards.  
+
+MDocs is an essential component of Moldova's digital government ecosystem, contributing to the efficiency of public administration and the convenience of interactions between citizens, businesses, and the state.

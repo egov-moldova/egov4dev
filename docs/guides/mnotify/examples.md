@@ -1,6 +1,6 @@
-This document provides examples of requests to MNotify. All requests are made using the curl command. Regardless of the chosen technology, you should construct the HTTP request to match the curl example. Install the client certificate in your HTTP request according to the technology you are using.
+Acest document oferă exemple de cereri către MNotify. Toate cererile sunt realizate folosind comanda curl. Indiferent de tehnologia aleasă, ar trebui să construiți cererea HTTP astfel încât să corespundă exemplului curl. Instalați certificatul client în cererea dumneavoastră HTTP în funcție de tehnologia utilizată.
 
-Below is an example showing how it is installed for a curl request:
+Mai jos este prezentat un exemplu care arată modul de instalare pentru o cerere curl:
 
 ```bash
 $ curl \
@@ -8,19 +8,19 @@ $ curl \
 --key pathTo\privateKey.pem \
 ```
 
-Set curl HTTP Header for content type by adding:
+Setați antetul HTTP curl pentru tipul de conținut, adăugând:
 
 ```bash
 -H 'Content-Type: application/json'
 ```
 
-All curl requests will include the –cert, --key, and -H parameters.
+Toate cererile curl vor include parametrii –cert, --key și -H.
 
-For simplicity, these parameters are not shown in the examples below.
+Pentru simplitate, acești parametri nu sunt prezentați în exemplele de mai jos.
 
-## Send notification
+## Trimiterea notificării
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'POST' \
@@ -46,13 +46,13 @@ curl -X 'POST' \
 }'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```
 9d871bac-f99c-4123-be7b-b391009a59db
 ```
 
-To add an attachment to the notification request, you need to include the following section in the request body.
+Pentru a adăuga un atașament la cererea de notificare, trebuie să includeți următoarea secțiune în corpul cererii.
 
 ```json
 "attachments": [
@@ -63,7 +63,7 @@ To add an attachment to the notification request, you need to include the follow
  ]
 ```
 
-To use the recipient identification option (IDR), include the sections in the request body as shown in the example below.
+Pentru a utiliza opțiunea de identificare a destinatarului (IDR), includeți secțiunile în corpul cererii, conform exemplului de mai jos.
 
 ```json
  "recipients": [
@@ -80,16 +80,16 @@ To use the recipient identification option (IDR), include the sections in the re
  }
 ```
 
-## Get sender notifications
+## Obținerea notificărilor expeditorului
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'GET' \
 'https://mnotify.staging.egov.md:8443/api/Notification?Page=1&ItemsPerPage=2&OrderField=createdAt%20desc'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```json
 [
@@ -112,16 +112,16 @@ curl -X 'GET' \
 ]
 ```
 
-## Get sender notification
+## Obținerea unei notificări a expeditorului
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'GET' \
 'https://mnotify.staging.egov.md:8443/api/Notification/9d871bac-f99c-4123-be7b-b391009a59db'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```json
 {
@@ -131,24 +131,24 @@ curl -X 'GET' \
 }
 ```
 
-## Cancel notification
+## Anularea notificării
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'DELETE' \
  'https://mnotify.staging.egov.md:8443/api/Notification/9d871bac-f99c-4123-be7b-b391009a59db'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```
 9d871bac-f99c-4123-be7b-b391009a59db
 ```
 
-## Create template
+## Crearea unui șablon
 
-**Static variables:**
+**Variabile statice:**
 
 1. {{Date}}
 2. {{Time}}
@@ -157,7 +157,7 @@ curl -X 'DELETE' \
 5. {{RecipientFirstName}}
 6. {{RecipientLastName}}
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'POST' \
@@ -178,15 +178,15 @@ curl -X 'POST' \
 }'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```
 de4ea3da-bc02-4bc3-9c0d-16a0e64a06ff
 ```
 
-## Update template
+## Actualizarea șablonului
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'PUT' \
@@ -212,15 +212,15 @@ curl -X 'PUT' \
 }'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```
 de4ea3da-bc02-4bc3-9c0d-16a0e64a06ff
 ```
 
-## Check template
+## Verificarea șablonului
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'POST' \
@@ -230,7 +230,7 @@ curl -X 'POST' \
 }'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```json
 {
@@ -260,16 +260,16 @@ curl -X 'POST' \
 }
 ```
 
-## Get sender templates
+## Obținerea șabloanelor expeditorului
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'GET' \
  'https://mnotify.staging.egov.md:8443/api/Template?Page=1&ItemsPerPage=2&OrderField=createdAt%20desc'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```json
 [
@@ -292,16 +292,16 @@ curl -X 'GET' \
 ]
 ```
 
-## Get sender template
+## Obținerea unui șablon al expeditorului
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'GET' \
  'https://mnotify.staging.egov.md:8443/api/Template/de4ea3da-bc02-4bc3-9c0d-16a0e64a06ff'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```json
 {
@@ -331,16 +331,16 @@ curl -X 'GET' \
 }
 ```
 
-## Delete sender template
+## Ștergerea șablonului expeditorului
 
-**Request:**
+**Cerere:**
 
 ```bash
 curl -X 'DELETE' \
  'https://mnotify.staging.egov.md:8443/api/Template/de4ea3da-bc02-4bc3-9c0d-16a0e64a06ff'
 ```
 
-**Response:**
+**Răspuns:**
 
 ```
 de4ea3da-bc02-4bc3-9c0d-16a0e64a06ff

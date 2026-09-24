@@ -1,258 +1,257 @@
-This section describes the communication protocol used for credential presentation.
+Această secțiune descrie protocolul de comunicare utilizat pentru prezentarea credențialelor.
 
 <img src="../../../assets/protocol.png" alt="Protocol">
 
-The diagram depicts the interaction between EVO User, EVO Wallet module, Verifier Backend (server-side implementation of the Verifier) and Verifier Frontend (client-side implementation of the Verifier) in a presentation transaction.
+Diagrama descrie interacțiunea dintre Utilizatorul EVO, modulul EVO Wallet, Verifier Backend (implementarea server-side a Verifier-ului) și Verifier Frontend (implementarea client-side a Verifier-ului) într-o tranzacție de prezentare.
 
-The interaction consists of the following steps:
+Interacțiunea constă din următorii pași:
 
-1. In case of dynamic QR (optional steps 1-3), the Verifier Frontend (triggered by Verifier's representative) requests credential presentation transaction initiation from Verifier Backend.
-2. Verifier Backend creates and records a new transaction.
-3. Verifier Backend returns its identifier and a full link (which can be included in QR code) to Verifier Frontend.
-4. A freshly created or static QR code or Link is shown to the User. The link includes the **request_uri**. Static QR codes can include the type of requested document, branch identifier, desk operator identifier as parameters in **request_uri**, enabling Verifier Backend to dynamically create the transaction.
-5. The user scans the QR or taps on the Link. This results in Wallet app being opened.
-6. Wallet verifiers link structure, creates and records a **wallet_nonce**.
-7. To get an Authorization Request from Verifier Backend, the Wallet submits **wallet_metadata** and **wallet_nonce** to the provided **request_uri** using HTTP POST.
-8. After identifying or creating a new transaction, Verifier Backend records in transaction the **wallet_nonce** and a newly created **nonce** and ephemeral key for response decryption.
-9. Verifier Backend creates and sings an Authorization Request JWS, that includes its **client_metadata** with ephemeral key, **nonce, wallet_nonce, dcql_query, response_uri** and **state**, then returns it to the Wallet in a HTTP 200 OK response. The **response_uri** includes parameters that enable the Verifier to identify the transaction.
-10. Wallet parses and validates Authorization Request signature and received **wallet_nonce**.
-11. Wallet identifies the credentials matching the **dcql_query** and shows them to the user to request a presentation confirmation.
-12. User reviews the request, can select returned credentials and/or data elements and confirms the presentation.
-13. Wallet creates a device nonce, creates a DeviceResponse CBOR structure for each document and signs each with DeviceKey using COSE_Sign1 format.
-14. Wallet derives a symmetric encryption key from Verifier submitted ephemeral key, its own ephemeral key, nonce and device nonce (using ECDH-ES algorithm) and encrypts the Authorization Response in JWE format.
-15. Wallet submits the Authorization Response JWE to the Verifier Backend via the provided **response_uri** using HTTP POST. It includes **nonce**, device nonce, Wallet's ephemeral key, **vp_token** with serialized DeviceResponse(s) and **state**.
-16. Verifier Backend identifies the transaction from **response_uri**, validates nonce and key ephemeral identifier, derives the symmetric encryption key from its ephemeral key and Wallet's ephemeral keys, nonce and submitted device nonce (using ECDH-ES), decrypts the Authorization Response, parses DeviceResponse CBOR structure(s), validates document type, document integrity, device and issuer signatures, issuer certificate, issuer certificate revocation and document status (if a status list is referenced).
-17. Verifier Backend records the presented document(s) as presentation demonstration and processes their data elements according to its needs.
-18. Verifier Backend replies with a HTTP 200 OK response to the Wallet that includes a JSON object with optional **redirect_uri**.
-19. Wallet confirms successful presentation to the User and, if provided, redirects user to **redirect_uri**.
-20. In the meantime (after step 3) the Verifier Frontend periodically checks for transaction status with Verifier Backend.
-21. Verifier Backend returns the status of the transaction, which can be pending, failed or succeeded.
-22. Upon successful transaction, Verifier Frontend can show some data elements to Verifier's representative to let him/her match the data received to the person presenting the document(s).
+1. În cazul QR-ului dinamic (pașii opționali 1-3), Verifier Frontend (declanșat de reprezentantul Verifier-ului) solicită inițierea tranzacției de prezentare a credențialului de la Verifier Backend.
+2. Verifier Backend creează și înregistrează o nouă tranzacție.
+3. Verifier Backend returnează identificatorul său și un link complet (care poate fi inclus într-un cod QR) către Verifier Frontend.
+4. Utilizatorului i se afișează un cod QR sau un Link nou generat sau static. Link-ul include **request_uri**. Codurile QR statice pot include tipul documentului solicitat, identificatorul filialei, identificatorul operatorului de ghișeu ca parametri în **request_uri**, permițând Verifier Backend să creeze dinamic tranzacția.
+5. Utilizatorul scanează codul QR sau apasă pe Link. Aceasta are ca rezultat deschiderea aplicației Wallet.
+6. Wallet-ul verifică structura link-ului, creează și înregistrează un **wallet_nonce**.
+7. Pentru a obține o Authorization Request de la Verifier Backend, Wallet-ul transmite **wallet_metadata** și **wallet_nonce** către **request_uri** furnizat, utilizând HTTP POST.
+8. După identificarea sau crearea unei noi tranzacții, Verifier Backend înregistrează în tranzacție **wallet_nonce**-ul, precum și un **nonce** nou creat și o cheie efemeră pentru decriptarea răspunsului.
+9. Verifier Backend creează și semnează un Authorization Request JWS, care include **client_metadata** al său cu cheia efemeră, **nonce, wallet_nonce, dcql_query, response_uri** și **state**, apoi îl returnează Wallet-ului într-un răspuns HTTP 200 OK. **response_uri** include parametri care permit Verifier-ului să identifice tranzacția.
+10. Wallet-ul analizează și validează semnătura Authorization Request și **wallet_nonce**-ul primit.
+11. Wallet-ul identifică credențialele care corespund **dcql_query** și le afișează utilizatorului pentru a solicita confirmarea prezentării.
+12. Utilizatorul examinează cererea, poate selecta credențialele și/sau elementele de date returnate și confirmă prezentarea.
+13. Wallet-ul creează un device nonce, creează o structură CBOR DeviceResponse pentru fiecare document și semnează fiecare document cu DeviceKey utilizând formatul COSE_Sign1.
+14. Wallet-ul derivă o cheie de criptare simetrică din cheia efemeră transmisă de Verifier, propria sa cheie efemeră, nonce și device nonce (utilizând algoritmul ECDH-ES) și criptează Authorization Response în format JWE.
+15. Wallet-ul transmite Authorization Response JWE către Verifier Backend prin **response_uri** furnizat, utilizând HTTP POST. Aceasta include **nonce**, device nonce, cheia efemeră a Wallet-ului, **vp_token** cu DeviceResponse(-urile) serializate și **state**.
+16. Verifier Backend identifică tranzacția din **response_uri**, validează nonce-ul și identificatorul cheii efemere, derivă cheia de criptare simetrică din propria sa cheie efemeră și cheile efemere ale Wallet-ului, nonce și device nonce-ul transmis (utilizând ECDH-ES), decriptează Authorization Response, analizează structura(-ile) CBOR DeviceResponse, validează tipul documentului, integritatea documentului, semnăturile device și issuer, certificatul issuer-ului, revocarea certificatului issuer-ului și starea documentului (dacă este referențiată o listă de stare).
+17. Verifier Backend înregistrează documentul(-ele) prezentat(-e) drept demonstrație a prezentării și procesează elementele de date ale acestora în funcție de necesitățile sale.
+18. Verifier Backend răspunde cu un răspuns HTTP 200 OK către Wallet, care include un obiect JSON cu un **redirect_uri** opțional.
+19. Wallet-ul confirmă Utilizatorului prezentarea reușită și, dacă este furnizat, redirecționează utilizatorul către **redirect_uri**.
+20. Între timp (după pasul 3), Verifier Frontend verifică periodic starea tranzacției cu Verifier Backend.
+21. Verifier Backend returnează starea tranzacției, care poate fi în așteptare, eșuată sau reușită.
+22. La finalizarea cu succes a tranzacției, Verifier Frontend poate afișa anumite elemente de date reprezentantului Verifier-ului pentru a-i permite acestuia să potrivească datele primite cu persoana care prezintă documentul(-ele).
 
 ## Device Engagement
 
-During the device engagement phase, the Wallet app is opened and receives the URL that it can use to connect with the Verifier. This URL is the result of link opening or QR
-scanning by the User.
+În timpul fazei de device engagement, aplicația Wallet este deschisă și primește URL-ul pe care îl poate utiliza pentru a se conecta cu Verifier-ul. Acest URL este rezultatul deschiderii unui link sau al scanării unui cod QR de către Utilizator.
 
-In other words, the Verifier sends an Authorization Request as a Request Object by reference, as defined by JWT-Secure Authorization Request (JAR) defined in **RFC 9101** with extensions defined by OpenID4VP.
+Cu alte cuvinte, Verifier-ul transmite o Authorization Request ca Request Object prin referință, așa cum este definit de JWT-Secure Authorization Request (JAR), definit în **RFC 9101**, cu extensii definite de OpenID4VP.
 
-The URL has the following structure:
+URL-ul are următoarea structură:
 
-| URI Component | Description |
+| Componentă URI | Descriere |
 |---|---|
-| eudi-openid4vp:// | URI scheme that causes the Wallet to open. |
-| client_id | Required query parameter specifying the Client Identifier of the Verifier. The value is base64url-encoded SHA-256 hash of the DER-encoded X.509 public key certificate used by the Verifier to sign the request prefixed with "**x509_hash:**". |
-| request_uri | Required query parameter determining the HTTPS-based URL where the Wallet retrieves the Authorization Request object. The value MUST be URL-encoded. |
-| request_uri_method | Required query parameter determining the HTTP method to be used. MUST be set to **post**. This means Wallet will submit to the indicated **request_uri** its metadata and a nonce using HTTP POST method. |
+| eudi-openid4vp:// | Schema URI care determină deschiderea Wallet-ului. |
+| client_id | Parametru de interogare obligatoriu care specifică Identificatorul de Client al Verifier-ului. Valoarea este hash-ul SHA-256 codificat base64url al certificatului de cheie publică X.509 codificat DER, utilizat de Verifier pentru a semna cererea, prefixat cu "**x509_hash:**". |
+| request_uri | Parametru de interogare obligatoriu care determină URL-ul bazat pe HTTPS de unde Wallet-ul recuperează obiectul Authorization Request. Valoarea TREBUIE să fie codificată URL. |
+| request_uri_method | Parametru de interogare obligatoriu care determină metoda HTTP care urmează a fi utilizată. TREBUIE să fie setat la **post**. Aceasta înseamnă că Wallet-ul va transmite către **request_uri**-ul indicat metadatele sale și un nonce, utilizând metoda HTTP POST. |
 
-The URL-encoded **request_uri** can include additional parameters necessary to identify a pre-defined, pre-prepared or dynamically created transaction that represents the state of Authorization Request. For example, it can contain the type of the requested document, branch identifier, desk operator identifier or the identifier of the Authorization Request transaction that is freshly created and persisted by the Verifier backend. Thus, it is important to minimize its length when presented as QR, without allowing an attacker to easily generate or guess a correct one.
+**request_uri**-ul codificat URL poate include parametri suplimentari necesari pentru a identifica o tranzacție predefinită, pregătită în prealabil sau creată dinamic, care reprezintă starea Authorization Request. De exemplu, poate conține tipul documentului solicitat, identificatorul filialei, identificatorul operatorului de ghișeu sau identificatorul tranzacției Authorization Request creată și persistată recent de backend-ul Verifier-ului. Astfel, este important să se minimizeze lungimea acestuia atunci când este prezentat ca QR, fără a permite unui atacator să genereze sau să ghicească ușor unul corect.
 
-Either scanned from a QR or tapped on as a link, accessing this URL causes the Wallet app to open. The app will then make a HTTP POST request to the Verifier's **request_uri** with **Accept** header set to **application/oauth-authz-req+jwt** with the following parameters encoded as **application/x-www-form-urlencoded**:
+Fie scanat dintr-un QR, fie apăsat ca link, accesarea acestui URL determină deschiderea aplicației Wallet. Aplicația va efectua apoi o cerere HTTP POST către **request_uri**-ul Verifier-ului, cu header-ul **Accept** setat la **application/oauth-authz-req+jwt**, cu următorii parametri codificați ca **application/x-www-form-urlencoded**:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| wallet_metadata | A string containing a JSON object described below. |
-| wallet_nonce | A string value used to mitigate replay attacks of the Authorization Request. The Verifier MUST use it as **wallet_nonce** value in the signed Authorization Request object. Value is base64url-encoded. |
+| wallet_metadata | Un șir care conține un obiect JSON descris mai jos. |
+| wallet_nonce | O valoare de tip șir utilizată pentru a atenua atacurile de tip replay asupra Authorization Request. Verifier-ul TREBUIE să o utilizeze ca valoare **wallet_nonce** în obiectul Authorization Request semnat. Valoarea este codificată base64url. |
 
-The structure of wallet_metadata object is the following:
+Structura obiectului wallet_metadata este următoarea:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| issuer | The value for issuer is the Wallet issuer identifier. EVO Wallet uses the following value: **https://evo.gov.md/wallet/v1** |
-| authorization_endpoint | The value for authorization_endpoint is the OAuth 2 Authorization Endpoint where the mdoc reader sends the Authorization Request. EVO Wallet uses the following value: **eudi-openid4vp:** |
-| response_types_supported | A non-empty array of strings containing the values of the response types that the Wallet supports. EVO Wallet uses the following values: **["vp_token"]** |
-| response_modes_supported | A non-empty array of strings containing the values of the response modes that the Wallet supports. EVO Wallet uses the following values: **["direct_post.jwt"]** |
-| vp_formats_supported | An object containing a list of name/value pairs, where the name is a Credential Format Identifier and the value defines format-specific parameters that a Wallet supports. EVO Wallet uses the following value: **{ "mso_mdoc": { "issuerauth_alg_values": [-7], "deviceauth_alg_values": [-7] } }** |
-| client_id_prefixes_supported | A non-empty array of strings containing the values of the Client Identifier Prefixes that the Wallet supports. EVO Wallet uses the following values: **["x509_hash"]** |
-| request_object_signing_alg_values_supported | A non-empty array of strings containing the list supported cryptographic algorithms for securing the Request Object. EVO Wallet uses the following values: **["ES256"]** |
-| authorization_encryption_alg_values_supported | A non-empty array of strings containing the supported algorithms for encryption. EVO Wallet uses the following values: **["ECDH-ES"]** |
-| authorization_encryption_enc_values_supported | A non-empty array of strings containing the supported key types for encryption. EVO Wallet uses the following values: **["A256GCM"]** |
+| issuer | Valoarea pentru issuer este identificatorul emitentului Wallet-ului. EVO Wallet utilizează următoarea valoare: **https://evo.gov.md/wallet/v1** |
+| authorization_endpoint | Valoarea pentru authorization_endpoint este endpoint-ul OAuth 2 Authorization către care cititorul mdoc transmite Authorization Request. EVO Wallet utilizează următoarea valoare: **eudi-openid4vp:** |
+| response_types_supported | Un array ne-gol de șiruri care conține valorile tipurilor de răspuns pe care Wallet-ul le suportă. EVO Wallet utilizează următoarele valori: **["vp_token"]** |
+| response_modes_supported | Un array ne-gol de șiruri care conține valorile modurilor de răspuns pe care Wallet-ul le suportă. EVO Wallet utilizează următoarele valori: **["direct_post.jwt"]** |
+| vp_formats_supported | Un obiect care conține o listă de perechi nume/valoare, unde numele este un Identificator de Format de Credential, iar valoarea definește parametrii specifici formatului pe care un Wallet îi suportă. EVO Wallet utilizează următoarea valoare: **{ "mso_mdoc": { "issuerauth_alg_values": [-7], "deviceauth_alg_values": [-7] } }** |
+| client_id_prefixes_supported | Un array ne-gol de șiruri care conține valorile Prefixelor de Identificator de Client pe care Wallet-ul le suportă. EVO Wallet utilizează următoarele valori: **["x509_hash"]** |
+| request_object_signing_alg_values_supported | Un array ne-gol de șiruri care conține lista algoritmilor criptografici suportați pentru securizarea Request Object-ului. EVO Wallet utilizează următoarele valori: **["ES256"]** |
+| authorization_encryption_alg_values_supported | Un array ne-gol de șiruri care conține algoritmii suportați pentru criptare. EVO Wallet utilizează următoarele valori: **["ECDH-ES"]** |
+| authorization_encryption_enc_values_supported | Un array ne-gol de șiruri care conține tipurile de chei suportate pentru criptare. EVO Wallet utilizează următoarele valori: **["A256GCM"]** |
 
-## Returning Authorization Request
+## Returnarea Authorization Request
 
-As a result of HTTP POST request to the Verifier's **request_uri**, the Verifier shall respond with a new Authorization Request.
+Ca rezultat al cererii HTTP POST către **request_uri**-ul Verifier-ului, Verifier-ul trebuie să răspundă cu o nouă Authorization Request.
 
-It is suggested that an Authorization Request and the corresponding Authorization Response is part of a presentation transaction persisted by Verifier. It includes a freshly generated nonce and ephemeral key (with public key returned in client_metadata.jwks), has an expiration and usage status to prevent replays.
+Se recomandă ca o Authorization Request și Authorization Response corespunzătoare să facă parte dintr-o tranzacție de prezentare persistată de Verifier. Aceasta include un nonce și o cheie efemeră generate recent (cu cheia publică returnată în client_metadata.jwks), are o expirare și o stare de utilizare pentru a preveni atacurile de tip replay.
 
-Returned Authorization Request object MUST is a signed JWT, meaning JWS according to **RFC 7515**.
+Authorization Request returnată TREBUIE să fie un JWT semnat, adică un JWS conform **RFC 7515**.
 
-The Authorization Request JWS header has the following parameters:
+Header-ul Authorization Request JWS are următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| typ | JWT token type. MUST be set to: **oauth-authz-req+jwt** |
-| alg | The algorithm identifier used to sign the JWT. MUST be set to: **ES256** |
-| x5c | An array of strings containing the X.509 public key certificate chain used by the Verifier to sign the request. Each string in the array is a base64-encoded (not base64url-encoded) DER PKIX certificate value. The certificate containing the public key corresponding to the key used to digitally sign the request MUST be the first certificate. This MAY be followed by additional certificates, usually one, with each subsequent certificate being the one used to certify the previous one. The X.509 certificate of the trust anchor (the root) MUST NOT be included. |
+| typ | Tipul token-ului JWT. TREBUIE setat la: **oauth-authz-req+jwt** |
+| alg | Identificatorul algoritmului utilizat pentru semnarea JWT-ului. TREBUIE setat la: **ES256** |
+| x5c | Un array de șiruri care conține lanțul de certificate de cheie publică X.509 utilizat de Verifier pentru a semna cererea. Fiecare șir din array este o valoare certificat DER PKIX codificată base64 (nu base64url). Certificatul care conține cheia publică corespunzătoare cheii utilizate pentru a semna digital cererea TREBUIE să fie primul certificat. Acesta POATE fi urmat de certificate suplimentare, de obicei unul, fiecare certificat ulterior fiind cel utilizat pentru a certifica certificatul anterior. Certificatul X.509 al ancorei de încredere (rădăcina) NU TREBUIE inclus. |
 
-The Authorization Request JWS payload has the following parameters:
+Payload-ul Authorization Request JWS are următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| aud | The audience of the Authorization Request Object that must be set to: **https://self-issued.me/v2** |
-| client_id | The client identifier that was issued to the client during the registration process prefixed by client identifier prefix. Example value: x509_hash:71N_JciVv6eCUmUpqbY9l6pjFWTV14nCt2VEjIY1-2w |
-| client_metadata | A JSON object containing the Verifier metadata values as defined in this document. |
-| dcql_query | A JSON object containing a DCQL query as defined in this document. |
-| scope | A string used as an alias for a well-defined DCQL query. Currently no aliases are yet defined by EVO Wallet. |
-| transaction_data | An optional non-empty array of strings, where each string is a base64url-encoded JSON object that contains a typed parameter set with details about the transaction that the Verifier is requesting the End-User to authorize. Not yet leveraged by EVO. |
-| verifier_info | An optional non-empty array of JSON objects that represent attestations about the Verifier. May include Verifier metadata, policies, trust status, authorizations, etc. Intented to support authorization decisions, inform Wallet policy enforcement, or enrich the End-User consent dialog. Not yet leveraged by EVO. |
-| response_type | Response type to be used. MUST be: **vp_token** |
-| response_mode | Response mode to be used. MUST be: **direct_post.jwt** |
-| response_uri | The HTTPS URL that represents the HTTPS POST endpoint for submitting the encrypted Authorization Response required by the Response Mode direct_post.jwt. This usually includes parameters that enable the Verifier to identify the presentation transaction. |
-| nonce | A cryptographic nonce - an unpredictable random or pseudorandom value. Nonces shall have a minimum entropy of 16 bytes. A new nonce value shall be chosen for each transaction. |
-| wallet_nonce | The value MUST be set to the one passed by the Wallet. |
-| state | Optional string value that MUST only contain ASCII URL safe characters (uppercase and lowercase letters, decimal digits, hyphen, period, underscore, and tilde). Returned by the Wallet back to Verifier when submitting Authorization Response. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
+| aud | Audiența obiectului Authorization Request, care trebuie setată la: **https://self-issued.me/v2** |
+| client_id | Identificatorul de client emis clientului în timpul procesului de înregistrare, prefixat de prefixul identificatorului de client. Exemplu de valoare: x509_hash:71N_JciVv6eCUmUpqbY9l6pjFWTV14nCt2VEjIY1-2w |
+| client_metadata | Un obiect JSON care conține valorile metadatelor Verifier-ului, definite în acest document. |
+| dcql_query | Un obiect JSON care conține o interogare DCQL, definită în acest document. |
+| scope | Un șir utilizat ca alias pentru o interogare DCQL bine definită. În prezent, EVO Wallet nu definește încă niciun alias. |
+| transaction_data | Un array opțional ne-gol de șiruri, unde fiecare șir este un obiect JSON codificat base64url care conține un set de parametri tipizați cu detalii despre tranzacția pentru care Verifier-ul solicită autorizarea Utilizatorului Final. Neutilizat încă de EVO. |
+| verifier_info | Un array opțional ne-gol de obiecte JSON care reprezintă atestări despre Verifier. Poate include metadate ale Verifier-ului, politici, statut de încredere, autorizații etc. Menit să sprijine deciziile de autorizare, să informeze aplicarea politicii Wallet-ului sau să îmbogățească dialogul de consimțământ al Utilizatorului Final. Neutilizat încă de EVO. |
+| response_type | Tipul de răspuns care urmează a fi utilizat. TREBUIE să fie: **vp_token** |
+| response_mode | Modul de răspuns care urmează a fi utilizat. TREBUIE să fie: **direct_post.jwt** |
+| response_uri | URL-ul HTTPS care reprezintă endpoint-ul HTTPS POST pentru transmiterea Authorization Response criptată, necesară pentru Modul de Răspuns direct_post.jwt. Acesta include de obicei parametri care permit Verifier-ului să identifice tranzacția de prezentare. |
+| nonce | Un nonce criptografic - o valoare aleatoare sau pseudo-aleatoare imprevizibilă. Nonce-urile trebuie să aibă o entropie minimă de 16 octeți. O nouă valoare nonce trebuie aleasă pentru fiecare tranzacție. |
+| wallet_nonce | Valoarea TREBUIE setată la cea transmisă de Wallet. |
+| state | Valoare de tip șir opțională, care TREBUIE să conțină doar caractere ASCII sigure pentru URL (litere mari și mici, cifre zecimale, cratimă, punct, underscore și tildă). Returnată de Wallet către Verifier la transmiterea Authorization Response. De obicei utilizată pentru a transmite id-ul cererii de autorizare persistat de Verifier, corelând Authorization Request cu Authorization Response. |
 
-The structure of **client_metadata** object is the following:
+Structura obiectului **client_metadata** este următoarea:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| jwks | A JSON Web Key Set, as defined in **RFC 7591**, contains one public key used by the Wallet as an input to a key agreement used for encryption of the Authorization Response. The **key** use parameter MUST be set to **enc, alg** MUST be set to **ECDH-ES, kty** must be **EC, crv** must be **P-256**, and it MUST have a **kid** (Key ID) parameter that uniquely identifies the key within the context of the request. |
-| encrypted_response_enc_values_supported | Response encryption algorithm to be used. MUST be: **A256GCM** |
-| vp_formats_supported | Same with **vp_formats_supported** described in **wallet_metadata** object. |
+| jwks | Un set de chei JSON Web Key, definit în **RFC 7591**, care conține o cheie publică utilizată de Wallet ca input pentru un acord de chei folosit la criptarea Authorization Response. Parametrul **use** al **key**-ei TREBUIE setat la **enc, alg** TREBUIE setat la **ECDH-ES, kty** trebuie să fie **EC, crv** trebuie să fie **P-256**, și TREBUIE să aibă un parametru **kid** (Key ID) care identifică unic cheia în contextul cererii. |
+| encrypted_response_enc_values_supported | Algoritmul de criptare a răspunsului care urmează a fi utilizat. TREBUIE să fie: **A256GCM** |
+| vp_formats_supported | Identic cu **vp_formats_supported** descris în obiectul **wallet_metadata**. |
 
-The structure of the **dcql_query** object is the following:
+Structura obiectului **dcql_query** este următoarea:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| credentials | A required non-empty array of Credential Queries as defined in this document. |
-| credentials_set | An optional non-empty array of Credential Set Queries that specifies additional constraints on which of the requested Credentials to return. |
+| credentials | Un array obligatoriu ne-gol de Credential Query, definite în acest document. |
+| credentials_set | Un array opțional ne-gol de Credential Set Query, care specifică restricții suplimentare privind care dintre Credențialele solicitate urmează a fi returnate. |
 
-Each entry in **credentials** MUST be an object with the following parameters:
+Fiecare intrare din **credentials** TREBUIE să fie un obiect cu următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| id | A required string identifying the Credential in the response and, if provided, the constraints in **credential_sets**. The value MUST be a non-empty string consisting of alphanumeric, underscore (_), or hyphen (-) characters. Within the Authorization Request, the same id MUST NOT be present more than once. |
-| format | A required string that specifies the format of the requested Credential. This MUST be set to **mso_mdoc**. |
-| multiple | An optional boolean which indicates whether multiple Credentials can be returned for this Credential Query. If omitted, the default value is false. |
-| meta | A required object defining additional properties requested by the Verifier that apply to the metadata and validity data of the Credential. The properties of this object are defined per Credential Format. This MUST contain a **doctype_value** parameter which is a string that specifies an allowed value for the doctype of the requested Verifiable Credential. It MUST be a valid doctype identifier as defined by ISO 18013-5. |
-| trusted_authorities | An optional non-empty array of objects that specifies expected authorities or trust frameworks that certify Issuers, that the Verifier will accept. |
-| require_cryptographic_holder_binding | An optional boolean value which indicates whether the Verifier requires a Cryptographic Holder Binding proof. Do not set, as the default value is true. |
-| claims | An optional array of claims as defined in this document. Verifiers MUST NOT point to the same claim more than once in a single query. |
-| claim_sets | An optional non-empty array containing arrays of identifiers for elements in **claims** that specifies which combinations of **claims** for the Credential are requested. |
+| id | Un șir obligatoriu care identifică Credentialul în răspuns și, dacă este furnizat, restricțiile din **credential_sets**. Valoarea TREBUIE să fie un șir ne-gol format din caractere alfanumerice, underscore (_) sau cratimă (-). În cadrul Authorization Request, același id NU TREBUIE să apară de mai multe ori. |
+| format | Un șir obligatoriu care specifică formatul Credentialului solicitat. Acesta TREBUIE setat la **mso_mdoc**. |
+| multiple | Un boolean opțional care indică dacă pot fi returnate mai multe Credențiale pentru această Credential Query. Dacă este omis, valoarea implicită este false. |
+| meta | Un obiect obligatoriu care definește proprietăți suplimentare solicitate de Verifier, care se aplică metadatelor și datelor de valabilitate ale Credentialului. Proprietățile acestui obiect sunt definite per Format de Credential. Acesta TREBUIE să conțină un parametru **doctype_value**, care este un șir ce specifică o valoare permisă pentru doctype-ul Credentialului Verificabil solicitat. Acesta TREBUIE să fie un identificator de doctype valid, așa cum este definit de ISO 18013-5. |
+| trusted_authorities | Un array opțional ne-gol de obiecte care specifică autoritățile sau cadrele de încredere așteptate, care certifică Emitenții, pe care Verifier-ul le va accepta. |
+| require_cryptographic_holder_binding | O valoare booleană opțională care indică dacă Verifier-ul solicită o probă de Cryptographic Holder Binding. A nu se seta, deoarece valoarea implicită este true. |
+| claims | Un array opțional de claims, definite în acest document. Verifier-ii NU TREBUIE să indice același claim de mai multe ori într-o singură interogare. |
+| claim_sets | Un array opțional ne-gol care conține array-uri de identificatori pentru elementele din **claims**, care specifică ce combinații de **claims** sunt solicitate pentru Credential. |
 
-Each entry in **credential_sets** MUST be an object with the following parameters:
+Fiecare intrare din **credential_sets** TREBUIE să fie un obiect cu următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| options | A required non-empty array, where each value in the array is a list of Credential Query identifiers representing one set of Credentials that satisfies the use case. The value of each element in the **options** array is a non-empty array of identifiers which reference elements in **credentials**. |
-| required | An optional boolean which indicates whether this set of Credentials is required to satisfy the particular use case at the Verifier. If omitted, the default value is true. |
+| options | Un array obligatoriu ne-gol, unde fiecare valoare din array este o listă de identificatori de Credential Query care reprezintă un set de Credențiale ce satisface cazul de utilizare. Valoarea fiecărui element din array-ul **options** este un array ne-gol de identificatori care fac referire la elemente din **credentials**. |
+| required | Un boolean opțional care indică dacă acest set de Credențiale este necesar pentru a satisface cazul de utilizare specific la Verifier. Dacă este omis, valoarea implicită este true. |
 
-Each entry in **trusted_authorities** array MUST be an object with the following parameters:
+Fiecare intrare din array-ul **trusted_authorities** TREBUIE să fie un obiect cu următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| type | A required string uniquely identifying the type of information about the issuer trust framework. <span class="highlight-text-yellow">Use "aki" or "etsli_tl".</span> |
-| values | A required non-empty array of strings, where each string (value) contains information specific to the used Trusted Authorities Query type that allows the identification of an issuer, or a trust framework that an issuer belongs to. |
+| type | Un șir obligatoriu care identifică în mod unic tipul de informație despre cadrul de încredere al issuer-ului. <span class="highlight-text-yellow">A se utiliza "aki" sau "etsli_tl".</span> |
+| values | Un array obligatoriu ne-gol de șiruri, unde fiecare șir (valoare) conține informații specifice tipului de Trusted Authorities Query utilizat, care permit identificarea unui issuer sau a unui cadru de încredere căruia îi aparține un issuer. |
 
-Each entry in **claims** array MUST be an object with the following parameters:
+Fiecare intrare din array-ul **claims** TREBUIE să fie un obiect cu următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| id | A string identifying the particular claim. The value MUST be a non-empty string consisting of alphanumeric, underscore (_), or hyphen (-) characters. Within the particular claims array, the same id MUST NOT be present more than once. Required if **claims_set** is present, optional otherwise. |
-| path | A required value that MUST be a non-empty array representing a claims path pointer that specifies the path to a claim within the Credential. A path pointer into an mdoc contains two elements of type string. The first element refers to a namespace and the second element refers to a data element identifier. |
-| values | An optional non-empty array of strings, integers or boolean values that specifies the expected values of the claim. If the values property is present, the Wallet SHOULD return the claim only if the type and value of the claim both match exactly for at least one of the elements in the array. |
-| intent_to_retain | An optional boolean variable that indicates whether the Verifier intends to retain the received data element. Default value is **false**. The Verifier SHALL not retain any data elements, except for data elements for which the intent_to_retain flag was set to true in the request. To retain is defined as "to store for a period longer than necessary to conduct the transaction in realtime". |
+| id | Un șir care identifică claim-ul specific. Valoarea TREBUIE să fie un șir ne-gol format din caractere alfanumerice, underscore (_) sau cratimă (-). În cadrul array-ului particular de claims, același id NU TREBUIE să apară de mai multe ori. Obligatoriu dacă este prezent **claims_set**, opțional în caz contrar. |
+| path | O valoare obligatorie care TREBUIE să fie un array ne-gol reprezentând un pointer de tip claims path, care specifică calea către un claim în cadrul Credentialului. Un pointer de cale într-un mdoc conține două elemente de tip șir. Primul element face referire la un namespace, iar al doilea element face referire la un identificator de element de date. |
+| values | Un array opțional ne-gol de șiruri, numere întregi sau valori booleene care specifică valorile așteptate ale claim-ului. Dacă proprietatea values este prezentă, Wallet-ul AR TREBUI să returneze claim-ul doar dacă tipul și valoarea claim-ului se potrivesc exact cu cel puțin unul dintre elementele din array. |
+| intent_to_retain | O variabilă booleană opțională care indică dacă Verifier-ul intenționează să păstreze elementul de date primit. Valoarea implicită este **false**. Verifier-ul NU TREBUIE să păstreze niciun element de date, cu excepția elementelor de date pentru care indicatorul intent_to_retain a fost setat la true în cerere. A păstra este definit ca "a stoca pentru o perioadă mai lungă decât cea necesară pentru desfășurarea tranzacției în timp real". |
 
-Each entry in **verifier_info** MUST be an object with the following parameters:
+Fiecare intrare din **verifier_info** TREBUIE să fie un obiect cu următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| format | A string that identifies the format of the attestation and how it is encoded. Ecosystems SHOULD use collision-resistant identifiers. Further processing of the attestation is determined by the type of the attestation, which is specified in a format-specific way. |
-| data | An object or string containing an attestation (e.g. a JWT). The payload structure is defined on a per format level. |
-| credential_ids | An optional non-empty array of strings  each referencing a Credential requested by the Verifier for which the attestation is relevant. Each string matches the id field in a DCQL Credential Query. If omitted, the attestation is relevant to all requested Credentials. |
+| format | Un șir care identifică formatul atestării și modul în care este codificată. Ecosistemele AR TREBUI să utilizeze identificatori rezistenți la coliziuni. Procesarea ulterioară a atestării este determinată de tipul atestării, care este specificat într-un mod specific formatului. |
+| data | Un obiect sau șir care conține o atestare (de exemplu, un JWT). Structura payload-ului este definită la nivelul fiecărui format. |
+| credential_ids | Un array opțional ne-gol de șiruri, fiecare referindu-se la un Credential solicitat de Verifier pentru care atestarea este relevantă. Fiecare șir corespunde câmpului id dintr-o Credential Query DCQL. Dacă este omis, atestarea este relevantă pentru toate Credențialele solicitate. |
 
-## Handling Authorization Response
+## Gestionarea Authorization Response
 
-After user consent, Wallet sends the encrypted Authorization Response as JWE using HTTP POST method to Verifier's **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
+După consimțământul utilizatorului, Wallet-ul transmite Authorization Response criptat ca JWE, utilizând metoda HTTP POST, către **response_uri**-ul Verifier-ului, cu următorii parametri codificați ca **application/x-www-form-urlencoded**:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| response | A string containing the encrypted Authorization Response in JWE format. |
+| response | Un șir care conține Authorization Response criptat în format JWE. |
 
-The Authorization Response JWE header has the following parameters:
+Header-ul Authorization Response JWE are următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| alg | Always set to **ECDH-ES**. |
-| enc | Always set to **A256GCM**. |
-| kid | Value of the **kid** JWK parameter of the public key that was used for key agreement to encrypt the response. |
-| epk | The public key of the generated ephemeral key pair of the Wallet encoded as a JWK. |
-| apu | base64url-encoded-with-no-padding value of the device nonce. |
-| apv | base64url-encoded-with-no-padding value of the utf-8 encoded nonce parameter from the Authorization Request object. |
+| alg | Întotdeauna setat la **ECDH-ES**. |
+| enc | Întotdeauna setat la **A256GCM**. |
+| kid | Valoarea parametrului JWK **kid** al cheii publice care a fost utilizată pentru acordul de chei la criptarea răspunsului. |
+| epk | Cheia publică a perechii de chei efemere generate ale Wallet-ului, codificată ca JWK. |
+| apu | Valoare codificată base64url-fără-padding a device nonce-ului. |
+| apv | Valoare codificată base64url-fără-padding a parametrului nonce codificat utf-8 din obiectul Authorization Request. |
 
-The Authorization Response JWE payload has the following parameters:
+Payload-ul Authorization Response JWE are următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| vp_token | This is a JSON-encoded object containing entries where the key is the **id** value used for a Credential Query in the DCQL query and the value is an array of one or more base64url-encoded DeviceResponse structures, which is documented in the Format section of this document. |
-| state | The value of the **state** string that was submitted as part of the Authorization Request. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
+| vp_token | Acesta este un obiect codificat JSON care conține intrări, unde cheia este valoarea **id** utilizată pentru o Credential Query în interogarea DCQL, iar valoarea este un array de una sau mai multe structuri DeviceResponse codificate base64url, documentate în secțiunea Format din acest document. |
+| state | Valoarea șirului **state** care a fost transmis ca parte a Authorization Request. De obicei utilizată pentru a transmite id-ul cererii de autorizare persistat de Verifier, corelând Authorization Request cu Authorization Response. |
 
-The Verifier can decrypt Authorization Response JWE with a derived AES-256 symmetric key using Concat KDF algorithm, according to Section 4.6 from **RFC 7518** using:
+Verifier-ul poate decripta Authorization Response JWE cu o cheie simetrică AES-256 derivată, utilizând algoritmul Concat KDF, conform Secțiunii 4.6 din **RFC 7518**, folosind:
 
-*   Private part of the ephemeral key of the Verifier (recipient), of which the public part was sent to Wallet in Authorization Request JWS payload **client_metadata.jwks** parameter identified by **kid** parameter sent back in Authorization Response JWE header.
-*  Public part of the ephemeral key of the Wallet (producer or sender) sent to Verifier in Authorization Response JWE header **epk** parameter.
-*  Information about producer, sent in Authorization Response JWE header **apu** parameter, which is the device nonce generated by Wallet.
-* Information about recipient, sent in Authorization Response JWE header **apv** parameter, which is Verifier's nonce originally sent in Authorization Request JWS payload.
+*   Partea privată a cheii efemere a Verifier-ului (destinatarul), a cărei parte publică a fost transmisă Wallet-ului în payload-ul Authorization Request JWS, parametrul **client_metadata.jwks**, identificat de parametrul **kid** transmis înapoi în header-ul Authorization Response JWE.
+*  Partea publică a cheii efemere a Wallet-ului (producătorul sau expeditorul), transmisă Verifier-ului în header-ul Authorization Response JWE, parametrul **epk**.
+*  Informații despre producător, transmise în header-ul Authorization Response JWE, parametrul **apu**, care reprezintă device nonce-ul generat de Wallet.
+* Informații despre destinatar, transmise în header-ul Authorization Response JWE, parametrul **apv**, care reprezintă nonce-ul Verifier-ului transmis inițial în payload-ul Authorization Request JWS.
 
-Verifier shall also ensure that the **apv** JWE header value matches the transaction persisted **nonce** value.
+Verifier-ul trebuie de asemenea să se asigure că valoarea header-ului JWE **apv** corespunde valorii **nonce** persistate a tranzacției.
 
-To ensure authenticity and non-repudiation, before processing the received document elements, the Verifier shall validate it according to Response validation section.
+Pentru a asigura autenticitatea și non-repudierea, înainte de procesarea elementelor documentului primite, Verifier-ul trebuie să le valideze conform secțiunii de validare a răspunsului.
 
-Upon successful processing of Authorization Response or Authorization Error Response, the Verifier MUST respond with an HTTP status code of 200 with **Content-Type** of **application/json** and a JSON object in response body with the following parameters:
+La procesarea cu succes a Authorization Response sau a Authorization Error Response, Verifier-ul TREBUIE să răspundă cu un cod de stare HTTP 200, cu **Content-Type** de **application/json** și un obiect JSON în corpul răspunsului, cu următorii parametri:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| redirect_uri | An optional string containing a URI. When this parameter is present the Wallet MUST redirect the user agent to this URI. This allows the Verifier to continue the interaction with the End-User on the device where the Wallet resides after the Wallet has sent the Authorization Response to the Response URI. |
+| redirect_uri | Un șir opțional care conține un URI. Atunci când acest parametru este prezent, Wallet-ul TREBUIE să redirecționeze user agent-ul către acest URI. Aceasta permite Verifier-ului să continue interacțiunea cu Utilizatorul Final pe dispozitivul pe care se află Wallet-ul, după ce Wallet-ul a transmis Authorization Response către Response URI. |
 
 ## Authorization Error Response
 
-In case of error, Wallet sends the plain Authorization Error Response using HTTP POST method to Verifier's **response_uri**, with the following parameters encoded as **application/x-www-form-urlencoded**:
+În caz de eroare, Wallet-ul transmite Authorization Error Response în clar, utilizând metoda HTTP POST, către **response_uri**-ul Verifier-ului, cu următorii parametri codificați ca **application/x-www-form-urlencoded**:
 
-| Parameter | Description |
+| Parametru | Descriere |
 |---|---|
-| error | Error code with values described in this section. |
-| error_description | Human readable error description. |
-| state | The value of the **state** string that was submitted as part of the Authorization Request. Usually used to pass the authorization request-id persisted by the Verifier, correlating between Authorization Request and Response. |
+| error | Cod de eroare cu valorile descrise în această secțiune. |
+| error_description | Descriere a erorii, lizibilă pentru om. |
+| state | Valoarea șirului **state** care a fost transmis ca parte a Authorization Request. De obicei utilizată pentru a transmite id-ul cererii de autorizare persistat de Verifier, corelând Authorization Request cu Authorization Response. |
 
-Upon successful processing of Authorization Error Response, the Verifier MUST respond as documented for Authorization Response.
+La procesarea cu succes a Authorization Error Response, Verifier-ul TREBUIE să răspundă conform celor documentate pentru Authorization Response.
 
-The error response follows the rules as defined in **RFC 6749**, with the following additional clarifications:
+Răspunsul de eroare respectă regulile definite în **RFC 6749**, cu următoarele clarificări suplimentare:
 
 #### invalid_scope
-* Requested scope value is invalid, unknown, or malformed.
+* Valoarea scope solicitată este invalidă, necunoscută sau incorect formată.
 
 #### invalid_request
-* The request contains both a **dcql_query** parameter and a **scope** parameter referencing a DCQL query.
-* The request uses the **vp_token** Response Type but does not include a **dcql_query** parameter nor a **scope** parameter referencing a DCQL query.
-* The Wallet does not support the Client Identifier Prefix passed in the Authorization Request.
-* The Client Identifier passed in the request did not belong to its Client Identifier Prefix, or requirements of a certain prefix were violated, for example an unsigned request was sent with Client Identifier Prefix https.
+* Cererea conține atât un parametru **dcql_query**, cât și un parametru **scope** care face referire la o interogare DCQL.
+* Cererea utilizează Response Type-ul **vp_token**, dar nu include nici un parametru **dcql_query**, nici un parametru **scope** care face referire la o interogare DCQL.
+* Wallet-ul nu suportă Client Identifier Prefix-ul transmis în Authorization Request.
+* Client Identifier-ul transmis în cerere nu a aparținut Client Identifier Prefix-ului său, sau au fost încălcate cerințele unui anumit prefix, de exemplu o cerere nesemnată a fost trimisă cu Client Identifier Prefix https.
 
 #### invalid_client
-* **client_metadata** parameter is present, but the Wallet recognizes Client Identifier and knows metadata associated with it.
-* Verifier's pre-registered metadata has been found based on the Client Identifier, but **client_metadata** parameter is also present.
+* Parametrul **client_metadata** este prezent, dar Wallet-ul recunoaște Client Identifier-ul și cunoaște metadatele asociate acestuia.
+* Metadatele preînregistrate ale Verifier-ului au fost găsite pe baza Client Identifier-ului, dar este prezent și parametrul **client_metadata**.
 
 #### access_denied
-* The Wallet did not have the requested Credentials to satisfy the Authorization Request.
-* The End-User did not give consent to share the requested Credentials with the Verifier.
-* The Wallet failed to authenticate the End-User.
+* Wallet-ul nu a avut Credențialele solicitate pentru a satisface Authorization Request.
+* Utilizatorul Final nu și-a dat consimțământul pentru a partaja Credențialele solicitate cu Verifier-ul.
+* Wallet-ul nu a reușit să autentifice Utilizatorul Final.
 
-This document also defines the following additional error codes and error descriptions:
+Acest document definește de asemenea următoarele coduri și descrieri de eroare suplimentare:
 
 #### vp_formats_not_supported
-* The Wallet does not support any of the formats requested by the Verifier, such as those included in the **vp_formats_supported** registration parameter.
+* Wallet-ul nu suportă niciunul dintre formatele solicitate de Verifier, cum ar fi cele incluse în parametrul de înregistrare **vp_formats_supported**.
 
 #### invalid_request_uri_method
-* The value of the **request_uri_method** request parameter is neither get nor post (case-sensitive).
+* Valoarea parametrului de cerere **request_uri_method** nu este nici get, nici post (sensibil la majuscule/minuscule).
 
 #### invalid_transaction_data
-* any of the following is true for at least one object in the **transaction_data** structure:
-  - contains an unknown or unsupported transaction data type value,
-  - is an object of a known type but containing unknown fields,
-  - contains fields of the wrong type for the transaction data type,
-  - contains fields with invalid values for the transaction data type,
-  - is missing required fields for the transaction data type,
-  - the credential_ids does not match, or
-  - the referenced Credential(s) are not available in the Wallet.
+* oricare dintre următoarele este adevărată pentru cel puțin un obiect din structura **transaction_data**:
+  - conține o valoare de tip transaction data necunoscută sau nesuportată,
+  - este un obiect de tip cunoscut, dar conține câmpuri necunoscute,
+  - conține câmpuri de tip greșit pentru tipul de transaction data,
+  - conține câmpuri cu valori invalide pentru tipul de transaction data,
+  - lipsesc câmpuri obligatorii pentru tipul de transaction data,
+  - credential_ids nu corespunde, sau
+  - Credentialul(ele) referențiat(e) nu sunt disponibile în Wallet.
 
 #### wallet_unavailable
-* The Wallet appears to be unavailable and therefore unable to respond to the request. It can be useful in situations where the user agent cannot invoke the Wallet and another component receives the request while the End-User wishes to continue the journey on the Verifier website. For example, this applies when using claimed HTTPS URIs handled by the Wallet provider in case the platform cannot or does not translate the URI into a platform intent to invoke the Wallet. In this case, the Wallet provider would return the Authorization Error Response to the Verifier and might redirect the user agent back to the Verifier website.
+* Wallet-ul pare a fi indisponibil și, prin urmare, incapabil să răspundă cererii. Poate fi util în situațiile în care user agent-ul nu poate invoca Wallet-ul, iar o altă componentă primește cererea în timp ce Utilizatorul Final dorește să continue parcursul pe website-ul Verifier-ului. De exemplu, aceasta se aplică atunci când se utilizează URI-uri HTTPS revendicate (claimed), gestionate de furnizorul Wallet-ului, în cazul în care platforma nu poate sau nu traduce URI-ul într-o intenție de platformă pentru a invoca Wallet-ul. În acest caz, furnizorul Wallet-ului ar returna Authorization Error Response către Verifier și ar putea redirecționa user agent-ul înapoi către website-ul Verifier-ului.

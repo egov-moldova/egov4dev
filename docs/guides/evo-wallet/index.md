@@ -1,49 +1,49 @@
 <img src="../../assets/wallet-intro.png" />
 
-Following the EUDI Wallet regulation and its implementing acts, EVO Wallet implements remote presentation of attributes to wallet-relying parties according to **OpenID4VP 1.0**, using the mdoc format defined in **ISO/IEC 18013-5**, via same-device flow to retrieve documents. The mechanism is described in Section 8.3.1 of OpenID4VP 1.0 as **direct_post.jwt** response mode. Actual implementation profile is guided by **OpenID4VC HAIP 1.0** with ISO mdoc as credential format.
+În conformitate cu reglementarea EUDI Wallet și actele sale de implementare, EVO Wallet implementează prezentarea la distanță a atributelor către părțile care se bazează pe portofel (relying parties), conform **OpenID4VP 1.0**, utilizând formatul mdoc definit în **ISO/IEC 18013-5**, printr-un flux same-device pentru recuperarea documentelor. Mecanismul este descris în Secțiunea 8.3.1 din OpenID4VP 1.0 ca mod de răspuns **direct_post.jwt**. Profilul concret de implementare este ghidat de **OpenID4VC HAIP 1.0**, cu ISO mdoc drept format de credențial.
 
-OpenID4VP is an extension of OAuth 2.0 that enables the Holder (mdoc holder) to present Credential (mdoc) using its Wallet (mdoc app) to a Verifier (mdoc reader) upon request. In this context, the Wallet acts as OAuth 2.0 Authorization Server and the Verifier acts as OAuth 2.0 Client.
+OpenID4VP este o extensie a OAuth 2.0 care permite Holderului (deținătorul mdoc) să prezinte un Credential (mdoc) prin intermediul Wallet-ului său (aplicația mdoc) unui Verifier (cititorul mdoc), la cerere. În acest context, Wallet-ul acționează ca server de autorizare OAuth 2.0, iar Verifier-ul acționează ca client OAuth 2.0.
 
-## At a glance
+## Pe scurt
 
-**What it is.** The digital identity wallet inside the EVO government application. The citizen keeps the digital versions of their documents on the phone and presents them, on request, to a verifier — a bank, a counter, an online service — disclosing only the requested data and only with explicit consent. A system that needs to confirm a user's identity or specific attributes becomes a verifier (relying party) in the ecosystem, upon application to EGA. The implementation follows the European standards for the digital identity wallet.
+**Ce este.** Portofelul de identitate digitală integrat în aplicația guvernamentală EVO. Cetățeanul păstrează versiunile digitale ale documentelor sale pe telefon și le prezintă, la cerere, unui verificator — o bancă, un ghișeu, un serviciu online — dezvăluind doar datele solicitate și doar cu consimțământ explicit. Un sistem care are nevoie să confirme identitatea unui utilizator sau anumite atribute devine verificator (relying party) în ecosistem, în urma unei cereri adresate AGE. Implementarea urmează standardele europene pentru portofelul de identitate digitală.
 
-**Legal basis.** HG nr. 5/2024 (aplicația guvernamentală integrată EVO), pct. 3 — desemnarea posesorului și deținătorului; HG nr. 677/2025 (consolidarea accesului în cadrul Portalului guvernamental integrat EVO). Temeiul specific al portofelului de identitate digitală — DE CONFIRMAT — HG nr. 5/2024, pct. 3.
+**Temei normativ.** HG nr. 5/2024 (aplicația guvernamentală integrată EVO), pct. 3 — desemnarea posesorului și deținătorului; HG nr. 677/2025 (consolidarea accesului în cadrul Portalului guvernamental integrat EVO). Temeiul specific al portofelului de identitate digitală — DE CONFIRMAT — HG nr. 5/2024, pct. 3.
 
-Related acts: Legea nr. 91/2014; cadrul european privind identitatea digitală (eIDAS 2 / EUDI Wallet); standardele OpenID4VP 1.0 și ISO/IEC 18013-5 utilizate în implementare.
+Acte conexe: Legea nr. 91/2014; cadrul european privind identitatea digitală (eIDAS 2 / EUDI Wallet); standardele OpenID4VP 1.0 și ISO/IEC 18013-5 utilizate în implementare.
 
-**Who is accountable.**
+**Cine răspunde.**
 
-| Role | Entity |
+| Rol | Entitate |
 |---|---|
-| Holder (posesor) | AGE (pentru EVO, conform HG nr. 5/2024) |
-| Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | STISC |
+| Posesor | AGE (pentru EVO, conform HG nr. 5/2024) |
+| Deținător | AGE |
+| Operator tehnico-tehnologic | STISC |
 
-**Roles in an integration.**
+**Roluri în integrare.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
-- STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
-- Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
-- Development/integration team — implements and tests the technical integration.
-- End user — the natural person or legal entity benefiting from the service.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
-**Access conditions.**
+**Condiții de acces.**
 
 Gratuit. Calitatea de verificator se obține în baza cererii depuse la AGE, prin formularul dedicat, urmată de înregistrarea în ecosistem.
 
-**Who this guide is for.**
+**Cui se adresează acest ghid.**
 
-Primary: development and integration teams of the holders of information systems, public and private.
-Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
 
 <p align="center">
   <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" style="display:inline-block; background-color:#1a6df0; color:#ffffff; font-size:16px; font-weight:600; padding:14px 28px; border-radius:8px; text-decoration:none; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-    Become a Verifier in the EVO Wallet Ecosystem&nbsp;&nbsp;↗
+    Deveniți verificator în ecosistemul EVO Wallet&nbsp;&nbsp;↗
   </a>
 </p>
 
-## Relying Parties in Production
+## Relying parties în producție
 <style>
 .rp-wall {
   --rp-meta: #64748b;
@@ -137,7 +137,7 @@ body.dark .rp-wall {
 <div class="rp-wall">
   <p class="rp-wall__intro">
     <span class="rp-wall__badge">Live</span>
-    <span>Relying parties that have completed onboarding and accept EVO Wallet presentations in production.</span>
+    <span>Relying parties care au finalizat înregistrarea și acceptă prezentări EVO Wallet în producție.</span>
   </p>
   <div class="rp-wall__logos">
     <span class="rp-logo">
@@ -149,37 +149,37 @@ body.dark .rp-wall {
   </div>
 </div>
 
-## Jump right in
+## Pornire rapidă
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="integration/" class="quick-link-card">
       <div class="quick-link-icon">🔌</div>
-      <h3 class="quick-link-title">Integration</h3>
-      <p class="quick-link-description">How to integrate with EVO Wallet</p>
+      <h3 class="quick-link-title">Integrare</h3>
+      <p class="quick-link-description">Cum se integrează cu EVO Wallet</p>
     </a>
     <a href="protocol/" class="quick-link-card">
       <div class="quick-link-icon">🔐</div>
       <h3 class="quick-link-title">Protocol</h3>
-      <p class="quick-link-description">OpenID4VP flow</p>
+      <p class="quick-link-description">Fluxul OpenID4VP</p>
     </a>
     <a href="examples/" class="quick-link-card">
       <div class="quick-link-icon">🧾</div>
-      <h3 class="quick-link-title">Examples</h3>
-      <p class="quick-link-description">Full request/ response payload samples</p>
+      <h3 class="quick-link-title">Exemple</h3>
+      <p class="quick-link-description">Mostre complete de payload cerere/răspuns</p>
     </a>
     <a href="demoverifierbnm/" class="quick-link-card">
       <div class="quick-link-icon">🏦</div>
-      <h3 class="quick-link-title">Demo verifier</h3>
-      <p class="quick-link-description">Provided by the National Bank of Moldova</p>
+      <h3 class="quick-link-title">Verificator demo</h3>
+      <p class="quick-link-description">Furnizat de Banca Națională a Moldovei</p>
     </a>
   </div>
 </div>
 
 
-## Referenced standards
+## Standarde de referință
 
-| Standard | Description |
+| Standard | Descriere |
 |----------|-------------|
 | OpenID4VP 1.0 | OpenID for Verifiable Presentations 1.0 |
 | OpenID4VC HAIP 1.0 | OpenID for Verifiable Credentials High Assurance Interoperability Profile 1.0 |
@@ -193,5 +193,4 @@ body.dark .rp-wall {
 | RFC 8610 | Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures |
 | RFC 9360 | CBOR Object Signing and Encryption (COSE): Header Parameters for Carrying and Referencing X.509 Certificates |
 | IETF TSL _draft_ | IETF Token Status List - _draft-ietf-oauth-status-list-21_ |
-
 

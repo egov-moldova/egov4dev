@@ -1,74 +1,74 @@
-## Client credentials and network access
+## Acreditări de client și acces la rețea
 
-Before being able to interact with MConnect Events, a client must be registered accordingly by the Service owner. To perform such a registration, please provide your system certificate. If you don't have one, you can request a system certificate for authentication from Information Technology and Cyber Security Service or E-Government Agency.
+Înainte de a putea interacționa cu MConnect Events, un client trebuie să fie înregistrat în mod corespunzător de către deținătorul serviciului. Pentru a efectua o astfel de înregistrare, vă rugăm să furnizați certificatul de sistem. Dacă nu dispuneți de unul, puteți solicita un certificat de sistem pentru autentificare de la Serviciul Tehnologia Informației și Securitate Cibernetică sau de la Agenția de Guvernare Electronică.
 
-For security reasons, the client MUST use a different certificate for integration with staging and production environments, and corresponding private keys MUST be kept as confidential as possible. MConnect Events does not require access to client private keys for integration.
+Din motive de securitate, clientul TREBUIE să folosească un certificat diferit pentru integrarea cu mediul de staging și cu cel de producție, iar cheile private corespunzătoare TREBUIE păstrate cât mai confidențial posibil. MConnect Events nu necesită acces la cheile private ale clientului pentru integrare.
 
-MConnect Events API is accessible only to a registered set of IP addresses and, for security sensitive information systems, this means configuring routes and/or a VPN between the client and MConnect Events.
+API-ul MConnect Events este accesibil doar unui set înregistrat de adrese IP și, pentru sistemele informaționale sensibile din punct de vedere al securității, aceasta presupune configurarea de rute și/sau a unui VPN între client și MConnect Events.
 
-To register a client and get network access, please write a request by e-mail to the Service owner, providing your public IP address or the VPN assigned private IP address and public key certificate.
+Pentru a înregistra un client și a obține acces la rețea, vă rugăm să trimiteți o solicitare prin e-mail către deținătorul serviciului, furnizând adresa IP publică sau adresa IP privată alocată prin VPN, precum și certificatul de cheie publică.
 
-## Environments
+## Medii
 
-There are 2 service environments available: staging and production.
+Sunt disponibile 2 medii de serviciu: staging și producție.
 
-| Environment | Endpoint URL |
+| Mediu | URL endpoint |
 |------------|--------------|
 | **Staging** | |
-| Swagger UI address | https://mconnect-events.staging.egov.md:8443/swagger |
-| Base address | https://mconnect-events.staging.egov.md:8443/ |
-| WebSocket consumer base address | wss://mconnect-events.staging.egov.md:8443/ |
-| **Production** | |
-| Base address | https://mconnect-events.gov.md:8443/ |
-| WebSocket consumer base address | wss://mconnect-events.gov.md:8443/ |
+| Adresa Swagger UI | https://mconnect-events.staging.egov.md:8443/swagger |
+| Adresa de bază | https://mconnect-events.staging.egov.md:8443/ |
+| Adresa de bază pentru consumatorul WebSocket | wss://mconnect-events.staging.egov.md:8443/ |
+| **Producție** | |
+| Adresa de bază | https://mconnect-events.gov.md:8443/ |
+| Adresa de bază pentru consumatorul WebSocket | wss://mconnect-events.gov.md:8443/ |
 
-Notice the wss schema used by efficient consumers, meaning WebSocket secured. 
+Observați schema wss folosită de consumatorii eficienți, adică WebSocket securizat.
 
-*Note:* Endpoints are accessible only using a valid client certificate from registered IPs.
+*Notă:* Endpointurile sunt accesibile doar folosind un certificat de client valid, din adrese IP înregistrate.
 
-## Personal data processing
+## Prelucrarea datelor cu caracter personal
 
-MConnect Events logs details related to the consumption of events that include personal data. This requires the following details:
+MConnect Events înregistrează detalii legate de consumarea evenimentelor care includ date cu caracter personal. Acest lucru necesită următoarele detalii:
 
-- **Legal entity identifier (IDNO)** – taken from consumer system registration.
-- **Legal basis for personal data processing** – taken from consumer configuration (per source or event type) or extracted from each payload using configured JSON path.
-- **Legal reason for personal data processing** – taken from consumer configuration (per source or event type) or extracted from event payload using configured JSON path.
-- **Personal data subject** – extracted from event payload using configured JSON path
+- **Identificatorul persoanei juridice (IDNO)** – preluat din înregistrarea sistemului consumator.
+- **Temeiul legal pentru prelucrarea datelor cu caracter personal** – preluat din configurația consumatorului (pe sursă sau tip de eveniment) sau extras din fiecare payload folosind JSON path-ul configurat.
+- **Motivul legal pentru prelucrarea datelor cu caracter personal** – preluat din configurația consumatorului (pe sursă sau tip de eveniment) sau extras din payload-ul evenimentului folosind JSON path-ul configurat.
+- **Subiectul datelor cu caracter personal** – extras din payload-ul evenimentului folosind JSON path-ul configurat
 
-As events are produced and then consumed without a consumer user's explicit request, the personal data processor is considered the consumer's system.
+Deoarece evenimentele sunt produse și apoi consumate fără o solicitare explicită din partea unui utilizator al consumatorului, operatorul de date cu caracter personal este considerat sistemul consumatorului.
 
-## Integration checklists
+## Liste de verificare pentru integrare
 
-Integrations MUST be developed and tested within the staging environment only. To ensure high availability, no performance, security or any other kind of tests are allowed on production environment.
+Integrările TREBUIE dezvoltate și testate exclusiv în mediul de staging. Pentru a asigura o disponibilitate ridicată, nu sunt permise teste de performanță, securitate sau de orice alt tip în mediul de producție.
 
-### General checklist for any client:
+### Lista de verificare generală, pentru orice client:
 
-1. Base address and client certificate are configurable.
-2. Client certificate private key is secure and differs between staging and production environments.
-3. Any intermediary certificate is sent with the client certificate during handshake.
-4. The IP address that is visible to MConnect Events is stable. The address can be a public Internet address or private one from government network.
-5. Internal procedure is set up to remind system administrators about certificate expiration in advance.
+1. Adresa de bază și certificatul de client sunt configurabile.
+2. Cheia privată a certificatului de client este securizată și diferă între mediul de staging și cel de producție.
+3. Orice certificat intermediar este trimis împreună cu certificatul de client în timpul handshake-ului.
+4. Adresa IP vizibilă pentru MConnect Events este stabilă. Adresa poate fi o adresă publică de Internet sau una privată din rețeaua guvernamentală.
+5. Este stabilită o procedură internă pentru a reaminti administratorilor de sistem, în avans, despre expirarea certificatului.
 
-### Checklist for producers:
+### Lista de verificare pentru producători:
 
-1. Producers implement an outbox pattern to ensure no events are skipped from being produced.
-2. Events have a correct URI set in CloudEvent source attribute.
-3. Events have unique identifiers set in CloudEvent id attribute per source.
-4. All producer instances from the same source have a consistent value set in CloudEvent time attribute.
-5. For events that require ordered consumption, the producer sets the partitionkey attribute corresponding to event payload. Partition keys should not be constant as this limits the scalability.
-6. Events that include personal data include enough information for logging personal data synchronization.
-7. Each event is not larger than 64 KB.
-8. Event batches are not larger than 1 MB.
+1. Producătorii implementează un pattern outbox pentru a se asigura că niciun eveniment nu este omis de la producere.
+2. Evenimentele au un URI corect setat în atributul source al CloudEvent.
+3. Evenimentele au identificatori unici setați în atributul id al CloudEvent, per sursă.
+4. Toate instanțele de producător din aceeași sursă au o valoare consecventă setată în atributul time al CloudEvent.
+5. Pentru evenimentele care necesită o consumare ordonată, producătorul setează atributul partitionkey corespunzător payload-ului evenimentului. Cheile de partiționare nu ar trebui să fie constante, deoarece acest lucru limitează scalabilitatea.
+6. Evenimentele care includ date cu caracter personal conțin suficiente informații pentru înregistrarea sincronizării datelor cu caracter personal.
+7. Fiecare eveniment nu depășește 64 KB.
+8. Loturile de evenimente nu depășesc 1 MB.
 
-### Checklist for consumers:
+### Lista de verificare pentru consumatori:
 
-1. Events consumption is properly confirmed, either individually or periodically.
-2. Events are consumed in an idempotent manner, i.e. processing already processed events do not result in double processing or do not create some additional business effect.
-3. Dead events are properly reported back to MConnect Events.
-4. Events shall not be considered dead for technical errors, for example due to Consumer network, database or some other component being temporarily inaccessible or in a wrong configuration. Events having a wrong structure are a good example of dead events.
-5. Consumers use WebSocket protocol.
-6. Consumers that use long polling for integration use the returned consumer instance base address without any interpretation.
-7. Consumers that use long polling for integration explicitly delete the instance when shutting down.
-8. Consumers reconnect when the WebSocket connection is lost or create another long-polling instance when the previous one expires.
-9. Consumer instances are scaled in divisors of 12.
-10. Consumers are monitored to run permanently or periodically to not miss events.
+1. Consumarea evenimentelor este confirmată corespunzător, fie individual, fie periodic.
+2. Evenimentele sunt consumate într-o manieră idempotentă, adică procesarea evenimentelor deja procesate nu are ca rezultat o procesare dublă și nu creează vreun efect suplimentar la nivel de business.
+3. Evenimentele eșuate (dead) sunt raportate corespunzător înapoi către MConnect Events.
+4. Evenimentele nu trebuie considerate eșuate (dead) pentru erori tehnice, de exemplu din cauza rețelei consumatorului, a bazei de date sau a altei componente temporar indisponibile sau configurate greșit. Evenimentele cu o structură greșită sunt un exemplu bun de evenimente eșuate.
+5. Consumatorii folosesc protocolul WebSocket.
+6. Consumatorii care folosesc long polling pentru integrare utilizează adresa de bază a instanței de consumator returnată, fără nicio interpretare.
+7. Consumatorii care folosesc long polling pentru integrare șterg explicit instanța la oprire.
+8. Consumatorii se reconectează atunci când conexiunea WebSocket se pierde sau creează o altă instanță long-polling atunci când cea anterioară expiră.
+9. Instanțele de consumator sunt scalate în divizori ai lui 12.
+10. Consumatorii sunt monitorizați să ruleze permanent sau periodic, pentru a nu pierde evenimente.

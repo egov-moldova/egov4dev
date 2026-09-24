@@ -1,17 +1,17 @@
-## Authentication
+## Autentificare
 
-All MPower Clients API calls can be made only by authenticated systems. Authentication is performed using a client authentication certificate.
+Toate apelurile MPower Clients API pot fi efectuate doar de sisteme autentificate. Autentificarea se realizează cu ajutorul unui certificat de autentificare client.
 
-Information on obtaining and registering the certificate can be found in Chapter 7: Integration implementation.
+Informații privind obținerea și înregistrarea certificatului pot fi găsite în Capitolul 7: Implementarea integrării.
 
-## Access authorization
+## Autorizarea accesului
 
-To access the MPower Clients API component, it is necessary to use the system authentication certificate issued by STISC and registered by AGE in MPass.
+Pentru a accesa componenta MPower Clients API, este necesar să utilizați certificatul de autentificare a sistemului emis de STISC și înregistrat de AGE în MPass.
 
-The client will call the MPower API using its system certificate for authentication. The API will verify whether the certificate has the necessary rights to access the requested endpoint. If the rights are valid, the request will proceed; otherwise, a 403 (Forbidden) response will be returned.
-MPass configuration examples:
+Clientul va apela API-ul MPower folosind certificatul de sistem propriu pentru autentificare. API-ul va verifica dacă certificatul are drepturile necesare pentru a accesa endpointul solicitat. Dacă drepturile sunt valabile, cererea va fi procesată; în caz contrar, va fi returnat un răspuns 403 (Forbidden).
+Exemple de configurare MPass:
 
-=== "JSON settings"
+=== "Setări JSON"
 
     ``` json 
         {
@@ -25,10 +25,10 @@ MPass configuration examples:
         "ViewAllAuthorizations": false
         }
     ```
-!!! note "Note"
+!!! note "Notă"
 
-     **"AllowedEndpoints"** – specifies the list of endpoints that the third-party system has access to.
-     <br>**"ViewAllAuthorizations"** – true/false: true – access to all powers of representation (IR) is granted; false – access is limited to the powers of representation belonging exclusively to the service provider.
+     **"AllowedEndpoints"** – specifică lista endpointurilor la care sistemul terț are acces.
+     <br>**"ViewAllAuthorizations"** – true/false: true – este acordat accesul la toate împuternicirile (IR); false – accesul este limitat la împuternicirile care aparțin exclusiv prestatorului de servicii.
 
-## Encryption
-Communication with the MPower REST API component is encrypted using the standard TLS (HTTPS) protocol.
+## Criptare
+Comunicarea cu componenta MPower REST API este criptată folosind protocolul standard TLS (HTTPS).

@@ -1,6 +1,6 @@
-# Examples
+# Exemple
 
-## Retrieve petitions
+## Preluarea petițiilor
 
 ```bash
 curl -X GET "https://epetitii.staging.egov.md/petitie/authority/petitions" \
@@ -8,7 +8,7 @@ curl -X GET "https://epetitii.staging.egov.md/petitie/authority/petitions" \
 -H "accept: application/json"
 ```
 
-**Example response:**
+**Exemplu de răspuns:**
 
 ```json
 {
@@ -19,10 +19,10 @@ curl -X GET "https://epetitii.staging.egov.md/petitie/authority/petitions" \
 }
 ```
 
-## Rate Limits
+## Limite de rată
 
-To ensure platform stability, integrators should:
+Pentru a asigura stabilitatea platformei, integratorii ar trebui:
 
-- Avoid excessive polling
-- Use pagination when retrieving lists
-- Cache responses when possible
+- Să evite interogările (polling) excesive
+- Să utilizeze paginarea la preluarea listelor
+- Să pună în cache răspunsurile ori de câte ori este posibil

@@ -1,103 +1,103 @@
-MNotify is a government electronic notification service designed to send notifications to recipients through different notification channels, to inform about events related to public services, or other relevant notices.
+MNotify este un serviciu guvernamental de notificări electronice, conceput pentru a transmite notificări către destinatari prin diferite canale de notificare, pentru a informa despre evenimente legate de serviciile publice sau alte comunicări relevante.
 
-Currently, MNotify supports e-mail, EVO push notifications (by the end of 2026), Viber, Telegram and MCabinet as a delivery channel. IDNP property is required when specifying a notification identity. 
+În prezent, MNotify suportă ca și canale de livrare: e-mail, notificări push EVO (până la finele anului 2026), Viber, Telegram și MCabinet. Proprietatea IDNP este obligatorie la specificarea identității destinatarului notificării.
 
-## At a glance
+## Pe scurt
 
-**What it is.** The government notification service: institutions use it to send official notices to natural persons and legal entities over the channels the recipient has active (e-mail, web push, Viber, Telegram, personal cabinet). The integrating system sends a single request, identifying the recipient by IDNP or another accepted identifier; channel selection and actual delivery are handled by MNotify. The service also offers contact management, template management and access to the history of notifications sent.
+**Ce este.** Serviciul guvernamental de notificări: instituțiile îl utilizează pentru a transmite comunicări oficiale persoanelor fizice și juridice prin canalele active ale destinatarului (e-mail, web push, Viber, Telegram, cabinet personal). Sistemul integrator transmite o singură cerere, identificând destinatarul prin IDNP sau alt identificator acceptat; selectarea canalului și livrarea efectivă sunt gestionate de MNotify. Serviciul oferă de asemenea gestionarea contactelor, gestionarea șabloanelor și acces la istoricul notificărilor transmise.
 
-**Legal basis.** HG nr. 376/2020 cu privire la serviciul guvernamental de notificări electronice (MNotify) — pct. 3 — desemnarea posesorului și deținătorului.
+**Temei normativ.** HG nr. 376/2020 cu privire la serviciul guvernamental de notificări electronice (MNotify) — pct. 3 — desemnarea posesorului și deținătorului.
 
-Related acts: Legea nr. 133/2011 privind protecția datelor cu caracter personal; HG nr. 1090/2013 (MPass).
+Acte conexe: Legea nr. 133/2011 privind protecția datelor cu caracter personal; HG nr. 1090/2013 (MPass).
 
-**Who is accountable.**
+**Cine răspunde.**
 
-| Role | Entity |
+| Rol | Entitate |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | STISC |
+| Posesor | AGE |
+| Deținător | AGE |
+| Operator tehnico-tehnologic | STISC |
 
-**Roles in an integration.**
+**Roluri în integrare.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
-- STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
-- Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
-- Development/integration team — implements and tests the technical integration.
-- End user — the natural person or legal entity benefiting from the service.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
-**Access conditions.**
+**Condiții de acces.**
 
 Gratuit. Obligatoriu: înregistrarea sistemului în MPass și certificat de client validat prin MPass.
 
-**Who this guide is for.**
+**Cui se adresează acest ghid.**
 
-Primary: development and integration teams of the holders of information systems, public and private.
-Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
 
-## Jump right in
+## Începeți rapid
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
       <div class="quick-link-icon">⚡</div>
-      <h3 class="quick-link-title">Connection steps</h3>
-      <p class="quick-link-description">Get started with integration</p>
+      <h3 class="quick-link-title">Pașii de conectare</h3>
+      <p class="quick-link-description">Începeți procesul de integrare</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
       <div class="quick-link-icon">📘</div>
-      <h3 class="quick-link-title">Integration guide</h3>
-      <p class="quick-link-description">Step-by-step documentation</p>
+      <h3 class="quick-link-title">Ghid de integrare</h3>
+      <p class="quick-link-description">Documentație pas cu pas</p>
     </a>
   </div>
       <div class="quick-links-container">
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API reference</h3>
-      <p class="quick-link-description">Explore endpoints and callbacks</p>
+      <h3 class="quick-link-title">Referință API</h3>
+      <p class="quick-link-description">Explorați endpoint-urile și callback-urile</p>
     </a>
     <a href="https://www.nuget.org/profiles/egov-moldova" class="quick-link-card">
       <div class="quick-link-icon">📦</div>
-      <h3 class="quick-link-title">NuGet packages</h3>
-      <p class="quick-link-description">.NET packages for your application.</p>
+      <h3 class="quick-link-title">Pachete NuGet</h3>
+      <p class="quick-link-description">Pachete .NET pentru aplicația dumneavoastră.</p>
     </a>
   </div>
 </div>
 
-In addition, MNotify provides the following extended capabilities:
+Suplimentar, MNotify oferă următoarele funcționalități extinse:
 
-* **Contact management** – The system offers tools to add new user contacts and list existing ones. It also allows setting a preferred language for the user. Furthermore, MNotify can verify whether a user exists in the system and whether they have at least one active channel, excluding the personal cabinet.
+* **Gestionarea contactelor** – Sistemul oferă instrumente pentru adăugarea de contacte noi de utilizatori și listarea celor existente. De asemenea, permite setarea unei limbi preferate pentru utilizator. Mai mult, MNotify poate verifica dacă un utilizator există în sistem și dacă acesta are cel puțin un canal activ, exceptând cabinetul personal.
 
-* **Notification history access** – MNotify provides tools to retrieve the list of notifications sent by the sender's information system. It also supports extracting the list of notifications delivered to a specific user based on their IDNP.
+* **Acces la istoricul notificărilor** – MNotify oferă instrumente pentru extragerea listei de notificări transmise de sistemul informațional al expeditorului. De asemenea, permite extragerea listei de notificări livrate unui anumit utilizator, în baza IDNP-ului acestuia.
 
-* **Template management (CRUD operations)** – The system supports create, read, update, and delete operations for notification templates. This offloads complexity from the integrated system and ensures lower latency when sending notification calls. Templates support attributes that allow insertion of dynamic values depending on the recipient user.
+* **Gestionarea șabloanelor (operațiuni CRUD)** – Sistemul suportă operațiuni de creare, citire, actualizare și ștergere pentru șabloanele de notificări. Aceasta reduce complexitatea de partea sistemului integrat și asigură o latență mai mică la trimiterea cererilor de notificare. Șabloanele suportă atribute care permit inserarea de valori dinamice în funcție de utilizatorul destinatar.
 
-## Scope and target audience
+## Domeniu de aplicare și public țintă
 
-This document describes the technical interfaces exposed by MNotify for Senders' information systems that will use MNotify for notification purposes
+Acest document descrie interfețele tehnice expuse de MNotify pentru sistemele informaționale ale Expeditorilor care vor utiliza MNotify în scopuri de notificare.
 
-This guide is addressed to developers interested in integrating various systems with the MNotify API to send notifications via (emails, SMS, web push, Telegram, citizen portal, etc.) using the government electronic notification service.
+Acest ghid se adresează dezvoltatorilor interesați în integrarea diverselor sisteme cu API-ul MNotify pentru trimiterea notificărilor prin (e-mail, SMS, web push, Telegram, portalul cetățeanului, etc.) utilizând serviciul guvernamental de notificări electronice.
 
-This document contains the relevant information required for a complete understanding of MNotify from the integration point of view. It includes samples of integration scenarios for different technologies.
+Acest document conține informațiile relevante necesare pentru o înțelegere completă a MNotify din perspectiva integrării. Include exemple de scenarii de integrare pentru diferite tehnologii.
 
-## Service dependencies
+## Dependențe de servicii
 
-MNotify depends on the following services:
-- MPass – for client authorization.
-- IDR – for recipient resolution.
-- Notification channels – for transmitting messages to recipients.
+MNotify depinde de următoarele servicii:
+- MPass – pentru autorizarea clientului.
+- IDR – pentru identificarea destinatarului.
+- Canalele de notificare – pentru transmiterea mesajelor către destinatari.
 
-## Protocols and standards
+## Protocoale și standarde
 
-MNotify exposes a RESTful service over HTTPS, ensuring secure and standards-based communication. Each HTTP request must include a valid client certificate for authentication and authorization.
+MNotify expune un serviciu RESTful peste HTTPS, asigurând o comunicare securizată și bazată pe standarde. Fiecare cerere HTTP trebuie să includă un certificat client valid pentru autentificare și autorizare.
 
-Client certificate validation is performed through the government authentication and authorization service MPass. It is mandatory that the information system is registered in MPass and that the public key of the client certificate is added to its configuration.
+Validarea certificatului client se realizează prin intermediul serviciului guvernamental de autentificare și autorizare MPass. Este obligatoriu ca sistemul informațional să fie înregistrat în MPass și ca cheia publică a certificatului client să fie adăugată în configurația acestuia.
 
-Error reporting is handled through standard HTTP status codes (e.g., 400 Bad Request, 401 Unauthorized, 500 Internal Server Error) along with structured JSON error messages that provide additional diagnostic details.
+Raportarea erorilor se realizează prin coduri de stare HTTP standard (de ex., 400 Bad Request, 401 Unauthorized, 500 Internal Server Error), împreună cu mesaje de eroare structurate în format JSON, care oferă detalii suplimentare de diagnosticare.
 
-## Communication format
+## Format de comunicare
 
-MNotify uses a generic JSON format for the specification of notification identities, i.e. recipients.
+MNotify utilizează un format JSON generic pentru specificarea identităților de notificare, adică a destinatarilor.
 
 ```json
 "recipients": [

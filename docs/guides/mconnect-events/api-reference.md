@@ -1,100 +1,100 @@
-## Error handling rules
+## Reguli de gestionare a erorilor
 
-MConnect Events REST APIs can return the following status codes in case of errors:
+API-urile REST MConnect Events pot returna următoarele coduri de stare în caz de eroare:
 
-| HTTP Status Code | Description |
+| Cod de stare HTTP | Descriere |
 |-----------------|-------------|
-| **400 Bad Request** | Returned when something is wrong with your request. For example, the request does not include the client certificate or an intermediary, some header is missing, the format is not a valid JSON, etc.<br><br>For more details, review the content of the response. |
-| **401 Unauthorized** | Returned on any authorization error. Either the system is not registered as producer or consumer, has wrong authorization configuration, does not have the rights to publish events of the provided event type, or cannot use the indicated source, etc.<br><br>For more details, review the content of the response. |
-| **404 Not Found** | The request URL wrong or consumer instance is not found (expired or not on the provided bridge).<br><br>For more details, review the content of the response. |
-| **413 Content Too Large** | Returned when the entire HTTP request is larger than specified in Limits. |
-| **422 Unprocessable Entity** | Returned when the event payload is not valid against the configured event schema.<br><br>For more details, review the content of the response. |
-| **500 Internal Server Error** | Unexpected error. Contact the service owner and report the error. |
+| **400 Bad Request** | Returnat atunci când cererea are o problemă. De exemplu, cererea nu include certificatul client sau un intermediar, lipsește un header, formatul nu este un JSON valid etc.<br><br>Pentru mai multe detalii, examinați conținutul răspunsului. |
+| **401 Unauthorized** | Returnat pentru orice eroare de autorizare. Fie sistemul nu este înregistrat ca producător sau consumator, are o configurație de autorizare greșită, nu are dreptul de a publica evenimente de tipul indicat, sau nu poate utiliza sursa indicată etc.<br><br>Pentru mai multe detalii, examinați conținutul răspunsului. |
+| **404 Not Found** | URL-ul cererii este greșit sau instanța de consumator nu este găsită (a expirat sau nu se află pe bridge-ul indicat).<br><br>Pentru mai multe detalii, examinați conținutul răspunsului. |
+| **413 Content Too Large** | Returnat atunci când întreaga cerere HTTP este mai mare decât valoarea specificată în secțiunea Limite. |
+| **422 Unprocessable Entity** | Returnat atunci când payload-ul evenimentului nu este valid conform schemei de eveniment configurate.<br><br>Pentru mai multe detalii, examinați conținutul răspunsului. |
+| **500 Internal Server Error** | Eroare neașteptată. Contactați deținătorul serviciului și raportați eroarea. |
 
-On success, the returned status code is 200, 201, 202 or 204.
+În caz de succes, codul de stare returnat este 200, 201, 202 sau 204.
 
-## Producer APIs
+## API-uri pentru producători
 
-Producers can produce events using one of the following APIs.
+Producătorii pot produce evenimente folosind unul din următoarele API-uri.
 
-**Important!** For production scenarios, is recommended to produce events in batches, using the last endpoint. See also Limits.
+**Important!** Pentru scenariile de producție, se recomandă producerea evenimentelor în loturi, folosind ultimul endpoint. Vezi și secțiunea Limite.
 
 ### Endpoint: POST /ce/produce/raw
 
-**Description:** Produce a single event in raw form in the body of HTTP request.
+**Descriere:** Produce un singur eveniment în formă brută (raw) în corpul cererii HTTP.
 
-Set the standard Content-Type header to one of the following:
-- `application/json` – the payload is in JSON format (this is most probably the format you intend to use);
-- `application/octet-stream` – the payload is binary (only for special cases);
-- `text/plain` – the payload is plain text (only for special cases).
+Setați headerul standard Content-Type la una din următoarele valori:
+- `application/json` – payload-ul este în format JSON (cel mai probabil formatul pe care intenționați să îl utilizați);
+- `application/octet-stream` – payload-ul este binar (doar pentru cazuri speciale);
+- `text/plain` – payload-ul este text simplu (doar pentru cazuri speciale).
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Header | ce-specversion | string* | The version of the CloudEvents specification which the event uses. This enables the interpretation of the context. This MUST always be set to "1.0". |
-| Header | ce-source | uri* | Identifies the context in which an event happened. This MUST be set to the value (or one of the values) allowed in Producer configuration.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Header | ce-id | string* | Identifies the event.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Header | ce-type | string* | Contains a value describing the type of event related to the originating occurrence. This attribute is used for authorization, routing, observability, etc. |
-| Header | ce-subject | string | This describes the subject of the event in the context of the event producer (identified by source). A consumer will typically consume events emitted by a source, but the source identifier alone might not be sufficient as a qualifier for any specific event if the source context has an internal sub-structure. Optional. |
-| Header | ce-time | datetime | Timestamp of when the occurrence happened. Cannot be set to a future time. Formatted according to RFC 3339. If the time of the occurrence cannot be determined then this attribute MAY be set to some other time (such as the current time) by the CloudEvents producer, however all producers for the same source MUST be consistent in this respect. In other words, either they all use the actual time of the occurrence, or they all use the same algorithm to determine the value used. Optional, defaults to current time. |
-| Header | ce-partitionkey | string | A partition key for the event, specified to ensure consumption ordering between multiple events for the same partitionkey. Optional. |
+| Header | ce-specversion | string* | Versiunea specificației CloudEvents utilizată de eveniment. Aceasta permite interpretarea contextului. Trebuie setată întotdeauna la „1.0". |
+| Header | ce-source | uri* | Identifică contextul în care s-a produs evenimentul. Trebuie setată la valoarea (sau la una dintre valorile) permise în configurația producătorului.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Header | ce-id | string* | Identifică evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Header | ce-type | string* | Conține o valoare care descrie tipul evenimentului asociat producerii care a avut loc. Acest atribut este folosit pentru autorizare, rutare, observabilitate etc. |
+| Header | ce-subject | string | Descrie subiectul evenimentului în contextul producătorului evenimentului (identificat de source). Un consumator consumă de obicei evenimente emise de o sursă, dar identificatorul sursei singur ar putea să nu fie suficient ca și calificator pentru un eveniment specific, dacă contextul sursei are o substructură internă. Opțional. |
+| Header | ce-time | datetime | Marca temporală a momentului producerii. Nu poate fi setată la un moment viitor. Formatată conform RFC 3339. Dacă momentul producerii nu poate fi determinat, acest atribut poate fi setat la un alt moment (precum momentul curent) de către producătorul CloudEvents, însă toți producătorii pentru aceeași sursă trebuie să fie consecvenți în acest sens. Cu alte cuvinte, fie folosesc toți momentul real al producerii, fie folosesc toți același algoritm pentru determinarea valorii utilizate. Opțional, implicit momentul curent. |
+| Header | ce-partitionkey | string | O cheie de partiționare pentru eveniment, specificată pentru a asigura ordinea consumării între mai multe evenimente cu aceeași cheie de partiționare. Opțional. |
 
-**Response:** 202 Accepted – returned when the event persisted successfully for all authorized consumers.
+**Răspuns:** 202 Accepted – returnat atunci când evenimentul a fost persistat cu succes pentru toți consumatorii autorizați.
 
 ### Endpoint: POST /ce/produce/event
 
-**Description:** Produce a single event according to CloudEvents standard, meaning the request body must be a valid JSON object. The standard HTTP Content-Type header must be set to `application/cloudevents+json`.
+**Descriere:** Produce un singur eveniment conform standardului CloudEvents, ceea ce înseamnă că corpul cererii trebuie să fie un obiect JSON valid. Headerul standard HTTP Content-Type trebuie setat la `application/cloudevents+json`.
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Body | specversion | string* | The version of the CloudEvents specification which the event uses. This enables the interpretation of the context. This must always be set to "1.0". |
-| Body | source | uri* | Identifies the context in which an event happened. This MUST be set to the value (or one of the values) allowed in Producer configuration.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Body | id | string* | Identifies the event.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Body | type | string* | Contains a value describing the type of event related to the originating occurrence. This attribute is used for authorization, routing, observability, etc. |
-| Body | datacontenttype | string | Content type of data value. This attribute enables data to carry any type of content, whereby format and encoding might differ from that of the chosen event format. Optional, defaults to application/json. Currently only JSON data is supported by MConnect Events for this endpoint. |
-| Body | subject | string | This describes the subject of the event in the context of the event producer (identified by source). A consumer will typically consume events emitted by a source, but the source identifier alone might not be sufficient as a qualifier for any specific event if the source context has an internal sub-structure. Optional. |
-| Body | time | date-time | Timestamp of when the occurrence happened. Cannot be set to a future time. Formatted according to RFC 3339. If the time of the occurrence cannot be determined then this attribute MAY be set to some other time (such as the current time) by the CloudEvents producer, however all producers for the same source MUST be consistent in this respect. In other words, either they all use the actual time of the occurrence, or they all use the same algorithm to determine the value used. Optional, defaults to current time. |
-| Body | partitionkey | string | A partition key for the event, specified to ensure consumption ordering between multiple events for the same partitionkey. Optional. |
-| Body | data | JSON* | The payload of the event in JSON format. |
+| Body | specversion | string* | Versiunea specificației CloudEvents utilizată de eveniment. Aceasta permite interpretarea contextului. Trebuie setată întotdeauna la „1.0". |
+| Body | source | uri* | Identifică contextul în care s-a produs evenimentul. Trebuie setată la valoarea (sau la una dintre valorile) permise în configurația producătorului.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Body | id | string* | Identifică evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Body | type | string* | Conține o valoare care descrie tipul evenimentului asociat producerii care a avut loc. Acest atribut este folosit pentru autorizare, rutare, observabilitate etc. |
+| Body | datacontenttype | string | Tipul de conținut al valorii data. Acest atribut permite ca datele să conțină orice tip de conținut, format și codare putând diferi de cele ale formatului de eveniment ales. Opțional, implicit application/json. În prezent, doar datele JSON sunt acceptate de MConnect Events pentru acest endpoint. |
+| Body | subject | string | Descrie subiectul evenimentului în contextul producătorului evenimentului (identificat de source). Un consumator consumă de obicei evenimente emise de o sursă, dar identificatorul sursei singur ar putea să nu fie suficient ca și calificator pentru un eveniment specific, dacă contextul sursei are o substructură internă. Opțional. |
+| Body | time | date-time | Marca temporală a momentului producerii. Nu poate fi setată la un moment viitor. Formatată conform RFC 3339. Dacă momentul producerii nu poate fi determinat, acest atribut poate fi setat la un alt moment (precum momentul curent) de către producătorul CloudEvents, însă toți producătorii pentru aceeași sursă trebuie să fie consecvenți în acest sens. Cu alte cuvinte, fie folosesc toți momentul real al producerii, fie folosesc toți același algoritm pentru determinarea valorii utilizate. Opțional, implicit momentul curent. |
+| Body | partitionkey | string | O cheie de partiționare pentru eveniment, specificată pentru a asigura ordinea consumării între mai multe evenimente cu aceeași cheie de partiționare. Opțional. |
+| Body | data | JSON* | Payload-ul evenimentului în format JSON. |
 
-**Response:** 202 Accepted – returned when the event(s) persisted successfully for all authorized consumers.
+**Răspuns:** 202 Accepted – returnat atunci când evenimentul (evenimentele) au fost persistate cu succes pentru toți consumatorii autorizați.
 
 ### Endpoint: POST /ce/produce/events
 
-**Description:** Produce a batch of events according to CloudEvents standard, meaning the request body must be a valid JSON array of JSON objects. The standard HTTP Content-Type header must be set to `application/cloudevents-batch+json`.
+**Descriere:** Produce un lot de evenimente conform standardului CloudEvents, ceea ce înseamnă că corpul cererii trebuie să fie un tablou (array) JSON valid de obiecte JSON. Headerul standard HTTP Content-Type trebuie setat la `application/cloudevents-batch+json`.
 
-Each element of the array has the structure described in the previous endpoint.
+Fiecare element al tabloului are structura descrisă la endpointul anterior.
 
-This is the recommended way to produce events if you implement the outbox pattern (which is also recommended), in which case you accumulate of list of events to be produced anyway.
+Aceasta este modalitatea recomandată de a produce evenimente dacă implementați pattern-ul outbox (de asemenea recomandat), caz în care oricum acumulați o listă de evenimente de produs.
 
-MConnect Events persists either all events to one or more destination consumers or none, in a transactional manner. This means that it is safe for a Producer to retry producing the batch of events on errors.
+MConnect Events persistă fie toate evenimentele către unul sau mai mulți consumatori de destinație, fie niciunul, într-o manieră tranzacțională. Aceasta înseamnă că este sigur ca un producător să reîncerce producerea lotului de evenimente în caz de erori.
 
-## Consumer APIs using WebSocket
+## API-uri pentru consumatori prin WebSocket
 
-There are two protocols for event consumption. WebSocket is the recommended one for efficiency and performance reasons.
+Există două protocoale pentru consumarea evenimentelor. WebSocket este cel recomandat, din motive de eficiență și performanță.
 
-The WebSocket endpoint is accessible via the standard HTTP 1.1 Protocol upgrade mechanism and the standard HTTP 2 CONNECT method using the following endpoints:
+Endpointul WebSocket este accesibil prin mecanismul standard de upgrade al protocolului HTTP 1.1 și prin metoda standard HTTP 2 CONNECT, folosind următoarele endpointuri:
 
-| Environment | Full Endpoint URL |
+| Mediu | URL complet al endpointului |
 |-------------|-------------------|
 | Staging | wss://mconnect-events.staging.egov.md:8443/ce/consume/ws |
-| Production | wss://mconnect-events.gov.md:8443/ce/consume/ws |
+| Producție | wss://mconnect-events.gov.md:8443/ce/consume/ws |
 
-The WebSocket sub-protocol to be used is:
+Sub-protocolul WebSocket care trebuie utilizat este:
 ```
 cloudevents.json
 ```
 
-The established WebSocket connection is a simultaneous two-way communication channel. The protocol is quite simple.
+Conexiunea WebSocket stabilită este un canal de comunicare bidirecțional simultan. Protocolul este destul de simplu.
 
-### Messages sent to Consumer
+### Mesaje trimise către consumator
 
-MConnect Events is streaming the events to be consumed to the client as separate messages in JSON format, looking like the following.
+MConnect Events transmite în flux evenimentele de consumat către client, sub formă de mesaje separate în format JSON, arătând ca mai jos.
 
-**First Sample Message:**
+**Primul mesaj exemplu:**
 ```json
 {
   "specversion": "1.0",
@@ -107,7 +107,7 @@ MConnect Events is streaming the events to be consumed to the client as separate
 }
 ```
 
-**Second Sample Message:**
+**Al doilea mesaj exemplu:**
 ```json
 {
   "specversion": "1.0",
@@ -120,219 +120,219 @@ MConnect Events is streaming the events to be consumed to the client as separate
 }
 ```
 
-And so on.
+Și așa mai departe.
 
-The meaning of the properties is the following:
+Semnificația proprietăților este următoarea:
 
-| Property | Type | Description |
+| Proprietate | Tip | Descriere |
 |----------|------|-------------|
-| specversion | string* | The version of the CloudEvents specification which the event uses, currently always returned as "1.0". |
-| source | uri* | Identifies the context in which an event happened.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| id | string* | Identifies the event.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| type | string* | Contains a value describing the type of event related to the originating occurrence. |
-| subject | string | This describes the subject of the event in the context of the event producer (identified by source). A consumer will typically consume events emitted by a source, but the source identifier alone might not be sufficient as a qualifier for any specific event if the source context has an internal sub-structure. Optional. |
-| time | date-time* | Timestamp of when the event happened or when the event was produced. Formatted according to RFC 3339. |
-| partitionkey | string | A partition key for the event, specified to ensure consumption ordering between multiple events for the same partitionkey. Optional. |
-| offset | string* | Event offset for current consumer instance. Used for explicit confirmations. |
-| data | JSON* | The payload of the event in JSON format. |
+| specversion | string* | Versiunea specificației CloudEvents utilizată de eveniment, în prezent returnată întotdeauna ca „1.0". |
+| source | uri* | Identifică contextul în care s-a produs evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| id | string* | Identifică evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| type | string* | Conține o valoare care descrie tipul evenimentului asociat producerii care a avut loc. |
+| subject | string | Descrie subiectul evenimentului în contextul producătorului evenimentului (identificat de source). Un consumator consumă de obicei evenimente emise de o sursă, dar identificatorul sursei singur ar putea să nu fie suficient ca și calificator pentru un eveniment specific, dacă contextul sursei are o substructură internă. Opțional. |
+| time | date-time* | Marca temporală a momentului în care evenimentul a avut loc sau a fost produs. Formatată conform RFC 3339. |
+| partitionkey | string | O cheie de partiționare pentru eveniment, specificată pentru a asigura ordinea consumării între mai multe evenimente cu aceeași cheie de partiționare. Opțional. |
+| offset | string* | Offset-ul evenimentului pentru instanța curentă de consumator. Utilizat pentru confirmări explicite. |
+| data | JSON* | Payload-ul evenimentului în format JSON. |
 
-### Messages sent to MConnect Events
+### Mesaje trimise către MConnect Events
 
-The client streams back consumption confirmations or dead events.
+Clientul transmite înapoi în flux confirmări de consum sau evenimente eșuate (dead).
 
-A confirmation looks like the following:
+O confirmare arată astfel:
 ```
 confirm:<<offset>>
 ```
 
-meaning "confirm:" prefix followed by offset, where offset is string (an always increasing integer formatted as string) found from the incoming event. This results in all events up to the specified offset acknowledged as consumed.
+adică prefixul „confirm:" urmat de offset, unde offset este un șir de caractere (un întreg mereu crescător, formatat ca string) preluat din evenimentul primit. Aceasta are ca rezultat confirmarea consumării tuturor evenimentelor până la offset-ul specificat.
 
-Reporting a dead event looks like the following:
+Raportarea unui eveniment eșuat (dead) arată astfel:
 ```
 dead:{ "specversion": "1.0", "source": "urn:source", "id": "sample-id-1002", "type": "Organization.Event.Occurred", "time": "2025…", "offset": "2", "data": { event-payload-inline-json } }
 ```
 
-meaning "dead:" prefix followed by the dead event JSON, which the consumer might modify if required for later special handling of dead events.
+adică prefixul „dead:" urmat de JSON-ul evenimentului eșuat, pe care consumatorul îl poate modifica dacă este necesar, pentru gestionarea ulterioară specială a evenimentelor eșuate.
 
-Any other message prefix will result in MConnect Events closing the WebSocket connection.
+Orice alt prefix de mesaj va avea ca rezultat închiderea conexiunii WebSocket de către MConnect Events.
 
-## Consumer APIs using long polling
+## API-uri pentru consumatori prin long polling
 
-There are two protocols for event consumption. WebSocket is the recommended one. However, if you use a framework that doesn't include a WebSocket client (which is highly doubtful) or if you just want to try event consumption using Swagger UI (or some local HTTP client tool), MConnect Events also implements the well-known long polling protocol.
+Există două protocoale pentru consumarea evenimentelor. WebSocket este cel recomandat. Totuși, dacă folosiți un framework care nu include un client WebSocket (ceea ce este foarte puțin probabil) sau dacă doriți doar să testați consumarea evenimentelor folosind Swagger UI (sau un instrument local de tip client HTTP), MConnect Events implementează și binecunoscutul protocol long polling.
 
-Long polling requires creating a consumer, polling for events to consume (including sending consumption confirmations) and deleting consumers before closing. Consumers that are not actively polling for events are deleted automatically after some expiration time.
+Long polling presupune crearea unui consumator, interogarea (polling) evenimentelor de consumat (inclusiv trimiterea confirmărilor de consum) și ștergerea consumatorilor înainte de închidere. Consumatorii care nu interoghează activ evenimente sunt șterși automat după un anumit timp de expirare.
 
 ### Endpoint: POST /ce/consumers
 
-**Description:** Creates a stateful consumer instance on one of the bridges that can be used to consume events in a long polling manner. It is normal for this endpoint to take some time (usually up to 30 seconds), as creating consumers requires some internal coordination.
+**Descriere:** Creează o instanță de consumator cu stare (stateful) pe unul din bridge-uri, care poate fi folosită pentru a consuma evenimente prin long polling. Este normal ca acest endpoint să dureze ceva timp (de obicei până la 30 de secunde), deoarece crearea consumatorilor necesită o coordonare internă.
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Query | events | boolean | Specifies whether to consume standard events produced by producers. Optional, defaults to true. |
-| Query | test | boolean | Specifies whether to consume test events produced by the calling consumer for testing purposes (see Tool APIs). Optional, defaults to true. |
-| Query | dead | boolean | Specifies whether to consume dead events produced by the calling consumer. Optional, defaults to false. |
-| Query | group | string | Specifies consumer group name. Set by systems that need to consume the events twice in two subcomponents. Do not set this parameter when consuming events in parallel from multiple instances of the same consumer, meaning you don't need to consume the same events multiple times. Optional, defaults to "~default". |
+| Query | events | boolean | Specifică dacă se consumă evenimentele standard produse de producători. Opțional, implicit true. |
+| Query | test | boolean | Specifică dacă se consumă evenimentele de test produse de consumatorul apelant, în scop de testare (vezi API-urile pentru instrumente). Opțional, implicit true. |
+| Query | dead | boolean | Specifică dacă se consumă evenimentele eșuate produse de consumatorul apelant. Opțional, implicit false. |
+| Query | group | string | Specifică numele grupului de consumatori. Setat de sistemele care trebuie să consume evenimentele de două ori, în două subcomponente. Nu setați acest parametru atunci când consumați evenimente în paralel din mai multe instanțe ale aceluiași consumator, adică atunci când nu este nevoie să consumați aceleași evenimente de mai multe ori. Opțional, implicit „~default". |
 
-**Response:** 201 Created
+**Răspuns:** 201 Created
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Header | Location | uri* | An absolute URL that is the consumer instance base address for the created consumer instance.<br><br>Currently it has the following form:<br>`https://{mconnect-events-base-address}/{bridge}/ce/consumers/{group}/instances/{instance}`<br><br>having the following path parameters:<br>- bridge – the instance of the bridge that the consumer was created on;<br>- group – the name of group for the created consumer;<br>- instance – consumer instance identifier.<br><br>Note that the form might be changed in the future, so you MUST use it just as the base address for the other calls related to this instance. |
+| Header | Location | uri* | Un URL absolut, care reprezintă adresa de bază a instanței de consumator create.<br><br>În prezent are următoarea formă:<br>`https://{mconnect-events-base-address}/{bridge}/ce/consumers/{group}/instances/{instance}`<br><br>având următorii parametri de cale:<br>- bridge – instanța bridge-ului pe care a fost creat consumatorul;<br>- group – numele grupului pentru consumatorul creat;<br>- instance – identificatorul instanței de consumator.<br><br>Rețineți că forma se poate schimba în viitor, deci TREBUIE să o folosiți doar ca adresă de bază pentru celelalte apeluri legate de această instanță. |
 
 ### Endpoint: GET /{bridge}/ce/consumers/{group}/instances/{instance}/raw
 
-**Description:** Consume the next event as raw, if any. Event payload is returned in the HTTP body.
+**Descriere:** Consumă următorul eveniment în format brut (raw), dacă există. Payload-ul evenimentului este returnat în corpul răspunsului HTTP.
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Path | bridge | string* | The instance of the bridge that the consumer was created on.<br><br>Part of consumer instance base address. |
-| Path | group | string* | The name of the consumer group.<br><br>Part of consumer instance base address. |
-| Path | instance | string* | Consumer instance identifier.<br><br>Part of consumer instance base address. |
-| Query | confirm | boolean | Specifies whether to confirm previously consumed events. Optional, defaults to false. |
+| Path | bridge | string* | Instanța bridge-ului pe care a fost creat consumatorul.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | group | string* | Numele grupului de consumatori.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | instance | string* | Identificatorul instanței de consumator.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Query | confirm | boolean | Specifică dacă se confirmă evenimentele consumate anterior. Opțional, implicit false. |
 
-**Response:** 200 OK
+**Răspuns:** 200 OK
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Header | Content-Type | string* | The type of the event payload returned in the body. Can be:<br>- `application/json` – the payload is in JSON format (most used format);<br>- `application/octet-stream` – the payload is binary (only for special cases);<br>- `text/plain` – the payload is plain text (only for special cases). |
-| Header | ce-specversion | string* | The version of the CloudEvents specification which the event uses. This enables the interpretation of the context. Always set to "1.0". |
-| Header | ce-source | uri* | Identifies the context in which an event happened.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Header | ce-id | string* | Identifies the event.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Header | ce-type | string* | Contains a value describing the type of event related to the originating occurrence. |
-| Header | ce-subject | string | This describes the subject of the event in the context of the event producer (identified by source). A consumer will typically consume events emitted by a source, but the source identifier alone might not be sufficient as a qualifier for any specific event if the source context has an internal sub-structure. Optional. |
-| Header | ce-time | datetime* | Timestamp of when the event happened or when the event was produced. Formatted according to RFC 3339. |
-| Header | ce-partitionkey | string | A partition key for the event, specified to ensure consumption ordering between multiple events for the same partitionkey. Optional. |
-| Header | ce-offset | string* | Event offset for current consumer instance. Used for explicit confirmations. |
+| Header | Content-Type | string* | Tipul payload-ului evenimentului returnat în corpul răspunsului. Poate fi:<br>- `application/json` – payload-ul este în format JSON (formatul cel mai folosit);<br>- `application/octet-stream` – payload-ul este binar (doar pentru cazuri speciale);<br>- `text/plain` – payload-ul este text simplu (doar pentru cazuri speciale). |
+| Header | ce-specversion | string* | Versiunea specificației CloudEvents utilizată de eveniment. Aceasta permite interpretarea contextului. Setată întotdeauna la „1.0". |
+| Header | ce-source | uri* | Identifică contextul în care s-a produs evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Header | ce-id | string* | Identifică evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Header | ce-type | string* | Conține o valoare care descrie tipul evenimentului asociat producerii care a avut loc. |
+| Header | ce-subject | string | Descrie subiectul evenimentului în contextul producătorului evenimentului (identificat de source). Un consumator consumă de obicei evenimente emise de o sursă, dar identificatorul sursei singur ar putea să nu fie suficient ca și calificator pentru un eveniment specific, dacă contextul sursei are o substructură internă. Opțional. |
+| Header | ce-time | datetime* | Marca temporală a momentului în care evenimentul a avut loc sau a fost produs. Formatată conform RFC 3339. |
+| Header | ce-partitionkey | string | O cheie de partiționare pentru eveniment, specificată pentru a asigura ordinea consumării între mai multe evenimente cu aceeași cheie de partiționare. Opțional. |
+| Header | ce-offset | string* | Offset-ul evenimentului pentru instanța curentă de consumator. Utilizat pentru confirmări explicite. |
 
-**Response:** 204 No Content – returned when there are no events to consume. Returned after poll timeout, during which no producers produced events for the calling consumer.
+**Răspuns:** 204 No Content – returnat atunci când nu există evenimente de consumat. Returnat după expirarea timpului de așteptare (poll timeout), în care niciun producător nu a produs evenimente pentru consumatorul apelant.
 
 ### Endpoint: GET /{bridge}/ce/consumers/{group}/instances/{instance}/event
 
-**Description:** Consume the next event using CloudEvents JSON format.
+**Descriere:** Consumă următorul eveniment în format CloudEvents JSON.
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Path | bridge | string* | The instance of the bridge that the consumer was created on.<br><br>Part of consumer instance base address. |
-| Path | group | string* | The name of the consumer group.<br><br>Part of consumer instance base address. |
-| Path | instance | string* | Consumer instance identifier.<br><br>Part of consumer instance base address. |
-| Query | confirm | boolean | Specifies whether to confirm previously consumed events. Optional, defaults to false. |
+| Path | bridge | string* | Instanța bridge-ului pe care a fost creat consumatorul.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | group | string* | Numele grupului de consumatori.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | instance | string* | Identificatorul instanței de consumator.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Query | confirm | boolean | Specifică dacă se confirmă evenimentele consumate anterior. Opțional, implicit false. |
 
-**Response:** 200 OK
+**Răspuns:** 200 OK
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Header | Content-Type | string | The type of the HTTP response content: `application/cloudevents+json` |
-| Body | specversion | string* | The version of the CloudEvents specification which the event uses, currently always returned as "1.0". |
-| Body | source | uri* | Identifies the context in which an event happened.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Body | id | string* | Identifies the event.<br><br>Producers MUST ensure that source + id is unique for each distinct event. |
-| Body | type | string* | Contains a value describing the type of event related to the originating occurrence. |
-| Body | subject | string | This describes the subject of the event in the context of the event producer (identified by source). A consumer will typically consume events emitted by a source, but the source identifier alone might not be sufficient as a qualifier for any specific event if the source context has an internal sub-structure. Optional. |
-| Body | time | datetime* | Timestamp of when the event happened or when the event was produced. Formatted according to RFC 3339. |
-| Body | partitionkey | string | A partition key for the event, specified to ensure consumption ordering between multiple events for the same partitionkey. Optional. |
-| Body | offset | string* | Event offset for current consumer instance. Used for explicit confirmations. |
-| Body | data | JSON* | The payload of the event in JSON format. |
+| Header | Content-Type | string | Tipul conținutului răspunsului HTTP: `application/cloudevents+json` |
+| Body | specversion | string* | Versiunea specificației CloudEvents utilizată de eveniment, în prezent returnată întotdeauna ca „1.0". |
+| Body | source | uri* | Identifică contextul în care s-a produs evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Body | id | string* | Identifică evenimentul.<br><br>Producătorii trebuie să se asigure că source + id este unic pentru fiecare eveniment distinct. |
+| Body | type | string* | Conține o valoare care descrie tipul evenimentului asociat producerii care a avut loc. |
+| Body | subject | string | Descrie subiectul evenimentului în contextul producătorului evenimentului (identificat de source). Un consumator consumă de obicei evenimente emise de o sursă, dar identificatorul sursei singur ar putea să nu fie suficient ca și calificator pentru un eveniment specific, dacă contextul sursei are o substructură internă. Opțional. |
+| Body | time | datetime* | Marca temporală a momentului în care evenimentul a avut loc sau a fost produs. Formatată conform RFC 3339. |
+| Body | partitionkey | string | O cheie de partiționare pentru eveniment, specificată pentru a asigura ordinea consumării între mai multe evenimente cu aceeași cheie de partiționare. Opțional. |
+| Body | offset | string* | Offset-ul evenimentului pentru instanța curentă de consumator. Utilizat pentru confirmări explicite. |
+| Body | data | JSON* | Payload-ul evenimentului în format JSON. |
 
-**Response:** 204 No Content – returned when there are no events to consume. Returned after poll timeout, during which no producers produced events for the calling consumer.
+**Răspuns:** 204 No Content – returnat atunci când nu există evenimente de consumat. Returnat după expirarea timpului de așteptare (poll timeout), în care niciun producător nu a produs evenimente pentru consumatorul apelant.
 
 ### Endpoint: GET /{bridge}/ce/consumers/{group}/instances/{instance}/events
 
-**Description:** Consume the next batch of events using CloudEvents JSON format. This method collects a batch of events before returning.
+**Descriere:** Consumă următorul lot de evenimente în format CloudEvents JSON. Această metodă colectează un lot de evenimente înainte de a răspunde.
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Path | bridge | string* | The instance of the bridge that the consumer was created on.<br><br>Part of consumer instance base address. |
-| Path | group | string* | The name of the consumer group.<br><br>Part of consumer instance base address. |
-| Path | instance | string* | Consumer instance identifier.<br><br>Part of consumer instance base address. |
-| Query | confirm | boolean | Specifies whether to confirm previously consumed events. Optional, defaults to false. |
+| Path | bridge | string* | Instanța bridge-ului pe care a fost creat consumatorul.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | group | string* | Numele grupului de consumatori.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | instance | string* | Identificatorul instanței de consumator.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Query | confirm | boolean | Specifică dacă se confirmă evenimentele consumate anterior. Opțional, implicit false. |
 
-**Response:** 200 OK
+**Răspuns:** 200 OK
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Header | Content-Type | string | The type of the HTTP response content: `application/cloudevents-batch+json` |
-| Body | N/A | JSON array | Each element of the array has the structure described in the previous endpoint. |
+| Header | Content-Type | string | Tipul conținutului răspunsului HTTP: `application/cloudevents-batch+json` |
+| Body | N/A | JSON array | Fiecare element al tabloului are structura descrisă la endpointul anterior. |
 
-**Response:** 204 No Content – returned when there are no events to consume. Returned after poll timeout, during which no producers produced events for the calling consumer.
+**Răspuns:** 204 No Content – returnat atunci când nu există evenimente de consumat. Returnat după expirarea timpului de așteptare (poll timeout), în care niciun producător nu a produs evenimente pentru consumatorul apelant.
 
 ### Endpoint: POST /{bridge}/ce/consumers/{group}/instances/{instance}/confirm
 
-**Description:** Confirm the successful consumption of all read events or up to the specified offset.
+**Descriere:** Confirmă consumarea cu succes a tuturor evenimentelor citite sau până la offset-ul specificat.
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Path | bridge | string* | The instance of the bridge that the consumer was created on.<br><br>Part of consumer instance base address. |
-| Path | group | string* | The name of the consumer group.<br><br>Part of consumer instance base address. |
-| Path | instance | string* | Consumer instance identifier.<br><br>Part of consumer instance base address. |
-| Query | offset | string | Specifies the offset of the last event up to which the consumption of events is confirmed. Optional. When not set, all events read by this consumer instance are confirmed as consumed. |
+| Path | bridge | string* | Instanța bridge-ului pe care a fost creat consumatorul.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | group | string* | Numele grupului de consumatori.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | instance | string* | Identificatorul instanței de consumator.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Query | offset | string | Specifică offset-ul ultimului eveniment până la care este confirmată consumarea evenimentelor. Opțional. Dacă nu este setat, toate evenimentele citite de această instanță de consumator sunt confirmate ca fiind consumate. |
 
-**Response:** 204 No Content – returned upon successful confirmation.
+**Răspuns:** 204 No Content – returnat în urma confirmării cu succes.
 
 ### Endpoint: POST /{bridge}/ce/consumers/{group}/instances/{instance}/dead
 
-**Description:** Produce a dead event for the calling consumer in raw format.
+**Descriere:** Produce un eveniment eșuat (dead) pentru consumatorul apelant, în format brut (raw).
 
-Set the standard Content-Type header to one of the following:
-- `application/json` – the payload is in JSON format (this is most probably the format you intend to use);
-- `application/octet-stream` – the payload is binary (only for special cases);
-- `text/plain` – the payload is plain text (only for special cases).
+Setați headerul standard Content-Type la una din următoarele valori:
+- `application/json` – payload-ul este în format JSON (cel mai probabil formatul pe care intenționați să îl utilizați);
+- `application/octet-stream` – payload-ul este binar (doar pentru cazuri speciale);
+- `text/plain` – payload-ul este text simplu (doar pentru cazuri speciale).
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Path | bridge | string* | The instance of the bridge that the consumer was created on.<br><br>Part of consumer instance base address. |
-| Path | group | string* | The name of the consumer group.<br><br>Part of consumer instance base address. |
-| Path | instance | string* | Consumer instance identifier.<br><br>Part of consumer instance base address. |
-| Header | ce-specversion | string* | The version of the CloudEvents specification which the event uses. This enables the interpretation of the context. This MUST always be set to "1.0". |
-| Header | ce-source | uri* | Identifies the context in which an event happened. |
-| Header | ce-id | string* | Identifies the event. |
-| Header | ce-type | string* | Contains a value describing the type of event related to the originating occurrence. |
-| Header | ce-subject | string | This describes the subject of the event in the context of the event producer (identified by source). A consumer will typically consume events emitted by a source, but the source identifier alone might not be sufficient as a qualifier for any specific event if the source context has an internal sub-structure. Optional. |
-| Header | ce-time | date-time | Timestamp of when the occurrence happened. Formatted according to RFC 3339. Optional, defaults to current time. |
-| Header | ce-partitionkey | string | A partition key for the event, specified to ensure consumption ordering between multiple events for the same partitionkey. Optional. |
+| Path | bridge | string* | Instanța bridge-ului pe care a fost creat consumatorul.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | group | string* | Numele grupului de consumatori.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | instance | string* | Identificatorul instanței de consumator.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Header | ce-specversion | string* | Versiunea specificației CloudEvents utilizată de eveniment. Aceasta permite interpretarea contextului. Trebuie setată întotdeauna la „1.0". |
+| Header | ce-source | uri* | Identifică contextul în care s-a produs evenimentul. |
+| Header | ce-id | string* | Identifică evenimentul. |
+| Header | ce-type | string* | Conține o valoare care descrie tipul evenimentului asociat producerii care a avut loc. |
+| Header | ce-subject | string | Descrie subiectul evenimentului în contextul producătorului evenimentului (identificat de source). Un consumator consumă de obicei evenimente emise de o sursă, dar identificatorul sursei singur ar putea să nu fie suficient ca și calificator pentru un eveniment specific, dacă contextul sursei are o substructură internă. Opțional. |
+| Header | ce-time | date-time | Marca temporală a momentului producerii. Formatată conform RFC 3339. Opțional, implicit momentul curent. |
+| Header | ce-partitionkey | string | O cheie de partiționare pentru eveniment, specificată pentru a asigura ordinea consumării între mai multe evenimente cu aceeași cheie de partiționare. Opțional. |
 
-**Response:** 202 Accepted – returned when the dead event persisted successfully.
+**Răspuns:** 202 Accepted – returnat atunci când evenimentul eșuat a fost persistat cu succes.
 
 ### Endpoint: DELETE /{bridge}/ce/consumers/{group}/instances/{instance}
 
-**Description:** Delete (i.e. close) consumer instance. Shall be called before the consumer is shut down. Calling this explicitly ensures efficient resources usage and faster reconnection of consumer.
+**Descriere:** Șterge (adică închide) instanța de consumator. Trebuie apelat înainte ca consumatorul să fie oprit. Apelarea explicită a acestui endpoint asigură utilizarea eficientă a resurselor și reconectarea mai rapidă a consumatorului.
 
-**Request Parameters:**
+**Parametrii cererii:**
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Path | bridge | string* | The instance of the bridge that the consumer was created on.<br><br>Part of consumer instance base address. |
-| Path | group | string* | The name of the consumer group.<br><br>Part of consumer instance base address. |
-| Path | instance | string* | Consumer instance identifier.<br><br>Part of consumer instance base address. |
+| Path | bridge | string* | Instanța bridge-ului pe care a fost creat consumatorul.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | group | string* | Numele grupului de consumatori.<br><br>Parte a adresei de bază a instanței de consumator. |
+| Path | instance | string* | Identificatorul instanței de consumator.<br><br>Parte a adresei de bază a instanței de consumator. |
 
-**Response:** 204 No Content – returned upon successful deletion of consumer instance.
+**Răspuns:** 204 No Content – returnat în urma ștergerii cu succes a instanței de consumator.
 
-## Tool APIs
+## API-uri pentru instrumente (Tool APIs)
 
-Tool APIs are intended for human users (meaning developers) for additional information and testing. Do not call them from your systems.
+API-urile pentru instrumente sunt destinate utilizatorilor umani (adică dezvoltatorilor) pentru informații suplimentare și testare. Nu le apelați din sistemele voastre.
 
 ### Endpoint: GET /ce/tools/my-settings
 
-**Description:** Returns the settings configured for the calling client.
+**Descriere:** Returnează setările configurate pentru clientul apelant.
 
-**Response:** 200 OK
+**Răspuns:** 200 OK
 
-| Location | Parameter | Type | Description |
+| Locație | Parametru | Tip | Descriere |
 |----------|-----------|------|-------------|
-| Body | N/A | JSON* | Settings configured for the calling client, according to the internal format that might be changed at any time without prior notice. This is useful for developers to review the configuration for reference and to spot any potential issues. |
+| Body | N/A | JSON* | Setările configurate pentru clientul apelant, conform formatului intern, care se poate schimba oricând fără notificare prealabilă. Acest lucru este util pentru dezvoltatori, pentru a analiza configurația de referință și a identifica eventuale probleme. |
 
 ### Endpoint: POST /ce/tools/consumer/test
 
-**Description:** Enables Consumer developers to produce a test event. Note that, in the case of first call to this endpoint, it is normal for the consumer that is already connected using WebSocket to consume test events after some time (up to 30 minutes), as consumer settings are cached.
+**Descriere:** Permite dezvoltatorilor de consumatori să producă un eveniment de test. Rețineți că, în cazul primului apel către acest endpoint, este normal ca un consumator deja conectat prin WebSocket să înceapă să consume evenimente de test după un anumit timp (până la 30 de minute), deoarece setările consumatorului sunt cache-uite.
 
-The structure of the request, response and behavior is similar produce raw event endpoint (see above: POST /ce/produce/raw).
+Structura cererii, a răspunsului și comportamentul sunt similare cu cele ale endpointului de producere a evenimentelor brute (vezi mai sus: POST /ce/produce/raw).

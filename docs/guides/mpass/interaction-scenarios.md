@@ -1,49 +1,49 @@
-﻿# Interaction scenarios
+# Scenarii de interacțiune
 
-## Authentication Process
+## Procesul de autentificare
 
-The most important integration scenario with MPass is user authentication.
+Cel mai important scenariu de integrare cu MPass este autentificarea utilizatorului.
 
-During this process, if the user is already authenticated, MPass session is not expired and authentication is not forced, user is not requested to proof its identity again. This is actually how single sign-on (SSO) is implemented.
+În cadrul acestui proces, dacă utilizatorul este deja autentificat, sesiunea MPass nu a expirat, iar autentificarea nu este forțată, utilizatorului nu i se solicită să își dovedească din nou identitatea. Astfel este implementat, de fapt, single sign-on (SSO).
 
-<img src="../../../assets/umls/mpass/interaction_scenarios/sso_lightmode.svg" alt="SSO diagram">
+<img src="../../../assets/umls/mpass/interaction_scenarios/sso_lightmode.svg" alt="Diagrama SSO">
 
-Here is the description of authentication process using MPass:
+Iată descrierea procesului de autentificare folosind MPass:
 
-1. The user accesses some protected service resource or explicitly chooses to authenticate in the service. The Browser sends this request to the Service on behalf of user.
-2. The Service generates an AuthnRequest (authentication request) and signs it using its private key. See AuthnRequest structure description for details.
-3. The signed AuthnRequest is returned to the Browser in a special redirection page.
-4. The Browser posts (using HTTP POST method) the request to MPass.
-5. MPass verifies incoming AuthnRequest and the properties of service registration.
-6. If user is not already authenticated or the authentication is forced, MPass interacts with
+1. Utilizatorul accesează o resursă protejată a serviciului sau alege explicit să se autentifice în serviciu. Browser-ul transmite această cerere către Service în numele utilizatorului.
+2. Service generează un AuthnRequest (cerere de autentificare) și îl semnează folosind cheia sa privată. A se vedea descrierea structurii AuthnRequest pentru detalii.
+3. AuthnRequest-ul semnat este returnat browser-ului printr-o pagină de redirecționare specială.
+4. Browser-ul transmite (folosind metoda HTTP POST) cererea către MPass.
+5. MPass verifică AuthnRequest-ul primit și proprietățile înregistrării serviciului.
+6. Dacă utilizatorul nu este deja autentificat sau autentificarea este forțată, MPass interacționează cu
    sd SSOUserBrowserServiceMPass
-7. MPass generates and signs a SAML Response with the result of authentication. Note that if AuthnRequest verification fails or user explicitly cancels or refuses the authentication, the SAML Response will be generated with an unsuccessful status. See Response structure description for details.
-8. The signed Response is returned to the Browser in a special redirection page.
-9. The Browser posts (using HTTP POST method) the request to Service.
-10. The Service verifies the Response and creates its own session/cookie or handles the Response is any other specific way. For details on the correct way of this verification process, please refer to Security considerations.
-11. The Service serves the protected resources to the now authenticated user until its local session expires or the user explicitly request logout (see below).
+7. MPass generează și semnează un SAML Response cu rezultatul autentificării. Rețineți că, dacă verificarea AuthnRequest eșuează sau utilizatorul anulează sau refuză explicit autentificarea, SAML Response va fi generat cu un status de eșec. A se vedea descrierea structurii Response pentru detalii.
+8. Response-ul semnat este returnat browser-ului printr-o pagină de redirecționare specială.
+9. Browser-ul transmite (folosind metoda HTTP POST) cererea către Service.
+10. Service verifică Response-ul și își creează propria sesiune/cookie sau tratează Response-ul în orice alt mod specific. Pentru detalii privind modul corect de desfășurare a acestui proces de verificare, consultați secțiunea Considerații de securitate.
+11. Service oferă resursele protejate utilizatorului acum autentificat, până când sesiunea sa locală expiră sau utilizatorul solicită explicit delogarea (a se vedea mai jos).
 
-## Logout Process
+## Procesul de delogare
 
-Because users can login into many services during an MPass session, from security point of view SSO is not fully implemented without a proper SLO (Single logout). Integrating services MUST implement both.
+Deoarece utilizatorii se pot autentifica în mai multe servicii în cadrul unei sesiuni MPass, din punctul de vedere al securității SSO nu este pe deplin implementat fără un SLO (Single Logout) corespunzător. Serviciile care se integrează TREBUIE să implementeze ambele.
 
-<img src="../../../assets/umls/mpass/interaction_scenarios/slo_lightmode.svg" alt="SLO diagram">
+<img src="../../../assets/umls/mpass/interaction_scenarios/slo_lightmode.svg" alt="Diagrama SLO">
 
-Here is the description of logout process using MPass:
+Iată descrierea procesului de delogare folosind MPass:
 
-1. The user explicitly requests to logout. Its Browser submits this request to the Service.
-2. The Service terminates its local session of the user, i.e. user will have to authenticate again to further access any protected resources.
-3. The Service generates and signs a LogoutRequest and returns this request to the browser in a special redirection page.
-4. The Browser posts (using HTTP POST method) the request to MPass.
-5. If during user's MPass session, user has authenticated in other services, MPass generates and signs a LogoutRequest for each such service, returning them all to the Browser.
-6. The Browser posts these requests to respective services.
-7. Upon LogoutRequest receipt, each service validates the request, then terminates its local session of the user, i.e. user will have to authenticate again to further access service protected resources.
-8. Each service then generates and signs a LogoutResponse to confirm the logout result and returns this response to the Browser in a special redirection page. Note that for correct logout processing when using HTTP POST, services must return the following header in HTTP response:
+1. Utilizatorul solicită explicit delogarea. Browser-ul său transmite această cerere către Service.
+2. Service încheie sesiunea locală a utilizatorului, adică utilizatorul va trebui să se autentifice din nou pentru a accesa în continuare orice resursă protejată.
+3. Service generează și semnează un LogoutRequest și returnează această cerere browser-ului printr-o pagină de redirecționare specială.
+4. Browser-ul transmite (folosind metoda HTTP POST) cererea către MPass.
+5. Dacă, în cadrul sesiunii MPass a utilizatorului, acesta s-a autentificat și în alte servicii, MPass generează și semnează câte un LogoutRequest pentru fiecare astfel de serviciu, returnându-le pe toate browser-ului.
+6. Browser-ul transmite aceste cereri către serviciile respective.
+7. La primirea LogoutRequest, fiecare serviciu validează cererea, apoi încheie sesiunea locală a utilizatorului, adică utilizatorul va trebui să se autentifice din nou pentru a accesa în continuare resursele protejate ale serviciului.
+8. Fiecare serviciu generează și semnează apoi un LogoutResponse pentru a confirma rezultatul delogării și returnează acest response browser-ului printr-o pagină de redirecționare specială. Rețineți că, pentru o procesare corectă a delogării atunci când se utilizează HTTP POST, serviciile trebuie să returneze următorul header în răspunsul HTTP:
    X
    Frame Option allow from https://mpass.gov.md
-9. The Browser sends all the resulted responses to MPass.
-10. MPass is informed on results after all participating services confirm the logout or after a timeout (to handle the case for services that cannot confirm the logout).
-11. MPass then terminates its local session of the user, i.e. user will have to authenticate again to access its MPass profile.
-12. MPass generates and signs a LogoutResponse and returns it to the Browser.
-13. The Browser posts (using HTTP POST method) the response to Service.
-14. Finally, after handling the resulting LogoutResponse, the Service is free to return to the user any page that fits the needs.
+9. Browser-ul transmite toate response-urile rezultate către MPass.
+10. MPass este informat despre rezultate după ce toate serviciile participante confirmă delogarea sau după un timeout (pentru a trata cazul serviciilor care nu pot confirma delogarea).
+11. MPass încheie apoi sesiunea locală a utilizatorului, adică utilizatorul va trebui să se autentifice din nou pentru a accesa profilul său MPass.
+12. MPass generează și semnează un LogoutResponse și îl returnează browser-ului.
+13. Browser-ul transmite (folosind metoda HTTP POST) response-ul către Service.
+14. În final, după procesarea LogoutResponse-ului rezultat, Service este liber să returneze utilizatorului orice pagină corespunzătoare necesităților sale.

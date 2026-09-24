@@ -1,63 +1,63 @@
-# Integration development
+# Dezvoltarea integrării
 
-## Authentication
+## Autentificare
 
-The eDemocracy API supports two authentication methods.
+API-ul eDemocracy suportă două metode de autentificare.
 
-### JWT Token (recommended)
+### Token JWT (recomandat)
 
-JWT tokens must be signed using an RSA private key.
+Token-urile JWT trebuie semnate folosind o cheie privată RSA.
 
-The corresponding public key must be registered with **AGE**. 
+Cheia publică corespunzătoare trebuie înregistrată la **AGE**. 
 
-The token payload must include the **IDNP/IDNO** of the caller in the `data.idno` claim.
+Payload-ul token-ului trebuie să includă **IDNP/IDNO**-ul apelantului în claim-ul `data.idno`.
 
-This identifier is used by the platform as the **owner context** for all API calls.
+Acest identificator este utilizat de platformă drept **context de proprietate (owner context)** pentru toate apelurile API.
 
-**Example header:**
+**Exemplu de header:**
 
 ```
 Authorization: Bearer <jwt_token>
 ```
 
-### X.509 Certificate (Mutual TLS)
+### Certificat X.509 (Mutual TLS)
 
-Alternative authentication method.
+Metodă alternativă de autentificare.
 
-**Requirements:** 
+**Cerințe:** 
 
-- Certificate issued by **STISC**
-- Registered in **MPass**
-- Authentication based on the certificate serial number 
+- Certificat emis de **STISC**
+- Înregistrat în **MPass**
+- Autentificare bazată pe numărul de serie al certificatului 
 
-If a JWT token is present in the `Authorization` header and is valid, it takes precedence over certificate authentication.
+Dacă un token JWT este prezent în header-ul `Authorization` și este valid, acesta are prioritate față de autentificarea prin certificat.
 
-Otherwise, the system identity is derived from the client certificate. 
+În caz contrar, identitatea sistemului este derivată din certificatul client. 
 
-## Service Environments
+## Medii de servicii
 
-**API base URL**
+**URL de bază al API-ului**
 
-| Environment | API base URL |
+| Mediu | URL de bază al API-ului |
 |---|---|
-| Test | `https://epetitii.staging.egov.md/petitie/` |
-| Production | `https://epetitii.gov.md/petitie/` |
+| Testare | `https://epetitii.staging.egov.md/petitie/` |
+| Producție | `https://epetitii.gov.md/petitie/` |
 
-**Swagger documentation**  
+**Documentație Swagger**  
 
-| Environment | Swagger |
+| Mediu | Swagger |
 |---|---|
-| Test | [Swagger UI (Test)](https://epetitii.staging.egov.md/petitie/swagger/index.html) |
+| Testare | [Swagger UI (Test)](https://epetitii.staging.egov.md/petitie/swagger/index.html) |
 
-> All integrations must be tested in the **test environment** before production activation. 
+> Toate integrările trebuie testate în **mediul de testare** înainte de activarea în producție. 
 
-## Security 
+## Securitate 
 
-### Access Authorization
+### Autorizarea accesului
 
-After authentication, the platform verifies whether the system has permission to access the requested endpoint.
+După autentificare, platforma verifică dacă sistemul are permisiunea de a accesa endpoint-ul solicitat.
 
-**Example permission configuration:**
+**Exemplu de configurare a permisiunilor:**
 
 ```json
 {
@@ -80,15 +80,15 @@ After authentication, the platform verifies whether the system has permission to
 
 ```
 
-### Scope values
+### Valori pentru Scope
 
-| Scope | Description |
+| Scope | Descriere |
 |---|---|
-| `own-authority` | Access limited to petitions assigned to the authority |
-| `all` | Access to all petitions (central integrations) |
+| `own-authority` | Acces limitat la petițiile atribuite autorității |
+| `all` | Acces la toate petițiile (integrări centrale) |
 
-## Encryption
+## Criptare
 
-All communication with the eDemocracy API uses **TLS (HTTPS)** encryption.
+Toată comunicarea cu API-ul eDemocracy folosește criptare **TLS (HTTPS)**.
 
-Unencrypted HTTP connections are not accepted.
+Conexiunile HTTP necriptate nu sunt acceptate.

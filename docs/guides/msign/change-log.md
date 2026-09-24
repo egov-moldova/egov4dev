@@ -1,53 +1,63 @@
-﻿# Change Log
+# Istoric modificări
 
-## Date: September 15, 2020
+## Data: 15 septembrie 2020
 
-!!!note "Version: 1.7"
-Changed test platform address from testmsign.gov.md to msign.staging.egov.md
+!!!note "Versiunea: 1.7"
+Adresa platformei de testare a fost schimbată din testmsign.gov.md în msign.staging.egov.md
 
-## Date: April 11, 2016
+## Data: 11 aprilie 2016
 
-!!!note "Version: 1.6"
-ExpectedSigner.ID is now not required for PDF signing. If not provided, it will be entered by the user on each signature request, so providing it is highly recommended.
+!!!note "Versiunea: 1.6"
+ExpectedSigner.ID nu mai este obligatoriu pentru semnarea PDF. Dacă nu este furnizat, va fi introdus de utilizator la fiecare cerere de semnătură, astfel încât furnizarea sa este puternic recomandată.
 
-## Date: March 9, 2015
-!!!note "Version: 1.5"
-Added Expired SignStatus.  
-Added optional Language property to VerificationRequest and changed Message property in VerificationResult from VerificationMessage to a simple string.  
-Added optional language parameter to GetSignResponse and added Message property to SignResponse.
+## Data: 9 martie 2015
 
-## Date: November 13, 2014
-!!!note "Version: 1.4"
-Added Instrument and lang parameters to forms integration. Added sample SOAP messages
+!!!note "Versiunea: 1.5"
+Adăugat statusul de semnătură Expired (Expirat).
+Adăugată proprietatea opțională Language în VerificationRequest și proprietatea Message din VerificationResult a fost schimbată din VerificationMessage într-un simplu string.
+Adăugat parametrul opțional language în GetSignResponse și adăugată proprietatea Message în SignResponse.
 
-## Date: August 7, 2014
-!!!note "Version: 1.3"
-Added SignRequest.SignatureReason field
+## Data: 13 noiembrie 2014
 
-## Date: July 16, 2014
-!!!note "Version: 1.2"
-Fixed some typos and added some clarifications
+!!!note "Versiunea: 1.4"
+Adăugați parametrii Instrument și lang pentru integrarea prin formulare. Adăugate exemple de mesaje SOAP
 
-## Date: April 22, 2014
-!!!note "Version: 1.1"
-Added SignedAt member to VerificationCertificate structure
+## Data: 7 august 2014
 
-## Date: March 19, 2014
-!!!note "Version: 1.0"
-Completed Glossary of terms
+!!!note "Versiunea: 1.3"
+Adăugat câmpul SignRequest.SignatureReason
 
-## Date: January 30, 2014
-!!!note "Version: 0.4"
-Added signature verification operation, test cases and structures
+## Data: 16 iulie 2014
 
-## Date: November 8, 2013
-!!!note "Version: 0.3"
-SignResponse.Results is now also returned for Failed requests
+!!!note "Versiunea: 1.2"
+Corectate unele greșeli de tipar și adăugate câteva clarificări
 
-## Date: October 15, 2013
-!!!note "Version: 0.2"
-Added Pdf as ContentType and MultipleSignatures field
+## Data: 22 aprilie 2014
 
-## Date: May 27, 2013
-!!!note "Version: 0.1"
-Initial version
+!!!note "Versiunea: 1.1"
+Adăugat membrul SignedAt în structura VerificationCertificate
+
+## Data: 19 martie 2014
+
+!!!note "Versiunea: 1.0"
+Finalizat Glosarul de termeni
+
+## Data: 30 ianuarie 2014
+
+!!!note "Versiunea: 0.4"
+Adăugată operația de verificare a semnăturii, cazuri de testare și structuri
+
+## Data: 8 noiembrie 2013
+
+!!!note "Versiunea: 0.3"
+SignResponse.Results este acum returnat și pentru cererile eșuate (Failed)
+
+## Data: 15 octombrie 2013
+
+!!!note "Versiunea: 0.2"
+Adăugat Pdf ca ContentType și câmpul MultipleSignatures
+
+## Data: 27 mai 2013
+
+!!!note "Versiunea: 0.1"
+Versiune inițială

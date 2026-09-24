@@ -1,11 +1,11 @@
-## Authentication
+## Autentificare
 
-All calls to MDocs operations are authenticated by MDocs. The authentication is performed by using the client certificate used for HTTPS transport.
-For information regarding obtaining a client certificate and registration, see Obtaining credentials and Client registration and network access.
-Note! The description of the process of installing, registering or explicitly trusting the obtained client certificate in the operating system or framework used by the integrating e-Service has to be done accordingly, is specific to that environment and it's out of the scope of this document.
+Toate apelurile către operațiunile MDocs sunt autentificate de MDocs. Autentificarea se realizează prin utilizarea certificatului client folosit pentru transportul HTTPS.
+Pentru informații privind obținerea unui certificat client și înregistrarea, vezi Obținerea credențialelor și Înregistrarea clientului și acces la rețea.
+Notă! Descrierea procesului de instalare, înregistrare sau acordare explicită a încrederii pentru certificatul client obținut, în sistemul de operare sau framework-ul utilizat de e-serviciul care se integrează, trebuie realizată corespunzător, este specifică respectivului mediu și nu face obiectul acestui document.
 
-## Authorization
-After successful authentication, all event requests are checked for correct configuration in MPass system.
+## Autorizare
+După autentificarea cu succes, toate request-urile pentru evenimente sunt verificate pentru configurarea corectă în sistemul MPass.
 
-## Encryption
-All communication with MDocs REST services are encrypted by using standard TLS protocol (HTTPS). The client certificate used to initiate the encrypted transport is also used for Authentication.
+## Criptare
+Toate comunicările cu serviciile REST ale MDocs sunt criptate prin utilizarea protocolului standard TLS (HTTPS). Certificatul client utilizat pentru inițierea transportului criptat este folosit și pentru Autentificare.

@@ -1,87 +1,88 @@
-# Overview
+# Prezentare generală
 
-MSign is a reusable and shared platform-level service the main scope of which is to facilitate the use of digital signature and simplify integrations with various digital signature instruments.
+MSign este un serviciu reutilizabil și partajat la nivel de platformă, al cărui scop principal este de a facilita utilizarea semnăturii electronice și de a simplifica integrările cu diverse instrumente de semnătură electronică.
 
-## At a glance
+## Pe scurt
 
-**What it is.** The government service that acts as an intermediary for signing and verifying documents electronically. Instead of integrating separately with every signature instrument on the market, a system integrates once with MSign, which hides the differences and exposes a single interface. MSign also performs signature verification, including certificate revocation checks with the trust service provider. MSign does not issue certificates and is not a trust service provider — it is an intermediary.
+**Ce este.** Serviciul guvernamental care acționează ca intermediar pentru semnarea și verificarea electronică a documentelor. În loc să se integreze separat cu fiecare instrument de semnătură de pe piață, un sistem se integrează o singură dată cu MSign, care ascunde diferențele și expune o interfață unică. MSign efectuează și verificarea semnăturii, inclusiv verificări de revocare a certificatului la prestatorul de servicii de încredere. MSign nu emite certificate și nu este prestator de servicii de încredere — este un intermediar.
 
-**Legal basis.** HG nr. 405/2014 privind serviciul electronic guvernamental de semnătură digitală (MSign) — pct. 3 sbp. 1) — desemnarea posesorului.
+**Temei normativ.** HG nr. 405/2014 privind serviciul electronic guvernamental de semnătură digitală (MSign) — pct. 3 sbp. 1) — desemnarea posesorului.
 
-Related acts: Legea nr. 91/2014 privind semnătura electronică și documentul electronic; Legea nr. 467/2003.
+Acte conexe: Legea nr. 91/2014 privind semnătura electronică și documentul electronic; Legea nr. 467/2003.
 
-**Who is accountable.**
+**Cine răspunde.**
 
-| Role | Entity |
+| Rol | Entitate |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) |  |
-| Technical operator (operator tehnico-tehnologic) | STISC |
+| Posesor | AGE |
+| Deținător |  |
+| Operator tehnico-tehnologic | STISC |
 
-**Roles in an integration.**
+**Roluri în integrare.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
-- STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
-- Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
-- Development/integration team — implements and tests the technical integration.
-- End user — the natural person or legal entity benefiting from the service.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
-**Access conditions.**
+**Condiții de acces.**
 
 Instituții publice: gratuit.
 Persoane juridice de drept privat și persoane fizice: în baza contractului — 15.200 lei/an per sistem integrat.
 Obligatoriu: certificat de sistem emis de STISC.
 
-**Who this guide is for.**
+**Cui se adresează acest ghid.**
 
-Primary: development and integration teams of the holders of information systems, public and private.
-Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
 
-## Jump right in
+## Începeți rapid
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
       <div class="quick-link-icon">⚡</div>
-      <h3 class="quick-link-title">Connection steps</h3>
-      <p class="quick-link-description">Get started with integration</p>
+      <h3 class="quick-link-title">Pași de conectare</h3>
+      <p class="quick-link-description">Începeți integrarea</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
       <div class="quick-link-icon">📘</div>
-      <h3 class="quick-link-title">Integration guide</h3>
-      <p class="quick-link-description">Step-by-step documentation</p>
+      <h3 class="quick-link-title">Ghid de integrare</h3>
+      <p class="quick-link-description">Documentație pas cu pas</p>
     </a>
   </div>
     <div class="quick-links-container">
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API reference</h3>
-      <p class="quick-link-description">Explore endpoints and callbacks</p>
+      <h3 class="quick-link-title">Referință API</h3>
+      <p class="quick-link-description">Explorați endpoint-urile și callback-urile</p>
     </a>
     <a href="https://www.nuget.org/profiles/egov-moldova" class="quick-link-card">
       <div class="quick-link-icon">📦</div>
-      <h3 class="quick-link-title">NuGet packages</h3>
-      <p class="quick-link-description">.NET packages for your application.</p>
+      <h3 class="quick-link-title">Pachete NuGet</h3>
+      <p class="quick-link-description">Pachete .NET pentru aplicația dumneavoastră.</p>
     </a>
   </div>
 </div>
 
-## Scope and target audience
+## Domeniu de aplicare și public țintă
 
-The details related to various digital signature instruments integrated with MSign are out of scope of this document.
+Detaliile referitoare la diversele instrumente de semnătură electronică integrate cu MSign nu fac obiectul acestui document.
 
-For the complete glossary, please visit the [Glossary page](https://egov-moldova.github.io/egov4dev/glossary/glossary/).
+Pentru glosarul complet, vizitați pagina [Glosar](https://egov-moldova.github.io/egov4dev/glossary/glossary/).
 
-## General system capabilities
+## Capabilități generale ale sistemului
 
-MSign is a reusable and shared platform-level service the main scope of which is to facilitate the use of digital signature and simplify integrations with various digital signature instruments.
-MSign is used as intermediary between various information systems and digital signature instrument providers. Digital signature providers differ significantly from the integration point of view, exposing various APIs that might involve direct user interaction through the browser to access user's cryptographic device or use of cryptographic devices that are not directly connected to user's PC. MSign integrates with these providers, hides the differences and exposes a single unified interface to information systems that require digital signature integration.
-For actual signing, MSign exposes web pages that guide the user through digital signature instrument selection, instrument specific data input, actual signing progress and signing process result pages.
-For digital signature verification, MSign exposes a verification web service which integrates with various certification authorities to perform the actual verification, including certificate revocation checks.
+MSign este un serviciu reutilizabil și partajat la nivel de platformă, al cărui scop principal este de a facilita utilizarea semnăturii electronice și de a simplifica integrările cu diverse instrumente de semnătură electronică.
+MSign este utilizat ca intermediar între diverse sisteme informaționale și furnizorii de instrumente de semnătură electronică. Furnizorii de semnătură electronică diferă semnificativ din punct de vedere al integrării, expunând diverse API-uri care pot implica interacțiunea directă a utilizatorului prin browser pentru a accesa dispozitivul criptografic al utilizatorului sau utilizarea unor dispozitive criptografice care nu sunt conectate direct la calculatorul utilizatorului. MSign se integrează cu acești furnizori, ascunde diferențele și expune o interfață unificată unică pentru sistemele informaționale care necesită integrarea semnăturii electronice.
+Pentru semnarea propriu-zisă, MSign expune pagini web care ghidează utilizatorul prin selectarea instrumentului de semnătură electronică, introducerea datelor specifice instrumentului, progresul procesului de semnare și paginile cu rezultatul procesului de semnare.
+Pentru verificarea semnăturii electronice, MSign expune un serviciu web de verificare care se integrează cu diverse autorități de certificare pentru a efectua verificarea propriu-zisă, inclusiv verificările de revocare a certificatului.
 
-## Service dependencies
-MSign depends on the digital signature providers, so its availability and performance is directly influenced by the availability and performance delivered by the providers.
+## Dependențe de servicii
 
-## Protocols and standards
+MSign depinde de furnizorii de instrumente de semnătură electronică, astfel încât disponibilitatea și performanța sa sunt influențate direct de disponibilitatea și performanța oferite de furnizori.
 
-MSign exposes WS-I Basic Profile 1.1 interoperable service over HTTPS which corresponds to basicHttpBinding in WCF. MSign uses SOAP faults for error reporting.
+## Protocoale și standarde
+
+MSign expune un serviciu interoperabil WS-I Basic Profile 1.1 prin HTTPS, care corespunde basicHttpBinding din WCF. MSign utilizează SOAP faults pentru raportarea erorilor.

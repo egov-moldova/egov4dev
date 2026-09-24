@@ -1,13 +1,13 @@
-## Authentication
+## Autentificare
 
-An IServiceProvider interface implementation must validate the signature of the incoming SOAP messages sent by MPay. It is recommended that implementations re-use the existing validation logic provided by web-service frameworks, such as .NET WCF or J2EE JAX-WS, by correctly configuring the end-points.
+O implementare a interfeței IServiceProvider trebuie să valideze semnătura mesajelor SOAP primite, trimise de MPay. Se recomandă ca implementările să reutilizeze logica de validare existentă, oferită de framework-urile de servicii web, precum .NET WCF sau J2EE JAX-WS, prin configurarea corectă a endpoint-urilor.
 
-For information regarding obtaining a service certificate and registration, see Obtaining credentials and Payable e-Service registration.
+Pentru informații privind obținerea unui certificat de serviciu și înregistrarea, vezi Obținerea credențialelor și Înregistrarea e-serviciului plătibil.
 
-## Encryption
+## Criptare
 
-All communication with MPay SOAP service is encrypted by using standard TLS protocol (HTTPS). The client certificate used to initiate the encrypted transport is also used for Authentication.
+Toată comunicarea cu serviciul SOAP al MPay este criptată utilizând protocolul standard TLS (HTTPS). Certificatul client utilizat pentru inițierea transportului criptat este utilizat și pentru Autentificare.
 
-## Saving SOAP messages
+## Salvarea mesajelor SOAP
 
-Because all SOAP messages are signed with the digital signature of the caller system, it is strongly recommended that messages are saved in some logging repository or directly against business objects, e.g. save payment confirmations along with SOAP message that includes the MPay signature. These persisted messages can further help in any issues related to clearance or other kind of disagreements.
+Deoarece toate mesajele SOAP sunt semnate cu semnătura digitală a sistemului apelant, se recomandă cu tărie ca mesajele să fie salvate într-un depozit de jurnalizare (logging) sau direct în cadrul obiectelor de business, de exemplu, salvarea confirmărilor de plată împreună cu mesajul SOAP care include semnătura MPay. Aceste mesaje persistate pot fi ulterior de ajutor în cazul unor probleme legate de decontare sau alte tipuri de dispute.

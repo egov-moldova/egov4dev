@@ -1,36 +1,36 @@
-## Error handling rules
+## Reguli de gestionare a erorilor
 
-For errors resulted for REST interface invocations, MDocs returns HTTP faults with fault codes and fault reasons describing the fault in plain English.
+Pentru erorile rezultate în urma invocărilor interfeței REST, MDocs returnează erori HTTP (HTTP faults) cu coduri de eroare (fault codes) și motive ale erorii (fault reasons) care descriu eroarea în termeni simpli și clari.
 
-| Fault Code | Description |
+| Cod eroare | Descriere |
 |---|---|
-| 400 Bad Request | The input request is not a valid JSON. Any other error which cannot be bypassed -- please note the provide detailed explanation in the response. |
-| 401 Unauthorized | Triggered if the input event cannot be identified to be part of any IS |
-| 403 Forbidden | Status code indicates that the server understood the request but refuses to authorize it. |
-| 404 Not Found | The URL you have reached is not in service at this time (404). No data found for provided parameters. |
-| 413 Payload Too Large | Information about the maximum allowed limit size for a message. Current limit for the whole message size is 256 KB. |
-| 500 Internal Server Error | Error triggered by a defective work of MDocs system. Please contact MDocs administrators in case you receive such an error. |
-| 507 | Server error. |
+| 400 Bad Request | Cererea introdusă nu este un JSON valid. Orice altă eroare care nu poate fi ocolită -- vă rugăm să rețineți că se oferă o explicație detaliată în response. |
+| 401 Unauthorized | Declanșată dacă evenimentul de intrare nu poate fi identificat ca făcând parte din niciun IS. |
+| 403 Forbidden | Codul de status indică faptul că serverul a înțeles cererea, dar refuză să o autorizeze. |
+| 404 Not Found | URL-ul accesat nu este activ în acest moment (404). Nu au fost găsite date pentru parametrii furnizați. |
+| 413 Payload Too Large | Informații despre limita maximă admisă pentru dimensiunea unui mesaj. Limita curentă pentru dimensiunea totală a mesajului este de 256 KB. |
+| 500 Internal Server Error | Eroare declanșată de o funcționare defectuoasă a sistemului MDocs. Vă rugăm să contactați administratorii MDocs în cazul în care primiți o astfel de eroare. |
+| 507 | Eroare de server. |
 
-The clients that are using programming languages that support try...catch blocks, HTTP errors is the correct way to handle service invocation errors.
+Pentru clienții care utilizează limbaje de programare ce suportă blocuri try...catch, gestionarea erorilor HTTP este modalitatea corectă de a trata erorile de invocare a serviciului.
 
-Documents can be published by client for document owner as well as for other identities.
+Documentele pot fi publicate de client atât pentru proprietarul documentului, cât și pentru alte identități.
 
 ## Blobs
 
 ### POST /blobs
 
-Uploads or initiates partial upload for a blob which represents the contents of a document
+Încarcă sau inițiază o încărcare parțială pentru un blob care reprezintă conținutul unui document
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| documentTypeCode | string* | document type code |
+| documentTypeCode | string* | codul tipului de document |
 
-*Required
+*Obligatoriu
 
-**Request body:**
+**Corpul cererii:**
 
 ```json
 {
@@ -50,27 +50,27 @@ Uploads or initiates partial upload for a blob which represents the contents of 
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description | Example |
+| Status HTTP | Descriere | Exemplu |
 |---|---|---|
-| 201 | The blob was created | `{ "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6" }` |
-| 400 | Bad request - A parameter is invalid | |
+| 201 | Blob-ul a fost creat | `{ "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6" }` |
+| 400 | Cerere incorectă - Un parametru este invalid | |
 | 403 | Forbidden | |
 
 ### PUT /blobs/{id}
 
-Continue/complete partial upload for document. Part size range can be 5 MiB to 5 GiB. Last part size can be 0 B to 5 GiB.
+Continuă/finalizează încărcarea parțială pentru document. Intervalul dimensiunii unei părți poate fi de la 5 MiB la 5 GiB. Dimensiunea ultimei părți poate fi de la 0 B la 5 GiB.
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | Blob id |
+| id | string($uuid) (path)* | ID-ul blob-ului |
 
-*Required
+*Obligatoriu
 
-**Request body:**
+**Corpul cererii:**
 
 ```json
 {
@@ -90,50 +90,50 @@ Continue/complete partial upload for document. Part size range can be 5 MiB to 5
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | The blob was updated |
-| 400 | Bad request - A parameter is invalid |
+| 200 | Blob-ul a fost actualizat |
+| 400 | Cerere incorectă - Un parametru este invalid |
 | 403 | Forbidden |
 
 ### DELETE /blobs/{id}
 
-Marks a blob as deleting
+Marchează un blob ca fiind în curs de ștergere
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | blob id |
+| id | string($uuid) (path)* | ID-ul blob-ului |
 
-*Required
+*Obligatoriu
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | The blob was deleted |
-| 400 | Bad request - A parameter is invalid |
+| 200 | Blob-ul a fost șters |
+| 400 | Cerere incorectă - Un parametru este invalid |
 | 403 | Forbidden |
 | 404 | Not found |
 
 ### POST /transform
 
-Transforms the uploaded file into the selected file format
+Transformă fișierul încărcat în formatul de fișier selectat
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| documentTypeCode | string* | document type code |
-| format | string* | format of the file that will be downloaded (Pdf or Html) |
-| language | string | language used for dictionaries (Ro/En/Ru) |
+| documentTypeCode | string* | codul tipului de document |
+| format | string* | formatul fișierului care va fi descărcat (Pdf sau Html) |
+| language | string | limba utilizată pentru dicționare (Ro/En/Ru) |
 
-*Required
+*Obligatoriu
 
-**Request body:**
+**Corpul cererii:**
 
 ```json
 {
@@ -153,33 +153,33 @@ Transforms the uploaded file into the selected file format
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 
 ## Documents
 
 ### GET /documents
 
-Displays all documents for current principal
+Afișează toate documentele pentru principalul curent
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| principal | string | principal if you want to impersonate an identity |
-| type | string | filter list to display only documents of the provided type |
-| folderId | string($uuid) (path) | parent folder id |
-| page | integer($int32) | number of the page you want to display |
-| itemsPerPage | integer($int32) | number of items to display per page |
-| orderField | string | order list by the field provided |
-| searchBy | string | filter list to display documents that have fields containing the provided text |
+| principal | string | principalul, dacă doriți să impersonați o identitate |
+| type | string | filtrează lista pentru a afișa doar documentele de tipul furnizat |
+| folderId | string($uuid) (path) | ID-ul folderului părinte |
+| page | integer($int32) | numărul paginii pe care doriți să o afișați |
+| itemsPerPage | integer($int32) | numărul de elemente de afișat pe pagină |
+| orderField | string | ordonează lista după câmpul furnizat |
+| searchBy | string | filtrează lista pentru a afișa documentele care au câmpuri ce conțin textul furnizat |
 
-**Response body:**
+**Corpul răspunsului:**
 
 HTTP 200
 
@@ -209,35 +209,35 @@ HTTP 200
 ]
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 | 404 | Not Found |
 
 ### POST /documents
 
-Create documents
+Creează documente
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| blobId | Guid* | The actual content of the document. NULL for folders. |
-| principal | String(100)* | Who is the owner of the document in URN format: urn:md:idno/idnp |
-| Name | String(250)* | The name of the file or folder |
-| number | String(50) | Document number assigned by the issuer of the document |
-| expiresOn | DateTime | When set, specifies the expiration date of the document |
-| createdOn | DateTime | Equals to UploadedOn when not specified |
-| createdBy | String(100) | Principal URN of the creator |
-| folderId | Guid | Parent folder, which is a document without BlobId |
+| blobId | Guid* | Conținutul efectiv al documentului. NULL pentru foldere. |
+| principal | String(100)* | Cine este proprietarul documentului, în format URN: urn:md:idno/idnp |
+| Name | String(250)* | Numele fișierului sau folderului |
+| number | String(50) | Numărul documentului atribuit de emitentul documentului |
+| expiresOn | DateTime | Dacă este setat, specifică data de expirare a documentului |
+| createdOn | DateTime | Egal cu UploadedOn dacă nu este specificat |
+| createdBy | String(100) | URN-ul principalului creator |
+| folderId | Guid | Folderul părinte, care este un document fără BlobId |
 
-*Required
+*Obligatoriu
 
-**Request body:**
+**Corpul cererii:**
 
 ```json
 {
@@ -256,14 +256,14 @@ Create documents
 }
 ```
 
-**Notes:**
-- For the document to be published successfully, "expiresOn" must be greater than "createdOn".
-- If the client does not set an expiration date to the document type, then the created document will have the expiration date of the document type to which the blob refers.
-- If the document type to which the blob refers does not have an expiration date set, then the created document will have expiresOn with the null value.
-- At "createdOn" enter the date from which the document will be available, possibly when setting a future creation date, the document will be available from the set date (optional field).
+**Note:**
+- Pentru ca documentul să fie publicat cu succes, "expiresOn" trebuie să fie mai mare decât "createdOn".
+- Dacă clientul nu setează o dată de expirare pentru tipul de document, atunci documentul creat va avea data de expirare a tipului de document căruia îi aparține blob-ul.
+- Dacă tipul de document căruia îi aparține blob-ul nu are setată o dată de expirare, atunci documentul creat va avea valoarea null pentru expiresOn.
+- La "createdOn" introduceți data de la care documentul va fi disponibil; este posibil ca, la setarea unei date de creare viitoare, documentul să fie disponibil de la data setată (câmp opțional).
 - Validarea formatului identităților se face după formula "urn:md:"
 
-**Response body:**
+**Corpul răspunsului:**
 
 HTTP 201 Created
 
@@ -278,30 +278,30 @@ HTTP 201 Created
 ]
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
 | 201 | Created |
-| 400 | Bad request |
-| 403 | Forbidden - Cannot create document because principal does not have Write permission on destination folder or upwards in hierarchy |
+| 400 | Cerere incorectă |
+| 403 | Forbidden - Documentul nu poate fi creat deoarece principalul nu are permisiunea Write asupra folderului destinație sau în ierarhia superioară |
 | 404 | Not Found |
-| 507 | Server Error. Insufficient Storage |
+| 507 | Eroare de server. Spațiu de stocare insuficient |
 
 ### GET /documents/{id}
 
-Get document details
+Obține detaliile documentului
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | document id |
-| principal | string (query) | principal if you want to impersonate an identity |
+| id | string($uuid) (path)* | ID-ul documentului |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
 
-*Required
+*Obligatoriu
 
-**Response body:**
+**Corpul răspunsului:**
 
 HTTP 200
 
@@ -329,28 +329,28 @@ HTTP 200
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
+| 200 | Succes |
 | 403 | Forbidden |
 | 404 | Not Found |
 
 ### PATCH /documents/{id}
 
-Update document
+Actualizează documentul
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | document id |
-| principal | string (query) | principal if you want to impersonate an identity |
+| id | string($uuid) (path)* | ID-ul documentului |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
 
-*Required
+*Obligatoriu
 
-**Request body:**
+**Corpul cererii:**
 
 ```json
 {
@@ -360,97 +360,97 @@ Update document
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 | 404 | Not Found |
 
 ### DELETE /documents/{id}
 
-Delete document (moves to recycle bin)
+Șterge documentul (mută în coșul de reciclare)
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | document id |
-| principal | string (query) | principal if you want to impersonate an identity |
+| id | string($uuid) (path)* | ID-ul documentului |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
 
-*Required
+*Obligatoriu
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
+| 200 | Succes |
 | 403 | Forbidden |
 | 404 | Not Found |
 
 ### GET /documents/{id}/blob
 
-Download document blob
+Descarcă blob-ul documentului
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | document id |
-| principal | string (query) | principal if you want to impersonate an identity |
+| id | string($uuid) (path)* | ID-ul documentului |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
 
-*Required
+*Obligatoriu
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success - returns the binary content of the document |
+| 200 | Succes - returnează conținutul binar al documentului |
 | 403 | Forbidden |
 | 404 | Not Found |
 
 ### GET /documents/{id}/versions
 
-Get document versions
+Obține versiunile documentului
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | document id |
-| principal | string (query) | principal if you want to impersonate an identity |
-| page | integer($int32) | number of the page you want to display |
-| itemsPerPage | integer($int32) | number of items to display per page |
+| id | string($uuid) (path)* | ID-ul documentului |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
+| page | integer($int32) | numărul paginii pe care doriți să o afișați |
+| itemsPerPage | integer($int32) | numărul de elemente de afișat pe pagină |
 
-*Required
+*Obligatoriu
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 | 404 | Not Found |
 
-## Document sharing APIs
+## API-uri pentru partajarea documentelor
 
 ### POST /documents/{id}/shares
 
-Share a document with one or more identities
+Partajează un document cu una sau mai multe identități
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | document id |
-| principal | string (query) | principal if you want to impersonate an identity |
+| id | string($uuid) (path)* | ID-ul documentului |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
 
-*Required
+*Obligatoriu
 
-**Request body:**
+**Corpul cererii:**
 
 ```json
 {
@@ -465,34 +465,34 @@ Share a document with one or more identities
 }
 ```
 
-**Notes:**
-- `permission`: "Read" or "Write"
-- `from` and `to`: Optional date range for the share
-- `from` <= `to` and `to` > now
+**Note:**
+- `permission`: "Read" sau "Write"
+- `from` și `to`: interval de date opțional pentru partajare
+- `from` <= `to` și `to` > acum
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
 | 201 | Created |
-| 400 | Bad request |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 | 404 | Not Found |
 
 ### GET /documents/{id}/shares
 
-Get all shares for a document
+Obține toate partajările pentru un document
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| id | string($uuid) (path)* | document id |
-| principal | string (query) | principal if you want to impersonate an identity |
+| id | string($uuid) (path)* | ID-ul documentului |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
 
-*Required
+*Obligatoriu
 
-**Response body:**
+**Corpul răspunsului:**
 
 HTTP 200
 
@@ -538,71 +538,71 @@ HTTP 200
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 
-## Shares APIs
+## API-uri pentru shares
 
 ### GET /shares/for-me
 
-List the shares made for the current principal
+Listează partajările făcute pentru principalul curent
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| principal | string (query) | principal if you want to impersonate an identity |
-| page | integer($int32) | number of the page you want to display |
-| itemsPerPage | integer($int32) | number of items to display per page |
-| orderField | string | order list by the field provided |
-| searchBy | string | filter list to display documents that have fields containing the provided text |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
+| page | integer($int32) | numărul paginii pe care doriți să o afișați |
+| itemsPerPage | integer($int32) | numărul de elemente de afișat pe pagină |
+| orderField | string | ordonează lista după câmpul furnizat |
+| searchBy | string | filtrează lista pentru a afișa documentele care au câmpuri ce conțin textul furnizat |
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 
 ### GET /shares/by-me
 
-List the shares made by the current principal
+Listează partajările făcute de principalul curent
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| principal | string (query) | principal if you want to impersonate an identity |
-| page | integer($int32) | number of the page you want to display |
-| itemsPerPage | integer($int32) | number of items to display per page |
-| orderField | string | order list by the field provided |
-| searchBy | string | filter list to display documents that have fields containing the provided text |
+| principal | string (query) | principalul, dacă doriți să impersonați o identitate |
+| page | integer($int32) | numărul paginii pe care doriți să o afișați |
+| itemsPerPage | integer($int32) | numărul de elemente de afișat pe pagină |
+| orderField | string | ordonează lista după câmpul furnizat |
+| searchBy | string | filtrează lista pentru a afișa documentele care au câmpuri ce conțin textul furnizat |
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 
 ### POST /shares/reservations
 
-Reserves a share
+Rezervă o partajare
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| generateAccessCode | boolean | generateAccessCode = true if you want to generate access code |
+| generateAccessCode | boolean | generateAccessCode = true dacă doriți să generați un cod de acces |
 
-**Response body:**
+**Corpul răspunsului:**
 
 HTTP 201
 
@@ -614,27 +614,27 @@ HTTP 201
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
 | 201 | Created |
 
-## Document types
+## Tipuri de documente
 
 ### GET /document-types/{code}
 
-Get document type details
+Obține detaliile tipului de document
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| code | String* | Document type code |
+| code | String* | Codul tipului de document |
 
-*Required
+*Obligatoriu
 
-**Response body:**
+**Corpul răspunsului:**
 
 HTTP 200
 
@@ -649,47 +649,47 @@ HTTP 200
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
+| 200 | Succes |
 
-## Principals
+## Principali
 
 ### GET /principals/{id}/name
 
-Get principal name
+Obține numele principalului
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
 | id | String (path)* | principal |
 
-*Required
+*Obligatoriu
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
 
-## Quota
+## Cotă (Quota)
 
 ### GET /quota
 
-Get quota information
+Obține informații despre cotă
 
-**Parameters**
+**Parametri**
 
-| Name | Data Type | Description |
+| Nume | Tip de date | Descriere |
 |---|---|---|
-| principal | String (query)* | Principal if you want to impersonate an identity |
+| principal | String (query)* | Principalul, dacă doriți să impersonați o identitate |
 
-**Response body:**
+**Corpul răspunsului:**
 
 HTTP 200
 
@@ -700,11 +700,11 @@ HTTP 200
 }
 ```
 
-**Responses:**
+**Răspunsuri:**
 
-| HTTP Status | Description |
+| Status HTTP | Descriere |
 |---|---|
-| 200 | Success |
-| 400 | Bad request |
+| 200 | Succes |
+| 400 | Cerere incorectă |
 | 403 | Forbidden |
-| 507 | Server Error |
+| 507 | Eroare de server |

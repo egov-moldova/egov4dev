@@ -1,12 +1,12 @@
-| Version | Date | Description |
+| Versiune | Dată | Descriere |
 |---------|------|-------------|
-| 0.1 | 26.04.2021 | MDelivery integration Guide. Initial version |
-| 0.2 | 06.05.2021 | Adjusted version |
-| 1.0 | 21.12.2021 | Updated version:<br>• glossary updated<br>• interaction scenarios adjusted<br>• integration type differences<br>• redirect rules<br>• GET delivery details method<br>• samples of integration scenarios for different technologies<br>• results from Swager |
-| 1.1 | 10.01.21 | Added:<br>• Interaction diagrams<br>• Service profile management<br>• Details to statuses description<br>• .net sample (link to wiki)<br><br>Updated<br>• Integration methods<br>• Results from swager |
-| 1.2 | | Adjusted<br>• Changes to chapters regarding authentication (6.1, 6.2, 7.1)<br>• Samples |
-| 1.3 | | Adjusted<br>• Details regarding Add delivery option |
-| 1.4 | | Adjusted<br>• Details regarding statuses |
-| 1.5 | | Adjusted<br>• Response parameters description<br>• Get order details adjusted. |
-| 1.6 | | Adjusted<br>• Details regarding statuses<br>• Details regarding weight format<br><br>Added<br>• definitions in Glossary<br>• notes for payment scenarios implementation<br>• details regarding API methods usage during the process<br>• hyperlinks to references in the document |
-| 1.7 | | Adjusted<br>• Glossary<br>• GET order details method |
+| 0.1 | 26.04.2021 | Ghidul de integrare MDelivery. Versiune inițială |
+| 0.2 | 06.05.2021 | Versiune ajustată |
+| 1.0 | 21.12.2021 | Versiune actualizată:<br>• glosar actualizat<br>• scenarii de interacțiune ajustate<br>• diferențe între tipurile de integrare<br>• reguli de redirecționare<br>• metoda GET delivery details<br>• exemple de scenarii de integrare pentru diferite tehnologii<br>• rezultate din Swagger |
+| 1.1 | 10.01.21 | Adăugat:<br>• Diagrame de interacțiune<br>• Gestionarea profilului serviciului<br>• Detalii privind descrierea statusurilor<br>• exemplu .net (link către wiki)<br><br>Actualizat<br>• Metodele de integrare<br>• Rezultatele din Swagger |
+| 1.2 | | Ajustat<br>• Modificări la capitolele privind autentificarea (6.1, 6.2, 7.1)<br>• Exemple |
+| 1.3 | | Ajustat<br>• Detalii privind opțiunea Add delivery |
+| 1.4 | | Ajustat<br>• Detalii privind statusurile |
+| 1.5 | | Ajustat<br>• Descrierea parametrilor de răspuns<br>• Get order details ajustat. |
+| 1.6 | | Ajustat<br>• Detalii privind statusurile<br>• Detalii privind formatul greutății<br><br>Adăugat<br>• definiții în Glosar<br>• note privind implementarea scenariilor de plată<br>• detalii privind utilizarea metodelor API în cadrul procesului<br>• hyperlink-uri către referințele din document |
+| 1.7 | | Ajustat<br>• Glosar<br>• Metoda GET order details |

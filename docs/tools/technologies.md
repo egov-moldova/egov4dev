@@ -1,85 +1,85 @@
-At AGE, the development of government digital services is based on a modern, secure, and scalable technology ecosystem. This page provides an overview of the technologies, infrastructure, and tools used to build interoperable, compliant, and citizen-oriented solutions.
+La AGE, dezvoltarea serviciilor digitale guvernamentale se bazează pe un ecosistem tehnologic modern, securizat și scalabil. Această pagină oferă o prezentare generală a tehnologiilor, infrastructurii și instrumentelor utilizate pentru construirea unor soluții interoperabile, conforme și orientate către cetățean.
 
 * * *
 
-## Design system
+## Sistemul de design
 
-**MUD (Moldovan Statewide Design System)** – the unified design system for government digital services
-  - Provides reusable UI components, patterns, and guidelines
-  - Ensures consistency across all governmental applications
-  - Focuses on accessibility, clarity, and user-centered design
-  - Documentation available [here](https://egov-moldova.github.io/egov4dev/mud/)
-  - Includes design tokens, component library, and implementation examples
+**MUD (Modelul Unitar de Design al Moldovei)** – sistemul unitar de design pentru serviciile digitale guvernamentale
+  - Oferă componente de interfață reutilizabile, tipare (patterns) și ghiduri
+  - Asigură coerența în toate aplicațiile guvernamentale
+  - Se concentrează pe accesibilitate, claritate și design centrat pe utilizator
+  - Documentația este disponibilă [aici](https://egov-moldova.github.io/egov4dev/mud/)
+  - Include design tokens, biblioteca de componente și exemple de implementare
 
 * * *
 
-## Development stack
+## Stiva de dezvoltare
 
-AGE services are developed with robust technologies, chosen for compatibility with government infrastructure and to support an efficient application lifecycle.
+Serviciile AGE sunt dezvoltate folosind tehnologii robuste, alese pentru compatibilitatea cu infrastructura guvernamentală și pentru susținerea unui ciclu de viață eficient al aplicațiilor.
 
 ### Frontend
 
-Web applications are built with **Blazor**. The UI component standard is transitioning from **MudBlazor** to **Fod.UIComponents**, the Agency's own component library:
+Aplicațiile web sunt construite cu **Blazor**. Standardul componentelor de interfață este în tranziție de la **MudBlazor** la **Fod.UIComponents**, biblioteca proprie de componente a Agenției:
 
-*   **Fod.UIComponents** – the Agency's reusable Blazor UI component library, used for new interfaces and aligned with the unified design system
-*   **MudBlazor** – NuGet: `MudBlazor` – component library used by existing applications during the transition
-*   **Blazor Server / WebAssembly** – for interactive applications in .NET
-*   Following standards from the **Government Design System** (coming soon), focusing on clarity, simplicity, and accessibility
+*   **Fod.UIComponents** – biblioteca reutilizabilă de componente Blazor a Agenției, utilizată pentru interfețele noi și aliniată la sistemul unitar de design
+*   **MudBlazor** – NuGet: `MudBlazor` – biblioteca de componente utilizată de aplicațiile existente în perioada de tranziție
+*   **Blazor Server / WebAssembly** – pentru aplicații interactive în .NET
+*   Respectarea standardelor din **Government Design System** (în curând), cu accent pe claritate, simplitate și accesibilitate
 
 ### Backend
 
-Business logic is implemented within the .NET ecosystem:
+Logica de business este implementată în cadrul ecosistemului .NET:
 
-*   **ASP.NET Core** – NuGet: `Microsoft.AspNetCore.*` – for REST services and scalable web applications
-*   **Entity Framework Core** – NuGet: `Microsoft.EntityFrameworkCore` – for relational database access
-*   **FluentValidation** – NuGet: `FluentValidation` – for declarative validations
-*   **Swashbuckle.AspNetCore** – NuGet: `Swashbuckle.AspNetCore` – for generating Swagger documentation
+*   **ASP.NET Core** – NuGet: `Microsoft.AspNetCore.*` – pentru servicii REST și aplicații web scalabile
+*   **Entity Framework Core** – NuGet: `Microsoft.EntityFrameworkCore` – pentru accesul la baze de date relaționale
+*   **FluentValidation** – NuGet: `FluentValidation` – pentru validări declarative
+*   **Swashbuckle.AspNetCore** – NuGet: `Swashbuckle.AspNetCore` – pentru generarea documentației Swagger
 
-### Databases
+### Baze de date
 
-*   **SQL Server**, **PostgreSQL** – for relational data storage
-*   **Redis** – NuGet: `StackExchange.Redis` – for caching and performance optimization
-*   **JSON structures** – used for dynamic configuration of rules and categories
-
-* * *
-
-## Infrastructure and DevOps
-
-AGE uses government infrastructure for hosting and orchestrating services:
-
-### Hosting
-
-*   **MCloud** – the government cloud platform used for hosting AGE applications
-*   Configurations for **scalability**, **security**, and **disaster recovery** adapted to institutional requirements
-
-### Orchestration and containers
-
-*   **Kubernetes** – for orchestrating containerized services
-*   **Docker** – for packaging applications into portable containers
-*   **Helm** – for managing deployments in Kubernetes, offering controlled versions, fast rollback, and declarative configuration through charts
-
-### CI/CD and DevOps
-
-*   **Azure DevOps** – for managing deliveries, tasks, and bugs
-*   Automated pipelines for build, test, and deploy
-*   **GitLab** – for version control and continuous integration
-
-### Monitoring and SRE
-
-*   Centralization through **Azure DevOps**
-*   Systems for **alerting**, **logging**, **auditing**, and **tracing**
-*   **Elasticsearch** – for indexing and fast searching of logs and operational data
-*   **Kibana** – for visualizing data from Elasticsearch
-*   **Prometheus + Grafana** – for monitoring and visualizing metrics
+*   **SQL Server**, **PostgreSQL** – pentru stocarea datelor relaționale
+*   **Redis** – NuGet: `StackExchange.Redis` – pentru caching și optimizarea performanței
+*   **Structuri JSON** – utilizate pentru configurarea dinamică a regulilor și categoriilor
 
 * * *
 
-## Best practices and conventions
+## Infrastructură și DevOps
 
-To ensure code consistency and quality:
+AGE utilizează infrastructura guvernamentală pentru găzduirea și orchestrarea serviciilor:
 
-*   Conventions for **naming**, **code structuring**, and **project organization**
-*   Configurable validations in **JSON**
-*   Automated and manual testing
-*   Standardized UI/UX for all AGE applications
-*   Use of **private NuGet feeds** for distributing reusable internal components
+### Găzduire
+
+*   **MCloud** – platforma cloud guvernamentală utilizată pentru găzduirea aplicațiilor AGE
+*   Configurații pentru **scalabilitate**, **securitate** și **recuperare în caz de dezastru** (disaster recovery), adaptate cerințelor instituționale
+
+### Orchestrare și containere
+
+*   **Kubernetes** – pentru orchestrarea serviciilor containerizate
+*   **Docker** – pentru împachetarea aplicațiilor în containere portabile
+*   **Helm** – pentru gestionarea implementărilor (deployments) în Kubernetes, oferind versiuni controlate, rollback rapid și configurare declarativă prin charts
+
+### CI/CD și DevOps
+
+*   **Azure DevOps** – pentru gestionarea livrărilor, sarcinilor și defectelor
+*   Pipeline-uri automatizate pentru build, testare și deploy
+*   **GitLab** – pentru controlul versiunilor și integrare continuă
+
+### Monitorizare și SRE
+
+*   Centralizare prin **Azure DevOps**
+*   Sisteme pentru **alertare**, **jurnalizare (logging)**, **auditare** și **trasare (tracing)**
+*   **Elasticsearch** – pentru indexarea și căutarea rapidă a jurnalelor și a datelor operaționale
+*   **Kibana** – pentru vizualizarea datelor din Elasticsearch
+*   **Prometheus + Grafana** – pentru monitorizarea și vizualizarea metricilor
+
+* * *
+
+## Bune practici și convenții
+
+Pentru a asigura coerența și calitatea codului:
+
+*   Convenții pentru **denumire**, **structurarea codului** și **organizarea proiectelor**
+*   Validări configurabile în **JSON**
+*   Testare automatizată și manuală
+*   UI/UX standardizat pentru toate aplicațiile AGE
+*   Utilizarea de **feed-uri NuGet private** pentru distribuirea componentelor interne reutilizabile

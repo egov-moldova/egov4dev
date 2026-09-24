@@ -1,203 +1,203 @@
-This section describes test cases for systems integrating with MPass. These tests ensure both functional correctness and security compliance of the integration.
+Această secțiune descrie cazurile de testare pentru sistemele care se integrează cu MPass. Aceste teste asigură atât corectitudinea funcțională, cât și conformitatea de securitate a integrării.
 
-## Functional Test Cases
+## Cazuri de testare funcțională
 
-### TC_FUNCT_01: Service Initiated Authentication
+### TC_FUNCT_01: Autentificare inițiată de Service
 
-**Description:** Service initiated authentication
+**Descriere:** Autentificare inițiată de Service
 
-**Initial Conditions:** User not authenticated into the Service and MPass
+**Condiții inițiale:** Utilizator neautentificat în Service și în MPass
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass, no errors shown |
-| 2 | Authenticate in MPass | Browser redirected back to the Service as logged in |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass, fără erori afișate |
+| 2 | Autentificați-vă în MPass | Browser-ul este redirecționat înapoi către Service ca utilizator autentificat |
 
 ---
 
-### TC_FUNCT_02: Single Sign-On Through MPass
+### TC_FUNCT_02: Single Sign-On prin MPass
 
-**Description:** Single sign-on through MPass
+**Descriere:** Single sign-on prin MPass
 
-**Initial Conditions:**
-- User not authenticated in the Service
-- User authenticated directly in MPass
+**Condiții inițiale:**
+- Utilizator neautentificat în Service
+- Utilizator autentificat direct în MPass
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back (with or without authentication consent) to the Service as logged in, no errors shown |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi (cu sau fără consimțământ de autentificare) către Service ca utilizator autentificat, fără erori afișate |
 
 ---
 
-### TC_FUNCT_03: Aborted Authentication
+### TC_FUNCT_03: Autentificare întreruptă
 
-**Description:** Aborted authentication
+**Descriere:** Autentificare întreruptă
 
-**Initial Conditions:** User not authenticated into the Service and MPass
+**Condiții inițiale:** Utilizator neautentificat în Service și în MPass
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass for authentication |
-| 2 | Cancel the authentication in MPass | Browser redirected back to the Service without authentication and no errors are shown by the Service |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass pentru autentificare |
+| 2 | Anulați autentificarea în MPass | Browser-ul este redirecționat înapoi către Service fără autentificare, iar Service nu afișează nicio eroare |
 
 ---
 
-### TC_FUNCT_04: Service Initiated Logout
+### TC_FUNCT_04: Delogare inițiată de Service
 
-**Description:** Service initiated logout
+**Descriere:** Delogare inițiată de Service
 
-**Initial Conditions:** User authenticated into Service via MPass
+**Condiții inițiale:** Utilizator autentificat în Service prin MPass
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Logout" button/link of the Service | Browser redirected to MPass and redirected back (with or without authentication consent) to the Service as logged out, no errors shown |
-| 2 | Access any Service protected resource | Access to resource is denied and/or user is redirected to MPass for authentication |
+| 1 | Accesați butonul/linkul „Logout” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi (cu sau fără consimțământ de autentificare) către Service ca utilizator delogat, fără erori afișate |
+| 2 | Accesați orice resursă protejată a Service-ului | Accesul la resursă este refuzat și/sau utilizatorul este redirecționat către MPass pentru autentificare |
 
 ---
 
-### TC_FUNCT_05: MPass Initiated Logout (Single Logout)
+### TC_FUNCT_05: Delogare inițiată de MPass (Single Logout)
 
-**Description:** MPass initiated logout (i.e. single logout)
+**Descriere:** Delogare inițiată de MPass (adică single logout)
 
-**Initial Conditions:** User authenticated into Service via MPass
+**Condiții inițiale:** Utilizator autentificat în Service prin MPass
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Logout" link in MPass | After performing single sign-out, MPass shows that the user is not authenticated |
-| 2 | Access any Service protected resource | Access to resource is denied and/or user is redirected to MPass for authentication |
+| 1 | Accesați linkul „Logout” din MPass | După efectuarea delogării unice, MPass afișează faptul că utilizatorul nu este autentificat |
+| 2 | Accesați orice resursă protejată a Service-ului | Accesul la resursă este refuzat și/sau utilizatorul este redirecționat către MPass pentru autentificare |
 
 ---
 
-## Security Test Cases
+## Cazuri de testare de securitate
 
-### TC_SEC_01: Check SAML Response Signature Validation
+### TC_SEC_01: Verificarea validării semnăturii SAML Response
 
-**Description:** Check SAML Response signature validation
+**Descriere:** Verificarea validării semnăturii SAML Response
 
-**Initial Conditions:**
-- User not authenticated into Service, but authenticated in MPass
-- Only the following option is checked in SAML Advanced Options: "Do not sign SAML Response"
+**Condiții inițiale:**
+- Utilizator neautentificat în Service, dar autentificat în MPass
+- Este bifată doar următoarea opțiune în SAML Advanced Options: „Do not sign SAML Response”
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is not signed |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi către Service fără autentificare reușită, întrucât SAML Response nu este semnat |
 
 ---
 
-### TC_SEC_02: Check SAML Response Signature Validation Certificate
+### TC_SEC_02: Verificarea certificatului de validare a semnăturii SAML Response
 
-**Description:** Check SAML Response signature validation certificate
+**Descriere:** Verificarea certificatului de validare a semnăturii SAML Response
 
-**Initial Conditions:**
-- User not authenticated into Service, but authenticated in MPass
-- Only the following option is checked in SAML Advanced Options: "Use compatible certificate for signing"
+**Condiții inițiale:**
+- Utilizator neautentificat în Service, dar autentificat în MPass
+- Este bifată doar următoarea opțiune în SAML Advanced Options: „Use compatible certificate for signing”
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is signed with invalid certificate |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi către Service fără autentificare reușită, întrucât SAML Response este semnat cu un certificat invalid |
 
 ---
 
-### TC_SEC_03: Check SAML Response is Not Expired
+### TC_SEC_03: Verificarea faptului că SAML Response nu a expirat
 
-**Description:** Check SAML Response is not expired
+**Descriere:** Verificarea faptului că SAML Response nu a expirat
 
-**Initial Conditions:**
-- User not authenticated into Service, but authenticated in MPass
-- No option is checked in SAML Advanced Options
-- Service server clock changed to several hours in the future
+**Condiții inițiale:**
+- Utilizator neautentificat în Service, dar autentificat în MPass
+- Nicio opțiune nu este bifată în SAML Advanced Options
+- Ceasul serverului Service a fost modificat cu câteva ore în viitor
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is expired |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi către Service fără autentificare reușită, întrucât SAML Response a expirat |
 
 ---
 
-### TC_SEC_04: Check SAML Response is Not Too New
+### TC_SEC_04: Verificarea faptului că SAML Response nu este prea nou
 
-**Description:** Check SAML Response is not too new
+**Descriere:** Verificarea faptului că SAML Response nu este prea nou
 
-**Initial Conditions:**
-- User not authenticated into Service, but authenticated in MPass
-- Only the following option is checked in SAML Advanced Options: "SAML Response IssueInstant is specified in local time, instead of UTC"
+**Condiții inițiale:**
+- Utilizator neautentificat în Service, dar autentificat în MPass
+- Este bifată doar următoarea opțiune în SAML Advanced Options: „SAML Response IssueInstant is specified in local time, instead of UTC”
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response is expired (2 or 3 hours in the future for Moldova time zone) |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi către Service fără autentificare reușită, întrucât SAML Response a expirat (2 sau 3 ore în viitor pentru fusul orar al Moldovei) |
 
 ---
 
-### TC_SEC_05: Check if SAML Response Destination is Validated
+### TC_SEC_05: Verificarea validării Destination din SAML Response
 
-**Description:** Check if SAML Response Destination is validated
+**Descriere:** Verificarea validării Destination din SAML Response
 
-**Initial Conditions:**
-- User not authenticated into Service, but authenticated in MPass
-- Only the following option is checked in SAML Advanced Options: "Do not specify Destination in SAML Response"
+**Condiții inițiale:**
+- Utilizator neautentificat în Service, dar autentificat în MPass
+- Este bifată doar următoarea opțiune în SAML Advanced Options: „Do not specify Destination in SAML Response”
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response/@Destination is not specified |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi către Service fără autentificare reușită, întrucât SAML Response/@Destination nu este specificat |
 
 ---
 
-### TC_SEC_06: Check if SAML Response InResponseTo is Checked For
+### TC_SEC_06: Verificarea faptului că InResponseTo din SAML Response este verificat
 
-**Description:** Check if SAML Response InResponseTo is checked for
+**Descriere:** Verificarea faptului că InResponseTo din SAML Response este verificat
 
-**Initial Conditions:**
-- User not authenticated into Service, but authenticated in MPass
-- Only the following option is checked in SAML Advanced Options: "Do not specify InResponseTo in SAML Response"
+**Condiții inițiale:**
+- Utilizator neautentificat în Service, dar autentificat în MPass
+- Este bifată doar următoarea opțiune în SAML Advanced Options: „Do not specify InResponseTo in SAML Response”
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass and redirected back to the Service without successful authentication, as SAML Response/@InResponseTo is not specified |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass și redirecționat înapoi către Service fără autentificare reușită, întrucât SAML Response/@InResponseTo nu este specificat |
 
 ---
 
-### TC_SEC_07: Check if SAML Response InResponseTo is Validated
+### TC_SEC_07: Verificarea validării InResponseTo din SAML Response
 
-**Description:** Check if SAML Response InResponseTo is validated
+**Descriere:** Verificarea validării InResponseTo din SAML Response
 
-**Initial Conditions:**
-- User not authenticated into the Service and MPass
-- No option is checked in SAML Advanced Options
+**Condiții inițiale:**
+- Utilizator neautentificat în Service și în MPass
+- Nicio opțiune nu este bifată în SAML Advanced Options
 
-**Steps:**
+**Pași:**
 
-| Step | Task | Expected Result |
+| Pas | Sarcină | Rezultat așteptat |
 |------|------|----------------|
-| 1 | Access the "Login" button/link of the Service | Browser redirected to MPass for authentication |
-| 2 | Abort user's session in the Service (restart the server or delete it from session store) so that the generated AuthnRequest/@ID is lost | User session aborted |
-| 3 | Authenticate in MPass | Browser redirected back to the Service without successful authentication, as SAML Response/@InResponseTo is now invalid |
+| 1 | Accesați butonul/linkul „Login” al Service-ului | Browser-ul este redirecționat către MPass pentru autentificare |
+| 2 | Întrerupeți sesiunea utilizatorului în Service (reporniți serverul sau ștergeți-o din stocarea sesiunilor), astfel încât AuthnRequest/@ID generat să se piardă | Sesiunea utilizatorului este întreruptă |
+| 3 | Autentificați-vă în MPass | Browser-ul este redirecționat înapoi către Service fără autentificare reușită, întrucât SAML Response/@InResponseTo este acum invalid |
 
 ---
 
-## Important Notes
+## Note importante
 
-- The security of MPass integrating systems heavily depends on the security of the integration
-- All security-related test cases MUST pass before moving to production
-- Services are expected to implement comprehensive SAML validation as described in the security considerations section
-- Integration review and audit should be performed using these test cases
+- Securitatea sistemelor care se integrează cu MPass depinde în mare măsură de securitatea integrării
+- Toate cazurile de testare legate de securitate TREBUIE să fie validate cu succes înainte de trecerea în producție
+- Serviciile trebuie să implementeze o validare SAML completă, așa cum este descrisă în secțiunea privind considerațiile de securitate
+- Revizuirea și auditul integrării trebuie efectuate folosind aceste cazuri de testare

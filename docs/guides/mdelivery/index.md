@@ -1,64 +1,64 @@
-MDelivery is a governmental electronic service designed to provide a unified and integrated delivery mechanism in order to improve the logistic capability of Public Service Providers to deliver, sort and track physical goods (resulted from provided public services) to individuals and legal entities.
+MDelivery este un serviciu guvernamental electronic conceput pentru a oferi un mecanism unificat și integrat de livrare, în scopul îmbunătățirii capacității logistice a Prestatorilor de servicii publice de a livra, sorta și urmări bunurile fizice (rezultate din serviciile publice prestate) către persoane fizice și juridice.
 
-To enable the delivery process, MDelivery is integrated with Service Providers (to receive orders to be delivered) and Carriers systems (to order delivery services) and other governmental electronic services facilitating the process (MPass, MPay, MNotify).
+Pentru a permite procesul de livrare, MDelivery este integrat cu sistemele Prestatorilor de servicii (pentru a primi comenzile de livrat) și ale Cărăușilor (pentru a solicita servicii de livrare), precum și cu alte servicii guvernamentale electronice care facilitează procesul (MPass, MPay, MNotify).
 
-"## At a glance
+## Pe scurt
 
-**What it is.** The government delivery service: the mechanism by which the physical output of a public service (certificate, apostilled act, civil status document, etc.) reaches the applicant at home or at work, through integrated postal operators and couriers, with no counter visit. The provider places the delivery order from its own system; MDelivery passes it to the carrier and returns the delivery status. The service is integrated with MPass, MPay and MNotify for authentication, payment and notifying the beneficiary.
+**Ce este.** Serviciul guvernamental de livrare: mecanismul prin care rezultatul fizic al unui serviciu public (certificat, act apostilat, document de stare civilă etc.) ajunge la solicitant, acasă sau la serviciu, prin intermediul operatorilor poștali și curierilor integrați, fără vizitarea ghișeului. Prestatorul plasează comanda de livrare din propriul sistem; MDelivery o transmite cărăușului și returnează statusul livrării. Serviciul este integrat cu MPass, MPay și MNotify pentru autentificare, plată și notificarea beneficiarului.
 
-**Legal basis.** HG nr. 152/2021 cu privire la serviciul guvernamental de livrare (MDelivery) — pct. 2 — desemnarea posesorului și deținătorului.
+**Temei normativ.** HG nr. 152/2021 cu privire la serviciul guvernamental de livrare (MDelivery) — pct. 2 — desemnarea posesorului și deținătorului.
 
-Related acts: Legea nr. 234/2021 cu privire la serviciile publice; cadrul privind serviciile poștale.
+Acte conexe: Legea nr. 234/2021 cu privire la serviciile publice; cadrul normativ privind serviciile poștale.
 
-**Who is accountable.**
+**Cine răspunde.**
 
-| Role | Entity |
+| Rol | Entitate |
 |---|---|
-| Holder (posesor) | AGE |
-| Keeper (deținător) | AGE |
-| Technical operator (operator tehnico-tehnologic) | STISC |
+| Posesor | AGE |
+| Deținător | AGE |
+| Operator tehnico-tehnologic | STISC |
 
-**Roles in an integration.**
+**Roluri în integrare.**
 
-- EGA (AGE) — holder/keeper of the platform; signs the integration agreement and registers the integrating system.
-- STISC — issues the system certificate required for staging and production; operates the hosting infrastructure.
-- Holder of the integrating system — decides the purpose and legal basis of use, the access rights, and is accountable for compliance.
-- Development/integration team — implements and tests the technical integration.
-- End user — the natural person or legal entity benefiting from the service.
+- AGE — posesor/deținător al platformei; încheie acordul de integrare și înregistrează sistemul integrat.
+- STISC — emite certificatul de sistem necesar conectării în staging și producție; operează infrastructura de găzduire.
+- Posesorul sistemului integrat — decide scopul și temeiul legal al utilizării, drepturile de acces și răspunde de conformitate.
+- Echipa de dezvoltare/integrare — implementează și testează integrarea tehnică.
+- Utilizatorul final — persoana fizică sau unitatea de drept care beneficiază de serviciu.
 
-**Access conditions.**
+**Condiții de acces.**
 
 Gratuit pentru integrare (tariful de livrare se achită cărăușului). Obligatoriu: certificat STISC și acord cu AGE.
 
-**Who this guide is for.**
+**Cui se adresează acest ghid.**
 
-Primary: development and integration teams of the holders of information systems, public and private.
-Secondary: project managers and compliance officers preparing the agreement with EGA and the STISC certificate.
+Principal: echipele de dezvoltare și integrare ale posesorilor de sisteme informaționale, publice și private.
+Secundar: managerii de proiect și responsabilii de conformitate care pregătesc acordul cu AGE și certificatul STISC.
 
-## Jump right in
+## Începeți rapid
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
     <a href="process/" class="quick-link-card">
       <div class="quick-link-icon">⚡</div>
-      <h3 class="quick-link-title">Connection steps</h3>
-      <p class="quick-link-description">Get started with integration</p>
+      <h3 class="quick-link-title">Pașii de conectare</h3>
+      <p class="quick-link-description">Începeți procesul de integrare</p>
     </a>
     <a href="integration-development/" class="quick-link-card">
       <div class="quick-link-icon">📘</div>
-      <h3 class="quick-link-title">Integration guide</h3>
-      <p class="quick-link-description">Step-by-step documentation</p>
+      <h3 class="quick-link-title">Ghid de integrare</h3>
+      <p class="quick-link-description">Documentație pas cu pas</p>
     </a>
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
-      <h3 class="quick-link-title">API reference</h3>
-      <p class="quick-link-description">Explore endpoints and callbacks</p>
+      <h3 class="quick-link-title">Referință API</h3>
+      <p class="quick-link-description">Explorați endpoint-urile și callback-urile</p>
     </a>    
   </div>
 </div>
 
-## Document structure
+## Structura documentului
 
-This document contains the relevant information required for a complete understanding of MDelivery system from the integration point of view. It includes samples of integration scenarios for different technologies. As well this document describes the technical interfaces exposed by MDelivery for Service Providers systems that will use MDelivery and technical details explaining the interaction.
+Acest document conține informațiile relevante necesare pentru o înțelegere completă a sistemului MDelivery din perspectiva integrării. Include exemple de scenarii de integrare pentru diferite tehnologii. De asemenea, acest document descrie interfețele tehnice expuse de MDelivery pentru sistemele Prestatorilor de servicii care vor utiliza MDelivery, precum și detaliile tehnice care explică interacțiunea.
 
-The target audience are the development teams responsible for integration and system administration.
+Publicul țintă îl constituie echipele de dezvoltare responsabile de integrare și administrarea sistemului.

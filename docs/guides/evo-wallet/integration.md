@@ -1,67 +1,67 @@
-Staging environment (Testing phase)
+Mediul de staging (etapa de testare)
 ===================================
 
-> The staging environment allows you to safely test your integration with the EVO Wallet before going live.  
-> It ensures your verification flow, security setup, and user interactions work as expected.
+> Mediul de staging vă permite să testați în siguranță integrarea cu EVO Wallet înainte de lansarea în producție.  
+> Acesta asigură că fluxul de verificare, configurația de securitate și interacțiunile utilizatorului funcționează conform așteptărilor.
 
 
-## 1. Verifier Registration
+## 1. Înregistrarea verificatorului
 
 
-Fill in the 🔗[**Onboarding Form**](https://forms.office.com/e/4h5RFQGqda) with the following information:
+Completați 🔗[**Formularul de onboarding**](https://forms.office.com/e/4h5RFQGqda) cu următoarele informații:
 
-* Organization details
-* Technical contact person
-* Attestations to be verified
-* Intended use for each attestation
-* Email / Google accounts for staging access
+* Detaliile organizației
+* Persoana de contact tehnică
+* Atestările care urmează a fi verificate
+* Utilizarea preconizată pentru fiecare atestare
+* Conturi de email / Google pentru accesul la staging
     
 
 
-## 2. Certificate Request (CSR)
+## 2. Solicitarea certificatului (CSR)
 
 
-After submitting the form, you will receive an email with instructions to submit a **Certificate Signing Request (CSR)** with the following specifications:
+După trimiterea formularului, veți primi un email cu instrucțiuni pentru depunerea unei **Cereri de semnare a certificatului (Certificate Signing Request - CSR)** cu următoarele specificații:
 
-| Parameter | Value |
+| Parametru | Valoare |
 | --- | --- |
-| Key Type | Elliptic Curve |
-| Curve | P-256 |
-| Submission | `wallet@egov.md` |
+| Tip de cheie | Curbă eliptică |
+| Curbă | P-256 |
+| Depunere | `wallet@egov.md` |
 
 
-## 3. Certificate Issuance
+## 3. Emiterea certificatului
 
 
-Once your CSR is received:
+După primirea CSR-ului dumneavoastră:
 
-* The request is registered in the test environment
-* A staging verifier certificate is generated
-* The certificate is delivered via email
+* Cererea este înregistrată în mediul de testare
+* Este generat un certificat de verificator pentru staging
+* Certificatul este transmis prin email
     
 
-> ⚠️ This certificate is required for secure communication and verification during testing.
+> ⚠️ Acest certificat este necesar pentru comunicarea și verificarea securizată în timpul testării.
 
 
-## 4. EVO Staging Application Access
+## 4. Accesul la aplicația EVO de staging
 
-Access to the EVO staging app is granted in parallel.
-**Distribution channels:**
+Accesul la aplicația EVO de staging este acordat în paralel.
+**Canale de distribuție:**
 
-* Google Play (test track)  
+* Google Play (canal de test)  
 * Apple TestFlight
 
-Outcome
+Rezultat
 -------
 
-After completing these steps, you will be able to:
+După finalizarea acestor pași, veți putea:
 
-* Perform end-to-end verification flows  
-* Validate wallet integration
-* Test real user scenarios in a controlled environment
-* Pass the self-service [testing](testing.md).
+* Efectua fluxuri de verificare de tip end-to-end  
+* Valida integrarea cu wallet-ul
+* Testa scenarii reale de utilizator într-un mediu controlat
+* Trece testul self-service [de testare](testing.md).
 
-Next Step
+Pasul următor
 
 
-> Once testing is successfully completed, we will present detailed instruction for production environment. 
+> Odată ce testarea este finalizată cu succes, vom prezenta instrucțiuni detaliate pentru mediul de producție.

@@ -104,6 +104,47 @@ nav:
       - PDSE/FOD: guides/pdse.md
 
 
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: ro
+          default: true
+          name: Română
+          build: true
+          nav_translations:
+            Home: Acasă
+            Platforms and services: Platforme și servicii
+            Connection procedure: Procedura de conectare
+            Provider onboarding: Integrare furnizori
+            Technical overview: Prezentare tehnică generală
+            Unified design system: Modelul Unitar de Design
+            Glossary: Glosar
+            Integration guides: Ghiduri de integrare
+            Overview: Prezentare generală
+            Connection steps: Pașii de conectare
+            Interaction scenarios: Scenarii de interacțiune
+            Integration development: Dezvoltarea integrării
+            Integration tests: Teste de integrare
+            API reference: Referință API
+            Examples: Exemple
+            Integration libraries: Librării de integrare
+            Change log: Istoric modificări
+            Authentication provider integration: Integrare furnizor de autentificare
+            Integration testing: Testarea integrării
+            Security: Securitate
+            Signature provider integration: Integrare furnizor de semnătură
+            Demo Verifier: Demo Verificator
+            Document types: Tipuri de documente
+            Format: Format
+            Response validation: Validarea răspunsului
+            Testing: Testare
+            Integration: Integrare
+        - locale: en
+          name: English
+          build: true
+
 theme:
   name: material
   logo: assets/egov-logo2.png

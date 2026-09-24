@@ -1,21 +1,21 @@
-## Document exchange between systems
+## Schimbul de documente între sisteme
 
-Here is a short description of document exchange between systems:
+Iată o scurtă descriere a schimbului de documente între sisteme:
 
-1. The source system uploads the blob (view API reference).
-2. After the blob uploading, the input system publishes the document to the destination system (view API reference).
-3. For document publishing, it is used urn:md:system:id-system-destination
-4. If the document has a parent folder, on publishing, the folder id is indicated as parent folder.
-5. The document will be published in the root if no folder id is indicated
-6. Also, the system can publish more documents into a folder, indicating the folder id as destination.
-7. The destination system is notified about the availability and id of the created document.
-8. The document publishing is done both for the owner of the document and for other identities.
+1. Sistemul sursă încarcă blob-ul (vezi referința API).
+2. După încărcarea blob-ului, sistemul emitent publică documentul către sistemul destinatar (vezi referința API).
+3. Pentru publicarea documentului, se utilizează urn:md:system:id-system-destination
+4. Dacă documentul are un folder părinte, la publicare, id-ul folderului este indicat ca folder părinte.
+5. Documentul va fi publicat în rădăcină dacă nu este indicat niciun id de folder
+6. De asemenea, sistemul poate publica mai multe documente într-un folder, indicând id-ul folderului ca destinație.
+7. Sistemul destinatar este notificat despre disponibilitatea și id-ul documentului creat.
+8. Publicarea documentului se face atât pentru proprietarul documentului, cât și pentru alte identități.
 
-## Sharing documents between identities
+## Partajarea documentelor între identități
 
-The created documents can be shared with different permissions, so that the client must be able to share the document for one or more identities, provided that share cannot have higher permissions than document.
+Documentele create pot fi partajate cu diferite permisiuni, astfel încât clientul trebuie să poată partaja documentul către una sau mai multe identități, cu condiția ca partajarea să nu poată avea permisiuni mai mari decât documentul.
 
-1. The user will share a document, where from <= to and to > now (view API reference).
-2. Having a previously reserved share (knowing its ID), a client will share a document using this reservation (view API reference).
-3. The client will list the shares made for him (optionally, if authorized, for the specified principal parameter) ([cview API reference).
-4. The client will list the shares made by him (optionally, if authorized, for the specified principal parameter) (view API reference).
+1. Utilizatorul va partaja un document, unde from <= to și to > now (vezi referința API).
+2. Având o partajare rezervată în prealabil (cunoscând id-ul acesteia), un client va partaja un document folosind această rezervare (vezi referința API).
+3. Clientul va lista partajările făcute pentru el (opțional, dacă este autorizat, pentru parametrul principal specificat) (vezi referința API).
+4. Clientul va lista partajările făcute de el (opțional, dacă este autorizat, pentru parametrul principal specificat) (vezi referința API).

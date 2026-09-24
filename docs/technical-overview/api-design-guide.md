@@ -1,143 +1,143 @@
-This guide defines how REST APIs should be designed for government information systems in the eGov Moldova ecosystem. Its goal is a consistent consumer experience across APIs built by different institutions and teams: a developer who has integrated one government API should feel at home in the next one.
+Acest ghid definește modul în care ar trebui proiectate API-urile REST pentru sistemele informaționale guvernamentale din ecosistemul eGov Moldova. Scopul său este o experiență coerentă pentru consumatori, în toate API-urile construite de instituții și echipe diferite: un dezvoltator care a integrat un API guvernamental ar trebui să se simtă „acasă” în următorul.
 
-The guide applies to **new REST APIs** built by or for the eGovernance Agency and public institutions. The shared platforms document their actual contracts in their [integration guides](../platforms/index.md) — some of them (MSign, MPay, MDelivery) expose SOAP interfaces for historical and legal-signature reasons, and those contracts remain authoritative for integrators.
+Ghidul se aplică **API-urilor REST noi**, construite de sau pentru Agenția de Guvernare Electronică și instituțiile publice. Platformele partajate își documentează contractele efective în [ghidurile lor de integrare](../platforms/index.md) — unele dintre acestea (MSign, MPay, MDelivery) expun interfețe SOAP din motive istorice și legate de semnătura legală, iar acele contracte rămân autoritare pentru integratori.
 
 !!! note
-    REST is the default API style for new synchronous interfaces. Alternative styles (GraphQL, gRPC) require an explicit architectural justification recorded as an [architecture decision record](adr.md) — a preference is not a justification.
+    REST este stilul implicit de API pentru noile interfețe sincrone. Stilurile alternative (GraphQL, gRPC) necesită o justificare arhitecturală explicită, consemnată ca [înregistrare a deciziei de arhitectură](adr.md) — o preferință nu este o justificare.
 
 * * *
 
-## Design principles
+## Principii de proiectare
 
-### Resource-oriented design
+### Proiectare orientată pe resurse
 
-Model your API around **resources** (the data) rather than operations. A resource-oriented API exposes a hierarchy of resources manipulated through a small set of standard methods:
+Modelați API-ul în jurul **resurselor** (datele), nu al operațiunilor. Un API orientat pe resurse expune o ierarhie de resurse, manipulate printr-un set restrâns de metode standard:
 
-- A **collection** contains a list of resources of the same type — `certificates`, `applications`, `payments`.
-- A **resource** has state and zero or more sub-resources.
+- O **colecție** conține o listă de resurse de același tip — `certificates`, `applications`, `payments`.
+- O **resursă** are stare și zero sau mai multe sub-resurse.
 
-When designing an API, follow this flow:
+Atunci când proiectați un API, urmați acest flux:
 
-1. Determine what types of resources the API provides.
-2. Determine the relationships between resources.
-3. Decide the resource naming scheme based on types and relationships.
-4. Decide the resource schemas.
-5. Attach a minimum set of methods to resources, preferring the standard methods.
+1. Determinați ce tipuri de resurse oferă API-ul.
+2. Determinați relațiile dintre resurse.
+3. Decideți schema de denumire a resurselor, pe baza tipurilor și relațiilor.
+4. Decideți schemele resurselor.
+5. Atașați resurselor un set minim de metode, preferând metodele standard.
 
-### Once-only and authentic sources
+### Principiul „o singură dată” și sursele autentice
 
-The [once-only principle](../principles/architecture.md#once-only-principle) shapes API design directly:
+[Principiul „o singură dată”](../principles/architecture.md#principiul-o-singur%C4%83-dat%C4%83-once-only) modelează direct proiectarea API-urilor:
 
-- Do not ask consumers (or citizens, through them) for data that already exists in an authentic government register — consume it through **MConnect**.
-- Your API is the authoritative source for the data your institution has a mandate over. Keep that data accurate and expose it for reuse — [contribute, not just consume](../principles/architecture.md#contribute-not-just-consume).
-- Store only the data your system is authoritative for, plus linkable identifiers to data owned by other registers.
-- Emit events on significant state changes ([events by default](../principles/architecture.md#events-by-default)) through MConnect Events instead of forcing consumers to poll.
+- Nu solicitați consumatorilor (sau, prin intermediul lor, cetățenilor) date care există deja într-un registru guvernamental autentic — consumați-le prin **MConnect**.
+- API-ul dumneavoastră este sursa autoritară pentru datele asupra cărora instituția dumneavoastră are mandat. Păstrați aceste date corecte și expuneți-le pentru reutilizare — [contribuiți, nu doar consumați](../principles/architecture.md#contribuie-nu-doar-consuma).
+- Stocați doar datele pentru care sistemul dumneavoastră este autoritar, plus identificatori de legătură către date deținute de alte registre.
+- Emiteți evenimente la modificări semnificative de stare ([evenimente implicit](../principles/architecture.md#evenimente-implicit-events-by-default)) prin MConnect Events, în loc să obligați consumatorii să interogheze periodic (polling).
 
 * * *
 
-## Naming conventions
+## Convenții de denumire
 
-All names used by an API should be **simple**, **intuitive**, and **consistent**.
+Toate numele utilizate de un API trebuie să fie **simple**, **intuitive** și **consecvente**.
 
-- All API identifiers — resources, fields, parameters, operations — are written in **English**. Romanian is used only in user-facing display text produced by applications, never in contract names. Use the [glossary](../glossary/glossary.md) when translating Moldovan government domain terms, and extend it when a term is missing.
-- Use the same term for the same concept everywhere; avoid name overloading and vague names.
+- Toți identificatorii API — resurse, câmpuri, parametri, operațiuni — sunt scriși în **limba engleză**. Limba română este utilizată doar în textele afișate utilizatorului, produse de aplicații, niciodată în numele din contract. Utilizați [glosarul](../glossary/glossary.md) atunci când traduceți termeni din domeniul guvernamental moldovenesc și extindeți-l atunci când lipsește un termen.
+- Utilizați același termen pentru același concept peste tot; evitați supraîncărcarea numelor și numele vagi.
 
-**Bad**
-
-```
-Info        // info about what?
-Service     // service for what?
-Cerere      // Romanian in the contract
-```
-
-**Good**
+**Rău**
 
 ```
-OrderStatus          // status of an Order
-CertificateRequest   // a request for a certificate
+Info        // informații despre ce?
+Service     // serviciu pentru ce?
+Cerere      // română în contract
 ```
 
-### Resources and schemas
+**Bine**
 
-- Resource types are **singular nouns** in `PascalCase`: `Certificate`, `PaymentOrder`.
-- Field names are `camelCase`: `firstName`, `issuedAt`. Arrays and lists are plural nouns.
+```
+OrderStatus          // statusul unei comenzi (Order)
+CertificateRequest   // o cerere pentru un certificat
+```
 
-### URIs
+### Resurse și scheme
 
-- Collection segments are the **plural form** of the resource noun: `/certificates`, `/payment-orders`.
-- Use **lowercase** letters in paths; use hyphens (`-`) to separate words, never underscores.
-- Use `/` to express hierarchy; do not end paths with a trailing slash.
-- Query parameters use `camelCase`.
-- Never place personal data (IDNP, names, addresses) in URIs or query strings — identifiers of your own resources are fine, personal identifiers of citizens are not. Pass personal data in the request body of an authenticated request.
+- Tipurile de resurse sunt **substantive la singular**, în `PascalCase`: `Certificate`, `PaymentOrder`.
+- Numele câmpurilor sunt în `camelCase`: `firstName`, `issuedAt`. Array-urile și listele sunt substantive la plural.
+
+### URI-uri
+
+- Segmentele de colecție sunt **forma la plural** a substantivului resursei: `/certificates`, `/payment-orders`.
+- Utilizați litere **minuscule** în căi (paths); folosiți cratime (`-`) pentru a separa cuvintele, niciodată underscore.
+- Utilizați `/` pentru a exprima ierarhia; nu terminați căile cu o bară oblică (slash).
+- Parametrii de interogare (query parameters) folosesc `camelCase`.
+- Nu plasați niciodată date cu caracter personal (IDNP, nume, adrese) în URI-uri sau în șirurile de interogare — identificatorii propriilor resurse sunt acceptabili, identificatorii personali ai cetățenilor nu. Transmiteți datele cu caracter personal în corpul cererii (request body) al unei cereri autentificate.
 
 ```
 https://my-service.gov.md/api/v1/certificates/1024/attachments/7
                            |  |       |         |       |      |
-                           |  |       |         |       |      Resource ID
-                           |  |       |         |       Collection ID
-                           |  |       |         Resource ID
-                           |  |       Collection ID
-                           |  Major version
-                           API base path
+                           |  |       |         |       |      ID resursă
+                           |  |       |         |       ID colecție
+                           |  |       |         ID resursă
+                           |  |       ID colecție
+                           |  Versiune majoră
+                           Cale de bază API
 ```
 
 * * *
 
-## Standard methods
+## Metode standard
 
-Prefer the five **standard methods** over custom operations. A typical resource-oriented API exposes many resources with few methods:
+Preferați cele cinci **metode standard** în locul operațiunilor personalizate. Un API tipic orientat pe resurse expune multe resurse cu puține metode:
 
-| Method | HTTP verb | Operates on | Example |
+| Metodă | Verb HTTP | Operează pe | Exemplu |
 | --- | --- | --- | --- |
-| `LIST` | `GET` | a collection | `GET /api/v1/certificates` |
-| `GET` | `GET` | a single resource | `GET /api/v1/certificates/{id}` |
-| `CREATE` | `POST` | a collection | `POST /api/v1/certificates` |
-| `UPDATE` | `PUT` / `PATCH` | a single resource | `PATCH /api/v1/certificates/{id}` |
-| `DELETE` | `DELETE` | a single resource | `DELETE /api/v1/certificates/{id}` |
+| `LIST` | `GET` | o colecție | `GET /api/v1/certificates` |
+| `GET` | `GET` | o resursă unică | `GET /api/v1/certificates/{id}` |
+| `CREATE` | `POST` | o colecție | `POST /api/v1/certificates` |
+| `UPDATE` | `PUT` / `PATCH` | o resursă unică | `PATCH /api/v1/certificates/{id}` |
+| `DELETE` | `DELETE` | o resursă unică | `DELETE /api/v1/certificates/{id}` |
 
-Use HTTP verbs semantically — `GET` never modifies state, `PUT`/`PATCH` never create side effects beyond the addressed resource, and reads are safe to retry.
+Utilizați verbele HTTP în mod semantic — `GET` nu modifică niciodată starea, `PUT`/`PATCH` nu creează efecte secundare dincolo de resursa vizată, iar citirile pot fi reîncercate în siguranță.
 
-### Custom methods
+### Metode personalizate
 
-When an action does not map cleanly to a standard method (submit, approve, archive), **nounify the action** and model it as a sub-resource rather than inventing RPC-style endpoints:
+Atunci când o acțiune nu se mapează curat pe o metodă standard (trimitere, aprobare, arhivare), **transformați acțiunea într-un substantiv (nounify)** și modelați-o ca sub-resursă, în loc să inventați endpoint-uri de tip RPC:
 
 ```
-POST   /api/v1/applications/{id}/submissions     // submit an application
-POST   /api/v1/documents/{id}/signatures         // request signing
-DELETE /api/v1/messages/{id}/archives            // unarchive a message
+POST   /api/v1/applications/{id}/submissions     // depunerea unei cereri
+POST   /api/v1/documents/{id}/signatures         // solicitarea semnării
+DELETE /api/v1/messages/{id}/archives            // dezarhivarea unui mesaj
 ```
 
 * * *
 
-## HTTP status codes
+## Coduri de status HTTP
 
-Keep the set of status codes an API returns small and predictable:
+Păstrați setul de coduri de status returnate de un API restrâns și predictibil:
 
-| Code | Meaning | Typical use |
+| Cod | Semnificație | Utilizare tipică |
 | --- | --- | --- |
-| 200 | OK | Successful `GET`, or successful `PUT`/`PATCH`/`DELETE` returning content |
-| 201 | Created | Successful `POST`; the response contains the new resource identifier |
-| 204 | No Content | Successful `PUT`/`PATCH`/`DELETE` with nothing to return |
-| 400 | Bad Request | Validation failure; details in the error object |
-| 401 | Unauthorized | Client failed to authenticate |
-| 403 | Forbidden | Authenticated, but not permitted to perform the operation |
-| 404 | Not Found | The addressed resource does not exist |
-| 409 | Conflict | The request conflicts with current resource state |
-| 429 | Too Many Requests | Client exceeded rate limits; the response includes a `Retry-After` header |
-| 500 | Server Error | Unexpected failure; details logged server-side, generic message returned |
+| 200 | OK | `GET` reușit, sau `PUT`/`PATCH`/`DELETE` reușit care returnează conținut |
+| 201 | Created | `POST` reușit; răspunsul conține identificatorul noii resurse |
+| 204 | No Content | `PUT`/`PATCH`/`DELETE` reușit, fără nimic de returnat |
+| 400 | Bad Request | Eșec de validare; detalii în obiectul de eroare |
+| 401 | Unauthorized | Clientul nu a reușit să se autentifice |
+| 403 | Forbidden | Autentificat, dar fără permisiunea de a efectua operațiunea |
+| 404 | Not Found | Resursa vizată nu există |
+| 409 | Conflict | Cererea intră în conflict cu starea curentă a resursei |
+| 429 | Too Many Requests | Clientul a depășit limitele de rată; răspunsul include un header `Retry-After` |
+| 500 | Server Error | Eroare neașteptată; detaliile sunt jurnalizate pe server, se returnează un mesaj generic |
 
-Rules that prevent the most common integration pain:
+Reguli care previn cele mai frecvente probleme de integrare:
 
-- **Never return `200 OK` with an error body.** The status code is the contract.
-- An empty collection is a successful `200` with an empty list — not a `404`.
-- Deleting an already-deleted resource returns `204`, not `404` — clients rarely care that it was already gone.
-- Throttled clients receive `429` with a `Retry-After` header; consumers are expected to implement backoff instead of hammering the endpoint.
+- **Nu returnați niciodată `200 OK` cu un corp de eroare.** Codul de status este contractul.
+- O colecție goală este un `200` reușit, cu o listă goală — nu un `404`.
+- Ștergerea unei resurse deja șterse returnează `204`, nu `404` — clienților rareori le pasă că resursa deja nu mai exista.
+- Clienții limitați (throttled) primesc `429` cu un header `Retry-After`; se așteaptă ca aceștia să implementeze o strategie de backoff, în loc să bombardeze endpoint-ul.
 
 * * *
 
-## Errors
+## Erori
 
-Error responses follow **[RFC 7807 — Problem Details for HTTP APIs](https://datatracker.ietf.org/doc/html/rfc7807)** (`application/problem+json`). Custom error shapes are prohibited in new APIs.
+Răspunsurile de eroare respectă **[RFC 7807 — Problem Details for HTTP APIs](https://datatracker.ietf.org/doc/html/rfc7807)** (`application/problem+json`). Formele personalizate de eroare sunt interzise în API-urile noi.
 
 ```json
 {
@@ -153,27 +153,27 @@ Error responses follow **[RFC 7807 — Problem Details for HTTP APIs](https://da
 }
 ```
 
-- `type`, `title`, `status` — machine-readable classification of the problem.
-- `detail` — a human-readable explanation oriented to the API consumer. Write it for the integrating developer, not for your own team.
-- `traceId` — correlation identifier that lets the provider find the failure in its [logs](log-management.md).
-- Never expose internal details in error responses: stack traces, connection strings, SQL, server paths, or framework default messages.
+- `type`, `title`, `status` — clasificare lizibilă automat a problemei.
+- `detail` — o explicație lizibilă pentru oameni, orientată către consumatorul API-ului. Scrieți-o pentru dezvoltatorul care se integrează, nu pentru propria echipă.
+- `traceId` — identificator de corelare care permite furnizorului să găsească eșecul în [jurnalele](log-management.md) sale.
+- Nu expuneți niciodată detalii interne în răspunsurile de eroare: stack traces, șiruri de conexiune, SQL, căi de server sau mesajele implicite ale framework-ului.
 
 * * *
 
-## Data definitions
+## Definiții de date
 
-| Concern | Standard |
+| Aspect | Standard |
 | --- | --- |
-| Text encoding | UTF-8 everywhere ([RFC 8259](https://datatracker.ietf.org/doc/html/rfc8259)) |
-| Date and time | [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) / ISO 8601 strings — `2026-08-07T14:30:00Z`. Store and exchange in UTC (or with an explicit offset); local presentation is the client's concern. Moldova local time is UTC+2 (UTC+3 in summer), so "date without timezone" is a guaranteed bug. |
-| Individuals | `idnp` — the 13-digit state identification number of a natural person. Exchange it as a 13-character string, never as a number (leading zeros). |
-| Legal entities | `idno` — the 13-digit state identification number of an organization; same string rule. |
-| Languages | ISO 639-1 two-letter codes: `ro`, `ru`, `en`. |
-| Currency | ISO 4217 codes (`MDL`); amounts as decimal strings or numbers in a separate field from the currency code. |
+| Codificarea textului | UTF-8 peste tot ([RFC 8259](https://datatracker.ietf.org/doc/html/rfc8259)) |
+| Data și ora | Șiruri [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) / ISO 8601 — `2026-08-07T14:30:00Z`. Stocați și transmiteți în UTC (sau cu un offset explicit); prezentarea locală este responsabilitatea clientului. Ora locală a Moldovei este UTC+2 (UTC+3 vara), astfel încât o „dată fără fus orar” este o eroare garantată. |
+| Persoane fizice | `idnp` — numărul de identificare de stat, din 13 cifre, al unei persoane fizice. Transmiteți-l ca șir de caractere din 13 cifre, niciodată ca număr (din cauza zerourilor de la început). |
+| Persoane juridice | `idno` — numărul de identificare de stat, din 13 cifre, al unei organizații; aceeași regulă privind formatul de tip șir. |
+| Limbi | Coduri ISO 639-1 din două litere: `ro`, `ru`, `en`. |
+| Monedă | Coduri ISO 4217 (`MDL`); sumele ca șiruri zecimale sau numere, într-un câmp separat de codul monedei. |
 
-### Response bodies
+### Corpuri de răspuns
 
-Return a JSON **object** (not a bare array) as the top-level structure, so the contract can be extended without breaking clients:
+Returnați un **obiect** JSON (nu un array simplu) ca structură de nivel superior, astfel încât contractul să poată fi extins fără a afecta clienții:
 
 ```json
 {
@@ -185,51 +185,51 @@ Return a JSON **object** (not a bare array) as the top-level structure, so the c
 }
 ```
 
-### Pagination
+### Paginare
 
-Support pagination on collections **from the first version** — adding it later is a breaking change. Accept `cursor` and `limit` query parameters (with a sensible default and maximum for `limit`) and return a `nextCursor` field, empty when there are no further results. Cursor-based pagination avoids the duplicated-and-skipped-rows problems of offset paging on changing datasets; `totalCount` may be provided when it is cheap to compute.
-
-* * *
-
-## Versioning
-
-- The **major** version appears in the URI path, prefixed with `v`: `/api/v1/certificates`. Minor and patch versions never appear in URLs.
-- Follow [semantic versioning](https://semver.org/) for the service itself; strive to make changes backwards compatible.
-- A breaking change — removing or renaming a field, changing semantics — requires a **new major version running alongside the old one**. Never silently break an existing contract.
-- When decommissioning an old version, notify all registered consumers with a migration guide and a switch-off date at least **6 months** ahead (unless logs show the version has no remaining callers), and publish release notes with every version bump.
+Susțineți paginarea colecțiilor **încă din prima versiune** — adăugarea ei ulterioară este o modificare incompatibilă (breaking change). Acceptați parametrii de interogare `cursor` și `limit` (cu o valoare implicită și un maxim rezonabile pentru `limit`) și returnați un câmp `nextCursor`, gol atunci când nu mai există rezultate. Paginarea bazată pe cursor evită problemele de rânduri duplicate și omise, specifice paginării prin offset pe seturi de date în schimbare; `totalCount` poate fi furnizat atunci când este ieftin de calculat.
 
 * * *
 
-## Documentation
+## Versionare
 
-- Every REST API publishes an **OpenAPI specification generated from code** (in ASP.NET Core, via Swashbuckle) — not written by hand, so the contract cannot drift from the implementation.
-- Interactive documentation (Swagger UI) is exposed in **staging** for integrators. In **production**, interactive documentation is disabled by default — it advertises attack surface and internals to anyone who finds it. Enable it in production only for a deliberate, approved need; otherwise distribute the specification file through the documentation channel.
-- Document every operation, parameter, and schema property with descriptions; document error `type`s; provide at least one worked example per main scenario.
-- Maintain a change log for the API, as the platform [integration guides](../platforms/index.md) do.
-
-* * *
-
-## Security
-
-- **TLS is mandatory** on all endpoints in all environments. System-to-system calls authenticate with **client certificates issued by STISC**, per the [connection procedure](../platforms/procedure.md).
-- User-facing authentication and authorization goes through **MPass** — services must not implement their own credential storage.
-- Validate all input server-side regardless of client-side validation; use allow-lists over deny-lists.
-- Apply authorization on every request at the resource level — object-level authorization failures (IDOR) are among the most common API vulnerabilities.
-- Never place secrets, tokens, or personal data in URLs; they end up in access logs and browser history.
-- Apply **rate limiting** on all exposed endpoints to protect availability, returning [`429 Too Many Requests`](#http-status-codes) when limits are exceeded.
-- Applications processing personal data must register legal events in [MLog](../guides/mlog/index.md) — see [log management](log-management.md).
-- The security baseline for applications in the ecosystem is **OWASP ASVS Level 2**; design APIs against it from the start rather than retrofitting.
+- Versiunea **majoră** apare în calea URI, prefixată cu `v`: `/api/v1/certificates`. Versiunile minore și patch nu apar niciodată în URL-uri.
+- Respectați [versionarea semantică](https://semver.org/) pentru serviciul propriu-zis; urmăriți ca modificările să fie compatibile retroactiv.
+- O modificare incompatibilă (breaking change) — eliminarea sau redenumirea unui câmp, modificarea semanticii — necesită o **versiune majoră nouă, care funcționează în paralel cu cea veche**. Nu întrerupeți niciodată în tăcere un contract existent.
+- La retragerea unei versiuni vechi, notificați toți consumatorii înregistrați printr-un ghid de migrare și o dată de dezactivare cu cel puțin **6 luni** înainte (cu excepția cazului în care jurnalele arată că versiunea nu mai are apelanți), și publicați note de lansare la fiecare actualizare de versiune.
 
 * * *
 
-## Environments
+## Documentație
 
-Provide the same environments the shared platforms provide, with the same URL convention:
+- Fiecare API REST publică o **specificație OpenAPI generată din cod** (în ASP.NET Core, prin Swashbuckle) — nu scrisă manual, astfel încât contractul să nu se poată abate de la implementare.
+- Documentația interactivă (Swagger UI) este expusă în mediul de **testare (staging)** pentru integratori. În **producție**, documentația interactivă este dezactivată implicit — aceasta expune suprafața de atac și detaliile interne oricui o găsește. Activați-o în producție doar pentru o nevoie deliberată și aprobată; altfel, distribuiți fișierul de specificație prin canalul de documentație.
+- Documentați fiecare operațiune, parametru și proprietate de schemă cu descrieri; documentați `type`-urile de eroare; furnizați cel puțin un exemplu funcțional pentru fiecare scenariu principal.
+- Mențineți un jurnal de modificări pentru API, așa cum fac și [ghidurile de integrare](../platforms/index.md) ale platformelor.
 
-| Environment | Purpose |
+* * *
+
+## Securitate
+
+- **TLS este obligatoriu** pe toate endpoint-urile, în toate mediile. Apelurile sistem-la-sistem se autentifică prin **certificate client emise de STISC**, conform [procedurii de conectare](../platforms/procedure.md).
+- Autentificarea și autorizarea utilizatorilor se realizează prin **MPass**; serviciile nu trebuie să implementeze propria stocare a credențialelor.
+- Validați toate datele de intrare pe server, indiferent de validarea din partea clientului; preferați listele de permisiuni (allow-lists) în locul listelor de interdicții (deny-lists).
+- Aplicați autorizarea la fiecare cerere, la nivel de resursă — eșecurile de autorizare la nivel de obiect (IDOR) se numără printre cele mai frecvente vulnerabilități API.
+- Nu plasați niciodată secrete, token-uri sau date cu caracter personal în URL-uri; acestea ajung în jurnalele de acces și în istoricul browserului.
+- Aplicați **limitarea ratei (rate limiting)** pe toate endpoint-urile expuse, pentru a proteja disponibilitatea, returnând [`429 Too Many Requests`](#coduri-de-status-http) la depășirea limitelor.
+- Aplicațiile care procesează date cu caracter personal trebuie să înregistreze evenimente cu relevanță juridică în [MLog](../guides/mlog/index.md) — vedeți [gestionarea jurnalelor](log-management.md).
+- Nivelul minim de securitate pentru aplicațiile din ecosistem este **OWASP ASVS Level 2**; proiectați API-urile în conformitate cu acesta încă de la început, nu ca adaptare ulterioară.
+
+* * *
+
+## Medii
+
+Furnizați aceleași medii pe care le oferă platformele partajate, cu aceeași convenție de URL:
+
+| Mediu | Scop |
 | --- | --- |
-| Development | Internal development and automated checks; synthetic data only. |
-| Staging (`*.staging.egov.md`) | Integration environment for API consumers — functionally equivalent to production, with **synthetic or masked data, never real production data**. |
-| Production (`*.gov.md`) | Live operation with real data and live authentication. |
+| Dezvoltare | Dezvoltare internă și verificări automate; doar date sintetice. |
+| Testare (staging) (`*.staging.egov.md`) | Mediu de integrare pentru consumatorii API — echivalent funcțional cu producția, cu **date sintetice sau mascate, niciodată date reale de producție**. |
+| Producție (`*.gov.md`) | Funcționare live, cu date reale și autentificare live. |
 
-Consumers develop and certify their integration against staging before being granted production access.
+Consumatorii dezvoltă și certifică integrarea în mediul de testare (staging) înainte de a primi acces la producție.

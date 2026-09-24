@@ -1,313 +1,313 @@
-## Perform online payment
+## Efectuarea plății online
 
-In the case of online payment (card not present, ecommerce), the e-Service must redirect the browser to MPay's pay page. Communication will be performed via the WEB service via the standard HTTP protocol (HTTP / 1.1) and granting permission to access the client IP (for test only).
+În cazul plății online (fără prezența cardului, ecommerce), e-Serviciul trebuie să redirecționeze browserul către pagina de plată a MPay. Comunicarea se va realiza prin serviciul WEB, folosind protocolul standard HTTP (HTTP / 1.1) și acordând permisiunea de acces la IP-ul clientului (doar pentru testare).
 
-Here is a description of the parameters involved in this redirect.
+Mai jos este o descriere a parametrilor implicați în această redirecționare.
 
-## Perform POS terminal payments 
+## Efectuarea plăților prin terminal POS
 
-### Configure POS terminal
+### Configurarea terminalului POS
 
-| Property | Value |
+| Proprietate | Valoare |
 |----------|-------|
-| **Method** | POST |
+| **Metoda** | POST |
 | **URL** | Test: https://mpay.staging.egov.md/service/pay<br>Prod: https://mpay.gov.md/service/pay |
-| **Description** | Direct user to perform online payments via card (card not present - ecommerce), internet banking, e-money or to access other payment methods instructions. |
+| **Descriere** | Direcționează utilizatorul pentru efectuarea plăților online prin card (fără prezența cardului - ecommerce), internet banking, monedă electronică sau pentru accesarea instrucțiunilor privind alte metode de plată. |
 
-### Form or URL parameters
+### Parametri de formular sau URL
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| ServiceID | string | Required | Service identifier in MPay. |
-| OrderKey | string | Required | Order key within the service. This must be a uniquely generated key for this order (such as its primary key or other kind of reference number). |
-| ReturnUrl | URL | Optional | The URL that MPay will redirect too after payment (either successful or unsuccessful). This page will be redirected via GET HTTP method. Please make sure you URL encode any parameters you use to build this URL. |
+| ServiceID | string | Obligatoriu | Identificatorul serviciului în MPay. |
+| OrderKey | string | Obligatoriu | Cheia comenzii în cadrul serviciului. Aceasta trebuie să fie o cheie generată unic pentru această comandă (precum cheia sa primară sau un alt tip de număr de referință). |
+| ReturnUrl | URL | Opțional | URL-ul către care MPay va redirecționa după plată (fie reușită, fie nereușită). Redirecționarea către această pagină se va face prin metoda HTTP GET. Asigurați-vă că codificați URL (URL encode) orice parametru folosit la construirea acestui URL. |
 
-### Form or parameters to be sent for configuration in MPay
+### Parametri de formular sau parametri de trimis pentru configurare în MPay
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| OrganizationName | string | Required | Name of the Service Provider. |
-| OrganizationIdno | string | Required | Organization identifier of the Service Provider. |
-| OfficeAddress | string | Required | Organization physical address of the Service Provider. |
-| OrganizationService | string | Optional | Organization department (if any) which will deliver the services for which payments will be collected via POS terminal. |
-| Counter | string | Optional | Organization physical counter number (if any) which will deliver the services for which payments will be collected via POS terminal. |
-| TerminalId | string | Required | Terminal identifier of the device. |
-| VendorName | string | Required | Bank owner of the POS terminal |
-| IntendedIp | string | Required | IP address of the Service Provider's e-service. This IP address is to be added in MPay whitelist. |
+| OrganizationName | string | Obligatoriu | Denumirea Prestatorului de Servicii. |
+| OrganizationIdno | string | Obligatoriu | Identificatorul de organizație al Prestatorului de Servicii. |
+| OfficeAddress | string | Obligatoriu | Adresa fizică a organizației Prestatorului de Servicii. |
+| OrganizationService | string | Opțional | Departamentul organizației (dacă există) care va presta serviciile pentru care se vor colecta plăți prin terminalul POS. |
+| Counter | string | Opțional | Numărul ghișeului fizic al organizației (dacă există) care va presta serviciile pentru care se vor colecta plăți prin terminalul POS. |
+| TerminalId | string | Obligatoriu | Identificatorul terminalului dispozitivului. |
+| VendorName | string | Obligatoriu | Banca proprietară a terminalului POS |
+| IntendedIp | string | Obligatoriu | Adresa IP a e-serviciului Prestatorului de Servicii. Această adresă IP urmează a fi adăugată în lista albă (whitelist) a MPay. |
 
-**Note:** To complete the configuration of POS terminals, make sure to install the POS terminal USB driver provided by the Vendor (bank).
+**Notă:** Pentru finalizarea configurării terminalelor POS, asigurați-vă că ați instalat driverul USB al terminalului POS furnizat de Vendor (bancă).
 
-To perform the redirect for POS terminal transactions, follow the description of the parameters involved in this redirect.
+Pentru efectuarea redirecționării pentru tranzacțiile prin terminal POS, urmați descrierea parametrilor implicați în această redirecționare.
 
-| Property | Value |
+| Proprietate | Valoare |
 |----------|-------|
-| **Method** | POST |
-| **URL** | Test:<br>- By ServiceId and OrderKey<br>https://mpay.staging.egov.md/PosTerminal/Pay/{ServiceId}/{OrderKey}<br>- or by MPay invoiceId<br>https://mpay.staging.egov.md/PosTerminal/PayInvoice/{InvoiceId}|
-| **Description** | Direct the operator to perform the payment via POS terminals. |
+| **Metoda** | POST |
+| **URL** | Test:<br>- După ServiceId și OrderKey<br>https://mpay.staging.egov.md/PosTerminal/Pay/{ServiceId}/{OrderKey}<br>- sau după InvoiceId din MPay<br>https://mpay.staging.egov.md/PosTerminal/PayInvoice/{InvoiceId}|
+| **Descriere** | Direcționează operatorul pentru efectuarea plății prin terminale POS. |
 
-### Form or URL parameters
+### Parametri de formular sau URL
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| ServiceID | string | Required | Service identifier in MPay. |
-| OrderKey | string | Required | Order key within the e-service. This must be a uniquely generated key for this order (such as its primary key or other kind of reference number). |
-| InvoiceId | string | Required | MPay Invoice identifier. |
+| ServiceID | string | Obligatoriu | Identificatorul serviciului în MPay. |
+| OrderKey | string | Obligatoriu | Cheia comenzii în cadrul e-serviciului. Aceasta trebuie să fie o cheie generată unic pentru această comandă (precum cheia sa primară sau un alt tip de număr de referință). |
+| InvoiceId | string | Obligatoriu | Identificatorul facturii MPay. |
 
-## Get MPay InvoiceID
+## Obținerea InvoiceID din MPay
 
-To generate MPay InvoiceID, the e-service can call a MPay API method. Communication will be performed via the WEB service via the standard HTTP protocol (HTTP / 1.1) and granting permission to access the client IP.
+Pentru a genera un InvoiceID în MPay, e-serviciul poate apela o metodă din API-ul MPay. Comunicarea se va realiza prin serviciul WEB, folosind protocolul standard HTTP (HTTP / 1.1) și acordând permisiunea de acces la IP-ul clientului.
 
-Here is a description of the parameters involved in this call.
+Mai jos este o descriere a parametrilor implicați în acest apel.
 
-| Property | Value |
+| Proprietate | Valoare |
 |----------|-------|
-| **Method** | GET |
-| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/invoices?serviceID={serviceID}&orderKey={orderKey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html or <br>https://mpay.gov.md:8443/openapi/index.html |
-| **Description** | E-service can generate MPay InvoiceID and use it for own record or business process (e.g. to print it in the generated order). |
+| **Metoda** | GET |
+| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/invoices?serviceID={serviceID}&orderKey={orderKey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html sau <br>https://mpay.gov.md:8443/openapi/index.html |
+| **Descriere** | E-serviciul poate genera InvoiceID din MPay și îl poate folosi pentru propria evidență sau proces de business (de exemplu, pentru a-l imprima pe comanda generată). |
 
-### Form or URL parameters
+### Parametri de formular sau URL
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| ServiceID | string | Required | Service identifier. |
-| OrderKey | string | Required | Order key within the e-service. This must be a uniquely generated key for this order (such as its primary key or other kind of reference number). |
+| ServiceID | string | Obligatoriu | Identificatorul serviciului. |
+| OrderKey | string | Obligatoriu | Cheia comenzii în cadrul e-serviciului. Aceasta trebuie să fie o cheie generată unic pentru această comandă (precum cheia sa primară sau un alt tip de număr de referință). |
 
-### Output parameters
+### Parametri de ieșire
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| n/a | Array | Optional | List of MPay InvoiceIDs. |
+| n/a | Array | Opțional | Lista InvoiceID-urilor din MPay. |
 
-## Get MPay Invoice PDF
+## Obținerea PDF-ului facturii MPay
 
-To generate MPay Invoice in PDF format, the e-service can call a MPay API method. Communication will be performed via the WEB service via the standard HTTP protocol (HTTP / 1.1) and granting permission to access the client IP.
+Pentru a genera factura MPay în format PDF, e-serviciul poate apela o metodă din API-ul MPay. Comunicarea se va realiza prin serviciul WEB, folosind protocolul standard HTTP (HTTP / 1.1) și acordând permisiunea de acces la IP-ul clientului.
 
-Here is a description of the parameters involved in this call.
+Mai jos este o descriere a parametrilor implicați în acest apel.
 
-| Property | Value |
+| Proprietate | Valoare |
 |----------|-------|
-| **Method** | GET |
-| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/Invoices/DownloadInvoicePdf?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html or <br>https://mpay.gov.md:8443/openapi/index.html |
-| **Description** | E-service can generate MPay InvoiceID PDF and use it for own business process (e.g., to print it and hand it over to payer). |
+| **Metoda** | GET |
+| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/Invoices/DownloadInvoicePdf?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html sau <br>https://mpay.gov.md:8443/openapi/index.html |
+| **Descriere** | E-serviciul poate genera PDF-ul InvoiceID din MPay și îl poate folosi pentru propriul proces de business (de exemplu, pentru a-l imprima și preda plătitorului). |
 
-### Form or URL parameters
+### Parametri de formular sau URL
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| serviceId | string | Required | Service identifier in MPay. |
-| orderKey | string | Required | Order key within the e-service. This must be a uniquely generated key for this order (such as its primary key or other kind of reference number). |
+| serviceId | string | Obligatoriu | Identificatorul serviciului în MPay. |
+| orderKey | string | Obligatoriu | Cheia comenzii în cadrul e-serviciului. Aceasta trebuie să fie o cheie generată unic pentru această comandă (precum cheia sa primară sau un alt tip de număr de referință). |
 
-### Output parameters
+### Parametri de ieșire
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| n/a | Http response message | Required | PDF MPay invoice obtained as an HttpResponseMessage with the following properties:<br><br>1. **Content** - store the PDF as (8bit) byte array<br>2. **Headers** - store the content information<br><br>The Headers has following properties:<br>1. **ContentLength** - store the integer value of pdf bytes amount<br>2. **ContentType** - specify the type of content, which is "application/octet-stream"<br>3. **ContentDisposition** - Store information about PDF file. Only property "FileName", from ContentDisposition object, has value equal to default MPay name of PDF files, e.g. "Nota de plata {invoiceID}.pdf", where "invoiceID" equals to order that was searched. |
+| n/a | Http response message | Obligatoriu | Factura PDF MPay obținută ca HttpResponseMessage, cu următoarele proprietăți:<br><br>1. **Content** - stochează PDF-ul ca vector de octeți (8bit)<br>2. **Headers** - stochează informațiile despre conținut<br><br>Headers are următoarele proprietăți:<br>1. **ContentLength** - stochează valoarea întreagă a numărului de octeți ai PDF-ului<br>2. **ContentType** - specifică tipul conținutului, care este "application/octet-stream"<br>3. **ContentDisposition** - stochează informații despre fișierul PDF. Doar proprietatea "FileName" din obiectul ContentDisposition are o valoare egală cu denumirea implicită MPay a fișierelor PDF, de ex. "Nota de plata {invoiceID}.pdf", unde "invoiceID" este egal cu comanda care a fost căutată. |
 
-## Get MPay Invoice PDF (bytes)
+## Obținerea PDF-ului facturii MPay (bytes)
 
-| Property | Value |
+| Proprietate | Valoare |
 |----------|-------|
-| **Method** | GET |
-| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/Invoices/GetPdfInvoiceBytes?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html or <br>https://mpay.gov.md:8443/openapi/index.html |
-| **Description** | E-service can generate MPay InvoiceID PDF in bytes and use it for own business process (e.g., server to server communication). |
+| **Metoda** | GET |
+| **URL** | Test:<br>https://mpay.staging.egov.md:8443/api/Invoices/GetPdfInvoiceBytes?serviceID={serviceId}&orderKey={ordekey}<br><br>Swagger:<br>https://mpay.staging.egov.md:8443/openapi/index.html sau <br>https://mpay.gov.md:8443/openapi/index.html |
+| **Descriere** | E-serviciul poate genera PDF-ul InvoiceID din MPay sub formă de bytes și îl poate folosi pentru propriul proces de business (de exemplu, comunicare server-server). |
 
-### Form or URL parameters
+### Parametri de formular sau URL
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| ServiceID | string | Required | Service identifier in MPay. |
-| OrderKey | string | Required | Order key within the e-service. This must be a uniquely generated key for this order (such as its primary key or other kind of reference number). |
-| pageFormat | string | Optional | Default page size is A4 (no need to indicate this format). Other available format page is A5. |
+| ServiceID | string | Obligatoriu | Identificatorul serviciului în MPay. |
+| OrderKey | string | Obligatoriu | Cheia comenzii în cadrul e-serviciului. Aceasta trebuie să fie o cheie generată unic pentru această comandă (precum cheia sa primară sau un alt tip de număr de referință). |
+| pageFormat | string | Opțional | Dimensiunea implicită a paginii este A4 (nu este necesar să indicați acest format). Alt format de pagină disponibil este A5. |
 
-### Output parameters
+### Parametri de ieșire
 
-| Name | Type | Required/Optional | Description |
+| Nume | Tip | Obligatoriu/Opțional | Descriere |
 |------|------|-------------------|-------------|
-| n/a | ByteArray | Required | PDF MPay invoice obtained as (8bit) byte array. |
+| n/a | ByteArray | Obligatoriu | Factura PDF MPay obținută ca vector de octeți (8bit). |
 
-## Error handling rules
+## Reguli de tratare a erorilor
 
-For errors resulted for SOAP interface invocations, MPay expects **SOAP faults** with **fault codes** and **fault reasons** describing the fault in plain English. Translating faults to Romanian is advisable. If there is no SOAP fault returned by a Public Service Provider, MPay considers that the operation invocation completed successfully, meaning that the corresponding expected business consequences are now valid.
+Pentru erorile rezultate în urma apelurilor interfeței SOAP, MPay așteaptă **erori SOAP (SOAP faults)** cu **coduri de eroare (fault codes)** și **motive ale erorii (fault reasons)** care descriu eroarea în limba engleză simplă. Este recomandată traducerea erorilor în limba română. Dacă Prestatorul de Servicii Publice nu returnează nicio eroare SOAP, MPay consideră că invocarea operației s-a finalizat cu succes, ceea ce înseamnă că respectivele consecințe de business așteptate sunt acum valide.
 
-### Fault codes
+### Coduri de eroare
 
-| Fault Code | Description |
+| Cod eroare | Descriere |
 |------------|-------------|
-| InternalError | Unexpected internal error. |
-| AuthenticationFailed | Service consumer authentication process failed. See Authentication |
-| AuthorizationFailed | Service consumer authorization process failed. See Error! Reference source not found. |
-| InvalidParameter | Some input parameter is invalid. Please review the returned Fault Reason text and called operation description. |
-| UnknownService | The provided ServiceID is unknown. |
-| UnknownOrder | The provided OrderKey is unknown. |
-| UnknownInvoice | The provided InvoiceID is unknown. |
-| UknownPayment | The provided PaymentID is unknown. |
-| InvoiceAlreadyPaid | This invoice already has some payments and cannot be cancelled. |
-| InvoiceExpired | The invoice is no longer valid and will not be paid. |
+| InternalError | Eroare internă neașteptată. |
+| AuthenticationFailed | Procesul de autentificare a consumatorului serviciului a eșuat. Vezi Autentificare |
+| AuthorizationFailed | Procesul de autorizare a consumatorului serviciului a eșuat. Vezi Eroare! Sursa referinței nu a fost găsită. |
+| InvalidParameter | Un parametru de intrare este invalid. Vă rugăm să analizați textul Fault Reason returnat și descrierea operației apelate. |
+| UnknownService | ServiceID-ul furnizat este necunoscut. |
+| UnknownOrder | OrderKey-ul furnizat este necunoscut. |
+| UnknownInvoice | InvoiceID-ul furnizat este necunoscut. |
+| UknownPayment | PaymentID-ul furnizat este necunoscut. |
+| InvoiceAlreadyPaid | Această factură are deja plăți efectuate și nu poate fi anulată. |
+| InvoiceExpired | Factura nu mai este valabilă și nu va fi plătită. |
 
-## Operation idempotence
+## Idempotența operațiilor
 
-All operations defined in IServiceProvider must be idempotent, i.e. the returned technical result and resulting business effect of calling such an operation must not be different if called multiple times with the same input parameters.
+Toate operațiile definite în IServiceProvider trebuie să fie idempotente, adică rezultatul tehnic returnat și efectul de business rezultat din apelarea unei astfel de operații nu trebuie să difere dacă operația este apelată de mai multe ori cu aceiași parametri de intrare.
 
-## Service operations
+## Operații de serviciu
 
 ### GetOrderDetails
 
-| Property | Description |
+| Proprietate | Descriere |
 |----------|-------------|
-| **Signature** | GetOrderDetails(query: OrderDetailsQuery): OrderDetails[] |
-| **Description** | Returns matching orders' details from service provider order registration system. |
-| **Returns** | An array of matching OrderDetails. |
-| **Remarks** | This method might be called multiple times and, in some cases, it might return a different result, such as a different TotalAmountDue for the same order. This might naturally happen when an order expires or is later amended. MPay will consider correct only the latest version of returned details. |
+| **Semnătura** | GetOrderDetails(query: OrderDetailsQuery): OrderDetails[] |
+| **Descriere** | Returnează detaliile comenzilor corespunzătoare din sistemul de înregistrare a comenzilor al prestatorului de servicii. |
+| **Returnează** | Un vector de obiecte OrderDetails corespunzătoare. |
+| **Observații** | Această metodă poate fi apelată de mai multe ori și, în unele cazuri, poate returna un rezultat diferit, cum ar fi un TotalAmountDue diferit pentru aceeași comandă. Acest lucru se poate întâmpla în mod natural atunci când o comandă expiră sau este modificată ulterior. MPay va considera corectă doar cea mai recentă versiune a detaliilor returnate. |
 
-#### Input parameters
+#### Parametri de intrare
 
-| Name | Type | Description |
+| Nume | Tip | Descriere |
 |------|------|-------------|
-| query | OrderDetailsQuery | A structure that contains order details query criteria. |
+| query | OrderDetailsQuery | O structură care conține criteriile de căutare a detaliilor comenzii. |
 
-#### Faults
+#### Erori
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| InvalidParameter | Some input parameter is invalid. Please provide the appropriate details in Fault Reason. |
-| UnknownService | The provided ServiceID is unknown. |
+| InvalidParameter | Un parametru de intrare este invalid. Vă rugăm să furnizați detaliile corespunzătoare în Fault Reason. |
+| UnknownService | ServiceID-ul furnizat este necunoscut. |
 
 ### ConfirmOrderPayment
 
-| Property | Description |
+| Proprietate | Descriere |
 |----------|-------------|
-| **Signature** | ConfirmOrderPayment(confirmation: PaymentConfirmation) |
-| **Description** | Confirms a payment for an order. |
-| **Returns** | void |
-| **Remarks** | In some cases this method might be called multiple times for the same payment (uniquely identified by PaymentID). Please make sure that these calls will not result in multiple payments being applied to the same Order. |
+| **Semnătura** | ConfirmOrderPayment(confirmation: PaymentConfirmation) |
+| **Descriere** | Confirmă o plată pentru o comandă. |
+| **Returnează** | void |
+| **Observații** | În unele cazuri, această metodă poate fi apelată de mai multe ori pentru aceeași plată (identificată în mod unic prin PaymentID). Asigurați-vă că aceste apeluri nu vor duce la aplicarea mai multor plăți aceleiași Comenzi. |
 
-#### Input parameters
+#### Parametri de intrare
 
-| Name | Type | Description |
+| Nume | Tip | Descriere |
 |------|------|-------------|
-| confirmation | PaymentConfirmation | A structure that describes the payment confirmation. |
+| confirmation | PaymentConfirmation | O structură care descrie confirmarea plății. |
 
-#### Faults
+#### Erori
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| InvalidParameter | Some input parameter is invalid. Please provide the appropriate details in Fault Reason. |
-| UnknownService | The provided ServiceID is unknown. |
-| UnknownOrder | The provided OrderKey is unknown. |
+| InvalidParameter | Un parametru de intrare este invalid. Vă rugăm să furnizați detaliile corespunzătoare în Fault Reason. |
+| UnknownService | ServiceID-ul furnizat este necunoscut. |
+| UnknownOrder | OrderKey-ul furnizat este necunoscut. |
 
-## Structures
+## Structuri
 
-**Important.** The order in which the members are described below is for description purposes only. The actual order of the elements in the actual XML structures, as defined in WSDL, is alphabetical. To get a correct implementation, it is recommended to use automatic WSDL to your programming language conversion tools.
+**Important.** Ordinea în care sunt descriși membrii mai jos are doar scop descriptiv. Ordinea reală a elementelor în structurile XML efective, așa cum sunt definite în WSDL, este alfabetică. Pentru o implementare corectă, se recomandă utilizarea unor instrumente automate de conversie WSDL în limbajul dumneavoastră de programare.
 
 ### OrderDetailsQuery
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| ServiceID | string (36) | Required | Service identifier. |
-| OrderKey | string (36) | Required | Order key within the service. |
-| Language | string (2) | Optional, default: RO | The language in which the localizable text members must be returned. Available languages: ro, ru and en. |
+| ServiceID | string (36) | Obligatoriu | Identificatorul serviciului. |
+| OrderKey | string (36) | Obligatoriu | Cheia comenzii în cadrul serviciului. |
+| Language | string (2) | Opțional, implicit: RO | Limba în care trebuie returnați membrii de text localizabili. Limbi disponibile: ro, ru și en. |
 
 ### OrderDetails
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| ServiceID | string (36) | Required | Service identifier. |
-| OrderKey | string (36) | Required | Order key within the service. |
-| Reason | string (50) | Required | The reason for the payment of this order. Localizable. |
-| Status | OrderStatus | Required | The status of the order. The status indicates in what state the order is and if it is eligible for payment or not. |
-| IssuedAt | DateTime | Optional | The date and time when the order was registered in the back-office system. |
-| DueDate | DateTime | Optional | The due date until the order can be paid. When this property is not set then the order has no expiration date for accepting payments. |
-| TotalAmountDue | decimal | Optional | Total amount due for the order. It indicates how much MPay must accept when paying the order.<br><br>If this property has no value, then it is a signal that the amount due for the order is not yet known. Also, if one of the tags AllowPartialPayment or AllowAdvancePayment is set as TRUE, MPay will allow the payer to enter the amount information. |
-| Currency | CurrencyCode | Required | The currency in which the payment of the order must be made (e.g. MDL). |
-| AllowPartialPayment | boolean | Optional, default: false | A flag indicating if partial payments are allowed for the order (it can be zero amount or greater). In case of TRUE then the payer can pay in full or in part the displayed amount. If the payer has paid a part of the amount, when searching again the order by Orderkey, Service Provider (e-service) shall return only the difference of the total amount and paid amount. |
-| AllowAdvancePayment | boolean | Optional, default: false | A flag indicating if the order might be paid in advance, i.e. with higher amount than required. |
-| CustomerType | CustomerType | Required | The type of the customer this order was created for. |
-| CustomerID | string (13) | Required | The identifier of the customer (e.g. its IDNP or IDNO). |
-| CustomerName | string (60) | Required | The name of the customer. |
-| Lines | array of OrderLine | Required, at least one OrderLine | Contains structured information for individual payment lines for the order. Each order information (i.e. OrderDetail instance) must have at least one line defined in the Lines property. |
-| Properties | array of OrderProperty | Optional | Extended contextual properties for the order. For instance, when paying for electricity a relevant property might be the number of kW included for payment. |
+| ServiceID | string (36) | Obligatoriu | Identificatorul serviciului. |
+| OrderKey | string (36) | Obligatoriu | Cheia comenzii în cadrul serviciului. |
+| Reason | string (50) | Obligatoriu | Motivul plății acestei comenzi. Localizabil. |
+| Status | OrderStatus | Obligatoriu | Statusul comenzii. Statusul indică în ce stare se află comanda și dacă este eligibilă pentru plată sau nu. |
+| IssuedAt | DateTime | Opțional | Data și ora la care comanda a fost înregistrată în sistemul back-office. |
+| DueDate | DateTime | Opțional | Data limită până la care comanda poate fi plătită. Când această proprietate nu este setată, comanda nu are dată de expirare pentru acceptarea plăților. |
+| TotalAmountDue | decimal | Opțional | Suma totală datorată pentru comandă. Indică cât trebuie să accepte MPay la plata comenzii.<br><br>Dacă această proprietate nu are valoare, este un semnal că suma datorată pentru comandă nu este încă cunoscută. De asemenea, dacă unul dintre tagurile AllowPartialPayment sau AllowAdvancePayment este setat pe TRUE, MPay va permite plătitorului să introducă informația privind suma. |
+| Currency | CurrencyCode | Obligatoriu | Moneda în care trebuie efectuată plata comenzii (de ex. MDL). |
+| AllowPartialPayment | boolean | Opțional, implicit: false | Un indicator care arată dacă sunt permise plăți parțiale pentru comandă (poate fi zero sau mai mare). Dacă este TRUE, plătitorul poate plăti integral sau parțial suma afișată. Dacă plătitorul a plătit o parte din sumă, la o nouă căutare a comenzii după Orderkey, Prestatorul de Servicii (e-serviciul) trebuie să returneze doar diferența dintre suma totală și suma plătită. |
+| AllowAdvancePayment | boolean | Opțional, implicit: false | Un indicator care arată dacă comanda poate fi plătită în avans, adică cu o sumă mai mare decât cea necesară. |
+| CustomerType | CustomerType | Obligatoriu | Tipul clientului pentru care a fost creată această comandă. |
+| CustomerID | string (13) | Obligatoriu | Identificatorul clientului (de ex. IDNP sau IDNO). |
+| CustomerName | string (60) | Obligatoriu | Numele clientului. |
+| Lines | array of OrderLine | Obligatoriu, cel puțin un OrderLine | Conține informații structurate pentru liniile individuale de plată ale comenzii. Fiecare informație de comandă (adică instanța OrderDetail) trebuie să aibă cel puțin o linie definită în proprietatea Lines. |
+| Properties | array of OrderProperty | Opțional | Proprietăți contextuale extinse pentru comandă. De exemplu, la plata facturii de electricitate, o proprietate relevantă ar putea fi numărul de kW inclus la plată. |
 
 ### OrderLine
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| LineID | string (36) | Required | The identifier of the line within order lines. |
-| Reason | string (50) | Required | The reason for the payment behind this line. Localizable. |
-| AmountDue | decimal | Optional | The amount due for this line. |
-| AllowPartialPayments | boolean | Optional, default: as specified in OrderDetails | A flag indicating if the line allows partial payments. |
-| AllowAdvancePayments | boolean | Optional, default: as specified in OrderDetails | A flag indicating if the line allows advance payments. |
-| DestinationAccount | PaymentAccount | Required | Indicates details of the Treasury account or a Bank account where the money received for this line will be finally transferred.<br><br>Details not sent in this field will have default service provider values if any (according to the agreement or contract). In case the values are missing, the transaction will not be settled (transferred). |
-| Properties | array of OrderProperty | Optional | Extended contextual properties for the order line. For instance, when paying for electricity a relevant property might be the number of kW included for payment. Order line extended properties are optional. |
+| LineID | string (36) | Obligatoriu | Identificatorul liniei în cadrul liniilor comenzii. |
+| Reason | string (50) | Obligatoriu | Motivul plății aferent acestei linii. Localizabil. |
+| AmountDue | decimal | Opțional | Suma datorată pentru această linie. |
+| AllowPartialPayments | boolean | Opțional, implicit: conform valorii din OrderDetails | Un indicator care arată dacă linia permite plăți parțiale. |
+| AllowAdvancePayments | boolean | Opțional, implicit: conform valorii din OrderDetails | Un indicator care arată dacă linia permite plăți în avans. |
+| DestinationAccount | PaymentAccount | Obligatoriu | Indică detaliile contului de Trezorerie sau ale contului Bancar către care va fi transferată în final suma primită pentru această linie.<br><br>Detaliile netransmise în acest câmp vor avea valorile implicite ale prestatorului de servicii, dacă există (conform acordului sau contractului). În cazul în care valorile lipsesc, tranzacția nu va fi decontată (transferată). |
+| Properties | array of OrderProperty | Opțional | Proprietăți contextuale extinse pentru linia comenzii. De exemplu, la plata facturii de electricitate, o proprietate relevantă ar putea fi numărul de kW inclus la plată. Proprietățile extinse ale liniei comenzii sunt opționale. |
 
 ### OrderProperty
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Name | string (36) | Required | The name of the property. Can contain letters, numbers and spaces only. |
-| DisplayName | string (36) | Required, default: in RO | The display name of the property. Mandatory in RO language. |
-| Value | string (255) | Required | The value of the property. Mandatory in RO language. |
-| Modifiable | boolean | Optional, default: false | A flag indicating that the property can be modified at the time of payment on the payer side. A relevant example would be the tax code of the payer when unknown or the current indication in kW of electricity counter. |
-| Required | boolean | Optional, default: false | A flag indicating if the property is required to be filled in by the payer or not. |
-| Type | string | Optional, default: string | The type of the property. The following types are currently supported:<br>- string, any string;<br>- idn, meaning a valid IDNP (personal identifier) or IDNO (organization identifier);<br>- tc, a tax code, either an IDNx (see above) or any string containing non-digits (minim 5 chars). |
+| Name | string (36) | Obligatoriu | Numele proprietății. Poate conține doar litere, cifre și spații. |
+| DisplayName | string (36) | Obligatoriu, implicit: în RO | Numele afișat al proprietății. Obligatoriu în limba RO. |
+| Value | string (255) | Obligatoriu | Valoarea proprietății. Obligatoriu în limba RO. |
+| Modifiable | boolean | Opțional, implicit: false | Un indicator care arată că proprietatea poate fi modificată de plătitor în momentul plății. Un exemplu relevant ar fi codul fiscal al plătitorului atunci când este necunoscut, sau indicația curentă în kW a contorului de electricitate. |
+| Required | boolean | Opțional, implicit: false | Un indicator care arată dacă proprietatea trebuie completată obligatoriu de plătitor sau nu. |
+| Type | string | Opțional, implicit: string | Tipul proprietății. Sunt suportate în prezent următoarele tipuri:<br>- string, orice șir de caractere;<br>- idn, adică un IDNP valid (identificator personal) sau IDNO (identificator de organizație);<br>- tc, un cod fiscal, fie un IDNx (vezi mai sus), fie orice șir de caractere care conține caractere nenumerice (minim 5 caractere). |
 
 ### PaymentConfirmation
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| ServiceID | string (36) | Required | Service identifier for which payment was made. |
-| OrderKey | string (36) | Required | Order key within the service for which payment was made. |
-| InvoiceID | string (36) | Optional | Invoice identifier for this payment operation. |
-| PaymentID | string (36) | Required | The actual Payment transaction identifier, unique within MPay. |
-| PaidAt | DateTime | Required | Payment transaction time. |
-| TotalAmount | decimal | Required | Total amount received in this payment transaction. |
-| Currency | CurrencyCode | Required | The currency of the payment transaction. |
-| Lines | array of PaymentConfirmationLine | Required, at least one object type PaymentConfirmationLine | Detailed information about each payment line as part of this payment transaction. |
-| Properties | array of PaymentProperty | Optional | Values of modifiable extended properties for the order paid in this payment transaction. |
+| ServiceID | string (36) | Obligatoriu | Identificatorul serviciului pentru care s-a efectuat plata. |
+| OrderKey | string (36) | Obligatoriu | Cheia comenzii în cadrul serviciului pentru care s-a efectuat plata. |
+| InvoiceID | string (36) | Opțional | Identificatorul facturii pentru această operațiune de plată. |
+| PaymentID | string (36) | Obligatoriu | Identificatorul efectiv al tranzacției de Plată, unic în cadrul MPay. |
+| PaidAt | DateTime | Obligatoriu | Data și ora tranzacției de plată. |
+| TotalAmount | decimal | Obligatoriu | Suma totală primită în această tranzacție de plată. |
+| Currency | CurrencyCode | Obligatoriu | Moneda tranzacției de plată. |
+| Lines | array of PaymentConfirmationLine | Obligatoriu, cel puțin un obiect de tip PaymentConfirmationLine | Informații detaliate despre fiecare linie de plată din cadrul acestei tranzacții de plată. |
+| Properties | array of PaymentProperty | Opțional | Valorile proprietăților extinse modificabile pentru comanda plătită în această tranzacție de plată. |
 
 ### PaymentConfirmationLine
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| LineID | string (36) | Required | Payment line identifier within order lines. |
-| Amount | decimal | Required | Amount paid for this line within the payment. |
-| DestinationAccount | PaymentAccount | Required | The receiving account used for this payment line. |
-| Properties | Array of PaymentProperty | Optional | Values of modifiable extended properties for the order line paid in this payment transaction |
+| LineID | string (36) | Obligatoriu | Identificatorul liniei de plată în cadrul liniilor comenzii. |
+| Amount | decimal | Obligatoriu | Suma plătită pentru această linie în cadrul plății. |
+| DestinationAccount | PaymentAccount | Obligatoriu | Contul destinatar utilizat pentru această linie de plată. |
+| Properties | Array of PaymentProperty | Opțional | Valorile proprietăților extinse modificabile pentru linia comenzii plătite în această tranzacție de plată |
 
 ### PaymentAccount
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| ConfigurationCode | string (36) | Optional | The code of a predefined account configuration. |
-| BankCode | string (20) | Required | The code of the receiving bank. (ex. TREZMD2X ) |
-| Service Provider FiscalCode | string (20) | Required | The fiscal code (e.g. IDNO) of the Service Provider. |
-| BankAccount | string (24) | Required | The receiving bank account number/ Treasury account number (IBAN) |
-| BeneficiaryName | string (60) | Required | The beneficiary (Institution/Company) name. (ex. Administratia de Stat a Drumurilor) |
+| ConfigurationCode | string (36) | Opțional | Codul unei configurații predefinite de cont. |
+| BankCode | string (20) | Obligatoriu | Codul băncii destinatare. (ex. TREZMD2X ) |
+| Service Provider FiscalCode | string (20) | Obligatoriu | Codul fiscal (de ex. IDNO) al Prestatorului de Servicii. |
+| BankAccount | string (24) | Obligatoriu | Numărul contului bancar destinatar / numărul contului de Trezorerie (IBAN) |
+| BeneficiaryName | string (60) | Obligatoriu | Numele beneficiarului (Instituție/Companie). (ex. Administrația de Stat a Drumurilor) |
 
 ### PaymentProperty
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Name | string (36) | Required | Payment property name. |
-| Value | string (255) | Optional | Payment property value. |
+| Name | string (36) | Obligatoriu | Numele proprietății de plată. |
+| Value | string (255) | Opțional | Valoarea proprietății de plată. |
 
-## Enumerations
+## Enumerări
 
-| Member | Description |
+| Membru | Descriere |
 |---|---|
 | **OrderStatus** | |
-| Active | The order is active and can be paid. (Can be paid) |
-| PartiallyPaid | The order was partially paid and can be additionally paid. (Can be paid) |
-| Paid | The order is fully paid. (Already paid) |
-| Completed | The order is complete, i.e. the service is delivered. (Cannot be paid) |
-| Expired | The order expired and cannot be paid. (Cannot be paid) |
-| Cancelled | The order is cancelled and cannot be paid. (Cannot be paid) |
-| Refunding | The order is being refunded. (Cannot be paid) |
-| Refunded | The order was refunded. (Cannot be paid) |
+| Active | Comanda este activă și poate fi plătită. (Poate fi plătită) |
+| PartiallyPaid | Comanda a fost plătită parțial și mai poate fi plătită suplimentar. (Poate fi plătită) |
+| Paid | Comanda este plătită integral. (Deja plătită) |
+| Completed | Comanda este finalizată, adică serviciul a fost livrat. (Nu poate fi plătită) |
+| Expired | Comanda a expirat și nu mai poate fi plătită. (Nu poate fi plătită) |
+| Cancelled | Comanda este anulată și nu poate fi plătită. (Nu poate fi plătită) |
+| Refunding | Comanda este în curs de rambursare. (Nu poate fi plătită) |
+| Refunded | Comanda a fost rambursată. (Nu poate fi plătită) |
 | **CustomerType** | |
-| Person | The customer is a Person. |
-| Organization | The customer is an Organization. |
+| Person | Clientul este o Persoană. |
+| Organization | Clientul este o Organizație. |
 | **CurrencyCode** | |
-| *(all)* | MPay uses ISO 4217 currency codes. The following list is just a subset of the active codes. |
-| MDL | Moldovan leu |
+| *(toate)* | MPay folosește codurile de monedă ISO 4217. Lista de mai jos este doar un subset al codurilor active. |
+| MDL | Leu moldovenesc |
 | EUR | Euro |
-| USD | United States dollar |
+| USD | Dolar american |

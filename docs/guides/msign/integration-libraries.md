@@ -1,6 +1,6 @@
 ### [MSign SOAP Digital Signature](https://www.nuget.org/packages/Egov.Integrations.MSign.Soap)
-This package is intended for Service Provider integration built on ASP.NET Core 10.0+ with MSign using SOAP protocol for digital signature operations.
+Acest pachet este destinat integrării Furnizorilor de Servicii dezvoltate pe ASP.NET Core 10.0+ cu MSign, utilizând protocolul SOAP pentru operațiile de semnătură electronică.
 
 ### [Egov Configuration Extension](https://www.nuget.org/packages/Egov.Extensions.Configuration)
 
-This package provides helpers for certificate loading and configuring `IOptions<SystemCertificateOptions>` in ASP.NET Core 10.0+ applications. This is a base library that serves as a foundation for other NuGet packages in the Egov ecosystem, providing shared certificate management functionality.
+Acest pachet oferă utilitare pentru încărcarea certificatelor și configurarea `IOptions<SystemCertificateOptions>` în aplicații ASP.NET Core 10.0+. Este o librărie de bază care servește drept fundație pentru alte pachete NuGet din ecosistemul Egov, oferind funcționalitate partajată de gestionare a certificatelor.

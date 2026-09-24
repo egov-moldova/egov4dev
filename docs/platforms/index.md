@@ -1,12 +1,10 @@
-Moldova's e-governance infrastructure is built around a set of shared platforms, each designed to solve a common challenge — authentication, signing, payments, data exchange, notifications — so public institutions can focus on delivering services rather than rebuilding technical foundations. The sections below cover the business model as well as integration guidance for each platform.
+Infrastructura de guvernare electronică a Moldovei este construită în jurul unui set de platforme partajate, fiecare concepută pentru a rezolva o provocare comună — autentificare, semnare, plăți, schimb de date, notificări — astfel încât instituțiile publice să se poată concentra pe furnizarea serviciilor, în loc să reconstruiască fundațiile tehnice. Secțiunile de mai jos acoperă atât modelul de business, cât și îndrumările de integrare pentru fiecare platformă.
 
-## Legal framework of the platforms
+## Cadrul legal al platformelor
 
-Each government platform is established and governed by a Government Decision, which designates the holder (posesor), the
-keeper (deținător) and, where applicable, the technical operator. The table below is the single point of reference; the
-details are given in each service's guide.
+Fiecare platformă guvernamentală este instituită și guvernată printr-o Hotărâre de Guvern, care desemnează posesorul, deținătorul și, după caz, operatorul tehnic. Tabelul de mai jos este punctul unic de referință; detaliile sunt prezentate în ghidul fiecărui serviciu.
 
-| Service | Government Decision | Holder | Keeper |
+| Serviciu | Hotărâre de Guvern | Posesor | Deținător |
 |---|---|---|---|
 | [MPass](...) | HG nr. 1090/2013, pct. 3 sbp. 1) | AGE | de confirmat |
 | [MSign](...) | HG nr. 405/2014, pct. 3 sbp. 1) | AGE | de confirmat |
@@ -22,20 +20,20 @@ details are given in each service's guide.
 | [EVO / EVO Wallet](...) | HG nr. 5/2024, pct. 3; HG nr. 677/2025 | AGE | AGE |
 | [PDSE / FOD](...) | HG nr. 717/2014, pct. 3 | AGE | de confirmat |
 
-The technical operator is stated on each service's page, according to the applicable Decision.
-The fees set out in the „Access and pricing” section are established by the normative act indicated in that section.
+Operatorul tehnic este indicat pe pagina fiecărui serviciu, conform Hotărârii aplicabile.
+Taxele prezentate în secțiunea „Acces și tarife” sunt stabilite prin actul normativ indicat în acea secțiune.
 
-## Access and pricing
+## Acces și tarife
 
-Most services in the eGov Moldova shared infrastructure are available free of charge for all integrating parties. However, certain platforms operate on a cost-recovery model established by Government regulation. Access fees apply per integrated information system and are invoiced annually based on a signed contract. Public institutions are fully exempt — fees apply exclusively to private legal entities and natural persons.
+Majoritatea serviciilor din infrastructura partajată eGov Moldova sunt disponibile gratuit pentru toate părțile care se integrează. Cu toate acestea, anumite platforme funcționează pe un model de recuperare a costurilor, stabilit prin reglementare guvernamentală. Taxele de acces se aplică per sistem informațional integrat și sunt facturate anual, în baza unui contract semnat. Instituțiile publice sunt scutite integral — taxele se aplică exclusiv persoanelor juridice de drept privat și persoanelor fizice.
 
 <table class="pricing-table">
   <thead>
     <tr>
-      <th>Service</th>
-      <th>User type</th>
-      <th>Access conditions</th>
-      <th style="width:20%">Annual fee per integration</th>
+      <th>Serviciu</th>
+      <th>Tip de utilizator</th>
+      <th>Condiții de acces</th>
+      <th style="width:20%">Taxă anuală per integrare</th>
     </tr>
   </thead>
   <tbody>
@@ -44,14 +42,14 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
     </tr>
     <tr>
       <td></td>
-      <td>Public institutions</td>
-      <td>Contract-based</td>
+      <td>Instituții publice</td>
+      <td>Pe bază de contract</td>
       <td style="text-align:center">–</td>
     </tr>
     <tr>
       <td></td>
-      <td>Private legal entities and natural persons</td>
-      <td>Contract-based (per applicable legal framework)</td>
+      <td>Persoane juridice de drept privat și persoane fizice</td>
+      <td>Pe bază de contract (conform cadrului legal aplicabil)</td>
       <td style="text-align:center">10.800 lei</td>
     </tr>
     <tr class="product-row">
@@ -59,14 +57,14 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
     </tr>
     <tr>
       <td></td>
-      <td>Public institutions</td>
-      <td>Free of charge</td>
+      <td>Instituții publice</td>
+      <td>Gratuit</td>
       <td style="text-align:center">–</td>
     </tr>
     <tr>
       <td></td>
-      <td>Private legal entities and natural persons</td>
-      <td>Contract-based (per applicable legal framework)</td>
+      <td>Persoane juridice de drept privat și persoane fizice</td>
+      <td>Pe bază de contract (conform cadrului legal aplicabil)</td>
       <td style="text-align:center">15.200 lei</td>
     </tr>
     <tr class="product-row">
@@ -74,124 +72,124 @@ Most services in the eGov Moldova shared infrastructure are available free of ch
     </tr>
     <tr>
       <td></td>
-      <td>Public institutions</td>
-      <td>Free of charge</td>
+      <td>Instituții publice</td>
+      <td>Gratuit</td>
       <td style="text-align:center">–</td>
     </tr>
     <tr>
       <td></td>
-      <td rowspan="2">Private sector participants</td>
-      <td>Setup fee per data source (one-time)</td>
+      <td rowspan="2">Participanți din sectorul privat</td>
+      <td>Taxă de instalare per sursă de date (unică)</td>
       <td style="text-align:center">1.000 lei</td>
     </tr>
     <tr>
       <td></td>
-      <td>Data exchange fee per query</td>
+      <td>Taxă de schimb de date per interogare</td>
       <td style="text-align:center">0,25 lei</td>
     </tr>
     <tr class="product-row">
-      <td colspan="2"><strong>All other services</strong></td>
-      <td>Free of charge</td>
+      <td colspan="2"><strong>Toate celelalte servicii</strong></td>
+      <td>Gratuit</td>
       <td style="text-align:center">–</td>
     </tr>
   </tbody>
 </table>
 
-**Per-system billing:** The annual fee applies to each integrated information system independently. Organizations integrating multiple systems must sign a separate contract and pay the applicable fee for each one.
+**Facturare per sistem:** Taxa anuală se aplică fiecărui sistem informațional integrat, în mod independent. Organizațiile care integrează mai multe sisteme trebuie să semneze un contract separat și să achite taxa aplicabilă pentru fiecare dintre acestea.
 
-The platforms don't operate in isolation. The diagram below illustrates how they relate to one another — from foundational identity and interoperability services through to citizen-facing delivery channels. Understanding these relationships helps developers anticipate which services to integrate together and in what order.
+Platformele nu funcționează izolat. Diagrama de mai jos ilustrează modul în care acestea se raportează una la cealaltă — de la serviciile fundamentale de identitate și interoperabilitate, până la canalele de livrare orientate către cetățean. Înțelegerea acestor relații ajută dezvoltatorii să anticipeze care servicii trebuie integrate împreună și în ce ordine.
 
-<img src="../assets/mega-ecosystem.png" alt="EGOV ecosystem" width="100%" align="right"/>
+<img src="../assets/mega-ecosystem.png" alt="Ecosistemul EGOV" width="100%" align="right"/>
 
 
-## <img src="../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mconnect** – interoperability platform
+## <img src="../assets/logos/mconnect-logo.png" alt="mconnect logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mconnect** – platforma de interoperabilitate
 
-<a href="https://mconnect.gov.md/">MConnect</a> is the state interoperability platform that enables the exchange of data between information systems of public authorities and institutions. Through this platform, citizens and businesses are no longer required to present certificates, extracts, copies, or other documents that are already available in electronic format within governmental systems.  
+<a href="https://mconnect.gov.md/">MConnect</a> este platforma de interoperabilitate a statului, care permite schimbul de date între sistemele informaționale ale autorităților și instituțiilor publice. Prin intermediul acestei platforme, cetățenii și mediul de afaceri nu mai sunt obligați să prezinte certificate, extrase, copii sau alte documente care sunt deja disponibile în format electronic în cadrul sistemelor guvernamentale.
 
-The use of MConnect ensures access to authentic data directly from the original sources, reduces administrative burden, eliminates duplication of information, and contributes to increased efficiency in the interaction between citizens, businesses, and the state.  
+Utilizarea MConnect asigură accesul la date autentice direct din sursele originale, reduce povara administrativă, elimină duplicarea informațiilor și contribuie la creșterea eficienței în interacțiunea dintre cetățeni, mediul de afaceri și stat.
 
-The platform is based on the principles of legality, equal access, authenticity, and shared responsibility of data providers and consumers. Institutions connected to MConnect provide services to other entities through secure communication channels, according to established agreements and legal provisions. Today, more than 480 institutions are connected to MConnect, ensuring millions of automated data exchanges every day. This makes MConnect a fundamental component of the national e-Government infrastructure, contributing directly to the digital transformation of public administration.  
+Platforma se bazează pe principiile legalității, accesului egal, autenticității și responsabilității comune a furnizorilor și consumatorilor de date. Instituțiile conectate la MConnect oferă servicii altor entități prin canale de comunicare securizate, conform acordurilor și prevederilor legale stabilite. În prezent, peste 480 de instituții sunt conectate la MConnect, asigurând milioane de schimburi automatizate de date zilnic. Acest fapt face din MConnect o componentă fundamentală a infrastructurii naționale de e-guvernare, contribuind direct la transformarea digitală a administrației publice.
 
 ### mconnect events
 
-MConnect Events represents the newest component of the data exchange ecosystem through the Interoperability Platform (MConnect), created to fundamentally transform the way public institutions share data. The extension introduces a modern, event-based model that enables near real-time synchronization of changes from registries, with over 2.5 million messages processed daily through MConnect. This event-driven approach increases the speed, resilience, and proactivity of public services, paving the way toward fully automated processes and intelligent digital services.
+MConnect Events reprezintă cea mai nouă componentă a ecosistemului de schimb de date prin intermediul Platformei de Interoperabilitate (MConnect), creată pentru a transforma fundamental modul în care instituțiile publice partajează date. Extensia introduce un model modern, bazat pe evenimente, care permite sincronizarea aproape în timp real a modificărilor din registre, cu peste 2,5 milioane de mesaje procesate zilnic prin MConnect. Această abordare orientată pe evenimente crește viteza, reziliența și proactivitatea serviciilor publice, deschizând calea către procese complet automatizate și servicii digitale inteligente.
 
-### Semantic catalog
+### Catalogul semantic
 
-The [Semantic Catalog](http://semantic.gov.md/) was developed as a result of the analysis of current data management practices with the aim of improving the overall quality of data, their use and coordination, and their alignment with international practices. In order to increase the quality of data and information about them, as well as to implement international good practices, it was necessary to identify a more efficient and centralized way of systematizing and managing information about data.
+[Catalogul Semantic](http://semantic.gov.md/) a fost dezvoltat ca urmare a analizei practicilor curente de gestionare a datelor, cu scopul de a îmbunătăți calitatea generală a datelor, utilizarea și coordonarea acestora, precum și alinierea lor la practicile internaționale. Pentru a crește calitatea datelor și a informațiilor despre acestea, precum și pentru a implementa bune practici internaționale, a fost necesară identificarea unei modalități mai eficiente și centralizate de sistematizare și gestionare a informațiilor despre date.
 
-## <img src="../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – authentication and authorization service
+## <img src="../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – serviciul de autentificare și autorizare
 
-<a href="https://mpass.gov.md/">MPass</a> is the government authentication and authorization service that provides citizens and officials with secure access to electronic public services. By using MPass, users authenticate only once and then access multiple platforms and systems without the need for repeated logins.  
+<a href="https://mpass.gov.md/">MPass</a> este serviciul guvernamental de autentificare și autorizare, care oferă cetățenilor și funcționarilor acces securizat la serviciile publice electronice. Prin utilizarea MPass, utilizatorii se autentifică o singură dată și pot accesa ulterior mai multe platforme și sisteme, fără a fi necesare autentificări repetate.
 
-Authentication through MPass can be performed using various methods, such as mobile signature, cryptographic token, or the EVOSign application. The system complies with international security standards, ensuring the confidentiality and integrity of the authentication process.  
+Autentificarea prin MPass poate fi realizată prin diverse metode, precum semnătura mobilă, token-ul criptografic sau aplicația EVOSign. Sistemul respectă standardele internaționale de securitate, asigurând confidențialitatea și integritatea procesului de autentificare.
 
-Currently, MPass is integrated with more than 190 government platforms and systems, offering citizens a convenient and secure way to access e-services.  
-
----
-
-## <img src="../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **msign** – electronic signature service
-
-<a href="https://msign.gov.md/">MSign</a> is the electronic signature service of the Republic of Moldova, designed to provide authenticity and legal validity to electronic documents. The service allows both public institutions and private entities to sign documents digitally, eliminating the need for paper-based processes.  
-
-Through MSign, citizens and organizations can sign contracts, requests, certificates, and other official documents using qualified certificates issued by accredited providers. The signed documents ensure integrity, authenticity, and non-repudiation, in accordance with the law.  
-
-The platform contributes to reducing bureaucracy, saving time, and ensuring a higher level of security in communication between the state, businesses, and citizens.  
+În prezent, MPass este integrat cu peste 190 de platforme și sisteme guvernamentale, oferind cetățenilor o modalitate convenabilă și securizată de a accesa e-serviciile.
 
 ---
 
-## <img src="../assets/logos/mpay-logo.png" alt="mpay logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpay** – government e-payment gateway
+## <img src="../assets/logos/msign-logo.png" alt="msign logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **msign** – serviciul de semnătură electronică
 
-<a href="https://mpay.gov.md/">MPay</a> is the national electronic payment platform designed to simplify financial interactions between citizens, businesses, and public institutions. It provides a secure and unified environment for paying government fees, taxes, and other public services online, eliminating the need for physical visits or manual transactions.
+<a href="https://msign.gov.md/">MSign</a> este serviciul de semnătură electronică al Republicii Moldova, conceput pentru a oferi autenticitate și valoare juridică documentelor electronice. Serviciul permite atât instituțiilor publice, cât și entităților private, să semneze documente digital, eliminând necesitatea proceselor pe suport de hârtie.
 
-Through MPay, users can complete payments quickly using various methods such as bank cards, internet banking, or payment terminals. The platform ensures transparency and reliability by generating electronic receipts and maintaining a clear record of transactions. By integrating with multiple government services, MPay plays a key role in advancing digital governance and improving the overall user experience in Moldova's e-Government ecosystem.  
+Prin MSign, cetățenii și organizațiile pot semna contracte, cereri, certificate și alte documente oficiale utilizând certificate calificate emise de furnizori acreditați. Documentele semnate asigură integritatea, autenticitatea și nerepudierea, în conformitate cu legea.
 
----
-
-## <img src="../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpower** – delegation service
-
-<a href="https://mpower.gov.md/">MPower</a> is the digital delegation service that enables citizens and organizations to grant representation rights to other individuals or entities for accessing electronic public services.  
-
-Through MPower, a parent can delegate authority to access services on behalf of their child, an employer can delegate tasks to employees, and lawyers can represent clients. The system is integrated with MPass, MSign, MConnect, and MNotify, ensuring secure and verifiable delegation processes.  
-
-This service brings significant benefits in terms of flexibility, reducing the need for physical presence, and offering trusted mechanisms for legal digital representation.  
+Platforma contribuie la reducerea birocrației, economisirea timpului și asigurarea unui nivel mai ridicat de securitate în comunicarea dintre stat, mediul de afaceri și cetățeni.
 
 ---
 
-## <img src="../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mnotify** – notification service
+## <img src="../assets/logos/mpay-logo.png" alt="mpay logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpay** – platforma guvernamentală de plăți electronice
 
-<a href="https://mnotify.gov.md/">MNotify</a> is the platform for electronic notifications that allows public institutions to send official notifications to citizens and businesses via multiple channels, such as email, SMS, mobile applications, or the MCabinet portal.  
+<a href="https://mpay.gov.md/">MPay</a> este platforma națională de plăți electronice, concepută pentru a simplifica interacțiunile financiare dintre cetățeni, mediul de afaceri și instituțiile publice. Aceasta oferă un mediu securizat și unificat pentru achitarea online a taxelor de stat, impozitelor și altor servicii publice, eliminând necesitatea vizitelor fizice sau a tranzacțiilor manuale.
 
-Notifications sent through MNotify keep citizens informed about fines, payments, deadlines, allowances, and other obligations or rights. The system improves communication between the government and citizens, ensuring transparency and efficiency.  
-
-MNotify can send both automatic and manual notifications, offering flexibility to institutions and convenience to recipients.  
+Prin MPay, utilizatorii pot efectua plăți rapid, folosind diverse metode, precum cardurile bancare, internet banking-ul sau terminalele de plată. Platforma asigură transparență și fiabilitate prin generarea de chitanțe electronice și menținerea unei evidențe clare a tranzacțiilor. Prin integrarea cu numeroase servicii guvernamentale, MPay joacă un rol esențial în avansarea guvernării digitale și îmbunătățirea experienței generale a utilizatorilor în ecosistemul de e-guvernare al Moldovei.
 
 ---
 
-## <img src="../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdelivery** – document delivery service
+## <img src="../assets/logos/mpower-logo.png" alt="mpower logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpower** – serviciul de delegare
 
-<a href="https://mdelivery.gov.md/">MDelivery</a> is the government service that ensures the delivery of official documents directly to citizens at their place of residence or work, without the need to visit public institutions.  
+<a href="https://mpower.gov.md/">MPower</a> este serviciul digital de delegare, care permite cetățenilor și organizațiilor să acorde drepturi de reprezentare altor persoane sau entități, în vederea accesării serviciilor publice electronice.
 
-Launched in July 2022, MDelivery allows citizens to receive documents such as criminal record certificates, civil status certificates, or apostilled documents through integrated postal service providers.  
+Prin MPower, un părinte poate delega dreptul de a accesa servicii în numele copilului său, un angajator poate delega sarcini angajaților, iar avocații pot reprezenta clienți. Sistemul este integrat cu MPass, MSign, MConnect și MNotify, asigurând procese de delegare securizate și verificabile.
 
-The platform reduces administrative costs, increases accessibility, and provides a modern way for the government to deliver official documents both within Moldova and abroad.  
-
----
-
-## <img src="../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mlog** – logging service
-
-[MLog](../guides/mlog) is the centralized logging service for public sector information systems, ensuring transparency, traceability, and accountability. The platform records essential data about user actions, including identifiers, timestamps, accessed resources, and operation results.  
-
-The service is mandatory for all systems that process personal data and critical government information, as established by Government Decision no. 708/2014.  
-
-MLog provides authorities with the necessary tools to audit activity, detect anomalies, and prevent unauthorized access or misuse of information systems.  
+Acest serviciu aduce beneficii semnificative în ceea ce privește flexibilitatea, reducerea necesității prezenței fizice și oferirea unor mecanisme de încredere pentru reprezentarea digitală legală.
 
 ---
 
-## <img src="../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdocs** – document management platform
+## <img src="../assets/logos/mnotify-logo.png" alt="mnotify logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mnotify** – serviciul de notificări
 
-[MDocs](../guides/mdocs) is the government platform for the storage and exchange of documents in digital format. It allows public institutions to upload, share, and access documents securely, while citizens can retrieve their documents directly via MCabinet.  
+<a href="https://mnotify.gov.md/">MNotify</a> este platforma de notificări electronice care permite instituțiilor publice să trimită notificări oficiale cetățenilor și mediului de afaceri prin mai multe canale, precum email, SMS, aplicații mobile sau portalul MCabinet.
 
-The platform reduces paper usage, simplifies administrative processes, and ensures compliance with transparency and security standards.  
+Notificările trimise prin MNotify țin cetățenii informați cu privire la amenzi, plăți, termene limită, indemnizații și alte obligații sau drepturi. Sistemul îmbunătățește comunicarea dintre guvern și cetățeni, asigurând transparență și eficiență.
 
-MDocs is an essential component of Moldova's digital government ecosystem, contributing to the efficiency of public administration and the convenience of interactions between citizens, businesses, and the state.
+MNotify poate trimite atât notificări automate, cât și manuale, oferind flexibilitate instituțiilor și confort destinatarilor.
+
+---
+
+## <img src="../assets/logos/mdelivery-logo.png" alt="mdelivery logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdelivery** – serviciul de livrare a documentelor
+
+<a href="https://mdelivery.gov.md/">MDelivery</a> este serviciul guvernamental care asigură livrarea documentelor oficiale direct cetățenilor, la domiciliu sau la locul de muncă, fără a fi necesară deplasarea la instituțiile publice.
+
+Lansat în iulie 2022, MDelivery permite cetățenilor să primească documente precum cazierul judiciar, certificatele de stare civilă sau documentele apostilate, prin intermediul furnizorilor de servicii poștale integrați.
+
+Platforma reduce costurile administrative, crește accesibilitatea și oferă o modalitate modernă pentru guvern de a livra documente oficiale, atât în interiorul, cât și în afara Moldovei.
+
+---
+
+## <img src="../assets/logos/mlog-logo.png" alt="mlog logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mlog** – serviciul de jurnalizare
+
+[MLog](../guides/mlog) este serviciul centralizat de jurnalizare pentru sistemele informaționale din sectorul public, asigurând transparență, trasabilitate și responsabilitate. Platforma înregistrează date esențiale despre acțiunile utilizatorilor, inclusiv identificatori, marcaje temporale, resurse accesate și rezultatele operațiunilor.
+
+Serviciul este obligatoriu pentru toate sistemele care procesează date cu caracter personal și informații guvernamentale critice, conform Hotărârii de Guvern nr. 708/2014.
+
+MLog oferă autorităților instrumentele necesare pentru auditarea activității, detectarea anomaliilor și prevenirea accesului neautorizat sau a utilizării abuzive a sistemelor informaționale.
+
+---
+
+## <img src="../assets/logos/mdocs-logo.png" alt="mdocs logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mdocs** – platforma de gestionare a documentelor
+
+[MDocs](../guides/mdocs) este platforma guvernamentală pentru stocarea și schimbul de documente în format digital. Aceasta permite instituțiilor publice să încarce, să partajeze și să acceseze documente în mod securizat, în timp ce cetățenii își pot prelua documentele direct prin MCabinet.
+
+Platforma reduce consumul de hârtie, simplifică procesele administrative și asigură conformitatea cu standardele de transparență și securitate.
+
+MDocs este o componentă esențială a ecosistemului guvernării digitale a Moldovei, contribuind la eficiența administrației publice și la confortul interacțiunilor dintre cetățeni, mediul de afaceri și stat.

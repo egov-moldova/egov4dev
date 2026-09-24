@@ -1,8 +1,8 @@
-EVO Wallet currently supports Verifiable Presentations, i.e. documents, in mdoc format, according to ISO 18013-5:2022. The standard defines them as Concise Binary Object Representation (CBOR) structures.
+EVO Wallet suportă în prezent Verifiable Presentations, adică documente, în format mdoc, conform ISO 18013-5:2022. Standardul le definește ca structuri Concise Binary Object Representation (CBOR).
 
-This section contains definitions in Concise Data Definition Language (CDDL) described in **RFC 8610**, a language used to define CBOR data structures. In CDDL, **bstr** refers to Byte String, defined as major type 2 and **tstr** refers to Text String, defined as major type 3 (encoded as UTF-8).
+Această secțiune conține definiții în Concise Data Definition Language (CDDL) descris în **RFC 8610**, un limbaj utilizat pentru a defini structuri de date CBOR. În CDDL, **bstr** se referă la Byte String, definit ca major type 2, iar **tstr** se referă la Text String, definit ca major type 3 (codificat ca UTF-8).
 
-DeviceResponse, i.e. device retrieval mdoc response, shall be encoded and formatted as follows:
+DeviceResponse, adică răspunsul mdoc de tip device retrieval, trebuie codificat și formatat astfel:
 
 ```
 DeviceResponse = {

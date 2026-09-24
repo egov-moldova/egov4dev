@@ -1,36 +1,36 @@
-﻿# Interaction scenarios
+# Scenarii de interacțiune
 
-## Signing process
+## Procesul de semnare
 
-The most important integration scenario with MSign is requesting to sign a batch (or a single) digital content and getting the signature(s) back after user interaction.
+Cel mai important scenariu de integrare cu MSign este solicitarea de a semna un lot (sau un singur) conținut digital și primirea semnăturii(elor) în urma interacțiunii utilizatorului.
 
-<span class="red-bold-text">Remark.</span> Sending a batch of digital content usually requires the user to enter the PIN for each signed content or, in the case of Mobile Signature, even to receive/send multiple SMS messages. Sending multiple contents for signing is practical only in cases when you know your users might have access to bulk messaging instruments, such as when using cryptographic tokens that cache the PIN for multiple use.
+<span class="red-bold-text">Observație.</span> Trimiterea unui lot de conținuturi digitale necesită, de regulă, ca utilizatorul să introducă PIN-ul pentru fiecare conținut semnat sau, în cazul Semnăturii Mobile, chiar să primească/trimită mai multe mesaje SMS. Trimiterea mai multor conținuturi spre semnare este practică doar în cazurile în care se știe că utilizatorii pot avea acces la instrumente de mesagerie în masă, cum ar fi atunci când se utilizează token-uri criptografice care păstrează în cache PIN-ul pentru utilizare multiplă.
 
-<img src="../../../assets/umls/msign/interaction_scenarios/lightmode.svg" alt="Signing flow">
+<img src="../../../assets/umls/msign/interaction_scenarios/lightmode.svg" alt="Fluxul de semnare">
 
-Here is a short description of signing process using MSign:
+Iată o scurtă descriere a procesului de semnare folosind MSign:
 
-1. After completing a form, uploading a document to be signed (the Content), or selecting a batch of Contents, the User clicks a Sign button in its Browser.
-2. The e-Service prepares the Contents to be signed and/or computes a hash of each Content.
-3. The e-Service calls MSign API (**PostSignRequest** operation) with a **SignRequest** that represents a request to sign a batch of Contents.
-4. MSign validates and saves the **SignRequest** for later signing and returns a generated **RequestID**.
-5. E-Service instructs the Browser to show the MSign Sign Page for the provided sign request, providing a **ReturnUrl**. See Web forms integration for more details.
-6. The Browser fetches the Sign Page and shows it to User.
-7. The User interacts with the Sign Page to select a signing instrument and enter any data related to the selected instrument to perform the actual signing of the batch.
-8. MSign saves the resulting signatures for later retrieval.
-9. MSign instructs the browser to show the **ReturnUrl**, providing the **RequestID**. See Web forms integration for more details.
-10. When the Browser request the page indicated by **ReturnUrl**, the e-Service requests the actual **SignResponse** from MSign API (**GetSignResponse** operation). That response contains the signatures for all Contents provided in the **SignRequest** batch.
+1. După completarea unui formular, încărcarea unui document de semnat (Conținutul) sau selectarea unui lot de Conținuturi, Utilizatorul apasă butonul Semnează în Browser.
+2. e-Serviciul pregătește Conținuturile de semnat și/sau calculează un hash pentru fiecare Conținut.
+3. e-Serviciul apelează API-ul MSign (operația **PostSignRequest**) cu un **SignRequest** care reprezintă o cerere de semnare a unui lot de Conținuturi.
+4. MSign validează și salvează **SignRequest**-ul pentru semnare ulterioară și returnează un **RequestID** generat.
+5. e-Serviciul instruiește Browserul să afișeze Pagina de Semnare MSign pentru cererea de semnătură furnizată, oferind un **ReturnUrl**. Vezi Integrarea prin formulare web pentru mai multe detalii.
+6. Browserul preia Pagina de Semnare și o afișează Utilizatorului.
+7. Utilizatorul interacționează cu Pagina de Semnare pentru a selecta un instrument de semnare și a introduce orice date aferente instrumentului selectat pentru a efectua semnarea propriu-zisă a lotului.
+8. MSign salvează semnăturile rezultate pentru preluare ulterioară.
+9. MSign instruiește browserul să afișeze **ReturnUrl**, oferind **RequestID**. Vezi Integrarea prin formulare web pentru mai multe detalii.
+10. Când Browserul solicită pagina indicată de **ReturnUrl**, e-Serviciul solicită **SignResponse**-ul propriu-zis de la API-ul MSign (operația **GetSignResponse**). Acest răspuns conține semnăturile pentru toate Conținuturile furnizate în lotul **SignRequest**.
 
-## Verification process
+## Procesul de verificare
 
-MSign also exposes digital signature verification API. The verification process does not expose any user interface for integrated information systems.
+MSign expune, de asemenea, un API de verificare a semnăturii electronice. Procesul de verificare nu expune nicio interfață utilizator pentru sistemele informaționale integrate.
 
-To verify a batch of signatures (or a single signature), call **VerifySignatures** and provide the signature to be checked.
+Pentru a verifica un lot de semnături (sau o singură semnătură), apelați **VerifySignatures** și furnizați semnătura care trebuie verificată.
 
-In the case of a **XAdES** signature (which results after signing a hash), please provide the original hash in the Content parameter and the signature (i.e. **XAdES**) in the Signature parameter. In the successful verification case, the result will contain a single certificate, i.e. the certificate of the signer.
+În cazul unei semnături **XAdES** (care rezultă în urma semnării unui hash), furnizați hash-ul original în parametrul Content și semnătura (adică **XAdES**) în parametrul Signature. În caz de verificare reușită, rezultatul va conține un singur certificat, respectiv certificatul semnatarului.
 
-To verify PDF file signatures (**PAdES**), just pass the signed document in the Signature parameter. In the successful verification case, the result will contain the certificates for all individual signers.
+Pentru a verifica semnăturile fișierelor PDF (**PAdES**), este suficient să transmiteți documentul semnat în parametrul Signature. În caz de verificare reușită, rezultatul va conține certificatele pentru toți semnatarii individuali.
 
-The result also contains a human readable message translated in multiple languages that the integrated systems shall display to the users.
+Rezultatul conține, de asemenea, un mesaj lizibil pentru utilizator, tradus în mai multe limbi, pe care sistemele integrate trebuie să îl afișeze utilizatorilor.
 
-Due to the fact that the process of verification might take more time than expected, it is advised to invoke this verification operation asynchronously so that the invoking system does not appear as blocked to the users.
+Având în vedere că procesul de verificare poate dura mai mult decât se așteaptă, se recomandă invocarea acestei operații de verificare în mod asincron, astfel încât sistemul apelant să nu pară blocat pentru utilizatori.

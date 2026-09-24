@@ -1,87 +1,87 @@
-The development of integrated government solutions is guided by a set of principles that ensure consistency, efficiency, interoperability, and security across the entire ecosystem. These principles are mandatory for all actors involved in the design, development, and implementation of government information systems.
+Dezvoltarea soluțiilor guvernamentale integrate este ghidată de un set de principii care asigură coerența, eficiența, interoperabilitatea și securitatea în întregul ecosistem. Aceste principii sunt obligatorii pentru toți actorii implicați în proiectarea, dezvoltarea și implementarea sistemelor informaționale guvernamentale.
 
 ---
 
-## 🧠 Smart architecture
+## 🧠 Arhitectură inteligentă
 
-Architectural decisions must be taken at the appropriate level, depending on the scope and impact of the solution. Local architectures (at the level of a single institution) must be aligned with national and sectoral architectures, ensuring interoperability and avoiding duplication of resources.  
+Deciziile de arhitectură trebuie luate la nivelul potrivit, în funcție de domeniul de aplicare și de impactul soluției. Arhitecturile locale (la nivelul unei singure instituții) trebuie aliniate cu arhitecturile naționale și sectoriale, asigurând interoperabilitatea și evitând duplicarea resurselor.
 
-The principle requires that any solution is integrated into the national digital ecosystem, supporting data and service exchange through the interoperability platform and common standards.
-
----
-
-## 🛡️ Secure by design
-
-Security must be built into the foundation of every system, not added later. This encompasses the entire security lifecycle: threat modeling, secure architecture, hardened infrastructure, vulnerability management, and incident response.
-
-Secure by design ensures that government systems can withstand cyber attacks, maintain service availability, and protect the integrity of government operations.
+Principiul impune ca orice soluție să fie integrată în ecosistemul digital național, susținând schimbul de date și servicii prin intermediul platformei de interoperabilitate și al standardelor comune.
 
 ---
 
-## ♻️ Reuse of solutions
+## 🛡️ Securitate încă din concepție (secure by design)
 
-Architectures must balance consistency with the need for innovation. The reuse of solutions and technologies is encouraged, as long as this ensures efficiency and cost optimization.  
+Securitatea trebuie construită în fundația fiecărui sistem, nu adăugată ulterior. Aceasta cuprinde întregul ciclu de viață al securității: modelarea amenințărilor, arhitectura securizată, infrastructura consolidată (hardened), gestionarea vulnerabilităților și răspunsul la incidente.
 
-Consistency ensures that systems follow common rules, while innovation allows institutions to improve processes and services with modern technologies.
-
----
-
-## 📜 Full compliance
-
-Solutions must be developed in full compliance with the applicable legal and regulatory framework. This includes respect for legislation on the protection of personal data, electronic signatures, electronic documents, and auditing of information systems.  
-
-Compliance guarantees that services are legally valid and trusted by citizens, businesses, and institutions.
+Securitatea încă din concepție asigură că sistemele guvernamentale pot rezista atacurilor cibernetice, pot menține disponibilitatea serviciilor și pot proteja integritatea operațiunilor guvernamentale.
 
 ---
 
-## 🔒 Privacy by design
+## ♻️ Reutilizarea soluțiilor
 
-Privacy must be integrated from the design stage of any system. This includes authentication and authorization mechanisms (for example, through MPass), encryption of communications (TLS), role-based access control (RBAC), and continuous logging (MLog).  
+Arhitecturile trebuie să echilibreze coerența cu nevoia de inovație. Reutilizarea soluțiilor și tehnologiilor este încurajată, atât timp cât aceasta asigură eficiență și optimizarea costurilor.
 
-Privacy by design ensures that systems are resilient to cyber threats and that citizens can safely use government services.
-
----
-
-## 🚀 Cross optimization
-
-Solutions must be optimized for integration into broader workflows. This includes asynchronous flows, orchestration of processes through BPM tools, integration of notifications (MNotify), and delivery of documents (MDelivery).  
-
-Cross-application optimization increases efficiency and reduces duplication of efforts.
+Coerența asigură că sistemele respectă reguli comune, în timp ce inovația permite instituțiilor să îmbunătățească procesele și serviciile prin tehnologii moderne.
 
 ---
 
-## 🤝 Contribute not just consume
+## 📜 Conformitate deplină
 
-Institutions must not only consume data from government registers but also contribute and maintain their own authoritative data sources. Every institution is responsible for ensuring the accuracy, completeness, and timeliness of data under its mandate. 
+Soluțiile trebuie dezvoltate în conformitate deplină cu cadrul legal și normativ aplicabil. Aceasta include respectarea legislației privind protecția datelor cu caracter personal, semnătura electronică, documentul electronic și auditarea sistemelor informaționale.
 
-[Semantic catalog](http://semantic.gov.md) serves as the single point of discovery for all government data, enabling efficient reuse and preventing fragmentation.
-
----
-
-## 🎯 Once only principle
-
-Citizens and businesses must provide information to government only once. Institutions must reuse validated data from authentic registers through the semantic catalogue, which systematizes metadata from government data sources.
-
-The "once only" principle reduces administrative burden, ensures data consistency, and prevents duplicate collection across government services.
+Conformitatea garantează faptul că serviciile sunt valabile din punct de vedere juridic și de încredere pentru cetățeni, mediul de afaceri și instituții.
 
 ---
 
-## 🔔 Events by default
+## 🔒 Confidențialitate încă din concepție (privacy by design)
 
-Systems must automatically emit events when significant state changes occur, rather than requiring others to poll for updates. Authoritative registers publish events (e.g., "address changed," "license issued," "deadline approaching") that enable automated workflows and asynchronous integration between systems. Event-driven architecture reduces system load, improves responsiveness, and ensures timely information delivery to citizens and institutions.
+Confidențialitatea trebuie integrată încă din etapa de proiectare a oricărui sistem. Aceasta include mecanisme de autentificare și autorizare (de exemplu, prin MPass), criptarea comunicațiilor (TLS), controlul accesului bazat pe roluri (RBAC) și jurnalizarea continuă (MLog).
 
----
-
-## 🔗 Interoperability in mind
-
-Government solutions must be interoperable by default. This means they expose APIs (REST or SOAP), respect open standards, and can be integrated via API gateways or other middleware.  
-
-The principle of interoperability by design prevents the creation of isolated systems and ensures integration at national and cross-border levels.
+Confidențialitatea încă din concepție asigură reziliența sistemelor la amenințările cibernetice și posibilitatea cetățenilor de a utiliza în siguranță serviciile guvernamentale.
 
 ---
 
-## 🌐 High reliability
+## 🚀 Optimizare transversală
 
-Government services must be highly available and reliable. Solutions are hosted on scalable infrastructure ([MCloud](https://www.egov.md/en/content/mcloud-platform) operated by [STISC](https://stisc.gov.md/)), monitored continuously, and delivered under clear Service-Level Agreements (SLA).  
+Soluțiile trebuie optimizate pentru integrarea în fluxuri de lucru mai ample. Aceasta include fluxuri asincrone, orchestrarea proceselor prin instrumente BPM, integrarea notificărilor (MNotify) și livrarea documentelor (MDelivery).
 
-Availability ensures that services are provided without interruption, while reliability ensures that data and processes remain consistent and trustworthy.
+Optimizarea la nivel transversal (cross-application) crește eficiența și reduce duplicarea eforturilor.
+
+---
+
+## 🤝 Contribuie, nu doar consuma
+
+Instituțiile nu trebuie doar să consume date din registrele guvernamentale, ci și să contribuie și să mențină propriile surse de date autoritare. Fiecare instituție este responsabilă pentru asigurarea acurateței, completitudinii și actualității datelor aflate sub mandatul său.
+
+[Catalogul semantic](http://semantic.gov.md) servește drept punct unic de descoperire pentru toate datele guvernamentale, permițând reutilizarea eficientă și prevenind fragmentarea.
+
+---
+
+## 🎯 Principiul „o singură dată” (once only)
+
+Cetățenii și mediul de afaceri trebuie să furnizeze informații către stat o singură dată. Instituțiile trebuie să reutilizeze datele validate din registrele autentice, prin intermediul catalogului semantic, care sistematizează metadatele din sursele de date guvernamentale.
+
+Principiul „o singură dată” reduce povara administrativă, asigură coerența datelor și previne colectarea duplicată în cadrul serviciilor guvernamentale.
+
+---
+
+## 🔔 Evenimente implicit (events by default)
+
+Sistemele trebuie să emită automat evenimente atunci când au loc modificări semnificative de stare, în loc să impună altor sisteme interogarea periodică (polling) pentru actualizări. Registrele autoritare publică evenimente (de exemplu, „adresă modificată”, „licență emisă”, „termen limită apropiat”), care permit fluxuri de lucru automatizate și integrare asincronă între sisteme. Arhitectura orientată pe evenimente reduce încărcarea sistemelor, îmbunătățește capacitatea de răspuns și asigură livrarea la timp a informațiilor către cetățeni și instituții.
+
+---
+
+## 🔗 Interoperabilitate din start
+
+Soluțiile guvernamentale trebuie să fie interoperabile în mod implicit. Aceasta înseamnă că expun API-uri (REST sau SOAP), respectă standarde deschise și pot fi integrate prin intermediul unor API gateway-uri sau al altor tipuri de middleware.
+
+Principiul interoperabilității încă din concepție previne apariția sistemelor izolate și asigură integrarea la nivel național și transfrontalier.
+
+---
+
+## 🌐 Fiabilitate ridicată
+
+Serviciile guvernamentale trebuie să fie extrem de disponibile și fiabile. Soluțiile sunt găzduite pe infrastructură scalabilă ([MCloud](https://www.egov.md/en/content/mcloud-platform), operată de [STISC](https://stisc.gov.md/)), monitorizate continuu și livrate în baza unor Acorduri de Nivel al Serviciului (SLA) clare.
+
+Disponibilitatea asigură furnizarea neîntreruptă a serviciilor, în timp ce fiabilitatea asigură coerența și încrederea în date și procese.

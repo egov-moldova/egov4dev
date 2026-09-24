@@ -1,363 +1,363 @@
-﻿# API reference
+# Referință API
 
-##**Error handling**
+##**Gestionarea erorilor**
 
-!!! note "Note"
-The MPower Client API component will return REST API errors with the error code and cause; descriptions will be displayed in English.
+!!! note "Notă"
+Componenta MPower Client API va returna erorile REST API cu codul de eroare și cauza; descrierile vor fi afișate în limba engleză.
 
 <table>
   <thead>
     <tr>
-      <th>Error code</th>
-      <th>Description</th>
+      <th>Cod eroare</th>
+      <th>Descriere</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>AuthenticationFailed</td>
-      <td>Service consumer authentication process failed. See Authentication</td>
+      <td>Procesul de autentificare a consumatorului serviciului a eșuat. Vezi secțiunea Autentificare</td>
     </tr>
     <tr>
       <td>InvalidParameter</td>
-      <td>Some input parameter is invalid. Please review the returned Fault Reason text and called operation description.</td>
+      <td>Un parametru de intrare este invalid. Consultați textul Fault Reason returnat și descrierea operațiunii apelate.</td>
     </tr>
     <tr>
       <td>200</td>
-      <td>Success</td>
+      <td>Succes</td>
     </tr>
     <tr>
       <td>400</td>
-      <td>Bad request, Validation failed. Check validation rules compliance</td>
+      <td>Cerere invalidă, validarea a eșuat. Verificați respectarea regulilor de validare</td>
     </tr>
     <tr>
       <td>401</td>
-      <td>Unauthorized Access. Check authorization requirements</td>
+      <td>Acces neautorizat. Verificați cerințele de autorizare</td>
     </tr>
     <tr>
       <td>403</td>
-      <td>Forbidden. The requested action is not allowed for the transmitted ID</td>
+      <td>Interzis. Acțiunea solicitată nu este permisă pentru ID-ul transmis</td>
     </tr>
     <tr>
       <td>404</td>
-      <td>Not found. Check sent request data</td>
+      <td>Negăsit. Verificați datele trimise în cerere</td>
     </tr>
     <tr>
       <td>500</td>
-      <td>A server error occurred. Missing connection with DB from other reasons than: 400 / 401 / 501. Contact the Administrator.</td>
+      <td>A survenit o eroare de server. Lipsă conexiune cu baza de date, din alte motive decât: 400 / 401 / 501. Contactați administratorul.</td>
     </tr>
     <tr>
       <td>501</td>
-      <td>A server error occurred. Contact the Administrator.</td>
+      <td>A survenit o eroare de server. Contactați administratorul.</td>
     </tr>
   </tbody>
 </table>
 
-##**API methods description**
+##**Descrierea metodelor API**
 
-###**Check authorization validity**
+###**Verificarea valabilității împuternicirii**
 
-!!! note "Note"
-Because this method can be called multiple times on different days/times, the response may vary: at a certain moment the power of representation may no longer be valid due to expiry, revocation, renunciation, suspension, etc.
+!!! note "Notă"
+Deoarece această metodă poate fi apelată de mai multe ori, în zile/momente diferite, răspunsul poate varia: la un anumit moment împuternicirea poate să nu mai fie valabilă din cauza expirării, revocării, renunțării, suspendării etc.
 
 <table>
   <thead>
     <tr>
-      <th>Call signature</th>
+      <th>Semnătura apelului</th>
       <th colspan="2">GET /api/Authorization/check/Code-True-One</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Description</strong></td>
-      <td colspan="2">Based on the authorization code, returns an entry stating whether the power of representation is valid or cancelled.</td>
+      <td><strong>Descriere</strong></td>
+      <td colspan="2">Pe baza codului de împuternicire, returnează o înregistrare care indică dacă împuternicirea este valabilă sau anulată.</td>
     </tr>
     <tr>
-      <td colspan="3"><strong>Input/Output parameters</strong></td>
+      <td colspan="3"><strong>Parametri de intrare/ieșire</strong></td>
     </tr>
      <tr>
-      <td><strong>Name</strong></td>
-      <td><strong>Type</strong></td>
-      <td><strong>Description</strong></td>
+      <td><strong>Nume</strong></td>
+      <td><strong>Tip</strong></td>
+      <td><strong>Descriere</strong></td>
     </tr>
      <tr>
       <td><strong>Query</strong></td>
       <td>"authorizationCode"</td>
-      <td>The 16-digit unique identification code of the power of representation.</td>
+      <td>Codul unic de identificare, din 16 cifre, al împuternicirii.</td>
     </tr>
      <tr>
       <td><strong>Response</strong></td>
-      <td>"data": = True or False</td>
-      <td>If the returned value is True, the power of representation is valid; if False, it is not valid.</td>
+      <td>"data": = True sau False</td>
+      <td>Dacă valoarea returnată este True, împuternicirea este valabilă; dacă este False, nu este valabilă.</td>
     </tr>
      <tr>
-      <td colspan="3"><strong>Faults</strong></td>
+      <td colspan="3"><strong>Erori (Faults)</strong></td>
     </tr>
      <tr>
-      <td><strong>Code</strong></td>
-      <td><strong>Reason</strong></td>
+      <td><strong>Cod</strong></td>
+      <td><strong>Motiv</strong></td>
     </tr>
      <tr>
       <td>200</td>
-      <td colspan="2">Success</td>
+      <td colspan="2">Succes</td>
     </tr>
      <tr>
       <td>404</td>
-      <td colspan="2">Not found. Check sent request data</td>
+      <td colspan="2">Negăsit. Verificați datele trimise în cerere</td>
     </tr>
      <tr>
       <td>500</td>
-      <td colspan="2">A server error occurred. Missing connection with DB from other reasons than: 400 / 401 / 501. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Lipsă conexiune cu baza de date, din alte motive decât: 400 / 401 / 501. Contactați administratorul.</td>
     </tr>
      <tr>
       <td>501</td>
-      <td colspan="2">A server error occurred. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Contactați administratorul.</td>
     </tr>
   </tbody>
 </table>
 
-###**Get authorization details**
+###**Obținerea detaliilor împuternicirii**
 
 <table>
   <thead>
     <tr>
-      <th>Call signature</th>
+      <th>Semnătura apelului</th>
       <th colspan="2">GET /api/Authorization/check/Code-Details-One</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Description</strong></td>
-      <td colspan="2">Based on the authorization code, returns an entry with a data structure containing details of the identified power of representation.</td>
+      <td><strong>Descriere</strong></td>
+      <td colspan="2">Pe baza codului de împuternicire, returnează o înregistrare cu o structură de date care conține detaliile împuternicirii identificate.</td>
     </tr>
     <tr>
-      <td colspan="3"><strong>Input/Output parameters</strong></td>
+      <td colspan="3"><strong>Parametri de intrare/ieșire</strong></td>
     </tr>
      <tr>
-      <td><strong>Name</strong></td>
-      <td><strong>Type</strong></td>
-      <td><strong>Description</strong></td>
+      <td><strong>Nume</strong></td>
+      <td><strong>Tip</strong></td>
+      <td><strong>Descriere</strong></td>
     </tr>
      <tr>
       <td><strong>Query</strong></td>
       <td>"authorizationCode"</td>
-      <td>The 16-digit unique identification code of the power of representation.</td>
+      <td>Codul unic de identificare, din 16 cifre, al împuternicirii.</td>
     </tr>
      <tr>
       <td><strong>Response</strong></td>
       <td>AuthorizationDetails</td>
-      <td>A data structure that contains the details of the identified power of representation.</td>
+      <td>O structură de date care conține detaliile împuternicirii identificate.</td>
     </tr>
      <tr>
-      <td colspan="3"><strong>Faults</strong></td>
+      <td colspan="3"><strong>Erori (Faults)</strong></td>
     </tr>
      <tr>
-      <td><strong>Code</strong></td>
-      <td><strong>Reason</strong></td>
+      <td><strong>Cod</strong></td>
+      <td><strong>Motiv</strong></td>
     </tr>
      <tr>
       <td>200</td>
-      <td colspan="2">Success</td>
+      <td colspan="2">Succes</td>
     </tr>
      <tr>
       <td>404</td>
-      <td colspan="2">Not found. Check sent request data</td>
+      <td colspan="2">Negăsit. Verificați datele trimise în cerere</td>
     </tr>
      <tr>
       <td>500</td>
-      <td colspan="2">A server error occurred. Missing connection with DB from other reasons than: 400 / 401 / 501. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Lipsă conexiune cu baza de date, din alte motive decât: 400 / 401 / 501. Contactați administratorul.</td>
     </tr>
      <tr>
       <td>501</td>
-      <td colspan="2">A server error occurred. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Contactați administratorul.</td>
     </tr>
   </tbody>
 </table>
 
-###**Check authorization validity by type code**
+###**Verificarea valabilității împuternicirii după codul tipului**
 
 <table>
   <thead>
     <tr>
-      <th>Call signature</th>
+      <th>Semnătura apelului</th>
       <th colspan="2">GET /api/Authorization/check/TypeCode-Valid-One</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Description</strong></td>
-      <td colspan="2">Based on the authorization type code, Idn1 and Idn2, returns an entry with a data structure that states whether the power of representation is valid or cancelled.</td>
+      <td><strong>Descriere</strong></td>
+      <td colspan="2">Pe baza codului tipului de împuternicire, Idn1 și Idn2, returnează o înregistrare cu o structură de date care indică dacă împuternicirea este valabilă sau anulată.</td>
     </tr>
     <tr>
-      <td colspan="3"><strong>Input/Output parameters</strong></td>
+      <td colspan="3"><strong>Parametri de intrare/ieșire</strong></td>
     </tr>
      <tr>
-      <td><strong>Name</strong></td>
-      <td><strong>Type</strong></td>
-      <td><strong>Description</strong></td>
+      <td><strong>Nume</strong></td>
+      <td><strong>Tip</strong></td>
+      <td><strong>Descriere</strong></td>
     </tr>
      <tr>
       <td><strong>Query</strong></td>
       <td>AuthorizationTypeCodeQuery</td>
-      <td>A data structure that contains the authorization details identified based on the authorization type code.</td>
+      <td>O structură de date care conține detaliile împuternicirii identificate pe baza codului tipului de împuternicire.</td>
     </tr>
      <tr>
       <td><strong>Response</strong></td>
       <td>AuthorizationValid</td>
-      <td>A data structure related to the power of representation that indicates its validity: True or False.</td>
+      <td>O structură de date referitoare la împuternicire, care indică valabilitatea acesteia: True sau False.</td>
     </tr>
      <tr>
-      <td colspan="3"><strong>Faults</strong></td>
+      <td colspan="3"><strong>Erori (Faults)</strong></td>
     </tr>
      <tr>
-      <td><strong>Code</strong></td>
-      <td><strong>Reason</strong></td>
+      <td><strong>Cod</strong></td>
+      <td><strong>Motiv</strong></td>
     </tr>
      <tr>
       <td>200</td>
-      <td colspan="2">Success</td>
+      <td colspan="2">Succes</td>
     </tr>
      <tr>
       <td>404</td>
-      <td colspan="2">Not found. Check sent request data</td>
+      <td colspan="2">Negăsit. Verificați datele trimise în cerere</td>
     </tr>
      <tr>
       <td>500</td>
-      <td colspan="2">A server error occurred. Missing connection with DB from other reasons than: 400 / 401 / 501. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Lipsă conexiune cu baza de date, din alte motive decât: 400 / 401 / 501. Contactați administratorul.</td>
     </tr>
      <tr>
       <td>501</td>
-      <td colspan="2">A server error occurred. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Contactați administratorul.</td>
     </tr>
   </tbody>
 </table>
 
 
-###**Get authorization list by IDNx**
+###**Obținerea listei de împuterniciri după IDNx**
 
 <table>
   <thead>
     <tr>
-      <th>Call signature</th>
+      <th>Semnătura apelului</th>
       <th colspan="2">GET /api/Authorization/check/Idn-Details-List</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Description</strong></td>
-      <td colspan="2">Based on IDNP or IDNO, returns the list of powers of representation.</td>
+      <td><strong>Descriere</strong></td>
+      <td colspan="2">Pe baza IDNP sau IDNO, returnează lista de împuterniciri.</td>
     </tr>
     <tr>
-      <td colspan="3"><strong>Input/Output parameters</strong></td>
+      <td colspan="3"><strong>Parametri de intrare/ieșire</strong></td>
     </tr>
      <tr>
-      <td><strong>Name</strong></td>
-      <td><strong>Type</strong></td>
-      <td><strong>Description</strong></td>
+      <td><strong>Nume</strong></td>
+      <td><strong>Tip</strong></td>
+      <td><strong>Descriere</strong></td>
     </tr>
      <tr>
       <td><strong>Query</strong></td>
       <td>AuthorizationListQuery</td>
-      <td>Identification based on IDNP or IDNO and, optionally, an additional structure with data related to the power of representation.</td>
+      <td>Identificare pe baza IDNP sau IDNO și, opțional, o structură suplimentară cu date referitoare la împuternicire.</td>
     </tr>
      <tr>
       <td><strong>Response</strong></td>
       <td>AuthorizationDetails</td>
-      <td>A data structure that contains the details of the powers of representation.</td>
+      <td>O structură de date care conține detaliile împuternicirilor.</td>
     </tr>
      <tr>
-      <td colspan="3"><strong>Faults</strong></td>
+      <td colspan="3"><strong>Erori (Faults)</strong></td>
     </tr>
      <tr>
-      <td><strong>Code</strong></td>
-      <td><strong>Reason</strong></td>
+      <td><strong>Cod</strong></td>
+      <td><strong>Motiv</strong></td>
     </tr>
      <tr>
       <td>200</td>
-      <td colspan="2">Success</td>
+      <td colspan="2">Succes</td>
     </tr>
      <tr>
       <td>404</td>
-      <td colspan="2">Not found. Check sent request data</td>
+      <td colspan="2">Negăsit. Verificați datele trimise în cerere</td>
     </tr>
      <tr>
       <td>500</td>
-      <td colspan="2">A server error occurred. Missing connection with DB from other reasons than: 400 / 401 / 501. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Lipsă conexiune cu baza de date, din alte motive decât: 400 / 401 / 501. Contactați administratorul.</td>
     </tr>
      <tr>
       <td>501</td>
-      <td colspan="2">A server error occurred. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Contactați administratorul.</td>
     </tr>
   </tbody>
 </table>
 
 
-###**Download authorization file**
+###**Descărcarea fișierului de împuternicire**
 
 <table>
   <thead>
     <tr>
-      <th>Call signature</th>
+      <th>Semnătura apelului</th>
       <th colspan="2">GET /api/Authorization/file</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Description</strong></td>
-      <td colspan="2">Based on the authorization code, returns an entry with a data structure that contains the authorization file.</td>
+      <td><strong>Descriere</strong></td>
+      <td colspan="2">Pe baza codului de împuternicire, returnează o înregistrare cu o structură de date care conține fișierul de împuternicire.</td>
     </tr>
     <tr>
-      <td colspan="3"><strong>Input/Output parameters</strong></td>
+      <td colspan="3"><strong>Parametri de intrare/ieșire</strong></td>
     </tr>
      <tr>
-      <td><strong>Name</strong></td>
-      <td><strong>Type</strong></td>
-      <td><strong>Description</strong></td>
+      <td><strong>Nume</strong></td>
+      <td><strong>Tip</strong></td>
+      <td><strong>Descriere</strong></td>
     </tr>
      <tr>
       <td><strong>Query</strong></td>
       <td>authorizationCode</td>
-      <td>A data structure that contains the details of the authorization identified based on the authorization code.</td>
+      <td>O structură de date care conține detaliile împuternicirii identificate pe baza codului de împuternicire.</td>
     </tr>
      <tr>
       <td><strong>Response</strong></td>
       <td>AuthorizationFile</td>
-      <td>A data structure that contains the authorization file.</td>
+      <td>O structură de date care conține fișierul de împuternicire.</td>
     </tr>
      <tr>
-      <td colspan="3"><strong>Faults</strong></td>
+      <td colspan="3"><strong>Erori (Faults)</strong></td>
     </tr>
      <tr>
-      <td><strong>Code</strong></td>
-      <td><strong>Reason</strong></td>
+      <td><strong>Cod</strong></td>
+      <td><strong>Motiv</strong></td>
     </tr>
      <tr>
       <td>200</td>
-      <td colspan="2">Success</td>
+      <td colspan="2">Succes</td>
     </tr>
      <tr>
       <td>404</td>
-      <td colspan="2">Not found. Check sent request data</td>
+      <td colspan="2">Negăsit. Verificați datele trimise în cerere</td>
     </tr>
      <tr>
       <td>500</td>
-      <td colspan="2">A server error occurred. Missing connection with DB from other reasons than: 400 / 401 / 501. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Lipsă conexiune cu baza de date, din alte motive decât: 400 / 401 / 501. Contactați administratorul.</td>
     </tr>
      <tr>
       <td>501</td>
-      <td colspan="2">A server error occurred. Contact the Administrator.</td>
+      <td colspan="2">A survenit o eroare de server. Contactați administratorul.</td>
     </tr>
   </tbody>
 </table>
 
-##**Data structures (Query)**
+##**Structuri de date (Query)**
 
 <table>
   <thead>
     <tr>
-      <th><strong>Member</strong></th>
-      <th><strong>Type</strong></th>
-      <th><strong>Required/Optional</strong></th>
-      <th><strong>Description</strong></th>
+      <th><strong>Membru</strong></th>
+      <th><strong>Tip</strong></th>
+      <th><strong>Obligatoriu/Opțional</strong></th>
+      <th><strong>Descriere</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -365,97 +365,97 @@ Because this method can be called multiple times on different days/times, the re
     <tr>
       <td>AuthorizationTypeCode</td>
       <td>String</td>
-      <td>Required</td>
-      <td>Enter the authorization type code (assigned from the approved form, 10 characters – "AT-xxxxxxx").</td>
+      <td>Obligatoriu</td>
+      <td>Introduceți codul tipului de împuternicire (atribuit din formularul aprobat, 10 caractere – „AT-xxxxxxx").</td>
     </tr>
     <tr>
       <td>AuthorizingIdn</td>
       <td>String</td>
-      <td>Required</td>
-      <td>Enter the IDNP or IDNO of the represented party.
-      <br>Must contain exactly 13 characters and only digits.</td>
+      <td>Obligatoriu</td>
+      <td>Introduceți IDNP sau IDNO al persoanei reprezentate.
+      <br>Trebuie să conțină exact 13 caractere și doar cifre.</td>
     </tr>
     <tr>
       <td>AuthorizedIdn</td>
       <td>String</td>
-      <td>Required</td>
-      <td>Enter the IDNP or IDNO of the representative.
-      <br>Must contain exactly 13 characters and only digits.</td>
+      <td>Obligatoriu</td>
+      <td>Introduceți IDNP sau IDNO al reprezentantului.
+      <br>Trebuie să conțină exact 13 caractere și doar cifre.</td>
     </tr>
     <tr><td colspan="4"><strong>AuthorizationListQuery</strong></td></tr>
     <tr>
       <td>IDNx</td>
       <td>String</td>
-      <td>Required</td>
-      <td>The list of powers of representation granted and received by the completed IDNP or IDNO will be returned (where the natural or legal person has the role of represented and representative).
-      <br>Must contain exactly 13 characters and only digits.
-      <br>Will be compared to be identical to AuthorizingContextIdn and AuthorizedIdn.</td>
+      <td>Obligatoriu</td>
+      <td>Va fi returnată lista de împuterniciri acordate și primite de IDNP sau IDNO introdus (unde persoana fizică sau juridică are rolul de reprezentat și reprezentant).
+      <br>Trebuie să conțină exact 13 caractere și doar cifre.
+      <br>Va fi comparat pentru a fi identic cu AuthorizingContextIdn și AuthorizedIdn.</td>
     </tr>
     <tr>
       <td>Status</td>
       <td>Integer</td>
-      <td>Optional</td>
-      <td>Filters the list of powers of representation granted and received according to the indicated status.
-      <br>Must contain the status code as per the enumerations indicated in the Enumerations section.
-      <br>Will be compared to be identical to Authorization Status.</td>
+      <td>Opțional</td>
+      <td>Filtrează lista de împuterniciri acordate și primite în funcție de statutul indicat.
+      <br>Trebuie să conțină codul statutului conform enumerărilor indicate în secțiunea Enumerări.
+      <br>Va fi comparat pentru a fi identic cu Authorization Status.</td>
     </tr>
     <tr>
       <td>AuthorizationTypeCode</td>
       <td>String</td>
-      <td>Optional</td>
-      <td>Enter the authorization type code (assigned from the approved form, 10 characters – "AT-xxxxxxx").</td>
+      <td>Opțional</td>
+      <td>Introduceți codul tipului de împuternicire (atribuit din formularul aprobat, 10 caractere – „AT-xxxxxxx").</td>
     </tr>
     <tr>
       <td>StartDate</td>
       <td>String</td>
-      <td>Optional</td>
-      <td>Displays the powers of representation that became effective starting from the indicated date.
-      <br>Constraints: this value must not be later than the value entered in the EndDate field.
-      <br>Time is set to UTC.
-      <br>Example: "2020-09-28T10:35:16.879Z". Will be compared to be greater than or equal to AuthorizationValidFrom date (AuthorizationValidFrom represents the date the power of representation became effective).</td>
+      <td>Opțional</td>
+      <td>Afișează împuternicirile care au devenit valabile începând cu data indicată.
+      <br>Constrângeri: această valoare nu trebuie să fie ulterioară valorii introduse în câmpul EndDate.
+      <br>Ora este setată în UTC.
+      <br>Exemplu: „2020-09-28T10:35:16.879Z". Va fi comparată pentru a fi mai mare sau egală cu data AuthorizationValidFrom (AuthorizationValidFrom reprezintă data la care împuternicirea a devenit valabilă).</td>
     </tr>
     <tr>
       <td>AuthEndDateorizationTypeCode</td>
       <td>String</td>
-      <td>Optional</td>
-      <td>Displays the powers of representation that expired up to the indicated date.
-      <br>Constraints: this value must not be earlier than the value entered in the StartDate field.
-      <br>Time is set to UTC.
-      <br>Example: "2020-09-28T10:35:16.879Z". Will be compared to be greater than or equal to AuthorizationValidTo date (AuthorizationValidTo represents the expiration date of the power of representation).</td>
+      <td>Opțional</td>
+      <td>Afișează împuternicirile care au expirat până la data indicată.
+      <br>Constrângeri: această valoare nu trebuie să fie anterioară valorii introduse în câmpul StartDate.
+      <br>Ora este setată în UTC.
+      <br>Exemplu: „2020-09-28T10:35:16.879Z". Va fi comparată pentru a fi mai mare sau egală cu data AuthorizationValidTo (AuthorizationValidTo reprezintă data expirării împuternicirii).</td>
     </tr>
     <tr>
       <td>GrantedByIdn</td>
       <td>String</td>
-      <td>Optional</td>
-      <td>This parameter will display the list of powers of representation that were granted by the specified IDNP/IDNO.
-      <br>Constraints: The value of this field must be different from the value of the GrantedToIdn field. Must contain 13 characters, all digits. Will be compared to be equal to AuthorizingContextIdn.</td>
+      <td>Opțional</td>
+      <td>Acest parametru va afișa lista de împuterniciri acordate de IDNP/IDNO specificat.
+      <br>Constrângeri: valoarea acestui câmp trebuie să fie diferită de valoarea câmpului GrantedToIdn. Trebuie să conțină 13 caractere, toate cifre. Va fi comparat pentru a fi egal cu AuthorizingContextIdn.</td>
     </tr>
     <tr>
       <td>GrantedToIdn</td>
       <td>String</td>
-      <td>Optional</td>
-      <td>Displays the list of powers of representation that were received from the specified IDNP/IDNO.
-      <br>Constraints: The value of this field must be different from the value of the GrantedByIdn field. Must contain 13 characters, all digits. Will be compared to be equal to AuthorizedIdn.</td>
+      <td>Opțional</td>
+      <td>Afișează lista de împuterniciri primite de la IDNP/IDNO specificat.
+      <br>Constrângeri: valoarea acestui câmp trebuie să fie diferită de valoarea câmpului GrantedByIdn. Trebuie să conțină 13 caractere, toate cifre. Va fi comparat pentru a fi egal cu AuthorizedIdn.</td>
     </tr>
     <tr>
       <td>ItemsPerPage</td>
       <td>Integer</td>
-      <td>Optional</td>
-      <td>The parameter specifies the page to be displayed. By default, records from the first page are displayed.
-      <br>Constraints: if a negative number or zero is provided, the system will return powers of representation from the first page; if a number greater than the number of pages is provided, zero powers of representation will be displayed per page.</td>
+      <td>Opțional</td>
+      <td>Parametrul specifică pagina care va fi afișată. Implicit, sunt afișate înregistrările din prima pagină.
+      <br>Constrângeri: dacă se introduce un număr negativ sau zero, sistemul va returna împuternicirile din prima pagină; dacă se introduce un număr mai mare decât numărul de pagini, va fi afișat câte zero împuterniciri pe pagină.</td>
     </tr>
   </tbody>
 </table>
 
-##**Data structures (Response)**
+##**Structuri de date (Response)**
 
 <table>
   <thead>
     <tr>
-      <th><strong>Member</strong></th>
-      <th><strong>Type</strong></th>
-      <th><strong>Required/Optional</strong></th>
-      <th><strong>Description</strong></th>
+      <th><strong>Membru</strong></th>
+      <th><strong>Tip</strong></th>
+      <th><strong>Obligatoriu/Opțional</strong></th>
+      <th><strong>Descriere</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -463,129 +463,129 @@ Because this method can be called multiple times on different days/times, the re
     <tr>
       <td>AuthorizationCode</td>
       <td>String</td>
-      <td>Required</td>
-      <td>The unique identification code of the power of representation.</td>
+      <td>Obligatoriu</td>
+      <td>Codul unic de identificare al împuternicirii.</td>
     </tr>
     <tr>
       <td>IsValid</td>
       <td>String</td>
-      <td>Required</td>
-      <td>True if valid
-      <br>False if not valid</td>
+      <td>Obligatoriu</td>
+      <td>True dacă este valabilă
+      <br>False dacă nu este valabilă</td>
     </tr>
     <tr><td colspan="4"><strong>AuthorizationDetails</strong></td></tr>
     <tr>
       <td>AuthorizationCode</td>
       <td>String</td>
-      <td>Required</td>
-      <td>The unique identification code of the power of representation.</td>
+      <td>Obligatoriu</td>
+      <td>Codul unic de identificare al împuternicirii.</td>
     </tr>
     <tr>
       <td>AuthorizationTypeCode</td>
       <td>String</td>
-      <td>Required</td>
-      <td>The type code of the power of representation (according to the approved form).</td>
+      <td>Obligatoriu</td>
+      <td>Codul tipului de împuternicire (conform formularului aprobat).</td>
     </tr>
     <tr>
       <td>AuthorizingPartyType</td>
       <td>Integer</td>
-      <td>Required</td>
-      <td>ID of the represented party type; see the Enumerations section.</td>
+      <td>Obligatoriu</td>
+      <td>ID-ul tipului persoanei reprezentate; vezi secțiunea Enumerări.</td>
     </tr>
     <tr>
       <td>AuthorizingIdn</td>
       <td>String</td>
-      <td>Required</td>
-      <td>IDNP or IDNO of the represented party.</td>
+      <td>Obligatoriu</td>
+      <td>IDNP sau IDNO al persoanei reprezentate.</td>
     </tr>
     <tr>
       <td>AuthorizedPartyType</td>
       <td>Integer</td>
-      <td>Required</td>
-      <td>ID of the representative party type; see the Enumerations section.</td>
+      <td>Obligatoriu</td>
+      <td>ID-ul tipului părții reprezentante; vezi secțiunea Enumerări.</td>
     </tr>
     <tr>
       <td>AuthorizedIdn</td>
       <td>String</td>
-      <td>Required</td>
-      <td>IDNP or IDNO of the representative.</td>
+      <td>Obligatoriu</td>
+      <td>IDNP sau IDNO al reprezentantului.</td>
     </tr>
     <tr>
       <td>From</td>
       <td>String</td>
-      <td>Required</td>
-      <td>If isValid=True -> The date from which the power of representation is valid.
-      <br>If isValid=False -> The date from which the power of representation is suspended or invalid.
-      <br>Time is set to UTC.</td>
+      <td>Obligatoriu</td>
+      <td>Dacă isValid=True -> Data de la care împuternicirea este valabilă.
+      <br>Dacă isValid=False -> Data de la care împuternicirea este suspendată sau nevalabilă.
+      <br>Ora este setată în UTC.</td>
     </tr>
     <tr>
       <td>To</td>
       <td>String</td>
-      <td>Required</td>
-      <td>If isValid=True -> The date until which the power of representation is valid.
-      <br>If isValid=False -> "null".
-      <br>Time is set to UTC.</td>
+      <td>Obligatoriu</td>
+      <td>Dacă isValid=True -> Data până la care împuternicirea este valabilă.
+      <br>Dacă isValid=False -> „null".
+      <br>Ora este setată în UTC.</td>
     </tr>
     <tr>
       <td>IsValid</td>
       <td>String</td>
-      <td>Required</td>
-      <td>True if valid
-      <br>False if not valid</td>
+      <td>Obligatoriu</td>
+      <td>True dacă este valabilă
+      <br>False dacă nu este valabilă</td>
     </tr>
     <tr>
       <td>AuthorizingPartyName</td>
       <td>String</td>
-      <td>Required</td>
-      <td>First and last name of the represented party.</td>
+      <td>Obligatoriu</td>
+      <td>Numele și prenumele persoanei reprezentate.</td>
     </tr>
     <tr>
       <td>AuthorizedPartyName</td>
       <td>String</td>
-      <td>Required</td>
-      <td>First and last name of the representative.</td>
+      <td>Obligatoriu</td>
+      <td>Numele și prenumele reprezentantului.</td>
     </tr>
     <tr>
       <td>AuthorizationTypeName</td>
       <td>String</td>
-      <td>Required</td>
-      <td>Name of the authorization type.</td>
+      <td>Obligatoriu</td>
+      <td>Denumirea tipului de împuternicire.</td>
     </tr>
     <tr>
       <td>ServiceProviderIdno</td>
       <td>String</td>
-      <td>Required</td>
-      <td>IDNO of the service provider.</td>
+      <td>Obligatoriu</td>
+      <td>IDNO-ul prestatorului de servicii.</td>
     </tr>
     <tr>
       <td>ServiceProviderName</td>
       <td>String</td>
-      <td>Required</td>
-      <td>Name of the service provider.</td>
+      <td>Obligatoriu</td>
+      <td>Denumirea prestatorului de servicii.</td>
     </tr>
     <tr><td colspan="4"><strong>AuthorizationFile</strong></td></tr>
     <tr>
       <td>content</td>
       <td>byte[]</td>
-      <td>Required</td>
-      <td>File content that contains data about the requested authorization.</td>
+      <td>Obligatoriu</td>
+      <td>Conținutul fișierului care conține date despre împuternicirea solicitată.</td>
     </tr>
     <tr>
       <td>content-type</td>
       <td>String</td>
-      <td>Required</td>
-      <td>Authorization file MIME type. Default: "application/pdf"</td>
+      <td>Obligatoriu</td>
+      <td>Tipul MIME al fișierului de împuternicire. Implicit: „application/pdf"</td>
     </tr>
   </tbody>
 </table>
 
-##**Enumerations**
+##**Enumerări**
 
 <table>
   <thead>
     <tr>
-      <th><strong>Attributes</strong></th>
-      <th colspan="2"><strong>Description</strong></th>
+      <th><strong>Atribute</strong></th>
+      <th colspan="2"><strong>Descriere</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -594,17 +594,17 @@ Because this method can be called multiple times on different days/times, the re
     </tr>
     <tr>
       <td>1</td>
-      <td>Power of representation granted by IDNx</td>
+      <td>Împuternicire acordată de IDNx</td>
       <td></td>
     </tr>
     <tr>
       <td>2</td>
-      <td>Power of representation received by IDNx</td>
+      <td>Împuternicire primită de IDNx</td>
       <td></td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Power of representation co-signed by IDNx</td>
+      <td>Împuternicire cosemnată de IDNx</td>
       <td></td>
     </tr>
     <tr>
@@ -612,32 +612,32 @@ Because this method can be called multiple times on different days/times, the re
     </tr>
     <tr>
       <td>Draft</td>
-      <td>The power of representation is created, but not valid</td>
+      <td>Împuternicirea este creată, dar nu este valabilă</td>
       <td>None</td>
     </tr>
     <tr>
       <td>PendingAcceptance</td>
-      <td>The power of representation is granted, but requires the representative's acceptance to become valid</td>
+      <td>Împuternicirea este acordată, dar necesită acceptarea reprezentantului pentru a deveni valabilă</td>
       <td>None</td>
     </tr>
     <tr>
       <td>Pending</td>
-      <td>The power of representation is granted, but will become valid at a future date</td>
+      <td>Împuternicirea este acordată, dar va deveni valabilă la o dată viitoare</td>
       <td>None</td>
     </tr>
     <tr>
       <td>Valid</td>
-      <td>The power of representation is valid and can be used for representation</td>
+      <td>Împuternicirea este valabilă și poate fi utilizată pentru reprezentare</td>
       <td>isValid=True</td>
     </tr>
     <tr>
       <td>Canceled</td>
-      <td>The power of representation is expired, revoked or renounced</td>
+      <td>Împuternicirea a expirat, a fost revocată sau i s-a renunțat</td>
       <td>isValid=False</td>
     </tr>
     <tr>
       <td>Suspended</td>
-      <td>The power of representation is suspended</td>
+      <td>Împuternicirea este suspendată</td>
       <td>isValid=False</td>
     </tr>
     <tr>
@@ -645,60 +645,60 @@ Because this method can be called multiple times on different days/times, the re
     </tr>
     <tr>
       <td>1</td>
-      <td colspan="2">Natural person</td>
+      <td colspan="2">Persoană fizică</td>
     </tr>
     <tr>
       <td>2</td>
-      <td colspan="2">Legal entity</td>
+      <td colspan="2">Persoană juridică</td>
     </tr>
     <tr>
       <td colspan="2"><strong>AuthorizedPartyType</strong></td>
     </tr>
     <tr>
       <td>1</td>
-      <td colspan="2">Natural person</td>
+      <td colspan="2">Persoană fizică</td>
     </tr>
     <tr>
       <td>2</td>
-      <td colspan="2">Legal entity</td>
+      <td colspan="2">Persoană juridică</td>
     </tr>
 <tr>
       <td colspan="3"><strong>Status</strong></td>
     </tr>
     <tr>
       <td>1</td>
-      <td>The power of representation saved as draft (not granted)</td>
+      <td>Împuternicirea salvată ca ciornă (neacordată)</td>
       <td>Draft</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>The power of representation that was granted, but requires the representative's acceptance to become valid</td>
+      <td>Împuternicirea care a fost acordată, dar necesită acceptarea reprezentantului pentru a deveni valabilă</td>
       <td>PendingAcceptance</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>The power of representation that was granted, but the effective date is in the future</td>
+      <td>Împuternicirea care a fost acordată, dar data de intrare în vigoare este viitoare</td>
       <td>PendingValidity</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>The power of representation that is valid.</td>
+      <td>Împuternicirea care este valabilă.</td>
       <td>Valid</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>The power of representation that is suspended.</td>
+      <td>Împuternicirea care este suspendată.</td>
       <td>Suspended</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>The power of representation that is not valid due to expiry, renunciation, revocation</td>
+      <td>Împuternicirea care nu este valabilă din cauza expirării, renunțării, revocării</td>
       <td>Canceled</td>
     </tr>
   </tbody>
 </table>
 
-##**Examples of API method calls**
+##**Exemple de apeluri ale metodelor API**
 
 ###**GET /api/Authorization/check/Code-True-One**
 
@@ -774,7 +774,7 @@ Because this method can be called multiple times on different days/times, the re
 
 ###**GET /api/Authorization/check/Idn-Details-List**
 
-!NOT PROVIDED INTO PREVIOUS DOCUMENTATION
+!NEFURNIZAT ÎN DOCUMENTAȚIA ANTERIOARĂ
 
 ###**GET /api/Authorization/file**
 
@@ -796,4 +796,3 @@ Because this method can be called multiple times on different days/times, the re
       "messages": []
     }
     ```
-

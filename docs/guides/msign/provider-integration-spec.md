@@ -1,149 +1,149 @@
-# Signature provider integration specification
+# Specificația de integrare pentru furnizorii de servicii de semnătură
 
-!!! note "Audience"
-    This page is for an **electronic signature provider** (a signing instrument) integrating *into* MSign. It is separate from the rest of the MSign guide, which covers integrating information systems *with* MSign as consumers.
+!!! note "Public țintă"
+    Această pagină se adresează unui **furnizor de servicii de semnătură electronică** (un instrument de semnare) care se integrează *în* MSign. Este separată de restul ghidului MSign, care acoperă integrarea sistemelor informaționale *cu* MSign, în calitate de consumatori.
 
-## 1. Purpose
+## 1. Scop
 
-MSign is the integrated government electronic signature service of the Republic of Moldova, established by [Government Decision No. 405/2014](https://www.legis.md/cautare/getResults?doc_id=143127&lang=ro). The service owner is the Public Institution "eGovernance Agency"; the technical administrator is the Public Institution "Information Technology and Cyber Security Service".
+MSign este serviciul guvernamental integrat de semnătură electronică al Republicii Moldova, instituit prin [Hotărârea Guvernului nr. 405/2014](https://www.legis.md/cautare/getResults?doc_id=143127&lang=ro). Posesorul serviciului este Instituția Publică „Agenția de Guvernare Electronică”; administratorul tehnic este Instituția Publică „Serviciul Tehnologia Informației și Securitate Cibernetică”.
 
-MSign is an integrator service: it does not issue certificates and does not itself create signatures. It gives users the mechanism to select an electronic signature provider and to apply and verify electronic signatures through that provider. Both qualified and advanced electronic signature means may be used within MSign.
+MSign este un serviciu integrator: nu emite certificate și nu creează el însuși semnături. Acesta oferă utilizatorilor mecanismul de a selecta un furnizor de semnătură electronică și de a aplica și verifica semnături electronice prin intermediul acestuia. În cadrul MSign pot fi utilizate atât mijloace de semnătură electronică calificată, cât și avansată.
 
-In an MSign integration, the electronic signature provider (hereinafter the **"Provider"**) works as follows: MSign sends it the data to be signed, and the Provider returns the completed electronic signature together with the signer's certificate. MSign stores the result as-is and passes it to the requesting e-service. Responsibility for the authenticity of the electronic signature lies with the Provider.
+Într-o integrare cu MSign, furnizorul de semnătură electronică (denumit în continuare **„Furnizorul”**) funcționează astfel: MSign îi transmite datele de semnat, iar Furnizorul returnează semnătura electronică finalizată, împreună cu certificatul semnatarului. MSign stochează rezultatul ca atare și îl transmite e-serviciului solicitant. Responsabilitatea pentru autenticitatea semnăturii electronice revine Furnizorului.
 
-This document covers only the technical integration interface for the electronic signature of a natural person (the signer, within the meaning of Art. 2 of [Law No. 124/2022](https://www.legis.md/cautare/getResults?doc_id=151294&lang=ro)). It does not cover the electronic seal of a legal person, which is not yet implemented in the Republic of Moldova. The Provider's legal obligations as a trust service provider ([section 8](#8-legal-obligations-that-remain-with-the-provider)) are unchanged and are not limited by this document.
+Acest document acoperă doar interfața de integrare tehnică pentru semnătura electronică a persoanei fizice (semnatarul, în sensul art. 2 din [Legea nr. 124/2022](https://www.legis.md/cautare/getResults?doc_id=151294&lang=ro)). Nu acoperă sigiliul electronic al persoanei juridice, care nu este încă implementat în Republica Moldova. Obligațiile legale ale Furnizorului în calitate de prestator de servicii de încredere ([secțiunea 8](#8-obligatii-legale-care-raman-in-sarcina-furnizorului)) rămân neschimbate și nu sunt limitate de acest document.
 
-## 2. What is signed
+## 2. Ce se semnează
 
-Each signing request contains one or more documents, each of one of the following two types:
+Fiecare cerere de semnare conține unul sau mai multe documente, fiecare dintre următoarele două tipuri:
 
-| Type | What MSign sends | What the Provider returns |
+| Tip | Ce trimite MSign | Ce returnează Furnizorul |
 |------|------------------|---------------------------|
-| **Hash** | A document hash — SHA-256 (32 bytes) or another SHA-2 / SHA-3 family algorithm agreed at onboarding. **SHA-1 is not accepted.** The document stays with the e-service; only the hash is signed. | A complete **detached XAdES** signature at level **T** over that hash, plus the signer's certificate. |
-| **PDF** | The PDF document. | The same PDF with an embedded **PAdES level T** signature, plus the signer's certificate. |
+| **Hash** | Un hash al documentului — SHA-256 (32 de byte-i) sau un alt algoritm din familia SHA-2 / SHA-3, agreat la etapa de onboarding. **SHA-1 nu este acceptat.** Documentul rămâne la e-serviciu; se semnează doar hash-ul. | O semnătură completă **XAdES detașată (detached)**, de nivel **T**, aplicată asupra acelui hash, plus certificatul semnatarului. |
+| **PDF** | Documentul PDF. | Același PDF cu o semnătură **PAdES de nivel T** încorporată, plus certificatul semnatarului. |
 
-A single request may contain several documents; the Provider signs each one and returns one signature per document.
+O singură cerere poate conține mai multe documente; Furnizorul semnează fiecare document și returnează câte o semnătură pentru fiecare document.
 
-## 3. Signature format requirements (mandatory for integration)
+## 3. Cerințe privind formatul semnăturii (obligatorii pentru integrare)
 
-These requirements are set by MSign on the basis of the technical regulations and standards approved by the supervisory body (the Information and Security Service of the Republic of Moldova), under Art. 35(2)(f) and (h) of Law No. 124/2022. They are not stated in the law itself but in the subordinate technical framework.
+Aceste cerințe sunt stabilite de MSign pe baza reglementărilor tehnice și a standardelor aprobate de organul de supraveghere (Serviciul Informații și Securitate al Republicii Moldova), în temeiul art. 35 alin. (2) lit. f) și h) din Legea nr. 124/2022. Acestea nu sunt prevăzute în lege propriu-zisă, ci în cadrul tehnic subordonat.
 
-1. Hash → **detached XAdES**, protection level "T" (baseline, with a timestamp), per ETSI EN 319 132.
-2. PDF → **PAdES level "T"**, embedded in the returned PDF, per ETSI EN 319 142.
-3. Level "T" requires an electronic timestamp on the signature. For a qualified electronic signature this must be a **qualified electronic timestamp** (Art. 31 of Law No. 124/2022).
-4. **Signature type and Provider status:**
-    - MSign accepts both qualified and advanced electronic signatures, and providers may be qualified or non-qualified trust service providers (MSign Regulation, points 2 and 4; Art. 6(1) of Law No. 124/2022).
-    - The signature type produced and the Provider's level are set at onboarding and recorded in the integration contract signed with eGov.
-    - If the requesting e-service needs a signature with the same legal value as a handwritten signature (Art. 21(2) of Law No. 124/2022), a **qualified electronic signature** is required — based on a qualified certificate for electronic signature (Art. 24 and 25) and created with a qualified signature creation device (Art. 27).
-5. **Recognition of the signing CA.** The trust service provider that issues the signer's certificate must appear on the **national trusted list** maintained and published by the supervisory body (Art. 8 and Art. 35(2)(e) of Law No. 124/2022). For qualified trust service providers established in EU member states, the recognition under Art. 3 and Art. 8(7)–(9) applies. For advanced signatures produced by a non-qualified provider, the recognition conditions agreed in the integration contract apply.
+1. Hash → **XAdES detașată**, nivel de protecție „T” (baseline, cu marcă temporală), conform ETSI EN 319 132.
+2. PDF → **PAdES nivel „T”**, încorporat în PDF-ul returnat, conform ETSI EN 319 142.
+3. Nivelul „T” necesită o marcă temporală electronică pe semnătură. Pentru o semnătură electronică calificată, aceasta trebuie să fie o **marcă temporală electronică calificată** (art. 31 din Legea nr. 124/2022).
+4. **Tipul semnăturii și statutul Furnizorului:**
+    - MSign acceptă atât semnături electronice calificate, cât și avansate, iar furnizorii pot fi prestatori de servicii de încredere calificați sau necalificați (Regulamentul MSign, pct. 2 și 4; art. 6 alin. (1) din Legea nr. 124/2022).
+    - Tipul semnăturii produse și nivelul Furnizorului se stabilesc la etapa de onboarding și se consemnează în contractul de integrare semnat cu AGE.
+    - Dacă e-serviciul solicitant necesită o semnătură cu aceeași valoare juridică ca o semnătură olografă (art. 21 alin. (2) din Legea nr. 124/2022), este necesară o **semnătură electronică calificată** — bazată pe un certificat calificat pentru semnătură electronică (art. 24 și 25) și creată cu un dispozitiv calificat de creare a semnăturii (art. 27).
+5. **Recunoașterea AC-ului emitent.** Prestatorul de servicii de încredere care emite certificatul semnatarului trebuie să figureze pe **lista națională de încredere** administrată și publicată de organul de supraveghere (art. 8 și art. 35 alin. (2) lit. e) din Legea nr. 124/2022). Pentru prestatorii de servicii de încredere calificați stabiliți în statele membre ale UE, se aplică recunoașterea prevăzută la art. 3 și art. 8 alin. (7)–(9). Pentru semnăturile avansate produse de un furnizor necalificat, se aplică condițiile de recunoaștere convenite în contractul de integrare.
 
-!!! warning "Point 5 is the essential prerequisite for qualified signatures"
-    After signing, MSign independently validates every signature by checking it against the national trusted list of qualified trust service providers and against the validation conditions of Art. 29 of Law No. 124/2022 (qualified certificate, valid at the time of signing, issued by a qualified provider).
+!!! warning "Punctul 5 este condiția esențială pentru semnăturile calificate"
+    După semnare, MSign validează independent fiecare semnătură, verificând-o în raport cu lista națională de încredere a prestatorilor de servicii de încredere calificați și cu condițiile de validare de la art. 29 din Legea nr. 124/2022 (certificat calificat, valid la momentul semnării, emis de un prestator calificat).
 
-    A qualified signature produced under a CA that is not on the trusted list will be reported as **invalid** — even if it was created correctly — and will therefore be unusable. Confirm the signing CA with the MSign team before starting development.
+    O semnătură calificată produsă în baza unui AC care nu se află pe lista de încredere va fi raportată ca **invalidă** — chiar dacă a fost creată corect — și, prin urmare, va fi inutilizabilă. Confirmați AC-ul emitent cu echipa MSign înainte de a începe dezvoltarea.
 
-## 4. Integration modes
+## 4. Moduri de integrare
 
-The Provider implements the mode that matches how the user authorises the signature:
+Furnizorul implementează modul care corespunde modului în care utilizatorul autorizează semnătura:
 
-- **Synchronous** — for instant / server-side signing. MSign calls the Provider's Sign operation and receives the completed signatures directly in the response.
-- **Asynchronous** — when the user must confirm on a phone or in an app. MSign calls the Sign operation, the Provider accepts the request and, once the user has signed, notifies MSign with a short callback; MSign then retrieves the completed signatures from the Provider.
+- **Sincron** — pentru semnarea instantanee / pe server. MSign apelează operația de semnare (Sign) a Furnizorului și primește semnăturile finalizate direct în răspuns.
+- **Asincron** — atunci când utilizatorul trebuie să confirme pe telefon sau într-o aplicație. MSign apelează operația de semnare, Furnizorul acceptă cererea și, după ce utilizatorul a semnat, notifică MSign printr-un callback scurt; MSign preia apoi semnăturile finalizate de la Furnizor.
 
-Either mode may be implemented. The data exchanged is the same; only the timing differs.
+Oricare dintre moduri poate fi implementat. Datele schimbate sunt aceleași; diferă doar sincronizarea în timp.
 
-## 5. API contract
+## 5. Contractul API
 
-The Provider exposes the operations below over HTTPS; every call is authenticated as described in [section 6](#6-authentication-and-security). Field names are indicative — a SOAP or REST equivalent is acceptable; the exact schema (WSDL / OpenAPI) is agreed during onboarding.
+Furnizorul expune operațiile de mai jos prin HTTPS; fiecare apel este autentificat conform descrierii din [secțiunea 6](#6-autentificare-si-securitate). Denumirile câmpurilor sunt orientative — un echivalent SOAP sau REST este acceptabil; schema exactă (WSDL / OpenAPI) se convine la etapa de onboarding.
 
-### 5.1 Sign — request (MSign → Provider)
+### 5.1 Sign — cerere (MSign → Furnizor)
 
-| Field | Type | Notes |
+| Câmp | Tip | Note |
 |-------|------|-------|
-| `requestId` | string | Correlation id for the whole request. Echoed back. |
-| `signerId` | string, optional | The user's national ID number (IDNP). When present, the signature must be produced by exactly that person (see [section 6](#6-authentication-and-security)). |
-| `description` | string | Short human-readable text describing what is being signed (may be shown to the user). |
-| `callbackUrl` | string | Asynchronous mode only — the address the Provider POSTs to when signing completes. |
-| `items[]` | list | One entry per document (below). |
+| `requestId` | string | ID-ul de corelare pentru întreaga cerere. Se returnează identic (echoed back). |
+| `signerId` | string, opțional | Numărul de identificare de stat al persoanei (IDNP) a utilizatorului. Dacă este prezent, semnătura trebuie să fie produsă exact de acea persoană (vezi [secțiunea 6](#6-autentificare-si-securitate)). |
+| `description` | string | Text scurt, lizibil pentru om, care descrie ce se semnează (poate fi afișat utilizatorului). |
+| `callbackUrl` | string | Doar în modul asincron — adresa la care Furnizorul trimite un POST atunci când semnarea se finalizează. |
+| `items[]` | listă | O intrare per document (mai jos). |
 
-Each `items[]` entry:
+Fiecare intrare din `items[]`:
 
-| Field | Type | Notes |
+| Câmp | Tip | Note |
 |-------|------|-------|
-| `id` | string | Per-document correlation id. Echoed back in the matching result. |
-| `contentType` | enum | `Hash` or `Pdf`. |
-| `hash` | bytes | Present for Hash — the digest to sign. |
-| `document` | bytes | Present for Pdf — the PDF to sign. |
-| `fileName`, `fileMediaType` | string, optional | For display to the user. |
+| `id` | string | ID-ul de corelare per document. Se returnează identic în rezultatul corespunzător. |
+| `contentType` | enum | `Hash` sau `Pdf`. |
+| `hash` | bytes | Prezent pentru Hash — sinteza (digest) de semnat. |
+| `document` | bytes | Prezent pentru Pdf — PDF-ul de semnat. |
+| `fileName`, `fileMediaType` | string, opțional | Pentru afișare către utilizator. |
 
-### 5.2 Result (Provider → MSign)
+### 5.2 Rezultat (Furnizor → MSign)
 
-Returned directly (synchronous) or via the status operation (asynchronous):
+Returnat direct (în modul sincron) sau prin operația de status (în modul asincron):
 
-| Field | Type | Notes |
+| Câmp | Tip | Note |
 |-------|------|-------|
-| `status` | enum | `Pending`, `Success` or `Failure`. |
-| `failureReason` | string | Present on `Failure` — a short, user-meaningful reason (see [section 7](#7-status-and-error-conventions)). |
-| `signerCertificate` | bytes | The signer's X.509 certificate (DER). |
-| `items[]` | list | One entry per document (below). |
+| `status` | enum | `Pending`, `Success` sau `Failure`. |
+| `failureReason` | string | Prezent la `Failure` — un motiv scurt, inteligibil pentru utilizator (vezi [secțiunea 7](#7-conventii-privind-statusul-si-erorile)). |
+| `signerCertificate` | bytes | Certificatul X.509 al semnatarului (DER). |
+| `items[]` | listă | O intrare per document (mai jos). |
 
-Each result `items[]` entry:
+Fiecare intrare de rezultat din `items[]`:
 
-| Field | Type | Notes |
+| Câmp | Tip | Note |
 |-------|------|-------|
-| `id` | string | The document correlation id, echoed from the request. |
-| `signature` | bytes | For Hash: the completed detached XAdES-T. For Pdf: the returned PDF with the embedded PAdES-T. |
+| `id` | string | ID-ul de corelare al documentului, returnat identic din cerere. |
+| `signature` | bytes | Pentru Hash: semnătura XAdES-T detașată finalizată. Pentru Pdf: PDF-ul returnat cu semnătura PAdES-T încorporată. |
 
-### 5.3 Callback (asynchronous mode only)
+### 5.3 Callback (doar în modul asincron)
 
-When signing completes, the Provider POSTs to `callbackUrl` a minimal body containing only `requestId` / the transaction id. This is a wake-up notification only — **the signature is not included in the callback**. On receipt, MSign calls the Provider's status operation to retrieve the completed signatures.
+Când semnarea se finalizează, Furnizorul trimite un POST către `callbackUrl` cu un corp minimal, care conține doar `requestId` / ID-ul tranzacției. Aceasta este doar o notificare de trezire (wake-up) — **semnătura nu este inclusă în callback**. La primirea acestuia, MSign apelează operația de status a Furnizorului pentru a prelua semnăturile finalizate.
 
-### 5.4 Status / result operation (asynchronous mode only)
+### 5.4 Operația de status / rezultat (doar în modul asincron)
 
-MSign requests the result of a previously submitted signing by its `requestId`. Return the structure of section 5.2. While signing is still in progress, return `status = Pending`.
+MSign solicită rezultatul unei semnări trimise anterior, folosind `requestId`-ul acesteia. Returnați structura de la secțiunea 5.2. Cât timp semnarea este încă în curs, returnați `status = Pending`.
 
-## 6. Authentication and security
+## 6. Autentificare și securitate
 
-- **Authentication.** Every request is authenticated with a bearer token over HTTPS. MSign sends an `Authorization: Bearer <token>` header on each call to the Provider's service, using a token (API key) issued by the Provider to MSign. The Provider's callback to MSign carries an `Authorization: Bearer <token>` header using a token issued by MSign to the Provider. Tokens are exchanged during onboarding, can be rotated, and are never placed in URLs.
-- **Transport.** All traffic runs over HTTPS (TLS 1.2 or higher). The Provider's endpoint must present a valid server certificate. The exchange runs over secure channels with cryptographic protection of the information (MSign Regulation, point 14).
-- **Signer binding.** When `signerId` (IDNP) is supplied, the signature must belong to exactly that person. The person's identifier is carried in the `serialNumber` attribute of the certificate's Subject Distinguished Name — **not the certificate serial number** — per the qualified certificate structure set by the supervisory body (Art. 13(4) of Law No. 124/2022) and the ETSI EN 319 412-1 semantics (usually with a prefix, e.g. `PNOMD-<IDNP>`). The exact field format is agreed at onboarding. If the identifier in the certificate does not match the supplied IDNP, the Provider fails the request rather than returning a signature.
-- **Correlation.** Always echo `requestId` and each item `id` so results map unambiguously to documents.
-- **No signature material in callbacks** — callbacks carry only the identifier and are authenticated as above.
+- **Autentificare.** Fiecare cerere este autentificată printr-un token de tip bearer, prin HTTPS. MSign trimite un antet `Authorization: Bearer <token>` la fiecare apel către serviciul Furnizorului, utilizând un token (cheie API) emis de Furnizor pentru MSign. Callback-ul Furnizorului către MSign poartă un antet `Authorization: Bearer <token>`, utilizând un token emis de MSign pentru Furnizor. Token-urile se schimbă la etapa de onboarding, pot fi rotite și nu sunt niciodată plasate în URL-uri.
+- **Transport.** Tot traficul se desfășoară prin HTTPS (TLS 1.2 sau mai recent). Endpoint-ul Furnizorului trebuie să prezinte un certificat de server valid. Schimbul are loc prin canale securizate, cu protecție criptografică a informației (Regulamentul MSign, pct. 14).
+- **Asocierea semnatarului.** Când este furnizat `signerId` (IDNP), semnătura trebuie să aparțină exact acelei persoane. Identificatorul persoanei este transmis în atributul `serialNumber` din Subject Distinguished Name al certificatului — **nu numărul de serie al certificatului** — conform structurii certificatului calificat stabilite de organul de supraveghere (art. 13 alin. (4) din Legea nr. 124/2022) și semanticii ETSI EN 319 412-1 (de regulă cu un prefix, de ex. `PNOMD-<IDNP>`). Formatul exact al câmpului se convine la etapa de onboarding. Dacă identificatorul din certificat nu corespunde IDNP-ului furnizat, Furnizorul respinge cererea în loc să returneze o semnătură.
+- **Corelare.** Returnați întotdeauna identic `requestId` și `id`-ul fiecărui element, astfel încât rezultatele să corespundă fără ambiguitate documentelor.
+- **Fără material de semnătură în callback-uri** — callback-urile conțin doar identificatorul și sunt autentificate conform celor de mai sus.
 
-## 7. Status and error conventions
+## 7. Convenții privind statusul și erorile
 
-- Report `Success` only when all documents in the request have been signed.
-- On failure, return a concise `failureReason` that can be shown to the user — for example: user cancelled, wrong PIN, no active device, certificate expired, certificate revoked, or the signer does not match the expected person.
-- If the user has more than one signing device / identity and one must be chosen, the Provider indicates this so MSign can present the choice (optional — describe the mechanism at onboarding).
+- Raportați `Success` doar atunci când toate documentele din cerere au fost semnate.
+- În caz de eșec, returnați un `failureReason` concis, care poate fi afișat utilizatorului — de exemplu: utilizatorul a anulat, PIN greșit, niciun dispozitiv activ, certificat expirat, certificat revocat sau semnatarul nu corespunde persoanei așteptate.
+- Dacă utilizatorul are mai multe dispozitive/identități de semnare și trebuie aleasă una, Furnizorul indică acest lucru, astfel încât MSign să poată prezenta opțiunea de alegere (opțional — descrieți mecanismul la etapa de onboarding).
 
-## 8. Legal obligations that remain with the Provider
+## 8. Obligații legale care rămân în sarcina Furnizorului
 
-This document covers only the technical integration interface. As a trust service provider integrated into MSign, the Provider remains subject to the obligations under Law No. 124/2022 and the MSign Regulation, including:
+Acest document acoperă doar interfața de integrare tehnică. În calitate de prestator de servicii de încredere integrat în MSign, Furnizorul rămâne supus obligațiilor prevăzute de Legea nr. 124/2022 și de Regulamentul MSign, inclusiv:
 
-- An integration contract with eGov, signed before going to production (MSign Regulation, points 5(8) and 9(4)); new providers are integrated "in the manner established by the legislation in force … if they meet the legal requirements" (MSign Regulation, point 23).
-- Verifying the identity of the certificate applicant through one of the methods in Art. 10(2) point 4 of Law No. 124/2022.
-- Revoking the public-key certificate and recording it in the register within at most 3 working hours of receiving information that requires revocation (Art. 16(3)).
-- Recording and keeping accessible the relevant information for 15 years, including after ceasing activity (Art. 10(2) point 9); keeping the public-key certificate for at least 15 years from revocation or expiry (Art. 15(2)).
-- Arranging, at its own expense, at least once every two years, a conformity audit of its qualified trust services carried out by a conformity assessment body (Art. 10(2) point 10).
-- Meeting the cybersecurity obligations under Law No. 48/2023 (Art. 39 of Law No. 124/2022).
-- Complying with personal data protection legislation while providing the trust services (Art. 52; MSign Regulation, Chapter IV).
-- Qualified providers only: notifying the supervisory body of changes in the provision of qualified trust services and of any intention to cease that activity (Art. 10(2) point 2).
+- Un contract de integrare cu AGE, semnat înainte de trecerea în producție (Regulamentul MSign, pct. 5 subpct. 8) și pct. 9 subpct. 4)); noii furnizori sunt integrați „în modul stabilit de legislația în vigoare … dacă îndeplinesc cerințele legale” (Regulamentul MSign, pct. 23).
+- Verificarea identității solicitantului de certificat prin una dintre metodele prevăzute la art. 10 alin. (2) pct. 4) din Legea nr. 124/2022.
+- Revocarea certificatului cheii publice și înregistrarea acesteia în registru în cel mult 3 ore lucrătoare de la primirea informației care impune revocarea (art. 16 alin. (3)).
+- Înregistrarea și păstrarea accesibilă a informațiilor relevante timp de 15 ani, inclusiv după încetarea activității (art. 10 alin. (2) pct. 9)); păstrarea certificatului cheii publice pentru cel puțin 15 ani de la revocare sau expirare (art. 15 alin. (2)).
+- Organizarea, pe cont propriu, cel puțin o dată la doi ani, a unui audit de conformitate a serviciilor sale de încredere calificate, efectuat de un organism de evaluare a conformității (art. 10 alin. (2) pct. 10)).
+- Îndeplinirea obligațiilor de securitate cibernetică prevăzute de Legea nr. 48/2023 (art. 39 din Legea nr. 124/2022).
+- Respectarea legislației privind protecția datelor cu caracter personal în furnizarea serviciilor de încredere (art. 52; Regulamentul MSign, capitolul IV).
+- Doar pentru prestatorii calificați: notificarea organului de supraveghere cu privire la modificările în prestarea serviciilor de încredere calificate și la orice intenție de a înceta această activitate (art. 10 alin. (2) pct. 2)).
 
-## 9. What we need from the Provider to begin
+## 9. Ce ne trebuie de la Furnizor pentru a începe
 
-1. The API endpoint URL(s) and the service description (WSDL or OpenAPI).
-2. The token (API key) the Provider's service will accept from MSign; in return, MSign will issue a token to authenticate the Provider's callback.
-3. Written confirmation of the signature type produced (qualified or advanced) and of the Provider's status (qualified or non-qualified trust service provider).
-4. For qualified signatures: written confirmation of the signing CA and that it appears on the national trusted list (section 3, point 5); for EU providers — the reference to the member state's trusted list.
-5. A test environment and a test signer identity for end-to-end validation.
+1. Adresa (adresele) URL a endpoint-ului API și descrierea serviciului (WSDL sau OpenAPI).
+2. Token-ul (cheia API) pe care serviciul Furnizorului îl va accepta de la MSign; în schimb, MSign va emite un token pentru autentificarea callback-ului Furnizorului.
+3. Confirmarea scrisă a tipului de semnătură produs (calificată sau avansată) și a statutului Furnizorului (prestator de servicii de încredere calificat sau necalificat).
+4. Pentru semnăturile calificate: confirmarea scrisă a AC-ului emitent și a faptului că acesta figurează pe lista națională de încredere (secțiunea 3, punctul 5); pentru furnizorii din UE — referința la lista de încredere a statului membru.
+5. Un mediu de testare și o identitate de semnatar de test pentru validarea end-to-end.
 
-## 10. Acceptance checklist
+## 10. Lista de verificare pentru acceptare
 
-1. Sign API exposed over HTTPS and authenticated with a bearer token (section 6), in synchronous or asynchronous mode.
-2. Hash documents returned as detached XAdES-T; PDF documents returned with embedded PAdES-T; the signer's certificate returned in both cases.
-3. Level "T" ensured by an electronic timestamp (qualified, for qualified signatures).
-4. `requestId` and each item `id` echoed back correctly for multi-document requests.
-5. `signerId` (IDNP) honoured — the identifier in the signer's certificate matches the expected person.
-6. Asynchronous mode (if used): wake-up callback + result retrieval via the status operation; no signature in the callback.
-7. Signature type and Provider status recorded in the integration contract with eGov.
-8. For qualified signatures: signing CA confirmed as recognised (trusted list) — a test signature passes MSign validation end to end.
-9. The obligations in section 8 confirmed.
+1. API de semnare expus prin HTTPS și autentificat printr-un token de tip bearer (secțiunea 6), în mod sincron sau asincron.
+2. Documentele de tip Hash returnate ca XAdES-T detașat; documentele PDF returnate cu PAdES-T încorporat; certificatul semnatarului returnat în ambele cazuri.
+3. Nivelul „T” asigurat printr-o marcă temporală electronică (calificată, pentru semnăturile calificate).
+4. `requestId` și `id`-ul fiecărui element returnate corect pentru cererile cu mai multe documente.
+5. `signerId` (IDNP) respectat — identificatorul din certificatul semnatarului corespunde persoanei așteptate.
+6. Modul asincron (dacă este utilizat): callback de trezire + preluarea rezultatului prin operația de status; fără semnătură în callback.
+7. Tipul semnăturii și statutul Furnizorului consemnate în contractul de integrare cu AGE.
+8. Pentru semnăturile calificate: AC-ul emitent confirmat ca recunoscut (lista de încredere) — o semnătură de test trece validarea MSign de la un capăt la altul (end to end).
+9. Obligațiile de la secțiunea 8 confirmate.

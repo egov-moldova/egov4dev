@@ -1,4 +1,4 @@
-Here is a sample CloudEvent in "application/cloudevents+json" format:
+Iată un exemplu de CloudEvent în format „application/cloudevents+json":
 
 ```json
 {
@@ -14,7 +14,7 @@ Here is a sample CloudEvent in "application/cloudevents+json" format:
 }
 ```
 
-The event above represents the fact that VP (Vehicle Registration Certificate) with Number "123456789" was invalidated and the owner of the vehicle has "2134567890123" as IDNP. The schema for the above event is the following:
+Evenimentul de mai sus reprezintă faptul că certificatul de înmatriculare a vehiculului (VP) cu numărul „123456789" a fost invalidat, iar proprietarul vehiculului are IDNP „2134567890123". Schema pentru evenimentul de mai sus este următoarea:
 
 ```json
 {
@@ -33,7 +33,7 @@ The event above represents the fact that VP (Vehicle Registration Certificate) w
 }
 ```
 
-Here is another CloudEvent example that is considered as personal data processing:
+Iată un alt exemplu de CloudEvent, considerat prelucrare de date cu caracter personal:
 
 ```json
 {
@@ -52,9 +52,9 @@ Here is another CloudEvent example that is considered as personal data processin
 }
 ```
 
-The event above represents the fact of birth and includes EventReason that can be used as legal reason for personal data processing. In this case, MConnect Events is configured to extract the legal reason from EventReason field (using "$.EventReason" as JSON path).
+Evenimentul de mai sus reprezintă faptul nașterii și include EventReason, care poate fi folosit ca temei legal pentru prelucrarea datelor cu caracter personal. În acest caz, MConnect Events este configurat să extragă temeiul legal din câmpul EventReason (folosind „$.EventReason" ca JSON path).
 
-The schema for the above event is the following:
+Schema pentru evenimentul de mai sus este următoarea:
 
 ```json
 {

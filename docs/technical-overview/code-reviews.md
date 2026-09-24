@@ -1,10 +1,10 @@
-Code review is where quality, security, and shared knowledge actually happen. Every change to a system in the eGov Moldova ecosystem reaches a protected branch only through a pull request that has been reviewed — there are no exceptions for seniority, urgency, or team.
+Revizuirea codului este locul unde calitatea, securitatea și cunoștințele partajate chiar au loc. Fiecare modificare a unui sistem din ecosistemul eGov Moldova ajunge într-o ramură (branch) protejată doar printr-un pull request care a fost revizuit — nu există excepții pentru vechime, urgență sau echipă.
 
 * * *
 
-## Branching model
+## Modelul de ramificare (branching)
 
-Development follows a three-branch promotion flow:
+Dezvoltarea urmează un flux de promovare pe trei ramuri:
 
 ```
 feature/* ──PR──▶ dev ──PR──▶ staging ──PR──▶ main
@@ -15,61 +15,61 @@ feature/* ──PR──▶ dev ──PR──▶ staging ──PR──▶ main
              QA
 ```
 
-- All development happens on **feature branches created from `dev`** — never directly on `dev`, `staging`, or `main`.
-- Code moves forward only through pull requests: feature → `dev` (deployed automatically for functional QA), `dev` → `staging` (regression, UAT, end-to-end testing), `staging` → `main` (production deployment).
-- **Hotfixes** branch from `main`, go through an expedited PR to `staging` for a smoke test, then to `main` for urgent deployment. A critical production defect is announced to the delivery manager first — not fixed via a direct PR to `main`.
-- After each release, `main` is synchronized back into `staging` and `staging` into `dev`, so environments never drift apart.
+- Toată dezvoltarea are loc pe **ramuri de tip feature, create din `dev`** — niciodată direct pe `dev`, `staging` sau `main`.
+- Codul avansează doar prin pull request-uri: feature → `dev` (implementat automat pentru QA funcțional), `dev` → `staging` (testare de regresie, UAT, end-to-end), `staging` → `main` (implementare în producție).
+- **Hotfix-urile** pornesc din `main`, trec printr-un PR accelerat către `staging` pentru un test rapid (smoke test), apoi către `main` pentru implementare urgentă. Un defect critic de producție este anunțat mai întâi managerului de livrare — nu remediat printr-un PR direct către `main`.
+- După fiecare lansare, `main` este sincronizat înapoi în `staging`, iar `staging` în `dev`, astfel încât mediile să nu diverge niciodată.
 
-## Pull request requirements
+## Cerințe pentru pull request
 
-A pull request is ready for review when:
+Un pull request este pregătit pentru revizuire atunci când:
 
-- It references its **work item** (`#ID`) and describes what changed and why.
-- It is **small and focused** — one logical change. Large mixed PRs get slower, shallower reviews.
-- The **CI pipeline passes**: build (warnings as errors), unit and integration tests, static analysis, dependency and secret scanning. Security scan failures are blocking — they are fixed, never merged over.
-- It contains **no credentials, keys, or real personal data** — neither in code, nor configuration, nor test fixtures.
+- Face referire la **elementul de lucru** (`#ID`) și descrie ce s-a modificat și de ce.
+- Este **mic și focalizat** — o singură modificare logică. PR-urile mari și amestecate primesc revizuiri mai lente și mai superficiale.
+- **Pipeline-ul CI trece**: build (avertismentele tratate ca erori), teste unitare și de integrare, analiză statică, scanarea dependențelor și a secretelor. Eșecurile scanării de securitate sunt blocante — se remediază, nu se face merge peste ele.
+- Nu conține **niciun fel de credențiale, chei sau date personale reale** — nici în cod, nici în configurare, nici în fixture-urile de test.
 
-Merging requires a minimum of **two approvals: a peer and a technical lead or QA**. Direct commits to protected branches are disabled.
-
-* * *
-
-## Review culture
-
-Reviews lose their value if people stop commenting — or stop submitting honest work — because comments feel like attacks. The etiquette is simple: **critique the code, not the author**, keep comments concise and neutral, and ask for clarification instead of assuming ignorance.
-
-Because many teams and vendors contribute to the ecosystem, reviewers use a shared comment vocabulary so intent is never ambiguous:
-
-- **`Consider:`** — a suggestion or shared knowledge; the author may adopt it or not without blocking approval.
-- **`Should:`** — the code needs to change: it is buggy, insecure, has dangerous side effects, or a significant performance cost. A `Should:` comment must be backed by a concrete argument; if you cannot explain *why*, it is a `Consider:` at most.
-
-## What reviewers check
-
-1. **Correctness** — does the change do what the work item asks, including edge cases and error paths?
-2. **Security** — input validation, authorization on every resource access, no secrets, no injection surface, no personal data in logs or URLs. See [Code standards](code-standards.md).
-3. **Tests** — new logic arrives with unit tests; changed behavior arrives with updated tests; coverage gates pass.
-4. **Standards conformance** — [code standards](code-standards.md), [API design](api-design-guide.md) for contract changes, [logging rules](log-management.md) for anything touching business events.
-5. **Maintainability** — will the next team understand this? Naming, structure, absence of dead code and commented-out blocks.
-6. **Contract impact** — for API changes: is it backwards compatible, or does it require a version bump and consumer notification?
+Efectuarea merge-ului necesită minimum **două aprobări: un coleg (peer) și un tech lead sau QA**. Commit-urile directe pe ramurile protejate sunt dezactivate.
 
 * * *
 
-## Definition of Ready / Definition of Done
+## Cultura de revizuire
 
-The review sits inside a wider delivery flow with explicit gates:
+Revizuirile își pierd valoarea dacă oamenii încetează să comenteze — sau încetează să prezinte lucrări oneste — pentru că simt comentariile ca pe niște atacuri. Eticheta este simplă: **criticați codul, nu autorul**, păstrați comentariile concise și neutre, și cereți clarificări în loc să presupuneți lipsă de cunoștințe.
 
-| Stage | Condition |
+Deoarece multe echipe și furnizori contribuie la ecosistem, evaluatorii (reviewers) folosesc un vocabular comun de comentarii, astfel încât intenția să nu fie niciodată ambiguă:
+
+- **`Consider:`** — o sugestie sau o cunoștință partajată; autorul o poate adopta sau nu, fără a bloca aprobarea.
+- **`Should:`** — codul trebuie să se schimbe: are un bug, este nesigur, are efecte secundare periculoase sau un cost de performanță semnificativ. Un comentariu `Should:` trebuie susținut de un argument concret; dacă nu puteți explica *de ce*, este cel mult un `Consider:`.
+
+## Ce verifică evaluatorii (reviewers)
+
+1. **Corectitudine** — modificarea face ceea ce cere elementul de lucru, inclusiv cazurile limită și căile de eroare?
+2. **Securitate** — validarea datelor de intrare, autorizare la fiecare accesare a resurselor, fără secrete, fără suprafață de injecție, fără date personale în jurnale sau URL-uri. Vedeți [Standarde de cod](code-standards.md).
+3. **Teste** — logica nouă vine cu teste unitare; comportamentul modificat vine cu teste actualizate; pragurile de acoperire (coverage gates) trec.
+4. **Conformitate cu standardele** — [standarde de cod](code-standards.md), [proiectarea API-urilor](api-design-guide.md) pentru modificări de contract, [regulile de jurnalizare](log-management.md) pentru orice atinge evenimente de business.
+5. **Mentenabilitate** — va înțelege următoarea echipă acest cod? Denumire, structură, absența codului mort și a blocurilor comentate.
+6. **Impactul asupra contractului** — pentru modificări de API: este compatibil retroactiv, sau necesită o creștere de versiune și notificarea consumatorilor?
+
+* * *
+
+## Definiția lui „Gata de început” / Definiția lui „Finalizat”
+
+Revizuirea se încadrează într-un flux de livrare mai amplu, cu praguri explicite:
+
+| Etapă | Condiție |
 | --- | --- |
-| Ready (can enter a sprint) | The story has acceptance criteria, an estimate, and clarified dependencies |
-| Resolved (development done) | Code implemented, review passed, tested locally, deployed to DEV, no critical vulnerabilities |
-| Ready for deployment | QA tests (functional, regression, E2E) passed on staging, UAT approved |
-| Closed | Production deployment confirmed and post-deploy checks passed |
+| Gata (poate intra într-un sprint) | Povestea (story) are criterii de acceptanță, o estimare și dependențele clarificate |
+| Rezolvat (dezvoltare finalizată) | Cod implementat, revizuire trecută, testat local, implementat pe DEV, fără vulnerabilități critice |
+| Gata de implementare | Testele QA (funcționale, de regresie, E2E) au trecut pe staging, UAT aprobat |
+| Închis | Implementarea în producție confirmată și verificările post-implementare trecute |
 
-Ambiguity in requirements or acceptance criteria is escalated to the product owner or analyst — not resolved by implementing an assumption.
+Ambiguitatea în cerințe sau criterii de acceptanță este escaladată către product owner sau analist — nu rezolvată prin implementarea unei presupuneri.
 
-## External supplier teams
+## Echipe de furnizori externi
 
-Vendor teams follow the same flow with additional obligations:
+Echipele furnizorilor urmează același flux, cu obligații suplimentare:
 
-- Source code lives **entirely in the Agency's repositories** from day one — delivery via archives, private repositories, or vendor-hosted environments is not accepted.
-- Vendors deploy to development environments; staging and production deployments require approval from the delivery and security roles.
-- Before go-live, at the end of a major epic, or when the vendor team changes, a **knowledge transition** is mandatory: updated architecture documentation, API contracts and database schemas, known issues and risks, deployment notes, and a live technical handover session with the Agency's development, QA, and DevOps teams.
+- Codul sursă este stocat **integral în repository-urile Agenției**, încă din prima zi — livrarea prin arhive, repository-uri private sau medii găzduite de furnizor nu este acceptată.
+- Furnizorii implementează în mediile de dezvoltare; implementările în staging și producție necesită aprobare din partea rolurilor de livrare și de securitate.
+- Înainte de lansare, la finalul unui epic major, sau atunci când echipa furnizorului se schimbă, o **tranziție de cunoștințe** este obligatorie: documentația de arhitectură actualizată, contractele API și schemele bazei de date, problemele și riscurile cunoscute, notele de implementare și o sesiune tehnică de predare live, cu echipele de dezvoltare, QA și DevOps ale Agenției.

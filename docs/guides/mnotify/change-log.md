@@ -1,14 +1,14 @@
-### **Data: 15 March 2021**
+### **Data: 15 martie 2021**
 
-!!!note "Version: 2.2"
-Adjusted version (in POST/api/Notification method "userId" should be ignored).
+!!!note "Versiunea: 2.2"
+Versiune ajustată (în metoda POST/api/Notification, câmpul "userId" trebuie ignorat).
 
-### **Data: 28 September 2020**
+### **Data: 28 septembrie 2020**
 
-!!!note "Version: 2.1"
-Final version, adjusted according to added features.
+!!!note "Versiunea: 2.1"
+Versiune finală, ajustată în funcție de funcționalitățile adăugate.
 
-### **Data: 20 May 2020**
+### **Data: 20 mai 2020**
 
-!!!note "Version: 2.0"
-Initial version.
+!!!note "Versiunea: 2.0"
+Versiune inițială.

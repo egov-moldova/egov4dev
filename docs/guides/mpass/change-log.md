@@ -1,32 +1,32 @@
-﻿# Change log
+# Jurnal de modificări
 
-## Date: July 16, 2020
+## Data: 16 iulie 2020
 
-!!! note "Version: 1.5"
-    Added AdministeredLegalEntity attribute. Updated service owner contacts. Changed staging environment address.
+!!! note "Versiunea: 1.5"
+    A fost adăugat atributul AdministeredLegalEntity. Au fost actualizate contactele posesorului de serviciu. A fost modificată adresa mediului de staging.
 
-## Date: November 12, 2018
+## Data: 12 noiembrie 2018
 
-!!! note "Version: 1.4"
-    Added X-Frame-Options recommendation when processing LogoutRequest.
+!!! note "Versiunea: 1.4"
+    A fost adăugată recomandarea privind X-Frame-Options la procesarea LogoutRequest.
 
-## Date: December 2, 2016
+## Data: 2 decembrie 2016
 
-!!! note "Version: 1.3"
-    Removed OfficialAddress and CurrentAddress attributes as they are not structured and not authentic.
-    Removed NotificationChannel attribute as it is not useable.
+!!! note "Versiunea: 1.3"
+    Au fost eliminate atributele OfficialAddress și CurrentAddress, întrucât nu sunt structurate și nu sunt autentice.
+    A fost eliminat atributul NotificationChannel, întrucât nu este utilizabil.
 
-## Date: February 17, 2016
+## Data: 17 februarie 2016
 
-!!! note "Version: 1.2"
-    Changed IsCitizen attribute to IsResident, as IDNPs are applicable to residents.
+!!! note "Versiunea: 1.2"
+    Atributul IsCitizen a fost redenumit în IsResident, întrucât IDNP-urile sunt aplicabile rezidenților.
 
-## Date: June 3, 2015
+## Data: 3 iunie 2015
 
-!!! note "Version: 1.1"
-    Documented support for SAML Metadata and HTTP Redirect binding.
+!!! note "Versiunea: 1.1"
+    A fost documentat suportul pentru SAML Metadata și binding-ul HTTP Redirect.
 
-## Date: May 1, 2015
+## Data: 1 mai 2015
 
-!!! note "Version: 1.0"
-    Final version ready for distribution.
+!!! note "Versiunea: 1.0"
+    Versiune finală, pregătită pentru distribuire.

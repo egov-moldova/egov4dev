@@ -1,19 +1,19 @@
-Logging in government systems is not debugging output — it is a **system of record** used for audit and traceability, incident investigation, security analysis, and operational observability. Logs must describe facts about what happened in the system, not how the code works.
+Jurnalizarea (logging) în sistemele guvernamentale nu este un flux de depanare (debugging) — este un **sistem de evidență** utilizat pentru audit și trasabilitate, investigarea incidentelor, analiza de securitate și observabilitate operațională. Jurnalele trebuie să descrie fapte despre ce s-a întâmplat în sistem, nu cum funcționează codul.
 
-Two distinct logging obligations apply to systems in the ecosystem, and they must not be confused:
+Ecosistemului i se aplică două obligații distincte de jurnalizare, care nu trebuie confundate:
 
-| Kind | Where | Purpose |
+| Tip | Unde | Scop |
 | --- | --- | --- |
-| **Legal event logging** | [MLog](../guides/mlog/index.md) | Registration of legally significant events — mandatory for all systems processing personal data and critical government information, per Government Decision no. 708/2014. Records who accessed or changed what, with legal evidentiary value. |
-| **Technical logging** | Centralized log platform (Elasticsearch-based) | Operational telemetry for running, monitoring, and debugging the system. |
+| **Jurnalizarea evenimentelor cu relevanță juridică** | [MLog](../guides/mlog/index.md) | Înregistrarea evenimentelor cu relevanță juridică — obligatorie pentru toate sistemele care procesează date cu caracter personal și informații guvernamentale critice, conform Hotărârii de Guvern nr. 708/2014. Înregistrează cine a accesat sau a modificat ce, cu valoare probatorie juridică. |
+| **Jurnalizarea tehnică** | Platforma centralizată de jurnalizare (bazată pe Elasticsearch) | Telemetrie operațională pentru rularea, monitorizarea și depanarea sistemului. |
 
-An action can require both: a citizen record update produces an MLog legal event *and* technical log entries. Registering an event in MLog never replaces the technical log, and vice versa.
+O acțiune poate necesita ambele: actualizarea evidenței unui cetățean produce un eveniment juridic în MLog *și* înregistrări în jurnalul tehnic. Înregistrarea unui eveniment în MLog nu înlocuiește niciodată jurnalul tehnic, și nici invers.
 
 * * *
 
-## Structured logging
+## Jurnalizare structurată
 
-All services emit **structured logs** through `ILogger<T>` with a structured provider — never `Console.WriteLine`, never string-concatenated messages. Every entry carries at minimum:
+Toate serviciile emit **jurnale structurate** prin `ILogger<T>`, cu un furnizor structurat — niciodată `Console.WriteLine`, niciodată mesaje concatenate din șiruri. Fiecare intrare conține, cel puțin:
 
 ```json
 {
@@ -26,72 +26,72 @@ All services emit **structured logs** through `ILogger<T>` with a structured pro
 }
 ```
 
-**Correlation identifiers are propagated end-to-end** — from the incoming request, through internal calls, to calls into the shared platforms and messages published to MConnect Events — so one identifier reconstructs a whole flow across systems. The same identifier is returned to API consumers in [error responses](api-design-guide.md#errors) as `traceId`.
+**Identificatorii de corelare sunt propagați de la un capăt la altul** — de la cererea primită, prin apelurile interne, până la apelurile către platformele partajate și mesajele publicate către MConnect Events — astfel încât un singur identificator reconstituie un flux întreg, pe mai multe sisteme. Același identificator este returnat consumatorilor API în [răspunsurile de eroare](api-design-guide.md#erori), sub numele `traceId`.
 
-## The actor model: who did what
+## Modelul actorului: cine a făcut ce
 
-Every meaningful business log entry answers: **who** did **what**, on **which object**, in relation to **which subject**. These are independent, structured dimensions — not prose to bury inside the message text:
+Fiecare intrare de jurnal de business relevantă răspunde la: **cine** a făcut **ce**, asupra **cărui obiect**, în legătură cu **care subiect**. Acestea sunt dimensiuni structurate, independente — nu proză de îngropat în textul mesajului:
 
-| Field | Meaning | Required |
+| Câmp | Semnificație | Obligatoriu |
 | --- | --- | --- |
-| `user` | The **actor** — authenticated operator, or `system` for background jobs | Always, for business actions |
-| `subject` | The **person** the action concerns — citizen, employee, beneficiary | When a person is involved |
-| `object` | The **record** — declaration, document, application, payment | When a record is involved |
-| `legal_entity` | The **organization** context of the action | When acting in an organizational context |
+| `user` | **Actorul** — operatorul autentificat, sau `system` pentru joburi de fundal | Întotdeauna, pentru acțiuni de business |
+| `subject` | **Persoana** vizată de acțiune — cetățean, angajat, beneficiar | Atunci când este implicată o persoană |
+| `object` | **Înregistrarea** — declarație, document, cerere, plată | Atunci când este implicată o înregistrare |
+| `legal_entity` | Contextul **organizației** în care are loc acțiunea | Atunci când se acționează într-un context organizațional |
 
-The fields are orthogonal and never substitute for each other — a person is never an `object`, a document is never a `subject`:
+Câmpurile sunt independente (ortogonale) și nu se substituie niciodată unul altuia — o persoană nu este niciodată un `object`, un document nu este niciodată un `subject`:
 
-| Scenario | user | subject | object |
+| Scenariu | user | subject | object |
 | --- | --- | --- | --- |
-| Operator logs in | ✅ | – | – |
-| Operator edits a citizen's application | ✅ | ✅ | ✅ |
-| Operator views a document | ✅ | – | ✅ |
-| Nightly synchronization job | `system` | – | job name |
+| Operatorul se autentifică | ✅ | – | – |
+| Operatorul editează cererea unui cetățean | ✅ | ✅ | ✅ |
+| Operatorul vizualizează un document | ✅ | – | ✅ |
+| Job de sincronizare nocturn | `system` | – | numele job-ului |
 
 * * *
 
-## What to log
+## Ce se jurnalizează
 
-1. **Business events — always**: create/update/delete, status transitions, submissions, approvals and rejections, signatures, imports and exports.
-2. **Security-relevant actions**: login/logout, failed authentication, access denied, permission and role changes.
-3. **Errors that affect outcomes**: failed operations, possible data consistency impact, retries and fallbacks — with the exception, the affected object/subject, and the high-level reason.
-4. **Integration boundaries**: calls to the shared platforms and external APIs, message publishing and consumption, payment initiation and results — log **intent and result, not payloads**.
-5. **Background jobs**: start, end, processed counts, failures.
+1. **Evenimente de business — întotdeauna**: creare/actualizare/ștergere, tranziții de stare, depuneri, aprobări și respingeri, semnături, importuri și exporturi.
+2. **Acțiuni relevante pentru securitate**: autentificare/deautentificare, autentificare eșuată, acces refuzat, modificări de permisiuni și roluri.
+3. **Erori care afectează rezultatele**: operațiuni eșuate, posibil impact asupra consecvenței datelor, reîncercări (retries) și soluții de rezervă (fallbacks) — cu excepția, obiectul/subiectul afectat și motivul la nivel general.
+4. **Granițe de integrare**: apeluri către platformele partajate și API-uri externe, publicarea și consumul de mesaje, inițierea și rezultatele plăților — jurnalizați **intenția și rezultatul, nu payload-urile**.
+5. **Joburi de fundal**: start, sfârșit, numărul de elemente procesate, eșecuri.
 
-## What not to log
+## Ce nu se jurnalizează
 
-- **Personal and sensitive data** — no IDNP, names, addresses, tokens, passwords, or card numbers in technical logs. Log your own record identifiers instead; the identifier lets an investigator find the data in the system of record, which is exactly the right level of indirection.
-- **Raw SQL and ORM diagnostics** — no generated queries, parameters, or change-tracker output in production. Log the intent ("loading declaration by number"), not the mechanics. In EF Core, keep `EnableSensitiveDataLogging` and `EnableDetailedErrors` off in production.
-- **Payload dumps** — no serialized DTOs, request/response bodies, or JSON blobs. Prefer identifiers, counts, and state summaries.
-- **Repetitive noise** — no logging inside tight loops, per-row saves, or cache hits; noisy logs are how real signals get missed.
-- The same error, multiple times, at multiple layers — log it where it is handled.
+- **Date cu caracter personal și sensibile** — fără IDNP, nume, adrese, token-uri, parole sau numere de card în jurnalele tehnice. Jurnalizați în schimb identificatorii propriilor înregistrări; identificatorul permite unui investigator să găsească datele în sistemul de evidență, ceea ce reprezintă exact nivelul potrivit de indirecție.
+- **SQL brut și diagnostice ORM** — fără interogări generate, parametri sau ieșiri ale change tracker-ului în producție. Jurnalizați intenția („se încarcă declarația după număr"), nu mecanismul. În EF Core, păstrați `EnableSensitiveDataLogging` și `EnableDetailedErrors` dezactivate în producție.
+- **Volcaje de payload-uri (payload dumps)** — fără DTO-uri serializate, corpuri de cerere/răspuns sau blob-uri JSON. Preferați identificatori, numărători și rezumate de stare.
+- **Zgomot repetitiv** — fără jurnalizare în bucle strânse, salvări per-rând sau accesări cu succes ale cache-ului (cache hits); jurnalele zgomotoase sunt exact modul în care semnalele reale sunt ratate.
+- Aceeași eroare, de mai multe ori, la mai multe straturi — jurnalizați-o acolo unde este tratată.
 
-## Levels
+## Niveluri
 
-| Level | Use |
+| Nivel | Utilizare |
 | --- | --- |
-| `Critical` | The service cannot continue or data is at risk |
-| `Error` | An operation failed |
-| `Warning` | Unexpected but handled — degraded dependencies, retries, suspicious input |
-| `Information` | Business events and important state changes — this is the production narrative |
-| `Debug` | Developer intent and diagnostics — development environments only |
+| `Critical` | Serviciul nu poate continua sau datele sunt în pericol |
+| `Error` | O operațiune a eșuat |
+| `Warning` | Neașteptat, dar tratat — dependențe degradate, reîncercări, date de intrare suspecte |
+| `Information` | Evenimente de business și schimbări importante de stare — aceasta este narațiunea de producție |
+| `Debug` | Intenția dezvoltatorului și diagnostice — doar în mediile de dezvoltare |
 
-Production ships `Information` and above to the central store. Avoid `Information` inside unbounded loops; if a level below `Information` is needed in production to diagnose an incident, it is enabled temporarily and deliberately, not left on.
+Producția transmite către depozitul central nivelul `Information` și cele superioare. Evitați `Information` în interiorul buclelor nemărginite; dacă un nivel sub `Information` este necesar în producție pentru diagnosticarea unui incident, este activat temporar și deliberat, nu lăsat pornit.
 
 * * *
 
-## Monitoring and retention
+## Monitorizare și retenție
 
-- Technical logs are centralized (Elasticsearch + Kibana) with alerting on error-rate anomalies; services also expose health and metrics endpoints consumed by the monitoring stack (Prometheus + Grafana) — see [Tools and technologies](../tools/technologies.md).
-- Log structure is a contract: dashboards, alerts, and audits depend on it, so field names stay stable and changes are reviewed like API changes.
-- Retention periods follow the applicable regulatory framework: MLog retention for legal events is governed by its regulation; technical log retention is defined per system in agreement with the Agency's operational requirements.
+- Jurnalele tehnice sunt centralizate (Elasticsearch + Kibana), cu alertare pe anomaliile de rată a erorilor; serviciile expun de asemenea endpoint-uri de sănătate (health) și metrici, consumate de stiva de monitorizare (Prometheus + Grafana) — vedeți [Instrumente și tehnologii](../tools/technologies.md).
+- Structura jurnalului este un contract: tablourile de bord (dashboards), alertele și auditurile depind de aceasta, astfel încât numele câmpurilor rămân stabile, iar modificările sunt revizuite ca și modificările de API.
+- Perioadele de retenție respectă cadrul normativ aplicabil: retenția MLog pentru evenimentele cu relevanță juridică este guvernată de reglementarea proprie; retenția jurnalelor tehnice este definită per sistem, de comun acord cu cerințele operaționale ale Agenției.
 
-## Checklist before you commit
+## Listă de verificare înainte de commit
 
-1. Who performed the action? → `user`
-2. Is a person involved? → `subject`
-3. Is a record involved? → `object`
-4. Would this entry help an auditor or an incident responder?
-5. Does it leak personal data, secrets, or payloads? → remove them
+1. Cine a efectuat acțiunea? → `user`
+2. Este implicată o persoană? → `subject`
+3. Este implicată o înregistrare? → `object`
+4. Această intrare ar ajuta un auditor sau un responsabil cu răspunsul la incidente?
+5. Expune date cu caracter personal, secrete sau payload-uri? → eliminați-le
 
-If an entry helps nobody and leaks something — it is not a log line, it is a liability.
+Dacă o intrare nu ajută pe nimeni și expune ceva — nu este o linie de jurnal, este o responsabilitate (liability).

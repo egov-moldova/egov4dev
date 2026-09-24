@@ -1,22 +1,22 @@
-﻿# Change log
+# Istoric versiuni
 
-## **Date: 28.04.2023**
+## **Data: 28.04.2023**
 
-!!!note "Version: 2.2"
-New API method:
+!!!note "Versiunea: 2.2"
+Metodă API nouă:
 
     - "file"
 
-## **Date: 01.10.2021**
+## **Data: 01.10.2021**
 
-!!!note "Version: 2.1"
-New API method:
+!!!note "Versiunea: 2.1"
+Metodă API nouă:
 
     - "Idn-Details-List"
 
-## **Date: 01.07.2021**
-!!!note "Version: 2.0"
-Initial version with 3 API methods:
+## **Data: 01.07.2021**
+!!!note "Versiunea: 2.0"
+Versiune inițială cu 3 metode API:
 
     - "Code-True-One",
     - "Code-Details-One",

@@ -1,407 +1,407 @@
-## Error handling rules
+## Reguli de tratare a erorilor
 
-For errors resulting from REST requests, MNotify returns standard HTTP Status codes with corresponding messages describing the fault in plain English.
+Pentru erorile rezultate din cererile REST, MNotify returnează coduri de stare HTTP standard, împreună cu mesaje corespunzătoare care descriu eroarea în limbaj clar.
 
-| HTTP Status Code | Description |
+| Cod de stare HTTP | Descriere |
 |-----------------|-------------|
-| 200 | Success |
-| 400 | Bad request, Validation failed. Check validation rules compliance |
-| 401 | Unauthorized Access. Check authorization requirements |
-| 403 | Forbidden. The requested action is not allowed for the transmitted ID |
-| 404 | Not found. Check the sent request data |
+| 200 | Succes |
+| 400 | Cerere invalidă, validarea a eșuat. Verificați respectarea regulilor de validare |
+| 401 | Acces neautorizat. Verificați cerințele de autorizare |
+| 403 | Interzis. Acțiunea solicitată nu este permisă pentru ID-ul transmis |
+| 404 | Negăsit. Verificați datele cererii transmise |
 | 409 | Conflict |
-| 501 | A server error occurred. Contact the Administrator. |
+| 501 | A survenit o eroare de server. Contactați administratorul. |
 
-## Service operations
+## Operațiuni ale serviciului
 
 ### GET /api/Notifications/
 
-**Description:** shows all the notifications transmitted by a sender.
+**Descriere:** afișează toate notificările transmise de un expeditor.
 
-**Returns:** NotificationShortDto[]
+**Returnează:** NotificationShortDto[]
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| Page | integer | Current page number |
-| ItemsPerPage | integer | Items per page |
-| OrderField | string | Can order by response property names (default Id). Ex. "CreatedAt desc" |
-| SearchBy | string | Field is parsed as a UUID and filtered as NotificationId. Other filters do not work as not implemented. |
+| Page | integer | Numărul paginii curente |
+| ItemsPerPage | integer | Numărul de elemente per pagină |
+| OrderField | string | Poate ordona după numele proprietăților răspunsului (implicit Id). Ex. "CreatedAt desc" |
+| SearchBy | string | Câmpul este interpretat ca UUID și filtrat ca NotificationId. Alte filtre nu funcționează, nefiind implementate. |
 
-**HTTP Response meaning:**
+**Semnificația răspunsului HTTP:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### GET /api/Notification/{id}
 
-**Description:** Returns the notification request object with ID, Status, and resolved multiple recipients with multiple messages. The recipient message includes message ID, Status, Subject and the channel used for transmission.
+**Descriere:** Returnează obiectul cererii de notificare cu ID, Status și destinatarii multipli rezolvați cu mesajele aferente. Mesajul destinatarului include ID-ul mesajului, Status, Subiect și canalul folosit pentru transmitere.
 
-**Returns:** NotificationDto
+**Returnează:** NotificationDto
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| id | string | The UUID of the notification was called earlier using PostNotification. Part of URL |
+| id | string | UUID-ul notificării, obținut anterior prin PostNotification. Parte a URL-ului |
 
-**HTTP Response meaning:**
+**Semnificația răspunsului HTTP:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 404 | Not found. |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 404 | Negăsit. |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### POST /api/Notification
 
-**Description:** Notification request to be sent through the MNotify system.
+**Descriere:** Cerere de notificare care urmează a fi transmisă prin sistemul MNotify.
 
-**Returns:** UUID of accepted notification request
+**Returnează:** UUID-ul cererii de notificare acceptate
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| - | Notification | A HTTP POST raw request with UTF-8 encoding and a content type "application/json". |
+| - | Notification | O cerere HTTP POST brută, cu codificare UTF-8 și tipul de conținut "application/json". |
 
-**Faults:**
+**Erori:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 400 | Bad Request. |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 400 | Cerere invalidă. |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### DELETE /api/Notification/{id}
 
-**Description:** Delete the notification if it has not been transmitted
+**Descriere:** Șterge notificarea, dacă aceasta nu a fost transmisă
 
-**Returns:** notificationID
+**Returnează:** notificationID
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| id | string | NotificationID, which is to be deleted. Part of URL |
+| id | string | NotificationID care urmează a fi șters. Parte a URL-ului |
 
-**Faults:**
+**Erori:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
+| 200 | Succes |
 | 409 | Conflict |
-| 500-503 | A server error occurred. |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### GET /api/Template/
 
-**Description:** shows all the notification templates created by a sender.
+**Descriere:** afișează toate șabloanele de notificare create de un expeditor.
 
-**Returns:** TemplateShortDto[]
+**Returnează:** TemplateShortDto[]
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| Page | integer | Current page number |
-| ItemsPerPage | integer | Items per page |
-| OrderField | string | Can order by response property names (default Id). Ex. "CreatedAt desc" |
-| SearchBy | string | Field is parsed as a UUID and filtered as NotificationId. Other filters do not work as not implemented. |
+| Page | integer | Numărul paginii curente |
+| ItemsPerPage | integer | Numărul de elemente per pagină |
+| OrderField | string | Poate ordona după numele proprietăților răspunsului (implicit Id). Ex. "CreatedAt desc" |
+| SearchBy | string | Câmpul este interpretat ca UUID și filtrat ca NotificationId. Alte filtre nu funcționează, nefiind implementate. |
 
-**HTTP Response meaning:**
+**Semnificația răspunsului HTTP:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### GET /api/Template/{id}
 
-**Description:** Return a specific template created by a sender, including all template properties.
+**Descriere:** Returnează un șablon specific creat de un expeditor, inclusiv toate proprietățile șablonului.
 
-**Returns:** TemplateDto
+**Returnează:** TemplateDto
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| id | string | The UUID of the template was called earlier using the PostTemplate request. Part of URL |
+| id | string | UUID-ul șablonului, obținut anterior prin cererea PostTemplate. Parte a URL-ului |
 
-**HTTP Response meaning:**
+**Semnificația răspunsului HTTP:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### GET /api/Template/{id}/check
 
-**Description:** Return a specific template created by a sender, including all template properties.
+**Descriere:** Returnează un șablon specific creat de un expeditor, inclusiv toate proprietățile șablonului.
 
-**Returns:** TemplateDto
+**Returnează:** TemplateDto
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| id | string | TemplateId, which is to be filled with variables. Part of URL |
-| variables | string | JSON string that contains a KEY-VALUE record to be filled into template |
-| userId | string | The userId should complete the template with default variables. At the moment, only IDNx is filled |
+| id | string | TemplateId care urmează a fi completat cu variabile. Parte a URL-ului |
+| variables | string | Șir JSON care conține o înregistrare CHEIE-VALOARE de completat în șablon |
+| userId | string | userId ar trebui să completeze șablonul cu variabile implicite. În prezent, se completează doar IDNx |
 
-**HTTP Response meaning:**
+**Semnificația răspunsului HTTP:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### POST /api/Template
 
-**Description:** Template request to be saved in the MNotify system.
+**Descriere:** Cerere de șablon care urmează a fi salvată în sistemul MNotify.
 
-**Returns:** UUID of accepted template request
+**Returnează:** UUID-ul cererii de șablon acceptate
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| - | TemplateDto | A HTTP POST raw request with UTF-8 encoding and a content type "application/json". |
+| - | TemplateDto | O cerere HTTP POST brută, cu codificare UTF-8 și tipul de conținut "application/json". |
 
-**Faults:**
+**Erori:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 400 | Bad Request. |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 400 | Cerere invalidă. |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### PUT /api/Template/{id}
 
-**Description:** Update a specific template created by a sender.
+**Descriere:** Actualizează un șablon specific creat de un expeditor.
 
-**Returns:** UUID of updated template request
+**Returnează:** UUID-ul cererii de șablon actualizate
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| id | string | The UUID of the template was called earlier using the PostTemplate request. Part of URL |
-| - | TemplateDto | A HTTP POST raw request with UTF-8 encoding and a content type "application/json". |
+| id | string | UUID-ul șablonului, obținut anterior prin cererea PostTemplate. Parte a URL-ului |
+| - | TemplateDto | O cerere HTTP POST brută, cu codificare UTF-8 și tipul de conținut "application/json". |
 
-**HTTP Response meaning:**
+**Semnificația răspunsului HTTP:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
-| 500-503 | A server error occurred. |
+| 200 | Succes |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
 ### DELETE /api/Template/{id}
 
-**Description:** Delete the template from the MNotify system.
+**Descriere:** Șterge șablonul din sistemul MNotify.
 
-**Returns:** UUID of deleted template
+**Returnează:** UUID-ul șablonului șters
 
-**Input parameters:**
+**Parametri de intrare:**
 
-| Name | Type | Description |
+| Denumire | Tip | Descriere |
 |------|------|-------------|
-| id | string | The template id, which is to be deleted. Part of URL |
+| id | string | ID-ul șablonului care urmează a fi șters. Parte a URL-ului |
 
-**Faults:**
+**Erori:**
 
-| Code | Reason |
+| Cod | Motiv |
 |------|--------|
-| 200 | Success |
+| 200 | Succes |
 | 409 | Conflict |
-| 500-503 | A server error occurred. |
+| 500-503 | A survenit o eroare de server. |
 
 ---
 
-## Structures
+## Structuri
 
 ### NotificationShortDto
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| ID | uuid | Required | Notification unique identifier |
-| Status | NotificationStatus | Required | Notification status |
-| CreatedAt | datetime | Required | Date and time when the Notification was requested |
-| LastUpdatedAt | datetime | Required | Date and time when the status of the Notification was changed |
-| CreatedBy | string | Required | Identity of the Sender |
-| LastUpdatedBy | string | Required | The identity of the system that last modified the Notification object |
+| ID | uuid | Obligatoriu | Identificatorul unic al notificării |
+| Status | NotificationStatus | Obligatoriu | Statusul notificării |
+| CreatedAt | datetime | Obligatoriu | Data și ora la care a fost solicitată notificarea |
+| LastUpdatedAt | datetime | Obligatoriu | Data și ora la care s-a modificat statusul notificării |
+| CreatedBy | string | Obligatoriu | Identitatea expeditorului |
+| LastUpdatedBy | string | Obligatoriu | Identitatea sistemului care a modificat ultima dată obiectul Notification |
 
 ### NotificationDto
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Id | uuid | Required | Notification unique identifier |
-| Status | NotificationStatus | Required | Notification status |
-| Recipients | RecipientMessagesDto[] | Optional | List of recipients with resolved messages per channel preferences |
+| Id | uuid | Obligatoriu | Identificatorul unic al notificării |
+| Status | NotificationStatus | Obligatoriu | Statusul notificării |
+| Recipients | RecipientMessagesDto[] | Opțional | Lista destinatarilor cu mesajele rezolvate în funcție de preferințele de canal |
 
 ### RecipientMessagesDto
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Value | string | Required | The value of IDNP or IDNO of the recipient registered in MNotify |
-| Type | string | Required | "IDNP" or "IDNO" |
-| IsLegal | bool | Required | Indicates if the recipient is a legal entity |
-| Messages | MessageShortDto[] | Optional | List of messages resolved by IDNP/IDNO |
+| Value | string | Obligatoriu | Valoarea IDNP sau IDNO a destinatarului înregistrat în MNotify |
+| Type | string | Obligatoriu | "IDNP" sau "IDNO" |
+| IsLegal | bool | Obligatoriu | Indică dacă destinatarul este o persoană juridică |
+| Messages | MessageShortDto[] | Opțional | Lista mesajelor rezolvate după IDNP/IDNO |
 
 ### MessageShortDto
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| MessageId | uuid | Required | Notification Message unique identifier |
-| Subject | string | Required | The message subject. Same as the Notification request subject |
-| Status | NotificationStatus | Required | Notification status |
-| Channel | Channel | Required | Enumeration of the Channel through the message sent |
-| CreatedAt | datetime | Required | Date and time when the Notification was requested |
-| LastUpdatedAt | datetime | Required | Date and time when the status of the Notification was changed |
-| CreatedBy | string | Required | Identity of the Sender |
-| LastUpdatedBy | string | Required | The identity of the system that last modified the Notification object |
+| MessageId | uuid | Obligatoriu | Identificatorul unic al mesajului de notificare |
+| Subject | string | Obligatoriu | Subiectul mesajului. Identic cu subiectul cererii de notificare |
+| Status | NotificationStatus | Obligatoriu | Statusul notificării |
+| Channel | Channel | Obligatoriu | Enumerarea canalului prin care a fost trimis mesajul |
+| CreatedAt | datetime | Obligatoriu | Data și ora la care a fost solicitată notificarea |
+| LastUpdatedAt | datetime | Obligatoriu | Data și ora la care s-a modificat statusul notificării |
+| CreatedBy | string | Obligatoriu | Identitatea expeditorului |
+| LastUpdatedBy | string | Obligatoriu | Identitatea sistemului care a modificat ultima dată obiectul Notification |
 
 ### Notification
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| UserId | string | Optional | The field should be completed with the user IDNP in case the notification sender is not a system notification |
-| Subject | ContentLanguage | Required | The notification subject |
-| Body | ContentLanguage | Required | The notification body. The HTML raw is accepted |
-| BodyShort | ContentLanguage | Required | The notification short message. It should be sent through instant message channels in multiple languages |
-| Priority | Priority | Required | The priority of notification. It is Enumerable. |
-| Template | ContentTemplate | Optional | The notification template to be used for the notification message |
-| Recipients | RecipientIdentifierDto[] | Required | The list of recipients for the notification |
-| ResolutionPolicy | IdrPolicy | Optional | The resolution policy helps to identify the recipient from IDNO, Cadastral Number IDNV, and vehicle plate number |
-| Attachments | Attachment[] | Optional | The notification attachments. Limited formats are allowed (.jpeg,.jpg,.png,.txt,.pdf,.csv,.xls). The maximum size of attachments should not be greater than 10 Mb. |
+| UserId | string | Opțional | Câmpul trebuie completat cu IDNP-ul utilizatorului, în cazul în care expeditorul notificării nu este o notificare de sistem |
+| Subject | ContentLanguage | Obligatoriu | Subiectul notificării |
+| Body | ContentLanguage | Obligatoriu | Corpul notificării. Se acceptă cod HTML brut |
+| BodyShort | ContentLanguage | Obligatoriu | Mesajul scurt al notificării. Trebuie transmis prin canalele de mesagerie instantanee, în mai multe limbi |
+| Priority | Priority | Obligatoriu | Prioritatea notificării. Este o enumerare. |
+| Template | ContentTemplate | Opțional | Șablonul de notificare care urmează a fi utilizat pentru mesajul de notificare |
+| Recipients | RecipientIdentifierDto[] | Obligatoriu | Lista destinatarilor notificării |
+| ResolutionPolicy | IdrPolicy | Opțional | Politica de rezolvare ajută la identificarea destinatarului din IDNO, Numărul Cadastral IDNV și numărul de înmatriculare al vehiculului |
+| Attachments | Attachment[] | Opțional | Atașamentele notificării. Sunt permise formate limitate (.jpeg, .jpg, .png, .txt, .pdf, .csv, .xls). Dimensiunea maximă a atașamentelor nu trebuie să depășească 10 Mb. |
 
 ### ContentTemplate
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Id | UUID | Required | The template ID received from the template creation request |
-| Variables | string | Optional | The variables are sent as a JSON string. For example, {"Name": "John"}. MNotify will change the template body variables with values from variables. For example, body:{"en": "Dear {{Name}}"} would transform into (Dear John) |
+| Id | UUID | Obligatoriu | ID-ul șablonului primit la cererea de creare a șablonului |
+| Variables | string | Opțional | Variabilele sunt transmise ca șir JSON. De exemplu, {"Name": "John"}. MNotify va înlocui variabilele din corpul șablonului cu valorile din variables. De exemplu, body:{"en": "Dear {{Name}}"} se va transforma în (Dear John) |
 
 ### ContentLanguage
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Ro | string | Required | Romanian content |
-| Ru | string | Optional | Russian content |
-| En | string | Optional | English content |
+| Ro | string | Obligatoriu | Conținut în limba română |
+| Ru | string | Opțional | Conținut în limba rusă |
+| En | string | Opțional | Conținut în limba engleză |
 
 ### RecipientIdentifierDto
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Value | string | Required | Contact value. For example, if the type is Email, then a value should be a valid email contact |
-| Type | string | Required | Type can take a string value of Channel enumerator |
+| Value | string | Obligatoriu | Valoarea de contact. De exemplu, dacă tipul este Email, valoarea trebuie să fie o adresă de e-mail validă |
+| Type | string | Obligatoriu | Type poate avea o valoare string din enumerarea Channel |
 
 ### IdrPolicy
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| type | string | Required | Could have one of the following values: "IDNO", "IDNV", "CadastralNumber", "PlateNumber" |
-| parameters | IdrParameter | Required | The parameter indicates who the receiver is. |
+| type | string | Obligatoriu | Poate avea una dintre următoarele valori: "IDNO", "IDNV", "CadastralNumber", "PlateNumber" |
+| parameters | IdrParameter | Obligatoriu | Parametrul indică cine este destinatarul. |
 
 ### IdrParameter
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Direction | string | Required | Could have one of the following values: "Owner", "Administrator", "Founder" |
+| Direction | string | Obligatoriu | Poate avea una dintre următoarele valori: "Owner", "Administrator", "Founder" |
 
 ### Attachment
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| FileName | string | Required | The file name, including extension |
-| Base64 | string | Required | Converted file as base64 string |
+| FileName | string | Obligatoriu | Denumirea fișierului, inclusiv extensia |
+| Base64 | string | Obligatoriu | Fișierul convertit ca șir base64 |
 
 ### TemplateShortDto
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Id | int | Required | The template Id |
-| Name | string | Required | The template name |
-| CreatedAt | datetime | Required | Date and time when the Template was requested |
-| LastUpdatedAt | datetime | Required | Date and time when the status of the Template was changed |
-| CreatedBy | string | Required | Identity of the Sender |
-| LastUpdatedBy | string | Required | The identity of the system that last modified the Template object |
+| Id | int | Obligatoriu | ID-ul șablonului |
+| Name | string | Obligatoriu | Denumirea șablonului |
+| CreatedAt | datetime | Obligatoriu | Data și ora la care a fost solicitat șablonul |
+| LastUpdatedAt | datetime | Obligatoriu | Data și ora la care s-a modificat statusul șablonului |
+| CreatedBy | string | Obligatoriu | Identitatea expeditorului |
+| LastUpdatedBy | string | Obligatoriu | Identitatea sistemului care a modificat ultima dată obiectul Template |
 
 ### TemplateDto
 
-| Member | Type | Required/Optional | Description |
+| Membru | Tip | Obligatoriu/Opțional | Descriere |
 |--------|------|-------------------|-------------|
-| Name | string (50) | Required | The template name |
-| Description | string | Required | The Template description |
-| Subject | ContentLanguage | Required | The template notification subject |
-| Body | ContentLanguage | Required | The template notification body |
-| BodyShort | ContentLanguage | Required | The template notification short body |
+| Name | string (50) | Obligatoriu | Denumirea șablonului |
+| Description | string | Obligatoriu | Descrierea șablonului |
+| Subject | ContentLanguage | Obligatoriu | Subiectul notificării din șablon |
+| Body | ContentLanguage | Obligatoriu | Corpul notificării din șablon |
+| BodyShort | ContentLanguage | Obligatoriu | Corpul scurt al notificării din șablon |
 
 ---
 
-## Enumerations
+## Enumerări
 
 ### Priority
 
-| Member | Description |
+| Membru | Descriere |
 |--------|-------------|
-| Medium | The notification does not have any specific importance. |
-| Low | The importance of the notification is low. |
-| High | The importance of the notification is high. |
+| Medium | Notificarea nu are o importanță specifică. |
+| Low | Importanța notificării este scăzută. |
+| High | Importanța notificării este ridicată. |
 
 ### NotificationStatus
 
-| Member | Description |
+| Membru | Descriere |
 |--------|-------------|
-| Pending | The notification request was enqueued for sending. |
-| Resolving | The final recipients are being identified, and their preferences are being read. |
-| Sending | The final notification is ready to be sent to the resolved recipient and the identified Notification Channel. |
-| Sent | The notification was sent to the Notification Channel. |
-| Delivered | Notification Channel acknowledged notification delivery. |
-| Read | The recipient confirms notification was read. |
-| Cancelling | The notification request is in the process of being cancelled. |
-| Cancelled | The notification request was successfully canceled. |
-| Failed | The notification request was not sent to all recipient channels (except the MCabinet channel). Failed notification request failed, and failure code is included in the notification status response. |
+| Pending | Cererea de notificare a fost pusă în coada de transmitere. |
+| Resolving | Destinatarii finali sunt în curs de identificare, iar preferințele lor sunt citite. |
+| Sending | Notificarea finală este pregătită pentru a fi trimisă către destinatarul rezolvat și canalul de notificare identificat. |
+| Sent | Notificarea a fost trimisă către canalul de notificare. |
+| Delivered | Canalul de notificare a confirmat livrarea notificării. |
+| Read | Destinatarul confirmă că a citit notificarea. |
+| Cancelling | Cererea de notificare este în curs de anulare. |
+| Cancelled | Cererea de notificare a fost anulată cu succes. |
+| Failed | Cererea de notificare nu a fost transmisă tuturor canalelor destinatarilor (cu excepția canalului MCabinet). Cererea de notificare eșuată a eșuat, iar codul de eroare este inclus în răspunsul cu statusul notificării. |
 
 ### Channel
 
-| Member | Description |
+| Membru | Descriere |
 |--------|-------------|
-| Email | The notification delivery channel is e-mail. |
-| SMS | The notification delivery channel is a SMS message. |
-| Viber | The notification delivery channel is viber. |
-| Web push | The notification delivery channel is browser(web push). |
-| MCabinet | The notification is sent to MCabinet. |
+| Email | Canalul de livrare a notificării este e-mail-ul. |
+| SMS | Canalul de livrare a notificării este un mesaj SMS. |
+| Viber | Canalul de livrare a notificării este Viber. |
+| Web push | Canalul de livrare a notificării este browser-ul (web push). |
+| MCabinet | Notificarea este transmisă către MCabinet. |
 
 ---
 
-## Validation rules
+## Reguli de validare
 
-| Field name | Validation conditions |
+| Denumire câmp | Condiții de validare |
 |------------|----------------------|
-| IDNP | strictly 13 digits |
-| Mail address | caracter@caracter.caracter |
-| Mail body size | without attachment - 15 MB<br>with attachments - 10 MB |
-| Subject length | mail - 41 characters<br>SMS - 160 characters |
-| Cancel the notification request | the notification request can not be canceled if:<br>- the notification channel does not support it<br>- the notification was already delivered |
+| IDNP | strict 13 cifre |
+| Adresă de e-mail | caracter@caracter.caracter |
+| Dimensiunea corpului mesajului | fără atașament - 15 MB<br>cu atașamente - 10 MB |
+| Lungimea subiectului | e-mail - 41 de caractere<br>SMS - 160 de caractere |
+| Anularea cererii de notificare | cererea de notificare nu poate fi anulată dacă:<br>- canalul de notificare nu suportă această operațiune<br>- notificarea a fost deja livrată |

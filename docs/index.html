@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eGov4Dev | Platformă pentru dezvoltatori</title>
-    <meta name="description" content="API-uri deschise, SDK-uri și documentație pentru infrastructura digitală guvernamentală a RM">
-    <meta property="og:title" content="eGov4Dev | Platformă pentru dezvoltatori">
-    <meta property="og:description" content="Resurse oficiale pentru dezvoltatorii care integrează platformele guvernamentale.">
+    <title data-en="eGov4Dev | Developer Platform">eGov4Dev | Platformă pentru dezvoltatori</title>
+    <meta name="description" content="API-uri deschise, SDK-uri și documentație pentru infrastructura digitală guvernamentală a RM" data-en-content="Open APIs, SDKs, and documentation for Moldova's government digital infrastructure">
+    <meta property="og:title" content="eGov4Dev | Platformă pentru dezvoltatori" data-en-content="eGov4Dev | Developer Platform">
+    <meta property="og:description" content="Resurse oficiale pentru dezvoltatorii care integrează platformele guvernamentale." data-en-content="Official resources for developers integrating government platforms.">
     <meta property="og:image" content="https://egov-moldova.github.io/egov4dev/assets/logo2.png">
     <meta property="og:url" content="https://egov-moldova.github.io/egov4dev/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,11 +43,49 @@
         /* ── Header ── */
         header { padding: 1rem 0; }
 
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 1.5rem;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            background: var(--gray-200, #E5E5E5);
+            border-radius: var(--border-radius-8, 8px);
+            padding: 0.25rem;
+            gap: 0.125rem;
+            flex-shrink: 0;
+        }
+
+        .lang-toggle__btn {
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--border-radius-8, 6px);
+            cursor: pointer;
+            color: var(--gray-600);
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .lang-toggle__btn.active {
+            background: var(--white, #ffffff);
+            color: var(--blue-sky-600);
+            box-shadow: 0 1px 2px var(--black-alpha-200);
         }
 
         .logo img { height: 48px; width: auto; display: block; }
@@ -509,17 +547,24 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="logo">
-                <img src="assets/logo2.png" alt="eGov Moldova">
-                <div>
-                    <span class="logo-name">eGov4Dev</span>
-                    <div class="logo-subtitle">Agenția de Guvernare Electronică</div>
+            <div class="header-top">
+                <div class="logo">
+                    <img src="assets/logo2.png" alt="eGov Moldova">
+                    <div>
+                        <span class="logo-name">eGov4Dev</span>
+                        <div class="logo-subtitle" data-en="e-Government Agency">Agenția de Guvernare Electronică</div>
+                    </div>
+                </div>
+
+                <div class="lang-toggle" role="group" aria-label="Language / Limbă">
+                    <button type="button" id="lang-ro" class="lang-toggle__btn active" aria-pressed="true">RO</button>
+                    <button type="button" id="lang-en" class="lang-toggle__btn" aria-pressed="false">EN</button>
                 </div>
             </div>
 
             <div class="info-box info-box--info tagline-box">
                 <div class="info-box__content">
-                    <p>Această platformă este resursa oficială pentru dezvoltatorii care integrează platformele și serviciile guvernamentale în proiectele lor.</p>
+                    <p data-en="This platform is the official resource for developers integrating government platforms and services into their projects.">Această platformă este resursa oficială pentru dezvoltatorii care integrează platformele și serviciile guvernamentale în proiectele lor.</p>
                 </div>
             </div>
         </header>
@@ -528,14 +573,14 @@
         <section class="hero">
             <!-- Left Column -->
             <div class="hero-content">
-                <div class="label light">Resursă oficilă eGov Moldova</div>
+                <div class="label light" data-en="Official eGov Moldova resource">Resursă oficilă eGov Moldova</div>
 
                 <h2>
-                    Dezvoltă<br>
-                    <span class="light">cu eGov4Dev</span>
+                    <span data-en="Build">Dezvoltă</span><br>
+                    <span class="light" data-en="with eGov4Dev">cu eGov4Dev</span>
                 </h2>
 
-                <p class="description">
+                <p class="description" data-en="eGov4Dev is the official documentation library for developers working with the Republic of Moldova's eGov Moldova ecosystem. It provides guidance on integrating government platforms and services, using the shared development stack, and following the established architectural principles.">
                     eGov4Dev este biblioteca oficială de documentație pentru dezvoltatorii care lucrează cu ecosistemul eGov Moldova al Republicii Moldova. Oferă îndrumări privind integrarea platformelor și serviciilor guvernamentale, utilizarea stivei comune de dezvoltare și respectarea principiilor arhitecturale stabilite.
                 </p>
 
@@ -567,7 +612,7 @@
 <span class="c-plain">}</span></div>
 
                 <div class="portal-badge">
-                    <div class="badge-label">PORTAL DEZVOLTATORI</div>
+                    <div class="badge-label" data-en="DEVELOPER PORTAL">PORTAL DEZVOLTATORI</div>
                     <a href="https://egov-moldova.github.io/egov4dev/intro/" target="_blank">
                         egov-moldova.github.io/egov4dev
                     </a>
@@ -578,8 +623,8 @@
         <!-- Developer Journey -->
         <section class="journey">
             <div class="journey-header">
-                <h3>Parcursul tău ca dezvoltator</h3>
-                <p>Indiferent de etapa în care te afli, găsești aici resursele potrivite.</p>
+                <h3 data-en="Your journey as a developer">Parcursul tău ca dezvoltator</h3>
+                <p data-en="Wherever you are in the process, you'll find the right resources here.">Indiferent de etapa în care te afli, găsești aici resursele potrivite.</p>
             </div>
 
             <div class="journey-cards">
@@ -587,12 +632,12 @@
                 <!-- Stage 1: Explorare -->
                 <div class="journey-card">
                     <div class="journey-card__num">01</div>
-                    <div class="journey-card__title">Explorare</div>
-                    <div class="journey-card__desc">
+                    <div class="journey-card__title" data-en="Explore">Explorare</div>
+                    <div class="journey-card__desc" data-en="Just getting started and want to understand what the eGov4Dev platform offers? Read the documentation, review the architecture, and discover the available services.">
                         Ești la început și vrei să înțelegi ce oferă platforma eGov4Dev. Citește documentația, parcurge arhitectura și descoperă serviciile disponibile.
                     </div>
                     <div class="journey-card__actions">
-                        <a href="intro/" class="btn btn-primary">Despre platformă</a>
+                        <a href="intro/" class="btn btn-primary" data-en="About the platform">Despre platformă</a>
                     </div>
                 </div>
 
@@ -600,19 +645,19 @@
                 <div class="journey-card">
                     <div class="journey-card__num">02</div>
                     <div class="journey-card__title">Design System</div>
-                    <div class="journey-card__desc">
+                    <div class="journey-card__desc" data-en="Working on a new system and need access to the Figma files for MUD (Moldova Unified Design)? Access is granted by AGE only to beneficiaries of systems approved for development.">
                         Lucrezi la un sistem nou și ai nevoie de acces la fișierele Figma pentru MUD (Moldova Unified Design)? Accesul se acordă de catre AGE doar pentru beneficarii sistemelor avizate spre dezvoltare.
                     </div>
                     <div class="journey-card__actions">
-                        <a href="https://mud.egov.md/" target="_blank" class="btn btn-primary">Treci pe MUD ↗</a>
+                        <a href="https://mud.egov.md/" target="_blank" class="btn btn-primary" data-en="Go to MUD ↗">Treci pe MUD ↗</a>
                     </div>
                 </div>
 
                 <!-- Stage 3: Componente UI -->
                 <div class="journey-card">
                     <div class="journey-card__num">03</div>
-                    <div class="journey-card__title">Componente UI</div>
-                    <div class="journey-card__desc">
+                    <div class="journey-card__title" data-en="UI Components">Componente UI</div>
+                    <div class="journey-card__desc" data-en="Design is ready and you're starting to build? You have two options: .NET Blazor components available on NuGet, or the Stencil project on NPM for generating TypeScript components in Vue, Angular, or React.">
                         Design-ul e gata și începi să construiești? Ai două opțiuni: componente .Net Blazor disponibile pe NuGet sau proiectul Stencil pe NPM pentru a genera componente TypeScript în Vue, Angular sau React.
                     </div>
                     <div class="contrib-block__icons">
@@ -628,8 +673,8 @@
                 <!-- Stage 4: Integrare Servicii -->
                 <div class="journey-card">
                     <div class="journey-card__num">04</div>
-                    <div class="journey-card__title">Integrare servicii</div>
-                    <div class="journey-card__desc">
+                    <div class="journey-card__title" data-en="Service integration">Integrare servicii</div>
+                    <div class="journey-card__desc" data-en="Your application is built and now you're integrating government services: MPass authentication, MSign electronic signature, MPay payments, and more.">
                         Aplicația e construită și acum integrezi serviciile guvernamentale: autentificare MPass, semnătură electronică MSign, plăți MPay și altele.
                     </div>
                     <div class="journey-card__actions">
@@ -662,12 +707,12 @@
                             <span class="evo-card__name">EVO Wallet</span>
                         </div>
                         <img src="assets/logos/EUDIW.png" alt="" aria-hidden="true" class="evo-card__media">
-                        <p class="evo-card__desc">
+                        <p class="evo-card__desc" data-en="EVO Wallet is the official digital wallet of the Republic of Moldova. Citizens use it to present documents directly from their phone, without physical paperwork. If your application needs to verify a user's identity or data, you can become a verifier in the EVO Wallet ecosystem.">
                             EVO Wallet este portofelul digital oficial al Republicii Moldova. Cetățenii îl folosesc pentru a prezenta acte direct din telefon, fără acte fizice. Dacă aplicația ta are nevoie să confirme identitatea sau datele unui utilizator, poți deveni verificator în ecosistemul EVO Wallet.
                         </p>
                         <div class="evo-card__actions">
-                            <a href="https://egov-moldova.github.io/egov4dev/guides/evo-wallet/" target="_blank" class="btn btn-primary btn-md">Ghidul de integrare</a>
-                            <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" class="btn btn-secondary btn-md">Devino verificator ↗</a>
+                            <a href="https://egov-moldova.github.io/egov4dev/guides/evo-wallet/" target="_blank" class="btn btn-primary btn-md" data-en="Integration guide">Ghidul de integrare</a>
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" class="btn btn-secondary btn-md" data-en="Become a verifier ↗">Devino verificator ↗</a>
                         </div>
                     </div>
                 </div>
@@ -678,12 +723,12 @@
                             <span class="evo-card__name">Portal EVO</span>
                         </div>
                         <img src="assets/logos/evo-logo.png" alt="" aria-hidden="true" class="evo-card__media">
-                        <p class="evo-card__desc">
+                        <p class="evo-card__desc" data-en="EVO is the single government portal of the Republic of Moldova — the central access point for electronic public services for citizens and businesses. If your system is going to be published or integrated on the portal, you'll find the full context of the end-user experience at evo.gov.md.">
                             EVO este portalul guvernamental unic al Republicii Moldova — punctul central de acces la serviciile publice electronice pentru cetățeni și companii. Dacă sistemul tău urmează să fie publicat sau integrat pe portal, găsești pe evo.gov.md contextul complet al experienței utilizatorului final.
                         </p>
                         <div class="evo-card__actions">
-                            <a href="https://evo.gov.md" target="_blank" class="btn btn-primary btn-md">Deschide Portal EVO ↗</a>
-                            <a href="https://evo.egov.md/v1/install" target="_blank" class="btn btn-secondary btn-md">Descarcă EVO app</a>
+                            <a href="https://evo.gov.md" target="_blank" class="btn btn-primary btn-md" data-en="Open EVO Portal ↗">Deschide Portal EVO ↗</a>
+                            <a href="https://evo.egov.md/v1/install" target="_blank" class="btn btn-secondary btn-md" data-en="Download EVO app">Descarcă EVO app</a>
                         </div>
                     </div>
                 </div>
@@ -699,11 +744,11 @@
         <div class="container">
             <section class="contrib-block">
                 <div class="contrib-block__left">
-                    <div class="label">Fii parte din comunitate</div>
-                    <h3 class="evo-card__name">Cod deschis,<br>colaborare continuă</h3>
+                    <div class="label" data-en="Be part of the community">Fii parte din comunitate</div>
+                    <h3 class="evo-card__name"><span data-en="Open source,">Cod deschis,</span><br><span data-en="ongoing collaboration">colaborare continuă</span></h3>
                 </div>
                 <div class="contrib-block__right">
-                    <p class="contrib-block__desc">Documentația și pachetele SDK sunt deschise. Raportează probleme sau trimite pull request-uri pe GitHub. Pachetele publicate sunt disponibile pe NuGet și NPM. Contribuțiile tale mențin librăriile actualizate.</p>
+                    <p class="contrib-block__desc" data-en="The documentation and SDK packages are open source. Report issues or submit pull requests on GitHub. Published packages are available on NuGet and NPM. Your contributions keep the libraries up to date.">Documentația și pachetele SDK sunt deschise. Raportează probleme sau trimite pull request-uri pe GitHub. Pachetele publicate sunt disponibile pe NuGet și NPM. Contribuțiile tale mențin librăriile actualizate.</p>
                     <div class="contrib-block__icons">
                         <a href="https://github.com/egov-moldova" target="_blank" data-tooltip="GitHub" data-placement="top" class="contrib-icon">
                             <img src="assets/logos/github-logo.png" alt="GitHub">
@@ -726,11 +771,11 @@
             <div class="footer__main">
 
                 <nav class="footerNav" aria-label="Semnătura electronică">
-                    <div class="footerNav__title">Semnătura electronică</div>
+                    <div class="footerNav__title" data-en="Electronic signature">Semnătura electronică</div>
                     <ul class="footerNav__list">
-                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#mobila" class="footerNav__link">Semnătura mobilă</a></li>
-                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#carte-de-identitate" class="footerNav__link">Cartea de identitate</a></li>
-                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#stick" class="footerNav__link">Semnătura pe stick USB</a></li>
+                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#mobila" class="footerNav__link" data-en="Mobile signature">Semnătura mobilă</a></li>
+                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#carte-de-identitate" class="footerNav__link" data-en="ID card">Cartea de identitate</a></li>
+                        <li class="footerNav__item"><a href="/acasa/semnatura-electronica#stick" class="footerNav__link" data-en="USB token signature">Semnătura pe stick USB</a></li>
                         <li class="footerNav__item">
                             <a href="https://evosign.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">EVOSign</a>
                             <span class="footerNav__tag tag--black">Pilot</span>
@@ -739,37 +784,37 @@
                 </nav>
 
                 <nav class="footerNav" aria-label="Servicii publice">
-                    <div class="footerNav__title">Servicii publice</div>
+                    <div class="footerNav__title" data-en="Public services">Servicii publice</div>
                     <ul class="footerNav__list">
-                        <li class="footerNav__item"><a href="https://evo.gov.md/acasa/catalog/cetateni/" class="footerNav__link">Pentru tine</a></li>
-                        <li class="footerNav__item"><a href="https://evo.gov.md/acasa/catalog/organizatii/" class="footerNav__link">Pentru afacerea ta</a></li>
-                        <li class="footerNav__item"><span class="footerNav__link">Evenimente de viață</span> <span class="footerNav__tag tag--black">În curând</span>
+                        <li class="footerNav__item"><a href="https://evo.gov.md/acasa/catalog/cetateni/" class="footerNav__link" data-en="For you">Pentru tine</a></li>
+                        <li class="footerNav__item"><a href="https://evo.gov.md/acasa/catalog/organizatii/" class="footerNav__link" data-en="For your business">Pentru afacerea ta</a></li>
+                        <li class="footerNav__item"><span class="footerNav__link" data-en="Life events">Evenimente de viață</span> <span class="footerNav__tag tag--black" data-en="Coming soon">În curând</span>
                         </li>
-                        <li class="footerNav__item"><a href="https://evo.gov.md/acasa/prestatori-servicii" class="footerNav__link">Prestatori servicii</a></li>
+                        <li class="footerNav__item"><a href="https://evo.gov.md/acasa/prestatori-servicii" class="footerNav__link" data-en="Service providers">Prestatori servicii</a></li>
                     </ul>
                 </nav>
 
                 <nav class="footerNav" aria-label="Resurse utile">
-                    <div class="footerNav__title">Resurse utile</div>
+                    <div class="footerNav__title" data-en="Useful resources">Resurse utile</div>
                     <ul class="footerNav__list">
-                        <li class="footerNav__item"><a href="https://drive.google.com/drive/folders/1QdA12UK6g5v88gw6vobjuxZbKy7I6btK" target="_blank" rel="noopener noreferrer" class="footerNav__link">Identitate vizuală</a></li>
-                        <li class="footerNav__item"><a href="https://mud.egov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">Model Unitar de Design</a></li>
-                        <li class="footerNav__item"><a href="/acasa#faqSection" target="_blank" class="footerNav__link">Întrebări frecvente</a></li>
-                        <li class="footerNav__item"><a href="mailto:support@egov.md" target="_blank" class="footerNav__link">Raportează o problemă</a></li>
-                        <li class="footerNav__item"><a href="/acasa/numere-de-urgenta" target="_blank" class="footerNav__link">Numere de urgență</a></li>
+                        <li class="footerNav__item"><a href="https://drive.google.com/drive/folders/1QdA12UK6g5v88gw6vobjuxZbKy7I6btK" target="_blank" rel="noopener noreferrer" class="footerNav__link" data-en="Visual identity">Identitate vizuală</a></li>
+                        <li class="footerNav__item"><a href="https://mud.egov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link" data-en="Moldova Unified Design">Model Unitar de Design</a></li>
+                        <li class="footerNav__item"><a href="/acasa#faqSection" target="_blank" class="footerNav__link" data-en="FAQ">Întrebări frecvente</a></li>
+                        <li class="footerNav__item"><a href="mailto:support@egov.md" target="_blank" class="footerNav__link" data-en="Report an issue">Raportează o problemă</a></li>
+                        <li class="footerNav__item"><a href="/acasa/numere-de-urgenta" target="_blank" class="footerNav__link" data-en="Emergency numbers">Numere de urgență</a></li>
                     </ul>
                 </nav>
 
                 <nav class="footerNav" aria-label="Platforme utile">
-                    <div class="footerNav__title">Platforme utile</div>
+                    <div class="footerNav__title" data-en="Useful platforms">Platforme utile</div>
                     <ul class="footerNav__list">
-                        <li class="footerNav__item"><a href="hhttps://evo.gov.md/acasa" target="_blank" rel="noopener noreferrer" class="footerNav__link">EVO - Portalul serviciilor publice</a></li>
-                        <li class="footerNav__item"><a href="https://mpay.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">MPay - Plătește online</a></li>
-                        <li class="footerNav__item"><a href="https://msign.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">MSign - Semnează electronic</a></li>
-                        <li class="footerNav__item"><a href="https://econsulat.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">eConsulat - Când ești departe</a></li>
-                        <li class="footerNav__item"><a href="https://mpower.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link">MPower - Împuternicește</a></li>
+                        <li class="footerNav__item"><a href="hhttps://evo.gov.md/acasa" target="_blank" rel="noopener noreferrer" class="footerNav__link" data-en="EVO - Public services portal">EVO - Portalul serviciilor publice</a></li>
+                        <li class="footerNav__item"><a href="https://mpay.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link" data-en="MPay - Pay online">MPay - Plătește online</a></li>
+                        <li class="footerNav__item"><a href="https://msign.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link" data-en="MSign - Sign electronically">MSign - Semnează electronic</a></li>
+                        <li class="footerNav__item"><a href="https://econsulat.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link" data-en="eConsulat - When you're abroad">eConsulat - Când ești departe</a></li>
+                        <li class="footerNav__item"><a href="https://mpower.gov.md/" target="_blank" rel="noopener noreferrer" class="footerNav__link" data-en="MPower - Authorize">MPower - Împuternicește</a></li>
                         <li class="footerNav__item">
-                            <a href="https://egov.md/ro/advanced-page-type/platforme-operate" target="_blank" rel="noopener noreferrer" class="footerNav__link footerNav__link--more">
+                            <a href="https://egov.md/ro/advanced-page-type/platforme-operate" target="_blank" rel="noopener noreferrer" class="footerNav__link footerNav__link--more" data-en="Discover them all →">
                                 Descoperă-le pe toate →
                             </a>
                         </li>
@@ -782,10 +827,10 @@
         <div class="footer__bottom">
             <div class="footer__logos-group">
                 <a href="https://egov.md" target="_blank" rel="noopener" class="footer__inst-logo">
-                    <img src="assets/age.svg" alt="Agenția de Guvernare Electronică">
+                    <img src="assets/age.svg" alt="Agenția de Guvernare Electronică" data-en-alt="e-Government Agency">
                 </a>
                 <a href="https://gov.md" target="_blank" rel="noopener" class="footer__inst-logo">
-                    <img src="assets/gov.svg" alt="Guvernul Republicii Moldova">
+                    <img src="assets/gov.svg" alt="Guvernul Republicii Moldova" data-en-alt="Government of the Republic of Moldova">
                 </a>
             </div>
             <ul class="footer-socials" style="margin-left:auto;">
@@ -806,10 +851,63 @@
     </footer>
 
     <div class="legal-bar">
-        <div class="legal-bar__inner">
+        <div class="legal-bar__inner" data-en="© 2026 e-Government Agency. All rights reserved.">
             © 2026 Agenția de Guvernare Electronică. Toate drepturile rezervate.
         </div>
     </div>
+
+    <script>
+    (function () {
+        var STORAGE_KEY = 'lang';
+
+        var textEls = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
+        var altEls = Array.prototype.slice.call(document.querySelectorAll('[data-en-alt]'));
+        var metaEls = Array.prototype.slice.call(document.querySelectorAll('[data-en-content]'));
+
+        // Cache the original Romanian content once, before any swap happens.
+        textEls.forEach(function (el) {
+            if (!el.hasAttribute('data-ro')) el.setAttribute('data-ro', el.innerHTML);
+        });
+        altEls.forEach(function (el) {
+            if (!el.hasAttribute('data-ro-alt')) el.setAttribute('data-ro-alt', el.getAttribute('alt') || '');
+        });
+        metaEls.forEach(function (el) {
+            if (!el.hasAttribute('data-ro-content')) el.setAttribute('data-ro-content', el.getAttribute('content') || '');
+        });
+
+        function setLang(lang) {
+            textEls.forEach(function (el) {
+                el.innerHTML = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ro');
+            });
+            altEls.forEach(function (el) {
+                el.setAttribute('alt', lang === 'en' ? el.getAttribute('data-en-alt') : el.getAttribute('data-ro-alt'));
+            });
+            metaEls.forEach(function (el) {
+                el.setAttribute('content', lang === 'en' ? el.getAttribute('data-en-content') : el.getAttribute('data-ro-content'));
+            });
+
+            document.documentElement.lang = lang;
+            localStorage.setItem(STORAGE_KEY, lang);
+
+            var btnRo = document.getElementById('lang-ro');
+            var btnEn = document.getElementById('lang-en');
+            if (btnRo && btnEn) {
+                btnRo.classList.toggle('active', lang === 'ro');
+                btnEn.classList.toggle('active', lang === 'en');
+                btnRo.setAttribute('aria-pressed', lang === 'ro');
+                btnEn.setAttribute('aria-pressed', lang === 'en');
+            }
+        }
+
+        var stored = localStorage.getItem(STORAGE_KEY) || 'ro';
+        setLang(stored);
+
+        var btnRo = document.getElementById('lang-ro');
+        var btnEn = document.getElementById('lang-en');
+        if (btnRo) btnRo.addEventListener('click', function () { setLang('ro'); });
+        if (btnEn) btnEn.addEventListener('click', function () { setLang('en'); });
+    })();
+    </script>
 
 </body>
 </html>

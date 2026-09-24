@@ -1,236 +1,236 @@
-# API reference
+# Referință API
 
-## Error Handling
+## Gestionarea erorilor
 
-| Code | Description |
+| Cod | Descriere |
 |---|---|
-| AuthenticationFailed | System authentication failed |
-| InvalidParameter | Invalid request parameter |
-| AccessDenied | Insufficient permissions |
-| PetitionNotFound | Petition identifier not found |
-| 200 | Success |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not found |
-| 500 | Server error |
+| AuthenticationFailed | Autentificarea în sistem a eșuat |
+| InvalidParameter | Parametru de request invalid |
+| AccessDenied | Permisiuni insuficiente |
+| PetitionNotFound | Identificatorul petiției nu a fost găsit |
+| 200 | Succes |
+| 400 | Request invalid |
+| 401 | Neautorizat |
+| 403 | Interzis |
+| 404 | Negăsit |
+| 500 | Eroare de server |
 
-## API Methods
+## Metode API
 
 ```http
 GET /authority/petitions
 ```
 
-**Summary**
+**Rezumat**
 
-Retrieve paginated list of petitions for the authenticated authority.
+Preia lista paginată de petiții pentru autoritatea autentificată.
 
-**Authorization**
+**Autorizare**
 
-Requires a valid JWT or client certificate mapped to a public authority system.
+Necesită un JWT valid sau un certificat client asociat unui sistem al unei autorități publice.
 
-**Query parameters**:
+**Parametri de query**:
 
-- `page` (int, optional, default: 1) – page number
-- `pageSize` (int, optional, default: 10) – items per page
-- `excludeRegistered` (bool, optional) – exclude petitions already registered for processing
-- `status` (FodStatusEnumModel, repeated, optional) – filter by petition status
+- `page` (int, opțional, implicit: 1) – numărul paginii
+- `pageSize` (int, opțional, implicit: 10) – numărul de elemente per pagină
+- `excludeRegistered` (bool, opțional) – exclude petițiile deja înregistrate pentru procesare
+- `status` (FodStatusEnumModel, repetabil, opțional) – filtrează după statusul petiției
 
-**Responses**:
+**Răspunsuri**:
 
 - `200 OK` – `DataResponse<PetitionModel>`
-- `204 No Content` – no petitions found
-- `400 Bad Request` – invalid parameters
-- `403 Forbidden` – insufficient permissions
+- `204 No Content` – nu au fost găsite petiții
+- `400 Bad Request` – parametri invalizi
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error`
 
 ```http
 POST /requestor/petitions
 ```
 
-**Summary**
+**Rezumat**
 
-Retrieve paginated list of petitions for a specific citizen or economic operator.
+Preia lista paginată de petiții pentru un cetățean sau operator economic specific.
 
-**Authorization**
+**Autorizare**
 
-Requires a valid JWT or client certificate. The owner context (IDNP/IDNO) is taken from the token/certificate and must match the request body.
+Necesită un JWT valid sau un certificat client. Contextul proprietarului (IDNP/IDNO) este preluat din token/certificat și trebuie să corespundă cu corpul request-ului.
 
-**Request body** (`PetitionsRequest`):
+**Corpul request-ului** (`PetitionsRequest`):
 
-- `page` (int, optional, default: 1)
-- `pageSize` (int, optional, default: 10)
-- `filterStatuses` (FodStatusEnumModel[], optional)
-- `excludeRegistered` (bool, optional)
-- `contextId` (string, required) – IDNP or IDNO of the petition owner
+- `page` (int, opțional, implicit: 1)
+- `pageSize` (int, opțional, implicit: 10)
+- `filterStatuses` (FodStatusEnumModel[], opțional)
+- `excludeRegistered` (bool, opțional)
+- `contextId` (string, obligatoriu) – IDNP sau IDNO al proprietarului petiției
 
-**Responses**:
+**Răspunsuri**:
 
 - `200 OK` – `DataResponse<PetitionModel>`
-- `401 Unauthorized` – authentication failed
-- `403 Forbidden` – insufficient permissions
+- `401 Unauthorized` – autentificarea a eșuat
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error`
 
 ```http
 GET /authority/petitions/{petitionNumber}/pdf
 ```
 
-**Summary**
+**Rezumat**
 
-Download the main petition document (PDF) for the authority.
+Descarcă documentul principal al petiției (PDF) pentru autoritate.
 
-**Route parameters**:
+**Parametri de rută**:
 
-- `petitionNumber` (string, required) – petition identifier
+- `petitionNumber` (string, obligatoriu) – identificatorul petiției
 
-**Responses**:
+**Răspunsuri**:
 
-- `200 OK` – `PetitionFileResponse` (content, content type, file name)
-- `204 No Content` – document not found
-- `400 Bad Request` – petition not found or invalid request
-- `403 Forbidden` – insufficient permissions
+- `200 OK` – `PetitionFileResponse` (conținut, tip de conținut, nume de fișier)
+- `204 No Content` – documentul nu a fost găsit
+- `400 Bad Request` – petiția nu a fost găsită sau request invalid
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error` 
 
 ```http
 GET /authority/petitions/{petitionNumber}/attachment/{attachmentId}
 ```
 
-**Summary**
+**Rezumat**
 
-Download an attachment file for a petition.  
+Descarcă un fișier atașat la o petiție.  
 
-**Route parameters**:
+**Parametri de rută**:
 
-- `petitionNumber` (string, required)
-- `attachmentId` (guid, required)
+- `petitionNumber` (string, obligatoriu)
+- `attachmentId` (guid, obligatoriu)
 
-**Responses**:
+**Răspunsuri**:
 
 - `200 OK` – `PetitionFileResponse`
-- `204 No Content` – attachment not found
-- `400 Bad Request` – petition or attachment not found / invalid request
-- `403 Forbidden` – insufficient permissions
+- `204 No Content` – atașamentul nu a fost găsit
+- `400 Bad Request` – petiția sau atașamentul nu au fost găsite / request invalid
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error`
 
 ```http
 GET /requestor/{contextId}/{petitionNumber}/{responseId}
 ```
 
-**Summary**
+**Rezumat**
 
-Download a petition response document for a citizen / economic operator.
+Descarcă documentul de răspuns al unei petiții pentru un cetățean / operator economic.
 
-**Route parameters**:
+**Parametri de rută**:
 
-- `contextId` (string, required) – IDNP/IDNO of the petition owner
-- `petitionNumber` (string, required)
-- `responseId` (string, required)
+- `contextId` (string, obligatoriu) – IDNP/IDNO al proprietarului petiției
+- `petitionNumber` (string, obligatoriu)
+- `responseId` (string, obligatoriu)
 
-**Responses**:
+**Răspunsuri**:
 
-- `200 OK` – binary file content
-- `204 No Content` – response document not found
-- `401 Unauthorized` – authentication failed
-- `403 Forbidden` – insufficient permissions
+- `200 OK` – conținut binar al fișierului
+- `204 No Content` – documentul de răspuns nu a fost găsit
+- `401 Unauthorized` – autentificarea a eșuat
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error`
   
 ```http
 GET /requestor/extend-term/{contextId}/{petitionNumber}/{decisionId}
 ```
 
-**Summary**
+**Rezumat**
 
-Download the extend-term decision document for a petition.
+Descarcă documentul de decizie privind prelungirea termenului pentru o petiție.
 
-**Route parameters**:
+**Parametri de rută**:
 
-- `contextId` (string, required) – IDNP/IDNO of the petition owner
-- `petitionNumber` (string, required)
-- `decisionId` (string, required)
+- `contextId` (string, obligatoriu) – IDNP/IDNO al proprietarului petiției
+- `petitionNumber` (string, obligatoriu)
+- `decisionId` (string, obligatoriu)
 
-**Responses**:
+**Răspunsuri**:
 
-- `200 OK` – binary file content
-- `204 No Content` – decision document not found
-- `401 Unauthorized` – authentication failed
-- `403 Forbidden` – insufficient permissions
+- `200 OK` – conținut binar al fișierului
+- `204 No Content` – documentul de decizie nu a fost găsit
+- `401 Unauthorized` – autentificarea a eșuat
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error`
 
 ```http
 DELETE /requestor/{contextId}/{petitionNumber}
 ```
 
-**Summary**
+**Rezumat**
 
-Delete or hide a petition for a citizen / economic operator.
+Șterge sau ascunde o petiție pentru un cetățean / operator economic.
 
-**Route parameters**:
+**Parametri de rută**:
 
-- `contextId` (string, required) – IDNP/IDNO of the petition owner
-- `petitionNumber` (string, required)
+- `contextId` (string, obligatoriu) – IDNP/IDNO al proprietarului petiției
+- `petitionNumber` (string, obligatoriu)
 
-**Responses**:
+**Răspunsuri**:
 
-- `200 OK` – `bool` result indicating success
-- `401 Unauthorized` – authentication failed
-- `403 Forbidden` – insufficient permissions
+- `200 OK` – rezultat `bool` care indică succesul
+- `401 Unauthorized` – autentificarea a eșuat
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error`
 
 ```http
 POST /authority/petitions/register
 ```
 
-**Summary**
+**Rezumat**
 
-Register the start of petition processing by the authority.
+Înregistrează începerea procesării petiției de către autoritate.
 
-**Authorization**
+**Autorizare**
 
-Requires authority system identity via JWT or certificate.
+Necesită identitatea sistemului autorității prin JWT sau certificat.
 
-**Request body** (`RegisterPetitionRequestModel`):
+**Corpul request-ului** (`RegisterPetitionRequestModel`):
 
-- `petitionNumber` (string, required)
-- `registrationNumber` (string, required)
-- `registrationDate` (DateTime, required)
-- `responsiblePersonIdnp` (string, required)
-- `estimatedResolveDate` (DateTime?, optional)
+- `petitionNumber` (string, obligatoriu)
+- `registrationNumber` (string, obligatoriu)
+- `registrationDate` (DateTime, obligatoriu)
+- `responsiblePersonIdnp` (string, obligatoriu)
+- `estimatedResolveDate` (DateTime?, opțional)
 
-**Responses**:
+**Răspunsuri**:
 
-- `200 OK` – registration successful
-- `400 Bad Request` – petition not found or validation error
-- `403 Forbidden` – insufficient permissions
+- `200 OK` – înregistrare reușită
+- `400 Bad Request` – petiția nu a fost găsită sau eroare de validare
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error`
 
 ```http
 POST /authority/petitions/close
 ```
 
-**Summary**
+**Rezumat**
 
-Register petition closure and upload the response document.
+Înregistrează închiderea petiției și încarcă documentul de răspuns.
 
-**Authorization**
+**Autorizare**
 
-Requires authority system identity via JWT or certificate.
+Necesită identitatea sistemului autorității prin JWT sau certificat.
 
-**Request body** (`ClosePetitionRequestModel`):
+**Corpul request-ului** (`ClosePetitionRequestModel`):
 
-- `petitionNumber` (string, required)
-- `petitionExitNumber` (string, required)
+- `petitionNumber` (string, obligatoriu)
+- `petitionExitNumber` (string, obligatoriu)
 - `satisfactionState` (ResponseState)
 - `rejectionState` (ResponseState)
 - `refuseState` (ResponseState)
 - `unexaminedState` (ResponseState)
 - `redirectedState` (ResponseState)
-- `file` (`PetitionResponseFile`, required) – response document
-- `responsiblePersonIdnp` (string, required)
-- `responseDate` (DateTime?, optional)
+- `file` (`PetitionResponseFile`, obligatoriu) – documentul de răspuns
+- `responsiblePersonIdnp` (string, obligatoriu)
+- `responseDate` (DateTime?, opțional)
 
-**Responses**:
+**Răspunsuri**:
 
-- `200 OK` – closure registered successfully
-- `400 Bad Request` – petition not found or validation error
-- `403 Forbidden` – insufficient permissions
+- `200 OK` – închidere înregistrată cu succes
+- `400 Bad Request` – petiția nu a fost găsită sau eroare de validare
+- `403 Forbidden` – permisiuni insuficiente
 - `500 Internal Server Error` 

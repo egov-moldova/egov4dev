@@ -1,136 +1,136 @@
-## Error Handling Rules
+## Reguli de tratare a erorilor
 
-For errors resulted for REST interface invocations, MLog returns HTTP faults with fault codes and fault reasons describing the fault in plain English.
+Pentru erorile rezultate în urma apelurilor interfeței REST, MLog returnează erori HTTP (fault) cu coduri de eroare și motive care descriu eroarea în limbaj simplu.
 
-The clients that are using programming languages that support try… catch blocks, HTTP errors is the correct way to handle service invocation errors.
+Pentru clienții care utilizează limbaje de programare ce suportă blocuri try… catch, tratarea erorilor HTTP este modalitatea corectă de gestionare a erorilor de invocare a serviciului.
 
-| Fault Code | Description |
+| Cod de eroare | Descriere |
 |------------|-------------|
-| **400 Bad Request** | The input request is not a valid JSON<br><br>Any other error which cannot be bypassed – please note the provide detailed explanation in the response. |
-| **401 Unauthorized** | Triggered if the input event cannot be identified to be part of any IS |
-| **404 Not Found** | The URL you have reached is not in service at this time (404).<br><br>No data found for provided parameters. |
-| **413 Payload Too Large** | Information about the maximum allowed limit size for a message. Current limit for the whole message size is 256 KB. |
-| **500 Internal Server Error** | Error triggered by a defective work of MLog system. Please contact MLog administrators in case you receive such an error |
+| **400 Bad Request** | Cererea de intrare nu este un JSON valid<br><br>Orice altă eroare care nu poate fi ocolită – vă rugăm să rețineți că se oferă o explicație detaliată în răspuns. |
+| **401 Unauthorized** | Se declanșează dacă evenimentul de intrare nu poate fi identificat ca aparținând vreunui SI |
+| **404 Not Found** | URL-ul accesat nu este disponibil în acest moment (404).<br><br>Nu au fost găsite date pentru parametrii furnizați. |
+| **413 Payload Too Large** | Informații despre limita maximă admisă a dimensiunii unui mesaj. Limita curentă pentru dimensiunea totală a mesajului este de 256 KB. |
+| **500 Internal Server Error** | Eroare declanșată de o funcționare defectuoasă a sistemului MLog. Vă rugăm să contactați administratorii MLog în cazul în care primiți o astfel de eroare |
 
-## Predefined Event Fields
+## Câmpuri predefinite ale evenimentului
 
-The following table lists the predefined event fields:
+Tabelul de mai jos listează câmpurile predefinite ale evenimentului:
 
-| Field Name | Type/Length | Mandatory | Description |
+| Denumire câmp | Tip/Lungime | Obligatoriu | Descriere |
 |------------|-------------|-----------|-------------|
-| **event_time** | datetime | Y | The moment when the event happened at the source system (i.e. not the time of the logging). |
-| **event_type** | string | Y | The type of the event according to IS definition, which usually represents the action taken that resulted in this event (ex. Created, Authenticated, Deleted, etc.).<br><br>The following pattern is recommended: **System.X.Y**<br><br>Example: MPass.User.Authenticated<br><br>MLog defines a sub-set of types common to all IS which have as scope to identify special events. These events are subject of special processing (filtering) by registering them into specific indices and later accessed by other institutions/systems. |
-| **event_id** | string | N | The internal identifier of the event (usually unique) or some other kind of internal correlation identifier (such as the ID of transaction, request, etc.) unique for the logger system. |
-| **event_correlation** | string | N | An identifier used to correlate events logged by different systems in some context, usually a user action. |
-| **event_level** | string | N | Event classifier. Each IS which register events to MLog can use its own definition for this, e.g. relevance (ex. high/medium/low) or impact (warning/critical/fatal), etc. |
-| **event_source** | string | N | Place where the event was generated. Ex: logging class name, IS sub-component, or server name, etc. |
-| **event_message** | string | N | Free text that describes the event, indexed by MLog for advanced text search. |
-| **event_details** | string | N | Event details, such as an exception stack trace, document extract or other. Not indexed. |
-| **legal_entity** | string | N | The legal entity (organization) on behalf of which the action was performed (by a user or automatically).<br><br>Usually it is the IDNO of the organization. |
-| **legal_basis** | string | N | Legal basis for taken action. |
-| **legal_reason** | string | N | The reason why this event was created (ex. Application number, called phone number, etc.). |
-| **user** | string | N | The user which is the owner of the event (participated at this event creation).<br><br>Usually it is the IDNP of the user. |
-| **user_session** | string | N | User session in which context the action happened. This attribute permits to split the action taken by a user if the action is a step of a flow. |
-| **user_address** | string | N | User IP address or location or any another form which identifies where the user acted from. |
-| **subject** | string | N | The identifier of the thing or person that is impacted, discussed, or dealt with by this event (usually an IDNP). Different from the object, as the object is directly involved in the action. |
-| **subject_type** | string | N | The type of the subject. |
-| **subject_name** | string | N | The name of the subject. |
-| **object** | string | N | The identifier of the thing or person to which the event action is directed. |
-| **object_type** | string | N | The type of the object. |
-| **object_name** | string | N | The name of the object. |
+| **event_time** | datetime | Da | Momentul în care evenimentul s-a produs la sistemul sursă (nu momentul jurnalizării). |
+| **event_type** | string | Da | Tipul evenimentului conform definiției SI, care de regulă reprezintă acțiunea întreprinsă care a generat acest eveniment (ex. Created, Authenticated, Deleted etc.).<br><br>Se recomandă următorul tipar: **System.X.Y**<br><br>Exemplu: MPass.User.Authenticated<br><br>MLog definește un subset de tipuri comune tuturor SI, care au scopul de a identifica evenimente speciale. Aceste evenimente fac obiectul unei procesări speciale (filtrare) prin înregistrarea lor în indici specifici, ulterior accesibili altor instituții/sisteme. |
+| **event_id** | string | Nu | Identificatorul intern al evenimentului (de regulă unic) sau un alt tip de identificator intern de corelare (precum ID-ul tranzacției, cererii etc.), unic pentru sistemul care jurnalizează. |
+| **event_correlation** | string | Nu | Un identificator utilizat pentru corelarea evenimentelor jurnalizate de sisteme diferite într-un anumit context, de regulă o acțiune a utilizatorului. |
+| **event_level** | string | Nu | Clasificator al evenimentului. Fiecare SI care înregistrează evenimente în MLog poate utiliza propria definiție pentru acest câmp, de exemplu relevanța (ex. high/medium/low) sau impactul (warning/critical/fatal) etc. |
+| **event_source** | string | Nu | Locul în care a fost generat evenimentul. Ex: denumirea clasei de logging, subcomponenta SI sau numele serverului etc. |
+| **event_message** | string | Nu | Text liber care descrie evenimentul, indexat de MLog pentru căutare avansată de text. |
+| **event_details** | string | Nu | Detalii ale evenimentului, precum un stack trace al unei excepții, un extras de document sau altele. Nu este indexat. |
+| **legal_entity** | string | Nu | Entitatea juridică (organizația) în numele căreia a fost efectuată acțiunea (de către un utilizator sau automat).<br><br>De regulă este IDNO-ul organizației. |
+| **legal_basis** | string | Nu | Temeiul legal pentru acțiunea întreprinsă. |
+| **legal_reason** | string | Nu | Motivul pentru care a fost creat acest eveniment (ex. numărul cererii, numărul de telefon apelat etc.). |
+| **user** | string | Nu | Utilizatorul care este proprietarul evenimentului (a participat la crearea acestuia).<br><br>De regulă este IDNP-ul utilizatorului. |
+| **user_session** | string | Nu | Sesiunea utilizatorului în al cărei context s-a produs acțiunea. Acest atribut permite separarea acțiunii întreprinse de un utilizator, dacă acțiunea reprezintă un pas dintr-un flux. |
+| **user_address** | string | Nu | Adresa IP a utilizatorului, locația sau orice altă formă care identifică de unde a acționat utilizatorul. |
+| **subject** | string | Nu | Identificatorul lucrului sau persoanei care este afectată, discutată sau vizată de acest eveniment (de regulă un IDNP). Diferă de obiect, deoarece obiectul este direct implicat în acțiune. |
+| **subject_type** | string | Nu | Tipul subiectului. |
+| **subject_name** | string | Nu | Numele subiectului. |
+| **object** | string | Nu | Identificatorul lucrului sau persoanei către care este direcționată acțiunea evenimentului. |
+| **object_type** | string | Nu | Tipul obiectului. |
+| **object_name** | string | Nu | Numele obiectului. |
 
-The **event_time** field accepts formats described by the following syntax (square parenthesis meaning optional part):
+Câmpul **event_time** acceptă formatele descrise de următoarea sintaxă (parantezele pătrate indică o parte opțională):
 
 ```
 YYYY-MM-dd[THH:mm:ss[.SSS][Z|±HH[mm]]]
 ```
 
-where yyyy – year, MM – month (01-12), dd – day (01-31), HH – hour (00-23), mm – minutes (00-59), ss – seconds (00-59), SSS – milliseconds (000-999), ±HH[mm] – optional time zone offset specification (with optional minutes).
+unde yyyy – anul, MM – luna (01-12), dd – ziua (01-31), HH – ora (00-23), mm – minutele (00-59), ss – secundele (00-59), SSS – milisecundele (000-999), ±HH[mm] – specificarea opțională a fusului orar (cu minute opționale).
 
-There are only 2 fields which are mandatory for registering a message: **event_time** and **event_type**. Other fields are optional and may not be included in the input event. Moreover, any field can have more than one value in which case they must be logged as JSON arrays.
+Există doar 2 câmpuri obligatorii pentru înregistrarea unui mesaj: **event_time** și **event_type**. Celelalte câmpuri sunt opționale și pot să nu fie incluse în evenimentul de intrare. Mai mult, orice câmp poate avea mai multe valori, caz în care acestea trebuie jurnalizate ca array-uri JSON.
 
-It is also possible to use any other field name. In this case, the field will be registered as a string type. Note that names starting with "_" (underline) or "@" (at) are reserved.
+Este de asemenea posibilă utilizarea oricărei alte denumiri de câmp. În acest caz, câmpul va fi înregistrat ca tip string. Rețineți că denumirile care încep cu „_” (underline) sau „@” (at) sunt rezervate.
 
-**Important:** All strings have a maximum length of 32766 bytes (32KB – 2 bytes). Notices that the limit is in bytes, not characters, meaning that if you journal an UTF-8 string, the actual limit is 8191 characters in worst case scenario. If you need to store more in some field, ask for a special schema from MLog administrator to get a non-indexed field configured for you.
+**Important:** Toate șirurile de caractere au o lungime maximă de 32766 bytes (32KB – 2 bytes). Rețineți că limita este exprimată în bytes, nu în caractere, ceea ce înseamnă că, dacă jurnalizați un șir UTF-8, limita reală este de 8191 caractere în cel mai defavorabil scenariu. Dacă aveți nevoie să stocați mai mult într-un câmp, solicitați o schemă specială de la administratorul MLog pentru a vi se configura un câmp neindexat.
 
-**Remark:** it is possible to log nested objects in the events. They are converted into complex objects and later can be interrogated as by their field names. Still, this option shall be tested in the staging environment before using it in production for any side effect which it may generate. In case the custom field stores a JSON object but it is required to be saved as STRING in the backend database it must be agreed with MLog administrators for a special schema.
+**Observație:** este posibilă jurnalizarea obiectelor imbricate în evenimente. Acestea sunt convertite în obiecte complexe și pot fi interogate ulterior după denumirea câmpurilor lor. Totuși, această opțiune trebuie testată în mediul de staging înainte de a fi utilizată în producție, din cauza oricărui efect secundar pe care îl poate genera. În cazul în care câmpul personalizat stochează un obiect JSON, dar este necesar să fie salvat ca STRING în baza de date backend, acest lucru trebuie convenit cu administratorii MLog pentru o schemă specială.
 
-## Special Events
+## Evenimente speciale
 
-MLog defines a sub-set of event types common to all IS which have as scope to identify special events. These events are subject of special processing by registering a projection of the event fields into special indices and later accessed by other institutions/systems.
+MLog definește un subset de tipuri de evenimente comune tuturor SI, al căror scop este identificarea evenimentelor speciale. Aceste evenimente fac obiectul unei procesări speciale prin înregistrarea unei proiecții a câmpurilor evenimentului în indici speciali, ulterior accesibili altor instituții/sisteme.
 
-MLog identifies special events usually by analysing event_type field.
+MLog identifică evenimentele speciale de regulă prin analizarea câmpului event_type.
 
-Currently only one special type of events is defined, particularly events related to personal data access. When event_type field contains "PersonalData" MLog will consider this event as such. By convention, the following format for this field must be used:
+În prezent este definit un singur tip special de evenimente, și anume evenimentele legate de accesul la date cu caracter personal. Când câmpul event_type conține „PersonalData”, MLog va considera acest eveniment ca fiind de acest tip. Prin convenție, trebuie utilizat următorul format pentru acest câmp:
 
-**YourSystemPrefix.PersonalData.Action**
+**PrefixulSistemuluiDvs.PersonalData.Actiune**
 
-where the following Action values are recommended:
+unde se recomandă următoarele valori pentru Acțiune:
 
-| Action | Description |
+| Acțiune | Descriere |
 |--------|-------------|
-| **Access** | Electronic access of personal data. |
-| **Export** | Export or printing of personal data, not just access. |
-| **Validate** | Personal data validation, i.e. the request contains personal data, the response just confirms the correctness of the data. |
-| **Search** | Inexact search of personal data, meaning that the result might contain information about more than one person or entity. |
-| **Transfer** | Personal data transfer or synchronization, i.e. the personal data is transferred to some system for later processing. |
+| **Access** | Accesul electronic la date cu caracter personal. |
+| **Export** | Exportul sau tipărirea datelor cu caracter personal, nu doar accesul. |
+| **Validate** | Validarea datelor cu caracter personal, adică cererea conține date cu caracter personal, iar răspunsul doar confirmă corectitudinea datelor. |
+| **Search** | Căutare inexactă a datelor cu caracter personal, ceea ce înseamnă că rezultatul poate conține informații despre mai multe persoane sau entități. |
+| **Transfer** | Transferul sau sincronizarea datelor cu caracter personal, adică datele cu caracter personal sunt transferate către un alt sistem pentru procesare ulterioară. |
 
-The following table lists the event fields that are part of special events:
+Tabelul de mai jos listează câmpurile evenimentului care fac parte din evenimentele speciale:
 
-| Field Name | Predefined | PersonalData | Notes |
+| Denumire câmp | Predefinit | PersonalData | Note |
 |------------|-----------|--------------|-------|
-| **event_time** | Y | Y | |
-| **event_type** | Y | Y | Please see the format description above. |
-| **event_correlation** | Y | Y | |
-| **legal_entity** | Y | Y | Legal entity that is accessing the personal data. |
-| **legal_basis** | Y | Y | Legal basis for personal data access. |
-| **legal_reason** | Y | Y | Legal reason for personal data access. |
-| **user** | Y | Y | IDNP of the user that accessed personal data. |
-| **user_address** | Y | Y | User address (usually IP address). |
-| **subject** | Y | Y | Personal data subject IDNP. |
-| **subject_type** | Y | Y | Personal data subject type (usually Person). |
-| **subject_name** | Y | Y | Personal data subject name. |
-| **object** | Y | Y | Object related to the personal data subject that is accessed (such as car number, etc.) |
-| **object_type** | Y | Y | Type of the accessed object (e.g. CarNumber). |
+| **event_time** | Da | Da | |
+| **event_type** | Da | Da | A se vedea descrierea formatului de mai sus. |
+| **event_correlation** | Da | Da | |
+| **legal_entity** | Da | Da | Entitatea juridică care accesează datele cu caracter personal. |
+| **legal_basis** | Da | Da | Temeiul legal pentru accesul la datele cu caracter personal. |
+| **legal_reason** | Da | Da | Motivul legal pentru accesul la datele cu caracter personal. |
+| **user** | Da | Da | IDNP-ul utilizatorului care a accesat datele cu caracter personal. |
+| **user_address** | Da | Da | Adresa utilizatorului (de regulă adresa IP). |
+| **subject** | Da | Da | IDNP-ul subiectului datelor cu caracter personal. |
+| **subject_type** | Da | Da | Tipul subiectului datelor cu caracter personal (de regulă Persoană). |
+| **subject_name** | Da | Da | Numele subiectului datelor cu caracter personal. |
+| **object** | Da | Da | Obiectul legat de subiectul datelor cu caracter personal care este accesat (precum numărul de înmatriculare a autovehiculului etc.) |
+| **object_type** | Da | Da | Tipul obiectului accesat (de ex. CarNumber). |
 
-## Allowed Parameters for Search Operations
+## Parametri permiși pentru operațiunile de căutare
 
-MLog system can accept a list of parameters as input for search operation as below:
+Sistemul MLog poate accepta o listă de parametri ca date de intrare pentru operațiunea de căutare, după cum urmează:
 
-### For search by UID:
+### Pentru căutarea după UID:
 
-| Field Name | Type/Length | Mandatory | Description |
+| Denumire câmp | Tip/Lungime | Obligatoriu | Descriere |
 |------------|-------------|-----------|-------------|
-| **legal_entity** | string | N | Legal entity that performs the search. By default, this is set to MLog client owner. |
-| **legal_basis** | string | N | Legal base for search. |
-| **legal_reason** | string | N | Legal reason for search. |
-| **user** | string | N | IDNP of the user that searches for events. |
-| **user_address** | string | N | User address (usually IP address). |
+| **legal_entity** | string | Nu | Entitatea juridică care efectuează căutarea. Implicit, este setată la posesorul clientului MLog. |
+| **legal_basis** | string | Nu | Temeiul legal pentru căutare. |
+| **legal_reason** | string | Nu | Motivul legal pentru căutare. |
+| **user** | string | Nu | IDNP-ul utilizatorului care caută evenimente. |
+| **user_address** | string | Nu | Adresa utilizatorului (de regulă adresa IP). |
 
-### For search by time range:
+### Pentru căutarea după interval de timp:
 
-| Field Name | Type/Length | Mandatory | Description |
+| Denumire câmp | Tip/Lungime | Obligatoriu | Descriere |
 |------------|-------------|-----------|-------------|
-| **legal_entity** | string | N | Legal entity that performs the search. By default, this is set to MLog client owner. |
-| **legal_basis** | string | Y | Legal base for search. |
-| **legal_reason** | string | N | Legal reason for search. |
-| **user** | string | N | IDNP of the user that searches for events. |
-| **user_address** | string | N | User address (usually IP address). |
-| **event_time_from** | datetime | Y | Start time for period to search (inclusive). |
-| **event_time_to** | datetime | Y | End time for period to search (exclusive). |
-| **filter** | comma separated list | N | A list of key/value for the known fields to search. MLog will filter only those events that match these given fields. The format is field1=value1,field2=value2, etc. |
-| **page** | number (>=0) | N | The page number to be returned in case there are more than 1 page on the results. By default this is considered to be 0 (first page). |
-| **page_size** | number (> 0) | N | The chosen page size. Default: 50. |
+| **legal_entity** | string | Nu | Entitatea juridică care efectuează căutarea. Implicit, este setată la posesorul clientului MLog. |
+| **legal_basis** | string | Da | Temeiul legal pentru căutare. |
+| **legal_reason** | string | Nu | Motivul legal pentru căutare. |
+| **user** | string | Nu | IDNP-ul utilizatorului care caută evenimente. |
+| **user_address** | string | Nu | Adresa utilizatorului (de regulă adresa IP). |
+| **event_time_from** | datetime | Da | Momentul de început al perioadei de căutare (inclusiv). |
+| **event_time_to** | datetime | Da | Momentul de sfârșit al perioadei de căutare (exclusiv). |
+| **filter** | listă separată prin virgulă | Nu | O listă de perechi cheie/valoare pentru câmpurile cunoscute de căutat. MLog va filtra doar evenimentele care corespund câmpurilor date. Formatul este field1=value1,field2=value2 etc. |
+| **page** | număr (>=0) | Nu | Numărul paginii care urmează a fi returnată, în cazul în care există mai multe pagini de rezultate. Implicit, se consideră 0 (prima pagină). |
+| **page_size** | număr (> 0) | Nu | Dimensiunea paginii aleasă. Implicit: 50. |
 
-The fields **event_time_from** and **event_time_to** accept the same format as registered **event_time** field.
+Câmpurile **event_time_from** și **event_time_to** acceptă același format ca și câmpul **event_time** înregistrat.
 
-Maximum number of returned events is **page * page_size <= 10,000**.
+Numărul maxim de evenimente returnate este **page * page_size <= 10 000**.
 
-## Signing an Event
+## Semnarea unui eveniment
 
-MLog system uses the JSON Object Signing and Encryption (**JOSE/JWS**, see [1] and [2]) protocol to sign a message.
+Sistemul MLog utilizează protocolul JSON Object Signing and Encryption (**JOSE/JWS**, a se vedea [1] și [2]) pentru semnarea unui mesaj.
 
-Below is a JAVA example that sign and check a JSON message:
+Mai jos este un exemplu în JAVA care semnează și verifică un mesaj JSON:
 
 ```java
 import java.io.FileInputStream;
@@ -208,7 +208,7 @@ public class JoseTest {
 }
 ```
 
-MLog uses the compact mode of JOSE protocol, which are displayed in the following format. In the JWS Compact Serialization, a JWS is represented as the concatenation:
+MLog utilizează modul compact al protocolului JOSE, afișat în formatul de mai jos. În Serializarea Compactă JWS, un JWS este reprezentat ca o concatenare:
 
 ```
 BASE64URL(UTF8(JWS Protected Header)) || '.' ||
@@ -216,7 +216,7 @@ BASE64URL(JWS Payload) || '.' ||
 BASE64URL(JWS Signature)
 ```
 
-In order to enable JOSE signing in a project, add the following libraries to it:
+Pentru a activa semnarea JOSE într-un proiect, adăugați următoarele librării:
 
 **Maven:**
 
@@ -230,6 +230,6 @@ http://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt/4.26
 </dependency>
 ```
 
-**Offline mode** – download and attach the following jar to the project:
+**Mod offline** – descărcați și atașați următorul jar în proiect:
 
 http://central.maven.org/maven2/com/nimbusds/nimbus-jose-jwt/4.26/nimbus-jose-jwt-4.26.jar

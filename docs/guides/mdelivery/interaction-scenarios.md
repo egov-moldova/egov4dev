@@ -1,132 +1,132 @@
-## Redirect to MPay
+## Redirecționare către MPay
 
-The payment via MPay is required to confirm the delivery order and to proceed with the processing.
+Plata prin MPay este necesară pentru confirmarea comenzii de livrare și pentru a continua procesarea.
 
-In order to make the payment the Customer is redirected to MPay either from MDelivery page or Service Provider system, depending on the process set during the integration.
+Pentru efectuarea plății, Clientul este redirecționat către MPay fie din pagina MDelivery, fie din sistemul Prestatorului de servicii, în funcție de procesul stabilit în cadrul integrării.
 
-The selected scenario is set using the attribute Redirect to MPay set in MPass configurations for the integrated service.
+Scenariul selectat este determinat de atributul Redirect to MPay, setat în configurările MPass pentru serviciul integrat.
 
 ### Redirect to MPay [true]
 
-The attribute Redirect to MPay=true supposes the interaction scenario when the delivery order is confirmed on MDelivery page and the redirect to MPay for aggregated payment is made from MDelivery.
+Atributul Redirect to MPay=true presupune scenariul de interacțiune în care comanda de livrare este confirmată pe pagina MDelivery, iar redirecționarea către MPay pentru plata agregată se face din MDelivery.
 
-**Note!** To implement this scenario the Service Provider has to implement only the redirect to MDelivery and the methods to exchange the statuses during the delivery process. The delivery order creation, including the display of the aggregated order summary for confirmation and the redirect to MPay for payment are made on MDelivery.
+**Notă!** Pentru implementarea acestui scenariu, Prestatorul de servicii trebuie să implementeze doar redirecționarea către MDelivery și metodele pentru schimbul statusurilor pe parcursul procesului de livrare. Crearea comenzii de livrare, inclusiv afișarea rezumatului comenzii agregate pentru confirmare și redirecționarea către MPay pentru plată, se realizează pe MDelivery.
 
 <img src="../img/true.png">
 
 ### Redirect to MPay [false]
 
-The attribute Redirect to MPay=false supposes the interaction scenario when the order with delivery is confirmed on Service Provider page and the redirect to MPay of the aggregated payment is made from the Service Provider system.
+Atributul Redirect to MPay=false presupune scenariul de interacțiune în care comanda cu livrare este confirmată pe pagina Prestatorului de servicii, iar redirecționarea plății agregate către MPay se face din sistemul Prestatorului de servicii.
 
-**Note!** To implement this scenario the Service Provider has to develop the interface for delivery order creation displaying the aggregated order summary and options to confirm the delivery order redirecting the aggregated payment to MPay.
+**Notă!** Pentru implementarea acestui scenariu, Prestatorul de servicii trebuie să dezvolte interfața pentru crearea comenzii de livrare, care afișează rezumatul comenzii agregate și opțiunile de confirmare a comenzii de livrare, redirecționând plata agregată către MPay.
 
 <img src="../img/false.png">
 
-## Request delivery
+## Solicitarea livrării
 
-When a Customer requests a delivery for an ordered Product, the Service Provider's system redirects the Customer to MDelivery to fill in the delivery details and select delivery option from the available list provided by the integrated Carriers.
+Când un Client solicită livrarea unui Produs comandat, sistemul Prestatorului de servicii redirecționează Clientul către MDelivery pentru a completa detaliile de livrare și a selecta opțiunea de livrare din lista disponibilă, oferită de Cărăușii integrați.
 
-MDelivery receives the Order ID in the redirect URL and requests the Order details from the Service Provider information system via API (to send them to Carriers to obtain delivery options).
+MDelivery primește ID-ul comenzii în URL-ul de redirecționare și solicită detaliile comenzii de la sistemul informațional al Prestatorului de servicii prin API (pentru a le transmite Cărăușilor în vederea obținerii opțiunilor de livrare).
 
-**Redirect rules**
+**Reguli de redirecționare**
 
-**Passive authentication**
+**Autentificare pasivă**
 
-The fact that the Receiver is already authenticated on the Service Provider system via MPass, will be indicated by the parameter mpass = true, or mpass = 1.
+Faptul că Destinatarul este deja autentificat în sistemul Prestatorului de servicii prin MPass va fi indicat prin parametrul mpass = true, sau mpass = 1.
 
-**Language**
+**Limbă**
 
-The redirect will be performed by applying the same language selected by the user.
+Redirecționarea se va efectua aplicând aceeași limbă selectată de utilizator.
 
-Example: if the RO version was selected on the System Provider system, on MDelivery the user will be redirected on the RO version.
+Exemplu: dacă versiunea RO a fost selectată în sistemul Prestatorului de servicii, pe MDelivery utilizatorul va fi redirecționat către versiunea RO.
 
-The parameter used to indicate the language is "lang" (ex: lang = ro)
+Parametrul utilizat pentru a indica limba este "lang" (ex: lang = ro)
 
-**Example URL:**
+**Exemplu de URL:**
 ```
 https://mdelivery.staging.egov.md/public/shipping?orderId=o7515871605102109999&serviceId=1&lang=ro&returUrl=https:%2F%2Fsp-mdelivery.staging.egov.md%2F
 ```
 
-## Delivery order creation
+## Crearea comenzii de livrare
 
-When the Customer selects and confirms a delivery option, a Delivery order is created on MDelivery assigned to the Order received form Service Provider.
+Când Clientul selectează și confirmă o opțiune de livrare, se creează pe MDelivery o Comandă de livrare, asociată Comenzii primite de la Prestatorul de servicii.
 
-The delivery order can be initiated on:
+Comanda de livrare poate fi inițiată pe:
 
-**SP system** – with redirect to MDelivery to fill in delivery details and select the delivery option.
+**Sistemul PS** – cu redirecționare către MDelivery pentru completarea detaliilor de livrare și selectarea opțiunii de livrare.
 
-**Note!** Depending on the payment scenario selected by the Service Provider and registered in the Service Provider profile on MDelivery, the created Delivery is returned to the Service Provider system, or the process is continued with redirecting to MPay from MDelivery.
+**Notă!** În funcție de scenariul de plată selectat de Prestatorul de servicii și înregistrat în profilul Prestatorului de servicii pe MDelivery, Livrarea creată este returnată către sistemul Prestatorului de servicii, sau procesul continuă cu redirecționarea către MPay din MDelivery.
 
-**MDelivery page** - via Add delivery option, completing the relevant Order ID to add the delivery.
+**Pagina MDelivery** - prin opțiunea Add delivery, completând ID-ul Comenzii relevante pentru a adăuga livrarea.
 
-**Note!** The option to add the delivery on MDelivery page for an existing order is available only for the services with the relevant attribute in SP profile (Add delivery = true).
+**Notă!** Opțiunea de adăugare a livrării pe pagina MDelivery pentru o comandă existentă este disponibilă doar pentru serviciile cu atributul relevant setat în profilul PS (Add delivery = true).
 
-When the delivery order is confirmed, MDelivery sends the delivery data to inform the Service Provider that a delivery order was assigned by the customer to an order.
+Când comanda de livrare este confirmată, MDelivery transmite datele de livrare pentru a informa Prestatorul de servicii că o comandă de livrare a fost asociată de client unei comenzi.
 
-**Delivery status at this stage**
+**Statusul livrării în această etapă**
 
-**AwaitingPayment** – the Receiver confirms the Delivery order creation, but the order is still not payed.
+**AwaitingPayment** – Destinatarul confirmă crearea Comenzii de livrare, dar comanda încă nu este plătită.
 
-## Payment scenarios
+## Scenarii de plată
 
-The Integration type attribute assigned to the Service determines where the payment phase will start: on MDelivery, or on Service Provider system.
+Atributul Integration type, atribuit Serviciului, determină unde va începe etapa de plată: pe MDelivery, sau pe sistemul Prestatorului de servicii.
 
-**Note!** Both scenarios requests the Service Provider integration with MPay, to enable the Order payment.
+**Notă!** Ambele scenarii presupun integrarea Prestatorului de servicii cu MPay, pentru a permite plata Comenzii.
 
-### Redirect to MPay from MDelivery
+### Redirecționare către MPay din MDelivery
 
-The attribute Redirect to MPay=true supposes the Customer, when confirming the delivery on MDelivery page is redirected to MPay for payment.
+Atributul Redirect to MPay=true presupune că Clientul, la confirmarea livrării pe pagina MDelivery, este redirecționat către MPay pentru plată.
 
-MDelivery sends to MPay both DeliveryID and OrderID.
+MDelivery transmite către MPay atât DeliveryID, cât și OrderID.
 
-###  Redirect to MPay Service Provider system
+### Redirecționare către MPay din sistemul Prestatorului de servicii
 
-The attribute Redirect to MPay=false supposes that the Customer, when confirming the delivery on MDelivery will be redirected back to his order on Service Provider page to confirm consolidated order with delivery.
+Atributul Redirect to MPay=false presupune că Clientul, la confirmarea livrării pe MDelivery, va fi redirecționat înapoi la comanda sa pe pagina Prestatorului de servicii, pentru a confirma comanda consolidată cu livrare.
 
-The Service Provider system sends to MPay both OrderID and DeliveryID.
+Sistemul Prestatorului de servicii transmite către MPay atât OrderID, cât și DeliveryID.
 
-When the delivery order payment confirmation is received from MPay, MDelivery sends the delivery data to inform the Service Provider that a delivery order was paid by the customer and the order should be prepared for delivery.
+Când confirmarea plății comenzii de livrare este primită de la MPay, MDelivery transmite datele de livrare pentru a informa Prestatorul de servicii că o comandă de livrare a fost plătită de client și că comanda trebuie pregătită pentru livrare.
 
-**Delivery status at this stage**
+**Statusul livrării în această etapă**
 
-**Paid** – set in MDelivery when the payment confirmation for the delivery order is received from MPay.
+**Paid** – setat în MDelivery când este primită de la MPay confirmarea plății pentru comanda de livrare.
 
-## Get orders' status changes
+## Obținerea modificărilor statusului comenzilor
 
-The orders status changes are checked from the Service Provider system via MDelivery API.
+Modificările statusului comenzilor sunt verificate din sistemul Prestatorului de servicii prin API-ul MDelivery.
 
-**Delivery statuses at this stage**
+**Statusurile livrării în această etapă**
 
-**Processing** – returned by the Service provider during the period of order processing, meaning the order will be prepared for delivery, but is still not ready.
+**Processing** – returnat de Prestatorul de servicii în perioada de procesare a comenzii, indicând faptul că aceasta va fi pregătită pentru livrare, dar nu este încă gata.
 
-**Cancelled** – returned by the Service Provider if the order is cancelled in the Service provider system and no delivery will be needed.
+**Cancelled** – returnat de Prestatorul de servicii dacă comanda este anulată în sistemul Prestatorului de servicii și nu va fi necesară nicio livrare.
 
-**Expired** - returned by the Service Provider if the order is expired in the Service provider system Service provider and no delivery will be needed.
+**Expired** - returnat de Prestatorul de servicii dacă comanda a expirat în sistemul Prestatorului de servicii și nu va fi necesară nicio livrare.
 
-**Ready** - returned by the Service Provider or set manually by the Operator in MDelivery when the order is ready at the pickup point to be transmitted to the Carrier's reprresentative.
+**Ready** - returnat de Prestatorul de servicii sau setat manual de Operator în MDelivery, atunci când comanda este gata la punctul de ridicare pentru a fi transmisă reprezentantului Cărăușului.
 
-**Note!** When the delivery order status becomes ready, the delivery order is sent by MDelivery to the Carrier's information system to create the shipment document (AWB) and prepare delivery process and also the delivery status is the delivery status is sent o Service Provider to confirm it.
+**Notă!** Când statusul comenzii de livrare devine ready, comanda de livrare este transmisă de MDelivery către sistemul informațional al Cărăușului pentru crearea documentului de expediere (AWB) și pregătirea procesului de livrare, iar statusul livrării este de asemenea transmis Prestatorului de servicii pentru confirmare.
 
-## Delivery status tracking
+## Urmărirea statusului livrării
 
-During the processing and delivery process, to track the Delivery, the statuses are send to and checked from the Service Provider system via MDelivery API based on the OrderID and ServiceID.
+Pe parcursul procesării și livrării, pentru urmărirea Livrării, statusurile sunt transmise către și verificate din sistemul Prestatorului de servicii prin API-ul MDelivery, pe baza OrderID și ServiceID.
 
-**Delivery statuses at this stage**
+**Statusurile livrării în această etapă**
 
-**AwaitingPickup** – sent by MDelivery to inform the Service provider the AWB was created in the Carrier system and Carrier pickup is awaited.
+**AwaitingPickup** – transmis de MDelivery pentru a informa Prestatorul de servicii că AWB-ul a fost creat în sistemul Cărăușului și se așteaptă ridicarea de către Cărăuș.
 
-**Delivering** - sent by MDelivery to inform the Service provider the Carrier picked up the order and the delivery process is started.
+**Delivering** - transmis de MDelivery pentru a informa Prestatorul de servicii că Cărăușul a ridicat comanda de la Prestatorul de servicii și procesul de livrare a început.
 
-**Delivered** - sent by MDelivery to inform the Service provider the Carrier finished the delivery process and the order is delivered to the Receiver.
+**Delivered** - transmis de MDelivery pentru a informa Prestatorul de servicii că Cărăușul a finalizat procesul de livrare și comanda a fost livrată Destinatarului.
 
-**Confirmed** - sent by MDelivery to inform the Service provider the Receiver confirmed the order is delivered.
+**Confirmed** - transmis de MDelivery pentru a informa Prestatorul de servicii că Destinatarul a confirmat livrarea comenzii.
 
-**Problem** - sent by MDelivery to inform the Service provider that a delivery problem occurred during the shipment. The details explaining the problem can be seen in the Message.
+**Problem** - transmis de MDelivery pentru a informa Prestatorul de servicii că a apărut o problemă de livrare în timpul expedierii. Detaliile care explică problema pot fi consultate în Message.
 
-**Returning** - sent by MDelivery to inform the Service provider that the order was not delivered and is on the way to be returned to the pickup point.
+**Returning** - transmis de MDelivery pentru a informa Prestatorul de servicii că comanda nu a fost livrată și este în curs de returnare către punctul de ridicare.
 
-**Returned** - sent by MDelivery to inform the Service provider that the order was not delivered and was already returned to the pickup point.
+**Returned** - transmis de MDelivery pentru a informa Prestatorul de servicii că comanda nu a fost livrată și a fost deja returnată la punctul de ridicare.
 
-**Note!** MDelivery notifies the Customer via MNotify regarding relevant delivery statuses.
+**Notă!** MDelivery notifică Clientul prin MNotify cu privire la statusurile de livrare relevante.
 
-Notifications regarding Order payment and/or other Order processing steps can be sent by the System Provider via MNotify if necessary.
+Notificările privind plata Comenzii și/sau alte etape de procesare a Comenzii pot fi transmise de Prestatorul de servicii prin MNotify, dacă este necesar.

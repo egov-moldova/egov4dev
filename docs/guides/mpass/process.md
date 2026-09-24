@@ -1,38 +1,38 @@
-1. Complete the [Unified Connection Form](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u) available on eGov's website. 
-2. Sign the contract and/or the annex provided by eGov for the delivery of MPass services. 
-   – If the institution already has an active contract for another eGov platform service, there is no need to sign a new contract; only the MPass specific annex will be signed. 
-3. Provide the [technical integration details](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOPEKwFi7MyRNimikcwdXWMlUOTlGSVRPQUJVRUFKVVVYR1I4UE9KTTRYOC4u) after signing the contract. You will receive, via notification, the link to the online integration details form. In this form, indicate:
-   - the name of the information system;
-   - the test and production environment URLs for:
+1. Completați [Formularul unic de conectare](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUMFhISEJPMUNGOTIwV09OTkFTUUtLSk9LTS4u) disponibil pe site-ul eGov. 
+2. Semnați contractul și/sau anexa furnizată de eGov pentru prestarea serviciilor MPass. 
+   – Dacă instituția are deja un contract activ pentru un alt serviciu al platformei eGov, nu este necesară semnarea unui contract nou; se va semna doar anexa specifică MPass. 
+3. Furnizați [detaliile tehnice de integrare](https://forms.office.com/Pages/ResponsePage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOPEKwFi7MyRNimikcwdXWMlUOTlGSVRPQUJVRUFKVVVYR1I4UE9KTTRYOC4u) după semnarea contractului. Veți primi, prin notificare, linkul către formularul online de detalii de integrare. În acest formular, indicați:
+   - denumirea sistemului informațional;
+   - adresele URL ale mediilor de testare și producție pentru:
      - LogoutRequest
      - LogoutResponse (Single Logout – SLO);
-   - the list of authentication attributes that will be returned (e.g., NameIdentifier, FirstName, LastName, BirthDate). 
+   - lista atributelor de autentificare care vor fi returnate (de ex., NameIdentifier, FirstName, LastName, BirthDate). 
 
-4. Send to eGov, at servicii@egov.md: 
-  - The system certificate can be obtained by submitting an online request at: https://semnatura.md/order/system-certificate
-  - the system certificate (.cer – public key), if the institution does not yet have a valid certificate registered for another eGov service, or
-  - the serial number of the existing certificate, if the same certificate will be used for the MPass integration. 
+4. Transmiteți către eGov, la adresa servicii@egov.md: 
+  - Certificatul de sistem poate fi obținut prin depunerea unei cereri online la: https://semnatura.md/order/system-certificate
+  - certificatul de sistem (.cer – cheie publică), dacă instituția nu are deja înregistrat un certificat valid pentru un alt serviciu eGov, sau
+  - numărul de serie al certificatului existent, dacă același certificat va fi utilizat pentru integrarea cu MPass. 
 
-5. eGov configures access to the test environment: https://mpass.staging.egov.md. 
-6. Implement the integration according to the technical documentation and perform [the functional tests](integration-tests.md) in the test environment.
-7. eGov performs additional tests in the test environment and confirms technical compliance. 
-8. Confirm to eGov the configuration for the production environment at the e-mail address: servicii@egov.md 
-9. eGov activates the service in the production environment. 
-10. Receive the notification sent by eGov regarding the completion of the integration and activation in the production environment.
+5. eGov configurează accesul la mediul de testare: https://mpass.staging.egov.md. 
+6. Implementați integrarea conform documentației tehnice și efectuați [testele funcționale](integration-tests.md) în mediul de testare.
+7. eGov efectuează teste suplimentare în mediul de testare și confirmă conformitatea tehnică. 
+8. Confirmați către eGov configurarea pentru mediul de producție la adresa de e-mail: servicii@egov.md 
+9. eGov activează serviciul în mediul de producție. 
+10. Primiți notificarea transmisă de eGov privind finalizarea integrării și activarea în mediul de producție.
 
-## Service pricing
+## Tarifarea serviciului
 
-| User type | Access conditions | Annual fee per integration |
+| Tip de utilizator | Condiții de acces | Tarif anual per integrare |
 |-----------|-------------------|---------------------------|
-| **Public institutions** | Contract-based | – |
-| **Private legal entities** | Contract-based (per applicable legal framework) | 10.800 lei |
-| **Natural persons** | Contract-based (per applicable legal framework) | 10.800 lei |
+| **Instituții publice** | În baza contractului | – |
+| **Persoane juridice de drept privat** | În baza contractului (conform cadrului legal aplicabil) | 10.800 lei |
+| **Persoane fizice** | În baza contractului (conform cadrului legal aplicabil) | 10.800 lei |
 
-**Notes:**
+**Note:**
 
-- The fee applies to the integration of a single information system
-- Multiple integrations require separate fees for each system
+- Tariful se aplică integrării unui singur sistem informațional
+- Integrările multiple necesită tarife separate pentru fiecare sistem
 
-## Connection time 
+## Termenul de conectare 
 
-MEGA processes the request within a maximum of 7 working days, calculated from the moment all necessary data from the institution have been received. 
+MEGA procesează cererea în cel mult 7 zile lucrătoare, calculate din momentul în care au fost recepționate toate datele necesare din partea instituției. 

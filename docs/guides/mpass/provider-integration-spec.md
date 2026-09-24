@@ -1,131 +1,131 @@
-# Authentication provider integration specification
+# Specificația de integrare a furnizorului de autentificare
 
-!!! note "Audience"
-    This page is for an **authentication provider** (an electronic identification method or solution) integrating *into* MPass. It is separate from the rest of the MPass guide, which covers integrating information systems *with* MPass as consumers.
+!!! note "Public țintă"
+    Această pagină se adresează unui **furnizor de autentificare** (o metodă sau soluție de identificare electronică) care se integrează *în* MPass. Este separată de restul ghidului MPass, care acoperă integrarea sistemelor informaționale *cu* MPass, în calitate de consumatori.
 
-## 1. Purpose
+## 1. Scop
 
-MPass is the government authentication and access control service of the Republic of Moldova. It lets users sign in to public e-services with a single account (single sign-on) and issues each e-service a signed assertion of the user's identity.
+MPass este serviciul guvernamental de autentificare și control al accesului din Republica Moldova. Acesta permite utilizatorilor să se autentifice în serviciile publice electronice cu un singur cont (single sign-on) și emite fiecărui serviciu electronic o assertion semnată a identității utilizatorului.
 
-MPass gives public e-services a single authentication point and integrates the various electronic identification methods and solutions offered by providers.
+MPass oferă serviciilor publice electronice un punct unic de autentificare și integrează diversele metode și soluții de identificare electronică oferite de furnizori.
 
-In an MPass integration, the authentication provider (hereinafter the **"Provider"**) works as follows: MPass sends it a one-time challenge, the Provider authenticates the user — for example by having them confirm in the Provider's app and sign the challenge with their qualified key — and returns the user's identity together with the proof. MPass then maps that identity to the user's account and issues the SAML session to the requesting e-service. The SAML exchange with the e-service is entirely MPass's responsibility — the Provider only authenticates the person.
+Într-o integrare cu MPass, furnizorul de autentificare (denumit în continuare „**Furnizorul**”) funcționează astfel: MPass îi transmite o provocare (challenge) unică, Furnizorul autentifică utilizatorul — de exemplu, solicitându-i să confirme în aplicația Furnizorului și să semneze provocarea cu cheia sa calificată — și returnează identitatea utilizatorului împreună cu dovada. MPass mapează apoi această identitate la contul utilizatorului și emite sesiunea SAML către serviciul electronic solicitant. Schimbul SAML cu serviciul electronic este în întregime responsabilitatea MPass — Furnizorul doar autentifică persoana.
 
-This document covers only the technical integration interface for the authentication of a natural person. The Provider's legal obligations ([section 8](#8-legal-obligations-that-remain-with-the-provider)) are unchanged and are not limited by this document.
+Acest document acoperă exclusiv interfața tehnică de integrare pentru autentificarea unei persoane fizice. Obligațiile legale ale Furnizorului ([secțiunea 8](#8-obligatiile-legale-care-raman-in-sarcina-furnizorului)) rămân neschimbate și nu sunt limitate de acest document.
 
-## 2. What the Provider does
+## 2. Ce face Furnizorul
 
-For each authentication, MPass sends a challenge and, optionally, the user's identifier; the Provider authenticates the user and returns:
+Pentru fiecare autentificare, MPass transmite o provocare și, opțional, identificatorul utilizatorului; Furnizorul autentifică utilizatorul și returnează:
 
-| What the Provider returns | Purpose |
+| Ce returnează Furnizorul | Scop |
 |---------------------------|---------|
-| **the user's qualified certificate** | MPass reads the national ID number (IDNP) from the certificate to identify the user. |
-| **a signature over the challenge** | Proof that the user was present and controls their key, bound to this specific authentication (anti-replay); MPass retains it as evidence. |
-| **a status** | Success or failure of the authentication. |
+| **certificatul calificat al utilizatorului** | MPass citește numărul de identificare de stat (IDNP) din certificat pentru a identifica utilizatorul. |
+| **o semnătură aplicată asupra provocării** | Dovadă că utilizatorul a fost prezent și controlează cheia sa, legată de această autentificare specifică (anti-replay); MPass o păstrează drept probă. |
+| **un status** | Succesul sau eșecul autentificării. |
 
-## 3. Identity and certificate requirements (mandatory for integration)
+## 3. Cerințe privind identitatea și certificatul (obligatorii pentru integrare)
 
-These requirements are set by MPass. Certificate recognition and structure derive from [Law No. 124/2022](https://www.legis.md/cautare/getResults?doc_id=151294&lang=ro) and from the technical regulations approved by the supervisory body (the Information and Security Service of the Republic of Moldova).
+Aceste cerințe sunt stabilite de MPass. Recunoașterea și structura certificatului derivă din [Legea nr. 124/2022](https://www.legis.md/cautare/getResults?doc_id=151294&lang=ro) și din reglementările tehnice aprobate de organul de supraveghere (Serviciul de Informații și Securitate al Republicii Moldova).
 
-1. The user is authenticated on the basis of a **qualified certificate for electronic signature** (Art. 25 of Law No. 124/2022). The assurance level of the electronic identification means — low, substantial or high (Art. 5¹ of Law No. 124/2022) — is set at onboarding.
-2. The `serialNumber` attribute of the certificate's Subject Distinguished Name carries the **user's IDNP** (13 digits) — **not the certificate serial number** — per the qualified certificate structure set by the supervisory body (Art. 13(4) of Law No. 124/2022) and the ETSI EN 319 412-1 semantics (usually with a prefix, e.g. `PNOMD-<IDNP>`). This is the value MPass uses to identify the account.
-3. The signature is produced over **exactly** the challenge MPass sent for this authentication ([section 6](#6-authentication-and-security)). Signature and digest algorithms are agreed at onboarding (algorithms in force; algorithms considered insecure are not accepted).
-4. **CA recognition.** The certificate is issued under a recognised certification authority: the issuing trust service provider must appear on the **national trusted list** maintained and published by the supervisory body (Art. 8 and Art. 35(2)(e) of Law No. 124/2022). For qualified trust service providers established in EU member states, the recognition under Art. 3 and Art. 8(7)–(9) applies.
+1. Utilizatorul este autentificat pe baza unui **certificat calificat pentru semnătură electronică** (art. 25 din Legea nr. 124/2022). Nivelul de asigurare a mijlocului de identificare electronică — scăzut, substanțial sau ridicat (art. 5¹ din Legea nr. 124/2022) — este stabilit la etapa de onboarding.
+2. Atributul `serialNumber` din Subject Distinguished Name al certificatului conține **IDNP-ul utilizatorului** (13 cifre) — **nu numărul de serie al certificatului** — conform structurii certificatului calificat stabilite de organul de supraveghere (art. 13 alin. (4) din Legea nr. 124/2022) și semanticii ETSI EN 319 412-1 (de regulă, cu un prefix, de ex. `PNOMD-<IDNP>`). Aceasta este valoarea pe care MPass o utilizează pentru a identifica contul.
+3. Semnătura este produsă **exact** asupra provocării transmise de MPass pentru această autentificare ([secțiunea 6](#6-autentificare-si-securitate)). Algoritmii de semnătură și de digest sunt agreați la etapa de onboarding (algoritmi în vigoare; algoritmii considerați nesiguri nu sunt acceptați).
+4. **Recunoașterea CA.** Certificatul este emis sub o autoritate de certificare recunoscută: furnizorul de servicii de încredere emitent trebuie să figureze pe **lista națională de încredere** întreținută și publicată de organul de supraveghere (art. 8 și art. 35 alin. (2) lit. e) din Legea nr. 124/2022). Pentru furnizorii de servicii de încredere calificați stabiliți în statele membre UE, se aplică recunoașterea în temeiul art. 3 și art. 8 alin. (7)–(9).
 
-!!! warning "Point 4 is the essential prerequisite"
-    MPass trusts an identity only when it rests on a recognised qualified certificate. A certificate issued under a CA that is not on the trusted list cannot be accepted as an identity, even if the signature is technically valid.
+!!! warning "Punctul 4 este condiția prealabilă esențială"
+    MPass acordă încredere unei identități doar atunci când aceasta se bazează pe un certificat calificat recunoscut. Un certificat emis sub o CA care nu se află pe lista de încredere nu poate fi acceptat ca identitate, chiar dacă semnătura este valabilă din punct de vedere tehnic.
 
-    At validation, MPass also applies the conditions of Art. 29 of Law No. 124/2022 (qualified certificate, valid at the time of authentication, issued by a qualified provider). Confirm the certificate CA with the MPass team before starting development.
+    La validare, MPass aplică de asemenea condițiile art. 29 din Legea nr. 124/2022 (certificat calificat, valabil la momentul autentificării, emis de un furnizor calificat). Confirmați CA-ul certificatului împreună cu echipa MPass înainte de a începe dezvoltarea.
 
-## 4. Integration modes
+## 4. Moduri de integrare
 
-The Provider implements the mode that matches how the user authorises the authentication:
+Furnizorul implementează modul care corespunde modului în care utilizatorul autorizează autentificarea:
 
-- **Synchronous** — for instant authentication. MPass calls the Provider's Authenticate operation and receives the identity + proof directly in the response.
-- **Asynchronous** — when the user must confirm on a phone or in an app. MPass calls the Authenticate operation, the Provider accepts the request and, once the user has confirmed, notifies MPass with a short callback; MPass then retrieves the result from the Provider.
+- **Sincron** — pentru autentificare instantanee. MPass apelează operațiunea Authenticate a Furnizorului și primește identitatea + dovada direct în response.
+- **Asincron** — atunci când utilizatorul trebuie să confirme pe telefon sau într-o aplicație. MPass apelează operațiunea Authenticate, Furnizorul acceptă cererea și, după ce utilizatorul a confirmat, notifică MPass printr-un callback scurt; MPass preia apoi rezultatul de la Furnizor.
 
-Either mode may be implemented. The data exchanged is the same; only the timing differs.
+Oricare dintre moduri poate fi implementat. Datele transmise sunt aceleași; diferă doar momentul transmiterii.
 
-## 5. API contract
+## 5. Contractul API
 
-The Provider exposes the operations below over HTTPS; every call is authenticated as described in [section 6](#6-authentication-and-security). Field names are indicative — a SOAP or REST equivalent is acceptable; the exact schema (WSDL / OpenAPI) is agreed during onboarding.
+Furnizorul expune operațiunile de mai jos prin HTTPS; fiecare apel este autentificat conform descrierii din [secțiunea 6](#6-autentificare-si-securitate). Denumirile câmpurilor sunt orientative — un echivalent SOAP sau REST este acceptabil; schema exactă (WSDL/OpenAPI) se agreează la etapa de onboarding.
 
-### 5.1 Authenticate — request (MPass → Provider)
+### 5.1 Authenticate — request (MPass → Furnizor)
 
-| Field | Type | Notes |
+| Câmp | Tip | Note |
 |-------|------|-------|
-| `requestId` | string | Correlation id for this authentication. Echoed back. |
-| `challenge` | bytes | A one-time value generated by MPass for this authentication. The user's signature must be over exactly this value. |
-| `userId` | string, optional | The user's IDNP, when MPass already knows it (e.g. the user entered it). When absent, the Provider determines the user from its own app / device and returns their identity. |
-| `description` | string | Short text shown to the user (e.g. the name of the service they are signing in to). |
-| `callbackUrl` | string | Asynchronous mode only — the address the Provider POSTs to when authentication completes. |
-| `withNotification` | bool, optional | Whether to push a prompt to the user's device. |
+| `requestId` | string | ID de corelare pentru această autentificare. Este returnat identic. |
+| `challenge` | bytes | O valoare unică, generată de MPass pentru această autentificare. Semnătura utilizatorului trebuie aplicată exact asupra acestei valori. |
+| `userId` | string, opțional | IDNP-ul utilizatorului, atunci când MPass îl cunoaște deja (de ex., utilizatorul l-a introdus). Când lipsește, Furnizorul determină utilizatorul din propria aplicație/dispozitiv și returnează identitatea acestuia. |
+| `description` | string | Text scurt afișat utilizatorului (de ex., denumirea serviciului în care se autentifică). |
+| `callbackUrl` | string | Doar în modul asincron — adresa la care Furnizorul transmite un POST atunci când autentificarea este finalizată. |
+| `withNotification` | bool, opțional | Dacă se trimite sau nu o notificare push pe dispozitivul utilizatorului. |
 
-### 5.2 Result (Provider → MPass)
+### 5.2 Result (Furnizor → MPass)
 
-Returned directly (synchronous) or via the status operation (asynchronous):
+Returnat direct (sincron) sau prin operațiunea de status (asincron):
 
-| Field | Type | Notes |
+| Câmp | Tip | Note |
 |-------|------|-------|
-| `status` | enum | `Pending`, `Success` or `Failure`. |
-| `failureReason` | string | Present on `Failure` — a short, user-meaningful reason (see [section 7](#7-status-and-error-conventions)). |
-| `signerCertificate` | bytes | The user's qualified certificate (DER). MPass reads the IDNP from its Subject. |
-| `subject` | string, optional | The certificate Subject (distinguished name), if you prefer to pass it explicitly. |
-| `challengeSignature` | bytes | The user's signature over the challenge from 5.1. |
+| `status` | enum | `Pending`, `Success` sau `Failure`. |
+| `failureReason` | string | Prezent la `Failure` — un motiv scurt, relevant pentru utilizator (a se vedea [secțiunea 7](#7-conventii-privind-statusul-si-erorile)). |
+| `signerCertificate` | bytes | Certificatul calificat al utilizatorului (DER). MPass citește IDNP-ul din Subject-ul acestuia. |
+| `subject` | string, opțional | Subject-ul certificatului (distinguished name), dacă preferați să îl transmiteți explicit. |
+| `challengeSignature` | bytes | Semnătura utilizatorului aplicată asupra provocării din 5.1. |
 
-### 5.3 Callback (asynchronous mode only)
+### 5.3 Callback (doar în modul asincron)
 
-When authentication completes, the Provider POSTs to `callbackUrl` a minimal body containing only `requestId`. This is a wake-up notification only — **the certificate, Subject and signature are not included in the callback**. On receipt, MPass calls the Provider's status operation to retrieve the result.
+Când autentificarea este finalizată, Furnizorul transmite un POST către `callbackUrl` cu un corp minimal, conținând doar `requestId`. Aceasta este exclusiv o notificare de tip wake-up — **certificatul, Subject-ul și semnătura nu sunt incluse în callback**. La primirea acesteia, MPass apelează operațiunea de status a Furnizorului pentru a prelua rezultatul.
 
-### 5.4 Status / result operation (asynchronous mode only)
+### 5.4 Operațiunea de status/rezultat (doar în modul asincron)
 
-MPass requests the result of a previously submitted authentication by its `requestId`. Return the structure of section 5.2. While the user has not yet confirmed, return `status = Pending`.
+MPass solicită rezultatul unei autentificări transmise anterior, pe baza `requestId`-ului acesteia. Se returnează structura din secțiunea 5.2. Atât timp cât utilizatorul nu a confirmat încă, se returnează `status = Pending`.
 
-### 5.5 Device selection (optional)
+### 5.5 Selectarea dispozitivului (opțional)
 
-If a user may have more than one device or identity and one must be chosen, the Provider indicates this in its response so MPass can present the choice to the user. Describe the mechanism at onboarding.
+Dacă un utilizator poate avea mai multe dispozitive sau identități și trebuie aleasă una dintre ele, Furnizorul indică acest lucru în răspunsul său, astfel încât MPass să poată prezenta opțiunea utilizatorului. Mecanismul se descrie la etapa de onboarding.
 
-## 6. Authentication and security
+## 6. Autentificare și securitate
 
-- **Authentication.** Every request is authenticated with a bearer token over HTTPS. MPass sends an `Authorization: Bearer <token>` header on each call to the Provider's service, using a token (API key) issued by the Provider to MPass. The Provider's callback to MPass carries an `Authorization: Bearer <token>` header using a token issued by MPass to the Provider. Tokens are exchanged during onboarding, can be rotated, and are never placed in URLs.
-- **Transport.** All traffic runs over HTTPS (TLS 1.2 or higher). The Provider's endpoint must present a valid server certificate.
-- **Challenge binding (anti-replay).** The user's signature must be over exactly the challenge MPass sent for this authentication. An old challenge is not accepted or reused; each authentication uses a fresh one.
-- **Identity binding.** When `userId` (IDNP) is supplied, the authenticated user must be that person — the `serialNumber` attribute of the certificate's Subject must equal the supplied IDNP. If it does not, the Provider fails the request rather than returning a success.
-- **Correlation.** Always echo `requestId` so the result maps unambiguously to the authentication.
-- **No identity material in callbacks** — callbacks carry only the identifier and are authenticated as above.
+- **Autentificare.** Fiecare cerere este autentificată printr-un bearer token, prin HTTPS. MPass transmite un header `Authorization: Bearer <token>` la fiecare apel către serviciul Furnizorului, folosind un token (cheie API) emis de Furnizor pentru MPass. Callback-ul Furnizorului către MPass conține un header `Authorization: Bearer <token>`, folosind un token emis de MPass pentru Furnizor. Token-urile se schimbă la etapa de onboarding, pot fi rotite și nu sunt plasate niciodată în URL-uri.
+- **Transport.** Tot traficul rulează prin HTTPS (TLS 1.2 sau superior). Endpoint-ul Furnizorului trebuie să prezinte un certificat de server valid.
+- **Legarea provocării (anti-replay).** Semnătura utilizatorului trebuie aplicată exact asupra provocării transmise de MPass pentru această autentificare. O provocare veche nu este acceptată sau reutilizată; fiecare autentificare folosește o provocare nouă.
+- **Legarea identității.** Când este furnizat `userId` (IDNP), utilizatorul autentificat trebuie să fie exact acea persoană — atributul `serialNumber` din Subject-ul certificatului trebuie să fie identic cu IDNP-ul furnizat. Dacă nu este identic, Furnizorul respinge cererea, în loc să returneze un succes.
+- **Corelare.** Returnați întotdeauna `requestId` identic, astfel încât rezultatul să corespundă fără ambiguitate autentificării respective.
+- **Fără date de identitate în callback-uri** — callback-urile conțin doar identificatorul și sunt autentificate conform descrierii de mai sus.
 
-## 7. Status and error conventions
+## 7. Convenții privind statusul și erorile
 
-- Report `Success` only when the user has actually confirmed and been authenticated.
-- On failure, return a concise `failureReason` that can be shown to the user — for example: user cancelled, wrong PIN, no active device, device blocked, certificate expired, certificate revoked, or user not registered.
-- An expired or unconfirmed challenge must result in `Failure` (or remain `Pending` until it expires), never a `Success`.
+- Raportați `Success` doar atunci când utilizatorul a confirmat efectiv și a fost autentificat.
+- În caz de eșec, returnați un `failureReason` concis, care poate fi afișat utilizatorului — de exemplu: utilizatorul a anulat, PIN greșit, niciun dispozitiv activ, dispozitiv blocat, certificat expirat, certificat revocat sau utilizator neînregistrat.
+- O provocare expirată sau neconfirmată trebuie să rezulte în `Failure` (sau să rămână `Pending` până la expirare), niciodată în `Success`.
 
-## 8. Legal obligations that remain with the Provider
+## 8. Obligațiile legale care rămân în sarcina Furnizorului
 
-This document covers only the technical integration interface. The Provider remains subject to the obligations under the normative framework in force, including:
+Acest document acoperă exclusiv interfața tehnică de integrare. Furnizorul rămâne supus obligațiilor prevăzute de cadrul normativ în vigoare, inclusiv:
 
-- An integration contract with eGov, signed before going to production, under the MPass Regulation.
-- Conformity assessment of the electronic identification means against the criteria, technical specifications and procedures for the assurance level (low / substantial / high), carried out by a conformity assessment body (Art. 5¹(3) of Law No. 124/2022); the means and its assurance level are published on the supervisory body's official website (Art. 5¹(4)).
-- If the Provider itself issues the qualified certificates used for authentication: the obligations of a qualified trust service provider under Law No. 124/2022 — verifying the applicant's identity (Art. 10(2) point 4), revocation within at most 3 working hours (Art. 16(3)), keeping records for 15 years (Art. 10(2) point 9), a conformity audit at least once every two years (Art. 10(2) point 10). If the certificates are issued by a third-party provider, these obligations rest with that provider.
-- Meeting the cybersecurity obligations under Law No. 48/2023 (Art. 39 of Law No. 124/2022).
-- Complying with personal data protection legislation during the authentication process.
-- The identification of the user within information systems may not be restricted by their identity data (Art. 5 of Law No. 124/2022).
+- Un contract de integrare cu eGov, semnat înainte de trecerea în producție, în temeiul Regulamentului MPass.
+- Evaluarea conformității mijlocului de identificare electronică față de criteriile, specificațiile tehnice și procedurile pentru nivelul de asigurare (scăzut/substanțial/ridicat), efectuată de un organism de evaluare a conformității (art. 5¹ alin. (3) din Legea nr. 124/2022); mijlocul și nivelul său de asigurare sunt publicate pe site-ul oficial al organului de supraveghere (art. 5¹ alin. (4)).
+- Dacă Furnizorul emite el însuși certificatele calificate utilizate pentru autentificare: obligațiile unui furnizor de servicii de încredere calificat în temeiul Legii nr. 124/2022 — verificarea identității solicitantului (art. 10 alin. (2) pct. 4), revocarea în cel mult 3 ore lucrătoare (art. 16 alin. (3)), păstrarea evidențelor timp de 15 ani (art. 10 alin. (2) pct. 9), un audit de conformitate cel puțin o dată la doi ani (art. 10 alin. (2) pct. 10). Dacă certificatele sunt emise de un furnizor terț, aceste obligații revin furnizorului respectiv.
+- Îndeplinirea obligațiilor de securitate cibernetică prevăzute de Legea nr. 48/2023 (art. 39 din Legea nr. 124/2022).
+- Respectarea legislației privind protecția datelor cu caracter personal pe parcursul procesului de autentificare.
+- Identificarea utilizatorului în cadrul sistemelor informaționale nu poate fi restricționată de datele sale de identitate (art. 5 din Legea nr. 124/2022).
 
-## 9. What we need from the Provider to begin
+## 9. Ce ne trebuie de la Furnizor pentru a începe
 
-1. The API endpoint URL(s) and the service description (WSDL or OpenAPI).
-2. The token (API key) the Provider's service will accept from MPass; in return, MPass will issue a token to authenticate the Provider's callback.
-3. Written confirmation of the CA behind the authentication and that it appears on the national trusted list (section 3, point 4); for EU providers — the reference to the member state's trusted list.
-4. The target assurance level (low / substantial / high) and, where applicable, the conformity assessment report.
-5. A test environment and a test user identity for end-to-end validation.
+1. URL-ul (URL-urile) endpoint-ului API și descrierea serviciului (WSDL sau OpenAPI).
+2. Token-ul (cheia API) pe care serviciul Furnizorului îl va accepta de la MPass; în schimb, MPass va emite un token pentru a autentifica callback-ul Furnizorului.
+3. Confirmarea scrisă a CA-ului din spatele autentificării și faptul că acesta figurează pe lista națională de încredere (secțiunea 3, punctul 4); pentru furnizorii din UE — referința la lista de încredere a statului membru.
+4. Nivelul de asigurare țintă (scăzut/substanțial/ridicat) și, după caz, raportul de evaluare a conformității.
+5. Un mediu de testare și o identitate de utilizator de test pentru validarea end-to-end.
 
-## 10. Acceptance checklist
+## 10. Listă de verificare pentru acceptare
 
-1. Authenticate API exposed over HTTPS and authenticated with a bearer token (section 6), in synchronous or asynchronous mode.
-2. Returns the user's qualified certificate (IDNP in the `serialNumber` attribute of the Subject) and a signature over the challenge.
-3. `requestId` echoed back; the signature is bound to exactly the challenge that was sent (anti-replay enforced).
-4. `userId` (IDNP) honoured when supplied — the authenticated user matches.
-5. Asynchronous mode (if used): wake-up callback + result retrieval via the status operation; no identity material in the callback.
-6. Certificate CA confirmed as recognised (trusted list) — a test authentication maps to the correct user end to end.
-7. The target assurance level agreed and recorded in the integration contract.
-8. The obligations in section 8 confirmed.
+1. API-ul Authenticate este expus prin HTTPS și autentificat printr-un bearer token (secțiunea 6), în mod sincron sau asincron.
+2. Returnează certificatul calificat al utilizatorului (IDNP-ul în atributul `serialNumber` al Subject-ului) și o semnătură aplicată asupra provocării.
+3. `requestId` este returnat identic; semnătura este legată exact de provocarea care a fost transmisă (protecția anti-replay este aplicată).
+4. `userId` (IDNP) este respectat atunci când este furnizat — utilizatorul autentificat corespunde.
+5. Modul asincron (dacă este utilizat): callback de tip wake-up + preluarea rezultatului prin operațiunea de status; fără date de identitate în callback.
+6. CA-ul certificatului este confirmat ca fiind recunoscut (listă de încredere) — o autentificare de test se mapează corect la utilizatorul corespunzător, end-to-end.
+7. Nivelul de asigurare țintă este agreat și consemnat în contractul de integrare.
+8. Obligațiile din secțiunea 8 sunt confirmate.

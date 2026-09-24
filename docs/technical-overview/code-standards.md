@@ -1,30 +1,30 @@
-These standards apply to teams developing solutions for the eGov Moldova ecosystem — the eGovernance Agency's own teams and external supplier teams alike. They exist so that code written by one team can be maintained, audited, and evolved by another, which is the normal life of a government system.
+Aceste standarde se aplică echipelor care dezvoltă soluții pentru ecosistemul eGov Moldova — atât echipelor proprii ale Agenției de Guvernare Electronică, cât și echipelor furnizorilor externi. Ele există pentru ca un cod scris de o echipă să poată fi întreținut, auditat și dezvoltat de o alta, ceea ce reprezintă ciclul de viață normal al unui sistem guvernamental.
 
-The standards are enforced where possible by automation — analyzers, pipeline quality gates, and code review — rather than by memory. See [Code reviews](code-reviews.md) for the process side.
+Standardele sunt aplicate, acolo unde este posibil, prin automatizare — analizoare (analyzers), praguri de calitate în pipeline și revizuirea codului — nu prin memorie. Vedeți [Revizuiri de cod](code-reviews.md) pentru partea de proces.
 
 * * *
 
-## Languages and frameworks
+## Limbaje și framework-uri
 
-Projects use the approved government technology stack described in [Tools and technologies](../tools/technologies.md): C# on supported (LTS) .NET versions, ASP.NET Core for services, Blazor for web interfaces with **Fod.UIComponents** — the Agency's own UI component library, which is replacing MudBlazor as the component standard — and Entity Framework Core for data access.
+Proiectele utilizează stiva tehnologică guvernamentală aprobată, descrisă în [Instrumente și tehnologii](../tools/technologies.md): C# pe versiuni .NET suportate (LTS), ASP.NET Core pentru servicii, Blazor pentru interfețe web cu **Fod.UIComponents** — biblioteca proprie de componente UI a Agenției, care înlocuiește MudBlazor ca standard de componente — și Entity Framework Core pentru accesul la date.
 
-- Do not introduce new frameworks, languages, or significant dependencies without an explicit architectural justification — record the decision as an [architecture decision record](adr.md) and obtain approval at the technical architecture level.
-- Pin dependency versions in project manifests; floating version ranges are not allowed in production builds.
-- Prefer reusing the shared **Egov NuGet packages** (for MPass, MSign, and configuration) over reimplementing platform integrations.
+- Nu introduceți framework-uri, limbaje sau dependențe semnificative noi fără o justificare arhitecturală explicită — consemnați decizia ca [înregistrare a deciziei de arhitectură](adr.md) și obțineți aprobarea la nivel de arhitectură tehnică.
+- Fixați versiunile dependențelor în manifestele proiectului; intervalele de versiuni flotante nu sunt permise în build-urile de producție.
+- Preferați reutilizarea pachetelor NuGet partajate **Egov** (pentru MPass, MSign și configurare) în locul reimplementării integrărilor cu platformele.
 
-## Language
+## Limbă
 
-All code, comments, commit messages, identifiers, and API contracts are written in **English**. Romanian appears only in user-facing text (labels, messages, notifications), which must be kept in localizable resources — never hardcoded across the codebase.
+Tot codul, comentariile, mesajele de commit, identificatorii și contractele API sunt scrise în **limba engleză**. Limba română apare doar în textele orientate către utilizator (etichete, mesaje, notificări), care trebuie păstrate în resurse localizabile — niciodată scrise direct (hardcodate) în cod.
 
-When integrating with a system whose interface uses Romanian terms, translate endpoints and fields to English in the integration layer so the rest of the system works with English-language objects. Use the [glossary](../glossary/glossary.md) for established translations of government domain terms, and extend it when a term is missing.
+Atunci când vă integrați cu un sistem a cărui interfață folosește termeni în limba română, traduceți endpoint-urile și câmpurile în limba engleză la nivelul stratului de integrare, astfel încât restul sistemului să lucreze cu obiecte în limba engleză. Utilizați [glosarul](../glossary/glossary.md) pentru traducerile consacrate ale termenilor din domeniul guvernamental și extindeți-l atunci când lipsește un termen.
 
-**Bad**
+**Rău**
 
 ```csharp
 var cerere = new CerereEliberareCertificat();   // Romanian identifier
 ```
 
-**Good**
+**Bine**
 
 ```csharp
 var request = new CertificateIssueRequest();
@@ -32,86 +32,86 @@ var request = new CertificateIssueRequest();
 
 * * *
 
-## Project structure
+## Structura proiectului
 
-Backend services follow **Clean Architecture** — dependencies point inward, and business logic never depends on infrastructure:
+Serviciile backend urmează **Clean Architecture** — dependențele sunt orientate spre interior, iar logica de business nu depinde niciodată de infrastructură:
 
-| Layer | Contents | Dependency rule |
+| Strat | Conținut | Regulă de dependență |
 | --- | --- | --- |
-| Domain | Entities, value objects, domain events, interfaces | Depends on nothing |
-| Application | Use cases, command/query handlers, DTOs, validators | Depends on Domain only |
-| Infrastructure | DbContexts, repositories, external service clients, messaging | Implements Domain interfaces |
-| Presentation | Controllers, middleware, request/response models | Depends on Application; wires up Infrastructure |
+| Domain | Entități, obiecte valoare, evenimente de domeniu, interfețe | Nu depinde de nimic |
+| Application | Cazuri de utilizare, handler-e pentru comenzi/interogări, DTO-uri, validatori | Depinde doar de Domain |
+| Infrastructure | DbContext-uri, repository-uri, clienți pentru servicii externe, mesagerie | Implementează interfețele din Domain |
+| Presentation | Controllere, middleware, modele de cerere/răspuns | Depinde de Application; conectează Infrastructure |
 
-Practical consequences:
+Consecințe practice:
 
-- Never reference infrastructure concerns (a `DbContext`, an HTTP client, a message producer) from the Domain or Application layers.
-- Never return database entities directly from API endpoints — map to DTOs at the Application boundary.
-- Organize repositories with the conventional `src/` and `tests/` folders; one service per solution.
+- Nu faceți niciodată referire la elemente de infrastructură (un `DbContext`, un client HTTP, un producător de mesaje) din straturile Domain sau Application.
+- Nu returnați niciodată entități de bază de date direct din endpoint-urile API — mapați la DTO-uri la granița stratului Application.
+- Organizați repository-urile cu folderele convenționale `src/` și `tests/`; un singur serviciu per soluție (solution).
 
-## C# conventions
+## Convenții C#
 
-- Follow the standard [Microsoft C# conventions](https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/coding-conventions): `PascalCase` for types and public members, `camelCase` for locals and parameters, meaningful names over abbreviations.
-- Formatting and style are enforced through `.editorconfig` committed to the repository, with Roslyn analyzers enabled; builds treat warnings as errors.
-- Enable **nullable reference types** in new projects.
-- Use `async`/`await` end-to-end for I/O; never block on async code (`.Result`, `.Wait()`).
-- Use dependency injection for all collaborators; avoid static service access and service locators.
-- Use structured logging via `ILogger<T>` — see [Log management](log-management.md); `Console.WriteLine` is not logging.
+- Respectați [convențiile standard Microsoft pentru C#](https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/coding-conventions): `PascalCase` pentru tipuri și membri publici, `camelCase` pentru variabile locale și parametri, nume semnificative în locul abrevierilor.
+- Formatarea și stilul sunt impuse prin fișierul `.editorconfig` inclus în repository, cu analizoare Roslyn activate; build-urile tratează avertismentele ca erori.
+- Activați **nullable reference types** în proiectele noi.
+- Utilizați `async`/`await` de la un capăt la altul pentru operațiuni I/O; nu blocați niciodată codul asincron (`.Result`, `.Wait()`).
+- Utilizați injectarea de dependențe (dependency injection) pentru toți colaboratorii; evitați accesul static la servicii și service locators.
+- Utilizați jurnalizare structurată prin `ILogger<T>` — vedeți [Gestionarea jurnalelor](log-management.md); `Console.WriteLine` nu este jurnalizare.
 
-## Data access
+## Acces la date
 
-- All schema changes go through **versioned migrations** (EF Core Migrations); manual DDL against any shared environment is prohibited.
-- Only parameterized queries or ORM-generated queries — string concatenation into SQL is a critical security violation, not a style issue.
-- New business logic lives in the Application layer, not in stored procedures.
-- Cache entries in Redis always carry a TTL.
-
-* * *
-
-## Secure coding
-
-Security requirements are part of the definition of working code, not a separate activity. The baseline for applications in the ecosystem is **[OWASP ASVS Level 2](https://owasp.org/www-project-application-security-verification-standard/)**; day-to-day, the [OWASP Top 10](https://owasp.org/www-project-top-ten/) failure modes must be actively prevented:
-
-- **No secrets in code or configuration files in the repository** — no connection strings with credentials, API keys, tokens, or certificates. Secrets live in the platform's secure configuration/vault mechanisms. This rule has no exceptions and applies to every environment, including development.
-- Validate input on the server for every entry point; encode output appropriately for its destination (HTML, SQL, logs).
-- Authenticate users only through **MPass** — custom credential storage is prohibited.
-- Apply authorization checks at the resource level on every request, not only in the UI.
-- No real production data in development or staging environments — use synthetic or masked data.
-- Static analysis (SAST) and dependency scanning (SCA) run in the pipeline and are **blocking**: a security scan failure is fixed, not bypassed. Unmitigated critical or high-severity findings stop the release.
+- Toate modificările de schemă trec prin **migrări versionate** (EF Core Migrations); DDL manual asupra oricărui mediu partajat este interzis.
+- Doar interogări parametrizate sau generate de ORM — concatenarea de șiruri în SQL este o încălcare critică de securitate, nu o problemă de stil.
+- Noua logică de business trăiește în stratul Application, nu în proceduri stocate.
+- Intrările din cache-ul Redis au întotdeauna un TTL.
 
 * * *
 
-## Testing
+## Codare securizată
 
-Tests are part of the Definition of Done — a feature without tests is not done:
+Cerințele de securitate fac parte din definiția codului funcțional, nu o activitate separată. Nivelul minim pentru aplicațiile din ecosistem este **[OWASP ASVS Level 2](https://owasp.org/www-project-application-security-verification-standard/)**; în activitatea zilnică, modurile de eșec din **OWASP Top 10** trebuie prevenite activ:
 
-- **Unit tests** for business logic (Domain and Application layers).
-- **Integration tests** for services and APIs, covering the main scenarios and error paths.
-- **End-to-end tests** for critical user flows, run against staging before release.
-
-Coverage of new code must be at least **70%**, with business logic held to a higher bar (target 80%). Coverage is measured in the pipeline and enforced as a quality gate together with static analysis — a release with failing gates does not proceed. See the [code review](code-reviews.md) page for how this fits the delivery flow.
+- **Fără secrete în cod sau în fișierele de configurare din repository** — fără șiruri de conexiune cu credențiale, chei API, token-uri sau certificate. Secretele trăiesc în mecanismele securizate de configurare/vault ale platformei. Această regulă nu are excepții și se aplică în orice mediu, inclusiv în dezvoltare.
+- Validați datele de intrare pe server pentru fiecare punct de intrare; codificați (encode) corespunzător datele de ieșire, în funcție de destinație (HTML, SQL, jurnale).
+- Autentificați utilizatorii doar prin **MPass** — stocarea personalizată a credențialelor este interzisă.
+- Aplicați verificări de autorizare la nivel de resursă, la fiecare cerere, nu doar în interfață.
+- Fără date reale de producție în mediile de dezvoltare sau testare (staging) — utilizați date sintetice sau mascate.
+- Analiza statică (SAST) și scanarea dependențelor (SCA) rulează în pipeline și sunt **blocante**: un eșec la scanarea de securitate se remediază, nu se ocolește. Constatările critice sau de severitate ridicată neremediate opresc lansarea.
 
 * * *
 
-## User interface standards
+## Testare
 
-Web interfaces follow the [Unified design system (MUD)](../mud/index.md) and are built with **Fod.UIComponents**, the Agency's Blazor UI component library. New interfaces use Fod.UIComponents; existing MudBlazor applications migrate progressively as they evolve. Beyond the design system, these implementation rules apply to all AGE applications — they are the difference between an interface that looks finished and one that leaks its database schema:
+Testele fac parte din Definiția lui „Finalizat” — o funcționalitate fără teste nu este finalizată:
 
-**Text and labels**
+- **Teste unitare** pentru logica de business (straturile Domain și Application).
+- **Teste de integrare** pentru servicii și API-uri, acoperind scenariile principale și căile de eroare.
+- **Teste end-to-end** pentru fluxurile critice ale utilizatorilor, rulate pe staging înainte de lansare.
 
-- Labels are grammatically correct Romanian in sentence case: *„Cod personal"*, not *„Cod Personal"* — camelCase and Title Case are not Romanian typographic practice.
-- Never show raw technical names in the UI: `UserType` becomes *Tipul utilizatorului*, `CreatedAt` becomes *Data creării*. This applies to labels, dropdown options, grid columns, and filters alike.
-- Error messages are in Romanian, user-oriented, and actionable: *„Introduceți un IDNP valid (13 cifre)"* — never framework defaults like *"Length cannot be longer than…"* and never technical jargon.
+Acoperirea codului nou trebuie să fie de cel puțin **70%**, logica de business fiind supusă unui prag mai ridicat (țintă 80%). Acoperirea este măsurată în pipeline și impusă ca prag de calitate, împreună cu analiza statică — o lansare cu praguri nereușite (failing gates) nu avansează. Vedeți pagina de [revizuire a codului](code-reviews.md) pentru modul în care aceasta se încadrează în fluxul de livrare.
 
-**Formats**
+* * *
 
-- Dates: *12 septembrie 2024* (or *12 sep 2024* where space is constrained); numeric form is `12.09.2024` — dot separator only, day without leading zero, month with it.
-- Time: 24-hour format — `14:30`, never `2:30 PM`.
+## Standarde de interfață cu utilizatorul
 
-**Form behavior**
+Interfețele web respectă [Sistemul unitar de design (MUD)](../mud/index.md) și sunt construite cu **Fod.UIComponents**, biblioteca de componente UI Blazor a Agenției. Interfețele noi folosesc Fod.UIComponents; aplicațiile MudBlazor existente migrează progresiv, pe măsură ce evoluează. Dincolo de sistemul de design, aceste reguli de implementare se aplică tuturor aplicațiilor AGE — ele fac diferența dintre o interfață care pare finalizată și una care își expune schema bazei de date:
 
-- A form has exactly one visually primary button (submit/save); secondary actions (*Anulează*) are visually neutral; technical actions are minimal.
-- Labels are always present — placeholders show example content, they do not replace labels.
-- Validation feedback appears when a field loses focus (blur), not on every keystroke; invalid fields get a clear visual state plus a message.
-- Related fields are grouped on the same row with consistent grid spacing; forms are fully keyboard-navigable (Tab/Shift+Tab, Enter submits).
+**Text și etichete**
 
-Form structure and content for real screens come from the product/design specification, not developer improvisation — the rules above are the floor, not a substitute for design deliverables.
+- Etichetele sunt în limba română corectă gramatical, cu majusculă doar la început de propoziție (sentence case): *„Cod personal"*, nu *„Cod Personal"* — camelCase și Title Case nu sunt practici tipografice românești.
+- Nu afișați niciodată nume tehnice brute în interfață: `UserType` devine *Tipul utilizatorului*, `CreatedAt` devine *Data creării*. Aceasta se aplică deopotrivă etichetelor, opțiunilor din liste derulante, coloanelor din grile și filtrelor.
+- Mesajele de eroare sunt în limba română, orientate către utilizator și acționabile: *„Introduceți un IDNP valid (13 cifre)"* — niciodată mesaje implicite ale framework-ului, precum *"Length cannot be longer than…"*, și niciodată jargon tehnic.
+
+**Formate**
+
+- Date: *12 septembrie 2024* (sau *12 sep 2024* acolo unde spațiul este limitat); forma numerică este `12.09.2024` — doar separator punct, ziua fără zero în față, luna cu zero în față.
+- Oră: format de 24 de ore — `14:30`, niciodată `2:30 PM`.
+
+**Comportamentul formularelor**
+
+- Un formular are exact un buton vizual principal (submit/salvare); acțiunile secundare (*Anulează*) sunt vizual neutre; acțiunile tehnice sunt minime.
+- Etichetele sunt întotdeauna prezente; placeholder-ele afișează conținut exemplificativ, nu înlocuiesc etichetele.
+- Feedback-ul de validare apare atunci când un câmp pierde focusul (blur), nu la fiecare apăsare de tastă; câmpurile invalide primesc o stare vizuală clară, plus un mesaj.
+- Câmpurile asociate sunt grupate pe același rând, cu spațiere de grilă consecventă; formularele sunt complet navigabile de la tastatură (Tab/Shift+Tab, Enter trimite formularul).
+
+Structura și conținutul formularelor pentru ecranele reale provin din specificația de produs/design, nu din improvizația dezvoltatorului — regulile de mai sus reprezintă minimul, nu un substitut pentru livrabilele de design.
