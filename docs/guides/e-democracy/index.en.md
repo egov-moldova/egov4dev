@@ -22,8 +22,8 @@ Related acts: Legea nr. 239/2008 privind transparența în procesul decizional; 
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova |
-| Keeper (deținător) | eGov Moldova |
+| Holder | eGov Moldova |
+| Keeper | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

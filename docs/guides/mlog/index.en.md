@@ -18,8 +18,8 @@ Related acts: Legea nr. 133/2011; HG nr. 128/2014 (MCloud); Regulile privind mod
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova |
-| Keeper (deținător) |  |
+| Holder | eGov Moldova |
+| Keeper |  |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

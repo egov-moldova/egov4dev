@@ -16,8 +16,8 @@ Related acts: Legea nr. 91/2014; cadrul european privind identitatea digitală (
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova (pentru EVO, conform HG nr. 5/2024) |
-| Keeper (deținător) | eGov Moldova |
+| Holder | eGov Moldova (pentru EVO, conform HG nr. 5/2024) |
+| Keeper | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

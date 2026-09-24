@@ -18,8 +18,8 @@ Related acts: HG nr. 128/2014 (MCloud — platforma pe care este găzduit servic
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova |
-| Keeper (deținător) | eGov Moldova |
+| Holder | eGov Moldova |
+| Keeper | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

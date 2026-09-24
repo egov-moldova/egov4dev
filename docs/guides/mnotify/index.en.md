@@ -14,8 +14,8 @@ Related acts: Legea nr. 133/2011 privind protecția datelor cu caracter personal
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova |
-| Keeper (deținător) | eGov Moldova |
+| Holder | eGov Moldova |
+| Keeper | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

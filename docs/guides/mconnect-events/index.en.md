@@ -14,8 +14,8 @@ Related acts: Legea nr. 142/2018 cu privire la schimbul de date și interoperabi
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova (prin MConnect) |
-| Keeper (deținător) | eGov Moldova (prin MConnect) |
+| Holder | eGov Moldova (prin MConnect) |
+| Keeper | eGov Moldova (prin MConnect) |
 | Technical operator (operator tehnico-tehnologic) |  |
 
 **Roles in an integration.**

@@ -14,8 +14,8 @@ Related acts: Legea nr. 467/2003; Legea nr. 91/2014 (semnătura electronică); H
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova |
-| Keeper (deținător) |  |
+| Holder | eGov Moldova |
+| Keeper |  |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

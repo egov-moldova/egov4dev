@@ -13,8 +13,8 @@ Related acts: Codul civil (reprezentarea); HG nr. 1090/2013 (MPass); HG nr. 405/
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova |
-| Keeper (deținător) | eGov Moldova |
+| Holder | eGov Moldova |
+| Keeper | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) | STISC |
 
 **Roles in an integration.**

@@ -14,8 +14,8 @@ Related acts: Legea nr. 234/2021 cu privire la serviciile publice; cadrul bugeta
 
 | Role | Entity |
 |---|---|
-| Holder (posesor) | eGov Moldova |
-| Keeper (deținător) | eGov Moldova |
+| Holder | eGov Moldova |
+| Keeper | eGov Moldova |
 | Technical operator (operator tehnico-tehnologic) |  |
 
 **Roles in an integration.**
