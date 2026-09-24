@@ -614,7 +614,7 @@
 
                 <div class="portal-badge">
                     <div class="badge-label" data-en="DEVELOPER PORTAL">PORTAL DEZVOLTATORI</div>
-                    <a href="https://egov-moldova.github.io/egov4dev/intro/" target="_blank">
+                    <a href="https://egov-moldova.github.io/egov4dev/platforms/" data-en-href="https://egov-moldova.github.io/egov4dev/en/platforms/" target="_blank">
                         egov-moldova.github.io/egov4dev
                     </a>
                 </div>
@@ -638,7 +638,7 @@
                         Ești la început și vrei să înțelegi ce oferă platforma eGov4Dev. Citește documentația, parcurge arhitectura și descoperă serviciile disponibile.
                     </div>
                     <div class="journey-card__actions">
-                        <a href="intro/" class="btn btn-primary" data-en="About the platform">Despre platformă</a>
+                        <a href="platforms/" data-en-href="en/platforms/" class="btn btn-primary" data-en="About the platform">Despre platformă</a>
                     </div>
                 </div>
 
@@ -679,16 +679,16 @@
                         Aplicația e construită și acum integrezi serviciile guvernamentale: autentificare MPass, semnătură electronică MSign, plăți MPay și altele.
                     </div>
                     <div class="journey-card__actions">
-                        <a href="guides/mpass/" class="svc-logo" data-tooltip="MPass" data-placement="top">
+                        <a href="guides/mpass/" data-en-href="en/guides/mpass/" class="svc-logo" data-tooltip="MPass" data-placement="top">
                             <img src="assets/logos/MPass_watermark.svg" alt="MPass">
                         </a>
-                        <a href="guides/msign/" class="svc-logo" data-tooltip="MSign" data-placement="top">
+                        <a href="guides/msign/" data-en-href="en/guides/msign/" class="svc-logo" data-tooltip="MSign" data-placement="top">
                             <img src="assets/logos/MSign_watermark.svg" alt="MSign">
                         </a>
-                        <a href="guides/mpay/" class="svc-logo" data-tooltip="MPay" data-placement="top">
+                        <a href="guides/mpay/" data-en-href="en/guides/mpay/" class="svc-logo" data-tooltip="MPay" data-placement="top">
                             <img src="assets/logos/MPay_watermark.svg" alt="MPay">
                         </a>
-                        <a href="platforms/" class="btn btn-secondary svc-plus">+</a>
+                        <a href="platforms/" data-en-href="en/platforms/" class="btn btn-secondary svc-plus">+</a>
                     </div>
                 </div>
 
@@ -712,7 +712,7 @@
                             EVO Wallet este portofelul digital oficial al Republicii Moldova. Cetățenii îl folosesc pentru a prezenta acte direct din telefon, fără acte fizice. Dacă aplicația ta are nevoie să confirme identitatea sau datele unui utilizator, poți deveni verificator în ecosistemul EVO Wallet.
                         </p>
                         <div class="evo-card__actions">
-                            <a href="https://egov-moldova.github.io/egov4dev/guides/evo-wallet/" target="_blank" class="btn btn-primary btn-md" data-en="Integration guide">Ghidul de integrare</a>
+                            <a href="https://egov-moldova.github.io/egov4dev/guides/evo-wallet/" data-en-href="https://egov-moldova.github.io/egov4dev/en/guides/evo-wallet/" target="_blank" class="btn btn-primary btn-md" data-en="Integration guide">Ghidul de integrare</a>
                             <a href="https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtONCmd0F9yDZKhSOtD6Jvt2xUMTVKOEE2NlRKNkQ0SlJZRkNQWDVISzE3UiQlQCN0PWcu&route=shorturl" target="_blank" class="btn btn-secondary btn-md" data-en="Become a verifier ↗">Devino verificator ↗</a>
                         </div>
                     </div>
@@ -864,6 +864,7 @@
         var textEls = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
         var altEls = Array.prototype.slice.call(document.querySelectorAll('[data-en-alt]'));
         var metaEls = Array.prototype.slice.call(document.querySelectorAll('[data-en-content]'));
+        var hrefEls = Array.prototype.slice.call(document.querySelectorAll('[data-en-href]'));
 
         // Cache the original Romanian content once, before any swap happens.
         textEls.forEach(function (el) {
@@ -875,6 +876,9 @@
         metaEls.forEach(function (el) {
             if (!el.hasAttribute('data-ro-content')) el.setAttribute('data-ro-content', el.getAttribute('content') || '');
         });
+        hrefEls.forEach(function (el) {
+            if (!el.hasAttribute('data-ro-href')) el.setAttribute('data-ro-href', el.getAttribute('href') || '');
+        });
 
         function setLang(lang) {
             textEls.forEach(function (el) {
@@ -885,6 +889,9 @@
             });
             metaEls.forEach(function (el) {
                 el.setAttribute('content', lang === 'en' ? el.getAttribute('data-en-content') : el.getAttribute('data-ro-content'));
+            });
+            hrefEls.forEach(function (el) {
+                el.setAttribute('href', lang === 'en' ? el.getAttribute('data-en-href') : el.getAttribute('data-ro-href'));
             });
 
             document.documentElement.lang = lang;
