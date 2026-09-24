@@ -1,4 +1,4 @@
-<img src="../../assets/wallet-intro.png" />
+<img src="../../../assets/wallet-intro.png" />
 
 Following the EUDI Wallet regulation and its implementing acts, EVO Wallet implements remote presentation of attributes to wallet-relying parties according to **OpenID4VP 1.0**, using the mdoc format defined in **ISO/IEC 18013-5**, via same-device flow to retrieve documents. The mechanism is described in Section 8.3.1 of OpenID4VP 1.0 as **direct_post.jwt** response mode. Actual implementation profile is guided by **OpenID4VC HAIP 1.0** with ISO mdoc as credential format.
 
@@ -141,10 +141,10 @@ body.dark .rp-wall {
   </p>
   <div class="rp-wall__logos">
     <span class="rp-logo">
-      <img src="../../assets/logos/micb.png" srcset="../../assets/logos/micb.png 1x, ../../assets/logos/micb@2x.png 2x" alt="Moldindconbank" loading="lazy" width="479" height="80">
+      <img src="../../../assets/logos/micb.png" srcset="../../../assets/logos/micb.png 1x, ../../../assets/logos/micb@2x.png 2x" alt="Moldindconbank" loading="lazy" width="479" height="80">
     </span>
     <span class="rp-logo">
-      <img src="../../assets/logos/fincombank.png" srcset="../../assets/logos/fincombank.png 1x, ../../assets/logos/fincombank@2x.png 2x" alt="FinComBank" loading="lazy" width="393" height="80">
+      <img src="../../../assets/logos/fincombank.png" srcset="../../../assets/logos/fincombank.png 1x, ../../../assets/logos/fincombank@2x.png 2x" alt="FinComBank" loading="lazy" width="393" height="80">
     </span>
   </div>
 </div>

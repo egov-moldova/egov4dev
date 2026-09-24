@@ -8,7 +8,7 @@ A signed event is an event signed with IS private certificate and is later used 
 
 **Remark.** Sending an event for registration requires the IS to be registered with the MLog system. Any event received from an IS which is not registered with MLog system is rejected.
 
-<img src="../images/mlog1.svg">
+<img src="../../images/mlog1.svg">
 
 Here is a short description of registration process using MLog:
 
@@ -44,4 +44,4 @@ Here is a short description of searching process using MLog:
 
 7. MLog collects configured KPI for MLog system.
 
-<img src="../images/mlog2.svg">
+<img src="../../images/mlog2.svg">

@@ -18,7 +18,7 @@ Moldova's digital government is built as a set of **reusable, shared platform se
 
 All platforms are hosted on **[MCloud](https://www.egov.md/en/content/mcloud-platform)**, the government cloud operated by [STISC](https://stisc.gov.md/), and exchange data through **MConnect**, the national interoperability platform.
 
-<img src="../assets/mega-ecosystem.png" alt="eGov Moldova ecosystem" width="100%"/>
+<img src="../../assets/mega-ecosystem.png" alt="eGov Moldova ecosystem" width="100%"/>
 
 | Layer | Platforms | What it provides |
 | --- | --- | --- |

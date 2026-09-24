@@ -38,7 +38,7 @@ Secondary: project managers and compliance officers preparing the agreement with
 As part of MConnect platform, MConnect Events is the component designed specifically for efficient production and consumption of events. This includes client authentication and authorization as producers and consumers, scalable production and consumption of events, event structure validation when produced, scalable and flexible storage of events awaiting consumption, immediate availability of events to consumers, confirmation of event consumption to ensure reliable delivery of events, as well as internal instruments for configuration, monitoring and troubleshooting.
 
 <picture class="theme-picture">
-  <img src="../../assets/images/mconnect_events/mconnect.png" alt="Signing flow" data-theme="light">
+  <img src="../../../assets/images/mconnect_events/mconnect.png" alt="Signing flow" data-theme="light">
 </picture>
 
 MConnect Events enables systems to exchange data about various events in real-time as well as in
