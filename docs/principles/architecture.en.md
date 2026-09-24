@@ -54,7 +54,7 @@ Cross-application optimization increases efficiency and reduces duplication of e
 
 Institutions must not only consume data from government registers but also contribute and maintain their own authoritative data sources. Every institution is responsible for ensuring the accuracy, completeness, and timeliness of data under its mandate. 
 
-[Semantic catalog](http://semantic.gov.md) serves as the single point of discovery for all government data, enabling efficient reuse and preventing fragmentation.
+[Semantic catalog](https://mconnect.gov.md) serves as the single point of discovery for all government data, enabling efficient reuse and preventing fragmentation.
 
 ---
 

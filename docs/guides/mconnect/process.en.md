@@ -12,7 +12,7 @@ There are two scenarios through which an institution can connect:
 
 ### Scenario 1 — Directly through the Semantic Catalog
 
-1. Explore the [Semantic Assets Catalog](http://semantic.gov.md/).
+1. Explore the [Semantic Assets Catalog](https://mconnect.gov.md/).
 2. Search for and select the desired dataset (query/queries).
 3. Fill in the connection request directly in the Catalog.
 4. If you don't have signing rights, the system automatically notifies the responsible person (enter their email in the dedicated field and click "Send for signature").
@@ -23,7 +23,7 @@ There are two scenarios through which an institution can connect:
 
 Use this scenario if the data is NOT in the Semantic Assets Catalog, is in the catalog but you don't have an electronic signature, you can't find what you need, or you want a customized data exchange:
 
-1. Access the [Semantic Assets Catalog](http://semantic.gov.md/).
+1. Access the [Semantic Assets Catalog](https://mconnect.gov.md/).
 2. Fill in the request with the requested information and the data you want to consume.
 3. Save the request as a PDF.
 4. Sign the request electronically via MSign.
@@ -31,7 +31,7 @@ Use this scenario if the data is NOT in the Semantic Assets Catalog, is in the c
 
 If you found the desired dataset but don't have an electronic signature:
 
-1. Access the [Semantic Assets Catalog](http://semantic.gov.md/).
+1. Access the [Semantic Assets Catalog](https://mconnect.gov.md/).
 2. Select the query/queries.
 3. Download the generated request as a PDF.
 4. Sign the request electronically via MSign.

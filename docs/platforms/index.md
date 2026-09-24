@@ -116,7 +116,7 @@ MConnect Events reprezintă cea mai nouă componentă a ecosistemului de schimb 
 
 ### Catalogul semantic
 
-[Catalogul Semantic](http://semantic.gov.md/) a fost dezvoltat ca urmare a analizei practicilor curente de gestionare a datelor, cu scopul de a îmbunătăți calitatea generală a datelor, utilizarea și coordonarea acestora, precum și alinierea lor la practicile internaționale. Pentru a crește calitatea datelor și a informațiilor despre acestea, precum și pentru a implementa bune practici internaționale, a fost necesară identificarea unei modalități mai eficiente și centralizate de sistematizare și gestionare a informațiilor despre date.
+[Catalogul Semantic](https://mconnect.gov.md/) a fost dezvoltat ca urmare a analizei practicilor curente de gestionare a datelor, cu scopul de a îmbunătăți calitatea generală a datelor, utilizarea și coordonarea acestora, precum și alinierea lor la practicile internaționale. Pentru a crește calitatea datelor și a informațiilor despre acestea, precum și pentru a implementa bune practici internaționale, a fost necesară identificarea unei modalități mai eficiente și centralizate de sistematizare și gestionare a informațiilor despre date.
 
 ## <img src="../assets/logos/mpass-logo.png" alt="mpass logo" width="30" align="left" style="margin: 5px 10px 0 0;"/> **mpass** – serviciul de autentificare și autorizare
 

@@ -12,7 +12,7 @@ Există două scenarii prin care o instituție se poate conecta:
 
 ### Scenariul 1 — Direct prin Catalogul Semantic
 
-1. Explorează [Catalogul activelor semantice](http://semantic.gov.md/).
+1. Explorează [Catalogul activelor semantice](https://mconnect.gov.md/).
 2. Caută și selectează setul de date dorit (interpelarea/interpelările).
 3. Completează cererea de conectare direct în Catalog.
 4. Dacă nu ai drept de semnătură, sistemul notifică automat persoana responsabilă (introdu e-mailul în câmpul dedicat și apasă „Trimite spre semnare”).
@@ -23,7 +23,7 @@ Există două scenarii prin care o instituție se poate conecta:
 
 Folosește acest scenariu dacă datele NU sunt în Catalogul activelor semantice, sunt în catalog dar nu deții semnătură electronică, nu găsești ce ai nevoie, sau vrei un schimb de date personalizat:
 
-1. Accesează [Catalogul activelor semantice](http://semantic.gov.md/).
+1. Accesează [Catalogul activelor semantice](https://mconnect.gov.md/).
 2. Completează cererea cu informația solicitată și datele pe care vrei să le consumi.
 3. Salvează cererea în format PDF.
 4. Semnează cererea electronic prin MSign.
@@ -31,7 +31,7 @@ Folosește acest scenariu dacă datele NU sunt în Catalogul activelor semantice
 
 Dacă ai găsit setul de date dorit, dar nu ai semnătură electronică:
 
-1. Accesează [Catalogul activelor semantice](http://semantic.gov.md/).
+1. Accesează [Catalogul activelor semantice](https://mconnect.gov.md/).
 2. Selectează interpelarea/interpelările.
 3. Descarcă cererea generată în format PDF.
 4. Semnează cererea electronic prin MSign.

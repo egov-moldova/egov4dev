@@ -54,7 +54,7 @@ Optimizarea la nivel transversal (cross-application) crește eficiența și redu
 
 Instituțiile nu trebuie doar să consume date din registrele guvernamentale, ci și să contribuie și să mențină propriile surse de date autoritare. Fiecare instituție este responsabilă pentru asigurarea acurateței, completitudinii și actualității datelor aflate sub mandatul său.
 
-[Catalogul semantic](http://semantic.gov.md) servește drept punct unic de descoperire pentru toate datele guvernamentale, permițând reutilizarea eficientă și prevenind fragmentarea.
+[Catalogul semantic](https://mconnect.gov.md) servește drept punct unic de descoperire pentru toate datele guvernamentale, permițând reutilizarea eficientă și prevenind fragmentarea.
 
 ---
 

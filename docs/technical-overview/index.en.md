@@ -23,7 +23,7 @@ All platforms are hosted on **[MCloud](https://www.egov.md/en/content/mcloud-pla
 | Layer | Platforms | What it provides |
 | --- | --- | --- |
 | Identity and trust | [MPass](../guides/mpass/index.md), [MSign](../guides/msign/index.md), [MPower](../guides/mpower/index.md), [EVO Wallet](../guides/evo-wallet/index.md) | Single Sign-On and Single Logout, qualified electronic signature, delegation of representation rights, EUDI-compatible digital identity wallet |
-| Data exchange | MConnect ([MConnect Events](../guides/mconnect-events/index.md)), [Semantic Catalog](http://semantic.gov.md/) | Authentic data directly from source registers, near real-time event distribution, single point of discovery for government data |
+| Data exchange | MConnect ([MConnect Events](../guides/mconnect-events/index.md)), [Semantic Catalog](https://mconnect.gov.md/) | Authentic data directly from source registers, near real-time event distribution, single point of discovery for government data |
 | Service enablers | [MPay](../guides/mpay/index.md), [MNotify](../guides/mnotify/index.md), [MDelivery](../guides/mdelivery/index.md), [MDocs](../guides/mdocs/index.md) | Payments with any market instrument, multi-channel notifications, physical delivery of official documents, storage and exchange of digital documents |
 | Transparency and audit | [MLog](../guides/mlog/index.md) | Centralized registration of legal events, mandatory for systems processing personal and critical data |
 | Citizen participation | [eDemocracy (ePetitions)](../guides/e-democracy/index.md) | Electronic submission and processing of petitions |

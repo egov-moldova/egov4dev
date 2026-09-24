@@ -23,7 +23,7 @@ Toate platformele sunt găzduite pe **[MCloud](https://www.egov.md/en/content/mc
 | Nivel | Platforme | Ce oferă |
 | --- | --- | --- |
 | Identitate și încredere | [MPass](../guides/mpass/index.md), [MSign](../guides/msign/index.md), [MPower](../guides/mpower/index.md), [EVO Wallet](../guides/evo-wallet/index.md) | Autentificare și deautentificare unică (SSO/SLO), semnătură electronică calificată, delegarea drepturilor de reprezentare, portofel de identitate digitală compatibil EUDI |
-| Schimb de date | MConnect ([MConnect Events](../guides/mconnect-events/index.md)), [Catalogul Semantic](http://semantic.gov.md/) | Date autentice direct din registrele sursă, distribuirea evenimentelor aproape în timp real, punct unic de descoperire pentru datele guvernamentale |
+| Schimb de date | MConnect ([MConnect Events](../guides/mconnect-events/index.md)), [Catalogul Semantic](https://mconnect.gov.md/) | Date autentice direct din registrele sursă, distribuirea evenimentelor aproape în timp real, punct unic de descoperire pentru datele guvernamentale |
 | Facilitatori de servicii | [MPay](../guides/mpay/index.md), [MNotify](../guides/mnotify/index.md), [MDelivery](../guides/mdelivery/index.md), [MDocs](../guides/mdocs/index.md) | Plăți cu orice instrument disponibil pe piață, notificări multicanal, livrarea fizică a documentelor oficiale, stocarea și schimbul de documente digitale |
 | Transparență și audit | [MLog](../guides/mlog/index.md) | Înregistrarea centralizată a evenimentelor cu relevanță juridică, obligatorie pentru sistemele care procesează date personale și critice |
 | Participarea cetățenilor | [eDemocrație (ePetiții)](../guides/e-democracy/index.md) | Depunerea și procesarea electronică a petițiilor |
