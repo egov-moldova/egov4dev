@@ -35,13 +35,39 @@
   color: #111111;
 }
 
-/* Hide the site-name text next to the logo — it's already in the logo mark */
-.md-header__topic:first-child {
-  display: none;
+/* Site name + subtitle next to the logo, matching the landing page lockup */
+.md-header__inner {
+  min-height: 4rem;
 }
 
 .md-header__title {
   color: #111111;
+  margin-left: 0.6rem;
+}
+
+.md-header__topic:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.md-header__topic:first-child .md-ellipsis {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.md-header__topic:first-child::after {
+  content: "Agenția de Guvernare Electronică";
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #757575;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html[lang="en"] .md-header__topic:first-child::after {
+  content: "e-Government Agency";
 }
 
 .md-search__input {
