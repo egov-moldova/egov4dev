@@ -1,3 +1,5 @@
+# MLog
+
 MLog is a service the main scope of which is to facilitate the registration of legal events received from various official sources and allow an easy access to the history of these events.
 
 This document describes the technical interfaces exposed by MLog for information systems that will use MLog as a legal events registrar. Its target audience is the development teams for those information systems.

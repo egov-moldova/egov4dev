@@ -1,3 +1,5 @@
+# MPay
+
 MPay este un serviciu reutilizabil și partajat la nivel de platformă, al cărui scop principal este de a permite plata pentru orice e-Serviciu cu orice instrument de plată disponibil pe piață.
 Interfața tehnică unificată, utilizată pentru integrarea e-Serviciilor cu MPay, simplifică semnificativ integrările, ascunzând diferențele dintre protocoalele și formatele tehnice.
 Există numeroase avantaje netehnice oferite de MPay, precum gestionarea mai simplă a contractelor și decontarea simplificată, însă acestea nu fac obiectul acestui document.

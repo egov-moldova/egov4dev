@@ -1,3 +1,5 @@
+# MNotify
+
 MNotify este un serviciu guvernamental de notificări electronice, conceput pentru a transmite notificări către destinatari prin diferite canale de notificare, pentru a informa despre evenimente legate de serviciile publice sau alte comunicări relevante.
 
 În prezent, MNotify suportă ca și canale de livrare: e-mail, notificări push EVO (până la finele anului 2026), Viber, Telegram și MCabinet. Proprietatea IDNP este obligatorie la specificarea identității destinatarului notificării.

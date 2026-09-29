@@ -1,3 +1,5 @@
+# MConnect Events
+
 Schimbul de date în orice guvern este un demers complex, care implică eforturi la mai multe niveluri, inclusiv juridic, semantic, organizațional și tehnic. În Moldova, nivelul tehnic al schimbului de date este asigurat de MConnect – o platformă națională de schimb de date. Există numeroase modele consacrate pentru implementarea diverselor scenarii de schimb de date, inclusiv mesageria clasică de tip cerere/răspuns, distribuția de evenimente, distribuția de documente voluminoase și fluxurile de date (data streaming).
 
 ## Pe scurt

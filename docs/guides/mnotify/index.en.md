@@ -1,3 +1,5 @@
+# MNotify
+
 MNotify is a government electronic notification service designed to send notifications to recipients through different notification channels, to inform about events related to public services, or other relevant notices.
 
 Currently, MNotify supports e-mail, EVO push notifications (by the end of 2026), Viber, Telegram and MCabinet as a delivery channel. IDNP property is required when specifying a notification identity. 

@@ -1,3 +1,5 @@
+# MDelivery
+
 MDelivery este un serviciu guvernamental electronic conceput pentru a oferi un mecanism unificat și integrat de livrare, în scopul îmbunătățirii capacității logistice a Prestatorilor de servicii publice de a livra, sorta și urmări bunurile fizice (rezultate din serviciile publice prestate) către persoane fizice și juridice.
 
 Pentru a permite procesul de livrare, MDelivery este integrat cu sistemele Prestatorilor de servicii (pentru a primi comenzile de livrat) și ale Cărăușilor (pentru a solicita servicii de livrare), precum și cu alte servicii guvernamentale electronice care facilitează procesul (MPass, MPay, MNotify).

@@ -1,3 +1,5 @@
+# MPower
+
 MPower este un portal public destinat persoanelor fizice și juridice, atât publice, cât și private, prin intermediul căruia pot fi acordate, revocate, la care se poate renunța și pot fi verificate împuternicirile.
 MPower oferă posibilitatea de a verifica dacă persoana împuternicită (reprezentantul) este abilitată să acționeze în numele unei alte persoane fizice sau juridice (reprezentat) pe care o reprezintă.
 

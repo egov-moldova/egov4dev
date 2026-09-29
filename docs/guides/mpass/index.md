@@ -1,4 +1,4 @@
-# Prezentare generală
+# MPass
 
 MPass este serviciul guvernamental de autentificare și gestionare a identității din Republica Moldova, care oferă Single Sign-On (SSO) și Single Logout (SLO) securizate pe întreg spectrul serviciilor publice digitale, permițând utilizatorilor să acceseze mai multe sisteme cu un singur set de credențiale, oferind totodată sistemelor integrate date de identitate standardizate pentru scopuri de autorizare
 

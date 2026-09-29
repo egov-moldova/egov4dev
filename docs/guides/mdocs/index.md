@@ -1,3 +1,5 @@
+# MDocs
+
 MDocs este o soluție IT oferită ca serviciu SaaS, bazată pe platforma MCloud, concepută pentru a implementa un mecanism centralizat de stocare și partajare a documentelor rezultate din prestarea serviciilor publice, iar beneficiarii acestuia vor fi persoane fizice și juridice de drept public și privat.
 
 Acest document descrie interfețele tehnice expuse de MDocs pentru sistemele informaționale care vor utiliza MDocs ca mijloc de schimb și stocare a documentelor. Publicul-țintă al acestuia îl constituie echipele de dezvoltare ale acestor sisteme informaționale.

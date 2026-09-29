@@ -1,3 +1,5 @@
+# MLog
+
 MLog este un serviciu al cărui scop principal este de a facilita înregistrarea evenimentelor legale recepționate din diverse surse oficiale și de a permite accesul facil la istoricul acestor evenimente.
 
 Acest document descrie interfețele tehnice expuse de MLog pentru sistemele informaționale care vor utiliza MLog ca registru al evenimentelor legale. Publicul-țintă al documentului este echipele de dezvoltare ale acestor sisteme informaționale.

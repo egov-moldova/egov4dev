@@ -1,4 +1,4 @@
-# Prezentare generală
+# MSign
 
 MSign este un serviciu reutilizabil și partajat la nivel de platformă, al cărui scop principal este de a facilita utilizarea semnăturii electronice și de a simplifica integrările cu diverse instrumente de semnătură electronică.
 

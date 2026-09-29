@@ -1,3 +1,5 @@
+# MPay
+
 MPay is a reusable and shared platform-level service the main scope of which is to enable the payment for any e-Service with any payment instrument available in the market.
 The unified technical interface used for integrating e-Services with MPay significantly simplifies integrations by hiding differences in technical protocols and formats.
 There are many non-technical advantages enabled by MPay, such as easier contract management and simplified clearance, but they are out of scope of this document.

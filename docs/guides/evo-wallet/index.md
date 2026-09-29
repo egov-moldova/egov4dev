@@ -1,3 +1,5 @@
+# EVO Wallet
+
 <img src="../../assets/wallet-intro.png" />
 
 În conformitate cu reglementarea EUDI Wallet și actele sale de implementare, EVO Wallet implementează prezentarea la distanță a atributelor către părțile care se bazează pe portofel (relying parties), conform **OpenID4VP 1.0**, utilizând formatul mdoc definit în **ISO/IEC 18013-5**, printr-un flux same-device pentru recuperarea documentelor. Mecanismul este descris în Secțiunea 8.3.1 din OpenID4VP 1.0 ca mod de răspuns **direct_post.jwt**. Profilul concret de implementare este ghidat de **OpenID4VC HAIP 1.0**, cu ISO mdoc drept format de credențial.
@@ -193,4 +195,3 @@ body.dark .rp-wall {
 | RFC 8610 | Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures |
 | RFC 9360 | CBOR Object Signing and Encryption (COSE): Header Parameters for Carrying and Referencing X.509 Certificates |
 | IETF TSL _draft_ | IETF Token Status List - _draft-ietf-oauth-status-list-21_ |
-
