@@ -4,7 +4,7 @@
 |:---------|:------------|
 | 🧪 [**Sandbox**](https://wallet.staging.egov.md/sandbox) | Instrumente pentru verificarea beneficiarilor, emiterea credențialelor de test către wallet-uri și editarea atributelor credențialelor, disponibile în mediul de staging. |
 
-> ⚠️ Tester-ul aparține mediului de staging și trebuie direcționat exclusiv către o instanță **staging** a Verifier-ului dumneavoastră. Mai multe cazuri de testare redau, malformează sau supradimensionează intenționat Authorization Response, astfel încât acestea nu trebuie niciodată trimise către un endpoint de producție.
+> ⚠️ Testele aparțin mediului de staging și trebuie direcționate exclusiv către o instanță **staging** a Verifier-ului dumneavoastră. Mai multe cazuri de testare redau, malformează sau supradimensionează intenționat Authorization Response, astfel încât acestea nu trebuie trimisă către un endpoint de producție.
 
 ## Ce face tester-ul
 

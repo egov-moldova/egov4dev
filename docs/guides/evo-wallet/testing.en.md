@@ -4,7 +4,7 @@ This guide covers **Relying Party Verification**, a self-service tool available 
 |:---------|:------------|
 | 🧪 [**Sandbox**](https://wallet.staging.egov.md/sandbox) | Staging tools for relying party verification, issuing test credentials to wallets, and editing credential claims. |
 
-> ⚠️ The tester belongs to the staging environment and must only be pointed at a **staging** deployment of your Verifier. Several test cases deliberately replay, malform or oversize the Authorization Response, so they must never be sent to a production endpoint.
+> ⚠️ The tests belong to the staging environment and must only be pointed at a **staging** deployment of your Verifier. Several test cases deliberately replay, malform or oversize the Authorization Response, so they must not be sent to a production endpoint.
 
 ## What the tester does
 
