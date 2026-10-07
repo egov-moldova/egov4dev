@@ -1,8 +1,8 @@
-**Relying Party Tester** este un instrument self-service care verifică dacă implementarea unui Verifier (relying party al wallet-ului) se comportă corect atunci când primește atât o prezentare validă, cât și prezentări manipulate intenționat. Acesta elimină nevoia de a crea credențiale confecționate manual: tester-ul preia locul Wallet-ului, generează o prezentare mdoc corectă și numeroase prezentări mdoc defecte, le transmite Verifier-ului dumneavoastră și raportează ce a făcut Verifier-ul dumneavoastră cu fiecare dintre ele.
+**Relying Party Verification**, disponibil în **Sandbox**, este instrumentul self-service descris în acest ghid, care verifică dacă implementarea unui Verifier (care este beneficiar wallet) se comportă corect atunci când primește atât o prezentare validă, cât și prezentări manipulate intenționat. Acesta elimină nevoia de a crea credențiale confecționate manual: tester-ul preia locul Wallet-ului, generează o prezentare mdoc corectă și numeroase prezentări mdoc defecte, le transmite Verifier-ului dumneavoastră și raportează ce a făcut Verifier-ul dumneavoastră cu fiecare dintre ele.
 
 | Resursă | Descriere |
 |:---------|:------------|
-| 🧪 [**Relying Party Tester**](https://wallet.staging.egov.md/rp-tester) | Tester de conformitate automatizat pentru relying parties ale wallet-ului, disponibil în mediul de staging. |
+| 🧪 [**Sandbox**](https://wallet.staging.egov.md/sandbox) | Instrumente pentru verificarea beneficiarilor, emiterea credențialelor de test către wallet-uri și editarea atributelor credențialelor, disponibile în mediul de staging. |
 
 > ⚠️ Tester-ul aparține mediului de staging și trebuie direcționat exclusiv către o instanță **staging** a Verifier-ului dumneavoastră. Mai multe cazuri de testare redau, malformează sau supradimensionează intenționat Authorization Response, astfel încât acestea nu trebuie niciodată trimise către un endpoint de producție.
 
@@ -46,13 +46,13 @@ Al doilea pas din **Test setup** selectează scopul rulării.
 
 | Set | Conținut |
 | --- | --- |
-| **Core tests** | Cazurile esențiale pe care orice relying party trebuie să le treacă: prezentarea validă, plus manipulările care compromit autentificarea issuer-ului, autentificarea device-ului, valabilitatea credentialului, valabilitatea certificatului issuer-ului și revocarea. |
+| **Core tests** | Cazurile esențiale pe care orice verificator trebuie să le treacă: prezentarea validă, plus manipulările care compromit autentificarea issuer-ului, autentificarea device-ului, valabilitatea credentialului, valabilitatea certificatului issuer-ului și revocarea. |
 | **Online tests** | Cazuri în care Verifier-ul dumneavoastră trebuie să acceseze din nou gazda proprie a tester-ului pentru a prelua o listă de stare, un răspuns OCSP sau un CRL. Rulați-le doar atunci când Verifier-ul dumneavoastră are acces outbound către `wallet.staging.egov.md`. |
 | **All tests** | Core, online și toate cazurile suplimentare/specializate. Aceasta este rularea de conformitate completă. |
 
 ## Rularea testelor
 
-1. Deschideți [Relying Party Tester](https://wallet.staging.egov.md/rp-tester).
+1. Deschideți [Sandbox](https://wallet.staging.egov.md/sandbox) și selectați **Verification tests** din meniul de navigare pentru a accesa instrumentul **Relying Party Verification**.
 2. Alegeți modul în care vor fi furnizate URL-urile de cerere și ce set de teste va fi inclus.
 3. Creați o tranzacție de prezentare în Verifier-ul dumneavoastră și copiați URL-ul său de cerere.
 4. Introduceți URL-ul și apăsați **Run test** pentru un singur caz, **Run *N* tests** pentru a executa în secvență întregul set selectat (doar în modul URL reutilizabil), sau **Start guided testing** pentru a fi condus prin set, pas cu pas.

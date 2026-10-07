@@ -1,8 +1,8 @@
-The **Relying Party Tester** is a self-service tool that verifies whether a Verifier (wallet-relying party) implementation behaves correctly when it receives both a valid presentation and deliberately manipulated ones. It removes the need to create hand-crafted credentials: the tester takes the place of the Wallet, generates one correct and many defective mdoc presentations, submits them to your Verifier and reports what your Verifier did with each of them.
+This guide covers **Relying Party Verification**, a self-service tool available in **Sandbox** that verifies whether a Verifier (wallet-relying party) implementation behaves correctly when it receives both a valid presentation and deliberately manipulated ones. It removes the need to create hand-crafted credentials: the tester takes the place of the Wallet, generates one correct and many defective mdoc presentations, submits them to your Verifier and reports what your Verifier did with each of them.
 
 | Resource | Description |
 |:---------|:------------|
-| 🧪 [**Relying Party Tester**](https://wallet.staging.egov.md/rp-tester) | Automated conformance tester for wallet-relying parties, available in the staging environment. |
+| 🧪 [**Sandbox**](https://wallet.staging.egov.md/sandbox) | Staging tools for relying party verification, issuing test credentials to wallets, and editing credential claims. |
 
 > ⚠️ The tester belongs to the staging environment and must only be pointed at a **staging** deployment of your Verifier. Several test cases deliberately replay, malform or oversize the Authorization Response, so they must never be sent to a production endpoint.
 
@@ -52,7 +52,7 @@ The second step of **Test setup** selects the scope of the run.
 
 ## Running the tests
 
-1. Open the [Relying Party Tester](https://wallet.staging.egov.md/rp-tester).
+1. Open [Sandbox](https://wallet.staging.egov.md/sandbox) and select **Verification tests** from the navigation menu to access the **Relying Party Verification** tool.
 2. Choose how request URLs will be provided and which test set to include.
 3. Create a presentation transaction in your Verifier and copy its request URL.
 4. Paste the URL and press **Run test** for a single case, **Run *N* tests** to execute the whole selected set in sequence (reusable-URL mode only), or **Start guided testing** to be taken through the set step by step.
