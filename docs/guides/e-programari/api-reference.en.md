@@ -6,8 +6,15 @@ The eProgramari API replicates all the functionality of the [programari.gov.md](
 - **Format:** JSON
 - **Language:** the optional `x-custom-lang` header (`ro` by default, `en` or `ru`) sets the language of validation messages. It is accepted by every method.
 
-!!! note "Authentication"
-    The specification does not define an authentication scheme. Every method answers `401 Unauthorized` when the client cannot be identified and `403 Forbidden` when the client is not allowed to perform the operation.
+## Authentication
+
+The API uses **mutual TLS (mTLS)**: the calling system presents its client certificate when it connects, and is identified by it.
+
+- The certificate must be registered as a **service authorized to call** the API. If the certificate is registered in MPass, the MPass administrator or the eProgramari administrator adds it as an authorized service.
+- **Different credentials are used for staging and production** — a certificate registered for one environment does not give access to the other.
+- A request from a client that cannot be identified is answered with `401 Unauthorized`; a request from an identified client that is not allowed to perform the operation is answered with `403 Forbidden`.
+
+To connect an institution, see the connection steps on the [overview](index.md#at-a-glance) page.
 
 ## Booking flow
 

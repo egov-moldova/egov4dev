@@ -6,8 +6,15 @@ API-ul eProgramari reproduce toate funcționalitățile interfeței [programari.
 - **Format:** JSON
 - **Limbă:** antetul opțional `x-custom-lang` (`ro` implicit, `en` sau `ru`) stabilește limba mesajelor de validare. Este acceptat de toate metodele.
 
-!!! note "Autentificare"
-    Specificația nu definește o schemă de autentificare. Fiecare metodă răspunde cu `401 Unauthorized` când clientul nu poate fi identificat și cu `403 Forbidden` când clientul nu are dreptul să efectueze operațiunea.
+## Autentificare
+
+API-ul folosește **TLS mutual (mTLS)**: sistemul apelant prezintă certificatul de client la conectare și este identificat prin acesta.
+
+- Certificatul trebuie înregistrat ca **serviciu autorizat să apeleze** API-ul. Dacă certificatul este înregistrat în MPass, administratorul MPass sau administratorul eProgramari îl adaugă ca serviciu autorizat.
+- Pentru **staging și producție se folosesc credențiale diferite** — un certificat înregistrat pentru un mediu nu oferă acces la celălalt.
+- O cerere de la un client care nu poate fi identificat primește răspunsul `401 Unauthorized`; o cerere de la un client identificat, dar fără dreptul de a efectua operațiunea, primește `403 Forbidden`.
+
+Pentru conectarea unei instituții, consultați pașii de conectare de pe pagina de [prezentare generală](index.md#pe-scurt).
 
 ## Fluxul de programare
 
