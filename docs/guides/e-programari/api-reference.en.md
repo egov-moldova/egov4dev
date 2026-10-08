@@ -1,8 +1,8 @@
 # API reference
 
-The eProgramari API (version **V2**) replicates all the functionality of the [programari.gov.md](https://programari.gov.md) user interface, so an institution's own information system can find a service, check free slots and book, confirm and cancel appointments.
+The eProgramari API replicates all the functionality of the [programari.gov.md](https://programari.gov.md) user interface, so an institution's own information system can find a service, check free slots and book, confirm and cancel appointments.
 
-- **Base path:** `/api` — all methods below are under `/api/v2/...`
+- **Base path:** `/api`
 - **Format:** JSON
 - **Language:** the optional `x-custom-lang` header (`ro` by default, `en` or `ru`) sets the language of validation messages. It is accepted by every method.
 

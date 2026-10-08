@@ -1,8 +1,8 @@
 # Referință API
 
-API-ul eProgramari (versiunea **V2**) reproduce toate funcționalitățile interfeței [programari.gov.md](https://programari.gov.md), astfel încât sistemul informațional al unei instituții să poată găsi un serviciu, verifica intervalele libere și crea, confirma și anula programări.
+API-ul eProgramari reproduce toate funcționalitățile interfeței [programari.gov.md](https://programari.gov.md), astfel încât sistemul informațional al unei instituții să poată găsi un serviciu, verifica intervalele libere și crea, confirma și anula programări.
 
-- **Cale de bază:** `/api` — toate metodele de mai jos se află sub `/api/v2/...`
+- **Cale de bază:** `/api`
 - **Format:** JSON
 - **Limbă:** antetul opțional `x-custom-lang` (`ro` implicit, `en` sau `ru`) stabilește limba mesajelor de validare. Este acceptat de toate metodele.
 
