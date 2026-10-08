@@ -26,7 +26,7 @@ Echipa de integrare va:
 
 ## 5. Implementarea integrării API
 
-Integrați sistemul dumneavoastră cu **API-ul REST eDemocracy**.
+Integrați sistemul dumneavoastră cu **API-ul REST eDemocrație**.
 
 ## 6. Efectuarea testării
 

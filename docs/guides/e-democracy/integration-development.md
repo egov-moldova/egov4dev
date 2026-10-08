@@ -2,7 +2,7 @@
 
 ## Autentificare
 
-API-ul eDemocracy suportă două metode de autentificare.
+API-ul eDemocrație suportă două metode de autentificare.
 
 ### Token JWT (recomandat)
 
@@ -89,6 +89,6 @@ După autentificare, platforma verifică dacă sistemul are permisiunea de a acc
 
 ## Criptare
 
-Toată comunicarea cu API-ul eDemocracy folosește criptare **TLS (HTTPS)**.
+Toată comunicarea cu API-ul eDemocrație folosește criptare **TLS (HTTPS)**.
 
 Conexiunile HTTP necriptate nu sunt acceptate.

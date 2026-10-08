@@ -102,7 +102,7 @@ nav:
           - Integration development: guides/e-democracy/integration-development.md
           - API reference: guides/e-democracy/api-reference.md
           - Examples: guides/e-democracy/examples.md
-      - eProgramari:
+      - eAppointment:
           - Overview: guides/e-programari/index.md
           - Connection steps: guides/e-programari/process.md
           - API reference: guides/e-programari/api-reference.md
@@ -121,6 +121,8 @@ plugins:
           build: true
           nav_translations:
             About MConnect: Despre MConnect
+            eDemocracy: eDemocrație
+            eAppointment: eProgramari
             Platforms and services: Platforme și servicii
             Connection procedure: Procedura de conectare
             Technical overview: Prezentare tehnică generală

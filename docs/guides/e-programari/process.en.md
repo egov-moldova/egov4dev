@@ -2,7 +2,7 @@
 
 Complete the onboarding form:
 
-[Connect your institution to eProgramari](https://forms.office.com/e/p8n69by5NZ)
+[Connect your institution to eAppointment](https://forms.office.com/e/p8n69by5NZ)
 
 ## 2. Verify system registration in MPass
 
@@ -24,11 +24,11 @@ The API uses mutual TLS, so this certificate is the client certificate your syst
 The integration team will:
 
 - Register the system in **MPass**
-- Add the system certificate as a service authorized to call the **eProgramari API**
+- Add the system certificate as a service authorized to call the **eAppointment API**
 
 ## 5. Implement API integration
 
-Integrate your system with the **eProgramari REST API**. See the [API reference](api-reference.md) and the [examples](examples.md).
+Integrate your system with the **eAppointment REST API**. See the [API reference](api-reference.md) and the [examples](examples.md).
 
 ## 6. Perform testing
 

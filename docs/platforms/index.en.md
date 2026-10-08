@@ -18,7 +18,7 @@ details are given in each service's guide.
 | [MDelivery](...) | HG nr. 152/2021, pct. 2 | eGov Moldova | eGov Moldova |
 | [MDocs](...) | HG nr. 305/2024, pct. 3 | eGov Moldova | eGov Moldova |
 | [MLog](...) | HG nr. 708/2014, pct. 3 sbp. 1) | eGov Moldova | de confirmat |
-| [e-Democrație](...) | HG nr. 564/2024, pct. 2 | eGov Moldova | eGov Moldova |
+| [eDemocracy](...) | HG nr. 564/2024, pct. 2 | eGov Moldova | eGov Moldova |
 | [EVO / EVO Wallet](...) | HG nr. 5/2024, pct. 3; HG nr. 677/2025 | eGov Moldova | eGov Moldova |
 | [PDSE / FOD](...) | HG nr. 717/2014, pct. 3 | eGov Moldova | de confirmat |
 

@@ -1,8 +1,8 @@
-# e-Democrație
+# eDemocrație
 
 <img src="../../assets/edemocracy-intro.png">
 
-eDemocracy (ePetiții) este platforma care permite cetățenilor și persoanelor juridice să depună petiții electronic către autoritățile publice. Platforma permite autorităților să examineze, să proceseze și să răspundă la petiții printr-un serviciu digital centralizat.
+eDemocrație (ePetiții) este platforma care permite cetățenilor și persoanelor juridice să depună petiții electronic către autoritățile publice. Platforma permite autorităților să examineze, să proceseze și să răspundă la petiții printr-un serviciu digital centralizat.
 
 Platforma expune un **API REST** care permite sistemelor informaționale externe ale autorităților publice să se integreze cu serviciul și să gestioneze petițiile electronic.
 

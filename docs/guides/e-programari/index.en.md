@@ -1,8 +1,8 @@
-# eProgramari
+# eAppointment
 
 ![Public service appointments online, simple and fast](e-prog.jpg)
 
-eProgramari ([programari.gov.md](https://programari.gov.md)) is the government portal for booking appointments to public services online. Citizens pick the institution, service, date and time that suit them and book without creating an account, while institutions configure their services and time slots and manage their appointments in one place.
+eAppointment ([programari.gov.md](https://programari.gov.md)) is the government portal for booking appointments to public services online. Citizens pick the institution, service, date and time that suit them and book without creating an account, while institutions configure their services and time slots and manage their appointments in one place.
 
 The portal exposes an **API** that lets institutions' external information systems integrate with the service.
 
@@ -30,7 +30,7 @@ The connection request is submitted through the [dedicated form](https://forms.o
 
 **Who this guide is for.**
 
-Primary: development and integration teams of institutions that want to connect their information systems to eProgramari.
+Primary: development and integration teams of institutions that want to connect their information systems to eAppointment.
 Secondary: project managers and service owners preparing the institution's connection.
 
 ## Jump right in

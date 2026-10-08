@@ -2,7 +2,7 @@
 
 Complete the onboarding form:
 
-[Conectează-ți instituția la platforma eDemocrație](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUOUtaRlJISFA1TzgzMUkySEQzOEZMMENMWi4u&route=shorturl)
+[Connect your institution to the eDemocracy platform](https://forms.office.com/pages/responsepage.aspx?id=Z4f8jWsRaEKDxfvIWTRtOHwLku9yOJZAs22J7gTUxBNUOUtaRlJISFA1TzgzMUkySEQzOEZMMENMWi4u&route=shorturl)
 
 ## 2. Verify system registration in MPass
 

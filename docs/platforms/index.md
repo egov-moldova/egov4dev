@@ -16,7 +16,7 @@ Fiecare platformă guvernamentală este instituită și guvernată printr-o Hot�
 | [MDelivery](...) | HG nr. 152/2021, pct. 2 | AGE | AGE |
 | [MDocs](...) | HG nr. 305/2024, pct. 3 | AGE | AGE |
 | [MLog](...) | HG nr. 708/2014, pct. 3 sbp. 1) | AGE | – |
-| [e-Democrație](...) | HG nr. 564/2024, pct. 2 | AGE | AGE |
+| [eDemocrație](...) | HG nr. 564/2024, pct. 2 | AGE | AGE |
 | [EVO / EVO Wallet](...) | HG nr. 5/2024, pct. 3; HG nr. 677/2025 | AGE | AGE |
 | [PDSE / FOD](...) | HG nr. 717/2014, pct. 3 | AGE | – |
 

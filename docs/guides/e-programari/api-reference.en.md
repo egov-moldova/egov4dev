@@ -1,6 +1,6 @@
 # API reference
 
-The eProgramari API replicates all the functionality of the [programari.gov.md](https://programari.gov.md) user interface, so an institution's own information system can find a service, check free slots and book, confirm and cancel appointments.
+The eAppointment API replicates all the functionality of the [programari.gov.md](https://programari.gov.md) user interface, so an institution's own information system can find a service, check free slots and book, confirm and cancel appointments.
 
 - **Base path:** `/api`
 - **Format:** JSON
@@ -10,7 +10,7 @@ The eProgramari API replicates all the functionality of the [programari.gov.md](
 
 The API uses **mutual TLS (mTLS)**: the calling system presents its client certificate when it connects, and is identified by it.
 
-- The certificate must be registered as a **service authorized to call** the API. If the certificate is registered in MPass, the MPass administrator or the eProgramari administrator adds it as an authorized service.
+- The certificate must be registered as a **service authorized to call** the API. If the certificate is registered in MPass, the MPass administrator or the eAppointment administrator adds it as an authorized service.
 - **Different credentials are used for staging and production** — a certificate registered for one environment does not give access to the other.
 - A request from a client that cannot be identified is answered with `401 Unauthorized`; a request from an identified client that is not allowed to perform the operation is answered with `403 Forbidden`.
 
