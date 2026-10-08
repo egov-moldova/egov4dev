@@ -35,6 +35,11 @@ Secundar: managerii de proiect și responsabilii de servicii care pregătesc con
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
+    <a href="process/" class="quick-link-card">
+      <div class="quick-link-icon">⚡</div>
+      <h3 class="quick-link-title">Pași de conectare</h3>
+      <p class="quick-link-description">Începeți integrarea</p>
+    </a>
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
       <h3 class="quick-link-title">Referință API</h3>

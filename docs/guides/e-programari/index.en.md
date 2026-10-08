@@ -35,6 +35,11 @@ Secondary: project managers and service owners preparing the institution's conne
 
 <div class="quick-links-wrapper">
   <div class="quick-links-container">
+    <a href="process/" class="quick-link-card">
+      <div class="quick-link-icon">⚡</div>
+      <h3 class="quick-link-title">Connection steps</h3>
+      <p class="quick-link-description">Get started with integration</p>
+    </a>
     <a href="api-reference/" class="quick-link-card">
       <div class="quick-link-icon">🌐</div>
       <h3 class="quick-link-title">API reference</h3>
