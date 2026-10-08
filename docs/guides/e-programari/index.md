@@ -1,6 +1,6 @@
 # eProgramari
 
-![Programări la servicii publice online, simplu și rapid](e-prog.png)
+![Programări la servicii publice online, simplu și rapid](e-prog.jpg)
 
 eProgramari ([programari.gov.md](https://programari.gov.md)) este portalul guvernamental pentru programări online la serviciile publice. Cetățenii aleg instituția, serviciul, data și ora potrivite și își fac programarea fără a crea un cont, iar instituțiile își configurează serviciile, intervalele orare și își gestionează programările într-un singur loc.
 
