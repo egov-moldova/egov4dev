@@ -102,9 +102,11 @@ nav:
           - Integration development: guides/e-democracy/integration-development.md
           - API reference: guides/e-democracy/api-reference.md
           - Examples: guides/e-democracy/examples.md
-      - eProgramari:
-          - Overview: guides/e-programari/index.md
-          - API reference: guides/e-programari/api-reference.md
+      # eProgramari is published hidden for now (pages are built and reachable
+      # by URL, but not listed in the sidebar). Uncomment to show it.
+      # - eProgramari:
+      #     - Overview: guides/e-programari/index.md
+      #     - API reference: guides/e-programari/api-reference.md
       - PDSE/FOD: guides/pdse.md
 
 
