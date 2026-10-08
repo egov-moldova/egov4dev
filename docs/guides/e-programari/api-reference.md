@@ -559,7 +559,7 @@ Semnul `?` de la sfârșit marchează un câmp care poate fi null, iar `*` un c�
 
 | Câmp | Tip | Descriere |
 |---|---|---|
-| `userAccessToken` | string? | |
+| `userAccessToken` | string? | Token de acces emis persoanei. Toate programările persoanei sunt asociate acestui token, astfel încât pot fi găsite și modificate ulterior sau prezentate oricând este nevoie |
 | `appointmentRequestResultModels` | `AppointmentRequestResultModel[]` | Câte un element pentru fiecare serviciu solicitat |
 
 **`AppointmentRequestResultModel`** — o programare creată.
@@ -567,7 +567,7 @@ Semnul `?` de la sfârșit marchează un câmp care poate fi null, iar `*` un c�
 | Câmp | Tip | Descriere |
 |---|---|---|
 | `id` | uuid | Id-ul programării create; folosiți-l pentru confirmare sau anulare |
-| `userAccessToken` | string? | |
+| `userAccessToken` | string? | Token de acces emis persoanei. Toate programările persoanei sunt asociate acestui token, astfel încât pot fi găsite și modificate ulterior sau prezentate oricând este nevoie |
 | `locationName` | `ResourceDto` | Denumirea locației |
 | `locationAddress` | string? | Adresa locației |
 | `email` | string? | Adresa de e-mail la care se trimite notificarea |

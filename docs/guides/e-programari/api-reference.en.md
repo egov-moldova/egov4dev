@@ -559,7 +559,7 @@ A trailing `?` marks a nullable field and `*` a required one.
 
 | Field | Type | Description |
 |---|---|---|
-| `userAccessToken` | string? | |
+| `userAccessToken` | string? | Access token issued to the person. All of the person's appointments are linked to it, so they can be found and modified later or presented whenever needed |
 | `appointmentRequestResultModels` | `AppointmentRequestResultModel[]` | One entry for each requested service |
 
 **`AppointmentRequestResultModel`** — a created appointment.
@@ -567,7 +567,7 @@ A trailing `?` marks a nullable field and `*` a required one.
 | Field | Type | Description |
 |---|---|---|
 | `id` | uuid | Id of the created appointment; use it to confirm or cancel |
-| `userAccessToken` | string? | |
+| `userAccessToken` | string? | Access token issued to the person. All of the person's appointments are linked to it, so they can be found and modified later or presented whenever needed |
 | `locationName` | `ResourceDto` | Name of the location |
 | `locationAddress` | string? | Address of the location |
 | `email` | string? | E-mail to which the notification is sent |
