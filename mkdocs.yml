@@ -102,12 +102,12 @@ nav:
           - Integration development: guides/e-democracy/integration-development.md
           - API reference: guides/e-democracy/api-reference.md
           - Examples: guides/e-democracy/examples.md
+      - PDSE/FOD: guides/pdse.md
       - eAppointment:
           - Overview: guides/e-programari/index.md
           - Connection steps: guides/e-programari/process.md
           - API reference: guides/e-programari/api-reference.md
           - Examples: guides/e-programari/examples.md
-      - PDSE/FOD: guides/pdse.md
 
 
 plugins:
