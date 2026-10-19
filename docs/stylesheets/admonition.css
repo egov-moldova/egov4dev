@@ -183,3 +183,67 @@
 .md-typeset .admonition.bug > :last-child, .md-typeset details.bug > :last-child {
   margin-bottom: 0;
 }
+
+/* ---- Note / info: the gray info box with the gray "i" icon ---------------------- */
+.md-typeset .admonition.note, .md-typeset details.note,
+.md-typeset .admonition.seealso, .md-typeset details.seealso,
+.md-typeset .admonition.abstract, .md-typeset details.abstract,
+.md-typeset .admonition.summary, .md-typeset details.summary,
+.md-typeset .admonition.tldr, .md-typeset details.tldr,
+.md-typeset .admonition.info, .md-typeset details.info,
+.md-typeset .admonition.todo, .md-typeset details.todo {
+  --adm: #757575;
+  --adm-icon: var(--adm-icon-info);
+  background-color: #f5f5f5;
+  border: 0 !important;
+  border-radius: 12px;
+  box-shadow: none;
+  overflow: visible;
+  padding: 16px 20px 16px 54px;
+  position: relative;
+}
+
+.md-typeset .admonition.note > .admonition-title, .md-typeset details.note > summary,
+.md-typeset .admonition.seealso > .admonition-title, .md-typeset details.seealso > summary,
+.md-typeset .admonition.abstract > .admonition-title, .md-typeset details.abstract > summary,
+.md-typeset .admonition.summary > .admonition-title, .md-typeset details.summary > summary,
+.md-typeset .admonition.tldr > .admonition-title, .md-typeset details.tldr > summary,
+.md-typeset .admonition.info > .admonition-title, .md-typeset details.info > summary,
+.md-typeset .admonition.todo > .admonition-title, .md-typeset details.todo > summary {
+  background-color: transparent !important;
+  color: #121212;
+  margin: 0;
+  padding: 0;
+}
+
+.md-typeset .admonition.note > .admonition-title::before, .md-typeset details.note > summary::before,
+.md-typeset .admonition.seealso > .admonition-title::before, .md-typeset details.seealso > summary::before,
+.md-typeset .admonition.abstract > .admonition-title::before, .md-typeset details.abstract > summary::before,
+.md-typeset .admonition.summary > .admonition-title::before, .md-typeset details.summary > summary::before,
+.md-typeset .admonition.tldr > .admonition-title::before, .md-typeset details.tldr > summary::before,
+.md-typeset .admonition.info > .admonition-title::before, .md-typeset details.info > summary::before,
+.md-typeset .admonition.todo > .admonition-title::before, .md-typeset details.todo > summary::before {
+  left: -34px;
+  top: -1px;
+  transform: none;
+}
+
+.md-typeset .admonition.note > :nth-child(2), .md-typeset details.note > :nth-child(2),
+.md-typeset .admonition.seealso > :nth-child(2), .md-typeset details.seealso > :nth-child(2),
+.md-typeset .admonition.abstract > :nth-child(2), .md-typeset details.abstract > :nth-child(2),
+.md-typeset .admonition.summary > :nth-child(2), .md-typeset details.summary > :nth-child(2),
+.md-typeset .admonition.tldr > :nth-child(2), .md-typeset details.tldr > :nth-child(2),
+.md-typeset .admonition.info > :nth-child(2), .md-typeset details.info > :nth-child(2),
+.md-typeset .admonition.todo > :nth-child(2), .md-typeset details.todo > :nth-child(2) {
+  margin-top: 0.3rem;
+}
+
+.md-typeset .admonition.note > :last-child, .md-typeset details.note > :last-child,
+.md-typeset .admonition.seealso > :last-child, .md-typeset details.seealso > :last-child,
+.md-typeset .admonition.abstract > :last-child, .md-typeset details.abstract > :last-child,
+.md-typeset .admonition.summary > :last-child, .md-typeset details.summary > :last-child,
+.md-typeset .admonition.tldr > :last-child, .md-typeset details.tldr > :last-child,
+.md-typeset .admonition.info > :last-child, .md-typeset details.info > :last-child,
+.md-typeset .admonition.todo > :last-child, .md-typeset details.todo > :last-child {
+  margin-bottom: 0;
+}
