@@ -13,33 +13,24 @@
   width: 100% !important;
 }
 
-/* Long identifiers (SAML URNs, XPath-like paths) would otherwise push a table wider
-   than the page. Let them wrap on desktop; on phones the wrapper scrolls instead. */
-@media screen and (min-width: 45em) {
-  .md-typeset table td,
-  .md-typeset table th {
-    overflow-wrap: anywhere;
-  }
-}
-
 table {
   width: 100% !important;
-  border: 1px solid #ccc !important;
+  border: none !important;
   border-collapse: collapse;
   font-size: 0.7rem !important;
   table-layout: auto; display: table !important; border-radius:none !important;
 }
 
 table > thead > tr {
-  font-weight: 300; color:white;
-  background-color: #4051b5;
+  font-weight: 300; color: #111111;
+  background-color: #f1f1f1;
 }
 
 table th {
-    border-right: 1px solid #fff !important;
+    border: none !important;
     padding: 5px;
     text-align: left;
-    vertical-align: top; background-color: #0058d2;
+    vertical-align: top; background-color: #f1f1f1; color: #111111;
 }
 
 table th:last-child {
@@ -47,14 +38,16 @@ table th:last-child {
 }
 
 table td {
-    border-left: 1px solid #ccc !important;
-    border-bottom: 1px solid #ccc !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
     padding: 5px !important;
     text-align: left;
     vertical-align: top;
 }
 table td:last-child {
-    border-right: 1px solid #ccc !important;
+    border-right: none !important;
 }
 .table-dark td,
 .table-dark > tbody > tr > th {
