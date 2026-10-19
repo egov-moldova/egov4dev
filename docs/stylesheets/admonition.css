@@ -265,3 +265,7 @@
 .md-typeset .admonition.fail, .md-typeset details.fail,
 .md-typeset .admonition.missing, .md-typeset details.missing,
 .md-typeset .admonition.bug, .md-typeset details.bug { --adm: #d92d20; background-color: #fee4e2; }
+
+/* Heading 2px larger than Material default */
+.md-typeset .admonition-title,
+.md-typeset summary { font-size: calc(0.64rem + 2px); }

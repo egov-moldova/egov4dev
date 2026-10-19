@@ -6,7 +6,7 @@ Platforma aplică principiul **„only once”** — datele sunt furnizate o sin
 
 Datele disponibile pentru consum prin platforma de interoperabilitate MConnect sunt publicate în [Catalogul Semantic](https://mconnect.gov.md/) — explorați-l pentru a descoperi ce seturi de date pot fi integrate direct în soluțiile și procesele digitale.
 
-!!! note "Fără ghid de integrare tehnică propriu"
+!!! warning "Fără ghid de integrare tehnică propriu"
     Această pagină și [Procedura de conectare](process.md) descriu MConnect ca platformă și modul de solicitare a accesului la date. MConnect nu expune un ghid de integrare tehnică (API reference) separat în eGov4Dev — pentru integrarea tehnică a unui sistem cu evenimente MConnect, consultați ghidul [MConnect Events](../mconnect-events/index.md).
 
 ## Pe scurt

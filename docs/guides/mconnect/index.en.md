@@ -6,7 +6,7 @@ The platform applies the **"only once"** principle — data is provided once and
 
 Data available for consumption through the MConnect interoperability platform is published in the [Semantic Catalog](https://mconnect.gov.md/) — explore it to discover which datasets can be integrated directly into your digital solutions and processes.
 
-!!! note "No dedicated technical integration guide"
+!!! warning "No dedicated technical integration guide"
     This page and [Connection procedure](process.md) describe MConnect as a platform and how to request data access. MConnect does not expose a separate technical integration guide (API reference) in eGov4Dev — for technically integrating a system with MConnect events, see the [MConnect Events](../mconnect-events/index.md) guide.
 
 ## At a glance
