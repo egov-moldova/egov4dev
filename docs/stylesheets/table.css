@@ -74,3 +74,14 @@ table td:last-child {
   border-top: 1px solid #ccc !important;
   border-right: 1px solid #666 !important;
 }
+
+/* Tables that carry a class (the pricing tables) are not wrapped in a scroll container
+   by Material, so on a phone they pushed the whole page sideways. Below Material's
+   mobile breakpoint, let them scroll inside themselves instead. Desktop is unchanged. */
+@media screen and (max-width: 44.984375em) {
+  .md-typeset table.pricing-table {
+    display: block !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
