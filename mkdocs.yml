@@ -179,6 +179,7 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/onest.css
   - stylesheets/table.css
+  - stylesheets/admonition.css
 
 extra_javascript:
   - js/external-links.js
