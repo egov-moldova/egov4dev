@@ -1,9 +1,33 @@
+/* Full-width tables (Markdown and raw HTML alike).
+   Material wraps every table in .md-typeset__table, which is display:inline-block,
+   so the wrapper shrinks to the table's content and "width:100%" on the table only
+   meant "100% of the content". Make the wrapper a full-width block, and keep the
+   table itself a real table (display:table) at 100% of it. */
+.md-typeset__table {
+  display: block !important;
+  width: 100% !important;
+}
+
+.md-typeset table:not([class]) {
+  display: table !important;
+  width: 100% !important;
+}
+
+/* Long identifiers (SAML URNs, XPath-like paths) would otherwise push a table wider
+   than the page. Let them wrap on desktop; on phones the wrapper scrolls instead. */
+@media screen and (min-width: 45em) {
+  .md-typeset table td,
+  .md-typeset table th {
+    overflow-wrap: anywhere;
+  }
+}
+
 table {
   width: 100% !important;
   border: 1px solid #ccc !important;
   border-collapse: collapse;
   font-size: 0.7rem !important;
-  table-layout: auto; display: initial !important; border-radius:none !important;
+  table-layout: auto; display: table !important; border-radius:none !important;
 }
 
 table > thead > tr {
