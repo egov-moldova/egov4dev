@@ -28,7 +28,7 @@ table > thead > tr {
 
 table th {
     border: none !important;
-    padding: 5px;
+    padding: 10px !important;
     text-align: left;
     vertical-align: top; background-color: #f1f1f1; color: #111111;
 }
@@ -42,7 +42,7 @@ table td {
     border-left: none !important;
     border-right: none !important;
     border-bottom: 1px solid #e0e0e0 !important;
-    padding: 5px !important;
+    padding: 10px !important;
     text-align: left;
     vertical-align: top;
 }
