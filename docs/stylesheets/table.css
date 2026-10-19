@@ -28,7 +28,7 @@ table > thead > tr {
 
 table th {
     border: none !important;
-    padding: 10px !important;
+    padding: 10px 10px 10px 0 !important;
     text-align: left;
     vertical-align: top; background-color: #f1f1f1; color: #111111;
 }
@@ -42,10 +42,17 @@ table td {
     border-left: none !important;
     border-right: none !important;
     border-bottom: 1px solid #e0e0e0 !important;
-    padding: 10px !important;
+    padding: 10px 10px 10px 0 !important;
     text-align: left;
     vertical-align: top;
 }
+/* Left padding only on the first cell of a row, header or body, so the text of
+   every column lines up and columns are separated by a single 10px gap. */
+table th:first-child,
+table td:first-child {
+  padding-left: 10px !important;
+}
+
 table td:last-child {
     border-right: none !important;
 }
